@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "../../GR10/Gpx/Etang d&apos;Araing.gpx"
+         identifier = "../../GR10/Services/Gpx/Etang d&apos;Araing.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>

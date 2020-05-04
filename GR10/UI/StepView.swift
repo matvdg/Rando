@@ -23,6 +23,12 @@ struct StepView: View {
         
       }
     }
+    .onAppear {
+      let manager = LocationManager()
+      manager.request()
+      //      let tiles = TileManager()
+      //      tiles.saveTilesAroundPolyline()
+    }
   }
   
 }

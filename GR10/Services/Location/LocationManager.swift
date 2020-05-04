@@ -18,6 +18,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     self.manager.activityType = .fitness
     self.manager.requestWhenInUseAuthorization()
     self.manager.delegate = self
+    self.manager.startUpdatingLocation()
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

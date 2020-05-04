@@ -4,13 +4,13 @@ import MapKit
 
 typealias TilesDownload = (numberOfTiles: Int, weightInMo: Float)
 
+let template = "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}"
+
 
 class TileManager {
   
-  private let minZLevel = 14
+  private let minZLevel = 1
   private let maxZLevel = 16
-  
-  private let template = "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}"
   
   
   private var documentsDirectory: URL {
@@ -21,12 +21,14 @@ class TileManager {
     print(self.documentsDirectory)
     let locs =  GpxRepository().load()
     for (i, loc) in locs.enumerated() {
-      guard i % 100 == 0 else { continue }
-      print("\(Int(Double(i) / Double(locs.count) * 100))%")
-      let circle = MKCircle(center: loc, radius: 1000)
+      guard i % 10 == 0 else { continue } // approximately take a gpx point every 100m
+      if i % 1000 == 0 {
+        print("\(Int(Double(i) / Double(locs.count) * 100))%")
+      }
+      let circle = MKCircle(center: loc, radius: 1000) // and draw a 1km circle around
       let paths = self.computeTileOverlayPaths(boundingBox: circle.boundingMapRect)
       let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
-      let overlay = MKTileOverlay(urlTemplate: self.template)
+      let overlay = MKTileOverlay(urlTemplate: template)
       for path in filteredPaths {
         let url = overlay.url(forTilePath: path)
         let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
@@ -36,13 +38,12 @@ class TileManager {
   }
   
   
-  
   func saveTiles(boundingBox: MKMapRect, completion: @escaping ( (Float) -> () ) ) {
     DispatchQueue.global(qos: .userInitiated).async {
       
       let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
       let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
-      let overlay = MKTileOverlay(urlTemplate: self.template)
+      let overlay = MKTileOverlay(urlTemplate: template)
       let count = Float(filteredPaths.count)
       for (index, path) in filteredPaths.enumerated() {
         let url = overlay.url(forTilePath: path)

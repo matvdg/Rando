@@ -34,10 +34,6 @@ struct ContentView: View {
       .edgesIgnoringSafeArea(.all)
       .tag(1)
     }
-    .onAppear {
-      let manager = LocationManager()
-      manager.request()
-    }
   }
   
 }
