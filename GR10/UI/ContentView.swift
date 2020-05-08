@@ -10,6 +10,7 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+  
   @State private var selection = 0
   @State private var userCoordinates = CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005)
   
@@ -31,9 +32,9 @@ struct ContentView: View {
             Text("Etapes")
           }
       }
-      .edgesIgnoringSafeArea(.all)
       .tag(1)
     }
+    .accentColor(Color.green)
   }
   
 }

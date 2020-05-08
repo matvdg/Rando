@@ -12,13 +12,14 @@ typealias TileCoordinates = (x: Int, y: Int, z: Int)
 
 
 class TileOverlay: MKTileOverlay {
-    override func url(forTilePath path: MKTileOverlayPath) -> URL {
-        let userDefaults = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let url = userDefaults.appendingPathComponent("z\(path.z)x\(path.x)y\(path.y).jpeg")
-        if FileManager.default.fileExists(atPath: url.path) {
-            return url
-        } else {
-          return Bundle.main.url(forResource: "empty", withExtension: "jpeg")!
-        }
+  override func url(forTilePath path: MKTileOverlayPath) -> URL {
+    let userDefaults = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    print(userDefaults)
+    let url = userDefaults.appendingPathComponent("z\(path.z)x\(path.x)y\(path.y).jpeg")
+    if FileManager.default.fileExists(atPath: url.path) {
+      return url
+    } else {
+      return Bundle.main.url(forResource: "empty", withExtension: "jpeg")!
     }
+  }
 }

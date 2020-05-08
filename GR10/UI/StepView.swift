@@ -9,32 +9,27 @@
 import SwiftUI
 import MapKit
 
+let pois = PoiRepository.shared.pois
+
 struct StepView: View {
-  
   var body: some View {
-    ZStack {
-      LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
-      VStack(spacing: 30) {
-        
-        Text("Steps")
-          .foregroundColor(.white)
-          .font(.largeTitle)
-          .fontWeight(.black)
-        
+    NavigationView {
+      List(pois) { poi in
+        NavigationLink(destination: StepDetail(poi: poi)) {
+          StepRow(poi: poi)
+        }
       }
-    }
-    .onAppear {
-      let manager = LocationManager()
-      manager.request()
-      //      let tiles = TileManager()
-      //      tiles.saveTilesAroundPolyline()
+      .navigationBarTitle(Text("Etapes"))
     }
   }
-  
 }
+
 
 struct StepView_Previews: PreviewProvider {
   static var previews: some View {
     StepView()
+    .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+    .previewDisplayName("iPhone X")
+    .environment(\.colorScheme, .dark)
   }
 }

@@ -12,14 +12,19 @@ import MapKit
 
 class GpxRepository {
   
-  func getGr10() -> MKOverlay {
-    let locations = self.load()
-    let overlay = MKPolyline(coordinates: locations, count: locations.count)
-    return overlay
+  static let shared = GpxRepository()
+  
+  var locations = [CLLocationCoordinate2D]()
+  var polyline: MKPolyline {
+    MKPolyline(coordinates: locations, count: locations.count)
   }
   
-  func load() -> [CLLocationCoordinate2D] {
-    let filepath = Bundle(for: type(of: self)).path(forResource: "gr10", ofType: "gpx")!
+  init() {
+    locations = getLocations()
+  }
+  
+  private func getLocations() -> [CLLocationCoordinate2D] {
+    let filepath = Bundle.main.path(forResource: "gr10", ofType: "gpx")!
     let contents = try! String(contentsOfFile: filepath, encoding: .utf8)
     let lines = contents.components(separatedBy: "\n")
     let locations =  lines.compactMap { line -> CLLocationCoordinate2D? in

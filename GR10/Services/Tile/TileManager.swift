@@ -19,7 +19,7 @@ class TileManager {
   
   func saveTilesAroundPolyline() {
     print(self.documentsDirectory)
-    let locs =  GpxRepository().load()
+    let locs =  GpxRepository.shared.locations
     for (i, loc) in locs.enumerated() {
       guard i % 10 == 0 else { continue } // approximately take a gpx point every 100m
       if i % 1000 == 0 {

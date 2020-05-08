@@ -16,7 +16,8 @@ var coordinate = CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005
 struct MapView: UIViewRepresentable {
   
   
-  let gpxRepository = GpxRepository()
+  let gpxRepository = GpxRepository.shared
+  let poiRepository = PoiRepository.shared
   
   func makeCoordinator() -> Coordinator {
     Coordinator(self)
@@ -40,6 +41,22 @@ struct MapView: UIViewRepresentable {
         polylineRenderer.lineWidth = 3
         return polylineRenderer
       }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+      guard annotation is MKPointAnnotation else { return nil }
+      
+      let identifier = "Annotation"
+      var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+      
+      if annotationView == nil {
+        annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        annotationView!.canShowCallout = true
+      } else {
+        annotationView!.annotation = annotation
+      }
+      
+      return annotationView
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
@@ -76,10 +93,7 @@ struct MapView: UIViewRepresentable {
     return mapView
   }
   
-  func updateUIView(_ uiView: MKMapView, context: Context) {
-    
-    
-  }
+  func updateUIView(_ uiView: MKMapView, context: Context) {}
   
   private func configureMap(mapView: MKMapView) {
     let overlay = TileOverlay()
@@ -88,7 +102,7 @@ struct MapView: UIViewRepresentable {
     let coordinate = CLLocationCoordinate2D(
       latitude: 42.960008, longitude: -0.28645)
     let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
-    let gr10 = gpxRepository.getGr10()
+    let gr10 = gpxRepository.polyline
     boundingBox = gr10.boundingMapRect
     mapView.addOverlay(gr10)
     mapView.showsScale = true
@@ -98,6 +112,8 @@ struct MapView: UIViewRepresentable {
     mapView.showsUserLocation = true
     let region = MKCoordinateRegion(center: coordinate, span: span)
     mapView.setRegion(region, animated: false)
+    let pois = poiRepository.annotations
+    mapView.addAnnotations(pois)
   }
 }
 
@@ -106,5 +122,8 @@ struct MapView: UIViewRepresentable {
 struct MapView_Previews: PreviewProvider {
   static var previews: some View {
     MapView()
+      .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+      .previewDisplayName("iPhone X")
+      .environment(\.colorScheme, .dark)
   }
 }

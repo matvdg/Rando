@@ -20,8 +20,18 @@
 		D06347B5245DD4A9003BA9E7 /* gr10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D06347AD245DD4A8003BA9E7 /* gr10.gpx */; };
 		D06347BD245DD673003BA9E7 /* TileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347BC245DD673003BA9E7 /* TileOverlay.swift */; };
 		D06347C5245DD784003BA9E7 /* GpxRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347C4245DD784003BA9E7 /* GpxRepository.swift */; };
+		D08AB2682465BAAD00793417 /* StepRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2672465BAAD00793417 /* StepRow.swift */; };
+		D08AB26A2465BC7000793417 /* StepDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* StepDetail.swift */; };
+		D08AB26C2465BCDC00793417 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB26B2465BCDC00793417 /* CircleImage.swift */; };
+		D08AB26E2465C17300793417 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB26D2465C17300793417 /* MiniMapView.swift */; };
+		D08F1A9C2465919300335281 /* PoiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9B2465919300335281 /* PoiRepository.swift */; };
+		D08F1A9E2465A66300335281 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9D2465A66300335281 /* Poi.swift */; };
+		D09FB0092465D2360007F55B /* MiniImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB0082465D2360007F55B /* MiniImage.swift */; };
+		D09FB00C2465E15C0007F55B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00B2465E15C0007F55B /* View.swift */; };
+		D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00E2465E4080007F55B /* CircleButton.swift */; };
 		D0B01A8B24603CC200EE62AD /* empty.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D0B01A8A24603CC200EE62AD /* empty.jpeg */; };
 		D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C40E03245F37F900EF4873 /* TileManager.swift */; };
+		D0F8633124615D56007C363A /* pois.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F8633024615D56007C363A /* pois.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +51,19 @@
 		D06347AD245DD4A8003BA9E7 /* gr10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gr10.gpx; sourceTree = "<group>"; };
 		D06347BC245DD673003BA9E7 /* TileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOverlay.swift; sourceTree = "<group>"; };
 		D06347C4245DD784003BA9E7 /* GpxRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpxRepository.swift; sourceTree = "<group>"; };
+		D08AB2672465BAAD00793417 /* StepRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepRow.swift; sourceTree = "<group>"; };
+		D08AB2692465BC7000793417 /* StepDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepDetail.swift; sourceTree = "<group>"; };
+		D08AB26B2465BCDC00793417 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		D08AB26D2465C17300793417 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
+		D08F1A9B2465919300335281 /* PoiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiRepository.swift; sourceTree = "<group>"; };
+		D08F1A9D2465A66300335281 /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
+		D09FB0082465D2360007F55B /* MiniImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniImage.swift; sourceTree = "<group>"; };
+		D09FB00B2465E15C0007F55B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		D09FB00E2465E4080007F55B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		D0B01A8A24603CC200EE62AD /* empty.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = empty.jpeg; sourceTree = "<group>"; };
+		D0B01A8C2460420A00EE62AD /* GR10.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GR10.entitlements; sourceTree = "<group>"; };
 		D0C40E03245F37F900EF4873 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
+		D0F8633024615D56007C363A /* pois.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pois.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +84,10 @@
 				D05B14FE2460041F00B24666 /* HomeView.swift */,
 				D06347A6245DCD34003BA9E7 /* MapView.swift */,
 				D06347A8245DCD8B003BA9E7 /* StepView.swift */,
+				D08AB2692465BC7000793417 /* StepDetail.swift */,
+				D08AB2672465BAAD00793417 /* StepRow.swift */,
+				D08AB26B2465BCDC00793417 /* CircleImage.swift */,
+				D09FB00D2465E3F30007F55B /* Shared */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -74,6 +99,7 @@
 				D0634792245D768B003BA9E7 /* AppDelegate.swift */,
 				D0634794245D768B003BA9E7 /* SceneDelegate.swift */,
 				D063479D245D768C003BA9E7 /* LaunchScreen.storyboard */,
+				D0B01A8C2460420A00EE62AD /* GR10.entitlements */,
 				D06347A0245D768C003BA9E7 /* Info.plist */,
 			);
 			path = SupportingFiles;
@@ -82,6 +108,7 @@
 		D05B15022460048700B24666 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D0F8632F24615D24007C363A /* Poi */,
 				D06347BB245DD66A003BA9E7 /* Tile */,
 				D06347AA245DD493003BA9E7 /* Gpx */,
 				D05B1503246004BE00B24666 /* Location */,
@@ -116,6 +143,7 @@
 		D0634791245D768B003BA9E7 /* GR10 */ = {
 			isa = PBXGroup;
 			children = (
+				D09FB00A2465E14A0007F55B /* Extensions */,
 				D05B15022460048700B24666 /* Services */,
 				D05B15012460045100B24666 /* SupportingFiles */,
 				D0634798245D768C003BA9E7 /* Assets.xcassets */,
@@ -150,6 +178,34 @@
 				D0C40E03245F37F900EF4873 /* TileManager.swift */,
 			);
 			path = Tile;
+			sourceTree = "<group>";
+		};
+		D09FB00A2465E14A0007F55B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D09FB00B2465E15C0007F55B /* View.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D09FB00D2465E3F30007F55B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D09FB0082465D2360007F55B /* MiniImage.swift */,
+				D08AB26D2465C17300793417 /* MiniMapView.swift */,
+				D09FB00E2465E4080007F55B /* CircleButton.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D0F8632F24615D24007C363A /* Poi */ = {
+			isa = PBXGroup;
+			children = (
+				D0F8633024615D56007C363A /* pois.json */,
+				D08F1A9B2465919300335281 /* PoiRepository.swift */,
+				D08F1A9D2465A66300335281 /* Poi.swift */,
+			);
+			path = Poi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +271,7 @@
 				D06347B5245DD4A9003BA9E7 /* gr10.gpx in Resources */,
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
 				D0634799245D768C003BA9E7 /* Assets.xcassets in Resources */,
+				D0F8633124615D56007C363A /* pois.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,16 +282,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08F1A9E2465A66300335281 /* Poi.swift in Sources */,
 				D06347C5245DD784003BA9E7 /* GpxRepository.swift in Sources */,
+				D08AB26E2465C17300793417 /* MiniMapView.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
+				D08AB2682465BAAD00793417 /* StepRow.swift in Sources */,
 				D05B14FF2460041F00B24666 /* HomeView.swift in Sources */,
 				D0634795245D768B003BA9E7 /* SceneDelegate.swift in Sources */,
+				D08F1A9C2465919300335281 /* PoiRepository.swift in Sources */,
+				D09FB0092465D2360007F55B /* MiniImage.swift in Sources */,
+				D08AB26A2465BC7000793417 /* StepDetail.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
 				D06347BD245DD673003BA9E7 /* TileOverlay.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* StepView.swift in Sources */,
+				D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */,
+				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
 				D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */,
+				D08AB26C2465BCDC00793417 /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,17 +436,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GR10/SupportingFiles/GR10.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GR10/SupportingFiles/Preview Content\"";
-				DEVELOPMENT_TEAM = 3WAQF3AS82;
+				DEVELOPMENT_TEAM = QJPL572NZY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GR10/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.GR10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.gr10app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -390,6 +459,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GR10/SupportingFiles/GR10.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GR10/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
@@ -401,6 +472,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.GR10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
