@@ -16,12 +16,12 @@
 		D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D063479B245D768C003BA9E7 /* Preview Assets.xcassets */; };
 		D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D063479D245D768C003BA9E7 /* LaunchScreen.storyboard */; };
 		D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A6245DCD34003BA9E7 /* MapView.swift */; };
-		D06347A9245DCD8B003BA9E7 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A8245DCD8B003BA9E7 /* StepView.swift */; };
+		D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A8245DCD8B003BA9E7 /* PoiView.swift */; };
 		D06347B5245DD4A9003BA9E7 /* gr10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D06347AD245DD4A8003BA9E7 /* gr10.gpx */; };
 		D06347BD245DD673003BA9E7 /* TileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347BC245DD673003BA9E7 /* TileOverlay.swift */; };
 		D06347C5245DD784003BA9E7 /* GpxRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347C4245DD784003BA9E7 /* GpxRepository.swift */; };
-		D08AB2682465BAAD00793417 /* StepRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2672465BAAD00793417 /* StepRow.swift */; };
-		D08AB26A2465BC7000793417 /* StepDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* StepDetail.swift */; };
+		D08AB2682465BAAD00793417 /* PoiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2672465BAAD00793417 /* PoiRow.swift */; };
+		D08AB26A2465BC7000793417 /* PoiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* PoiDetail.swift */; };
 		D08AB26C2465BCDC00793417 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB26B2465BCDC00793417 /* CircleImage.swift */; };
 		D08AB26E2465C17300793417 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB26D2465C17300793417 /* MiniMapView.swift */; };
 		D08F1A9C2465919300335281 /* PoiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9B2465919300335281 /* PoiRepository.swift */; };
@@ -47,12 +47,12 @@
 		D063479E245D768C003BA9E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D06347A0245D768C003BA9E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D06347A6245DCD34003BA9E7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		D06347A8245DCD8B003BA9E7 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		D06347A8245DCD8B003BA9E7 /* PoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiView.swift; sourceTree = "<group>"; };
 		D06347AD245DD4A8003BA9E7 /* gr10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gr10.gpx; sourceTree = "<group>"; };
 		D06347BC245DD673003BA9E7 /* TileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOverlay.swift; sourceTree = "<group>"; };
 		D06347C4245DD784003BA9E7 /* GpxRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpxRepository.swift; sourceTree = "<group>"; };
-		D08AB2672465BAAD00793417 /* StepRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepRow.swift; sourceTree = "<group>"; };
-		D08AB2692465BC7000793417 /* StepDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepDetail.swift; sourceTree = "<group>"; };
+		D08AB2672465BAAD00793417 /* PoiRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiRow.swift; sourceTree = "<group>"; };
+		D08AB2692465BC7000793417 /* PoiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiDetail.swift; sourceTree = "<group>"; };
 		D08AB26B2465BCDC00793417 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		D08AB26D2465C17300793417 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 		D08F1A9B2465919300335281 /* PoiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiRepository.swift; sourceTree = "<group>"; };
@@ -83,10 +83,9 @@
 				D0634796245D768B003BA9E7 /* ContentView.swift */,
 				D05B14FE2460041F00B24666 /* HomeView.swift */,
 				D06347A6245DCD34003BA9E7 /* MapView.swift */,
-				D06347A8245DCD8B003BA9E7 /* StepView.swift */,
-				D08AB2692465BC7000793417 /* StepDetail.swift */,
-				D08AB2672465BAAD00793417 /* StepRow.swift */,
-				D08AB26B2465BCDC00793417 /* CircleImage.swift */,
+				D06347A8245DCD8B003BA9E7 /* PoiView.swift */,
+				D08AB2692465BC7000793417 /* PoiDetail.swift */,
+				D08AB2672465BAAD00793417 /* PoiRow.swift */,
 				D09FB00D2465E3F30007F55B /* Shared */,
 			);
 			path = UI;
@@ -191,6 +190,7 @@
 		D09FB00D2465E3F30007F55B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D08AB26B2465BCDC00793417 /* CircleImage.swift */,
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
 				D08AB26D2465C17300793417 /* MiniMapView.swift */,
 				D09FB00E2465E4080007F55B /* CircleButton.swift */,
@@ -287,15 +287,15 @@
 				D08AB26E2465C17300793417 /* MiniMapView.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
-				D08AB2682465BAAD00793417 /* StepRow.swift in Sources */,
+				D08AB2682465BAAD00793417 /* PoiRow.swift in Sources */,
 				D05B14FF2460041F00B24666 /* HomeView.swift in Sources */,
 				D0634795245D768B003BA9E7 /* SceneDelegate.swift in Sources */,
 				D08F1A9C2465919300335281 /* PoiRepository.swift in Sources */,
 				D09FB0092465D2360007F55B /* MiniImage.swift in Sources */,
-				D08AB26A2465BC7000793417 /* StepDetail.swift in Sources */,
+				D08AB26A2465BC7000793417 /* PoiDetail.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
 				D06347BD245DD673003BA9E7 /* TileOverlay.swift in Sources */,
-				D06347A9245DCD8B003BA9E7 /* StepView.swift in Sources */,
+				D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */,
 				D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,

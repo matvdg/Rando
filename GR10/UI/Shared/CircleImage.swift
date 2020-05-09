@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MiniImage: View {
+struct CircleImage: View {
   
   let id: Int
   
@@ -16,20 +16,20 @@ struct MiniImage: View {
     Image(String(id))
       .resizable()
       .background(/*@START_MENU_TOKEN@*/Color.green/*@END_MENU_TOKEN@*/)
-      .frame(width: 30, height: 30, alignment: .center)
+      .frame(width: 200, height: 200, alignment: .center)
       .clipShape(Circle())
-      .overlay(Circle().stroke(Color.white, lineWidth: 2))
-      .shadow(radius: 2)
+      .overlay(Circle().stroke(Color.white, lineWidth: 4))
+      .shadow(radius: 10)
+      
+    
   }
 }
 
-struct MiniImage_Previews: PreviewProvider {
+struct CircleImage_Previews: PreviewProvider {
   static var previews: some View {
-    Group {
-      MiniImage(id: 99)
-      MiniImage(id: 0)
-    }
-    .previewLayout(.fixed(width: 100, height: 100))
-    .environment(\.colorScheme, .light)
+    CircleImage(id: 0)
+      .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+      .previewDisplayName("iPhone X")
+      .environment(\.colorScheme, .dark)
   }
 }

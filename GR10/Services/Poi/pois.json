@@ -1,5 +1,15 @@
 [
   {
+    "id" : 0,
+    "name" : "Hendaye",
+    "category" : "step",
+    "description": "Hendaye est une commune du pays basque, dans le département des Pyrénées-Atlantiques en région Nouvelle-Aquitaine. Elle est à la pointe sud-ouest de la France et la dernière ville côtière avant l'Espagne.",
+    "alt" : 0,
+    "dist" : 0,
+    "lat" : 43.37322,
+    "lng" : -1.774187
+  },
+  {
     "id" : 1,
     "name" : "Refuge Jeandel",
     "category" : "refuge",
@@ -109,7 +119,7 @@
   },
   {
     "id" : 10,
-    "name" : "Refuge de Ruhle",
+    "name" : "Refuge de Rulhe",
     "category" : "refuge",
     "alt" : 2190,
     "dist" : 705.6,
@@ -198,10 +208,30 @@
     "id" : 18,
     "name" : "Cascade d'Ars",
     "category" : "waterfall",
+    "description" : "La cascade d'Ars est une cascade naturelle des Pyrénées située dans le Couserans en Ariège, à 1 380 m d'altitude. Elle est dans le périmètre du parc naturel régional des Pyrénées ariégeoises.",
     "alt" : 1404,
     "dist" : 608.1,
     "lat" : 42.762943,
     "lng" : 1.361437
+  },
+  {
+    "id" : 19,
+    "name" : "Source Pla de La Lau",
+    "category" : "spring",
+    "alt" : 934,
+    "dist" : 529.7,
+    "lat" : 42.832676,
+    "lng" : 1.031071
+  },
+  {
+    "id" : 999,
+    "name" : "Banyuls-sur-Mer",
+    "category" : "step",
+    "description" : "Banyuls-sur-Mer est une commune située dans le département des Pyrénées-Orientales en région Occitanie et dans l'arrondissement de Céret.",
+    "alt" : 0,
+    "dist" : 922.9,
+    "lat" : 42.481319,
+    "lng" : 3.129439
   }
   
 ]

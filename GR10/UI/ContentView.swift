@@ -25,16 +25,16 @@ struct ContentView: View {
       }
       .edgesIgnoringSafeArea(.all)
       .tag(0)
-      StepView()
+      PoiView()
         .tabItem {
           VStack {
             Image(systemName: "mappin.and.ellipse")
-            Text("Etapes")
+            Text("POIs")
           }
       }
       .tag(1)
     }
-    .accentColor(Color.green)
+    .accentColor(Color.red)
   }
   
 }

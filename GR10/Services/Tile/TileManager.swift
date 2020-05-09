@@ -23,7 +23,7 @@ class TileManager {
     for (i, loc) in locs.enumerated() {
       guard i % 10 == 0 else { continue } // approximately take a gpx point every 100m
       if i % 1000 == 0 {
-        print("\(Int(Double(i) / Double(locs.count) * 100))%")
+        print("❤️ \(Int(Double(i) / Double(locs.count) * 100))%")
       }
       let circle = MKCircle(center: loc, radius: 1000) // and draw a 1km circle around
       let paths = self.computeTileOverlayPaths(boundingBox: circle.boundingMapRect)
@@ -51,7 +51,7 @@ class TileManager {
         self.persistLocally(url: url, to: file)
         DispatchQueue.main.async {
           let percent = Float(index + 1) / count * 100
-          print("Downloaded \(index+1)/\(count), \(Int(percent))%")
+          print("❤️ Downloaded \(index+1)/\(count), \(Int(percent))%")
           completion(percent)
         }
       }
@@ -88,7 +88,7 @@ class TileManager {
     do {
       try data.write(to: filename)
     } catch {
-      print(error)
+      print("❤️ \(error)")
     }
   }
   
