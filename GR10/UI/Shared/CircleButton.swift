@@ -17,8 +17,11 @@ struct CircleButton: View {
     
     Button(action: action) {
       Image(systemName: image)
-      .resizable()
-      .frame(width: 50, height: 50, alignment: .center)
+        .frame(width: 40, height: 40, alignment: .center)
+        .background(Color.white)
+        .clipShape(Circle())
+        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+        .shadow(radius: 1)
     }
     
   }
@@ -29,9 +32,11 @@ struct CircleButton_Previews: PreviewProvider {
     
     let action: ()->() = {}
     return Group {
-      CircleButton(image: "phone.circle.fill", action: action)
-      CircleButton(image: "link.circle.fill", action: action)
+      CircleButton(image: "phone.fill", action: action)
+      CircleButton(image: "globe", action: action)
+      CircleButton(image: "location", action: action)
     }
+    .accentColor(Color.red)
     .previewLayout(.fixed(width: 100, height: 100))
     .environment(\.colorScheme, .light)
   }

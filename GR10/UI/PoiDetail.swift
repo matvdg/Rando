@@ -30,13 +30,13 @@ struct PoiDetail: View {
         
         HStack(alignment: .center, spacing: 20.0) {
           
-          CircleButton(image: "phone.circle.fill") {
+          CircleButton(image: "phone.fill") {
             guard let url = self.poi.phoneNumber else { return }
             UIApplication.shared.open(url)
           }
           .isHidden(!self.poi.hasPhoneNumber, remove: true)
           
-          CircleButton(image: "link.circle.fill") {
+          CircleButton(image: "globe") {
             guard let url = self.poi.url else { return }
             UIApplication.shared.open(url)
           }
@@ -53,8 +53,11 @@ struct PoiDetail: View {
         }
         .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
         
-        Text(poi.description ?? "")
+        ScrollView {
+          Text(poi.description ?? "")
           .font(.body)
+            .padding(.trailing, 8)
+        }
         
       }
       .padding()
@@ -69,8 +72,8 @@ struct PoiDetail_Previews: PreviewProvider {
   @State static var isHendayeToBanyuls = true
   static var previews: some View {
     PoiDetail(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois.first!)
-      .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-      .previewDisplayName("iPhone X")
+      .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+      .previewDisplayName("iPhone SE")
       .environment(\.colorScheme, .dark)
   }
 }

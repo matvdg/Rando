@@ -17,6 +17,7 @@ struct PoiRow: View {
   var body: some View {
     HStack(spacing: 20.0) {
       MiniImage(id: poi.id)
+        .frame(width: 70.0, height: 70.0)
       VStack(alignment: .leading) {
         Text(poi.name)
           .font(.headline)
@@ -33,6 +34,7 @@ struct PoiRow: View {
       Spacer()
     }
     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+    .frame(height: 80.0)
   }
 }
 
@@ -45,7 +47,7 @@ struct PoiRow_Previews: PreviewProvider {
       PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[0])
       PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[1])
     }
-    .previewLayout(.fixed(width: 300, height: 70))
+    .previewLayout(.fixed(width: 300, height: 80))
     .environment(\.colorScheme, .light)
   }
 }

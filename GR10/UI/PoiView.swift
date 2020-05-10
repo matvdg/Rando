@@ -9,7 +9,7 @@
 import SwiftUI
 import MapKit
 
-let pois = PoiRepository.shared.pois
+let pois = PoiManager.shared.pois
 
 
 struct PoiView: View {
@@ -23,6 +23,7 @@ struct PoiView: View {
   
   @State var selectedDisplayMode = 0
   @State var isHendayeToBanyuls = true
+  @State private var animationAmount = 0.0
   
   var selectedPois: [Poi] {
     var selectedPoid: [Poi]
@@ -55,10 +56,13 @@ struct PoiView: View {
       .navigationBarItems(trailing:
         Button(action: {
           self.isHendayeToBanyuls.toggle()
+          self.animationAmount += .pi
         }) {
           HStack {
-            Text("Inverser")
+            Text("Sens")
             Image(systemName: "arrow.2.circlepath")
+              .rotation3DEffect(.radians(animationAmount), axis: (x: 0, y: 0, z: 1))
+              .animation(.default)
           }
           
         }

@@ -1,5 +1,5 @@
 //
-//  PoiRepository.swift
+//  PoiManager.swift
 //  GR10
 //
 //  Created by Mathieu Vandeginste on 02/05/2020.
@@ -10,9 +10,9 @@ import Foundation
 import CoreLocation
 import MapKit
 
-class PoiRepository {
+class PoiManager {
   
-  static let shared = PoiRepository()
+  static let shared = PoiManager()
   
   var pois = [Poi]()
   var annotations: [PoiAnnotation] {

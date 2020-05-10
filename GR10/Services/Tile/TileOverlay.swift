@@ -18,7 +18,8 @@ class TileOverlay: MKTileOverlay {
     if FileManager.default.fileExists(atPath: url.path) {
       return url
     } else {
-      return Bundle.main.url(forResource: "empty", withExtension: "jpeg")!
+//      print("❤️ \(path.z)")
+      return Bundle.main.url(forResource: "alpha", withExtension: "png")!
     }
   }
 }

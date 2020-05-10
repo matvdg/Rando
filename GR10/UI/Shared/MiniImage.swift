@@ -15,8 +15,8 @@ struct MiniImage: View {
   var body: some View {
     Image(String(id))
       .resizable()
-      .background(/*@START_MENU_TOKEN@*/Color.green/*@END_MENU_TOKEN@*/)
-      .frame(width: 30, height: 30, alignment: .center)
+      .background(Color.white)
+      .frame(width: 70, height: 70, alignment: .center)
       .clipShape(Circle())
       .overlay(Circle().stroke(Color.white, lineWidth: 2))
       .shadow(radius: 2)
@@ -26,8 +26,8 @@ struct MiniImage: View {
 struct MiniImage_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      MiniImage(id: 99)
-      MiniImage(id: 0)
+      MiniImage(id: 3)
+      MiniImage(id: 7)
     }
     .previewLayout(.fixed(width: 100, height: 100))
     .environment(\.colorScheme, .light)

@@ -16,8 +16,8 @@ var coordinate = CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005
 struct MapView: UIViewRepresentable {
   
   
-  let gpxRepository = GpxRepository.shared
-  let poiRepository = PoiRepository.shared
+  let gpxManager = GpxManager.shared
+  let poiManager = PoiManager.shared
   
   func makeCoordinator() -> Coordinator {
     Coordinator(self)
@@ -72,11 +72,8 @@ struct MapView: UIViewRepresentable {
       if boundingBox.contains(MKMapPoint(newCoordinate)) {
         coordinate = newCoordinate
       }
-      let minZoom: CLLocationDegrees = 2
       if span.latitudeDelta < maxZoom {
         span = MKCoordinateSpan(latitudeDelta: maxZoom, longitudeDelta: maxZoom)
-      } else if span.latitudeDelta > minZoom {
-        span = MKCoordinateSpan(latitudeDelta: minZoom, longitudeDelta: minZoom)
       }
       let region = MKCoordinateRegion(center: coordinate, span: span)
       mapView.setRegion(region, animated: false)
@@ -95,12 +92,12 @@ struct MapView: UIViewRepresentable {
   
   private func configureMap(mapView: MKMapView) {
     let overlay = TileOverlay()
-    overlay.canReplaceMapContent = true
+    overlay.canReplaceMapContent = false
     mapView.addOverlay(overlay, level: .aboveRoads)
     let coordinate = CLLocationCoordinate2D(
       latitude: 42.960008, longitude: -0.28645)
     let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
-    let gr10 = gpxRepository.polyline
+    let gr10 = gpxManager.polyline
     boundingBox = gr10.boundingMapRect
     mapView.addOverlay(gr10)
     mapView.showsScale = true
@@ -110,8 +107,10 @@ struct MapView: UIViewRepresentable {
     mapView.showsUserLocation = true
     let region = MKCoordinateRegion(center: coordinate, span: span)
     mapView.setRegion(region, animated: false)
-    let pois = poiRepository.annotations
+    let pois = poiManager.annotations
     mapView.addAnnotations(pois)
+    let margin: CGFloat = 16
+    mapView.layoutMargins = UIEdgeInsets(top: margin, left: margin, bottom: -100, right: margin)
   }
 }
 

@@ -12,7 +12,10 @@ import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
   
+  static let shared = LocationManager()
+  
   let manager = CLLocationManager()
+  
   
   func request() {
     self.manager.activityType = .fitness

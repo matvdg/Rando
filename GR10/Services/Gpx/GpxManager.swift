@@ -1,5 +1,5 @@
 //
-//  GpxRepository.swift
+//  GpxManager.swift
 //  GR10
 //
 //  Created by Mathieu Vandeginste on 02/05/2020.
@@ -10,14 +10,14 @@ import Foundation
 import CoreLocation
 import MapKit
 
-class GpxRepository {
+class GpxManager {
   
-  static let shared = GpxRepository()
+  static let shared = GpxManager()
   
   var locations = [CLLocationCoordinate2D]()
-  var polyline: MKPolyline {
-    MKPolyline(coordinates: locations, count: locations.count)
-  }
+  
+  lazy var polyline = MKPolyline(coordinates: locations, count: locations.count)
+  lazy var boundingBox = polyline.boundingMapRect
   
   init() {
     locations = getLocations()

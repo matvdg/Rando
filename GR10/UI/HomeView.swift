@@ -9,8 +9,24 @@
 import SwiftUI
 
 struct HomeView: View {
+  
+  @State var isCentered: Bool = false
+  
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    ZStack {
+      MapView()
+      HStack(alignment: .bottom, spacing: 0.0) {
+        VStack(alignment: .leading) {
+          Spacer()
+          CircleButton(image: isCentered ? "location.fill" : "location") {
+            self.isCentered.toggle()
+          }
+        }
+        Spacer()
+      }
+      .padding()
+    }
+    .edgesIgnoringSafeArea(.top)
   }
 }
 

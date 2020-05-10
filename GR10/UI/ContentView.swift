@@ -13,26 +13,35 @@ struct ContentView: View {
   
   @State private var selection = 0
   @State private var userCoordinates = CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005)
+  @State var hideDownloadView: Bool = false
+  private let tileManager = TileManager.shared
   
   var body: some View {
-    TabView(selection: $selection) {
-      MapView()
-        .tabItem {
-          VStack {
-            Image(systemName: "map")
-            Text("Carte")
-          }
+    ZStack {
+      TabView(selection: $selection) {
+        HomeView()
+          .tabItem {
+            VStack {
+              Image(systemName: "map")
+              Text("Carte")
+            }
+        }
+        .tag(0)
+        PoiView()
+          .tabItem {
+            VStack {
+              Image(systemName: "mappin.and.ellipse")
+              Text("Étapes")
+            }
+        }
+        .tag(1)
       }
-      .edgesIgnoringSafeArea(.all)
-      .tag(0)
-      PoiView()
-        .tabItem {
-          VStack {
-            Image(systemName: "mappin.and.ellipse")
-            Text("POIs")
-          }
+      if !tileManager.hasRecordedTiles {
+        DownloadView(hideDownloadView: $hideDownloadView)
+        .isHidden(hideDownloadView, remove: true)
+      } else {
+        /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
       }
-      .tag(1)
     }
     .accentColor(Color.red)
   }
