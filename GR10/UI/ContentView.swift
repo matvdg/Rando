@@ -23,7 +23,7 @@ struct ContentView: View {
           .tabItem {
             VStack {
               Image(systemName: "map")
-              Text("Carte")
+              Text("Map".localized)
             }
         }
         .tag(0)
@@ -31,7 +31,7 @@ struct ContentView: View {
           .tabItem {
             VStack {
               Image(systemName: "mappin.and.ellipse")
-              Text("Étapes")
+              Text("Pois".localized)
             }
         }
         .tag(1)

@@ -15,10 +15,8 @@ let pois = PoiManager.shared.pois
 struct PoiView: View {
   
   enum DisplayMode: String, CaseIterable {
-    case all = "Tous"
-    case refuge = "Refuge"
-    case spring = "Source"
-    case waterfall = "Cascade"
+    case all, refuge, spring, waterfall
+    var localized: String { self.rawValue.localized }
   }
   
   @State var selectedDisplayMode = 0
@@ -42,7 +40,7 @@ struct PoiView: View {
       VStack {
         Picker(selection: $selectedDisplayMode, label: Text("Mode")) {
           ForEach(0..<DisplayMode.allCases.count, id: \.self) { index in
-            Text(DisplayMode.allCases[index].rawValue).tag(index)
+            Text(DisplayMode.allCases[index].localized).tag(index)
           }
         }.pickerStyle(SegmentedPickerStyle())
           .padding()
@@ -59,7 +57,7 @@ struct PoiView: View {
           self.animationAmount += .pi
         }) {
           HStack {
-            Text("Sens")
+            Text("Direction".localized)
             Image(systemName: "arrow.2.circlepath")
               .rotation3DEffect(.radians(animationAmount), axis: (x: 0, y: 0, z: 1))
               .animation(.default)
