@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  GR10
+
+  Created by Mathieu Vandeginste on 10/05/2020.
+  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
+*/
+
+"Welcome" = "Welcome to GR10";
+"Downloading" = "Downloading maps...";
+"Requirements" = "Requires approximately 400 MB";
+"Pois" = "Steps";
+"Map" = "Map";
+"all" = "All";
+"refuge" = "Refuge";
+"spring" = "Spring";
+"waterfall" = "Waterfall";
+"Direction" = "Direction";
