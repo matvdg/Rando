@@ -19,7 +19,7 @@ struct ProgressBar: View {
           .foregroundColor(Color.white)
         
         Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
-          .foregroundColor(Color.red)
+          .foregroundColor(Color.gred)
           .animation(.linear)
       }.cornerRadius(5)
     }
@@ -33,7 +33,7 @@ struct ProgressBar_Previews: PreviewProvider {
   
   static var previews: some View {
     ProgressBar(value: $value)
-    .accentColor(Color.red)
+    .accentColor(Color.gred)
     .previewLayout(.fixed(width: 300, height: 20))
   }
 }

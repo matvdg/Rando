@@ -37,7 +37,7 @@ struct MapControl: View {
       }
     }
     .frame(width: width, height: width*2, alignment: .center)
-    .background(Color("alpha80"))
+    .background(Color.alpha80)
     .clipShape(RoundedRectangle(cornerRadius: 8))
     .shadow(radius: 1)
   }

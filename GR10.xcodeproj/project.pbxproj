@@ -34,6 +34,9 @@
 		D09FB0092465D2360007F55B /* MiniImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB0082465D2360007F55B /* MiniImage.swift */; };
 		D09FB00C2465E15C0007F55B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00B2465E15C0007F55B /* View.swift */; };
 		D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00E2465E4080007F55B /* CircleButton.swift */; };
+		D0B7CDB22468550D00464C79 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB12468550D00464C79 /* Color.swift */; };
+		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
+		D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */; };
 		D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C40E03245F37F900EF4873 /* TileManager.swift */; };
 		D0F8633124615D56007C363A /* pois.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F8633024615D56007C363A /* pois.json */; };
 		D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F9373F246831D9005E8503 /* NotificationManager.swift */; };
@@ -73,6 +76,8 @@
 		D09FB00B2465E15C0007F55B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		D09FB00E2465E4080007F55B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		D0B01A8C2460420A00EE62AD /* GR10.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GR10.entitlements; sourceTree = "<group>"; };
+		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang de Rulhe.gpx"; sourceTree = "<group>"; };
 		D0C40E03245F37F900EF4873 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 		D0F8633024615D56007C363A /* pois.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pois.json; sourceTree = "<group>"; };
 		D0F9373F246831D9005E8503 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */,
+				D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */,
 				D06347AD245DD4A8003BA9E7 /* gr10.gpx */,
 				D06347C4245DD784003BA9E7 /* GpxManager.swift */,
 			);
@@ -206,6 +212,7 @@
 			children = (
 				D09FB00B2465E15C0007F55B /* View.swift */,
 				D0531A732467FE4C0020FFE0 /* String.swift */,
+				D0B7CDB12468550D00464C79 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,11 +309,13 @@
 			files = (
 				D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */,
 				D06347B5245DD4A9003BA9E7 /* gr10.gpx in Resources */,
+				D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */,
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
 				D0531A6A246788920020FFE0 /* alpha.png in Resources */,
 				D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */,
 				D0634799245D768C003BA9E7 /* Assets.xcassets in Resources */,
 				D0F8633124615D56007C363A /* pois.json in Resources */,
+				D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +331,7 @@
 				D08AB26E2465C17300793417 /* MiniMapView.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D083A78A246734DB00E87F08 /* DownloadView.swift in Sources */,
+				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
 				D08AB2682465BAAD00793417 /* PoiRow.swift in Sources */,

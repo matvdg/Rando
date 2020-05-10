@@ -15,7 +15,7 @@ struct HomeView: View {
   
   var body: some View {
     ZStack {
-      MapView()
+      MapView(isCentered: $isCentered)
       HStack(alignment: .bottom, spacing: 0.0) {
         Spacer()
         VStack(alignment: .leading) {

@@ -36,7 +36,7 @@ struct CircleButton_Previews: PreviewProvider {
       CircleButton(image: "globe", action: action)
       CircleButton(image: "location", action: action)
     }
-    .accentColor(Color.red)
+    .accentColor(Color.gred)
     .previewLayout(.fixed(width: 100, height: 100))
     .environment(\.colorScheme, .light)
   }

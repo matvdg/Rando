@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <gpx version="1.1" creator="Xcode"> 
 
-    <wpt lat="42.831111" lon="0.872026">
+    <wpt lat="42.831111" lon="0.872026" alt="1944">
          <name>Etang d'Araing</name>
 	</wpt>
     

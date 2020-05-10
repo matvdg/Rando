@@ -10,11 +10,10 @@ import SwiftUI
 import UIKit
 import MapKit
 
-var boundingBox = MKMapRect()
-var coordinate = CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005) // Etang d'Araing
 
 struct MapView: UIViewRepresentable {
   
+  @Binding var isCentered: Bool
   
   let gpxManager = GpxManager.shared
   let poiManager = PoiManager.shared
@@ -31,52 +30,54 @@ struct MapView: UIViewRepresentable {
       self.parent = parent
     }
     
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+      mapView.userLocation.subtitle = "Alt. \(Int(LocationManager.shared.currentPosition.altitude))m"
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
       switch overlay {
       case let overlay as MKTileOverlay:
         return MKTileOverlayRenderer(tileOverlay: overlay)
       default:
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.strokeColor = .red
+        polylineRenderer.strokeColor = .gred
         polylineRenderer.lineWidth = 3
         return polylineRenderer
       }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-      guard annotation is PoiAnnotation else { return nil }
-      
+      guard let annotation = annotation as? PoiAnnotation else { return nil }
       let identifier = "Annotation"
-      if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
-        annotationView.annotation = annotation
-        return annotationView
+      var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+      if let view = view {
+        view.annotation = annotation
       } else {
-        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        annotationView.canShowCallout = true
-        return annotationView
+        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        view?.canShowCallout = true
       }
+      if let view = view as? MKMarkerAnnotationView {
+        view.glyphImage = annotation.markerGlyph
+        view.markerTintColor = annotation.markerColor
+      }
+      return view
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-      self.setRegion(mapView: mapView)
+      guard !animated else { return }
+      self.parent.isCentered = false
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-      self.setRegion(mapView: mapView)
-    }
-    
-    private func setRegion(mapView: MKMapView) {
-      let newCoordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
+      // Max zoom check
+      let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
       var span = mapView.region.span
       let maxZoom: CLLocationDegrees = 0.014
-      if boundingBox.contains(MKMapPoint(newCoordinate)) {
-        coordinate = newCoordinate
-      }
       if span.latitudeDelta < maxZoom {
         span = MKCoordinateSpan(latitudeDelta: maxZoom, longitudeDelta: maxZoom)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        mapView.setRegion(region, animated: true)
       }
-      let region = MKCoordinateRegion(center: coordinate, span: span)
-      mapView.setRegion(region, animated: false)
     }
     
   }
@@ -88,24 +89,22 @@ struct MapView: UIViewRepresentable {
     return mapView
   }
   
-  func updateUIView(_ uiView: MKMapView, context: Context) {}
+  func updateUIView(_ uiView: MKMapView, context: Context) {
+    uiView.setUserTrackingMode(isCentered ? .follow : .none, animated: true)
+  }
   
   private func configureMap(mapView: MKMapView) {
     let overlay = TileOverlay()
     overlay.canReplaceMapContent = false
-    mapView.addOverlay(overlay, level: .aboveRoads)
-    let coordinate = CLLocationCoordinate2D(
-      latitude: 42.960008, longitude: -0.28645)
-    let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
+    mapView.addOverlay(overlay, level: .aboveLabels)
     let gr10 = gpxManager.polyline
-    boundingBox = gr10.boundingMapRect
     mapView.addOverlay(gr10)
     mapView.showsScale = true
     mapView.showsCompass = true
     mapView.showsTraffic = false
     mapView.showsBuildings = false
     mapView.showsUserLocation = true
-    let region = MKCoordinateRegion(center: coordinate, span: span)
+    let region = MKCoordinateRegion(gr10.boundingMapRect)
     mapView.setRegion(region, animated: false)
     let pois = poiManager.annotations
     mapView.addAnnotations(pois)
@@ -114,10 +113,10 @@ struct MapView: UIViewRepresentable {
 }
 
 
-
 struct MapView_Previews: PreviewProvider {
+  @State static var isCentered: Bool = false
   static var previews: some View {
-    MapView()
+    MapView(isCentered: $isCentered)
       .previewDevice(PreviewDevice(rawValue: "iPhone X"))
       .previewDisplayName("iPhone X")
       .environment(\.colorScheme, .dark)

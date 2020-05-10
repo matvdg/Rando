@@ -42,7 +42,7 @@ struct MiniMapView: UIViewRepresentable {
     uiView.setRegion(region, animated: true)
     let overlay = TileOverlay()
     overlay.canReplaceMapContent = true
-    uiView.addOverlay(overlay, level: .aboveRoads)
+    uiView.addOverlay(overlay, level: .aboveLabels)
     uiView.delegate = context.coordinator
   }
 }
