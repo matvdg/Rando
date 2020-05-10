@@ -8,6 +8,8 @@
 
 "Welcome" = "Welcome to GR10";
 "Downloading" = "Downloading maps...";
+"DownloadedTitle" = "Download succeeded";
+"DownloadedMessage" = "All the GR10 maps have been downloaded";
 "Requirements" = "Requires approximately 400 MB";
 "Pois" = "Steps";
 "Map" = "Map";
@@ -16,3 +18,6 @@
 "spring" = "Spring";
 "waterfall" = "Waterfall";
 "Direction" = "Direction";
+"Hide" = "Hide";
+"HideMessage" = "The download will continue in the background, you will be notified when finished";
+"Cancel" = "Cancel";

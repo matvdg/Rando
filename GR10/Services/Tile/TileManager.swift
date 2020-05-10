@@ -6,14 +6,25 @@ typealias TilesDownload = (numberOfTiles: Int, weightInMo: Float)
 
 let template = "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}"
 
+typealias TileCoordinates = (x: Int, y: Int, z: Int)
+
+class TileOverlay: MKTileOverlay {
+  override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path) }
+}
 
 class TileManager {
   
   static let shared = TileManager()
   
+  init() {
+    print("❤️ \(self.documentsDirectory)")
+  }
+  
   // MARK: -  Private properties
   private let userDefaults = UserDefaults.standard
   private let hasRecordedTilesKey = "hasRecordedTiles"
+  private let isOnlineKey = "isOnline"
+  private var overlay: MKTileOverlay { MKTileOverlay(urlTemplate: template) }
   
   private var documentsDirectory: URL {
     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -23,11 +34,24 @@ class TileManager {
   var hasRecordedTiles: Bool {
     get {
       // Debug
-//            false
+      //      false
       userDefaults.bool(forKey: hasRecordedTilesKey)
     }
     set {
+      print("❤️ hasRecordedTiles = \(newValue)")
       userDefaults.set(newValue, forKey: hasRecordedTilesKey)
+    }
+  }
+  
+  var isOnline: Bool {
+    get {
+      // Debug
+      //            false
+      userDefaults.bool(forKey: isOnlineKey)
+    }
+    set {
+      print("❤️ isOnline = \(newValue)")
+      userDefaults.set(newValue, forKey: isOnlineKey)
     }
   }
   
@@ -42,7 +66,6 @@ class TileManager {
   }
   
   func saveTilesAroundPolyline(completion: @escaping ( (Float) -> () )) {
-    print("❤️ \(self.documentsDirectory)")
     guard !hasRecordedTiles else { return }
     DispatchQueue.global(qos: .userInitiated).async {
       let locs =  GpxManager.shared.locations
@@ -56,17 +79,28 @@ class TileManager {
         let circle = MKCircle(center: loc, radius: 1000) // and draw a 1km circle around (low radius for highest zoom levels)
         let paths = self.computeTileOverlayPaths(boundingBox: circle.boundingMapRect)
         let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
-        let overlay = MKTileOverlay(urlTemplate: template)
-        for path in filteredPaths {
-          let url = overlay.url(forTilePath: path)
-          let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
-          self.persistLocally(url: url, to: file)
-        }
+        filteredPaths.forEach { self.persistLocally(path: $0) }
       }
       self.saveTilesAroundBoundingBox() // Larger radius for lowest zoom levels
       self.hasRecordedTiles = true
       DispatchQueue.main.async {
+        NotificationManager.shared.sendNotification(title: "DownloadedTitle".localized, message: "DownloadedMessage".localized)
         completion(1)
+      }
+    }
+  }
+  
+  func getTileOverlay(for path: MKTileOverlayPath) -> URL {
+    //      print("❤️ \(path.z)")
+    let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let url = documents.appendingPathComponent("z\(path.z)x\(path.x)y\(path.y).jpeg")
+    if FileManager.default.fileExists(atPath: url.path) { // Check is tile is already available
+      return url
+    } else {
+      if isOnline { // Get and persist newTile
+        return persistLocally(path: path)
+      } else { // Else display empty tile (transparent over Maps tiles)
+        return Bundle.main.url(forResource: "alpha", withExtension: "png")!
       }
     }
   }
@@ -75,12 +109,7 @@ class TileManager {
   private func saveTilesAroundBoundingBox() {
     let paths = self.computeTileOverlayPaths(boundingBox: GpxManager.shared.boundingBox, maxZ: 8)
     let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
-    let overlay = MKTileOverlay(urlTemplate: template)
-    filteredPaths.forEach {
-      let url = overlay.url(forTilePath: $0)
-      let file = "z\($0.z)x\($0.x)y\($0.y).jpeg"
-      self.persistLocally(url: url, to: file)
-    }
+    filteredPaths.forEach { self.persistLocally(path: $0) }
   }
   
   private func computeTileOverlayPaths(boundingBox box: MKMapRect, maxZ: Int = 16) -> [MKTileOverlayPath] {
@@ -106,14 +135,17 @@ class TileManager {
     return (tileX, tileY, zoom)
   }
   
-  private func persistLocally(url: URL, to pathComponent: String) {
-    let filename = self.documentsDirectory.appendingPathComponent(pathComponent)
-    guard let data = try? Data(contentsOf: url) else { return }
+  @discardableResult private func persistLocally(path: MKTileOverlayPath) -> URL {
+    let url = overlay.url(forTilePath: path)
+    let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
+    let filename = self.documentsDirectory.appendingPathComponent(file)
     do {
+      let data = try Data(contentsOf: url)
       try data.write(to: filename)
     } catch {
       print("❤️ \(error)")
     }
+    return url
   }
   
   private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath]) -> [MKTileOverlayPath] {

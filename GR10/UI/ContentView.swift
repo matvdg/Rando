@@ -50,9 +50,19 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    Group {
+      ContentView()
       .previewDevice(PreviewDevice(rawValue: "iPhone X"))
       .previewDisplayName("iPhone X")
       .environment(\.colorScheme, .dark)
+//      ContentView()
+//      .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+//      .previewDisplayName("iPhone SE")
+//      .environment(\.colorScheme, .light)
+//      ContentView()
+//      .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
+//      .previewDisplayName("iPad Pro")
+//      .environment(\.colorScheme, .light)
+    }
   }
 }

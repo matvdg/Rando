@@ -8,6 +8,8 @@
 
 "Welcome" = "Bienvenue dans GR10";
 "Downloading" = "Téléchargement des cartes en cours...";
+"DownloadedTitle" = "Téléchargement terminé";
+"DownloadedMessage" = "Toutes les cartes du GR10 ont été téléchargées avec succès";
 "Requirements" = "Nécessite environ 400 Mo";
 "Pois" = "Étapes";
 "Map" = "Carte";
@@ -16,4 +18,6 @@
 "spring" = "Source";
 "waterfall" = "Cascade";
 "Direction" = "Sens";
-
+"Hide" = "Masquer";
+"HideMessage" = "Le téléchargement se poursuivra en arrière plan, vous serez notifié une fois terminé";
+"Cancel" = "Annuler";

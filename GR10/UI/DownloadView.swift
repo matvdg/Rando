@@ -12,6 +12,7 @@ struct DownloadView: View {
   
   @Binding var hideDownloadView: Bool
   @State var progressValue: Float = 0.0
+  @State var showAlert = false
   
   var imageId: Int { Int(progressValue * 20) - 1 }
   
@@ -23,6 +24,7 @@ struct DownloadView: View {
         Text("Welcome".localized)
           .font(.largeTitle)
           .foregroundColor(.black)
+          .minimumScaleFactor(0.5)
         Spacer()
         CircleImage(id: imageId)
         Spacer()
@@ -35,10 +37,28 @@ struct DownloadView: View {
           .font(.footnote)
           .foregroundColor(.black)
         Spacer()
+        Button(action: {
+          self.showAlert = true
+        }) {
+          Text("Hide".localized)
+            .font(.subheadline)
+            .fontWeight(.black)
+            .foregroundColor(.black)
+        }
       }
       .padding()
+      .padding()
+    }
+    .alert(isPresented: $showAlert) {
+      Alert(
+        title: Text("Hide".localized),
+        message: Text("HideMessage".localized),
+        primaryButton: .default(Text("Hide".localized), action: { self.hideDownloadView = true }),
+        secondaryButton: .cancel(Text("Cancel".localized)))
     }
     .onAppear {
+      NotificationManager.shared.requestAuthorization()
+      LocationManager.shared.requestAuthorization()
       TileManager.shared.saveTilesAroundPolyline { progress in
         self.progressValue = progress
         if progress == 1 {
@@ -47,6 +67,7 @@ struct DownloadView: View {
       }
     }
   }
+  
 }
 
 struct DownloadView_Previews: PreviewProvider {

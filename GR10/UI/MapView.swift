@@ -109,8 +109,7 @@ struct MapView: UIViewRepresentable {
     mapView.setRegion(region, animated: false)
     let pois = poiManager.annotations
     mapView.addAnnotations(pois)
-    let margin: CGFloat = 16
-    mapView.layoutMargins = UIEdgeInsets(top: margin, left: margin, bottom: -100, right: margin)
+    mapView.layoutMargins = UIEdgeInsets(top: 100, left: 14, bottom: -100, right: 14)
   }
 }
 

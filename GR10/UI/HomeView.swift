@@ -11,20 +11,24 @@ import SwiftUI
 struct HomeView: View {
   
   @State var isCentered: Bool = false
+  @State var isOnline: Bool = TileManager.shared.isOnline
   
   var body: some View {
     ZStack {
       MapView()
       HStack(alignment: .bottom, spacing: 0.0) {
-        VStack(alignment: .leading) {
-          Spacer()
-          CircleButton(image: isCentered ? "location.fill" : "location") {
-            self.isCentered.toggle()
-          }
-        }
         Spacer()
+        VStack(alignment: .leading) {
+          MapControl(didTapCenter: {
+            // todo
+          }, didTapOnline: {
+            TileManager.shared.isOnline = self.isOnline
+          }, isCentered: $isCentered, isOnline: $isOnline)
+          Spacer()
+        }
       }
-      .padding()
+    .padding()
+    .padding(.top, 32)
     }
     .edgesIgnoringSafeArea(.top)
   }
