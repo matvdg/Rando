@@ -21,3 +21,5 @@
 "Hide" = "Hide";
 "HideMessage" = "The download will continue in the background, you will be notified when finished";
 "Cancel" = "Cancel";
+"MapSettings" = "Map settings";
+"MapOfflineSwitcher" = "Offline IGN map";

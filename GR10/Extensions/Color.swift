@@ -14,8 +14,11 @@ extension Color {
   static var gred: Color { Color("gred") }
   static var grgreen: Color { Color("grgreen") }
   static var grblue: Color { Color("grblue") }
+  static var tintColor: Color { Color("tintColor") }
   static var grgray: Color { Color("grgray") }
-  static var alpha80: Color { Color("alpha80") }
+  static var lightgray: Color { Color("lightgray") }
+  static var lightgrayInverted: Color { Color("lightgrayInverted") }
+  static var alpha: Color { Color("alpha") }
   
 }
 
@@ -25,6 +28,6 @@ extension UIColor {
   static var grgreen: UIColor { UIColor(named: "grgreen")! }
   static var grblue: UIColor { UIColor(named: "grblue")! }
   static var grgray: UIColor { UIColor(named: "grgray")! }
-  static var alpha80: UIColor { UIColor(named: "alpha80")! }
+  static var alpha: UIColor { UIColor(named: "alpha")! }
   
 }

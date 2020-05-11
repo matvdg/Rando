@@ -23,7 +23,7 @@ class TileManager {
   // MARK: -  Private properties
   private let userDefaults = UserDefaults.standard
   private let hasRecordedTilesKey = "hasRecordedTiles"
-  private let isOnlineKey = "isOnline"
+  private let isOfflineKey = "isOffline"
   private var overlay: MKTileOverlay { MKTileOverlay(urlTemplate: template) }
   
   private var documentsDirectory: URL {
@@ -34,7 +34,7 @@ class TileManager {
   var hasRecordedTiles: Bool {
     get {
       // Debug
-      //      false
+//            false
       userDefaults.bool(forKey: hasRecordedTilesKey)
     }
     set {
@@ -43,15 +43,15 @@ class TileManager {
     }
   }
   
-  var isOnline: Bool {
+  var isOffline: Bool {
     get {
       // Debug
       //            false
-      userDefaults.bool(forKey: isOnlineKey)
+      userDefaults.bool(forKey: isOfflineKey)
     }
     set {
-      print("❤️ isOnline = \(newValue)")
-      userDefaults.set(newValue, forKey: isOnlineKey)
+      print("❤️ isOffline = \(newValue)")
+      userDefaults.set(newValue, forKey: isOfflineKey)
     }
   }
   
@@ -97,7 +97,7 @@ class TileManager {
     if FileManager.default.fileExists(atPath: url.path) { // Check is tile is already available
       return url
     } else {
-      if isOnline { // Get and persist newTile
+      if !isOffline { // Get and persist newTile
         return persistLocally(path: path)
       } else { // Else display empty tile (transparent over Maps tiles)
         return Bundle.main.url(forResource: "alpha", withExtension: "png")!

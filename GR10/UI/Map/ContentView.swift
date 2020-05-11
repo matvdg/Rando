@@ -43,7 +43,7 @@ struct ContentView: View {
         /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
       }
     }
-    .accentColor(Color.gred)
+    .accentColor(Color.tintColor)
   }
   
 }

@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct PoiDetail: View {
-  
+    
   @Binding var isHendayeToBanyuls: Bool
   
   var poi: Poi
   
   var body: some View {
     VStack {
-      MiniMapView(coordinate: poi.coordinates)
+      MapView(isCentered: Binding<Bool>.constant(false), selectedDisplayMode: Binding<Int>.constant(0), poiCoordinate: poi.coordinates)
         .edgesIgnoringSafeArea(.top)
         .frame(height: 300)
       

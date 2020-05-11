@@ -21,3 +21,5 @@
 "Hide" = "Masquer";
 "HideMessage" = "Le téléchargement se poursuivra en arrière plan, vous serez notifié une fois terminé";
 "Cancel" = "Annuler";
+"MapSettings" = "Réglages de la carte";
+"MapOfflineSwitcher" = "Carte IGN hors ligne";
