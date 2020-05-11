@@ -9,35 +9,33 @@
 import SwiftUI
 
 struct MapControl: View {
-  
-  let didTapCenter: () -> Void
-  let didTapOnline: () -> Void
-  let width: CGFloat = 40
+  let buttonWidth: CGFloat = 22
+  let width: CGFloat = 45
   @Binding var isCentered: Bool
-  @Binding var isOnline: Bool
+  @Binding var isInfoDisplayed: Bool
   
   var body: some View {
-    ZStack() {
+    VStack() {
+      Button(action: {
+        self.isInfoDisplayed.toggle()
+      }) {
+        Image(systemName: "info.circle")
+          .resizable()
+          .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+          .offset(y: -2)
+      }
       Divider()
-      VStack() {
-        Button(action: {
-          self.isOnline.toggle()
-          self.didTapOnline()
-        }) {
-          Image(systemName: isOnline ? "wifi" : "wifi.slash")
-            .frame(width: width, height: width, alignment: .center)
-        }
-        Button(action: {
-          self.isCentered.toggle()
-          self.didTapCenter()
-        }) {
-          Image(systemName: isCentered ? "location.fill" : "location")
-            .frame(width: width, height: width, alignment: .center)
-        }
+      Button(action: {
+        self.isCentered.toggle()
+      }) {
+        Image(systemName: isCentered ? "location.fill" : "location")
+          .resizable()
+          .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+          .offset(y: 3)
       }
     }
     .frame(width: width, height: width*2, alignment: .center)
-    .background(Color.alpha80)
+    .background(Color.alpha)
     .clipShape(RoundedRectangle(cornerRadius: 8))
     .shadow(radius: 1)
   }
@@ -45,15 +43,15 @@ struct MapControl: View {
 
 struct MapControl_Previews: PreviewProvider {
   @State static var isCentered = false
-  @State static var isOnline = false
+  @State static var isInfoDisplayed = false
   static var previews: some View {
     Group {
-      MapControl(didTapCenter: {}, didTapOnline: {}, isCentered: $isCentered, isOnline: $isOnline)
+      MapControl(isCentered: $isCentered, isInfoDisplayed: $isInfoDisplayed)
         .environment(\.colorScheme, .light)
-      MapControl(didTapCenter: {}, didTapOnline: {}, isCentered: $isCentered, isOnline: $isOnline)
-      .environment(\.colorScheme, .dark)
+      MapControl(isCentered: $isCentered, isInfoDisplayed: $isInfoDisplayed)
+        .environment(\.colorScheme, .dark)
     }
-    
+      
     .previewLayout(.fixed(width: 60, height: 100))
   }
 }

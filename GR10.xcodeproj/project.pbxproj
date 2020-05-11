@@ -28,7 +28,6 @@
 		D08AB2682465BAAD00793417 /* PoiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2672465BAAD00793417 /* PoiRow.swift */; };
 		D08AB26A2465BC7000793417 /* PoiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* PoiDetail.swift */; };
 		D08AB26C2465BCDC00793417 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB26B2465BCDC00793417 /* CircleImage.swift */; };
-		D08AB26E2465C17300793417 /* MiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB26D2465C17300793417 /* MiniMapView.swift */; };
 		D08F1A9C2465919300335281 /* PoiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9B2465919300335281 /* PoiManager.swift */; };
 		D08F1A9E2465A66300335281 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9D2465A66300335281 /* Poi.swift */; };
 		D09FB0092465D2360007F55B /* MiniImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB0082465D2360007F55B /* MiniImage.swift */; };
@@ -37,6 +36,7 @@
 		D0B7CDB22468550D00464C79 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB12468550D00464C79 /* Color.swift */; };
 		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
 		D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */; };
+		D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB72469184F00464C79 /* InfoView.swift */; };
 		D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C40E03245F37F900EF4873 /* TileManager.swift */; };
 		D0F8633124615D56007C363A /* pois.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F8633024615D56007C363A /* pois.json */; };
 		D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F9373F246831D9005E8503 /* NotificationManager.swift */; };
@@ -69,7 +69,6 @@
 		D08AB2672465BAAD00793417 /* PoiRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiRow.swift; sourceTree = "<group>"; };
 		D08AB2692465BC7000793417 /* PoiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiDetail.swift; sourceTree = "<group>"; };
 		D08AB26B2465BCDC00793417 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
-		D08AB26D2465C17300793417 /* MiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMapView.swift; sourceTree = "<group>"; };
 		D08F1A9B2465919300335281 /* PoiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiManager.swift; sourceTree = "<group>"; };
 		D08F1A9D2465A66300335281 /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
 		D09FB0082465D2360007F55B /* MiniImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniImage.swift; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		D0B01A8C2460420A00EE62AD /* GR10.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GR10.entitlements; sourceTree = "<group>"; };
 		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang de Rulhe.gpx"; sourceTree = "<group>"; };
+		D0B7CDB72469184F00464C79 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		D0C40E03245F37F900EF4873 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 		D0F8633024615D56007C363A /* pois.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pois.json; sourceTree = "<group>"; };
 		D0F9373F246831D9005E8503 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -107,10 +107,7 @@
 		D05B15002460042E00B24666 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D0634796245D768B003BA9E7 /* ContentView.swift */,
-				D083A789246734DB00E87F08 /* DownloadView.swift */,
-				D05B14FE2460041F00B24666 /* HomeView.swift */,
-				D06347A6245DCD34003BA9E7 /* MapView.swift */,
+				D0B7CDB624690C0800464C79 /* Map */,
 				D0531A6B2467FC150020FFE0 /* Poi */,
 				D09FB00D2465E3F30007F55B /* Shared */,
 			);
@@ -222,12 +219,23 @@
 			children = (
 				D08AB26B2465BCDC00793417 /* CircleImage.swift */,
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
-				D08AB26D2465C17300793417 /* MiniMapView.swift */,
 				D083A78B246739EA00E87F08 /* ProgressBar.swift */,
 				D09FB00E2465E4080007F55B /* CircleButton.swift */,
 				D0531A75246820BA0020FFE0 /* MapControl.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		D0B7CDB624690C0800464C79 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D0634796245D768B003BA9E7 /* ContentView.swift */,
+				D083A789246734DB00E87F08 /* DownloadView.swift */,
+				D05B14FE2460041F00B24666 /* HomeView.swift */,
+				D06347A6245DCD34003BA9E7 /* MapView.swift */,
+				D0B7CDB72469184F00464C79 /* InfoView.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		D0F8632F24615D24007C363A /* Poi */ = {
@@ -328,7 +336,6 @@
 			files = (
 				D08F1A9E2465A66300335281 /* Poi.swift in Sources */,
 				D06347C5245DD784003BA9E7 /* GpxManager.swift in Sources */,
-				D08AB26E2465C17300793417 /* MiniMapView.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D083A78A246734DB00E87F08 /* DownloadView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
@@ -343,6 +350,7 @@
 				D0531A742467FE4C0020FFE0 /* String.swift in Sources */,
 				D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
+				D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */,
 				D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */,
 				D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */,

@@ -14,21 +14,21 @@ let pois = PoiManager.shared.pois
 
 struct PoiView: View {
   
-  enum DisplayMode: String, CaseIterable {
-    case all, refuge, spring, waterfall
-    var localized: String { self.rawValue.localized }
+  enum DisplayMode: Int, CaseIterable {
+    case all = 0, refuge, spring, waterfall
+    var localized: String { String(describing: self).localized }
   }
   
-  @State var selectedDisplayMode = 0
+  @State var selectedDisplayMode = DisplayMode.all.rawValue
   @State var isHendayeToBanyuls = true
   @State private var animationAmount = 0.0
   
   var selectedPois: [Poi] {
     var selectedPoid: [Poi]
     switch selectedDisplayMode {
-    case 0: selectedPoid =  pois
-    case 1: selectedPoid =  pois.filter { $0.category == .refuge }
-    case 2: selectedPoid =  pois.filter { $0.category == .spring }
+    case DisplayMode.all.rawValue: selectedPoid =  pois
+    case DisplayMode.refuge.rawValue: selectedPoid =  pois.filter { $0.category == .refuge }
+    case DisplayMode.spring.rawValue: selectedPoid =  pois.filter { $0.category == .spring }
     default: selectedPoid = pois.filter { $0.category == .waterfall }
     }
     selectedPoid.sort { isHendayeToBanyuls ? $0.dist < $1.dist : $0.dist > $1.dist }
