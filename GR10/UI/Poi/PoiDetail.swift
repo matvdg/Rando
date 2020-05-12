@@ -16,9 +16,12 @@ struct PoiDetail: View {
   
   var body: some View {
     VStack {
-      MapView(isCentered: Binding<Bool>.constant(false), selectedDisplayMode: Binding<Int>.constant(0), poiCoordinate: poi.coordinates)
+      
+      NavigationLink(destination: MapView(poiCoordinate: poi.coordinates)) {
+        MapView(poiCoordinate: poi.coordinates)
         .edgesIgnoringSafeArea(.top)
         .frame(height: 300)
+      }
       
       CircleImage(id: poi.id)
         .offset(x: 0, y: -130)
@@ -29,6 +32,15 @@ struct PoiDetail: View {
           .font(.title)
         
         HStack(alignment: .center, spacing: 20.0) {
+          
+          NavigationLink(destination: MapView(poiCoordinate: poi.coordinates)) {
+            Image(systemName: "map.fill")
+            .frame(width: 40, height: 40, alignment: .center)
+            .background(Color.alpha)
+            .clipShape(Circle())
+            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .shadow(radius: 1)
+          }
           
           CircleButton(image: "phone.fill") {
             guard let url = self.poi.phoneNumber else { return }
@@ -68,6 +80,7 @@ struct PoiDetail: View {
   }
 }
 
+// MARK: Previews
 struct PoiDetail_Previews: PreviewProvider {
   @State static var isHendayeToBanyuls = true
   static var previews: some View {

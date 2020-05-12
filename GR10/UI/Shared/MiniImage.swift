@@ -23,6 +23,7 @@ struct MiniImage: View {
   }
 }
 
+// MARK: Previews
 struct MiniImage_Previews: PreviewProvider {
   static var previews: some View {
     Group {

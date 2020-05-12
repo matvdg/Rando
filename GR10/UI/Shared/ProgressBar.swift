@@ -27,6 +27,7 @@ struct ProgressBar: View {
   }
 }
 
+// MARK: Previews
 struct ProgressBar_Previews: PreviewProvider {
   
   @State static var value: Float = 0.2

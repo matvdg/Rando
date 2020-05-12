@@ -19,7 +19,7 @@ struct MapControl: View {
       Button(action: {
         self.isInfoDisplayed.toggle()
       }) {
-        Image(systemName: "info.circle")
+        Image(systemName: isInfoDisplayed ? "info.circle.fill" : "info.circle")
           .resizable()
           .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
           .offset(y: -2)
@@ -41,6 +41,7 @@ struct MapControl: View {
   }
 }
 
+// MARK: Previews
 struct MapControl_Previews: PreviewProvider {
   @State static var isCentered = false
   @State static var isInfoDisplayed = false

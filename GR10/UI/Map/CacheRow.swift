@@ -8,50 +8,37 @@
 
 import SwiftUI
 
-struct PoiRow: View {
-  
-  @Binding var isHendayeToBanyuls: Bool
-  
-  var poi: Poi
-  
+struct CacheRow: View {
+      
   var body: some View {
     
     HStack(spacing: 20.0) {
-      
-      MiniImage(id: poi.id)
-        .frame(width: 70.0, height: 70.0)
-      
       VStack(alignment: .leading) {
-        Text(poi.name)
+        Text("Cache (autres tuiles)")
           .font(.headline)
         
         HStack {
-          Text(poi.altitudeInMeters)
-          Text(" • ")
-          Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted)
+          Text("300Mo")
         }
         .font(.subheadline)
         
       }
       
       Spacer()
-      
     }
     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     .frame(height: 80.0)
   }
-  
 }
 
 // MARK: Previews
-struct PoiRow_Previews: PreviewProvider {
+struct CacheRow_Previews: PreviewProvider {
   
-  @State static var isHendayeToBanyuls = true
   static var previews: some View {
     
     Group {
-      PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[0])
-      PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[1])
+      CacheRow()
+      CacheRow()
     }
     .previewLayout(.fixed(width: 300, height: 80))
     .environment(\.colorScheme, .light)

@@ -25,6 +25,7 @@ struct CircleImage: View {
   }
 }
 
+// MARK: Previews
 struct CircleImage_Previews: PreviewProvider {
   static var previews: some View {
     CircleImage(id: 0)

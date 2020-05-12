@@ -36,20 +36,25 @@ struct PoiView: View {
   }
   
   var body: some View {
+    
     NavigationView {
+      
       VStack {
+        
         Picker(selection: $selectedDisplayMode, label: Text("Mode")) {
           ForEach(0..<DisplayMode.allCases.count, id: \.self) { index in
             Text(DisplayMode.allCases[index].localized).tag(index)
           }
         }.pickerStyle(SegmentedPickerStyle())
           .padding()
+        
         List(selectedPois) { poi in
           NavigationLink(destination: PoiDetail(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)) {
             PoiRow(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)
           }
         }
       }
+        
       .navigationBarTitle(Text(isHendayeToBanyuls ? "Hendaye-Banyuls" : "Banyuls-Hendaye"), displayMode: .inline)
       .navigationBarItems(trailing:
         Button(action: {
@@ -66,10 +71,11 @@ struct PoiView: View {
         }
       )
     }
+    
   }
 }
 
-
+// MARK: Previews
 struct PoiView_Previews: PreviewProvider {
   static var previews: some View {
     PoiView()

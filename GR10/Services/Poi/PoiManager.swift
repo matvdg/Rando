@@ -71,7 +71,6 @@ class PoiAnnotation: MKPointAnnotation {
     super.init()
     self.coordinate = CLLocationCoordinate2D(latitude: poi.lat, longitude: poi.lng)
     self.title = poi.name
-    self.subtitle = "Altitude \(Int(poi.alt))m, Km \(poi.dist)"
   }
   
 }

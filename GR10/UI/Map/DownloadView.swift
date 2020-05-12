@@ -18,7 +18,7 @@ struct DownloadView: View {
   
   var body: some View {
     ZStack {
-//      LinearGradient(gradient: Gradient(colors: [.red, .white]), startPoint: .bottom, endPoint: .top).edgesIgnoringSafeArea(.all)
+      LinearGradient(gradient: Gradient(colors: [.red, .white]), startPoint: .bottom, endPoint: .top).edgesIgnoringSafeArea(.all)
       VStack(spacing: 30) {
         Spacer()
         Text("Welcome".localized)
@@ -70,6 +70,7 @@ struct DownloadView: View {
   
 }
 
+// MARK: Previews
 struct DownloadView_Previews: PreviewProvider {
   
   @State static var hideDownloadView = false

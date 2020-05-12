@@ -11,41 +11,64 @@ import SwiftUI
 struct HomeView: View {
   
   @State var isCentered: Bool = false
+  @State var selectedDisplayMode = InfoView.DisplayMode.IGN.rawValue
   @State var isInfoDisplayed: Bool = false
-  @State var selectedDisplayMode = InfoView.DisplayMode.ign.rawValue
+  @State var selectedPoi: Poi?
+  
+  private var isInfoPoiDisplayed: Bool { selectedPoi != nil }
+  
   @State private var animationAmount: CGFloat = 1
   
   var body: some View {
     
+    
     ZStack {
       
-      MapView(isCentered: $isCentered, selectedDisplayMode: $selectedDisplayMode)
+      MapView(isCentered: $isCentered, selectedDisplayMode: $selectedDisplayMode, selectedPoi: $selectedPoi)
       
       VStack(alignment: .trailing) {
         
         HStack(alignment: .top) {
           Spacer()
           MapControl(isCentered: $isCentered, isInfoDisplayed: $isInfoDisplayed)
-            .padding()
-            .padding(.top, 32)
+            .padding(.trailing, 8)
+            .padding(.top, 16)
         }
         
         Spacer()
         
+      }
+      
+      VStack(alignment: .leading) {
+        
+        Spacer()
+        
         InfoView(selectedDisplayMode: $selectedDisplayMode, isInfoDisplayed: $isInfoDisplayed)
-          .offset(y: isInfoDisplayed ? 140 : 300)
+          .offset(y: isInfoDisplayed ? 70 : 300)
           .opacity(isInfoDisplayed ? 1 : 0)
           .animation(.default)
-          
+        
+      }
+      
+      VStack(alignment: .leading) {
+        
+        Spacer()
+        
+        InfoPoiView(poi: $selectedPoi)
+          .offset(y: isInfoPoiDisplayed ? 70 : 300)
+          .opacity(isInfoPoiDisplayed ? 1 : 0)
+          .animation(.default)
+        
       }
       
     }
-    .edgesIgnoringSafeArea(.top)
     
   }
   
+  
 }
 
+// MARK: Previews
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView()

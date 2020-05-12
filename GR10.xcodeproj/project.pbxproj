@@ -37,6 +37,9 @@
 		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
 		D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */; };
 		D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB72469184F00464C79 /* InfoView.swift */; };
+		D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE19246A91FF00464C79 /* CacheView.swift */; };
+		D0B7CE1C246A954500464C79 /* CacheRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE1B246A954500464C79 /* CacheRow.swift */; };
+		D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */; };
 		D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C40E03245F37F900EF4873 /* TileManager.swift */; };
 		D0F8633124615D56007C363A /* pois.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F8633024615D56007C363A /* pois.json */; };
 		D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F9373F246831D9005E8503 /* NotificationManager.swift */; };
@@ -78,6 +81,9 @@
 		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang de Rulhe.gpx"; sourceTree = "<group>"; };
 		D0B7CDB72469184F00464C79 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		D0B7CE19246A91FF00464C79 /* CacheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheView.swift; sourceTree = "<group>"; };
+		D0B7CE1B246A954500464C79 /* CacheRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRow.swift; sourceTree = "<group>"; };
+		D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPoiView.swift; sourceTree = "<group>"; };
 		D0C40E03245F37F900EF4873 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 		D0F8633024615D56007C363A /* pois.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pois.json; sourceTree = "<group>"; };
 		D0F9373F246831D9005E8503 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -221,7 +227,6 @@
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
 				D083A78B246739EA00E87F08 /* ProgressBar.swift */,
 				D09FB00E2465E4080007F55B /* CircleButton.swift */,
-				D0531A75246820BA0020FFE0 /* MapControl.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -233,7 +238,11 @@
 				D083A789246734DB00E87F08 /* DownloadView.swift */,
 				D05B14FE2460041F00B24666 /* HomeView.swift */,
 				D06347A6245DCD34003BA9E7 /* MapView.swift */,
+				D0531A75246820BA0020FFE0 /* MapControl.swift */,
 				D0B7CDB72469184F00464C79 /* InfoView.swift */,
+				D0B7CE19246A91FF00464C79 /* CacheView.swift */,
+				D0B7CE1B246A954500464C79 /* CacheRow.swift */,
+				D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -338,6 +347,7 @@
 				D06347C5245DD784003BA9E7 /* GpxManager.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D083A78A246734DB00E87F08 /* DownloadView.swift in Sources */,
+				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
@@ -354,6 +364,8 @@
 				D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */,
 				D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */,
+				D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */,
+				D0B7CE1C246A954500464C79 /* CacheRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
 				D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */,
