@@ -34,3 +34,5 @@
 "Map" = "Map";
 "MapSettings" = "Map settings";
 "MapOfflineSwitcher" = "Offline IGN map";
+"Distance" = "Distance";
+"Altitude" = "Altitude";

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PoiDetail: View {
-    
+  
   @Binding var isHendayeToBanyuls: Bool
   
   var poi: Poi
@@ -17,10 +17,10 @@ struct PoiDetail: View {
   var body: some View {
     VStack {
       
-      NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinates)) {
+      NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinate)) {
         
-        MapView(poiCoordinate: poi.coordinates)
-        .frame(height: 300)
+        MapView(poiCoordinate: poi.coordinate)
+          .frame(height: 300)
       }
       
       CircleImage(id: poi.id)
@@ -33,13 +33,13 @@ struct PoiDetail: View {
         
         HStack(alignment: .center, spacing: 20.0) {
           
-          NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinates)) {
+          NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinate)) {
             Image(systemName: "map.fill")
-            .frame(width: 40, height: 40, alignment: .center)
-            .background(Color.alpha)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-            .shadow(radius: 1)
+              .frame(width: 40, height: 40, alignment: .center)
+              .background(Color.alpha)
+              .clipShape(Circle())
+              .overlay(Circle().stroke(Color.white, lineWidth: 2))
+              .shadow(radius: 1)
           }
           
           CircleButton(image: "phone.fill") {
@@ -55,21 +55,38 @@ struct PoiDetail: View {
             Feedback.selected()
           }
           .isHidden(!self.poi.hasWebsite, remove: true)
-        
           
-          Text(poi.altitudeInMeters)
-            .fontWeight(.bold)
+          VStack(alignment: .leading) {
+            HStack(spacing: 8) {
+              HStack(alignment: .bottom, spacing: 4) {
+                Text("Km")
+                  .font(.caption)
+                Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
+              }
+              HStack(alignment: .bottom, spacing: 4) {
+                Text("Altitude".localized)
+                  .font(.caption)
+                Text(poi.altitudeInMeters).fontWeight(.bold)
+              }
+            }
+            HStack(spacing: 8) {
+              HStack(alignment: .bottom, spacing: 4) {
+                Text("Distance".localized)
+                  .font(.caption)
+                Text(poi.distanceFromUser).fontWeight(.bold)
+              }
+              Spacer()
+            }
+            
+          }
           
-          Text("•")
-          
-          Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted)
           
         }
         .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
         
         ScrollView {
           Text(poi.description ?? "")
-          .font(.body)
+            .font(.body)
             .padding(.trailing, 8)
         }
         

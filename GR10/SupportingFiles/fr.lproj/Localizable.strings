@@ -34,3 +34,5 @@
 "Map" = "Carte";
 "MapSettings" = "Réglages de la carte";
 "MapOfflineSwitcher" = "Carte IGN hors ligne";
+"Distance" = "Distance";
+"Altitude" = "Altitude";

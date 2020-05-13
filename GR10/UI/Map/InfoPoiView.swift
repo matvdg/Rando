@@ -23,11 +23,17 @@ struct InfoPoiView: View {
         
         VStack(alignment: .leading) {
           
-          HStack {
-            Text("Altitude :")
-            Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
-            Text("Distance :")
-            Text("3,5km").fontWeight(.bold)
+          HStack(spacing: 16) {
+            HStack(alignment: .bottom, spacing: 8) {
+              Text("Altitude".localized)
+                .font(.caption)
+              Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
+            }
+            HStack(alignment: .bottom, spacing: 8) {
+              Text("Distance".localized)
+                .font(.caption)
+              Text(poi?.distanceFromUser ?? "").fontWeight(.bold)
+            }
           }
           
           ScrollView {
@@ -44,7 +50,7 @@ struct InfoPoiView: View {
       }
         
       .padding()
-      .navigationBarTitle(Text(poi?.name ?? "Poi"), displayMode: .inline)
+      .navigationBarTitle(Text(poi?.name ?? ""), displayMode: .inline)
       .navigationBarItems(leading:
         Button(action: {
           self.poi = nil

@@ -21,14 +21,21 @@ struct PoiRow: View {
       MiniImage(id: poi.id)
         .frame(width: 70.0, height: 70.0)
       
-      VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 10) {
         Text(poi.name)
           .font(.headline)
         
-        HStack {
-          Text(poi.altitudeInMeters)
-          Text(" • ")
-          Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted)
+        HStack(spacing: 8) {
+          HStack(alignment: .bottom, spacing: 4) {
+            Text("Km")
+              .font(.caption)
+            Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
+          }
+          HStack(alignment: .bottom, spacing: 4) {
+            Text("Altitude".localized)
+              .font(.caption)
+            Text(poi.altitudeInMeters).fontWeight(.bold)
+          }
         }
         .font(.subheadline)
         
@@ -53,7 +60,7 @@ struct PoiRow_Previews: PreviewProvider {
       PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[0])
       PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[1])
     }
-    .previewLayout(.fixed(width: 300, height: 80))
-    .environment(\.colorScheme, .light)
+    .previewLayout(.fixed(width: 320, height: 80))
+    
   }
 }

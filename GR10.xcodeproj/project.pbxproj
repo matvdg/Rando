@@ -46,6 +46,8 @@
 		D0F8633124615D56007C363A /* pois.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F8633024615D56007C363A /* pois.json */; };
 		D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F9373F246831D9005E8503 /* NotificationManager.swift */; };
 		D0FF45AE246BE3080087697B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45AD246BE3080087697B /* Feedback.swift */; };
+		D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */; };
+		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		D0F8633024615D56007C363A /* pois.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pois.json; sourceTree = "<group>"; };
 		D0F9373F246831D9005E8503 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D0FF45AD246BE3080087697B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,11 +224,13 @@
 		D09FB00A2465E14A0007F55B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D0FF45AD246BE3080087697B /* Feedback.swift */,
 				D09FB00B2465E15C0007F55B /* View.swift */,
 				D0531A732467FE4C0020FFE0 /* String.swift */,
 				D0B7CDB12468550D00464C79 /* Color.swift */,
 				D007B88A246B60090040E1CF /* FileManager.swift */,
-				D0FF45AD246BE3080087697B /* Feedback.swift */,
+				D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */,
+				D0FF45E1246C06910087697B /* CLLocationDistance.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,9 +364,11 @@
 				D083A78A246734DB00E87F08 /* DownloadView.swift in Sources */,
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
+				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
 				D08AB2682465BAAD00793417 /* PoiRow.swift in Sources */,
+				D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */,
 				D05B14FF2460041F00B24666 /* HomeView.swift in Sources */,
 				D0634795245D768B003BA9E7 /* SceneDelegate.swift in Sources */,
 				D007B88B246B60090040E1CF /* FileManager.swift in Sources */,
