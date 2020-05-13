@@ -22,7 +22,7 @@ class TileManager {
   static let shared = TileManager()
   
   init() {
-    print("❤️ \(documentsDirectory)")
+    print("❤️ DocumentsDirectory = \(documentsDirectory)")
     createDirectoriesIfNecessary()
   }
   
@@ -44,7 +44,7 @@ class TileManager {
       userDefaults.bool(forKey: hasRecordedTilesKey)
     }
     set {
-      print("❤️ hasRecordedTiles = \(newValue)")
+      print("❤️ HasRecordedTiles = \(newValue)")
       userDefaults.set(newValue, forKey: hasRecordedTilesKey)
     }
   }
@@ -56,7 +56,7 @@ class TileManager {
       userDefaults.bool(forKey: isOfflineKey)
     }
     set {
-      print("❤️ isOffline = \(newValue)")
+      print("❤️ IsOffline = \(newValue)")
       userDefaults.set(newValue, forKey: isOfflineKey)
     }
   }

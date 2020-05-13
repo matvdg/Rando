@@ -31,7 +31,7 @@ struct Poi: Decodable, Identifiable {
   var distanceFromUser: String {
     let alongPolylineDistance = GpxManager.shared.distanceTo(to: self.coordinate)
     let straightDistance = LocationManager.shared.currentPosition.coordinate.distance(from: self.coordinate).toString
-    print("❤️ alongPolylineDistance = \(alongPolylineDistance) VS straightDistance = \(straightDistance)")
+    print("❤️ AlongPolylineDistance = \(alongPolylineDistance) VS StraightDistance = \(straightDistance)")
     return alongPolylineDistance
   }
 

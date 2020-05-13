@@ -12,6 +12,7 @@ import MapKit
 
 var currentDisplayMode = -1
 var selectedAnnotation: PoiAnnotation?
+var mapChangedFromUserInteraction = false
 
 struct MapView: UIViewRepresentable {
   
@@ -39,7 +40,7 @@ struct MapView: UIViewRepresentable {
   
   // MARK: Properties
   var poiCoordinate: CLLocationCoordinate2D?
- 
+  
   let gpxManager = GpxManager.shared
   let poiManager = PoiManager.shared
   
@@ -90,8 +91,10 @@ struct MapView: UIViewRepresentable {
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-      guard !animated else { return }
-      self.parent.isCentered = false
+      mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction(mapView)
+      if mapChangedFromUserInteraction {
+        self.parent.isCentered = false
+      }
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -120,6 +123,19 @@ struct MapView: UIViewRepresentable {
       Feedback.selected()
     }
     
+    private func mapViewRegionDidChangeFromUserInteraction(_ mapView: MKMapView) -> Bool {
+      let view = mapView.subviews[0]
+      //  Look through gesture recognizers to determine whether this region change is from user interaction
+      if let gestureRecognizers = view.gestureRecognizers {
+        for recognizer in gestureRecognizers {
+          if recognizer.state == .began || recognizer.state == .ended {
+            return true
+          }
+        }
+      }
+      return false
+    }
+    
   }
   
   // MARK: UIViewRepresentable lifecycle methods
@@ -138,7 +154,7 @@ struct MapView: UIViewRepresentable {
       uiView.deselectAnnotation(selectedAnnotation, animated: true)
     }
   }
-    
+  
   // MARK: Private methods
   private func configureMap(mapView: MKMapView) {
     setOverlays(mapView: mapView)
