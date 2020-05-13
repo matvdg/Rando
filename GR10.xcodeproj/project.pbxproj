@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D007B889246AEE160040E1CF /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007B888246AEE160040E1CF /* MapViewContainer.swift */; };
+		D007B88B246B60090040E1CF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007B88A246B60090040E1CF /* FileManager.swift */; };
 		D0531A6A246788920020FFE0 /* alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = D0531A69246788920020FFE0 /* alpha.png */; };
 		D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0531A712467FD8C0020FFE0 /* Localizable.strings */; };
 		D0531A742467FE4C0020FFE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A732467FE4C0020FFE0 /* String.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D007B888246AEE160040E1CF /* MapViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
+		D007B88A246B60090040E1CF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		D0531A69246788920020FFE0 /* alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alpha.png; sourceTree = "<group>"; };
 		D0531A6C2467FD3A0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D0531A702467FD8C0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				D06347A8245DCD8B003BA9E7 /* PoiView.swift */,
 				D08AB2692465BC7000793417 /* PoiDetail.swift */,
 				D08AB2672465BAAD00793417 /* PoiRow.swift */,
+				D007B888246AEE160040E1CF /* MapViewContainer.swift */,
 			);
 			path = Poi;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				D09FB00B2465E15C0007F55B /* View.swift */,
 				D0531A732467FE4C0020FFE0 /* String.swift */,
 				D0B7CDB12468550D00464C79 /* Color.swift */,
+				D007B88A246B60090040E1CF /* FileManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				D08AB2682465BAAD00793417 /* PoiRow.swift in Sources */,
 				D05B14FF2460041F00B24666 /* HomeView.swift in Sources */,
 				D0634795245D768B003BA9E7 /* SceneDelegate.swift in Sources */,
+				D007B88B246B60090040E1CF /* FileManager.swift in Sources */,
 				D08F1A9C2465919300335281 /* PoiManager.swift in Sources */,
 				D09FB0092465D2360007F55B /* MiniImage.swift in Sources */,
 				D08AB26A2465BC7000793417 /* PoiDetail.swift in Sources */,
@@ -364,6 +371,7 @@
 				D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */,
 				D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */,
+				D007B889246AEE160040E1CF /* MapViewContainer.swift in Sources */,
 				D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */,
 				D0B7CE1C246A954500464C79 /* CacheRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,

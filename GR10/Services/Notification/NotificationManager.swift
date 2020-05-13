@@ -19,33 +19,33 @@ class NotificationManager {
   
   // MARK: - Public methods
   func requestAuthorization() {
-    self.center.requestAuthorization(options: [.sound, .alert]) { (didAllow, error) in
+    center.requestAuthorization(options: [.sound, .alert]) { (didAllow, error) in
       print("❤️ requestAuthorization = \(didAllow), \(error?.localizedDescription ?? "")")
     }
   }
   
   func removeAllNotifications() {
-    self.center.removeAllPendingNotificationRequests()
-    self.center.removeAllDeliveredNotifications()
+    center.removeAllPendingNotificationRequests()
+    center.removeAllDeliveredNotifications()
   }
   
   func removePendingNotifications() {
-    self.center.getPendingNotificationRequests(completionHandler: { requests in
+    center.getPendingNotificationRequests(completionHandler: { requests in
       let identifiers = requests.map { $0.identifier }
       self.center.removePendingNotificationRequests(withIdentifiers: identifiers)
     })
   }
   
   func removeDeliveredNotifications() {
-    self.center.getDeliveredNotifications { notifications in
+    center.getDeliveredNotifications { notifications in
       let identifiers = notifications.map { $0.request.identifier }
       self.center.removeDeliveredNotifications(withIdentifiers: identifiers)
     }
   }
   
   func sendNotification(title: String, message: String) {
-    let request = self.getNotificationRequest(title: title, subtitle: message)
-    self.center.add(request)
+    let request = getNotificationRequest(title: title, subtitle: message)
+    center.add(request)
   }
   
   // MARK: - Private functions

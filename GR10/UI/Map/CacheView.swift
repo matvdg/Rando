@@ -9,13 +9,18 @@
 import SwiftUI
 
 struct CacheView: View {
+  
     
   var body: some View {
     
-    List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-      CacheRow()
+    List {
+      CacheRow(directory: .gr10)
+      CacheRow(directory: .cache)
     }
+    .navigationBarTitle(Text("ManageCache".localized))
+    
   }
+  
 }
 
 // MARK: Previews

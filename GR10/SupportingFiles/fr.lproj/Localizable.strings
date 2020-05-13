@@ -16,6 +16,12 @@
 "HideMessage" = "Le téléchargement se poursuivra en arrière plan, vous serez notifié une fois terminé";
 "Cancel" = "Annuler";
 
+// CacheView
+"ManageCache" = "Gérer le cache";
+"cache" = "Cache (autres tuiles)";
+"gr10" = "Tuiles du GR10";
+"Delete" = "Supprimer";
+
 // PoiView
 "Pois" = "Étapes";
 "all" = "Tous";
@@ -28,6 +34,3 @@
 "Map" = "Carte";
 "MapSettings" = "Réglages de la carte";
 "MapOfflineSwitcher" = "Carte IGN hors ligne";
-
-// CacheView
-"ManageCache" = "Gérer le cache";

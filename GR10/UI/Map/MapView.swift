@@ -114,9 +114,7 @@ struct MapView: UIViewRepresentable {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-      DispatchQueue.main.async {
-        self.parent.selectedPoi = nil
-      }
+      self.parent.selectedPoi = nil
       selectedAnnotation = nil
     }
     

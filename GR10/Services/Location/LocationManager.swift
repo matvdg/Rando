@@ -16,7 +16,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   override init() {
     super.init()
-    self.requestAuthorization()
+    requestAuthorization()
   }
   
   var currentPosition = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005), altitude: 1944, horizontalAccuracy: 1, verticalAccuracy: 1, timestamp: Date()) // Etang d'Araing
@@ -24,14 +24,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   let manager = CLLocationManager()
   
   func requestAuthorization() {
-    self.manager.activityType = .fitness
-    self.manager.requestWhenInUseAuthorization()
-    self.manager.delegate = self
-    self.manager.startUpdatingLocation()
+    manager.activityType = .fitness
+    manager.requestWhenInUseAuthorization()
+    manager.delegate = self
+    manager.startUpdatingLocation()
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    self.manager.startUpdatingLocation()
+    manager.startUpdatingLocation()
   }
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

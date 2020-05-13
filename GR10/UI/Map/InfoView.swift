@@ -23,7 +23,7 @@ struct InfoView: View {
     
     NavigationView {
       
-      VStack {
+      VStack(spacing: 20.0) {
         
         Picker(selection: $selectedDisplayMode, label: Text("Mode")) {
           ForEach(0..<DisplayMode.allCases.count, id: \.self) { index in
@@ -31,7 +31,8 @@ struct InfoView: View {
           }
         }
         .pickerStyle(SegmentedPickerStyle())
-        .padding()
+        
+        Divider()
         
         Toggle(isOn: self.$isOffline) {
           Text("MapOfflineSwitcher".localized)
@@ -40,18 +41,22 @@ struct InfoView: View {
           self.isOffline.toggle()
           TileManager.shared.isOffline = self.isOffline
         }
-        .padding(EdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 16))
         
-        List {
-          NavigationLink(destination: CacheView()) {
+        NavigationLink(destination: CacheView()) {
+          HStack {
             Text("ManageCache".localized)
+              .foregroundColor(.black)
+            Spacer()
+            Image(systemName: "chevron.right")
+              .foregroundColor(.gray)
           }
+            
         }
         .frame(height: 30, alignment: .top)
         
         Spacer()
         
-      }
+        }.padding()
       
       .navigationBarTitle(Text("MapSettings".localized), displayMode: .inline)
       .navigationBarItems(leading:

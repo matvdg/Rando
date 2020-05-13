@@ -17,9 +17,9 @@ struct PoiDetail: View {
   var body: some View {
     VStack {
       
-      NavigationLink(destination: MapView(poiCoordinate: poi.coordinates)) {
+      NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinates)) {
+        
         MapView(poiCoordinate: poi.coordinates)
-        .edgesIgnoringSafeArea(.top)
         .frame(height: 300)
       }
       
@@ -33,7 +33,7 @@ struct PoiDetail: View {
         
         HStack(alignment: .center, spacing: 20.0) {
           
-          NavigationLink(destination: MapView(poiCoordinate: poi.coordinates)) {
+          NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinates)) {
             Image(systemName: "map.fill")
             .frame(width: 40, height: 40, alignment: .center)
             .background(Color.alpha)
@@ -76,7 +76,7 @@ struct PoiDetail: View {
       
       Spacer()
     }
-    .navigationBarTitle(Text(poi.name), displayMode: .inline)
+    .navigationBarTitle(Text(poi.name))
   }
 }
 

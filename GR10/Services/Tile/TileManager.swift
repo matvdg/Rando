@@ -4,6 +4,11 @@ import MapKit
 
 typealias TilesDownload = (numberOfTiles: Int, weightInMo: Float)
 
+enum Directory: String, CaseIterable {
+  case cache, gr10
+  var localized: String { rawValue.localized }
+}
+
 let template = "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}"
 
 typealias TileCoordinates = (x: Int, y: Int, z: Int)
@@ -15,9 +20,10 @@ class TileOverlay: MKTileOverlay {
 class TileManager {
   
   static let shared = TileManager()
-  
+    
   init() {
-    print("❤️ \(self.documentsDirectory)")
+    print("❤️ \(documentsDirectory)")
+    createDirectoriesIfNecessary()
   }
   
   // MARK: -  Private properties
@@ -34,7 +40,7 @@ class TileManager {
   var hasRecordedTiles: Bool {
     get {
       // Debug
-//            false
+      //            false
       userDefaults.bool(forKey: hasRecordedTilesKey)
     }
     set {
@@ -56,8 +62,18 @@ class TileManager {
   }
   
   // MARK: -  Public methods
+  func getSize(of directory: Directory) -> String {
+    FileManager.default.allocatedSizeOfDirectory(at: documentsDirectory.appendingPathComponent(directory.rawValue))
+  }
+  
+  func remove(directory: Directory) {
+    try? FileManager.default.removeItem(at: documentsDirectory.appendingPathComponent(directory.rawValue))
+    createDirectoriesIfNecessary()
+    if directory == .gr10 { self.hasRecordedTiles = false }
+  }
+  
   func saveMock(completion: @escaping ( (Float) -> () )) {
-    print("❤️ \(self.documentsDirectory)")
+    print("❤️ \(documentsDirectory)")
     var percent: Float = 0
     Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
       percent += 0.01
@@ -98,7 +114,7 @@ class TileManager {
       return url
     } else {
       if !isOffline { // Get and persist newTile
-        return persistLocally(path: path)
+        return persistLocally(path: path, directory: .cache)
       } else { // Else display empty tile (transparent over Maps tiles)
         return Bundle.main.url(forResource: "alpha", withExtension: "png")!
       }
@@ -107,17 +123,17 @@ class TileManager {
   
   // MARK: -  Private methods
   private func saveTilesAroundBoundingBox() {
-    let paths = self.computeTileOverlayPaths(boundingBox: GpxManager.shared.boundingBox, maxZ: 8)
-    let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
-    filteredPaths.forEach { self.persistLocally(path: $0) }
+    let paths = computeTileOverlayPaths(boundingBox: GpxManager.shared.boundingBox, maxZ: 8)
+    let filteredPaths = filterTilesAlreadyExisting(paths: paths)
+    filteredPaths.forEach { persistLocally(path: $0) }
   }
   
   private func computeTileOverlayPaths(boundingBox box: MKMapRect, maxZ: Int = 16) -> [MKTileOverlayPath] {
     var paths = [MKTileOverlayPath]()
     for z in 1...maxZ {
-      let topLeft = self.tranformCoordinate(coordinates: MKMapPoint(x: box.minX, y: box.minY).coordinate, zoom: z)
-      let topRight = self.tranformCoordinate(coordinates: MKMapPoint(x: box.maxX, y: box.minY).coordinate, zoom: z)
-      let bottomLeft = self.tranformCoordinate(coordinates: MKMapPoint(x: box.minX, y: box.maxY).coordinate, zoom: z)
+      let topLeft = tranformCoordinate(coordinates: MKMapPoint(x: box.minX, y: box.minY).coordinate, zoom: z)
+      let topRight = tranformCoordinate(coordinates: MKMapPoint(x: box.maxX, y: box.minY).coordinate, zoom: z)
+      let bottomLeft = tranformCoordinate(coordinates: MKMapPoint(x: box.minX, y: box.maxY).coordinate, zoom: z)
       for x in topLeft.x...topRight.x {
         for y in topLeft.y...bottomLeft.y {
           paths.append(MKTileOverlayPath(x: x, y: y, z: z, contentScaleFactor: 2))
@@ -135,10 +151,10 @@ class TileManager {
     return (tileX, tileY, zoom)
   }
   
-  @discardableResult private func persistLocally(path: MKTileOverlayPath) -> URL {
+  @discardableResult private func persistLocally(path: MKTileOverlayPath, directory: Directory = .gr10) -> URL {
     let url = overlay.url(forTilePath: path)
-    let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
-    let filename = self.documentsDirectory.appendingPathComponent(file)
+    let file = "\(directory)/z\(path.z)x\(path.x)y\(path.y).jpeg"
+    let filename = documentsDirectory.appendingPathComponent(file)
     do {
       let data = try Data(contentsOf: url)
       try data.write(to: filename)
@@ -150,9 +166,16 @@ class TileManager {
   
   private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath]) -> [MKTileOverlayPath] {
     return paths.filter {
-      let path = self.documentsDirectory.appendingPathComponent("z\($0.z)x\($0.x)y\($0.y).jpeg").path
+      let path = documentsDirectory.appendingPathComponent("z\($0.z)x\($0.x)y\($0.y).jpeg").path
       return !FileManager.default.fileExists(atPath: path)
     }
+  }
+  
+  private func createDirectoriesIfNecessary() {
+    let cache = documentsDirectory.appendingPathComponent(Directory.cache.rawValue)
+    let gr10 = documentsDirectory.appendingPathComponent(Directory.gr10.rawValue)
+    try? FileManager.default.createDirectory(at: cache, withIntermediateDirectories: true, attributes: [:])
+    try? FileManager.default.createDirectory(at: gr10, withIntermediateDirectories: true, attributes: [:])
   }
   
 }

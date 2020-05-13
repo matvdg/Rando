@@ -16,6 +16,12 @@
 "HideMessage" = "The download will continue in the background, you will be notified when finished";
 "Cancel" = "Cancel";
 
+// CacheView
+"ManageCache" = "Manage cache";
+"cache" = "Cache (other tiles)";
+"gr10" = "GR10 tiles";
+"Delete" = "Delete";
+
 // PoiView
 "Pois" = "Steps";
 "all" = "All";
@@ -28,6 +34,3 @@
 "Map" = "Map";
 "MapSettings" = "Map settings";
 "MapOfflineSwitcher" = "Offline IGN map";
-
-// CacheView
-"ManageCache" = "Manage cache";
