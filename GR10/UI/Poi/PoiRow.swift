@@ -38,6 +38,8 @@ struct PoiRow: View {
           }
         }
         .font(.subheadline)
+        .minimumScaleFactor(0.5)
+        .lineLimit(1)
         
       }
       

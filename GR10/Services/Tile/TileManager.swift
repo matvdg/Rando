@@ -20,7 +20,7 @@ class TileOverlay: MKTileOverlay {
 class TileManager {
   
   static let shared = TileManager()
-    
+  
   init() {
     print("❤️ \(documentsDirectory)")
     createDirectoriesIfNecessary()
@@ -73,7 +73,6 @@ class TileManager {
   }
   
   func saveMock(completion: @escaping ( (Float) -> () )) {
-    print("❤️ \(documentsDirectory)")
     var percent: Float = 0
     Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
       percent += 0.01
@@ -107,11 +106,14 @@ class TileManager {
   }
   
   func getTileOverlay(for path: MKTileOverlayPath) -> URL {
-    //      print("❤️ \(path.z)")
-    let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let url = documents.appendingPathComponent("z\(path.z)x\(path.x)y\(path.y).jpeg")
-    if FileManager.default.fileExists(atPath: url.path) { // Check is tile is already available
-      return url
+    let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
+    // Check is tile is already available
+    let grUrl = documentsDirectory.appendingPathComponent(Directory.gr10.rawValue).appendingPathComponent(file)
+    let cacheUrl = documentsDirectory.appendingPathComponent(Directory.cache.rawValue).appendingPathComponent(file)
+    if FileManager.default.fileExists(atPath: grUrl.path) {
+      return grUrl
+    } else if FileManager.default.fileExists(atPath: cacheUrl.path){
+      return cacheUrl
     } else {
       if !isOffline { // Get and persist newTile
         return persistLocally(path: path, directory: .cache)
@@ -166,8 +168,10 @@ class TileManager {
   
   private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath]) -> [MKTileOverlayPath] {
     return paths.filter {
-      let path = documentsDirectory.appendingPathComponent("z\($0.z)x\($0.x)y\($0.y).jpeg").path
-      return !FileManager.default.fileExists(atPath: path)
+      let file = "z\($0.z)x\($0.x)y\($0.y).jpeg"
+      let grPath = documentsDirectory.appendingPathComponent(Directory.gr10.rawValue).appendingPathComponent(file).path
+      let cachePath = documentsDirectory.appendingPathComponent(Directory.cache.rawValue).appendingPathComponent(file).path
+      return !FileManager.default.fileExists(atPath: grPath) && !FileManager.default.fileExists(atPath: cachePath)
     }
   }
   

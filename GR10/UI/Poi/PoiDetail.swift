@@ -56,7 +56,7 @@ struct PoiDetail: View {
           }
           .isHidden(!self.poi.hasWebsite, remove: true)
           
-          VStack(alignment: .leading) {
+          VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 8) {
               HStack(alignment: .bottom, spacing: 4) {
                 Text("Km")
@@ -106,6 +106,6 @@ struct PoiDetail_Previews: PreviewProvider {
     PoiDetail(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois.first!)
       .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
       .previewDisplayName("iPhone SE")
-      .environment(\.colorScheme, .dark)
+      .environment(\.colorScheme, .light)
   }
 }
