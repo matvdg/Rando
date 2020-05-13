@@ -111,11 +111,13 @@ struct MapView: UIViewRepresentable {
         return }
       self.parent.selectedPoi = annotation.poi
       selectedAnnotation = annotation
+      Feedback.selected()
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
       self.parent.selectedPoi = nil
       selectedAnnotation = nil
+      Feedback.selected()
     }
     
   }

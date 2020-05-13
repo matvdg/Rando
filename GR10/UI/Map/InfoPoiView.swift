@@ -55,6 +55,7 @@ struct InfoPoiView: View {
           Button(action: {
             guard let url = self.poi?.phoneNumber else { return }
             UIApplication.shared.open(url)
+            Feedback.selected()
           }) {
             Image(systemName: "phone.fill")
           }
@@ -62,6 +63,7 @@ struct InfoPoiView: View {
           Button(action: {
             guard let url = self.poi?.url else { return }
             UIApplication.shared.open(url)
+            Feedback.selected()
           }) {
             Image(systemName: "globe")
           }
@@ -75,9 +77,9 @@ struct InfoPoiView: View {
     .clipShape(RoundedRectangle(cornerRadius: 8))
     .shadow(radius: 10)
     .gesture(DragGesture().onEnded { value in
-      if value.translation.height > 100 {
-        self.poi = nil
-      }
+      guard value.translation.height > 100 else { return }
+      Feedback.selected()
+      self.poi = nil
     })
     
   }

@@ -45,7 +45,7 @@ struct InfoView: View {
         NavigationLink(destination: CacheView()) {
           HStack {
             Text("ManageCache".localized)
-              .foregroundColor(.black)
+              .foregroundColor(.text)
             Spacer()
             Image(systemName: "chevron.right")
               .foregroundColor(.gray)
@@ -62,6 +62,7 @@ struct InfoView: View {
       .navigationBarItems(leading:
         Button(action: {
           self.isInfoDisplayed.toggle()
+          Feedback.selected()
         }) {
           Image(systemName: "chevron.down")
         }
@@ -75,6 +76,7 @@ struct InfoView: View {
     .gesture(DragGesture().onEnded { value in
       if value.translation.height > 100 {
         self.isInfoDisplayed.toggle()
+        Feedback.selected()
       }
     })
     

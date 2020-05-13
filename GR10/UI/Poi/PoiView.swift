@@ -58,6 +58,7 @@ struct PoiView: View {
       .navigationBarTitle(Text(isHendayeToBanyuls ? "Hendaye-Banyuls" : "Banyuls-Hendaye"), displayMode: .inline)
       .navigationBarItems(trailing:
         Button(action: {
+          Feedback.selected()
           self.isHendayeToBanyuls.toggle()
           self.animationAmount += .pi
         }) {

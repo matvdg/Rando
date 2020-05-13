@@ -32,6 +32,7 @@ struct CacheRow: View {
       
       Button(action: {
         self.showAlert = true
+        Feedback.selected()
       }) {
         Image(systemName: "trash")
       }

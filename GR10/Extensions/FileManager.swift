@@ -22,8 +22,18 @@ public extension FileManager {
   /// directories, hard links, ...).
   func allocatedSizeOfDirectory(at directoryURL: URL) -> String {
     
+    // The error handler simply stores the error and stops traversal
+    var enumeratorError: Error? = nil
+    func errorHandler(_: URL, error: Error) -> Bool {
+      enumeratorError = error
+      return false
+    }
+    
     // We have to enumerate all directory contents, including subdirectories.
-    let enumerator = self.enumerator(at: directoryURL, includingPropertiesForKeys: Array(allocatedSizeResourceKeys))!
+    let enumerator = self.enumerator(at: directoryURL,
+                                     includingPropertiesForKeys: Array(allocatedSizeResourceKeys),
+                                     options: [],
+                                     errorHandler: errorHandler)!
     
     // We'll sum up content size here:
     var accumulatedSize: UInt64 = 0
@@ -31,13 +41,27 @@ public extension FileManager {
     // Perform the traversal.
     for item in enumerator {
       
+      // Bail out on errors from the errorHandler.
+      if enumeratorError != nil { break }
+      
       // Add up individual file sizes.
-      let contentItemURL = item as! URL
-      accumulatedSize += (try? contentItemURL.regularFileAllocatedSize()) ?? 0
+      guard let contentItemURL = item as? URL else { continue }
+      do {
+        accumulatedSize += try contentItemURL.regularFileAllocatedSize()
+      } catch {
+        print("❤️ \(error.localizedDescription)")
+      }
+      
     }
+    if let error = enumeratorError { print("❤️ \(error.localizedDescription)") }
     
+    return formatBytes(size: Double(accumulatedSize))
+    
+  }
+  
+  fileprivate func formatBytes(size: Double) -> String {
     let formatter = MeasurementFormatter()
-    let measurement = Measurement(value: Double(accumulatedSize), unit: UnitInformationStorage.bytes)
+    let measurement = Measurement(value: size, unit: UnitInformationStorage.bytes)
     formatter.unitStyle = .short
     formatter.unitOptions = .naturalScale
     formatter.numberFormatter.maximumFractionDigits = 0
@@ -71,3 +95,4 @@ fileprivate extension URL {
     return UInt64(resourceValues.totalFileAllocatedSize ?? resourceValues.fileAllocatedSize ?? 0)
   }
 }
+

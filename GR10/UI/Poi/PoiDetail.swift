@@ -45,12 +45,14 @@ struct PoiDetail: View {
           CircleButton(image: "phone.fill") {
             guard let url = self.poi.phoneNumber else { return }
             UIApplication.shared.open(url)
+            Feedback.selected()
           }
           .isHidden(!self.poi.hasPhoneNumber, remove: true)
           
           CircleButton(image: "globe") {
             guard let url = self.poi.url else { return }
             UIApplication.shared.open(url)
+            Feedback.selected()
           }
           .isHidden(!self.poi.hasWebsite, remove: true)
         

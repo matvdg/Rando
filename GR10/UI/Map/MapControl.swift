@@ -18,6 +18,7 @@ struct MapControl: View {
     VStack() {
       Button(action: {
         self.isInfoDisplayed.toggle()
+        Feedback.selected()
       }) {
         Image(systemName: isInfoDisplayed ? "info.circle.fill" : "info.circle")
           .resizable()
@@ -27,6 +28,7 @@ struct MapControl: View {
       Divider()
       Button(action: {
         self.isCentered.toggle()
+        Feedback.selected()
       }) {
         Image(systemName: isCentered ? "location.fill" : "location")
           .resizable()
