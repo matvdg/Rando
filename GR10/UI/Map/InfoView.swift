@@ -11,7 +11,7 @@ import SwiftUI
 struct InfoView: View {
   
   enum DisplayMode: Int, CaseIterable {
-    case IGN = 0, Standard, Satellite
+    case IGN = 0, Standard, Satellite, Flyover
     var localized: String { String(describing: self) }
   }
   

@@ -14,9 +14,10 @@ class GpxManager {
   
   static let shared = GpxManager()
   
-  var locations = [CLLocationCoordinate2D]()
+  var locations = [CLLocation]()
+  var locationsCoordinate: [CLLocationCoordinate2D] { locations.map { $0.coordinate } }
   
-  lazy var polyline = MKPolyline(coordinates: locations, count: locations.count)
+  lazy var polyline = MKPolyline(coordinates: locationsCoordinate, count: locations.count)
   lazy var boundingBox = polyline.boundingMapRect
   
   init() {
@@ -45,23 +46,27 @@ class GpxManager {
   }
   
   // MARK: - Private methods
-  private func getLocations() -> [CLLocationCoordinate2D] {
+  private func getLocations() -> [CLLocation] {
     let filepath = Bundle.main.path(forResource: "gr10", ofType: "gpx")!
     let contents = try! String(contentsOfFile: filepath, encoding: .utf8)
     let lines = contents.components(separatedBy: "\n")
-    let locations =  lines.compactMap { line -> CLLocationCoordinate2D? in
+    let locations =  lines.compactMap { line -> CLLocation? in
       let result = line.components(separatedBy: "\"").compactMap { Double($0) }
-      guard result.count == 2, let lat = result.first, let lng = result.last else { return nil }
-      return CLLocationCoordinate2D(latitude: lat, longitude: lng)
+      guard result.count == 3 else { return nil }
+      let lat = result[0]
+      let lng = result[1]
+      let ele = result[2]
+      return CLLocation(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng), altitude: ele, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
     }
     return locations
   }
+  
   
   private func minimumDistanceToPolyline(from coordinate: CLLocationCoordinate2D) -> (distance: CLLocationDistance, index: Int) {
     var index = 0
     var minDistance: CLLocationDistance = .infinity
     
-    for (i, loc) in locations.enumerated() {
+    for (i, loc) in locationsCoordinate.enumerated() {
       let distance = loc.distance(from: coordinate)
       guard distance < minDistance else { continue }
       minDistance = distance

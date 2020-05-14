@@ -83,9 +83,9 @@ class TileManager {
   func saveTilesAroundPolyline(completion: @escaping ( (Float) -> () )) {
     guard !hasRecordedTiles else { return }
     DispatchQueue.global(qos: .userInitiated).async {
-      let locs =  GpxManager.shared.locations
+      let locs =  GpxManager.shared.locationsCoordinate // Average one loc per 60 meters
       for (i, loc) in locs.enumerated() {
-        guard i % 10 == 0 else { continue } // approximately take a gpx point every 100m
+        guard i % 50 == 0 else { continue } // approximately take a gpx point every 500m
         if i % 100 == 0 {
           DispatchQueue.main.async {
             completion(Float(i) / Float(locs.count))
@@ -161,7 +161,7 @@ class TileManager {
       let data = try Data(contentsOf: url)
       try data.write(to: filename)
     } catch {
-      print("❤️ \(error)")
+      print("❤️ PersistLocallyError = \(error)")
     }
     return url
   }

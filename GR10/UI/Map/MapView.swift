@@ -172,6 +172,7 @@ struct MapView: UIViewRepresentable {
     mapView.showsBuildings = false
     mapView.showsUserLocation = true
     mapView.showsScale = true
+    mapView.isPitchEnabled = true
     // Custom compass
     mapView.showsCompass = false // Remove default
     let compass = MKCompassButton(mapView: mapView)
@@ -192,6 +193,8 @@ struct MapView: UIViewRepresentable {
       mapView.addOverlay(overlay, level: .aboveLabels)
     case InfoView.DisplayMode.Satellite.rawValue:
       mapView.mapType = .hybrid
+    case InfoView.DisplayMode.Flyover.rawValue:
+      mapView.mapType = .hybridFlyover
     default:
       mapView.mapType = .standard
     }

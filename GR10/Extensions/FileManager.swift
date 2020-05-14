@@ -53,7 +53,7 @@ public extension FileManager {
       }
       
     }
-    if let error = enumeratorError { print("❤️ \(error.localizedDescription)") }
+    if let error = enumeratorError { print("❤️ AllocatedSizeOfDirectory enumeratorError = \(error.localizedDescription)") }
     
     return formatBytes(size: Double(accumulatedSize))
     

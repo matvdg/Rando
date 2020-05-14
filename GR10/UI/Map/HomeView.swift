@@ -25,6 +25,7 @@ struct HomeView: View {
     ZStack {
       
       MapView(isCentered: $isCentered, selectedDisplayMode: $selectedDisplayMode, selectedPoi: $selectedPoi)
+        .edgesIgnoringSafeArea(.top)
       
       VStack(alignment: .trailing) {
         
@@ -60,6 +61,13 @@ struct HomeView: View {
           .animation(.default)
         
       }
+      
+      VStack {
+        BlurView(effect: UIBlurEffect(style: .light))
+          .frame(height: 40)
+        Spacer()
+      }
+      .edgesIgnoringSafeArea(.top)
       
     }
     

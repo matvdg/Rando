@@ -13,6 +13,7 @@
 		D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0531A712467FD8C0020FFE0 /* Localizable.strings */; };
 		D0531A742467FE4C0020FFE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A732467FE4C0020FFE0 /* String.swift */; };
 		D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A75246820BA0020FFE0 /* MapControl.swift */; };
+		D058FCB9246D7B1B003BDFF8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058FCB8246D7B1B003BDFF8 /* BlurView.swift */; };
 		D05B14FF2460041F00B24666 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B14FE2460041F00B24666 /* HomeView.swift */; };
 		D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0630B6A245F571F006F6C44 /* LocationManager.swift */; };
 		D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0634792245D768B003BA9E7 /* AppDelegate.swift */; };
@@ -23,7 +24,6 @@
 		D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D063479D245D768C003BA9E7 /* LaunchScreen.storyboard */; };
 		D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A6245DCD34003BA9E7 /* MapView.swift */; };
 		D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A8245DCD8B003BA9E7 /* PoiView.swift */; };
-		D06347B5245DD4A9003BA9E7 /* gr10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D06347AD245DD4A8003BA9E7 /* gr10.gpx */; };
 		D06347C5245DD784003BA9E7 /* GpxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347C4245DD784003BA9E7 /* GpxManager.swift */; };
 		D083A78A246734DB00E87F08 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D083A789246734DB00E87F08 /* DownloadView.swift */; };
 		D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D083A78B246739EA00E87F08 /* ProgressBar.swift */; };
@@ -35,6 +35,7 @@
 		D09FB0092465D2360007F55B /* MiniImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB0082465D2360007F55B /* MiniImage.swift */; };
 		D09FB00C2465E15C0007F55B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00B2465E15C0007F55B /* View.swift */; };
 		D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00E2465E4080007F55B /* CircleButton.swift */; };
+		D0B5F85A246CC4C600ABABD1 /* gr10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B5F859246CC4C600ABABD1 /* gr10.gpx */; };
 		D0B7CDB22468550D00464C79 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB12468550D00464C79 /* Color.swift */; };
 		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
 		D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */; };
@@ -59,6 +60,7 @@
 		D0531A722467FD940020FFE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0531A732467FE4C0020FFE0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D0531A75246820BA0020FFE0 /* MapControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControl.swift; sourceTree = "<group>"; };
+		D058FCB8246D7B1B003BDFF8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D05B14FE2460041F00B24666 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D0630B6A245F571F006F6C44 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang d'Araing.gpx"; sourceTree = "<group>"; };
@@ -72,7 +74,6 @@
 		D06347A0245D768C003BA9E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D06347A6245DCD34003BA9E7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D06347A8245DCD8B003BA9E7 /* PoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiView.swift; sourceTree = "<group>"; };
-		D06347AD245DD4A8003BA9E7 /* gr10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gr10.gpx; sourceTree = "<group>"; };
 		D06347C4245DD784003BA9E7 /* GpxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpxManager.swift; sourceTree = "<group>"; };
 		D083A789246734DB00E87F08 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		D083A78B246739EA00E87F08 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		D09FB00B2465E15C0007F55B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		D09FB00E2465E4080007F55B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		D0B01A8C2460420A00EE62AD /* GR10.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GR10.entitlements; sourceTree = "<group>"; };
+		D0B5F859246CC4C600ABABD1 /* gr10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gr10.gpx; sourceTree = "<group>"; };
 		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang de Rulhe.gpx"; sourceTree = "<group>"; };
 		D0B7CDB72469184F00464C79 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -206,7 +208,7 @@
 			children = (
 				D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */,
 				D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */,
-				D06347AD245DD4A8003BA9E7 /* gr10.gpx */,
+				D0B5F859246CC4C600ABABD1 /* gr10.gpx */,
 				D06347C4245DD784003BA9E7 /* GpxManager.swift */,
 			);
 			path = Gpx;
@@ -242,6 +244,7 @@
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
 				D083A78B246739EA00E87F08 /* ProgressBar.swift */,
 				D09FB00E2465E4080007F55B /* CircleButton.swift */,
+				D058FCB8246D7B1B003BDFF8 /* BlurView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -340,13 +343,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */,
-				D06347B5245DD4A9003BA9E7 /* gr10.gpx in Resources */,
 				D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */,
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
 				D0531A6A246788920020FFE0 /* alpha.png in Resources */,
 				D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */,
 				D0634799245D768C003BA9E7 /* Assets.xcassets in Resources */,
 				D0F8633124615D56007C363A /* pois.json in Resources */,
+				D0B5F85A246CC4C600ABABD1 /* gr10.gpx in Resources */,
 				D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +387,7 @@
 				D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */,
 				D007B889246AEE160040E1CF /* MapViewContainer.swift in Sources */,
 				D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */,
+				D058FCB9246D7B1B003BDFF8 /* BlurView.swift in Sources */,
 				D0B7CE1C246A954500464C79 /* CacheRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
