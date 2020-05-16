@@ -15,28 +15,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Unk-9w-2EK">
-                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moE-jw-Xq4">
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem image="map" catalog="system" id="Ghv-tN-WBJ"/>
+                                    <tabBarItem image="mappin.and.ellipse" catalog="system" id="3Yj-NZ-wfu"/>
+                                </items>
+                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-Vq-ho9">
+                                <rect key="frame" x="0.0" y="428" width="414" height="40"/>
+                                <color key="backgroundColor" red="0.86050075290000005" green="0.1513909698" blue="0.078327976169999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="cE1-mT-S2A"/>
-                                    <constraint firstAttribute="height" constant="300" id="rq7-kQ-dz5"/>
+                                    <constraint firstAttribute="height" constant="40" id="HkJ-O0-DDY"/>
                                 </constraints>
-                            </imageView>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GR10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdG-eb-i7u">
+                                <rect key="frame" x="161" y="427.5" width="92" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Unk-9w-2EK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="h0h-4M-mPb"/>
-                            <constraint firstItem="Unk-9w-2EK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jCl-cY-Ta7"/>
+                            <constraint firstItem="GdG-eb-i7u" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="27S-QG-7qr"/>
+                            <constraint firstItem="DxS-Vq-ho9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3jS-rK-Zd6"/>
+                            <constraint firstItem="moE-jw-Xq4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MCv-LQ-lde"/>
+                            <constraint firstItem="GdG-eb-i7u" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="a2p-3u-zna"/>
+                            <constraint firstItem="DxS-Vq-ho9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iDC-uj-qe7"/>
+                            <constraint firstAttribute="bottom" secondItem="moE-jw-Xq4" secondAttribute="bottom" id="lFp-eK-KoW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="moE-jw-Xq4" secondAttribute="trailing" id="wQc-Mx-jtb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DxS-Vq-ho9" secondAttribute="trailing" id="x7N-T4-PRP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="-1" width="1024" height="1024"/>
+        <image name="map" catalog="system" width="128" height="113"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
     </resources>
 </document>

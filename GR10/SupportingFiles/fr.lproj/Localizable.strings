@@ -6,30 +6,24 @@
   Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 */
 
-// DownloadView
-"Welcome" = "Bienvenue dans GR10";
-"Downloading" = "Téléchargement des cartes en cours...";
-"DownloadedTitle" = "Téléchargement terminé";
-"DownloadedMessage" = "Toutes les cartes du GR10 ont été téléchargées avec succès";
-"Requirements" = "Nécessite environ 400 Mo";
-"Hide" = "Masquer";
-"HideMessage" = "Le téléchargement se poursuivra en arrière plan, vous serez notifié une fois terminé";
-"Cancel" = "Annuler";
-
 // CacheView
 "ManageCache" = "Gérer le cache";
 "cache" = "Cache (autres tuiles)";
 "gr10" = "Tuiles du GR10";
 "Delete" = "Supprimer";
+"Downloading" = "Téléchargement des cartes en cours...";
+"DownloadedTitle" = "Téléchargement terminé";
+"DownloadedMessage" = "Toutes les cartes du GR10 ont été téléchargées avec succès";
+"Requirements" = "Nécessite environ 400 Mo";
+"Cancel" = "Annuler";
 
 // PoiView
-"Pois" = "Étapes";
 "all" = "Tous";
 "refuge" = "Refuge";
 "spring" = "Source";
 "waterfall" = "Cascade";
 "peak" = "Pic";
-"Direction" = "Sens";
+"Direction" = "Inverser";
 
 // MapView
 "Map" = "Carte";
@@ -42,3 +36,8 @@
 "NegativeElevation" = "Dénivelé négatif";
 "Step" = "Étape";
 "Filter" = "Filtrer";
+"ign" = "IGN";
+"standard" = "Standard";
+"satellite" = "Satellite";
+"flyover" = "3D";
+"Stop" = "Arrêter le tour";

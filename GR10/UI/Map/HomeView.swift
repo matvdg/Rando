@@ -10,22 +10,23 @@ import SwiftUI
 
 struct HomeView: View {
   
+  @State var isHendayeToBanyuls = true
+  @State private var animationRotationAmount = 0.0
   @State var selectedTracking: Tracking = .disabled
-  @State var selectedLayer: Layer = .IGN
+  @State var selectedLayer: Layer = .ign
   @State var selectedFilter: Filter = .all
   @State var isInfoDisplayed: Bool = false
+  @State var isPlayingTour: Bool = false
   @State var selectedPoi: Poi?
   
   private var isInfoPoiDisplayed: Bool { selectedPoi != nil }
-  
-  @State private var animationAmount: CGFloat = 1
-  
+    
   var body: some View {
     
     ZStack {
       
-      MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi)
-        .edgesIgnoringSafeArea(.top)
+      MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, isHendayeToBanyuls: $isHendayeToBanyuls)
+      .edgesIgnoringSafeArea(.top)
       
       VStack(alignment: .trailing) {
         
@@ -34,6 +35,7 @@ struct HomeView: View {
           MapControl(tracking: $selectedTracking, isInfoDisplayed: $isInfoDisplayed)
             .padding(.trailing, 8)
             .padding(.top, 16)
+            .isHidden(isPlayingTour)
         }
         
         Spacer()
@@ -44,7 +46,7 @@ struct HomeView: View {
         
         Spacer()
         
-        InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed)
+        InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
           .offset(y: isInfoDisplayed ? 0 : 500)
           .animation(.default)
         
@@ -60,12 +62,57 @@ struct HomeView: View {
         
       }
       
+      VStack(alignment: .trailing) {
+        
+        HStack(alignment: .center) {
+          
+          Button(action: {
+            self.isPlayingTour = false
+          }) {
+            Text("Stop".localized)
+              .foregroundColor(.text)
+          }
+          .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+          .background(Color.alpha)
+          .clipShape(RoundedRectangle(cornerRadius: 8))
+          .shadow(radius: 1)
+          .padding(.top, 8)
+          .isHidden(!isPlayingTour)
+          
+          
+          
+          Button(action: {
+            self.isHendayeToBanyuls.toggle()
+            self.animationRotationAmount += .pi
+          }) {
+            HStack {
+              Text("Direction".localized)
+              Image(systemName: "arrow.2.circlepath")
+                .rotation3DEffect(.radians(animationRotationAmount), axis: (x: 0, y: 0, z: 1))
+                .animation(.default)
+            }
+            .foregroundColor(.text)
+          }
+          .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+          .background(Color.alpha)
+          .clipShape(RoundedRectangle(cornerRadius: 8))
+          .shadow(radius: 1)
+          .padding(.top, 8)
+          .isHidden(!isPlayingTour)
+          
+        }
+        
+        Spacer()
+        
+      }
+      #if !targetEnvironment(macCatalyst)
       VStack {
         BlurView(effect: UIBlurEffect(style: .light))
           .frame(height: 40)
         Spacer()
       }
       .edgesIgnoringSafeArea(.top)
+      #endif
       
     }
     .onAppear {

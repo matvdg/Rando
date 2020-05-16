@@ -25,7 +25,6 @@
 		D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A6245DCD34003BA9E7 /* MapView.swift */; };
 		D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A8245DCD8B003BA9E7 /* PoiView.swift */; };
 		D06347C5245DD784003BA9E7 /* GpxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347C4245DD784003BA9E7 /* GpxManager.swift */; };
-		D083A78A246734DB00E87F08 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D083A789246734DB00E87F08 /* DownloadView.swift */; };
 		D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D083A78B246739EA00E87F08 /* ProgressBar.swift */; };
 		D08AB2682465BAAD00793417 /* PoiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2672465BAAD00793417 /* PoiRow.swift */; };
 		D08AB26A2465BC7000793417 /* PoiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* PoiDetail.swift */; };
@@ -74,7 +73,6 @@
 		D06347A6245DCD34003BA9E7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D06347A8245DCD8B003BA9E7 /* PoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiView.swift; sourceTree = "<group>"; };
 		D06347C4245DD784003BA9E7 /* GpxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpxManager.swift; sourceTree = "<group>"; };
-		D083A789246734DB00E87F08 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		D083A78B246739EA00E87F08 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		D08AB2672465BAAD00793417 /* PoiRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiRow.swift; sourceTree = "<group>"; };
 		D08AB2692465BC7000793417 /* PoiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiDetail.swift; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				D0634796245D768B003BA9E7 /* ContentView.swift */,
-				D083A789246734DB00E87F08 /* DownloadView.swift */,
 				D05B14FE2460041F00B24666 /* HomeView.swift */,
 				D06347A6245DCD34003BA9E7 /* MapView.swift */,
 				D0531A75246820BA0020FFE0 /* MapControl.swift */,
@@ -361,7 +358,6 @@
 				D08F1A9E2465A66300335281 /* Poi.swift in Sources */,
 				D06347C5245DD784003BA9E7 /* GpxManager.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
-				D083A78A246734DB00E87F08 /* DownloadView.swift in Sources */,
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,

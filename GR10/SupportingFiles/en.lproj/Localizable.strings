@@ -6,30 +6,24 @@
   Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 */
 
-// DownloadView
-"Welcome" = "Welcome to GR10";
-"Downloading" = "Downloading maps...";
-"DownloadedTitle" = "Download succeeded";
-"DownloadedMessage" = "All the GR10 maps have been downloaded";
-"Requirements" = "Requires approximately 400 MB";
-"Hide" = "Hide";
-"HideMessage" = "The download will continue in the background, you will be notified when finished";
-"Cancel" = "Cancel";
-
 // CacheView
 "ManageCache" = "Manage cache";
 "cache" = "Cache (other tiles)";
 "gr10" = "GR10 tiles";
 "Delete" = "Delete";
+"Downloading" = "Downloading maps...";
+"DownloadedTitle" = "Download succeeded";
+"DownloadedMessage" = "All the GR10 maps have been downloaded";
+"Requirements" = "Requires approximately 400 MB";
+"Cancel" = "Cancel";
 
 // PoiView
-"Pois" = "Steps";
 "all" = "All";
 "refuge" = "Refuge";
 "spring" = "Spring";
 "waterfall" = "Waterfall";
 "peak" = "Peak";
-"Direction" = "Direction";
+"Direction" = "Reverse";
 
 // MapView
 "Map" = "Map";
@@ -42,3 +36,8 @@
 "NegativeElevation" = "Negative elevation";
 "Step" = "Step";
 "Filter" = "Filter";
+"ign" = "IGN";
+"standard" = "Standard";
+"satellite" = "Satellite";
+"flyover" = "3D";
+"Stop" = "Stop the tour";

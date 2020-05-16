@@ -145,7 +145,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "1024.png",
+      "filename" : "appstore-1.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
@@ -229,7 +229,7 @@
       "subtype" : "44mm"
     },
     {
-      "filename" : "1024.png",
+      "filename" : "appstore-2.png",
       "idiom" : "watch-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
@@ -289,7 +289,7 @@
       "size" : "512x512"
     },
     {
-      "filename" : "1024.png",
+      "filename" : "appstore.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
