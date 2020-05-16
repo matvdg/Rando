@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Cagateille
+
+  Created by Mathieu Vandeginste on 10/05/2020.
+  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
+*/
+
+// CacheView
+"ManageCache" = "Manage cache";
+"cache" = "Cache (other tiles)";
+"cagateille" = "Cagateille tiles";
+"Delete" = "Delete";
+"Downloading" = "Downloading maps...";
+"DownloadedTitle" = "Download succeeded";
+"DownloadedMessage" = "All the Cagateille maps have been downloaded";
+"Requirements" = "Requires approximately 400 MB";
+"Cancel" = "Cancel";
+
+// PoiView
+"all" = "All";
+"refuge" = "Refuge";
+"spring" = "Spring";
+"waterfall" = "Waterfall";
+"peak" = "Peak";
+"Direction" = "Reverse";
+
+// MapView
+"Map" = "Map";
+"MapSettings" = "Map settings";
+"MapOfflineSwitcher" = "Offline IGN map";
+"Distance" = "Distance";
+"DurationEstimated" = "Estimated duration";
+"Altitude" = "Altitude";
+"PositiveElevation" = "Positive elevation";
+"NegativeElevation" = "Negative elevation";
+"Step" = "Step";
+"Filter" = "Filter";
+"ign" = "IGN";
+"standard" = "Standard";
+"satellite" = "Satellite";
+"flyover" = "3D";
+"Stop" = "Stop the tour";
