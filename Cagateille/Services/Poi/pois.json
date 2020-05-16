@@ -1,15 +1,34 @@
 [
   {
     "id" : 0,
-    "name" : "Parking",
+    "name" : "Parking La Peyre",
     "category" : "parking",
     "description": "Départ de magnifique randos, dont le cirque de Cagateille et l'étang d'Alet ou de la Hilette. Attention, forte affluence en  été, notamment durant l'après midi. Petit parking en contre bas au cas où le grand est plein.",
     "alt" : 1027,
     "lat" : 42.756355,
     "lng" : 1.287751
   },
+  
   {
     "id" : 1,
+    "name" : "Passerelle Gérac",
+    "category" : "bridge",
+    "description": "Passerelle sur le ruisseau de Gérac",
+    "alt" : 1158,
+    "lat" : 42.751396,
+    "lng" : 1.293584
+  },
+  {
+    "id" : 2,
+    "name" : "Passerelle Turguilla",
+    "category" : "bridge",
+    "description": "Passerelle sur le ruisseau de Turguilla",
+    "alt" : 1161,
+    "lat" : 42.747892,
+    "lng" : 1.295586
+  },
+  {
+    "id" : 3,
     "name" : "Refuge de la Hillette",
     "category" : "refuge",
     "description": "Un refuge non gardé de 10 places, rénové en 2007, bordant l'étang de la Hillette.",
@@ -18,7 +37,7 @@
     "lng" : 1.305689
   },
   {
-    "id" : 2,
+    "id" : 4,
     "name" : "Étang de la Hillette",
     "category" : "lake",
     "description": "L'étang de la Hillette est situé dans les Pyrénées (massif du Cestescans) sur la commune d'Ustou, en Couserans (département de l'Ariège). L'étang de la Hillette est un lac naturel d'origine glaciaire, situé non loin de la source de l'Alet dans la vallée d'Ustou à 1 824 mètres d'altitude Surplombant le cirque de Cagateille, l'étang est un objectif de randonnée. Un refuge non gardé de 10 places, rénové en 2007, le borde.",
@@ -27,7 +46,7 @@
     "lng" : 1.305673
   },
   {
-    "id" : 3,
+    "id" : 5,
     "name" : "Étang d'Alet",
     "category" : "lake",
     "description": "L'étang d'Alet est situé dans les Pyrénées (massif du Cestescans) sur la commune d'Ustou, en Couserans (département de l'Ariège). L'étang d'Alet est un lac naturel d'origine glaciaire, situé dans la vallée d'Ustou à 1 904 mètres d'altitude. Il a une superficie de 13 ha et avec une profondeur de 62 m, c'est l'un des lacs les plus profonds des Pyrénées.",
@@ -35,7 +54,22 @@
     "lat" : 42.736811,
     "lng" : 1.284414
   },
-  
-  
-  
+  {
+    "id" : 6,
+    "name" : "Turon de la Piède",
+    "category" : "peak",
+    "description": "Turon de la Piède, sommet culminant à 1 864 mètres, peu individualisé quand on l’aborde par ce côté",
+    "alt" : 1864,
+    "lat" : 42.743777,
+    "lng" : 1.277375
+  },
+  {
+    "id" : 7,
+    "name" : "Passerelle Cors",
+    "category" : "bridge",
+    "description": "Passerelle sur le ruisseau des Cors",
+    "alt" : 999,
+    "lat" : 42.756233,
+    "lng" : 1.284320
+  }
 ]

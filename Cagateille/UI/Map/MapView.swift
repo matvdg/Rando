@@ -56,7 +56,7 @@ struct MapView: UIViewRepresentable {
     case .all: selectedPois =  pois
     case .refuge: selectedPois =  pois.filter { $0.category == .refuge }
     case .lake: selectedPois =  pois.filter { $0.category == .lake }
-    default: selectedPois = pois.filter { $0.category == .waterfall }
+    default: selectedPois = pois.filter { $0.category == .bridge }
     }
     return selectedPois.map { PoiAnnotation(poi: $0) }
   }
@@ -126,7 +126,6 @@ struct MapView: UIViewRepresentable {
       // Max zoom check
       let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
       var span = mapView.region.span
-      print(span.latitudeDelta)
       let maxZoom: CLLocationDegrees = 0.010
       if span.latitudeDelta < maxZoom {
         span = MKCoordinateSpan(latitudeDelta: maxZoom, longitudeDelta: maxZoom)

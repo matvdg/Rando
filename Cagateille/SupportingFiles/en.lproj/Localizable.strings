@@ -23,6 +23,7 @@
 "spring" = "Spring";
 "waterfall" = "Waterfall";
 "lake" = "Lake";
+"bridge" = "Bridge";
 "peak" = "Peak";
 "Direction" = "Reverse";
 "Steps" = "Steps";

@@ -12,7 +12,7 @@ import MapKit
 let pois = PoiManager.shared.pois
 
 enum Filter: String, CaseIterable {
-  case all, refuge, lake
+  case all, refuge, lake, bridge
   var localized: String { rawValue.localized }
 }
 
@@ -28,7 +28,7 @@ struct PoiView: View {
     case .all: selectedPois =  pois
     case .refuge: selectedPois =  pois.filter { $0.category == .refuge }
     case .lake: selectedPois =  pois.filter { $0.category == .lake }
-    default: selectedPois = pois.filter { $0.category == .waterfall }
+    default: selectedPois = pois.filter { $0.category == .bridge }
     }
     return selectedPois.sorted { clockwise ? $0.id < $1.id : $0.id > $1.id }
   }
