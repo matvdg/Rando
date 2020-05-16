@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 import MapKit
 
-var currentDisplayMode = -1
+var currentDisplayMode: InfoView.DisplayMode?
 var selectedAnnotation: PoiAnnotation?
 var mapChangedFromUserInteraction = false
 
@@ -18,11 +18,11 @@ struct MapView: UIViewRepresentable {
   
   // MARK: Binding properties
   @Binding var isCentered: Bool
-  @Binding var selectedDisplayMode: Int
+  @Binding var selectedDisplayMode: InfoView.DisplayMode
   @Binding var selectedPoi: Poi?
   
   // MARK: Constructors
-  init(isCentered: Binding<Bool>, selectedDisplayMode: Binding<Int>, selectedPoi: Binding<Poi?>, poiCoordinate: CLLocationCoordinate2D? = nil) {
+  init(isCentered: Binding<Bool>, selectedDisplayMode: Binding<InfoView.DisplayMode>, selectedPoi: Binding<Poi?>, poiCoordinate: CLLocationCoordinate2D? = nil) {
     
     self.poiCoordinate = poiCoordinate
     self._isCentered = isCentered
@@ -34,7 +34,7 @@ struct MapView: UIViewRepresentable {
   // Convenience init
   init(poiCoordinate: CLLocationCoordinate2D? = nil) {
     
-    self.init(isCentered: Binding<Bool>.constant(false), selectedDisplayMode: Binding<Int>.constant(0), selectedPoi: Binding<Poi?>.constant(nil), poiCoordinate: poiCoordinate)
+    self.init(isCentered: Binding<Bool>.constant(false), selectedDisplayMode: Binding<InfoView.DisplayMode>.constant(.IGN), selectedPoi: Binding<Poi?>.constant(nil), poiCoordinate: poiCoordinate)
     
   }
   
@@ -140,7 +140,7 @@ struct MapView: UIViewRepresentable {
   
   // MARK: UIViewRepresentable lifecycle methods
   func makeUIView(context: Context) -> MKMapView {
-    currentDisplayMode = -1
+    currentDisplayMode = nil
     let mapView = MKMapView()
     mapView.delegate = context.coordinator
     self.configureMap(mapView: mapView)
@@ -186,14 +186,14 @@ struct MapView: UIViewRepresentable {
     currentDisplayMode = selectedDisplayMode
     mapView.removeOverlays(mapView.overlays)
     switch selectedDisplayMode {
-    case InfoView.DisplayMode.IGN.rawValue:
+    case .IGN:
       let overlay = TileOverlay()
       overlay.canReplaceMapContent = false
       mapView.mapType = .standard
       mapView.addOverlay(overlay, level: .aboveLabels)
-    case InfoView.DisplayMode.Satellite.rawValue:
+    case .Satellite:
       mapView.mapType = .hybrid
-    case InfoView.DisplayMode.Flyover.rawValue:
+    case .Flyover:
       mapView.mapType = .hybridFlyover
     default:
       mapView.mapType = .standard

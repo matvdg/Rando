@@ -28,6 +28,7 @@
 "refuge" = "Refuge";
 "spring" = "Spring";
 "waterfall" = "Waterfall";
+"peak" = "Peak";
 "Direction" = "Direction";
 
 // MapView
@@ -35,4 +36,8 @@
 "MapSettings" = "Map settings";
 "MapOfflineSwitcher" = "Offline IGN map";
 "Distance" = "Distance";
+"DurationEstimated" = "Estimated duration";
 "Altitude" = "Altitude";
+"PositiveElevation" = "Positive elevation";
+"NegativeElevation" = "Negative elevation";
+"Step" = "Step";

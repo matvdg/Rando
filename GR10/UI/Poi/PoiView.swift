@@ -14,21 +14,21 @@ let pois = PoiManager.shared.pois
 
 struct PoiView: View {
   
-  enum DisplayMode: Int, CaseIterable {
-    case all = 0, refuge, spring, waterfall
-    var localized: String { String(describing: self).localized }
+  enum DisplayMode: String, CaseIterable {
+    case all, refuge, peak, waterfall
+    var localized: String { rawValue.localized }
   }
   
-  @State var selectedDisplayMode = DisplayMode.all.rawValue
+  @State var selectedDisplayMode: DisplayMode = .all
   @State var isHendayeToBanyuls = true
   @State private var animationAmount = 0.0
   
   var selectedPois: [Poi] {
     var selectedPoid: [Poi]
     switch selectedDisplayMode {
-    case DisplayMode.all.rawValue: selectedPoid =  pois
-    case DisplayMode.refuge.rawValue: selectedPoid =  pois.filter { $0.category == .refuge }
-    case DisplayMode.spring.rawValue: selectedPoid =  pois.filter { $0.category == .spring }
+    case .all: selectedPoid =  pois
+    case .refuge: selectedPoid =  pois.filter { $0.category == .refuge }
+    case .peak: selectedPoid =  pois.filter { $0.category == .peak }
     default: selectedPoid = pois.filter { $0.category == .waterfall }
     }
     selectedPoid.sort { isHendayeToBanyuls ? $0.dist < $1.dist : $0.dist > $1.dist }
@@ -41,9 +41,9 @@ struct PoiView: View {
       
       VStack {
         
-        Picker(selection: $selectedDisplayMode, label: Text("Mode")) {
-          ForEach(0..<DisplayMode.allCases.count, id: \.self) { index in
-            Text(DisplayMode.allCases[index].localized).tag(index)
+        Picker(selection: $selectedDisplayMode, label: Text("")) {
+          ForEach(DisplayMode.allCases, id: \.self) { mode in
+            Text(mode.localized)
           }
         }.pickerStyle(SegmentedPickerStyle())
           .padding()

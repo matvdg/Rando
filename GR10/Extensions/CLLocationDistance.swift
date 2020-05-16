@@ -14,9 +14,13 @@ extension CLLocationDistance {
   /// Convert CLLocationDistance (meters) to String using formatter (Locale is considered)
   var toString: String {
     let formatter = MeasurementFormatter()
-    let measurement = Measurement(value: self, unit: UnitLength.meters)
+    let measurement = Measurement(value: Double(Int(self)), unit: UnitLength.meters)
     formatter.unitStyle = .short
-    formatter.unitOptions = .naturalScale
+    if self < 1 {
+      formatter.unitOptions = .providedUnit
+    } else {
+      formatter.unitOptions = .naturalScale
+    }
     formatter.numberFormatter.usesSignificantDigits = true
     formatter.numberFormatter.maximumSignificantDigits = 3
     return formatter.string(from: measurement)

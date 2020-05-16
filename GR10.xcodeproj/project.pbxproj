@@ -34,7 +34,6 @@
 		D08F1A9E2465A66300335281 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9D2465A66300335281 /* Poi.swift */; };
 		D09FB0092465D2360007F55B /* MiniImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB0082465D2360007F55B /* MiniImage.swift */; };
 		D09FB00C2465E15C0007F55B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00B2465E15C0007F55B /* View.swift */; };
-		D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00E2465E4080007F55B /* CircleButton.swift */; };
 		D0B5F85A246CC4C600ABABD1 /* gr10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B5F859246CC4C600ABABD1 /* gr10.gpx */; };
 		D0B7CDB22468550D00464C79 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB12468550D00464C79 /* Color.swift */; };
 		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
@@ -84,7 +83,6 @@
 		D08F1A9D2465A66300335281 /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
 		D09FB0082465D2360007F55B /* MiniImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniImage.swift; sourceTree = "<group>"; };
 		D09FB00B2465E15C0007F55B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		D09FB00E2465E4080007F55B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		D0B01A8C2460420A00EE62AD /* GR10.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GR10.entitlements; sourceTree = "<group>"; };
 		D0B5F859246CC4C600ABABD1 /* gr10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gr10.gpx; sourceTree = "<group>"; };
 		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				D08AB26B2465BCDC00793417 /* CircleImage.swift */,
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
 				D083A78B246739EA00E87F08 /* ProgressBar.swift */,
-				D09FB00E2465E4080007F55B /* CircleButton.swift */,
 				D058FCB8246D7B1B003BDFF8 /* BlurView.swift */,
 			);
 			path = Shared;
@@ -384,7 +381,6 @@
 				D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */,
 				D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* PoiView.swift in Sources */,
-				D09FB00F2465E4080007F55B /* CircleButton.swift in Sources */,
 				D007B889246AEE160040E1CF /* MapViewContainer.swift in Sources */,
 				D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */,
 				D058FCB9246D7B1B003BDFF8 /* BlurView.swift in Sources */,

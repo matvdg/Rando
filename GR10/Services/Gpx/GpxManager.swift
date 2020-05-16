@@ -10,6 +10,8 @@ import Foundation
 import CoreLocation
 import MapKit
 
+typealias Estimations = (distance: String, positiveElevation: String, negativeElevation: String, duration: String)
+
 class GpxManager {
   
   static let shared = GpxManager()
@@ -25,24 +27,41 @@ class GpxManager {
   }
   
   // MARK: - Public method
-  func distanceTo(to poi: CLLocationCoordinate2D) -> String {
+  func estimations(for poi: Poi) -> Estimations {
     
     let date = Date()
     
     let minDistanceToUser = minimumDistanceToPolyline(from: LocationManager.shared.currentPosition.coordinate)
-    let minDistanceToPoi = minimumDistanceToPolyline(from: poi)
+    let minDistanceToPoi = minimumDistanceToPolyline(from: poi.coordinate)
         
-    var totalDistance: CLLocationDistance = minDistanceToUser.distance + minDistanceToPoi.distance
+    var distance: CLLocationDistance = minDistanceToUser.distance + minDistanceToPoi.distance
+    var positiveElevation: CLLocationDistance = 0
+    var negativeElevation: CLLocationDistance = 0
     
     let indexes = [minDistanceToUser.index, minDistanceToPoi.index].sorted { $0 < $1 }
         
     for i in indexes[0]..<indexes[1] {
-      totalDistance += locations[i].distance(from: locations[i+1])
+      distance += locations[i].distance(from: locations[i+1])
+      let elevation = locations[i+1].altitude - locations[i].altitude
+      if elevation > 0 {
+        positiveElevation += elevation
+      } else {
+        negativeElevation += elevation
+      }
     }
     
-    print("❤️ Elapsed time to compute polyline distance = \(Date().timeIntervalSince(date))s")
+    // Add elevation to POI (usefull if the POI is outside the GR10 polyline like a summit)
+    let elevation = poi.alt - locations[minDistanceToPoi.index].altitude
+    if elevation > 0 {
+      positiveElevation += elevation
+    } else {
+      negativeElevation += elevation
+    }
+    // At the contrary we don't add elevation from the user if he is outside the GR10 polyline as the elevation from the GPS is not accurate, particularly in mountains and if the user is far away from the GR10 (at home, looking at the app for example from Toulouse, so the elevation added would have been irrelevant)
     
-    return totalDistance.toString
+    print("❤️ Elapsed time to compute polyline distance & elevation = \(Date().timeIntervalSince(date))s")
+    let duration = getDurationEstimation(distance: distance, positiveElevation: positiveElevation)
+    return (distance.toString, positiveElevation.toString, abs(negativeElevation).toString, duration)
   }
   
   // MARK: - Private methods
@@ -74,6 +93,16 @@ class GpxManager {
     }
     
     return (minDistance, index)
+  }
+  
+  private func getDurationEstimation(distance: CLLocationDistance, positiveElevation: CLLocationDistance) -> String {
+    let speed: CLLocationSpeed = 1.111 // 4Km.h-1
+    let totalDistance = distance + 10 * positiveElevation
+    let duration = totalDistance/speed
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute]
+    formatter.unitsStyle = .abbreviated
+    return formatter.string(from: duration) ?? ""
   }
   
 }

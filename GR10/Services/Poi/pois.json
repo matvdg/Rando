@@ -216,12 +216,23 @@
   },
   {
     "id" : 19,
-    "name" : "Source Pla de La Lau",
-    "category" : "spring",
-    "alt" : 934,
-    "dist" : 529.7,
-    "lat" : 42.832676,
-    "lng" : 1.031071
+    "name" : "Mont Valier",
+    "category" : "peak",
+    "description" : "Le mont Valier est un sommet de 2 838 m situé dans les Pyrénées ariégeoises, en Couserans, dominant toute la vallée d’Angouls et son torrent, à faible distance de la frontière espagnole",
+    "alt" : 2838,
+    "dist" : 530,
+    "lat" : 42.799284,
+    "lng" : 1.085288
+  },
+  {
+    "id" : 20,
+    "name" : "Pic de Crabère",
+    "category" : "peak",
+    "description" : "Le pic de Crabère est un sommet des Pyrénées centrales d'une altitude de 2 630 mètres. Il constitue un tripoint entre les départements français de l'Ariège et de la Haute-Garonne, en région Occitanie, et la province espagnole de Lérida, en Catalogne.",
+    "alt" : 2630,
+    "dist" : 505,
+    "lat" : 42.826527,
+    "lng" : 0.858709
   },
   {
     "id" : 999,

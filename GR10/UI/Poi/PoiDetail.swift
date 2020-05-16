@@ -28,58 +28,75 @@ struct PoiDetail: View {
         .padding(.bottom, -130)
       
       VStack(alignment: .leading, spacing: 20.0) {
+        
         Text(poi.name)
           .font(.title)
+          .fontWeight(.heavy)
+          
         
         HStack(alignment: .center, spacing: 20.0) {
-          
-          NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinate)) {
-            Image(systemName: "map.fill")
-              .frame(width: 40, height: 40, alignment: .center)
-              .background(Color.alpha)
-              .clipShape(Circle())
-              .overlay(Circle().stroke(Color.white, lineWidth: 2))
-              .shadow(radius: 1)
-          }
-          
-          CircleButton(image: "phone.fill") {
-            guard let url = self.poi.phoneNumber else { return }
-            UIApplication.shared.open(url)
-            Feedback.selected()
-          }
-          .isHidden(!self.poi.hasPhoneNumber, remove: true)
-          
-          CircleButton(image: "globe") {
-            guard let url = self.poi.url else { return }
-            UIApplication.shared.open(url)
-            Feedback.selected()
-          }
-          .isHidden(!self.poi.hasWebsite, remove: true)
-          
+                    
           VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing: 8) {
-              HStack(alignment: .bottom, spacing: 4) {
-                Text("Km")
-                  .font(.caption)
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 4) {
+                Text("Step".localized)
+                  .foregroundColor(Color("grgray"))
                 Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
               }
-              HStack(alignment: .bottom, spacing: 4) {
+            }
+                        
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 4) {
+                Text("DurationEstimated".localized)
+                  .foregroundColor(Color("grgray"))
+                Text(poi.estimations.duration).fontWeight(.bold)
+              }
+            }
+            
+          }
+                    
+          Divider()
+                    
+          VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 4) {
                 Text("Altitude".localized)
-                  .font(.caption)
+                  .foregroundColor(Color("grgray"))
                 Text(poi.altitudeInMeters).fontWeight(.bold)
               }
             }
-            HStack(spacing: 8) {
-              HStack(alignment: .bottom, spacing: 4) {
+                        
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 4) {
                 Text("Distance".localized)
-                  .font(.caption)
-                Text(poi.distanceFromUser).fontWeight(.bold)
+                  .foregroundColor(Color("grgray"))
+                Text(poi.estimations.distance).fontWeight(.bold)
               }
-              Spacer()
             }
             
           }
           
+          Divider()
+          
+          VStack(alignment: .leading, spacing: 8) {
+            
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 4) {
+                Text("PositiveElevation".localized)
+                  .foregroundColor(Color("grgray"))
+                Text(poi.estimations.positiveElevation).fontWeight(.bold)
+              }
+            }
+                        
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 4) {
+                Text("NegativeElevation".localized)
+                  .foregroundColor(Color("grgray"))
+                Text(poi.estimations.negativeElevation).fontWeight(.bold)
+              }
+            }
+
+          }
           
         }
         .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
@@ -87,6 +104,7 @@ struct PoiDetail: View {
         ScrollView {
           Text(poi.description ?? "")
             .font(.body)
+            .foregroundColor(.text)
             .padding(.trailing, 8)
         }
         
@@ -96,6 +114,25 @@ struct PoiDetail: View {
       Spacer()
     }
     .navigationBarTitle(Text(poi.name))
+    .navigationBarItems(trailing:
+      HStack(spacing: 16) {
+        Button(action: {
+          guard let url = self.poi.phoneNumber else { return }
+          UIApplication.shared.open(url)
+          Feedback.selected()
+        }) {
+          Image(systemName: "phone.fill")
+        }
+        .isHidden(!self.poi.hasPhoneNumber, remove: true)
+        Button(action: {
+          guard let url = self.poi.url else { return }
+          UIApplication.shared.open(url)
+          Feedback.selected()
+        }) {
+          Image(systemName: "globe")
+        }
+        .isHidden(!self.poi.hasWebsite, remove: true)
+    })
   }
 }
 
@@ -103,7 +140,7 @@ struct PoiDetail: View {
 struct PoiDetail_Previews: PreviewProvider {
   @State static var isHendayeToBanyuls = true
   static var previews: some View {
-    PoiDetail(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois.first!)
+    PoiDetail(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[7])
       .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
       .previewDisplayName("iPhone SE")
       .environment(\.colorScheme, .light)

@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeView: View {
   
   @State var isCentered: Bool = false
-  @State var selectedDisplayMode = InfoView.DisplayMode.IGN.rawValue
+  @State var selectedDisplayMode: InfoView.DisplayMode = .IGN
   @State var isInfoDisplayed: Bool = false
   @State var selectedPoi: Poi?
   
@@ -45,7 +45,7 @@ struct HomeView: View {
         Spacer()
         
         InfoView(selectedDisplayMode: $selectedDisplayMode, isInfoDisplayed: $isInfoDisplayed)
-          .offset(y: isInfoDisplayed ? 70 : 300)
+          .offset(y: isInfoDisplayed ? 30 : 300)
           .opacity(isInfoDisplayed ? 1 : 0)
           .animation(.default)
         
@@ -56,7 +56,7 @@ struct HomeView: View {
         Spacer()
         
         InfoPoiView(poi: $selectedPoi)
-          .offset(y: isInfoPoiDisplayed ? 70 : 300)
+          .offset(y: isInfoPoiDisplayed ? 30 : 300)
           .opacity(isInfoPoiDisplayed ? 1 : 0)
           .animation(.default)
         

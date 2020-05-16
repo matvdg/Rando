@@ -10,12 +10,11 @@ import SwiftUI
 
 struct InfoView: View {
   
-  enum DisplayMode: Int, CaseIterable {
-    case IGN = 0, Standard, Satellite, Flyover
-    var localized: String { String(describing: self) }
+  enum DisplayMode: String, CaseIterable, Equatable {
+    case IGN, Standard, Satellite, Flyover
   }
   
-  @Binding var selectedDisplayMode: Int
+  @Binding var selectedDisplayMode: DisplayMode
   @Binding var isInfoDisplayed: Bool
   @State var isOffline: Bool = TileManager.shared.isOffline
   
@@ -25,9 +24,9 @@ struct InfoView: View {
       
       VStack(spacing: 20.0) {
         
-        Picker(selection: $selectedDisplayMode, label: Text("Mode")) {
-          ForEach(0..<DisplayMode.allCases.count, id: \.self) { index in
-            Text(DisplayMode.allCases[index].localized).tag(index)
+        Picker(selection: $selectedDisplayMode, label: Text("")) {
+          ForEach(DisplayMode.allCases, id: \.self) { mode in
+            Text(mode.rawValue)
           }
         }
         .pickerStyle(SegmentedPickerStyle())
@@ -86,7 +85,7 @@ struct InfoView: View {
 
 // MARK: Previews
 struct InfoView_Previews: PreviewProvider {
-  @State static var selectedDisplayMode = InfoView.DisplayMode.IGN.rawValue
+  @State static var selectedDisplayMode = InfoView.DisplayMode.IGN
   @State static var isInfoDisplayed = true
   @State static var isOffline = false
   static var previews: some View {

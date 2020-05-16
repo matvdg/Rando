@@ -28,6 +28,7 @@
 "refuge" = "Refuge";
 "spring" = "Source";
 "waterfall" = "Cascade";
+"peak" = "Pic";
 "Direction" = "Sens";
 
 // MapView
@@ -35,4 +36,8 @@
 "MapSettings" = "Réglages de la carte";
 "MapOfflineSwitcher" = "Carte IGN hors ligne";
 "Distance" = "Distance";
+"DurationEstimated" = "Temps estimé";
 "Altitude" = "Altitude";
+"PositiveElevation" = "Dénivelé positif";
+"NegativeElevation" = "Dénivelé négatif";
+"Step" = "Étape";

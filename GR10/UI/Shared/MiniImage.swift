@@ -18,8 +18,7 @@ struct MiniImage: View {
       .background(Color.white)
       .frame(width: 70, height: 70, alignment: .center)
       .clipShape(Circle())
-      .overlay(Circle().stroke(Color.white, lineWidth: 2))
-      .shadow(radius: 2)
+      .shadow(radius: 4)
   }
 }
 

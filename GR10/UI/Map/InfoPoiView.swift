@@ -20,21 +20,43 @@ struct InfoPoiView: View {
         
         MiniImage(id: poi?.id ?? -1)
           .frame(width: 70.0, height: 70.0)
-        
         VStack(alignment: .leading) {
-          
-          HStack(spacing: 16) {
-            HStack(alignment: .bottom, spacing: 8) {
-              Text("Altitude".localized)
-                .font(.caption)
-              Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
+          HStack {
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 4) {
+                  Text("Altitude".localized)
+                    .foregroundColor(Color("grgray"))
+                  Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
+                }
+              }
+              VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 4) {
+                  Text("DurationEstimated".localized)
+                    .foregroundColor(Color("grgray"))
+                  Text(poi?.estimations.duration ?? "").fontWeight(.bold)
+                }
+              }
             }
-            HStack(alignment: .bottom, spacing: 8) {
-              Text("Distance".localized)
-                .font(.caption)
-              Text(poi?.distanceFromUser ?? "").fontWeight(.bold)
+            Divider()
+            VStack(alignment: .leading, spacing: 8) {
+              VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 4) {
+                  Text("Distance".localized)
+                    .foregroundColor(Color("grgray"))
+                  Text(poi?.estimations.distance ?? "").fontWeight(.bold)
+                }
+              }
+              VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 4) {
+                  Text("PositiveElevation".localized)
+                    .foregroundColor(Color("grgray"))
+                  Text(poi?.estimations.positiveElevation ?? "").fontWeight(.bold)
+                }
+              }
             }
           }
+          .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
           
           ScrollView {
             Text(poi?.description ?? "")
@@ -46,9 +68,7 @@ struct InfoPoiView: View {
           Spacer()
         }
         .padding(.bottom, 16)
-        
       }
-        
       .padding()
       .navigationBarTitle(Text(poi?.name ?? ""), displayMode: .inline)
       .navigationBarItems(leading:
@@ -89,7 +109,6 @@ struct InfoPoiView: View {
     })
     
   }
-  
 }
 
 // MARK: Previews

@@ -26,11 +26,7 @@ struct PoiRow: View {
           .font(.headline)
         
         HStack(spacing: 8) {
-          HStack(alignment: .bottom, spacing: 4) {
-            Text("Km")
-              .font(.caption)
-            Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
-          }
+          Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
           HStack(alignment: .bottom, spacing: 4) {
             Text("Altitude".localized)
               .font(.caption)
