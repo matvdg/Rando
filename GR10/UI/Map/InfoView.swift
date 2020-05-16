@@ -66,6 +66,7 @@ struct InfoView: View {
           }
           .pickerStyle(SegmentedPickerStyle())
         }
+        
       }.padding()
         
         .navigationBarTitle(Text("MapSettings".localized), displayMode: .inline)
@@ -81,7 +82,6 @@ struct InfoView: View {
     .navigationViewStyle(StackNavigationViewStyle())
     .frame(maxWidth: 500)
     .frame(height: 300.0, alignment: .top)
-    .clipShape(RoundedRectangle(cornerRadius: 8))
     .shadow(radius: 10)
     .gesture(DragGesture().onEnded { value in
       if value.translation.height > 100 {

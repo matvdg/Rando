@@ -21,7 +21,7 @@ struct InfoPoiView: View {
         MiniImage(id: poi?.id ?? -1)
           .frame(width: 70.0, height: 70.0)
         VStack(alignment: .leading) {
-          HStack {
+          HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 8) {
               VStack(alignment: .leading, spacing: 8) {
                 VStack(alignment: .leading, spacing: 4) {
@@ -56,7 +56,8 @@ struct InfoPoiView: View {
               }
             }
           }
-          .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+          .font(.subheadline)
+          .frame(maxHeight: 100)
           
           ScrollView {
             Text(poi?.description ?? "")
@@ -100,7 +101,6 @@ struct InfoPoiView: View {
     .navigationViewStyle(StackNavigationViewStyle())
     .frame(maxWidth: 500)
     .frame(height: 300.0, alignment: .top)
-    .clipShape(RoundedRectangle(cornerRadius: 8))
     .shadow(radius: 10)
     .gesture(DragGesture().onEnded { value in
       guard value.translation.height > 100 else { return }

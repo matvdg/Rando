@@ -18,16 +18,16 @@ var mapChangedFromUserInteraction = false
 struct MapView: UIViewRepresentable {
   
   // MARK: Binding properties
-  @Binding var isCentered: Bool
+  @Binding var selectedTracking: Tracking
   @Binding var selectedLayer: Layer
   @Binding var selectedFilter: Filter
   @Binding var selectedPoi: Poi?
   
   // MARK: Constructors
-  init(isCentered: Binding<Bool>, selectedLayer: Binding<Layer>, selectedFilter: Binding<Filter>, selectedPoi: Binding<Poi?>, poiCoordinate: CLLocationCoordinate2D? = nil) {
+  init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedFilter: Binding<Filter>, selectedPoi: Binding<Poi?>, poiCoordinate: CLLocationCoordinate2D? = nil) {
     
     self.poiCoordinate = poiCoordinate
-    self._isCentered = isCentered
+    self._selectedTracking = selectedTracking
     self._selectedLayer = selectedLayer
     self._selectedPoi = selectedPoi
     self._selectedFilter = selectedFilter
@@ -37,7 +37,7 @@ struct MapView: UIViewRepresentable {
   // Convenience init
   init(poiCoordinate: CLLocationCoordinate2D? = nil) {
     
-    self.init(isCentered: Binding<Bool>.constant(false), selectedLayer: Binding<Layer>.constant(.IGN), selectedFilter: Binding<Filter>.constant(.all), selectedPoi: Binding<Poi?>.constant(nil), poiCoordinate: poiCoordinate)
+    self.init(selectedTracking: Binding<Tracking>.constant(.disabled), selectedLayer: Binding<Layer>.constant(.IGN), selectedFilter: Binding<Filter>.constant(.all), selectedPoi: Binding<Poi?>.constant(nil), poiCoordinate: poiCoordinate)
     
   }
   
@@ -105,7 +105,7 @@ struct MapView: UIViewRepresentable {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
       mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction(mapView)
       if mapChangedFromUserInteraction {
-        self.parent.isCentered = false
+        self.parent.selectedTracking = .disabled
       }
     }
     
@@ -153,6 +153,7 @@ struct MapView: UIViewRepresentable {
   // MARK: UIViewRepresentable lifecycle methods
   func makeUIView(context: Context) -> MKMapView {
     currentLayer = nil
+    currentFilter = nil
     let mapView = MKMapView()
     mapView.delegate = context.coordinator
     self.configureMap(mapView: mapView)
@@ -160,7 +161,11 @@ struct MapView: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: MKMapView, context: Context) {
-    uiView.setUserTrackingMode(isCentered ? .follow : .none, animated: true)
+    switch selectedTracking {
+    case .disabled: uiView.setUserTrackingMode(.none, animated: true)
+    case .enabled: uiView.setUserTrackingMode(.follow, animated: true)
+    case .heading: uiView.setUserTrackingMode(.followWithHeading, animated: true)
+    }
     setOverlays(mapView: uiView)
     setAnnotations(mapView: uiView)
     if selectedPoi == nil {

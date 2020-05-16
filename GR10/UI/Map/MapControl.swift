@@ -8,10 +8,21 @@
 
 import SwiftUI
 
+enum Tracking {
+  case disabled, enabled, heading
+  var icon: String {
+    switch self {
+    case .disabled: return "location"
+    case .enabled: return "location.fill"
+    case .heading: return "location.north.line.fill"
+    }
+  }
+}
+
 struct MapControl: View {
   let buttonWidth: CGFloat = 22
   let width: CGFloat = 45
-  @Binding var isCentered: Bool
+  @Binding var tracking: Tracking
   @Binding var isInfoDisplayed: Bool
   
   var body: some View {
@@ -27,12 +38,19 @@ struct MapControl: View {
       }
       Divider()
       Button(action: {
-        self.isCentered.toggle()
+        switch self.tracking {
+        case .disabled:
+          self.tracking = .enabled
+        case .enabled:
+          self.tracking = .heading
+        case .heading:
+          self.tracking = .disabled
+        }
         Feedback.selected()
       }) {
-        Image(systemName: isCentered ? "location.fill" : "location")
+        Image(systemName: tracking.icon)
           .resizable()
-          .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+          .frame(width: tracking == .heading ? 16 : buttonWidth, height: tracking == .heading ? 28 : buttonWidth, alignment: .center)
           .offset(y: 3)
       }
     }
@@ -45,13 +63,13 @@ struct MapControl: View {
 
 // MARK: Previews
 struct MapControl_Previews: PreviewProvider {
-  @State static var isCentered = false
+  @State static var tracking: Tracking = .disabled
   @State static var isInfoDisplayed = false
   static var previews: some View {
     Group {
-      MapControl(isCentered: $isCentered, isInfoDisplayed: $isInfoDisplayed)
+      MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
         .environment(\.colorScheme, .light)
-      MapControl(isCentered: $isCentered, isInfoDisplayed: $isInfoDisplayed)
+      MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
         .environment(\.colorScheme, .dark)
     }
       

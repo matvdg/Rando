@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
   
-  @State var isCentered: Bool = false
+  @State var selectedTracking: Tracking = .disabled
   @State var selectedLayer: Layer = .IGN
   @State var selectedFilter: Filter = .all
   @State var isInfoDisplayed: Bool = false
@@ -22,17 +22,16 @@ struct HomeView: View {
   
   var body: some View {
     
-    
     ZStack {
       
-      MapView(isCentered: $isCentered, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi)
+      MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi)
         .edgesIgnoringSafeArea(.top)
       
       VStack(alignment: .trailing) {
         
         HStack(alignment: .top) {
           Spacer()
-          MapControl(isCentered: $isCentered, isInfoDisplayed: $isInfoDisplayed)
+          MapControl(tracking: $selectedTracking, isInfoDisplayed: $isInfoDisplayed)
             .padding(.trailing, 8)
             .padding(.top, 16)
         }
@@ -46,8 +45,7 @@ struct HomeView: View {
         Spacer()
         
         InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed)
-          .offset(y: isInfoDisplayed ? 0 : 300)
-          .opacity(isInfoDisplayed ? 1 : 0)
+          .offset(y: isInfoDisplayed ? 0 : 500)
           .animation(.default)
         
       }
@@ -57,8 +55,7 @@ struct HomeView: View {
         Spacer()
         
         InfoPoiView(poi: $selectedPoi)
-          .offset(y: isInfoPoiDisplayed ? 30 : 300)
-          .opacity(isInfoPoiDisplayed ? 1 : 0)
+          .offset(y: isInfoPoiDisplayed ? 0 : 500)
           .animation(.default)
         
       }
@@ -71,8 +68,13 @@ struct HomeView: View {
       .edgesIgnoringSafeArea(.top)
       
     }
+    .onAppear {
+      NotificationManager.shared.requestAuthorization()
+      LocationManager.shared.requestAuthorization()
+    }
     
   }
+  
   
   
 }
