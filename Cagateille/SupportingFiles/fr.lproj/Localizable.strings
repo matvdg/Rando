@@ -22,8 +22,10 @@
 "refuge" = "Refuge";
 "spring" = "Source";
 "waterfall" = "Cascade";
+"lake" = "Lac";
 "peak" = "Pic";
-"Direction" = "Inverser";
+"Direction" = "Sens";
+"Steps" = "Étapes";
 
 // MapView
 "Map" = "Carte";
@@ -34,7 +36,6 @@
 "Altitude" = "Altitude";
 "PositiveElevation" = "Dénivelé positif";
 "NegativeElevation" = "Dénivelé négatif";
-"Step" = "Étape";
 "Filter" = "Filtrer";
 "ign" = "IGN";
 "standard" = "Standard";

@@ -72,35 +72,15 @@ class TileManager {
     if directory == .cagateille { self.hasRecordedTiles = false }
   }
   
-  func saveMock(completion: @escaping ( (Float) -> () )) {
-    var percent: Float = 0
-    Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
-      percent += 0.01
-      completion(percent)
-    }
-  }
-  
-  func saveTilesAroundPolyline(completion: @escaping ( (Float) -> () )) {
+  func saveTiles() {
     guard !hasRecordedTiles else { return }
     DispatchQueue.global(qos: .userInitiated).async {
-      let locs =  GpxManager.shared.locationsCoordinate // Average one loc per 60 meters
-      for (i, loc) in locs.enumerated() {
-        guard i % 50 == 0 else { continue } // approximately take a gpx point every 500m
-        if i % 100 == 0 {
-          DispatchQueue.main.async {
-            completion(Float(i) / Float(locs.count))
-          }
-        }
-        let circle = MKCircle(center: loc, radius: 1000) // and draw a 1km circle around (low radius for highest zoom levels)
-        let paths = self.computeTileOverlayPaths(boundingBox: circle.boundingMapRect)
-        let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
-        filteredPaths.forEach { self.persistLocally(path: $0) }
-      }
-      self.saveTilesAroundBoundingBox() // Larger radius for lowest zoom levels
+      let paths = self.computeTileOverlayPaths(boundingBox: GpxManager.shared.boundingBox)
+      let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
+      filteredPaths.forEach { self.persistLocally(path: $0) }
       self.hasRecordedTiles = true
       DispatchQueue.main.async {
         NotificationManager.shared.sendNotification(title: "DownloadedTitle".localized, message: "DownloadedMessage".localized)
-        completion(1)
       }
     }
   }
@@ -124,13 +104,7 @@ class TileManager {
   }
   
   // MARK: -  Private methods
-  private func saveTilesAroundBoundingBox() {
-    let paths = computeTileOverlayPaths(boundingBox: GpxManager.shared.boundingBox, maxZ: 8)
-    let filteredPaths = filterTilesAlreadyExisting(paths: paths)
-    filteredPaths.forEach { persistLocally(path: $0) }
-  }
-  
-  private func computeTileOverlayPaths(boundingBox box: MKMapRect, maxZ: Int = 16) -> [MKTileOverlayPath] {
+  private func computeTileOverlayPaths(boundingBox box: MKMapRect, maxZ: Int = 18) -> [MKTileOverlayPath] {
     var paths = [MKTileOverlayPath]()
     for z in 1...maxZ {
       let topLeft = tranformCoordinate(coordinates: MKMapPoint(x: box.minX, y: box.minY).coordinate, zoom: z)

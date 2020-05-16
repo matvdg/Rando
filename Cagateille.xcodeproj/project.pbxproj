@@ -35,8 +35,7 @@
 		D09FB0092465D2360007F55B /* MiniImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB0082465D2360007F55B /* MiniImage.swift */; };
 		D09FB00C2465E15C0007F55B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB00B2465E15C0007F55B /* View.swift */; };
 		D0B7CDB22468550D00464C79 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB12468550D00464C79 /* Color.swift */; };
-		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
-		D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */; };
+		D0B7CDB52468694600464C79 /* Etang d'Alet.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Alet.gpx */; };
 		D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB72469184F00464C79 /* InfoView.swift */; };
 		D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE19246A91FF00464C79 /* CacheView.swift */; };
 		D0B7CE1C246A954500464C79 /* CacheRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE1B246A954500464C79 /* CacheRow.swift */; };
@@ -53,6 +52,7 @@
 		D007B888246AEE160040E1CF /* MapViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		D007B88A246B60090040E1CF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		D00815BB2470361300D5E8DB /* cirque-de-cagateille.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cirque-de-cagateille.gpx"; sourceTree = "<group>"; };
+		D04AD88E2470460F00A9D041 /* Parking.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Parking.gpx; sourceTree = "<group>"; };
 		D0531A69246788920020FFE0 /* alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alpha.png; sourceTree = "<group>"; };
 		D0531A6C2467FD3A0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D0531A702467FD8C0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		D058FCB8246D7B1B003BDFF8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D05B14FE2460041F00B24666 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D0630B6A245F571F006F6C44 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang d'Araing.gpx"; sourceTree = "<group>"; };
+		D0630B6C245F5828006F6C44 /* Etang d'Alet.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang d'Alet.gpx"; sourceTree = "<group>"; };
 		D063478F245D768B003BA9E7 /* Cagateille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cagateille.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0634792245D768B003BA9E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0634794245D768B003BA9E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +84,6 @@
 		D09FB00B2465E15C0007F55B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		D0B01A8C2460420A00EE62AD /* Cagateille.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cagateille.entitlements; sourceTree = "<group>"; };
 		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang de Rulhe.gpx"; sourceTree = "<group>"; };
 		D0B7CDB72469184F00464C79 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		D0B7CE19246A91FF00464C79 /* CacheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheView.swift; sourceTree = "<group>"; };
 		D0B7CE1B246A954500464C79 /* CacheRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRow.swift; sourceTree = "<group>"; };
@@ -202,8 +201,8 @@
 		D06347AA245DD493003BA9E7 /* Gpx */ = {
 			isa = PBXGroup;
 			children = (
-				D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */,
-				D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */,
+				D0630B6C245F5828006F6C44 /* Etang d'Alet.gpx */,
+				D04AD88E2470460F00A9D041 /* Parking.gpx */,
 				D00815BB2470361300D5E8DB /* cirque-de-cagateille.gpx */,
 				D06347C4245DD784003BA9E7 /* GpxManager.swift */,
 			);
@@ -337,14 +336,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */,
-				D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */,
+				D0B7CDB52468694600464C79 /* Etang d'Alet.gpx in Resources */,
 				D00815BC2470361300D5E8DB /* cirque-de-cagateille.gpx in Resources */,
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
 				D0531A6A246788920020FFE0 /* alpha.png in Resources */,
 				D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */,
 				D0634799245D768C003BA9E7 /* Assets.xcassets in Resources */,
 				D0F8633124615D56007C363A /* pois.json in Resources */,
-				D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,9 +544,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.cagateilleapp;
 				PRODUCT_NAME = Cagateille;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -569,9 +567,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.cagateille;
 				PRODUCT_NAME = Cagateille;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

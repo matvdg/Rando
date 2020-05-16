@@ -22,8 +22,10 @@
 "refuge" = "Refuge";
 "spring" = "Spring";
 "waterfall" = "Waterfall";
+"lake" = "Lake";
 "peak" = "Peak";
 "Direction" = "Reverse";
+"Steps" = "Steps";
 
 // MapView
 "Map" = "Map";
@@ -34,7 +36,6 @@
 "Altitude" = "Altitude";
 "PositiveElevation" = "Positive elevation";
 "NegativeElevation" = "Negative elevation";
-"Step" = "Step";
 "Filter" = "Filter";
 "ign" = "IGN";
 "standard" = "Standard";

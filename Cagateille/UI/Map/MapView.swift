@@ -25,10 +25,10 @@ struct MapView: UIViewRepresentable {
   @Binding var selectedFilter: Filter
   @Binding var selectedPoi: Poi?
   @Binding var isPlayingTour: Bool
-  @Binding var isHendayeToBanyuls: Bool
+  @Binding var clockwise: Bool
   
   // MARK: Constructors
-  init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedFilter: Binding<Filter>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, isHendayeToBanyuls: Binding<Bool>, poiCoordinate: CLLocationCoordinate2D? = nil) {
+  init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedFilter: Binding<Filter>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, clockwise: Binding<Bool>, poiCoordinate: CLLocationCoordinate2D? = nil) {
     
     self.poiCoordinate = poiCoordinate
     self._selectedTracking = selectedTracking
@@ -36,14 +36,14 @@ struct MapView: UIViewRepresentable {
     self._selectedPoi = selectedPoi
     self._selectedFilter = selectedFilter
     self._isPlayingTour = isPlayingTour
-    self._isHendayeToBanyuls = isHendayeToBanyuls
+    self._clockwise = clockwise
     
   }
   
   // Convenience init
   init(poiCoordinate: CLLocationCoordinate2D? = nil) {
     
-    self.init(selectedTracking: Binding<Tracking>.constant(.disabled), selectedLayer: Binding<Layer>.constant(.ign), selectedFilter: Binding<Filter>.constant(.all), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false), isHendayeToBanyuls: Binding<Bool>.constant(true), poiCoordinate: poiCoordinate)
+    self.init(selectedTracking: Binding<Tracking>.constant(.disabled), selectedLayer: Binding<Layer>.constant(.ign), selectedFilter: Binding<Filter>.constant(.all), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false), clockwise: Binding<Bool>.constant(true), poiCoordinate: poiCoordinate)
     
   }
   
@@ -55,7 +55,7 @@ struct MapView: UIViewRepresentable {
     switch selectedFilter {
     case .all: selectedPois =  pois
     case .refuge: selectedPois =  pois.filter { $0.category == .refuge }
-    case .peak: selectedPois =  pois.filter { $0.category == .peak }
+    case .lake: selectedPois =  pois.filter { $0.category == .lake }
     default: selectedPois = pois.filter { $0.category == .waterfall }
     }
     return selectedPois.map { PoiAnnotation(poi: $0) }
@@ -126,7 +126,8 @@ struct MapView: UIViewRepresentable {
       // Max zoom check
       let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
       var span = mapView.region.span
-      let maxZoom: CLLocationDegrees = 0.014
+      print(span.latitudeDelta)
+      let maxZoom: CLLocationDegrees = 0.010
       if span.latitudeDelta < maxZoom {
         span = MKCoordinateSpan(latitudeDelta: maxZoom, longitudeDelta: maxZoom)
         let region = MKCoordinateRegion(center: coordinate, span: span)
@@ -197,12 +198,10 @@ struct MapView: UIViewRepresentable {
     mapView.showsScale = true
     mapView.isPitchEnabled = true
     // Custom compass
-    #if !targetEnvironment(macCatalyst)
     mapView.showsCompass = false // Remove default
     let compass = MKCompassButton(mapView: mapView)
     compass.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.width - 53, y: compassY), size: CGSize(width: 45, height: 45))
     mapView.addSubview(compass)
-    #endif
   }
   
   private func setOverlays(mapView: MKMapView) {
@@ -238,18 +237,16 @@ struct MapView: UIViewRepresentable {
     } else { // Home map
       mapView.addAnnotations(annotations)
       var region = MKCoordinateRegion(gpxManager.boundingBox)
-      region.span.latitudeDelta += 6
-      region.span.longitudeDelta += 6
+      region.span.latitudeDelta += 0.01
+      region.span.longitudeDelta += 0.01
       mapView.setRegion(region, animated: false)
     }
   }
   
   private func playTour(mapView: MKMapView) {
-    #if !targetEnvironment(macCatalyst)
     if let compass = mapView.subviews.filter({$0 is MKCompassButton}).first as? MKCompassButton {
       compass.frame.origin.y = compassY
     }
-    #endif
     guard isPlayingTour else {
       timer?.invalidate()
       currentPlayingTourState = false
@@ -257,20 +254,21 @@ struct MapView: UIViewRepresentable {
     }
     var locs = GpxManager.shared.locationsCoordinate
     let animationDuration: TimeInterval = 4
-    let Δ = 200
-    if !isHendayeToBanyuls {
+    let Δ = 5
+    let altitude: CLLocationDistance = 1000
+    if !clockwise {
       locs.reverse()
     }
     if currentPlayingTourState {
       timer?.invalidate()
-      let camera = MKMapCamera(lookingAtCenter: locs[Δ], fromEyeCoordinate: locs[0], eyeAltitude: 6000)
+      let camera = MKMapCamera(lookingAtCenter: locs[Δ], fromEyeCoordinate: locs[0], eyeAltitude: altitude)
       camera.pitch = 0
       mapView.camera = camera
     }
     currentPlayingTourState = true
     var i = 0
     guard locs.count > Δ else { return }
-    mapView.camera = MKMapCamera(lookingAtCenter: locs[i + Δ], fromEyeCoordinate: locs[i], eyeAltitude: 6000)
+    mapView.camera = MKMapCamera(lookingAtCenter: locs[i + Δ], fromEyeCoordinate: locs[i], eyeAltitude: altitude)
     timer = Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: true) { timer in
       i += Δ
       guard i < locs.count else {
@@ -278,7 +276,7 @@ struct MapView: UIViewRepresentable {
         currentPlayingTourState = false
         return timer.invalidate()
       }
-      let camera =  MKMapCamera(lookingAtCenter: locs[i], fromEyeCoordinate: locs[i - Δ], eyeAltitude: 6000)
+      let camera =  MKMapCamera(lookingAtCenter: locs[i], fromEyeCoordinate: locs[i - Δ], eyeAltitude: altitude)
       camera.pitch = 80
       UIView.animate(withDuration: animationDuration, delay: 0, options: .curveLinear, animations: {
         mapView.camera = camera

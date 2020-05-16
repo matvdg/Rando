@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PoiRow: View {
   
-  @Binding var isHendayeToBanyuls: Bool
+  @Binding var clockwise: Bool
   
   var poi: Poi
   
@@ -26,7 +26,6 @@ struct PoiRow: View {
           .font(.headline)
         
         HStack(spacing: 8) {
-          Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
           HStack(alignment: .bottom, spacing: 4) {
             Text("Altitude".localized)
               .font(.caption)
@@ -51,12 +50,12 @@ struct PoiRow: View {
 // MARK: Previews
 struct PoiRow_Previews: PreviewProvider {
   
-  @State static var isHendayeToBanyuls = true
+  @State static var clockwise = true
   static var previews: some View {
     
     Group {
-      PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[0])
-      PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[1])
+      PoiRow(clockwise: $clockwise, poi: pois[0])
+      PoiRow(clockwise: $clockwise, poi: pois[1])
     }
     .previewLayout(.fixed(width: 320, height: 80))
     

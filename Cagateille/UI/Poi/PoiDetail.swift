@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PoiDetail: View {
   
-  @Binding var isHendayeToBanyuls: Bool
+  @Binding var clockwise: Bool
   
   var poi: Poi
   
@@ -37,13 +37,6 @@ struct PoiDetail: View {
         HStack(alignment: .center, spacing: 20.0) {
                     
           VStack(alignment: .leading, spacing: 8) {
-            VStack(alignment: .leading, spacing: 8) {
-              VStack(alignment: .leading, spacing: 4) {
-                Text("Step".localized)
-                  .foregroundColor(Color("grgray"))
-                Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
-              }
-            }
                         
             VStack(alignment: .leading, spacing: 8) {
               VStack(alignment: .leading, spacing: 4) {
@@ -115,33 +108,14 @@ struct PoiDetail: View {
       Spacer()
     }
     .navigationBarTitle(Text(poi.name))
-    .navigationBarItems(trailing:
-      HStack(spacing: 16) {
-        Button(action: {
-          guard let url = self.poi.phoneNumber else { return }
-          UIApplication.shared.open(url)
-          Feedback.selected()
-        }) {
-          Image(systemName: "phone.fill")
-        }
-        .isHidden(!self.poi.hasPhoneNumber, remove: true)
-        Button(action: {
-          guard let url = self.poi.url else { return }
-          UIApplication.shared.open(url)
-          Feedback.selected()
-        }) {
-          Image(systemName: "globe")
-        }
-        .isHidden(!self.poi.hasWebsite, remove: true)
-    })
   }
 }
 
 // MARK: Previews
 struct PoiDetail_Previews: PreviewProvider {
-  @State static var isHendayeToBanyuls = true
+  @State static var clockwise = true
   static var previews: some View {
-    PoiDetail(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[7])
+    PoiDetail(clockwise: $clockwise, poi: pois[7])
       .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
       .previewDisplayName("iPhone SE")
       .environment(\.colorScheme, .light)

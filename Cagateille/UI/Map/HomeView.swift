@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
   
-  @State var isHendayeToBanyuls = true
+  @State var clockwise = true
   @State private var animationRotationAmount = 0.0
   @State var selectedTracking: Tracking = .disabled
   @State var selectedLayer: Layer = .ign
@@ -25,7 +25,7 @@ struct HomeView: View {
     
     ZStack {
       
-      MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, isHendayeToBanyuls: $isHendayeToBanyuls)
+      MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, clockwise: $clockwise)
       .edgesIgnoringSafeArea(.top)
       
       VStack(alignment: .trailing) {
@@ -82,7 +82,7 @@ struct HomeView: View {
           
           
           Button(action: {
-            self.isHendayeToBanyuls.toggle()
+            self.clockwise.toggle()
             self.animationRotationAmount += .pi
           }) {
             HStack {
@@ -105,19 +105,12 @@ struct HomeView: View {
         Spacer()
         
       }
-      #if !targetEnvironment(macCatalyst)
-      VStack {
-        BlurView(effect: UIBlurEffect(style: .light))
-          .frame(height: 40)
-        Spacer()
-      }
-      .edgesIgnoringSafeArea(.top)
-      #endif
       
     }
     .onAppear {
       NotificationManager.shared.requestAuthorization()
       LocationManager.shared.requestAuthorization()
+      TileManager.shared.saveTiles()
     }
     
   }

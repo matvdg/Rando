@@ -42,11 +42,7 @@ struct MapControl: View {
         case .disabled:
           self.tracking = .enabled
         case .enabled:
-          #if targetEnvironment(macCatalyst)
-          self.tracking = .disabled
-          #else
           self.tracking = .heading
-          #endif
         case .heading:
           self.tracking = .disabled
         }

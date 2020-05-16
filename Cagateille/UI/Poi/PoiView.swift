@@ -12,14 +12,14 @@ import MapKit
 let pois = PoiManager.shared.pois
 
 enum Filter: String, CaseIterable {
-  case all, refuge, peak, waterfall
+  case all, refuge, lake
   var localized: String { rawValue.localized }
 }
 
 struct PoiView: View {
     
   @State var selectedFilter: Filter = .all
-  @State var isHendayeToBanyuls = true
+  @State var clockwise = true
   @State private var animationAmount = 0.0
   
   var selectedPois: [Poi] {
@@ -27,11 +27,10 @@ struct PoiView: View {
     switch selectedFilter {
     case .all: selectedPois =  pois
     case .refuge: selectedPois =  pois.filter { $0.category == .refuge }
-    case .peak: selectedPois =  pois.filter { $0.category == .peak }
+    case .lake: selectedPois =  pois.filter { $0.category == .lake }
     default: selectedPois = pois.filter { $0.category == .waterfall }
     }
-    selectedPois.sort { isHendayeToBanyuls ? $0.dist < $1.dist : $0.dist > $1.dist }
-    return selectedPois
+    return selectedPois.sorted { clockwise ? $0.id < $1.id : $0.id > $1.id }
   }
   
   var body: some View {
@@ -48,17 +47,17 @@ struct PoiView: View {
           .padding()
         
         List(selectedPois) { poi in
-          NavigationLink(destination: PoiDetail(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)) {
-            PoiRow(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)
+          NavigationLink(destination: PoiDetail(clockwise: self.$clockwise, poi: poi)) {
+            PoiRow(clockwise: self.$clockwise, poi: poi)
           }
         }
       }
         
-      .navigationBarTitle(Text(isHendayeToBanyuls ? "Hendaye-Banyuls" : "Banyuls-Hendaye"), displayMode: .inline)
+      .navigationBarTitle(Text("Steps".localized), displayMode: .inline)
       .navigationBarItems(trailing:
         Button(action: {
           Feedback.selected()
-          self.isHendayeToBanyuls.toggle()
+          self.clockwise.toggle()
           self.animationAmount += .pi
         }) {
           HStack {

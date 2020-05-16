@@ -77,25 +77,7 @@ struct InfoPoiView: View {
           self.poi = nil
         }) {
           Image(systemName: "chevron.down")
-        }, trailing:
-        HStack(spacing: 16) {
-          Button(action: {
-            guard let url = self.poi?.phoneNumber else { return }
-            UIApplication.shared.open(url)
-            Feedback.selected()
-          }) {
-            Image(systemName: "phone.fill")
-          }
-          .isHidden(!(self.poi?.hasPhoneNumber ?? false), remove: true)
-          Button(action: {
-            guard let url = self.poi?.url else { return }
-            UIApplication.shared.open(url)
-            Feedback.selected()
-          }) {
-            Image(systemName: "globe")
-          }
-          .isHidden(!(self.poi?.hasWebsite ?? false), remove: true)
-      })
+        })
       
     }
     .navigationViewStyle(StackNavigationViewStyle())

@@ -14,19 +14,6 @@ struct Poi: Decodable, Identifiable {
   // Computed properties
   var coordinate: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: lat, longitude: lng) }
   var altitudeInMeters: String { "\(Int(alt))m" }
-  var distanceInKilometers: String { "KM \(Int(dist))" } // Hendaye to Banyuls
-  var distanceInKilometersInverted: String { "KM \(Int(922 - dist))" } // Banyuls to Hendaye
-  var url: URL? {
-    guard let website = website else { return nil }
-    return URL(string: "http://\(website)")
-  }
-  var phoneNumber: URL? {
-    guard let number = phone else { return nil }
-    let cleaned = number.components(separatedBy: " ").joined()
-    return URL(string: "tel://\(cleaned)")
-  }
-  var hasWebsite: Bool { url != nil }
-  var hasPhoneNumber: Bool { phoneNumber != nil }
   
   var estimations: Estimations {
     let estimations = GpxManager.shared.estimations(for: self)
@@ -42,11 +29,8 @@ struct Poi: Decodable, Identifiable {
   var lat: CLLocationDegrees
   var lng: CLLocationDegrees
   var alt: CLLocationDistance
-  var dist: CLLocationDistance
   // Optional
-  var phone: String?
   var description: String?
-  var website: String?
   
   
   enum Category: String, Decodable, CaseIterable {

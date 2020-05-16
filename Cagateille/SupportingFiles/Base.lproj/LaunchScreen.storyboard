@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,41 +12,31 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moE-jw-Xq4">
-                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="map" catalog="system" id="Ghv-tN-WBJ"/>
                                     <tabBarItem image="mappin.and.ellipse" catalog="system" id="3Yj-NZ-wfu"/>
                                 </items>
                             </tabBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-Vq-ho9">
-                                <rect key="frame" x="0.0" y="280" width="600" height="40"/>
-                                <color key="backgroundColor" red="0.86050075290000005" green="0.1513909698" blue="0.078327976169999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="HkJ-O0-DDY"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cagateille" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdG-eb-i7u">
-                                <rect key="frame" x="213" y="279.5" width="174" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cirque de Cagateille" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdG-eb-i7u">
+                                <rect key="frame" x="34.5" y="427.5" width="345" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GdG-eb-i7u" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="27S-QG-7qr"/>
-                            <constraint firstItem="DxS-Vq-ho9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3jS-rK-Zd6"/>
                             <constraint firstItem="moE-jw-Xq4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MCv-LQ-lde"/>
                             <constraint firstItem="GdG-eb-i7u" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="a2p-3u-zna"/>
-                            <constraint firstItem="DxS-Vq-ho9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iDC-uj-qe7"/>
                             <constraint firstAttribute="bottom" secondItem="moE-jw-Xq4" secondAttribute="bottom" id="lFp-eK-KoW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="moE-jw-Xq4" secondAttribute="trailing" id="wQc-Mx-jtb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DxS-Vq-ho9" secondAttribute="trailing" id="x7N-T4-PRP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
