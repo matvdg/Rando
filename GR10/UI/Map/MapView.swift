@@ -10,7 +10,8 @@ import SwiftUI
 import UIKit
 import MapKit
 
-var currentDisplayMode: InfoView.DisplayMode?
+var currentLayer: Layer?
+var currentFilter: Filter?
 var selectedAnnotation: PoiAnnotation?
 var mapChangedFromUserInteraction = false
 
@@ -18,31 +19,42 @@ struct MapView: UIViewRepresentable {
   
   // MARK: Binding properties
   @Binding var isCentered: Bool
-  @Binding var selectedDisplayMode: InfoView.DisplayMode
+  @Binding var selectedLayer: Layer
+  @Binding var selectedFilter: Filter
   @Binding var selectedPoi: Poi?
   
   // MARK: Constructors
-  init(isCentered: Binding<Bool>, selectedDisplayMode: Binding<InfoView.DisplayMode>, selectedPoi: Binding<Poi?>, poiCoordinate: CLLocationCoordinate2D? = nil) {
+  init(isCentered: Binding<Bool>, selectedLayer: Binding<Layer>, selectedFilter: Binding<Filter>, selectedPoi: Binding<Poi?>, poiCoordinate: CLLocationCoordinate2D? = nil) {
     
     self.poiCoordinate = poiCoordinate
     self._isCentered = isCentered
-    self._selectedDisplayMode = selectedDisplayMode
+    self._selectedLayer = selectedLayer
     self._selectedPoi = selectedPoi
+    self._selectedFilter = selectedFilter
     
   }
   
   // Convenience init
   init(poiCoordinate: CLLocationCoordinate2D? = nil) {
     
-    self.init(isCentered: Binding<Bool>.constant(false), selectedDisplayMode: Binding<InfoView.DisplayMode>.constant(.IGN), selectedPoi: Binding<Poi?>.constant(nil), poiCoordinate: poiCoordinate)
+    self.init(isCentered: Binding<Bool>.constant(false), selectedLayer: Binding<Layer>.constant(.IGN), selectedFilter: Binding<Filter>.constant(.all), selectedPoi: Binding<Poi?>.constant(nil), poiCoordinate: poiCoordinate)
     
   }
   
   // MARK: Properties
   var poiCoordinate: CLLocationCoordinate2D?
-  
   let gpxManager = GpxManager.shared
-  let poiManager = PoiManager.shared
+  
+  var annotations: [PoiAnnotation] {
+    var selectedPois: [Poi]
+    switch selectedFilter {
+    case .all: selectedPois =  pois
+    case .refuge: selectedPois =  pois.filter { $0.category == .refuge }
+    case .peak: selectedPois =  pois.filter { $0.category == .peak }
+    default: selectedPois = pois.filter { $0.category == .waterfall }
+    }
+    return selectedPois.map { PoiAnnotation(poi: $0) }
+  }
   
   // MARK: Coordinator
   func makeCoordinator() -> Coordinator {
@@ -140,7 +152,7 @@ struct MapView: UIViewRepresentable {
   
   // MARK: UIViewRepresentable lifecycle methods
   func makeUIView(context: Context) -> MKMapView {
-    currentDisplayMode = nil
+    currentLayer = nil
     let mapView = MKMapView()
     mapView.delegate = context.coordinator
     self.configureMap(mapView: mapView)
@@ -150,6 +162,7 @@ struct MapView: UIViewRepresentable {
   func updateUIView(_ uiView: MKMapView, context: Context) {
     uiView.setUserTrackingMode(isCentered ? .follow : .none, animated: true)
     setOverlays(mapView: uiView)
+    setAnnotations(mapView: uiView)
     if selectedPoi == nil {
       uiView.deselectAnnotation(selectedAnnotation, animated: true)
     }
@@ -158,16 +171,7 @@ struct MapView: UIViewRepresentable {
   // MARK: Private methods
   private func configureMap(mapView: MKMapView) {
     setOverlays(mapView: mapView)
-    if let coordinate = poiCoordinate { // MiniMap for POI
-      let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-      let region = MKCoordinateRegion(center: coordinate, span: span)
-      mapView.setRegion(region, animated: true)
-    } else { // Home map
-      let pois = poiManager.annotations
-      mapView.addAnnotations(pois)
-      let region = MKCoordinateRegion(gpxManager.boundingBox)
-      mapView.setRegion(region, animated: false)
-    }
+    setAnnotations(mapView: mapView)
     mapView.showsTraffic = false
     mapView.showsBuildings = false
     mapView.showsUserLocation = true
@@ -176,16 +180,16 @@ struct MapView: UIViewRepresentable {
     // Custom compass
     mapView.showsCompass = false // Remove default
     let compass = MKCompassButton(mapView: mapView)
-    compass.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.width - 53, y: 110), size: CGSize(width: 45, height: 45))
+    compass.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.width - 53, y: poiCoordinate == nil ? 160 : 8), size: CGSize(width: 45, height: 45))
     mapView.addSubview(compass)
   }
   
   private func setOverlays(mapView: MKMapView) {
-    // Avoid refreshing UI if selectedDisplayMode has not changed
-    guard selectedDisplayMode != currentDisplayMode else { return }
-    currentDisplayMode = selectedDisplayMode
+    // Avoid refreshing UI if selectedLayer has not changed
+    guard currentLayer != selectedLayer else { return }
+    currentLayer = selectedLayer
     mapView.removeOverlays(mapView.overlays)
-    switch selectedDisplayMode {
+    switch selectedLayer {
     case .IGN:
       let overlay = TileOverlay()
       overlay.canReplaceMapContent = false
@@ -200,6 +204,23 @@ struct MapView: UIViewRepresentable {
     }
     mapView.addOverlay(gpxManager.polyline, level: .aboveLabels)
   }
+  
+  private func setAnnotations(mapView: MKMapView) {
+    // Avoid refreshing UI if selectedFilter has not changed
+    guard currentFilter != selectedFilter else { return }
+    currentFilter = selectedFilter
+    mapView.removeAnnotations(mapView.annotations)
+    if let coordinate = poiCoordinate { // MiniMap for POI
+      let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+      let region = MKCoordinateRegion(center: coordinate, span: span)
+      mapView.setRegion(region, animated: true)
+    } else { // Home map
+      mapView.addAnnotations(annotations)
+      let region = MKCoordinateRegion(gpxManager.boundingBox)
+      mapView.setRegion(region, animated: false)
+    }
+  }
+  
 }
 
 

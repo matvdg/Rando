@@ -11,7 +11,8 @@ import SwiftUI
 struct HomeView: View {
   
   @State var isCentered: Bool = false
-  @State var selectedDisplayMode: InfoView.DisplayMode = .IGN
+  @State var selectedLayer: Layer = .IGN
+  @State var selectedFilter: Filter = .all
   @State var isInfoDisplayed: Bool = false
   @State var selectedPoi: Poi?
   
@@ -24,7 +25,7 @@ struct HomeView: View {
     
     ZStack {
       
-      MapView(isCentered: $isCentered, selectedDisplayMode: $selectedDisplayMode, selectedPoi: $selectedPoi)
+      MapView(isCentered: $isCentered, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi)
         .edgesIgnoringSafeArea(.top)
       
       VStack(alignment: .trailing) {
@@ -44,8 +45,8 @@ struct HomeView: View {
         
         Spacer()
         
-        InfoView(selectedDisplayMode: $selectedDisplayMode, isInfoDisplayed: $isInfoDisplayed)
-          .offset(y: isInfoDisplayed ? 30 : 300)
+        InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed)
+          .offset(y: isInfoDisplayed ? 0 : 300)
           .opacity(isInfoDisplayed ? 1 : 0)
           .animation(.default)
         

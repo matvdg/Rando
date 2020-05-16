@@ -15,9 +15,6 @@ class PoiManager {
   static let shared = PoiManager()
   
   var pois = [Poi]()
-  var annotations: [PoiAnnotation] {
-    pois.map { PoiAnnotation(poi: $0) }
-  }
   
   init() {
     pois = getPois()
@@ -48,8 +45,8 @@ class PoiAnnotation: MKPointAnnotation {
   var markerColor: UIColor {
     switch poi.category {
     case .refuge: return .gred
-    case .spring: return .grblue
-    case .peak, .pov, .pass, .camping, .waterfall : return .grgreen
+    case .spring, .waterfall: return .grblue
+    case .peak, .pov, .pass, .camping : return .grgreen
     default: return .grgray
     }
   }
