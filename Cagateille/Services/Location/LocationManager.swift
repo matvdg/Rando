@@ -14,6 +14,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   static let shared = LocationManager()
   
+  var userHeading: CLLocationDirection?
+  
   override init() {
     super.init()
     requestAuthorization()
@@ -28,6 +30,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.requestWhenInUseAuthorization()
     manager.delegate = self
     manager.startUpdatingLocation()
+    manager.startUpdatingHeading()
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -37,5 +40,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let loc = locations.first else { return }
     currentPosition = loc
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+    if newHeading.headingAccuracy < 0 { return }
+    let heading = newHeading.trueHeading > 0 ? newHeading.trueHeading : newHeading.magneticHeading
+    userHeading = heading
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "heading"), object: nil)
   }
 }

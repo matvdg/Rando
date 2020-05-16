@@ -15,6 +15,7 @@ extension Color {
   static var grgreen: Color { Color("grgreen") }
   static var grblue: Color { Color("grblue") }
   static var tintColor: Color { Color("tintColor") }
+  static var tintColorMap: Color { Color("tintColorMap") }
   static var text: Color { Color("text") }
   static var grgray: Color { Color("grgray") }
   static var lightgray: Color { Color("lightgray") }

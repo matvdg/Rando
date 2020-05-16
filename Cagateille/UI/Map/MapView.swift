@@ -76,13 +76,17 @@ struct MapView: UIViewRepresentable {
   class Coordinator: NSObject, MKMapViewDelegate {
     
     var parent: MapView
+    var headingImageView: UIImageView?
     
     init(_ parent: MapView) {
       self.parent = parent
+      super.init()
+      self.subscribeNotification()
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
       mapView.userLocation.subtitle = "Alt. \(Int(LocationManager.shared.currentPosition.altitude))m"
+      
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -92,7 +96,7 @@ struct MapView: UIViewRepresentable {
       default:
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         polylineRenderer.strokeColor = .gred
-        polylineRenderer.lineWidth = 3
+        polylineRenderer.lineWidth = 5
         return polylineRenderer
       }
     }
@@ -148,6 +152,26 @@ struct MapView: UIViewRepresentable {
       Feedback.selected()
     }
     
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+      if views.last?.annotation is MKUserLocation {
+        addHeadingView(toAnnotationView: views.last!)
+      }
+    }
+    
+    private func subscribeNotification() {
+      NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "heading"), object: nil, queue: OperationQueue.current) { _ in
+        self.updateHeadingRotation()
+      }
+    }
+    
+    private func updateHeadingRotation() {
+      if let heading = LocationManager.shared.userHeading, let headingImageView = headingImageView {
+        headingImageView.isHidden = false
+        let rotation = CGFloat(heading/180 * Double.pi)
+        headingImageView.transform = CGAffineTransform(rotationAngle: rotation)
+      }
+    }
+    
     private func mapViewRegionDidChangeFromUserInteraction(_ mapView: MKMapView) -> Bool {
       let view = mapView.subviews[0]
       //  Look through gesture recognizers to determine whether this region change is from user interaction
@@ -161,6 +185,16 @@ struct MapView: UIViewRepresentable {
       return false
     }
     
+    private func addHeadingView(toAnnotationView annotationView: MKAnnotationView) {
+      if headingImageView == nil {
+        let image = UIImage(named: "beam")!
+        headingImageView = UIImageView(image: image)
+        let size: CGFloat = 100
+        headingImageView!.frame = CGRect(x: annotationView.frame.size.width/2 - size, y: annotationView.frame.size.height/2 - size, width: size*2, height: size*2)
+        annotationView.insertSubview(headingImageView!, at: 0)
+        headingImageView!.isHidden = true
+      }
+    }
   }
   
   // MARK: UIViewRepresentable lifecycle methods

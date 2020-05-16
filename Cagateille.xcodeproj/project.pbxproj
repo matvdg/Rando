@@ -52,7 +52,8 @@
 		D007B888246AEE160040E1CF /* MapViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		D007B88A246B60090040E1CF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		D00815BB2470361300D5E8DB /* cirque-de-cagateille.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cirque-de-cagateille.gpx"; sourceTree = "<group>"; };
-		D04AD88E2470460F00A9D041 /* Parking.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Parking.gpx; sourceTree = "<group>"; };
+		D031AF1A247094C800942017 /* Parking.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Parking.gpx; sourceTree = "<group>"; };
+		D04AD88E2470460F00A9D041 /* Gérac.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Gérac.gpx"; sourceTree = "<group>"; };
 		D0531A69246788920020FFE0 /* alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alpha.png; sourceTree = "<group>"; };
 		D0531A6C2467FD3A0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D0531A702467FD8C0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -202,7 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				D0630B6C245F5828006F6C44 /* Etang d'Alet.gpx */,
-				D04AD88E2470460F00A9D041 /* Parking.gpx */,
+				D04AD88E2470460F00A9D041 /* Gérac.gpx */,
+				D031AF1A247094C800942017 /* Parking.gpx */,
 				D00815BB2470361300D5E8DB /* cirque-de-cagateille.gpx */,
 				D06347C4245DD784003BA9E7 /* GpxManager.swift */,
 			);

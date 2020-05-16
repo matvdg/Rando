@@ -27,6 +27,7 @@ struct HomeView: View {
       
       MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, clockwise: $clockwise)
       .edgesIgnoringSafeArea(.top)
+      .accentColor(Color.tintColorMap)
       
       VStack(alignment: .trailing) {
         
