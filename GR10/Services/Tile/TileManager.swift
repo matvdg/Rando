@@ -7,6 +7,20 @@ typealias TilesDownload = (numberOfTiles: Int, weightInMo: Float)
 enum Directory: String, CaseIterable {
   case cache, gr10
   var localized: String { rawValue.localized }
+  var state: State {
+    switch self {
+    case .cache: return .downloaded
+    case .gr10:
+      if TileManager.shared.hasRecordedTiles {
+        return .downloaded
+      } else {
+        return TileManager.shared.progress == 0 ? .empty : .downloading
+      }
+    }
+  }
+  enum State {
+    case downloaded, downloading, empty
+  }
 }
 
 let template = "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}"
@@ -17,7 +31,7 @@ class TileOverlay: MKTileOverlay {
   override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path) }
 }
 
-class TileManager {
+class TileManager: ObservableObject {
   
   static let shared = TileManager()
   
@@ -39,8 +53,6 @@ class TileManager {
   // MARK: -  Public property
   var hasRecordedTiles: Bool {
     get {
-      // Debug
-      //            false
       userDefaults.bool(forKey: hasRecordedTilesKey)
     }
     set {
@@ -61,6 +73,8 @@ class TileManager {
     }
   }
   
+  @Published var progress: Float = 0
+  
   // MARK: -  Public methods
   func getSize(of directory: Directory) -> String {
     FileManager.default.allocatedSizeOfDirectory(at: documentsDirectory.appendingPathComponent(directory.rawValue))
@@ -79,28 +93,26 @@ class TileManager {
       completion(percent)
     }
   }
-  
-  func saveTilesAroundPolyline(completion: @escaping ( (Float) -> () )) {
+    
+  /// Download and save to cache all tiles around the polyline
+  func startDownload() {
     guard !hasRecordedTiles else { return }
-    DispatchQueue.global(qos: .userInitiated).async {
+    progress = 0.01
+    DispatchQueue.global(qos: .background).async {
       let locs =  GpxManager.shared.locationsCoordinate // Average one loc per 60 meters
       for (i, loc) in locs.enumerated() {
-        guard i % 50 == 0 else { continue } // approximately take a gpx point every 500m
-        if i % 100 == 0 {
-          DispatchQueue.main.async {
-            completion(Float(i) / Float(locs.count))
-          }
-        }
+        guard i % 10 == 0 else { continue } // approximately take a gpx point every 600m
+        if i % 100 == 0 { self.progress =  Float(i) / Float(locs.count) }
         let circle = MKCircle(center: loc, radius: 1000) // and draw a 1km circle around (low radius for highest zoom levels)
         let paths = self.computeTileOverlayPaths(boundingBox: circle.boundingMapRect)
         let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
         filteredPaths.forEach { self.persistLocally(path: $0) }
       }
       self.saveTilesAroundBoundingBox() // Larger radius for lowest zoom levels
-      self.hasRecordedTiles = true
       DispatchQueue.main.async {
         NotificationManager.shared.sendNotification(title: "DownloadedTitle".localized, message: "DownloadedMessage".localized)
-        completion(1)
+        self.hasRecordedTiles = true
+        self.progress = 0
       }
     }
   }

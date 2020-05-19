@@ -11,10 +11,10 @@
 "cache" = "Cache (other tiles)";
 "gr10" = "GR10 tiles";
 "Delete" = "Delete";
-"Downloading" = "Downloading maps...";
+"Downloading" = "Downloading...";
 "DownloadedTitle" = "Download succeeded";
 "DownloadedMessage" = "All the GR10 maps have been downloaded";
-"Requirements" = "Requires approximately 400 MB";
+"Requirements" = "Requires approximately 300 MB";
 "Cancel" = "Cancel";
 
 // PoiView

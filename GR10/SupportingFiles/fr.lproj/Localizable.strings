@@ -11,10 +11,10 @@
 "cache" = "Cache (autres tuiles)";
 "gr10" = "Tuiles du GR10";
 "Delete" = "Supprimer";
-"Downloading" = "Téléchargement des cartes en cours...";
+"Downloading" = "Téléchargement...";
 "DownloadedTitle" = "Téléchargement terminé";
 "DownloadedMessage" = "Toutes les cartes du GR10 ont été téléchargées avec succès";
-"Requirements" = "Nécessite environ 400 Mo";
+"Requirements" = "Nécessite environ 300 Mo";
 "Cancel" = "Annuler";
 
 // PoiView

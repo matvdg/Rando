@@ -79,8 +79,6 @@ struct HomeView: View {
           .padding(.top, 8)
           .isHidden(!isPlayingTour)
           
-          
-          
           Button(action: {
             self.isHendayeToBanyuls.toggle()
             self.animationRotationAmount += .pi
