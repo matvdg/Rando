@@ -9,12 +9,26 @@
 import Foundation
 import CoreLocation
 
+protocol HeadingDelegate {
+  func didUpdate(_ heading: CLLocationDirection)
+}
+
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
   
   static let shared = LocationManager()
   
   var userHeading: CLLocationDirection?
+  var headingDelegate: HeadingDelegate?
+  var updateHeading: Bool = false {
+    willSet {
+      if newValue {
+        manager.startUpdatingHeading()
+      } else {
+        manager.stopUpdatingHeading()
+      }
+    }
+  }
   
   override init() {
     super.init()
@@ -45,7 +59,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
     if newHeading.headingAccuracy < 0 { return }
     let heading = newHeading.trueHeading > 0 ? newHeading.trueHeading : newHeading.magneticHeading
-    userHeading = heading
-    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "heading"), object: nil)
+    self.headingDelegate?.didUpdate(heading)
   }
 }

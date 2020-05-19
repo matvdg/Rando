@@ -42,7 +42,7 @@ struct MapControl: View {
         case .disabled:
           self.tracking = .enabled
         case .enabled:
-          self.tracking = .disabled
+          self.tracking = .heading
         case .heading:
           self.tracking = .disabled
         }
