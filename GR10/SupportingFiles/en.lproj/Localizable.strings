@@ -23,6 +23,8 @@
 "spring" = "Spring";
 "waterfall" = "Waterfall";
 "peak" = "Peak";
+"bridge" = "Bridge";
+"lake" = "Lake";
 "Direction" = "Reverse";
 
 // MapView

@@ -23,6 +23,8 @@
 "spring" = "Source";
 "waterfall" = "Cascade";
 "peak" = "Pic";
+"bridge" = "Pont";
+"lake" = "Lac";
 "Direction" = "Inverser";
 
 // MapView

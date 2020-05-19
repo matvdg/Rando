@@ -50,6 +50,7 @@ struct MapView: UIViewRepresentable {
   // MARK: Properties
   var poiCoordinate: CLLocationCoordinate2D?
   let gpxManager = GpxManager.shared
+  let locationManager = LocationManager.shared
   var annotations: [PoiAnnotation] {
     var selectedPois: [Poi]
     switch selectedFilter {
@@ -73,16 +74,19 @@ struct MapView: UIViewRepresentable {
     Coordinator(self)
   }
   
-  class Coordinator: NSObject, MKMapViewDelegate {
+  class Coordinator: NSObject, MKMapViewDelegate, HeadingDelegate {
     
     var parent: MapView
+    var headingImageView: UIImageView?
     
     init(_ parent: MapView) {
       self.parent = parent
+      super.init()
+      parent.locationManager.headingDelegate = self
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-      mapView.userLocation.subtitle = "Alt. \(Int(LocationManager.shared.currentPosition.altitude))m"
+      mapView.userLocation.subtitle = "Alt. \(Int(parent.locationManager.currentPosition.altitude))m"
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -148,6 +152,19 @@ struct MapView: UIViewRepresentable {
       Feedback.selected()
     }
     
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+      if views.last?.annotation is MKUserLocation {
+        addHeadingView(toAnnotationView: views.last!)
+      }
+    }
+    
+    func didUpdate(_ heading: CLLocationDirection) {
+      guard let headingImageView = headingImageView, parent.selectedTracking == .enabled else { return }
+      headingImageView.isHidden = false
+      let rotation = CGFloat(heading/180 * Double.pi)
+      headingImageView.transform = CGAffineTransform(rotationAngle: rotation)
+    }
+    
     private func mapViewRegionDidChangeFromUserInteraction(_ mapView: MKMapView) -> Bool {
       let view = mapView.subviews[0]
       //  Look through gesture recognizers to determine whether this region change is from user interaction
@@ -159,6 +176,16 @@ struct MapView: UIViewRepresentable {
         }
       }
       return false
+    }
+    
+    private func addHeadingView(toAnnotationView annotationView: MKAnnotationView) {
+      guard headingImageView == nil else { return }
+      let image = UIImage(named: "beam")!
+      headingImageView = UIImageView(image: image)
+      let size: CGFloat = 100
+      headingImageView!.frame = CGRect(x: annotationView.frame.size.width/2 - size/2, y: annotationView.frame.size.height/2 - size/2, width: size, height: size)
+      annotationView.insertSubview(headingImageView!, at: 0)
+      headingImageView!.isHidden = true
     }
     
   }
@@ -175,16 +202,9 @@ struct MapView: UIViewRepresentable {
   
   func updateUIView(_ uiView: MKMapView, context: Context) {
     playTour(mapView: uiView)
-    switch selectedTracking {
-    case .disabled: uiView.setUserTrackingMode(.none, animated: true)
-    case .enabled: uiView.setUserTrackingMode(.follow, animated: true)
-    case .heading: uiView.setUserTrackingMode(.followWithHeading, animated: true)
-    }
+    setTracking(mapView: uiView, headingView: context.coordinator.headingImageView)
     setOverlays(mapView: uiView)
     setAnnotations(mapView: uiView)
-    if selectedPoi == nil {
-      uiView.deselectAnnotation(selectedAnnotation, animated: true)
-    }
   }
   
   // MARK: Private methods
@@ -203,6 +223,21 @@ struct MapView: UIViewRepresentable {
     compass.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.width - 53, y: compassY), size: CGSize(width: 45, height: 45))
     mapView.addSubview(compass)
     #endif
+  }
+  
+  private func setTracking(mapView: MKMapView, headingView: UIImageView?) {
+    switch selectedTracking {
+    case .disabled:
+      mapView.setUserTrackingMode(.none, animated: true)
+      locationManager.updateHeading = false
+      headingView?.isHidden = true
+    case .enabled:
+      mapView.setUserTrackingMode(.follow, animated: true)
+      locationManager.updateHeading = true
+    case .heading:
+      mapView.setUserTrackingMode(.followWithHeading, animated: true)
+      headingView?.isHidden = true
+    }
   }
   
   private func setOverlays(mapView: MKMapView) {
@@ -227,6 +262,9 @@ struct MapView: UIViewRepresentable {
   }
   
   private func setAnnotations(mapView: MKMapView) {
+    if selectedPoi == nil {
+      mapView.deselectAnnotation(selectedAnnotation, animated: true)
+    }
     // Avoid refreshing UI if selectedFilter has not changed
     guard currentFilter != selectedFilter else { return }
     currentFilter = selectedFilter

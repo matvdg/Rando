@@ -45,7 +45,7 @@ class PoiAnnotation: MKPointAnnotation {
   var markerColor: UIColor {
     switch poi.category {
     case .refuge: return .gred
-    case .spring, .waterfall: return .grblue
+    case .spring, .waterfall, .lake, .bridge: return .grblue
     case .peak, .pov, .pass, .camping : return .grgreen
     default: return .grgray
     }
@@ -54,9 +54,8 @@ class PoiAnnotation: MKPointAnnotation {
   var markerGlyph: UIImage {
     switch poi.category {
     case .refuge: return UIImage(systemName: "house.fill")!
-    case .spring: return UIImage(named: "drop")!
     case .waterfall: return UIImage(systemName: "camera.fill")!
-    case .peak, .pov, .pass: return UIImage(systemName: "eye.fill")!
+    case .peak, .pov, .pass, .lake: return UIImage(systemName: "eye.fill")!
     case .parking: return UIImage(systemName: "car.fill")!
     case .camping: return UIImage(systemName: "flame.fill")!
     default: return UIImage(systemName: "mappin")!
