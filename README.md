@@ -1,5 +1,8 @@
 # GR10
 
+## Assistance
+Support or contact: matvdg@me.com
+
 ## Introduction
 Full offline map for GR10 Pyrénées trail (full gpx + detailed maps + steps) written in SwiftUI.
 No internet connection is required (during hiking) except for the first launch of the app where you can download all the GR10 maps.
