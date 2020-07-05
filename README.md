@@ -4,8 +4,8 @@
 Support or contact: matvdg@me.com
 
 ## Privacy and terms of use
-https://github.com/matvdg/GR10/blob/master/tou.md
-https://github.com/matvdg/GR10/blob/master/privacy.md
+Terms of use: https://github.com/matvdg/GR10/blob/master/tou.md
+Privacy: https://github.com/matvdg/GR10/blob/master/privacy.md
 
 ## Introduction
 Full offline map for GR10 Pyrénées trail (full gpx + detailed maps + steps) written in SwiftUI.
