@@ -80,7 +80,6 @@ class GpxManager {
     return locations
   }
   
-  
   private func minimumDistanceToPolyline(from coordinate: CLLocationCoordinate2D) -> (distance: CLLocationDistance, index: Int) {
     var index = 0
     var minDistance: CLLocationDistance = .infinity

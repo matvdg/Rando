@@ -59,12 +59,26 @@ struct InfoPoiView: View {
           .font(.subheadline)
           .frame(maxHeight: 100)
           
-          ScrollView {
-            Text(poi?.description ?? "")
-              .font(.body)
-              .padding(.trailing, 8)
+          if poi?.id != -1 {
+            ScrollView {
+              Text(poi?.description ?? "")
+                .font(.body)
+                .padding(.trailing, 8)
+            }
+            .frame(height: 110, alignment: .top)
+          } else {
+            Button(action: {
+              customAnnotation = nil
+              self.poi = nil
+            }) {
+              HStack {
+                Image(systemName: "trash")
+                Text("Delete".localized)
+                  .foregroundColor(.text)
+              }
+            }
+            
           }
-          .frame(height: 110, alignment: .top)
           
           Spacer()
         }

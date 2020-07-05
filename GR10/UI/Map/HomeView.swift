@@ -12,7 +12,7 @@ struct HomeView: View {
   
   @State var isHendayeToBanyuls = true
   @State private var animationRotationAmount = 0.0
-  @State var selectedTracking: Tracking = .disabled
+  @State var selectedTracking: Tracking = .initState
   @State var selectedLayer: Layer = .ign
   @State var selectedFilter: Filter = .all
   @State var isInfoDisplayed: Bool = false
@@ -27,6 +27,7 @@ struct HomeView: View {
       
       MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, isHendayeToBanyuls: $isHendayeToBanyuls)
       .edgesIgnoringSafeArea(.top)
+      .accentColor(.gred)
       
       VStack(alignment: .trailing) {
         

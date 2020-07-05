@@ -9,12 +9,12 @@
 import SwiftUI
 
 enum Tracking {
-  case disabled, enabled, heading
+  case initState, disabled, enabled, heading
   var icon: String {
     switch self {
-    case .disabled: return "location"
     case .enabled: return "location.fill"
     case .heading: return "location.north.line.fill"
+    default: return "location"
     }
   }
 }
@@ -49,6 +49,8 @@ struct MapControl: View {
           #endif
         case .heading:
           self.tracking = .disabled
+        default:
+          self.tracking = .enabled
         }
         Feedback.selected()
       }) {

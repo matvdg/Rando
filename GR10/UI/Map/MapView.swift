@@ -13,6 +13,7 @@ import MapKit
 var currentLayer: Layer?
 var currentFilter: Filter?
 var selectedAnnotation: PoiAnnotation?
+var customAnnotation: PoiAnnotation?
 var mapChangedFromUserInteraction = false
 var currentPlayingTourState = false
 var timer: Timer?
@@ -26,6 +27,7 @@ struct MapView: UIViewRepresentable {
   @Binding var selectedPoi: Poi?
   @Binding var isPlayingTour: Bool
   @Binding var isHendayeToBanyuls: Bool
+  @State var sender: UILongPressGestureRecognizer?
   
   // MARK: Constructors
   init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedFilter: Binding<Filter>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, isHendayeToBanyuls: Binding<Bool>, poiCoordinate: CLLocationCoordinate2D? = nil) {
@@ -188,6 +190,12 @@ struct MapView: UIViewRepresentable {
       headingImageView!.isHidden = true
     }
     
+    @objc func recognizeLongPress(sender: UILongPressGestureRecognizer) {
+      // Do not generate pins many times during long press.
+      guard sender.state != .began else { return }
+      parent.sender = sender
+    }
+    
   }
   
   // MARK: UIViewRepresentable lifecycle methods
@@ -197,6 +205,9 @@ struct MapView: UIViewRepresentable {
     let mapView = MKMapView()
     mapView.delegate = context.coordinator
     self.configureMap(mapView: mapView)
+    let gesture = UILongPressGestureRecognizer()
+    gesture.addTarget(context.coordinator, action: #selector(Coordinator.recognizeLongPress))
+    mapView.addGestureRecognizer(gesture)
     return mapView
   }
   
@@ -205,12 +216,24 @@ struct MapView: UIViewRepresentable {
     setTracking(mapView: uiView, headingView: context.coordinator.headingImageView)
     setOverlays(mapView: uiView)
     setAnnotations(mapView: uiView)
+    handleLongPress(mapView: uiView)
   }
   
   // MARK: Private methods
+  private func handleLongPress(mapView: MKMapView) {
+    guard let sender = sender, customAnnotation == nil else { return }
+    let location = sender.location(in: mapView)
+    let coordinate: CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
+    let poi = Poi(lat: coordinate.latitude, lng: coordinate.longitude)
+    let annotation = PoiAnnotation(poi: poi)
+    mapView.addAnnotation(annotation)
+    selectedPoi = poi
+    customAnnotation = annotation
+    mapView.selectAnnotation(annotation, animated: true)
+    self.sender = nil
+  }
+  
   private func configureMap(mapView: MKMapView) {
-    setOverlays(mapView: mapView)
-    setAnnotations(mapView: mapView)
     mapView.showsTraffic = false
     mapView.showsBuildings = false
     mapView.showsUserLocation = true
@@ -237,6 +260,11 @@ struct MapView: UIViewRepresentable {
     case .heading:
       mapView.setUserTrackingMode(.followWithHeading, animated: true)
       headingView?.isHidden = true
+    default:
+      var region = MKCoordinateRegion(gpxManager.boundingBox)
+      region.span.latitudeDelta += 6
+      region.span.longitudeDelta += 6
+      mapView.setRegion(region, animated: false)
     }
   }
   
@@ -275,10 +303,6 @@ struct MapView: UIViewRepresentable {
       mapView.setRegion(region, animated: true)
     } else { // Home map
       mapView.addAnnotations(annotations)
-      var region = MKCoordinateRegion(gpxManager.boundingBox)
-      region.span.latitudeDelta += 6
-      region.span.longitudeDelta += 6
-      mapView.setRegion(region, animated: false)
     }
   }
   
@@ -324,6 +348,7 @@ struct MapView: UIViewRepresentable {
     }
     
   }
+  
 }
 
 

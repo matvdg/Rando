@@ -48,6 +48,16 @@ struct Poi: Decodable, Identifiable {
   var description: String?
   var website: String?
   
+  init(lat: CLLocationDegrees, lng: CLLocationDegrees) {
+    self.id = -1
+    self.name = "Pin".localized
+    self.category = .step
+    self.lat = lat
+    self.lng = lng
+    self.alt = 0
+    self.dist = 0
+  }
+  
   
   enum Category: String, Decodable, CaseIterable {
     case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge

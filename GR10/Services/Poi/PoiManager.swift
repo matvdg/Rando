@@ -66,7 +66,6 @@ class PoiAnnotation: MKPointAnnotation {
     self.poi = poi
     super.init()
     self.coordinate = CLLocationCoordinate2D(latitude: poi.lat, longitude: poi.lng)
-    self.title = poi.name
   }
   
 }

@@ -63,8 +63,6 @@ class TileManager: ObservableObject {
   
   var isOffline: Bool {
     get {
-      // Debug
-      //            false
       userDefaults.bool(forKey: isOfflineKey)
     }
     set {
