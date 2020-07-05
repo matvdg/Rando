@@ -27,6 +27,10 @@ class GpxManager {
   }
   
   // MARK: - Public method
+  func closestAltitude(from coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
+    locations[minimumDistanceToPolyline(from: coordinate).index].altitude
+  }
+  
   func estimations(for poi: Poi) -> Estimations {
     
     let date = Date()

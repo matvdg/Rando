@@ -48,13 +48,13 @@ struct Poi: Decodable, Identifiable {
   var description: String?
   var website: String?
   
-  init(lat: CLLocationDegrees, lng: CLLocationDegrees) {
+  init(lat: CLLocationDegrees, lng: CLLocationDegrees, alt: CLLocationDistance) {
     self.id = -1
     self.name = "Pin".localized
     self.category = .step
     self.lat = lat
     self.lng = lng
-    self.alt = 0
+    self.alt = alt
     self.dist = 0
   }
   

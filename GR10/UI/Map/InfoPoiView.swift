@@ -68,7 +68,7 @@ struct InfoPoiView: View {
             .frame(height: 110, alignment: .top)
           } else {
             Button(action: {
-              customAnnotation = nil
+              removeCustomAnnotation = true
               self.poi = nil
             }) {
               HStack {

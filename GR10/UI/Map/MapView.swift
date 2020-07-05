@@ -14,6 +14,8 @@ var currentLayer: Layer?
 var currentFilter: Filter?
 var selectedAnnotation: PoiAnnotation?
 var customAnnotation: PoiAnnotation?
+var removeCustomAnnotation = false
+var lockedCustomAnnotation = false
 var mapChangedFromUserInteraction = false
 var currentPlayingTourState = false
 var timer: Timer?
@@ -192,7 +194,8 @@ struct MapView: UIViewRepresentable {
     
     @objc func recognizeLongPress(sender: UILongPressGestureRecognizer) {
       // Do not generate pins many times during long press.
-      guard sender.state != .began else { return }
+      guard sender.state == .recognized else { return }
+      lockedCustomAnnotation = false
       parent.sender = sender
     }
     
@@ -206,6 +209,7 @@ struct MapView: UIViewRepresentable {
     mapView.delegate = context.coordinator
     self.configureMap(mapView: mapView)
     let gesture = UILongPressGestureRecognizer()
+    gesture.minimumPressDuration = 1
     gesture.addTarget(context.coordinator, action: #selector(Coordinator.recognizeLongPress))
     mapView.addGestureRecognizer(gesture)
     return mapView
@@ -221,16 +225,16 @@ struct MapView: UIViewRepresentable {
   
   // MARK: Private methods
   private func handleLongPress(mapView: MKMapView) {
-    guard let sender = sender, customAnnotation == nil else { return }
+    guard let sender = sender, customAnnotation == nil, !lockedCustomAnnotation else { return }
     let location = sender.location(in: mapView)
     let coordinate: CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
-    let poi = Poi(lat: coordinate.latitude, lng: coordinate.longitude)
+    let poi = Poi(lat: coordinate.latitude, lng: coordinate.longitude, alt: gpxManager.closestAltitude(from: coordinate))
     let annotation = PoiAnnotation(poi: poi)
     mapView.addAnnotation(annotation)
     selectedPoi = poi
     customAnnotation = annotation
+    lockedCustomAnnotation = true
     mapView.selectAnnotation(annotation, animated: true)
-    self.sender = nil
   }
   
   private func configureMap(mapView: MKMapView) {
@@ -291,7 +295,13 @@ struct MapView: UIViewRepresentable {
   
   private func setAnnotations(mapView: MKMapView) {
     if selectedPoi == nil {
-      mapView.deselectAnnotation(selectedAnnotation, animated: true)
+      if let selectedAnnotation = selectedAnnotation, removeCustomAnnotation {
+        removeCustomAnnotation = false
+        mapView.removeAnnotation(selectedAnnotation)
+        customAnnotation = nil
+      } else {
+        mapView.deselectAnnotation(selectedAnnotation, animated: true)
+      }
     }
     // Avoid refreshing UI if selectedFilter has not changed
     guard currentFilter != selectedFilter else { return }
