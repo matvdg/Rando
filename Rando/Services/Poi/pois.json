@@ -1,0 +1,248 @@
+[
+  {
+    "id" : 0,
+    "name" : "Hendaye",
+    "category" : "step",
+    "description": "Hendaye est une commune du pays basque, dans le département des Pyrénées-Atlantiques en région Nouvelle-Aquitaine. Elle est à la pointe sud-ouest de la France et la dernière ville côtière avant l'Espagne.",
+    "alt" : 0,
+    "dist" : 0,
+    "lat" : 43.37322,
+    "lng" : -1.774187
+  },
+  {
+    "id" : 1,
+    "name" : "Refuge Jeandel",
+    "category" : "refuge",
+    "alt" : 1670,
+    "dist" : 186.9,
+    "phone" : "05 59 66 14 46",
+    "description": "Le refuge est ouvert de fin mai à mi-octobre, mais cela peut varier en fonction de l'enneigement. Durant cette période, le gardien vous accueille après une journée de randonnée, vous préparera un bon repas chaud et convivial le soir ainsi que le petit-déjeuner (demi-pension). Il y a également un espace pour les campeurs. Nous proposons aussi des piques-niques à emporter et du snack à toutes heures et disposons d'une petite alimentation afin de ravitailler les randonneurs. Mode de paiement : chèques/espèces",
+    "website": "refugejeandel.com",
+    "lat" : 42.978130,
+    "lng" : -0.749795
+  },
+  {
+    "id" : 2,
+    "name" : "Refuge d'Ayous",
+    "category" : "refuge",
+    "alt" : 1954,
+    "dist" : 232.4,
+    "phone" : "05 59 05 37 00",
+    "description": "Attachés à valoriser les circuits courts, la plupart de nos produits sont BIO, issus de la vallée ou de la région. Nous aimons vous faire profiter des saveurs locales et de nos spécialités.",
+    "website": "refuge-ayous.fr",
+    "lat" : 42.848500,
+    "lng" : -0.491390
+  },
+  {
+    "id" : 3,
+    "name" : "Refuge des Oulettes de Gaube",
+    "category" : "refuge",
+    "alt" : 2652,
+    "dist" : 320.8,
+    "phone" : "09 74 77 66 52",
+    "description": "Le refuge des Oulettes idéalement situé au fond de la vallée de Gaude au pied de la face nord du Vignemale se révèle être un camp de base pour les pratiques de montagne. CB, chèques et espèces acceptés.",
+    "website": "refugebayssellance.ffcam.fr",
+    "lat" : 42.779177,
+    "lng" : -0.124149
+  },
+  {
+    "id" : 4,
+    "name" : "Refuge de Bayssellance",
+    "category" : "refuge",
+    "alt" : 1954,
+    "dist" : 232.4,
+    "phone" : "05 59 05 37 00",
+    "description": "Situé sur le massif du Vignemale, avec une vue imprenable sur le cirque de Gavarnie, le refuge de Bayssellance est le plus haut gardé des Pyrénées. Mode de paiement : chèques/espèces",
+    "website": "refuge-ayous.fr",
+    "lat" : 42.848500,
+    "lng" : -0.491390
+  },
+  {
+    "id" : 5,
+    "name" : "Refuge de l'Oule",
+    "category" : "refuge",
+    "alt" : 1818,
+    "dist" : 393.0,
+    "phone" : "05 62 98 48 62",
+    "description": "L'auberge est située à 1.820 mètres d'altitude sur les bords du lac de l'Oule aux portes de la réserve naturelle du Néouvielle, et à l'extrême ouest de la station de ski de Saint-Lary-Soulan.",
+    "website": "saintlary-vacances.com",
+    "lat" : 42.824117,
+    "lng" : 0.207312
+  },
+  {
+    "id" : 6,
+    "name" : "Refuge du Lac d'Oô",
+    "category" : "refuge",
+    "alt" : 1531,
+    "dist" : 436.5,
+    "phone" : "05 61 79 12 29",
+    "description" : "Refuge Auberge de Montagne (1507 m) 25 couchage, bar et restauration vue sur le Lac d'Oô",
+    "website": "lacdoo.cla.fr",
+    "lat" : 42.744684,
+    "lng" : 0.490771
+  },
+  {
+    "id" : 7,
+    "name" : "Refuge d'Espingo",
+    "category" : "refuge",
+    "alt" : 1967,
+    "dist" : 439.0,
+    "phone" : "05 61 79 20 01",
+    "description": "Le refuge d'Espingo est de par sa situation, un refuge idéal pour la découverte du milieu montagnard. Bordé par les lacs d'Espingo et de Saoussat, il est le théâtre de beaucoup d'acteurs alpinistes, pêcheurs, randonneurs et amis de la nature. Mode de paiement : chèques/espèces",
+    "website": "refugedespingo.ffcam.fr",
+    "lat" : 42.730510,
+    "lng" : 0.499941
+  },
+  {
+    "id" : 8,
+    "name" : "Refuge Jacques Husson",
+    "category" : "refuge",
+    "alt" : 1944,
+    "dist" : 502.7,
+    "phone" : "05 61 96 73 73",
+    "description": "Au coeur du PNR des Pyrénées Ariégeoises, le refuge est situé au bord de l'étang d'Araing et au pied du Pic du Crabère, magnifique belvédère sur les plus hauts sommets Pyrénéens.",
+    "website": "refugeetangdaraing.ffcam.fr",
+    "lat" : 42.834915,
+    "lng" : 0.873399
+  },
+  {
+    "id" : 9,
+    "name" : "Refuge des étangs de Bassies",
+    "category" : "refuge",
+    "alt" : 1650,
+    "dist" : 622.1,
+    "phone" : "06 89 40 65 00",
+    "description": "C'est au coeur des Pyrénées Ariégeoises, près de l'Andorre, que le pays d'Auzat et du Vicdessos vous accueille, avec ses nombreuses vallées dont celle de Bassiès.",
+    "website": "bassies.free.fr",
+    "lat" : 42.765233,
+    "lng" : 1.413780
+  },
+  {
+    "id" : 10,
+    "name" : "Refuge de Rulhe",
+    "category" : "refuge",
+    "alt" : 2190,
+    "dist" : 705.6,
+    "phone" : "06 74 24 50 71",
+    "description": "Au coeur des estives de la haute vallée de l’Aston, le refuge du Rulhe est le plus accessible des refuges ariégeois. Il se trouve aussi à la croisée des grands chemins de randonnée : le Rando, le GR Transfrontalier, le Tour des montagnes d’Ax et la HRP. Des accès de tout niveau permettent de s’y rendre en quelques heures, à la demi-journée ou à la journée. Vallée d'Aston, près des étangs d'Estagnol, Joclar et Fontargente",
+    "website": "rulhe.com",
+    "lat" : 42.637848,
+    "lng" : 1.725750
+  },
+  {
+    "id" : 11,
+    "name" : "Refuge des Bésines",
+    "category" : "refuge",
+    "alt" : 2106,
+    "dist" : 726.6,
+    "phone" : "09 88 77 35 28",
+    "description": "Situé au coeur d'un site à la fois minéral et boisé, à la frontière entre l'Ariège et les Pyrénées-Orientales, le refuge des Bésines jouit d'une position particulièrement favorable pour la découverte des hautes terres catalanes et des vallées profondes",
+    "website": "refugedesbesines.ffcam.fr",
+    "lat" : 42.603872,
+    "lng" : 1.868194
+  },
+  {
+    "id" : 12,
+    "name" : "Refuge du Ras de la Carança",
+    "category" : "refuge",
+    "alt" : 1836,
+    "dist" : 776.4,
+    "phone" : "07 88 13 86 07",
+    "description": "Que vous veniez des gorges, uniques avec leur chemin en balcon taillé dans la roche et leurs passerelles, que vous randonniez sur le Rando vers Mantet ou Planès, ou que le but de votre balade soit les lacs de la Carança ou Nuria, vous y trouverez accueil, gîte et couvert.",
+    "website": "refugedelacaranca.com",
+    "lat" : 42.464254,
+    "lng" : 2.223462
+  },
+  {
+    "id" : 13,
+    "name" : "Refuge de Mariailles",
+    "category" : "refuge",
+    "alt" : 1686,
+    "dist" : 802.3,
+    "phone" : "04 68 05 57 99",
+    "description": "Le refuge de Mariailles, niché au cœur du Massif du Canigou (catalan : Canigó), est un lieu de convivialité et de partage. Au milieu de la nature et des paysages grandioses, vous trouverez le dépaysement, l'isolement, le confort, le repos et le calme. Chèques ou espèces uniquement, pas de cartes bancaires.",
+    "website": "refugedemariailles.fr",
+    "lat" : 42.501502,
+    "lng" : 2.407783
+  },
+  {
+    "id" : 14,
+    "name" : "Refuge des Cortalets",
+    "category" : "refuge",
+    "alt" : 2150,
+    "dist" : 819.3,
+    "phone" : "04 68 96 36 19",
+    "description": "Étape sur la traversée des Pyrénées, le refuge des Cortalets situé à 2150 m donne accès au sommet du Canigou à 2784 m d'altitude.",
+    "website": "refugedescortalets.ffcam.fr",
+    "lat" : 42.534241,
+    "lng" : 2.464639
+  },
+  {
+    "id" : 15,
+    "name" : "Cascade de Lutour",
+    "category" : "waterfall",
+    "alt" : 1096,
+    "dist" : 304.1,
+    "lat" : 42.870042,
+    "lng" : -0.105808
+  },
+  {
+    "id" : 16,
+    "name" : "Cascade d'Arcouzan",
+    "category" : "waterfall",
+    "alt" : 1065,
+    "dist" : 565.6,
+    "lat" : 42.800592,
+    "lng" : 1.118023
+  },
+  {
+    "id" : 17,
+    "name" : "Cascade du Fouillet",
+    "category" : "waterfall",
+    "alt" : 1321,
+    "dist" : 601.9,
+    "lat" : 42.765317,
+    "lng" : 1.328549
+  },
+  {
+    "id" : 18,
+    "name" : "Cascade d'Ars",
+    "category" : "waterfall",
+    "description" : "La cascade d'Ars est une cascade naturelle des Pyrénées située dans le Couserans en Ariège, à 1 380 m d'altitude. Elle est dans le périmètre du parc naturel régional des Pyrénées ariégeoises.",
+    "alt" : 1404,
+    "dist" : 608.1,
+    "lat" : 42.762943,
+    "lng" : 1.361437
+  },
+  {
+    "id" : 19,
+    "name" : "Mont Valier",
+    "category" : "peak",
+    "description" : "Le mont Valier est un sommet de 2 838 m situé dans les Pyrénées ariégeoises, en Couserans, dominant toute la vallée d’Angouls et son torrent, à faible distance de la frontière espagnole",
+    "alt" : 2838,
+    "dist" : 530,
+    "lat" : 42.799284,
+    "lng" : 1.085288
+  },
+  {
+    "id" : 20,
+    "name" : "Pic de Crabère",
+    "category" : "peak",
+    "description" : "Le pic de Crabère est un sommet des Pyrénées centrales d'une altitude de 2 630 mètres. Il constitue un tripoint entre les départements français de l'Ariège et de la Haute-Garonne, en région Occitanie, et la province espagnole de Lérida, en Catalogne.",
+    "alt" : 2630,
+    "dist" : 505,
+    "lat" : 42.826527,
+    "lng" : 0.858709
+  },
+  {
+    "id" : 999,
+    "name" : "Banyuls-sur-Mer",
+    "category" : "step",
+    "description" : "Banyuls-sur-Mer est une commune située dans le département des Pyrénées-Orientales en région Occitanie et dans l'arrondissement de Céret.",
+    "alt" : 0,
+    "dist" : 922.9,
+    "lat" : 42.481319,
+    "lng" : 3.129439
+  }
+  
+]

@@ -1,6 +1,4 @@
-# GR10
-
-![Preview](https://github.com/matvdg/GR10/blob/master/preview.png?raw=true)
+# Rando
 
 ## Assistance
 Support or contact: [matvdg@me.com](matvdg@me.com)
@@ -10,8 +8,8 @@ Support or contact: [matvdg@me.com](matvdg@me.com)
 [Terms of use](https://github.com/matvdg/GR10/blob/master/tou.md) and [Privacy](https://github.com/matvdg/GR10/blob/master/privacy.md)
 
 ## Introduction
-Full offline map for GR10 Pyrénées trail (full gpx + detailed maps + steps) written in SwiftUI.
-No internet connection is required (during hiking) except for the first launch of the app where you can download all the GR10 maps.
+Full offline maps for Pyrénées trails (detailed maps + gpx management) written in SwiftUI.
+No internet connection is required (during hiking) except for the first launch of the app where you can download all the maps.
 
 ## Requirements
 - iPhone running iOS 13.4 or later

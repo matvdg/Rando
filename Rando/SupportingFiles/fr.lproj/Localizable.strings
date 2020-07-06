@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  Rando
+
+  Created by Mathieu Vandeginste on 10/05/2020.
+  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
+*/
+
+// CacheView
+"ManageCache" = "Gérer le cache";
+"cache" = "Cache (autres tuiles)";
+"rando" = "Tuiles du Rando";
+"Delete" = "Supprimer";
+"Downloading" = "Téléchargement...";
+"DownloadedTitle" = "Téléchargement terminé";
+"DownloadedMessage" = "Toutes les cartes du Rando ont été téléchargées avec succès";
+"Requirements" = "Nécessite environ 300 Mo";
+"Cancel" = "Annuler";
+
+// PoiView
+"all" = "Tous";
+"refuge" = "Refuge";
+"spring" = "Source";
+"waterfall" = "Cascade";
+"peak" = "Pic";
+"bridge" = "Pont";
+"lake" = "Lac";
+"Direction" = "Inverser";
+
+// MapView
+"Map" = "Carte";
+"MapSettings" = "Réglages de la carte";
+"MapOfflineSwitcher" = "Carte IGN hors ligne";
+"Distance" = "Distance";
+"DurationEstimated" = "Temps estimé";
+"Altitude" = "Altitude";
+"PositiveElevation" = "Dénivelé positif";
+"NegativeElevation" = "Dénivelé négatif";
+"Step" = "Étape";
+"Filter" = "Filtrer";
+"ign" = "IGN";
+"standard" = "Standard";
+"satellite" = "Satellite";
+"flyover" = "3D";
+"Stop" = "Arrêter le tour";
+"Pin" = "Repère sur la carte";
