@@ -14,7 +14,6 @@ struct HomeView: View {
   @State private var animationRotationAmount = 0.0
   @State var selectedTracking: Tracking = .initState
   @State var selectedLayer: Layer = .ign
-  @State var selectedFilter: Filter = .all
   @State var isInfoDisplayed: Bool = false
   @State var isPlayingTour: Bool = false
   @State var selectedPoi: Poi?
@@ -25,7 +24,7 @@ struct HomeView: View {
     
     ZStack {
       
-      MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, isHendayeToBanyuls: $isHendayeToBanyuls)
+      MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour)
       .edgesIgnoringSafeArea(.top)
       .accentColor(.grblue)
       
@@ -47,7 +46,7 @@ struct HomeView: View {
         
         Spacer()
         
-        InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
+        InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
           .offset(y: isInfoDisplayed ? 0 : 500)
           .animation(.default)
         

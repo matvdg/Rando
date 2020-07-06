@@ -18,7 +18,7 @@ struct InfoPoiView: View {
       
       HStack(alignment: .top, spacing: 16) {
         
-        MiniImage(id: poi?.id ?? -1)
+        MiniImage(id: poi?.id ?? 0)
           .frame(width: 70.0, height: 70.0)
         VStack(alignment: .leading) {
           HStack(alignment: .top) {
@@ -59,7 +59,7 @@ struct InfoPoiView: View {
           .font(.subheadline)
           .frame(maxHeight: 100)
           
-          if poi?.id != -1 {
+          if poi?.id != 0 {
             ScrollView {
               Text(poi?.description ?? "")
                 .font(.body)

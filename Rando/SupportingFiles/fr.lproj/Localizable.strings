@@ -9,23 +9,12 @@
 // CacheView
 "ManageCache" = "Gérer le cache";
 "cache" = "Cache (autres tuiles)";
-"rando" = "Tuiles du Rando";
 "Delete" = "Supprimer";
 "Downloading" = "Téléchargement...";
 "DownloadedTitle" = "Téléchargement terminé";
-"DownloadedMessage" = "Toutes les cartes du Rando ont été téléchargées avec succès";
-"Requirements" = "Nécessite environ 300 Mo";
+"DownloadedMessage" = "Cartes disponibles hors ligne";
 "Cancel" = "Annuler";
 
-// PoiView
-"all" = "Tous";
-"refuge" = "Refuge";
-"spring" = "Source";
-"waterfall" = "Cascade";
-"peak" = "Pic";
-"bridge" = "Pont";
-"lake" = "Lac";
-"Direction" = "Inverser";
 
 // MapView
 "Map" = "Carte";
@@ -44,3 +33,6 @@
 "flyover" = "3D";
 "Stop" = "Arrêter le tour";
 "Pin" = "Repère sur la carte";
+
+// TrailView
+"Trails" = "Randonnées";

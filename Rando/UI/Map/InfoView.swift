@@ -16,7 +16,6 @@ enum Layer: String, CaseIterable, Equatable {
 struct InfoView: View {
   
   @Binding var selectedLayer: Layer
-  @Binding var selectedFilter: Filter
   @Binding var isInfoDisplayed: Bool
   @Binding var isPlayingTour: Bool
   @State var isOffline: Bool = TileManager.shared.isOffline
@@ -54,21 +53,6 @@ struct InfoView: View {
         }
         .frame(height: 20, alignment: .top)
         
-        Divider()
-        
-        VStack(alignment: .leading) {
-          Text("Filter".localized)
-            .font(.caption)
-            .foregroundColor(.grgray)
-          
-          Picker(selection: $selectedFilter, label: Text("")) {
-            ForEach(Filter.allCases, id: \.self) { filter in
-              Text(filter.localized)
-            }
-          }
-          .pickerStyle(SegmentedPickerStyle())
-        }
-        
       }.padding()
         
         .navigationBarTitle(Text("MapSettings".localized), displayMode: .inline)
@@ -82,7 +66,6 @@ struct InfoView: View {
         trailing:
           Button(action: {
             self.selectedLayer = .flyover
-            self.selectedFilter = .all
             self.isInfoDisplayed = false
             self.isPlayingTour.toggle()
             Feedback.selected()
@@ -93,7 +76,7 @@ struct InfoView: View {
     }
     .navigationViewStyle(StackNavigationViewStyle())
     .frame(maxWidth: 500)
-    .frame(height: 300.0, alignment: .top)
+    .frame(height: 200.0, alignment: .top)
     .shadow(radius: 10)
     .gesture(DragGesture().onEnded { value in
       if value.translation.height > 100 {
@@ -109,21 +92,20 @@ struct InfoView: View {
 // MARK: Previews
 struct InfoView_Previews: PreviewProvider {
   @State static var selectedLayer: Layer = .ign
-  @State static var selectedFilter: Filter = .all
   @State static var isInfoDisplayed = true
   @State static var isPlayingTour = false
   @State static var isOffline = false
   static var previews: some View {
     Group {
-      InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
+      InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
         .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
         .previewDisplayName("iPhone 11 Pro Max")
         .environment(\.colorScheme, .dark)
-      InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
+      InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
         .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
         .previewDisplayName("iPad Pro")
         .environment(\.colorScheme, .light)
-      InfoView(selectedLayer: $selectedLayer, selectedFilter: $selectedFilter, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
+      InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
         .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
         .previewDisplayName("iPhone SE")
         .environment(\.colorScheme, .light)

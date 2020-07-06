@@ -97,7 +97,7 @@ class TileManager: ObservableObject {
     guard !hasRecordedTiles else { return }
     progress = 0.01
     DispatchQueue.global(qos: .background).async {
-      let locs =  GpxManager.shared.locationsCoordinate // Average one loc per 60 meters
+      let locs =  TrailManager.shared.locationsCoordinate // Average one loc per 60 meters
       for (i, loc) in locs.enumerated() {
         guard i % 10 == 0 else { continue } // approximately take a gpx point every 600m
         if i % 100 == 0 { self.progress =  Float(i) / Float(locs.count) }
@@ -135,7 +135,7 @@ class TileManager: ObservableObject {
   
   // MARK: -  Private methods
   private func saveTilesAroundBoundingBox() {
-    let paths = computeTileOverlayPaths(boundingBox: GpxManager.shared.boundingBox, maxZ: 8)
+    let paths = computeTileOverlayPaths(boundingBox: TrailManager.shared.boundingBox, maxZ: 8)
     let filteredPaths = filterTilesAlreadyExisting(paths: paths)
     filteredPaths.forEach { persistLocally(path: $0) }
   }

@@ -9,23 +9,11 @@
 // CacheView
 "ManageCache" = "Manage cache";
 "cache" = "Cache (other tiles)";
-"rando" = "Rando tiles";
 "Delete" = "Delete";
 "Downloading" = "Downloading...";
 "DownloadedTitle" = "Download succeeded";
-"DownloadedMessage" = "All the Rando maps have been downloaded";
-"Requirements" = "Requires approximately 300 MB";
+"DownloadedMessage" = "Offline maps are available";
 "Cancel" = "Cancel";
-
-// PoiView
-"all" = "All";
-"refuge" = "Refuge";
-"spring" = "Spring";
-"waterfall" = "Waterfall";
-"peak" = "Peak";
-"bridge" = "Bridge";
-"lake" = "Lake";
-"Direction" = "Reverse";
 
 // MapView
 "Map" = "Map";
@@ -44,3 +32,6 @@
 "flyover" = "3D";
 "Stop" = "Stop the tour";
 "Pin" = "User pin";
+
+// TrailView
+"Trails" = "Trails";

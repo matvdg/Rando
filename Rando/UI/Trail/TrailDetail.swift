@@ -1,35 +1,30 @@
 //
-//  PoiDetail.swift
+//  TrailDetail.swift
 //  Rando
 //
-//  Created by Mathieu Vandeginste on 08/05/2020.
+//  Created by Mathieu Vandeginste on 08/07/2020.
 //  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
 
-struct PoiDetail: View {
+struct TrailDetail: View {
   
-  @Binding var isHendayeToBanyuls: Bool
-  
-  var poi: Poi
+  var trail: Trail
   
   var body: some View {
     VStack {
       
-      NavigationLink(destination: MapViewContainer(poiCoordinate: poi.coordinate)) {
+      NavigationLink(destination: MapViewContainer(poiCoordinate: trail.coordinate)) {
         
-        MapView(poiCoordinate: poi.coordinate)
+        MapView(poiCoordinate: trail.coordinate)
           .frame(height: 300)
       }
       
-      CircleImage(id: poi.id)
-        .offset(x: 0, y: -130)
-        .padding(.bottom, -130)
       
       VStack(alignment: .leading, spacing: 20.0) {
         
-        Text(poi.name)
+        Text(trail.name)
           .font(.title)
           .fontWeight(.heavy)
           
@@ -41,7 +36,7 @@ struct PoiDetail: View {
               VStack(alignment: .leading, spacing: 4) {
                 Text("Step".localized)
                   .foregroundColor(Color("grgray"))
-                Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
+                Text(trail.distance).fontWeight(.bold)
               }
             }
                         
@@ -49,7 +44,7 @@ struct PoiDetail: View {
               VStack(alignment: .leading, spacing: 4) {
                 Text("DurationEstimated".localized)
                   .foregroundColor(Color("grgray"))
-                Text(poi.estimations.duration).fontWeight(.bold)
+                Text(trail.positiveElevation).fontWeight(.bold)
               }
             }
             
@@ -62,7 +57,7 @@ struct PoiDetail: View {
               VStack(alignment: .leading, spacing: 4) {
                 Text("Altitude".localized)
                   .foregroundColor(Color("grgray"))
-                Text(poi.altitudeInMeters).fontWeight(.bold)
+                Text(trail.positiveElevation).fontWeight(.bold)
               }
             }
                         
@@ -70,7 +65,7 @@ struct PoiDetail: View {
               VStack(alignment: .leading, spacing: 4) {
                 Text("Distance".localized)
                   .foregroundColor(Color("grgray"))
-                Text(poi.estimations.distance).fontWeight(.bold)
+                Text(trail.positiveElevation).fontWeight(.bold)
               }
             }
             
@@ -84,7 +79,7 @@ struct PoiDetail: View {
               VStack(alignment: .leading, spacing: 4) {
                 Text("PositiveElevation".localized)
                   .foregroundColor(Color("grgray"))
-                Text(poi.estimations.positiveElevation).fontWeight(.bold)
+                Text(trail.positiveElevation).fontWeight(.bold)
               }
             }
                         
@@ -92,7 +87,7 @@ struct PoiDetail: View {
               VStack(alignment: .leading, spacing: 4) {
                 Text("NegativeElevation".localized)
                   .foregroundColor(Color("grgray"))
-                Text(poi.estimations.negativeElevation).fontWeight(.bold)
+                Text(trail.positiveElevation).fontWeight(.bold)
               }
             }
 
@@ -103,7 +98,7 @@ struct PoiDetail: View {
         .frame(maxHeight: 100)
         
         ScrollView {
-          Text(poi.description ?? "")
+          Text("blablabla")
             .font(.body)
             .foregroundColor(.text)
             .padding(.trailing, 8)
@@ -114,34 +109,27 @@ struct PoiDetail: View {
       
       Spacer()
     }
-    .navigationBarTitle(Text(poi.name))
+    .navigationBarTitle(Text(trail.name))
     .navigationBarItems(trailing:
       HStack(spacing: 16) {
         Button(action: {
-          guard let url = self.poi.phoneNumber else { return }
-          UIApplication.shared.open(url)
           Feedback.selected()
         }) {
-          Image(systemName: "phone.fill")
+          Image(systemName: "pencil")
         }
-        .isHidden(!self.poi.hasPhoneNumber, remove: true)
         Button(action: {
-          guard let url = self.poi.url else { return }
-          UIApplication.shared.open(url)
           Feedback.selected()
         }) {
-          Image(systemName: "globe")
+          Image(systemName: "trash")
         }
-        .isHidden(!self.poi.hasWebsite, remove: true)
     })
   }
 }
 
 // MARK: Previews
 struct PoiDetail_Previews: PreviewProvider {
-  @State static var isHendayeToBanyuls = true
   static var previews: some View {
-    PoiDetail(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[7])
+    TrailDetail(trail: mockTrail)
       .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
       .previewDisplayName("iPhone SE")
       .environment(\.colorScheme, .light)

@@ -1,5 +1,5 @@
 //
-//  GpxManager.swift
+//  TrailManager.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 02/05/2020.
@@ -12,9 +12,9 @@ import MapKit
 
 typealias Estimations = (distance: String, positiveElevation: String, negativeElevation: String, duration: String)
 
-class GpxManager {
+class TrailManager {
   
-  static let shared = GpxManager()
+  static let shared = TrailManager()
   
   var locations = [CLLocation]()
   var locationsCoordinate: [CLLocationCoordinate2D] { locations.map { $0.coordinate } }
@@ -23,7 +23,8 @@ class GpxManager {
   lazy var boundingBox = polyline.boundingMapRect
   
   init() {
-    locations = getLocations()
+    let araing = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005), altitude: 1944, horizontalAccuracy: 1, verticalAccuracy: 1, timestamp: Date()) // Etang d'Araing
+    locations = [araing]
   }
   
   // MARK: - Public method

@@ -21,7 +21,7 @@ struct ContentView: View {
             Image(systemName: "map")
         }
         .tag(0)
-        PoiView()
+        TrailView()
           .tabItem {
             Image(systemName: "mappin.and.ellipse")
         }

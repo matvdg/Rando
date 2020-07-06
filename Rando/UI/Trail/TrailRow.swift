@@ -1,36 +1,41 @@
 //
-//  PoiRow.swift
+//  TrailRow.swift
 //  Rando
 //
-//  Created by Mathieu Vandeginste on 08/05/2020.
+//  Created by Mathieu Vandeginste on 08/07/2020.
 //  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
 
-struct PoiRow: View {
-  
-  @Binding var isHendayeToBanyuls: Bool
-  
-  var poi: Poi
+struct TrailRow: View {
+    
+  @State var trail: Trail
   
   var body: some View {
     
     HStack(spacing: 20.0) {
       
-      MiniImage(id: poi.id)
-        .frame(width: 70.0, height: 70.0)
+      Button(action: {
+        self.trail.displayed.toggle()
+      }) {
+        Image(systemName: trail.displayed ? "eye" : "eye.slash")
+          .resizable()
+          .foregroundColor(trail.displayed ? .tintColor : .lightgray)
+          .frame(width: 40, height: 30, alignment: .center)
+      }
+      
       
       VStack(alignment: .leading, spacing: 10) {
-        Text(poi.name)
+        Text(trail.name)
           .font(.headline)
         
         HStack(spacing: 8) {
-          Text(isHendayeToBanyuls ? poi.distanceInKilometers : poi.distanceInKilometersInverted).fontWeight(.bold)
+          Text(trail.distance).fontWeight(.bold)
           HStack(alignment: .bottom, spacing: 4) {
-            Text("Altitude".localized)
+            Text("PositiveElevation".localized)
               .font(.caption)
-            Text(poi.altitudeInMeters).fontWeight(.bold)
+            Text(trail.positiveElevation).fontWeight(.bold)
           }
         }
         .font(.subheadline)
@@ -51,12 +56,11 @@ struct PoiRow: View {
 // MARK: Previews
 struct PoiRow_Previews: PreviewProvider {
   
-  @State static var isHendayeToBanyuls = true
   static var previews: some View {
     
     Group {
-      PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[0])
-      PoiRow(isHendayeToBanyuls: $isHendayeToBanyuls, poi: pois[1])
+      TrailRow(trail: mockTrail)
+      TrailRow(trail: mockTrail2)
     }
     .previewLayout(.fixed(width: 320, height: 80))
     

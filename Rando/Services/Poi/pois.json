@@ -1,15 +1,5 @@
 [
   {
-    "id" : 0,
-    "name" : "Hendaye",
-    "category" : "step",
-    "description": "Hendaye est une commune du pays basque, dans le département des Pyrénées-Atlantiques en région Nouvelle-Aquitaine. Elle est à la pointe sud-ouest de la France et la dernière ville côtière avant l'Espagne.",
-    "alt" : 0,
-    "dist" : 0,
-    "lat" : 43.37322,
-    "lng" : -1.774187
-  },
-  {
     "id" : 1,
     "name" : "Refuge Jeandel",
     "category" : "refuge",
@@ -233,16 +223,6 @@
     "dist" : 505,
     "lat" : 42.826527,
     "lng" : 0.858709
-  },
-  {
-    "id" : 999,
-    "name" : "Banyuls-sur-Mer",
-    "category" : "step",
-    "description" : "Banyuls-sur-Mer est une commune située dans le département des Pyrénées-Orientales en région Occitanie et dans l'arrondissement de Céret.",
-    "alt" : 0,
-    "dist" : 922.9,
-    "lat" : 42.481319,
-    "lng" : 3.129439
   }
   
 ]

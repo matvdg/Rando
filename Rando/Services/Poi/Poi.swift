@@ -29,7 +29,7 @@ struct Poi: Decodable, Identifiable {
   var hasPhoneNumber: Bool { phoneNumber != nil }
   
   var estimations: Estimations {
-    let estimations = GpxManager.shared.estimations(for: self)
+    let estimations = TrailManager.shared.estimations(for: self)
     let straightDistance = LocationManager.shared.currentPosition.coordinate.distance(from: self.coordinate).toString
     print("❤️ AlongPolylineDistance = \(estimations.distance) VS StraightDistance = \(straightDistance)")
     return estimations
@@ -49,7 +49,7 @@ struct Poi: Decodable, Identifiable {
   var website: String?
   
   init(lat: CLLocationDegrees, lng: CLLocationDegrees, alt: CLLocationDistance) {
-    self.id = -1
+    self.id = 0
     self.name = "Pin".localized
     self.category = .step
     self.lat = lat

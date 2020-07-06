@@ -11,7 +11,6 @@ import UIKit
 import MapKit
 
 var currentLayer: Layer?
-var currentFilter: Filter?
 var selectedAnnotation: PoiAnnotation?
 var customAnnotation: PoiAnnotation?
 var removeCustomAnnotation = false
@@ -25,45 +24,34 @@ struct MapView: UIViewRepresentable {
   // MARK: Binding properties
   @Binding var selectedTracking: Tracking
   @Binding var selectedLayer: Layer
-  @Binding var selectedFilter: Filter
   @Binding var selectedPoi: Poi?
   @Binding var isPlayingTour: Bool
-  @Binding var isHendayeToBanyuls: Bool
   @State var sender: UILongPressGestureRecognizer?
   
   // MARK: Constructors
-  init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedFilter: Binding<Filter>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, isHendayeToBanyuls: Binding<Bool>, poiCoordinate: CLLocationCoordinate2D? = nil) {
+  init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, poiCoordinate: CLLocationCoordinate2D? = nil) {
     
     self.poiCoordinate = poiCoordinate
     self._selectedTracking = selectedTracking
     self._selectedLayer = selectedLayer
     self._selectedPoi = selectedPoi
-    self._selectedFilter = selectedFilter
     self._isPlayingTour = isPlayingTour
-    self._isHendayeToBanyuls = isHendayeToBanyuls
     
   }
   
   // Convenience init
   init(poiCoordinate: CLLocationCoordinate2D? = nil) {
     
-    self.init(selectedTracking: Binding<Tracking>.constant(.disabled), selectedLayer: Binding<Layer>.constant(.ign), selectedFilter: Binding<Filter>.constant(.all), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false), isHendayeToBanyuls: Binding<Bool>.constant(true), poiCoordinate: poiCoordinate)
+    self.init(selectedTracking: Binding<Tracking>.constant(.disabled), selectedLayer: Binding<Layer>.constant(.ign), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false), poiCoordinate: poiCoordinate)
     
   }
   
   // MARK: Properties
   var poiCoordinate: CLLocationCoordinate2D?
-  let gpxManager = GpxManager.shared
+  let trailManager = TrailManager.shared
   let locationManager = LocationManager.shared
   var annotations: [PoiAnnotation] {
-    var selectedPois: [Poi]
-    switch selectedFilter {
-    case .all: selectedPois =  pois
-    case .refuge: selectedPois =  pois.filter { $0.category == .refuge }
-    case .peak: selectedPois =  pois.filter { $0.category == .peak }
-    default: selectedPois = pois.filter { $0.category == .waterfall }
-    }
-    return selectedPois.map { PoiAnnotation(poi: $0) }
+    PoiManager.shared.pois.map { PoiAnnotation(poi: $0) }
   }
   var compassY: CGFloat {
     if poiCoordinate != nil {
@@ -204,7 +192,6 @@ struct MapView: UIViewRepresentable {
   // MARK: UIViewRepresentable lifecycle methods
   func makeUIView(context: Context) -> MKMapView {
     currentLayer = nil
-    currentFilter = nil
     let mapView = MKMapView()
     mapView.delegate = context.coordinator
     self.configureMap(mapView: mapView)
@@ -212,6 +199,11 @@ struct MapView: UIViewRepresentable {
     gesture.minimumPressDuration = 1
     gesture.addTarget(context.coordinator, action: #selector(Coordinator.recognizeLongPress))
     mapView.addGestureRecognizer(gesture)
+    mapView.addAnnotations(annotations)
+    var region = MKCoordinateRegion(trailManager.boundingBox)
+    region.span.latitudeDelta += 0.01
+    region.span.longitudeDelta += 0.01
+    mapView.setRegion(region, animated: false)
     return mapView
   }
   
@@ -224,11 +216,12 @@ struct MapView: UIViewRepresentable {
   }
   
   // MARK: Private methods
+  
   private func handleLongPress(mapView: MKMapView) {
     guard let sender = sender, customAnnotation == nil, !lockedCustomAnnotation else { return }
     let location = sender.location(in: mapView)
     let coordinate: CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
-    let poi = Poi(lat: coordinate.latitude, lng: coordinate.longitude, alt: gpxManager.closestAltitude(from: coordinate))
+    let poi = Poi(lat: coordinate.latitude, lng: coordinate.longitude, alt: trailManager.closestAltitude(from: coordinate))
     let annotation = PoiAnnotation(poi: poi)
     mapView.addAnnotation(annotation)
     selectedPoi = poi
@@ -265,7 +258,7 @@ struct MapView: UIViewRepresentable {
       mapView.setUserTrackingMode(.followWithHeading, animated: true)
       headingView?.isHidden = true
     default:
-      var region = MKCoordinateRegion(gpxManager.boundingBox)
+      var region = MKCoordinateRegion(trailManager.boundingBox)
       region.span.latitudeDelta += 6
       region.span.longitudeDelta += 6
       mapView.setRegion(region, animated: false)
@@ -290,10 +283,11 @@ struct MapView: UIViewRepresentable {
     default:
       mapView.mapType = .standard
     }
-    mapView.addOverlay(gpxManager.polyline, level: .aboveLabels)
+    mapView.addOverlay(trailManager.polyline, level: .aboveLabels)
   }
   
   private func setAnnotations(mapView: MKMapView) {
+    
     if selectedPoi == nil {
       if let selectedAnnotation = selectedAnnotation, removeCustomAnnotation {
         removeCustomAnnotation = false
@@ -302,17 +296,6 @@ struct MapView: UIViewRepresentable {
       } else {
         mapView.deselectAnnotation(selectedAnnotation, animated: true)
       }
-    }
-    // Avoid refreshing UI if selectedFilter has not changed
-    guard currentFilter != selectedFilter else { return }
-    currentFilter = selectedFilter
-    mapView.removeAnnotations(mapView.annotations)
-    if let coordinate = poiCoordinate { // MiniMap for POI
-      let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-      let region = MKCoordinateRegion(center: coordinate, span: span)
-      mapView.setRegion(region, animated: true)
-    } else { // Home map
-      mapView.addAnnotations(annotations)
     }
   }
   
@@ -327,15 +310,12 @@ struct MapView: UIViewRepresentable {
       currentPlayingTourState = false
       return
     }
-    var locs = GpxManager.shared.locationsCoordinate
+    let locs = TrailManager.shared.locationsCoordinate
     let animationDuration: TimeInterval = 4
-    let Δ = 200
-    if !isHendayeToBanyuls {
-      locs.reverse()
-    }
+    let Δ = 5
     if currentPlayingTourState {
       timer?.invalidate()
-      let camera = MKMapCamera(lookingAtCenter: locs[Δ], fromEyeCoordinate: locs[0], eyeAltitude: 6000)
+      let camera = MKMapCamera(lookingAtCenter: locs[Δ], fromEyeCoordinate: locs[0], eyeAltitude: 1000)
       camera.pitch = 0
       mapView.camera = camera
     }
