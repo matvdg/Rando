@@ -10,6 +10,7 @@
 		D007B889246AEE160040E1CF /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007B888246AEE160040E1CF /* MapViewContainer.swift */; };
 		D007B88B246B60090040E1CF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007B88A246B60090040E1CF /* FileManager.swift */; };
 		D02C05DF24B3998D0047F5E8 /* Trail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C05DE24B3998D0047F5E8 /* Trail.swift */; };
+		D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039504924B4CB0600C31D34 /* DocumentView.swift */; };
 		D0531A6A246788920020FFE0 /* alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = D0531A69246788920020FFE0 /* alpha.png */; };
 		D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0531A712467FD8C0020FFE0 /* Localizable.strings */; };
 		D0531A742467FE4C0020FFE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A732467FE4C0020FFE0 /* String.swift */; };
@@ -52,6 +53,7 @@
 		D007B888246AEE160040E1CF /* MapViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		D007B88A246B60090040E1CF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		D02C05DE24B3998D0047F5E8 /* Trail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trail.swift; sourceTree = "<group>"; };
+		D039504924B4CB0600C31D34 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		D0531A69246788920020FFE0 /* alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alpha.png; sourceTree = "<group>"; };
 		D0531A6C2467FD3A0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D0531A702467FD8C0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				D08AB2692465BC7000793417 /* TrailDetail.swift */,
 				D08AB2672465BAAD00793417 /* TrailRow.swift */,
 				D007B888246AEE160040E1CF /* MapViewContainer.swift */,
+				D039504924B4CB0600C31D34 /* DocumentView.swift */,
 			);
 			path = Trail;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
+				D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
 				D08AB2682465BAAD00793417 /* TrailRow.swift in Sources */,

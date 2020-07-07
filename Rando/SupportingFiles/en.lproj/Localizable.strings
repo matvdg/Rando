@@ -6,14 +6,19 @@
   Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 */
 
+
+// General
+"Delete" = "Delete";
+"Cancel" = "Cancel";
+"Add" = "Add";
+"Rename" = "Rename";
+
 // CacheView
 "ManageCache" = "Manage cache";
 "cache" = "Cache (other tiles)";
-"Delete" = "Delete";
 "Downloading" = "Downloading...";
 "DownloadedTitle" = "Download succeeded";
 "DownloadedMessage" = "Offline maps are available";
-"Cancel" = "Cancel";
 
 // MapView
 "Map" = "Map";

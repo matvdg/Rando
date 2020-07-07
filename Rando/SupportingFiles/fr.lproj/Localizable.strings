@@ -6,15 +6,18 @@
   Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 */
 
+// General
+"Delete" = "Supprimer";
+"Cancel" = "Annuler";
+"Add" = "Ajouter";
+"Rename" = "Renommer";
+
 // CacheView
 "ManageCache" = "Gérer le cache";
 "cache" = "Cache (autres tuiles)";
-"Delete" = "Supprimer";
 "Downloading" = "Téléchargement...";
 "DownloadedTitle" = "Téléchargement terminé";
 "DownloadedMessage" = "Cartes disponibles hors ligne";
-"Cancel" = "Annuler";
-
 
 // MapView
 "Map" = "Carte";

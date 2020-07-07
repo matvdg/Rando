@@ -11,7 +11,10 @@ import MapKit
 
 struct TrailView: View {
   
+  @State var showFilePicker = false
   var trails = [mockTrail, mockTrail2]
+  
+  private let trailManager = TrailManager.shared
   
   var body: some View {
     
@@ -24,13 +27,20 @@ struct TrailView: View {
           }
         }
       }
-        
+      .sheet(isPresented: $showFilePicker, onDismiss: {self.showFilePicker = false}) {
+        DocumentView(callback: self.trailManager.createTrail, onDismiss: { self.showFilePicker = false })
+      }
       .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
       .navigationBarItems(trailing:
         Button(action: {
           Feedback.selected()
+          self.showFilePicker = true
         }) {
-          Image(systemName: "plus")
+          HStack {
+            Text("Add".localized)
+            Image(systemName: "plus")
+          }
+          
       })
     }
     

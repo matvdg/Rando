@@ -17,7 +17,7 @@ struct TrailRow: View {
     HStack(spacing: 20.0) {
       
       Button(action: {
-        self.trail.displayed.toggle()
+        Feedback.success()
       }) {
         Image(systemName: trail.displayed ? "eye" : "eye.slash")
           .resizable()

@@ -16,6 +16,8 @@ class TrailManager {
   
   static let shared = TrailManager()
   
+  private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
+  
   var locations = [CLLocation]()
   var locationsCoordinate: [CLLocationCoordinate2D] { locations.map { $0.coordinate } }
   
@@ -28,6 +30,24 @@ class TrailManager {
   }
   
   // MARK: - Public method
+  func createTrail(from url: URL) {
+    guard let contents = try? String(contentsOf: url) else { return }
+    let lines = contents.components(separatedBy: "\n")
+    var locations = [CLLocation]()
+    for (i, line) in lines.enumerated() {
+      guard let lat = line.latitude, let lng = line.longitude else { continue }
+      if i + 1 < lines.count {
+        if let alt = lines[i + 1].altitude {
+          locations.append(CLLocation(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng), altitude: alt, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date()))
+        } else {
+          locations.append(CLLocation(latitude: lat, longitude: lng))
+        }
+      }
+    }
+    let trail = Trail(name: url.lastPathComponent.name, locations: locations.map { LocationWrapper(location: $0)})
+    print(trail.name)
+  }
+  
   func closestAltitude(from coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
     locations[minimumDistanceToPolyline(from: coordinate).index].altitude
   }
@@ -109,4 +129,42 @@ class TrailManager {
     return formatter.string(from: duration) ?? ""
   }
   
+  func persistLocally(url: URL) {
+    let file = "\(Directory.trails.rawValue)/test.gpx"
+    let filename = documentsDirectory.appendingPathComponent(file)
+    do {
+      let data = try Data(contentsOf: url)
+      try data.write(to: filename)
+    } catch {
+      print("❤️ PersistLocallyError = \(error)")
+    }
+  }
+  
+}
+
+extension String {
+
+  var altitude: Double? {
+      guard let rangeFrom = range(of: "<ele>")?.upperBound, let rangeTo = self[rangeFrom...].range(of: "</ele>")?.lowerBound else { return nil }
+      return Double(String(self[rangeFrom..<rangeTo]))
+  }
+  
+  var latitude: Double? {
+      guard let rangeFrom = range(of: "<trkpt lat=\"")?.upperBound, let rangeTo = self[rangeFrom...].range(of: "\"")?.lowerBound else { return nil }
+      return Double(String(self[rangeFrom..<rangeTo]))
+  }
+  
+  var longitude: Double? {
+      guard let rangeFrom = range(of: "lon=\"")?.upperBound, let rangeTo = self[rangeFrom...].range(of: "\"")?.lowerBound else { return nil }
+      return Double(String(self[rangeFrom..<rangeTo]))
+  }
+  
+  var name: String {
+    var clean = self
+    clean = clean.replacingOccurrences(of: ".gpx", with: "")
+    clean = clean.replacingOccurrences(of: "-", with: " ")
+    clean = clean.replacingOccurrences(of: "_", with: " ")
+    return clean.capitalized
+  }
+
 }

@@ -5,11 +5,11 @@ import MapKit
 typealias TilesDownload = (numberOfTiles: Int, weightInMo: Float)
 
 enum Directory: String, CaseIterable {
-  case cache, rando
+  case cache, rando, trails
   var localized: String { rawValue.localized }
   var state: State {
     switch self {
-    case .cache: return .downloaded
+    case .cache, .trails: return .downloaded
     case .rando:
       if TileManager.shared.hasRecordedTiles {
         return .downloaded
@@ -46,9 +46,7 @@ class TileManager: ObservableObject {
   private let isOfflineKey = "isOffline"
   private var overlay: MKTileOverlay { MKTileOverlay(urlTemplate: template) }
   
-  private var documentsDirectory: URL {
-    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-  }
+  private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
   
   // MARK: -  Public property
   var hasRecordedTiles: Bool {
@@ -190,6 +188,8 @@ class TileManager: ObservableObject {
     let rando = documentsDirectory.appendingPathComponent(Directory.rando.rawValue)
     try? FileManager.default.createDirectory(at: cache, withIntermediateDirectories: true, attributes: [:])
     try? FileManager.default.createDirectory(at: rando, withIntermediateDirectories: true, attributes: [:])
+    let gpx = documentsDirectory.appendingPathComponent(Directory.trails.rawValue)
+    try? FileManager.default.createDirectory(at: gpx, withIntermediateDirectories: true, attributes: [:])
   }
   
 }

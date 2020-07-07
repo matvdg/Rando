@@ -10,7 +10,6 @@ import SwiftUI
 
 struct HomeView: View {
   
-  @State var isHendayeToBanyuls = true
   @State private var animationRotationAmount = 0.0
   @State var selectedTracking: Tracking = .initState
   @State var selectedLayer: Layer = .ign
@@ -80,7 +79,6 @@ struct HomeView: View {
           .isHidden(!isPlayingTour)
           
           Button(action: {
-            self.isHendayeToBanyuls.toggle()
             self.animationRotationAmount += .pi
           }) {
             HStack {
