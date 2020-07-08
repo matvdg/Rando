@@ -310,7 +310,7 @@ struct MapView: UIViewRepresentable {
       currentPlayingTourState = false
       return
     }
-    let locs = TrailManager.shared.locationsCoordinate
+    let locs = TrailManager.shared.currentLocationsCoordinate
     let animationDuration: TimeInterval = 4
     let Δ = 5
     if currentPlayingTourState {

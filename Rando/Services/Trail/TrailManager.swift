@@ -12,44 +12,51 @@ import MapKit
 
 typealias Estimations = (distance: String, positiveElevation: String, negativeElevation: String, duration: String)
 
+let mockTrail = Trail(name: "Lac d'Ôo", locations: [])
+let mockTrail2 = Trail(name: "Lac Vert", locations: [])
+
 class TrailManager {
   
   static let shared = TrailManager()
   
   private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
   
-  var locations = [CLLocation]()
-  var locationsCoordinate: [CLLocationCoordinate2D] { locations.map { $0.coordinate } }
+  var trails = [Trail]()
+  var currentLocations = [CLLocation]()
+  var currentLocationsCoordinate: [CLLocationCoordinate2D] { currentLocations.map { $0.coordinate } }
   
-  lazy var polyline = MKPolyline(coordinates: locationsCoordinate, count: locations.count)
+  lazy var polyline = MKPolyline(coordinates: currentLocationsCoordinate, count: currentLocations.count)
   lazy var boundingBox = polyline.boundingMapRect
   
   init() {
     let araing = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005), altitude: 1944, horizontalAccuracy: 1, verticalAccuracy: 1, timestamp: Date()) // Etang d'Araing
-    locations = [araing]
+    currentLocations = [araing]
+    getTrails()
   }
   
   // MARK: - Public method
-  func createTrail(from url: URL) {
-    guard let contents = try? String(contentsOf: url) else { return }
+  func createTrail(from url: URL) -> Trail? {
+    guard let contents = try? String(contentsOf: url) else { return nil }
     let lines = contents.components(separatedBy: "\n")
-    var locations = [CLLocation]()
+    var locations = [Location]()
     for (i, line) in lines.enumerated() {
       guard let lat = line.latitude, let lng = line.longitude else { continue }
-      if i + 1 < lines.count {
-        if let alt = lines[i + 1].altitude {
-          locations.append(CLLocation(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng), altitude: alt, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date()))
-        } else {
-          locations.append(CLLocation(latitude: lat, longitude: lng))
-        }
-      }
+      locations.append(Location(latitude: lat, longitude: lng, altitude: i + 1 < lines.count ? lines[i + 1].altitude ?? 0 : 0))
     }
-    let trail = Trail(name: url.lastPathComponent.name, locations: locations.map { LocationWrapper(location: $0)})
-    print(trail.name)
+    let trail = Trail(name: url.lastPathComponent.name, locations: locations)
+    persistLocally(trail: trail)
+    return trail
+  }
+  
+  func renameTrail(name: String, trail: Trail) -> Trail {
+    var trail = trail
+    trail.rename(name: name)
+    persistLocally(trail: trail)
+    return trail
   }
   
   func closestAltitude(from coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
-    locations[minimumDistanceToPolyline(from: coordinate).index].altitude
+    currentLocations[minimumDistanceToPolyline(from: coordinate).index].altitude
   }
   
   func estimations(for poi: Poi) -> Estimations {
@@ -66,8 +73,8 @@ class TrailManager {
     let indexes = [minDistanceToUser.index, minDistanceToPoi.index].sorted { $0 < $1 }
         
     for i in indexes[0]..<indexes[1] {
-      distance += locations[i].distance(from: locations[i+1])
-      let elevation = locations[i+1].altitude - locations[i].altitude
+      distance += currentLocations[i].distance(from: currentLocations[i+1])
+      let elevation = currentLocations[i+1].altitude - currentLocations[i].altitude
       if elevation > 0 {
         positiveElevation += elevation
       } else {
@@ -76,7 +83,7 @@ class TrailManager {
     }
     
     // Add elevation to POI (usefull if the POI is outside the Rando polyline like a summit)
-    let elevation = poi.alt - locations[minDistanceToPoi.index].altitude
+    let elevation = poi.alt - currentLocations[minDistanceToPoi.index].altitude
     if elevation > 0 {
       positiveElevation += elevation
     } else {
@@ -90,26 +97,29 @@ class TrailManager {
   }
   
   // MARK: - Private methods
-  private func getLocations() -> [CLLocation] {
-    let filepath = Bundle.main.path(forResource: "rando", ofType: "gpx")!
-    let contents = try! String(contentsOfFile: filepath, encoding: .utf8)
-    let lines = contents.components(separatedBy: "\n")
-    let locations =  lines.compactMap { line -> CLLocation? in
-      let result = line.components(separatedBy: "\"").compactMap { Double($0) }
-      guard result.count == 3 else { return nil }
-      let lat = result[0]
-      let lng = result[1]
-      let ele = result[2]
-      return CLLocation(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng), altitude: ele, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
+  private func getTrails() {
+    let urls = try? FileManager.default.contentsOfDirectory(at: documentsDirectory.appendingPathComponent(Directory.trails.rawValue), includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+    let trails = urls?.compactMap { url -> Trail? in
+      do {
+        let data = try Data(contentsOf: url)
+        let trail = try JSONDecoder().decode(Trail.self, from: data)
+        return trail
+      } catch {
+        switch error {
+        case DecodingError.keyNotFound(let key, let context): print("❤️ Error = \(error.localizedDescription), key not found = \(key), context = \(context)")
+        default: print("❤️ Error = \(error.localizedDescription)")
+        }
+        return nil
+      }
     }
-    return locations
+    self.trails = trails ?? []
   }
   
   private func minimumDistanceToPolyline(from coordinate: CLLocationCoordinate2D) -> (distance: CLLocationDistance, index: Int) {
     var index = 0
     var minDistance: CLLocationDistance = .infinity
     
-    for (i, loc) in locationsCoordinate.enumerated() {
+    for (i, loc) in currentLocationsCoordinate.enumerated() {
       let distance = loc.distance(from: coordinate)
       guard distance < minDistance else { continue }
       minDistance = distance
@@ -129,11 +139,11 @@ class TrailManager {
     return formatter.string(from: duration) ?? ""
   }
   
-  func persistLocally(url: URL) {
-    let file = "\(Directory.trails.rawValue)/test.gpx"
+  private func persistLocally(trail: Trail) {
+    let file = "\(Directory.trails.rawValue)/\(trail.id).json"
     let filename = documentsDirectory.appendingPathComponent(file)
     do {
-      let data = try Data(contentsOf: url)
+      let data = try JSONEncoder().encode(trail)
       try data.write(to: filename)
     } catch {
       print("❤️ PersistLocallyError = \(error)")

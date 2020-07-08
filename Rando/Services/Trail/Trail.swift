@@ -9,54 +9,51 @@
 import Foundation
 import CoreLocation
 
-let mockTrail = Trail(name: "Lac vert", locations: [])
-let mockTrail2 = Trail(name: "Lac d'Ôo", locations: [])
-
 struct Trail: Codable, Identifiable {
   
   // Decodable properties
   let id = UUID()
   var name: String
-  var locations: [LocationWrapper]
+  var locations: [Location]
   
   // Computed properties
   var distance: String { "10km" }
   var positiveElevation: String { "1km" }
-  var displayed: Bool { true }
+  var displayed: Bool { false }
   var coordinate: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: 42.831111, longitude: 0.872026) }
-}
-
-extension CLLocation: Encodable {
-  public enum CodingKeys: String, CodingKey {
-    case latitude
-    case longitude
-    case altitude
+  var elevations: [CLLocationDistance] {
+    locations.map { $0.altitude }
   }
-  public func encode(to encoder: Encoder) throws {
-    var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encode(coordinate.latitude, forKey: .latitude)
-    try container.encode(coordinate.longitude, forKey: .longitude)
-    try container.encode(altitude, forKey: .altitude)
+  
+  mutating func rename(name: String) {
+    self.name = name
   }
 }
 
-public struct LocationWrapper: Codable {
+
+public struct Location: Codable {
   
-  var location: CLLocation
+  var latitude: CLLocationDegrees
+  var longitude: CLLocationDegrees
+  var altitude: CLLocationDistance
   
-  init(location: CLLocation) {
-    self.location = location
+  init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, altitude: CLLocationDistance) {
+    self.latitude = latitude
+    self.longitude = longitude
+    self.altitude = altitude
+  }
+  
+  var clLocation: CLLocation {
+    CLLocation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), altitude: altitude, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
   }
   
   public init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CLLocation.CodingKeys.self)
+    let container = try decoder.container(keyedBy: Location.self.CodingKeys.self)
     
     let latitude = try container.decode(CLLocationDegrees.self, forKey: .latitude)
     let longitude = try container.decode(CLLocationDegrees.self, forKey: .longitude)
     let altitude = try container.decode(CLLocationDistance.self, forKey: .altitude)
     
-    let location = CLLocation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), altitude: altitude, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
-    
-    self.init(location: location)
+    self.init(latitude: latitude, longitude: longitude, altitude: altitude)
   }
 }

@@ -12,7 +12,7 @@ import MapKit
 struct TrailView: View {
   
   @State var showFilePicker = false
-  var trails = [mockTrail, mockTrail2]
+  @State var trails = TrailManager.shared.trails
   
   private let trailManager = TrailManager.shared
   
@@ -28,7 +28,7 @@ struct TrailView: View {
         }
       }
       .sheet(isPresented: $showFilePicker, onDismiss: {self.showFilePicker = false}) {
-        DocumentView(callback: self.trailManager.createTrail, onDismiss: { self.showFilePicker = false })
+        DocumentView(callback: self.saveTrail, onDismiss: { self.showFilePicker = false })
       }
       .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
       .navigationBarItems(trailing:
@@ -45,6 +45,12 @@ struct TrailView: View {
     }
     
   }
+  
+  private func saveTrail(url: URL) {
+    guard let newTrail = self.trailManager.createTrail(from: url) else { return }
+    trails.append(newTrail)
+  }
+  
 }
 
 // MARK: Previews

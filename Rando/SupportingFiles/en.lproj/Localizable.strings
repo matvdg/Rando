@@ -12,6 +12,8 @@
 "Cancel" = "Cancel";
 "Add" = "Add";
 "Rename" = "Rename";
+"Download" = "Download maps";
+"DisplayOnMap" = "Display on the map";
 
 // CacheView
 "ManageCache" = "Manage cache";
