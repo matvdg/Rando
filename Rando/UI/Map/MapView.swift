@@ -29,9 +29,9 @@ struct MapView: UIViewRepresentable {
   @State var sender: UILongPressGestureRecognizer?
   
   // MARK: Constructors
-  init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, poiCoordinate: CLLocationCoordinate2D? = nil) {
+  init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, trail: Trail? = nil) {
     
-    self.poiCoordinate = poiCoordinate
+    self.trail = trail
     self._selectedTracking = selectedTracking
     self._selectedLayer = selectedLayer
     self._selectedPoi = selectedPoi
@@ -40,21 +40,21 @@ struct MapView: UIViewRepresentable {
   }
   
   // Convenience init
-  init(poiCoordinate: CLLocationCoordinate2D? = nil) {
+  init(trail: Trail? = nil) {
     
-    self.init(selectedTracking: Binding<Tracking>.constant(.disabled), selectedLayer: Binding<Layer>.constant(.ign), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false), poiCoordinate: poiCoordinate)
+    self.init(selectedTracking: Binding<Tracking>.constant(.disabled), selectedLayer: Binding<Layer>.constant(.ign), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false), trail: trail)
     
   }
   
   // MARK: Properties
-  var poiCoordinate: CLLocationCoordinate2D?
+  var trail: Trail?
   let trailManager = TrailManager.shared
   let locationManager = LocationManager.shared
   var annotations: [PoiAnnotation] {
     PoiManager.shared.pois.map { PoiAnnotation(poi: $0) }
   }
   var compassY: CGFloat {
-    if poiCoordinate != nil {
+    if trail != nil {
       return 8
     } else {
       return isPlayingTour ? 50 : 160
@@ -195,15 +195,22 @@ struct MapView: UIViewRepresentable {
     let mapView = MKMapView()
     mapView.delegate = context.coordinator
     self.configureMap(mapView: mapView)
-    let gesture = UILongPressGestureRecognizer()
-    gesture.minimumPressDuration = 1
-    gesture.addTarget(context.coordinator, action: #selector(Coordinator.recognizeLongPress))
-    mapView.addGestureRecognizer(gesture)
-    mapView.addAnnotations(annotations)
-    var region = MKCoordinateRegion(trailManager.boundingBox)
-    region.span.latitudeDelta += 0.01
-    region.span.longitudeDelta += 0.01
-    mapView.setRegion(region, animated: false)
+    if let trail = trail {
+        var region = MKCoordinateRegion(trail.polyline.boundingMapRect)
+        region.span.latitudeDelta += 0.01
+        region.span.longitudeDelta += 0.01
+        mapView.setRegion(region, animated: false)
+    } else {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.minimumPressDuration = 1
+        gesture.addTarget(context.coordinator, action: #selector(Coordinator.recognizeLongPress))
+        mapView.addGestureRecognizer(gesture)
+        mapView.addAnnotations(annotations)
+        var region = MKCoordinateRegion(trailManager.boundingBox)
+        region.span.latitudeDelta += 0.01
+        region.span.longitudeDelta += 0.01
+        mapView.setRegion(region, animated: false)
+    }
     return mapView
   }
   
@@ -283,7 +290,7 @@ struct MapView: UIViewRepresentable {
     default:
       mapView.mapType = .standard
     }
-    mapView.addOverlay(trailManager.polyline, level: .aboveLabels)
+    mapView.addOverlay(trail?.polyline ?? trailManager.polyline, level: .aboveLabels)
   }
   
   private func setAnnotations(mapView: MKMapView) {

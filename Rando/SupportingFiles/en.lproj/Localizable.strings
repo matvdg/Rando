@@ -26,12 +26,7 @@
 "Map" = "Map";
 "MapSettings" = "Map settings";
 "MapOfflineSwitcher" = "Offline IGN map";
-"Distance" = "Distance";
-"DurationEstimated" = "Estimated duration";
 "Altitude" = "Altitude";
-"PositiveElevation" = "Positive elevation";
-"NegativeElevation" = "Negative elevation";
-"Step" = "Step";
 "Filter" = "Filter";
 "ign" = "IGN";
 "standard" = "Standard";
@@ -42,3 +37,9 @@
 
 // TrailView
 "Trails" = "Trails";
+"AltMin" = "Min altitude";
+"AltMax" = "Max altitude";
+"PositiveElevation" = "Positive elevation";
+"NegativeElevation" = "Negative elevation";
+"Distance" = "Distance";
+"DurationEstimated" = "Estimated time";

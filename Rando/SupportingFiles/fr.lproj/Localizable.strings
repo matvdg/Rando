@@ -25,12 +25,7 @@
 "Map" = "Carte";
 "MapSettings" = "Réglages de la carte";
 "MapOfflineSwitcher" = "Carte IGN hors ligne";
-"Distance" = "Distance";
-"DurationEstimated" = "Temps estimé";
 "Altitude" = "Altitude";
-"PositiveElevation" = "Dénivelé positif";
-"NegativeElevation" = "Dénivelé négatif";
-"Step" = "Étape";
 "Filter" = "Filtrer";
 "ign" = "IGN";
 "standard" = "Standard";
@@ -41,3 +36,9 @@
 
 // TrailView
 "Trails" = "Randonnées";
+"AltMin" = "Alt. min";
+"AltMax" = "Alt. max";
+"PositiveElevation" = "Dénivelé positif";
+"NegativeElevation" = "Dénivelé négatif";
+"Distance" = "Distance";
+"DurationEstimated" = "Temps estimé";

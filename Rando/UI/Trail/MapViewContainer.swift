@@ -11,17 +11,20 @@ import CoreLocation
 
 
 struct MapViewContainer: View {
-  
-  var poiCoordinate: CLLocationCoordinate2D
-  
-  var body: some View {
-    MapView(poiCoordinate: poiCoordinate)
-      .navigationBarTitle(Text("Map".localized))
-  }
+    
+    var trail: Trail
+    
+    var body: some View {
+        MapView(trail: trail)
+            .navigationBarTitle(Text("Map".localized))
+    }
 }
 
 struct MapViewContainer_Previews: PreviewProvider {
-  static var previews: some View {
-    MapViewContainer(poiCoordinate: CLLocationCoordinate2D())
-  }
+    
+    @State static var trail = Trail(name: "test", locations: [])
+    
+    static var previews: some View {
+        MapViewContainer(trail: trail)
+    }
 }

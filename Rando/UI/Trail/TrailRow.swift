@@ -31,11 +31,11 @@ struct TrailRow: View {
           .font(.headline)
         
         HStack(spacing: 8) {
-          Text(trail.distance).fontWeight(.bold)
+            Text(trail.distance.toString).fontWeight(.bold)
           HStack(alignment: .bottom, spacing: 4) {
             Text("PositiveElevation".localized)
               .font(.caption)
-            Text(trail.positiveElevation).fontWeight(.bold)
+            Text(trail.positiveElevation.toStringMeters).fontWeight(.bold)
           }
         }
         .font(.subheadline)
