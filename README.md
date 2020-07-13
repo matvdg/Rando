@@ -5,7 +5,7 @@ Support or contact: [matvdg@me.com](matvdg@me.com)
 
 ## Privacy and terms of use
 
-[Terms of use](https://github.com/matvdg/GR10/blob/master/tou.md) and [Privacy](https://github.com/matvdg/GR10/blob/master/privacy.md)
+[Terms of use](https://github.com/matvdg/Rando/blob/Rando/tou.md) and [Privacy](https://github.com/matvdg/Rando/blob/Rando/privacy.md)
 
 ## Introduction
 Full offline maps for Pyrénées trails (detailed maps + gpx management) written in SwiftUI.
