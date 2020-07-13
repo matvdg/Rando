@@ -58,10 +58,7 @@ struct PoiRow_Previews: PreviewProvider {
   
   static var previews: some View {
     
-    Group {
-      TrailRow(trail: mockTrail)
-      TrailRow(trail: mockTrail2)
-    }
+    TrailRow(trail: Trail())
     .previewLayout(.fixed(width: 320, height: 80))
     
   }

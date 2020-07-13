@@ -11,7 +11,7 @@ import SwiftUICharts
 
 struct TrailDetail: View {
     
-    @State var trail: Trail
+    @ObservedObject var trail: Trail
     
     var body: some View {
         ScrollView {
@@ -27,8 +27,8 @@ struct TrailDetail: View {
                     
                     TextField("Rename".localized, text: $trail.name) {
                         TrailManager.shared.save(trail: self.trail)
-                    }
-                    .font(.title)
+                        }
+                    .font(.system(size: 28, weight: .bold, design: Font.Design.default))
                     
                     HStack(alignment: .center, spacing: 20.0) {
                         
@@ -117,7 +117,7 @@ struct TrailDetail: View {
 struct PoiDetail_Previews: PreviewProvider {
         
     static var previews: some View {
-        TrailDetail(trail: mockTrail)
+        TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
             .previewDisplayName("iPhone SE")
             .environment(\.colorScheme, .light)

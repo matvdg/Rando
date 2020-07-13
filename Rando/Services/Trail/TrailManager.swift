@@ -10,18 +10,20 @@ import Foundation
 import CoreLocation
 import MapKit
 
+let araing = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005), altitude: 1944, horizontalAccuracy: 1, verticalAccuracy: 1, timestamp: Date()) // Etang d'Araing
+let mockLoc1 = Location(latitude: 42.835191, longitude: 0.872005, altitude: 1944)
+let mockLoc2 = Location(latitude: 42.835181, longitude: 0.862005, altitude: 2000)
+
 typealias Estimations = (distance: String, positiveElevation: String, negativeElevation: String, duration: String)
 
-let mockTrail = Trail(name: "Lac d'Ôo", locations: [])
-let mockTrail2 = Trail(name: "Lac Vert", locations: [])
 
-class TrailManager {
+class TrailManager: ObservableObject {
     
     static let shared = TrailManager()
     
     private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
     
-    var trails = [Trail]()
+    @Published var trails = [Trail]()
     var currentLocations = [CLLocation]()
     var currentLocationsCoordinate: [CLLocationCoordinate2D] { currentLocations.map { $0.coordinate } }
     
@@ -29,23 +31,21 @@ class TrailManager {
     lazy var boundingBox = polyline.boundingMapRect
     
     init() {
-        let araing = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 42.835191, longitude: 0.872005), altitude: 1944, horizontalAccuracy: 1, verticalAccuracy: 1, timestamp: Date()) // Etang d'Araing
         currentLocations = [araing]
         getTrails()
     }
     
     // MARK: - Public method
-    func createTrail(from url: URL) -> Trail? {
-        guard let contents = try? String(contentsOf: url) else { return nil }
+    func createTrail(from url: URL) {
+        guard let contents = try? String(contentsOf: url) else { return }
         let lines = contents.components(separatedBy: "\n")
         var locations = [Location]()
         for (i, line) in lines.enumerated() {
             guard let lat = line.latitude, let lng = line.longitude else { continue }
             locations.append(Location(latitude: lat, longitude: lng, altitude: i + 1 < lines.count ? lines[i + 1].altitude ?? 0 : 0))
         }
-        let trail = Trail(name: url.lastPathComponent.name, locations: locations)
+        let trail = Trail(gpx: Gpx(name: url.lastPathComponent.name, locations: locations))
         save(trail: trail)
-        return trail
     }
     
     func closestAltitude(from coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
@@ -93,15 +93,16 @@ class TrailManager {
         let file = "\(Directory.trails.rawValue)/\(trail.id).json"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
-            let data = try JSONEncoder().encode(trail)
+            let data = try JSONEncoder().encode(trail.gpx)
             try data.write(to: filename)
+            self.getTrails()
         } catch {
             print("❤️ PersistLocallyError = \(error)")
         }
     }
     
-    func remove(trail: Trail) {
-        let file = "\(Directory.trails.rawValue)/\(trail.id).json"
+    func remove(id: UUID) {
+        let file = "\(Directory.trails.rawValue)/\(id).json"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
             try FileManager.default.removeItem(at: filename)
@@ -116,8 +117,8 @@ class TrailManager {
         let trails = urls?.compactMap { url -> Trail? in
             do {
                 let data = try Data(contentsOf: url)
-                let trail = try JSONDecoder().decode(Trail.self, from: data)
-                return trail
+                let gpx = try JSONDecoder().decode(Gpx.self, from: data)
+                return Trail(gpx: gpx)
             } catch {
                 switch error {
                 case DecodingError.keyNotFound(let key, let context): print("❤️ Error = \(error.localizedDescription), key not found = \(key), context = \(context)")

@@ -135,6 +135,8 @@
 		D05B15012460045100B24666 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */,
+				D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */,
 				D063479A245D768C003BA9E7 /* Preview Content */,
 				D0634792245D768B003BA9E7 /* AppDelegate.swift */,
 				D0634794245D768B003BA9E7 /* SceneDelegate.swift */,
@@ -205,8 +207,6 @@
 		D06347AA245DD493003BA9E7 /* Trail */ = {
 			isa = PBXGroup;
 			children = (
-				D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */,
-				D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */,
 				D06347C4245DD784003BA9E7 /* TrailManager.swift */,
 				D02C05DE24B3998D0047F5E8 /* Trail.swift */,
 			);

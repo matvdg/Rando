@@ -10,14 +10,42 @@ import Foundation
 import CoreLocation
 import MapKit
 
-struct Trail: Codable, Identifiable {
+class Gpx: Codable, Identifiable {
+    
+    init(name: String, locations: [Location]) {
+        self.id = UUID()
+        self.name = name
+        self.locations = locations
+    }
     
     // Decodable properties
-    let id = UUID()
+    var id: UUID
     var name: String
     var locations: [Location]
     
+    
+}
+
+class Trail: Identifiable, ObservableObject {
+        
+    init(gpx: Gpx = Gpx(name: "test", locations: [])) {
+        self.gpx = gpx
+        self.name = gpx.name
+    }
+    
+    // Decodable properties
+    var gpx: Gpx
+    
     // Computed properties
+    var id: UUID { gpx.id }
+    var locations: [Location] { gpx.locations }
+    
+    @Published var name: String {
+        didSet {
+            gpx.name = name
+        }
+    }
+    
     var polyline: MKPolyline {
         MKPolyline(coordinates: locations.map { $0.clLocation.coordinate }, count: locations.count)
     }
@@ -73,7 +101,7 @@ struct Trail: Codable, Identifiable {
     }
     
     var displayed: Bool { false }
-        
+    
     var elevations: [CLLocationDistance] {
         var simplified = [CLLocationDistance]()
         let elevations =  locations.map { $0.altitude }
@@ -82,10 +110,6 @@ struct Trail: Codable, Identifiable {
             simplified.append(alt)
         }
         return simplified
-    }
-    
-    mutating func rename(name: String) {
-        self.name = name
     }
 }
 

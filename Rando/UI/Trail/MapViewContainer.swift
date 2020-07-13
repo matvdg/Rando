@@ -22,7 +22,7 @@ struct MapViewContainer: View {
 
 struct MapViewContainer_Previews: PreviewProvider {
     
-    @State static var trail = Trail(name: "test", locations: [])
+    @State static var trail = Trail()
     
     static var previews: some View {
         MapViewContainer(trail: trail)
