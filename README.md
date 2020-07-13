@@ -1,6 +1,6 @@
 # GR10
 
-![Preview](https://github.com/matvdg/GR10/blob/master/preview.png?raw=true)
+![Preview](https://github.com/matvdg/Rando/blob/GR10/preview.png?raw=true)
 
 ## Assistance
 Support or contact: [matvdg@me.com](matvdg@me.com)
