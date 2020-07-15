@@ -11,9 +11,29 @@ import MapKit
 
 struct TrailView: View {
     
+    enum Sorting: String, CaseIterable, Equatable {
+        case name, active, distance, elevation
+        var localized: String { self.rawValue.localized }
+    }
+    
     @State var showFilePicker = false
+    @State var sorting: Sorting = .name
     
     @ObservedObject var trailManager = TrailManager.shared
+    
+    var trails: [Trail] {
+        if sorting == .active {
+            return trailManager.trails.filter { $0.displayed }
+        } else {
+            return trailManager.trails.sorted {
+                switch sorting {
+                case .elevation : return $0.positiveElevation < $1.positiveElevation
+                case .distance: return $0.distance < $1.distance
+                default: return $0.name < $1.name
+                }
+            }
+        }
+    }
     
     func removeRows(at offsets: IndexSet) {
         offsets.forEach { trailManager.remove(id: self.trailManager.trails[$0].id) }
@@ -25,8 +45,16 @@ struct TrailView: View {
         NavigationView {
             
             VStack {
+                Picker(selection: $sorting, label: Text("")) {
+                    ForEach(Sorting.allCases, id: \.self) { layer in
+                        Text(layer.localized)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
                 List {
-                    ForEach(trailManager.trails) { trail in
+                    ForEach(trails) { trail in
                         NavigationLink(destination: TrailDetail(trail: trail)) {
                             TrailRow(trail: trail)
                         }
