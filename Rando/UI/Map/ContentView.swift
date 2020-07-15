@@ -23,9 +23,14 @@ struct ContentView: View {
         .tag(0)
         TrailView()
           .tabItem {
-            Image(systemName: "mappin.and.ellipse")
+            Image(systemName: "location.north")
         }
         .tag(1)
+        PoiView()
+          .tabItem {
+            Image(systemName: "mappin.and.ellipse")
+        }
+        .tag(2)
       }
     }
     .accentColor(Color.tintColor)

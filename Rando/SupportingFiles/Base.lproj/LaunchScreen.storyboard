@@ -21,7 +21,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem image="map" catalog="system" id="Ghv-tN-WBJ"/>
-                                    <tabBarItem image="mappin.and.ellipse" catalog="system" id="3Yj-NZ-wfu"/>
+                                    <tabBarItem image="location.north" catalog="system" id="3Yj-NZ-wfu"/>
+                                    <tabBarItem image="mappin.and.ellipse" catalog="system" id="flX-sc-c9G"/>
                                 </items>
                             </tabBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-Vq-ho9">
@@ -60,6 +61,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location.north" catalog="system" width="108" height="128"/>
         <image name="map" catalog="system" width="128" height="113"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <namedColor name="tintColor">

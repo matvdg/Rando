@@ -84,7 +84,7 @@ struct TrailView: View {
 }
 
 // MARK: Previews
-struct PoiView_Previews: PreviewProvider {
+struct TrailView_Previews: PreviewProvider {
     static var previews: some View {
         TrailView()
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))

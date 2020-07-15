@@ -118,7 +118,7 @@ struct TrailDetail: View {
 }
 
 // MARK: Previews
-struct PoiDetail_Previews: PreviewProvider {
+struct TrailDetail_Previews: PreviewProvider {
         
     static var previews: some View {
         TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))

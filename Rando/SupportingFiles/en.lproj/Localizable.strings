@@ -28,6 +28,19 @@
 "Stop" = "Stop the tour";
 "Pin" = "User pin";
 
+// PoiView
+"all" = "All";
+"refuge" = "Refuge";
+"spring" = "Spring";
+"waterfall" = "Waterfall";
+"lake" = "Lake";
+"bridge" = "Bridge";
+"peak" = "Peak";
+"Direction" = "Reverse";
+"Steps" = "Steps";
+"Phone" = "Phone";
+"Website" = "Go to the website";
+
 // TrailView
 "Trails" = "Trails";
 "AltMin" = "Min altitude";

@@ -51,7 +51,7 @@ struct TilesRow: View {
                     }
                     ProgressBar(value: $tileManager.progress)
                         .frame(height: 10)
-                        .isHidden(tileManager.status == .downloaded, remove: true)
+                        .isHidden(tileManager.status != .downloading, remove: true)
                 }
             }
             .isHidden(otherDownloadInProgress, remove: true)

@@ -61,6 +61,10 @@
 		F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0A824BEAC9C00DA224C /* Double.swift */; };
 		F6CFD0AB24BEAD5E00DA224C /* TileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0AA24BEAD5E00DA224C /* TileOverlay.swift */; };
 		F6CFD0AD24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */; };
+		F6CFD0B224BF8FE100DA224C /* PoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0AF24BF8FE100DA224C /* PoiView.swift */; };
+		F6CFD0B324BF8FE100DA224C /* PoiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */; };
+		F6CFD0B424BF8FE100DA224C /* PoiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B124BF8FE100DA224C /* PoiRow.swift */; };
+		F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B524BF90CA00DA224C /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +126,10 @@
 		F6CFD0A824BEAC9C00DA224C /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		F6CFD0AA24BEAD5E00DA224C /* TileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOverlay.swift; sourceTree = "<group>"; };
 		F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json"; sourceTree = "<group>"; };
+		F6CFD0AF24BF8FE100DA224C /* PoiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiView.swift; sourceTree = "<group>"; };
+		F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiDetail.swift; sourceTree = "<group>"; };
+		F6CFD0B124BF8FE100DA224C /* PoiRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiRow.swift; sourceTree = "<group>"; };
+		F6CFD0B524BF90CA00DA224C /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				D0B7CDB624690C0800464C79 /* Map */,
-				D0531A6B2467FC150020FFE0 /* Trail */,
+				F6CFD0AE24BF8FD200DA224C /* Poi */,
 				D09FB00D2465E3F30007F55B /* Shared */,
+				D0531A6B2467FC150020FFE0 /* Trail */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -272,6 +281,7 @@
 			children = (
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
 				D083A78B246739EA00E87F08 /* ProgressBar.swift */,
+				F6CFD0B524BF90CA00DA224C /* CircleImage.swift */,
 				D058FCB8246D7B1B003BDFF8 /* BlurView.swift */,
 			);
 			path = Shared;
@@ -332,6 +342,16 @@
 				F6CFD09B24BDF08E00DA224C /* 3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json */,
 			);
 			path = Trails;
+			sourceTree = "<group>";
+		};
+		F6CFD0AE24BF8FD200DA224C /* Poi */ = {
+			isa = PBXGroup;
+			children = (
+				F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */,
+				F6CFD0B124BF8FE100DA224C /* PoiRow.swift */,
+				F6CFD0AF24BF8FE100DA224C /* PoiView.swift */,
+			);
+			path = Poi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6CFD0B324BF8FE100DA224C /* PoiDetail.swift in Sources */,
 				F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */,
 				D08F1A9E2465A66300335281 /* Poi.swift in Sources */,
 				D06347C5245DD784003BA9E7 /* TrailManager.swift in Sources */,
@@ -446,6 +467,7 @@
 				D05B14FF2460041F00B24666 /* HomeView.swift in Sources */,
 				D0634795245D768B003BA9E7 /* SceneDelegate.swift in Sources */,
 				F6CAAF3B24BC91DB006F991A /* UserDefaults.swift in Sources */,
+				F6CFD0B224BF8FE100DA224C /* PoiView.swift in Sources */,
 				D007B88B246B60090040E1CF /* FileManager.swift in Sources */,
 				D08F1A9C2465919300335281 /* PoiManager.swift in Sources */,
 				D09FB0092465D2360007F55B /* MiniImage.swift in Sources */,
@@ -454,6 +476,8 @@
 				D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
 				D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */,
+				F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */,
+				F6CFD0B424BF8FE100DA224C /* PoiRow.swift in Sources */,
 				D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */,
 				D007B889246AEE160040E1CF /* MapViewContainer.swift in Sources */,

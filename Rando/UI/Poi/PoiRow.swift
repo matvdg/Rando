@@ -1,39 +1,33 @@
 //
-//  TrailRow.swift
+//  PoiRow.swift
 //  Rando
 //
-//  Created by Mathieu Vandeginste on 08/07/2020.
+//  Created by Mathieu Vandeginste on 08/05/2020.
 //  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
 
-struct TrailRow: View {
+struct PoiRow: View {
     
-  @State var trail: Trail
+  var poi: Poi
   
   var body: some View {
     
     HStack(spacing: 20.0) {
       
-      Button(action: {
-        Feedback.success()
-      }) {
-        Image(systemName: trail.displayed ? "eye" : "eye.slash")
-          .foregroundColor(trail.displayed ? .tintColor : .lightgray)
-      }
-      
+      MiniImage(id: poi.id)
+        .frame(width: 70.0, height: 70.0)
       
       VStack(alignment: .leading, spacing: 10) {
-        Text(trail.name)
+        Text(poi.name)
           .font(.headline)
         
         HStack(spacing: 8) {
-            Text(trail.distance.toString).fontWeight(.bold)
           HStack(alignment: .bottom, spacing: 4) {
-            Text("PositiveElevation".localized)
+            Text("Altitude".localized)
               .font(.caption)
-            Text(trail.positiveElevation.toStringMeters).fontWeight(.bold)
+            Text(poi.altitudeInMeters).fontWeight(.bold)
           }
         }
         .font(.subheadline)
@@ -52,11 +46,14 @@ struct TrailRow: View {
 }
 
 // MARK: Previews
-struct TrailRow_Previews: PreviewProvider {
+struct PoiRow_Previews: PreviewProvider {
   
+  @State static var clockwise = true
   static var previews: some View {
     
-    TrailRow(trail: Trail())
+    Group {
+      PoiRow(poi: pois[0])
+    }
     .previewLayout(.fixed(width: 320, height: 80))
     
   }
