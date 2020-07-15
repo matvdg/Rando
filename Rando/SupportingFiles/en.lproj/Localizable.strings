@@ -6,27 +6,18 @@
   Copyright © 2020 Mathieu Vandeginste. All rights reserved.
 */
 
-
 // General
 "Delete" = "Delete";
 "Cancel" = "Cancel";
 "Add" = "Add";
 "Rename" = "Rename";
-"Download" = "Download maps";
-"DisplayOnMap" = "Display the trail on the map";
-"DoNotDisplayOnMap" = "Remove the trail from the map";
-
-// CacheView
-"ManageCache" = "Manage cache";
-"cache" = "Cache (other tiles)";
-"Downloading" = "Downloading...";
-"DownloadedTitle" = "Download succeeded";
-"DownloadedMessage" = "Offline maps are available";
 
 // MapView
 "Map" = "Map";
 "MapSettings" = "Map settings";
 "MapOfflineSwitcher" = "Offline IGN map";
+"EmptyCache" = "Empty cache";
+"DeleteCache" = "Delete all the offline maps";
 "Altitude" = "Altitude";
 "Filter" = "Filter";
 "ign" = "IGN";
@@ -44,3 +35,9 @@
 "NegativeElevation" = "Negative elevation";
 "Distance" = "Distance";
 "DurationEstimated" = "Estimated time";
+"Downloading" = "Downloading...";
+"DownloadedTitle" = "Download succeeded";
+"Downloaded" = "Offline maps are available";
+"Download" = "Download maps";
+"DisplayOnMap" = "Display the trail on the map";
+"DoNotDisplayOnMap" = "Remove the trail from the map";

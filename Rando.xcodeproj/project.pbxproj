@@ -39,8 +39,6 @@
 		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
 		D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */; };
 		D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB72469184F00464C79 /* InfoView.swift */; };
-		D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE19246A91FF00464C79 /* CacheView.swift */; };
-		D0B7CE1C246A954500464C79 /* CacheRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE1B246A954500464C79 /* CacheRow.swift */; };
 		D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */; };
 		D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C40E03245F37F900EF4873 /* TileManager.swift */; };
 		D0F8633124615D56007C363A /* pois.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F8633024615D56007C363A /* pois.json */; };
@@ -60,6 +58,9 @@
 		F6CFD0A324BDF08E00DA224C /* 0F68603E-267D-41F9-AF21-A1A3235722DA.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09924BDF08E00DA224C /* 0F68603E-267D-41F9-AF21-A1A3235722DA.json */; };
 		F6CFD0A424BDF08E00DA224C /* 6753F1F8-B34A-49EE-BCD9-8F22FAE0016F.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09A24BDF08E00DA224C /* 6753F1F8-B34A-49EE-BCD9-8F22FAE0016F.json */; };
 		F6CFD0A524BDF08E00DA224C /* 3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09B24BDF08E00DA224C /* 3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json */; };
+		F6CFD0A724BE9EEA00DA224C /* TilesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0A624BE9EEA00DA224C /* TilesRow.swift */; };
+		F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0A824BEAC9C00DA224C /* Double.swift */; };
+		F6CFD0AB24BEAD5E00DA224C /* TileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0AA24BEAD5E00DA224C /* TileOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,8 +100,6 @@
 		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang de Rulhe.gpx"; sourceTree = "<group>"; };
 		D0B7CDB72469184F00464C79 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		D0B7CE19246A91FF00464C79 /* CacheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheView.swift; sourceTree = "<group>"; };
-		D0B7CE1B246A954500464C79 /* CacheRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRow.swift; sourceTree = "<group>"; };
 		D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPoiView.swift; sourceTree = "<group>"; };
 		D0C40E03245F37F900EF4873 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 		D0F8633024615D56007C363A /* pois.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pois.json; sourceTree = "<group>"; };
@@ -120,6 +119,9 @@
 		F6CFD09924BDF08E00DA224C /* 0F68603E-267D-41F9-AF21-A1A3235722DA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0F68603E-267D-41F9-AF21-A1A3235722DA.json"; sourceTree = "<group>"; };
 		F6CFD09A24BDF08E00DA224C /* 6753F1F8-B34A-49EE-BCD9-8F22FAE0016F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "6753F1F8-B34A-49EE-BCD9-8F22FAE0016F.json"; sourceTree = "<group>"; };
 		F6CFD09B24BDF08E00DA224C /* 3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json"; sourceTree = "<group>"; };
+		F6CFD0A624BE9EEA00DA224C /* TilesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesRow.swift; sourceTree = "<group>"; };
+		F6CFD0A824BEAC9C00DA224C /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		F6CFD0AA24BEAD5E00DA224C /* TileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				D08AB2692465BC7000793417 /* TrailDetail.swift */,
 				D08AB2672465BAAD00793417 /* TrailRow.swift */,
 				F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */,
+				F6CFD0A624BE9EEA00DA224C /* TilesRow.swift */,
 				D007B888246AEE160040E1CF /* MapViewContainer.swift */,
 				D039504924B4CB0600C31D34 /* DocumentView.swift */,
 			);
@@ -160,6 +163,7 @@
 		D05B15012460045100B24666 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D0531A69246788920020FFE0 /* alpha.png */,
 				F6CFD09124BDF08E00DA224C /* Trails */,
 				F6CFD09024BDC18F00DA224C /* Gpx */,
 				D063479A245D768C003BA9E7 /* Preview Content */,
@@ -241,8 +245,8 @@
 		D06347BB245DD66A003BA9E7 /* Tile */ = {
 			isa = PBXGroup;
 			children = (
-				D0531A69246788920020FFE0 /* alpha.png */,
 				D0C40E03245F37F900EF4873 /* TileManager.swift */,
+				F6CFD0AA24BEAD5E00DA224C /* TileOverlay.swift */,
 			);
 			path = Tile;
 			sourceTree = "<group>";
@@ -258,6 +262,7 @@
 				D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */,
 				D0FF45E1246C06910087697B /* CLLocationDistance.swift */,
 				F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */,
+				F6CFD0A824BEAC9C00DA224C /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,8 +285,6 @@
 				D06347A6245DCD34003BA9E7 /* MapView.swift */,
 				D0531A75246820BA0020FFE0 /* MapControl.swift */,
 				D0B7CDB72469184F00464C79 /* InfoView.swift */,
-				D0B7CE19246A91FF00464C79 /* CacheView.swift */,
-				D0B7CE1B246A954500464C79 /* CacheRow.swift */,
 				D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */,
 			);
 			path = Map;
@@ -424,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */,
 				D08F1A9E2465A66300335281 /* Poi.swift in Sources */,
 				D06347C5245DD784003BA9E7 /* TrailManager.swift in Sources */,
 				D02C05DF24B3998D0047F5E8 /* Trail.swift in Sources */,
@@ -433,7 +437,9 @@
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
 				D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
+				F6CFD0A724BE9EEA00DA224C /* TilesRow.swift in Sources */,
 				F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */,
+				F6CFD0AB24BEAD5E00DA224C /* TileOverlay.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
 				D08AB2682465BAAD00793417 /* TrailRow.swift in Sources */,
 				D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */,
@@ -451,9 +457,7 @@
 				D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */,
 				D007B889246AEE160040E1CF /* MapViewContainer.swift in Sources */,
-				D0B7CE1A246A91FF00464C79 /* CacheView.swift in Sources */,
 				D058FCB9246D7B1B003BDFF8 /* BlurView.swift in Sources */,
-				D0B7CE1C246A954500464C79 /* CacheRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
 				D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */,

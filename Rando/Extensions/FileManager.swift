@@ -55,18 +55,10 @@ public extension FileManager {
     }
     if let error = enumeratorError { print("❤️ AllocatedSizeOfDirectory enumeratorError = \(error.localizedDescription)") }
     
-    return formatBytes(size: Double(accumulatedSize))
+    return Double(accumulatedSize).toBytes
     
   }
   
-  fileprivate func formatBytes(size: Double) -> String {
-    let formatter = MeasurementFormatter()
-    let measurement = Measurement(value: size, unit: UnitInformationStorage.bytes)
-    formatter.unitStyle = .short
-    formatter.unitOptions = .naturalScale
-    formatter.numberFormatter.maximumFractionDigits = 0
-    return formatter.string(from: measurement.converted(to: .megabytes))
-  }
 }
 
 

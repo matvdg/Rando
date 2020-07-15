@@ -27,4 +27,13 @@ extension UserDefaults {
             UserDefaults.standard.set(newValue, forKey: "currentTrail")
         }
     }
+    
+    static var isOffline: Bool {
+      get {
+        UserDefaults.standard.bool(forKey: "isOffline")
+      }
+      set {
+        UserDefaults.standard.set(newValue, forKey: "isOffline")
+      }
+    }
 }

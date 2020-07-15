@@ -100,7 +100,7 @@ struct TrailDetail: View {
                     
                     DisplayRow(id: trail.id.uuidString)
                     
-                    CacheRow(directory: .rando)
+                    TilesRow(boundingBox: trail.polyline.boundingMapRect)
                     
                     VStack {
                         LineView(data: trail.elevations, title: "Profil", legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")

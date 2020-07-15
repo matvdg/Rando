@@ -11,21 +11,13 @@
 "Cancel" = "Annuler";
 "Add" = "Ajouter";
 "Rename" = "Renommer";
-"Download" = "Télécharger les cartes";
-"DisplayOnMap" = "Afficher le tracé sur la carte";
-"DoNotDisplayOnMap" = "Retirer le tracé de la carte";
-
-// CacheView
-"ManageCache" = "Gérer le cache";
-"cache" = "Cache (autres tuiles)";
-"Downloading" = "Téléchargement...";
-"DownloadedTitle" = "Téléchargement terminé";
-"DownloadedMessage" = "Cartes disponibles hors ligne";
 
 // MapView
 "Map" = "Carte";
 "MapSettings" = "Réglages de la carte";
 "MapOfflineSwitcher" = "Carte IGN hors ligne";
+"EmptyCache" = "Vider le cache";
+"DeleteCache" = "Supprimer toutes les cartes mises en cache pour une utilisation hors ligne";
 "Altitude" = "Altitude";
 "Filter" = "Filtrer";
 "ign" = "IGN";
@@ -43,3 +35,9 @@
 "NegativeElevation" = "Dénivelé négatif";
 "Distance" = "Distance";
 "DurationEstimated" = "Temps estimé";
+"Downloading" = "Téléchargement...";
+"DownloadedTitle" = "Téléchargement terminé";
+"Downloaded" = "Cartes disponibles hors ligne";
+"Download" = "Télécharger les cartes";
+"DisplayOnMap" = "Afficher le tracé sur la carte";
+"DoNotDisplayOnMap" = "Retirer le tracé de la carte";

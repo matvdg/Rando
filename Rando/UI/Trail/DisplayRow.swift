@@ -22,16 +22,18 @@ struct DisplayRow: View {
             TrailManager.shared.getTrails()
         }) {
             if storedId == id {
-                HStack {
+                HStack(spacing: 10) {
                     Image(systemName: "eye.slash")
                     Text("DoNotDisplayOnMap".localized)
                         .font(.headline)
                 }
                 .accentColor(.red)
             } else {
-                Image(systemName: "eye")
-                Text("DisplayOnMap".localized)
-                    .font(.headline)
+                HStack(spacing: 10) {
+                    Image(systemName: "eye")
+                    Text("DisplayOnMap".localized)
+                        .font(.headline)
+                }
             }
         }
     }

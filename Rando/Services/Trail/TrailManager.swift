@@ -42,7 +42,7 @@ class TrailManager: ObservableObject {
     }
     
     func save(trail: Trail) {
-        let file = "\(Directory.trails.rawValue)/\(trail.id).json"
+        let file = "trails/\(trail.id).json"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
             let data = try JSONEncoder().encode(trail.gpx)
@@ -54,7 +54,7 @@ class TrailManager: ObservableObject {
     }
     
     func remove(id: UUID) {
-        let file = "\(Directory.trails.rawValue)/\(id).json"
+        let file = "trails/\(id).json"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
             try FileManager.default.removeItem(at: filename)
@@ -65,7 +65,7 @@ class TrailManager: ObservableObject {
     
     func getTrails() {
         loadDemoTrails()
-        let urls = try? FileManager.default.contentsOfDirectory(at: documentsDirectory.appendingPathComponent(Directory.trails.rawValue), includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+        let urls = try? FileManager.default.contentsOfDirectory(at: documentsDirectory.appendingPathComponent("trails"), includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
         let trails = urls?.compactMap { url -> Trail? in
             do {
                 let data = try Data(contentsOf: url)
