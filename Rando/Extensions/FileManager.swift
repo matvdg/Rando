@@ -62,14 +62,14 @@ public extension FileManager {
 }
 
 
-fileprivate let allocatedSizeResourceKeys: Set<URLResourceKey> = [
+let allocatedSizeResourceKeys: Set<URLResourceKey> = [
   .isRegularFileKey,
   .fileAllocatedSizeKey,
   .totalFileAllocatedSizeKey,
 ]
 
 
-fileprivate extension URL {
+extension URL {
   
   func regularFileAllocatedSize() throws -> UInt64 {
     let resourceValues = try self.resourceValues(forKeys: allocatedSizeResourceKeys)

@@ -17,24 +17,53 @@ class TileManager: ObservableObject {
     // MARK: -  Private properties
     private var overlay: MKTileOverlay { MKTileOverlay(urlTemplate: template) }
     
-    private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
+    private var documentsDirectory: URL { fileManager.urls(for: .documentDirectory, in: .userDomainMask).first! }
+    
+    private let fileManager = FileManager.default
     
     // MARK: -  Public property
     @Published var progress: Float = 0
     @Published var status: DownloadStatus = .download
     
     // MARK: -  Public methods
-    func getCacheSize() -> String {
-        FileManager.default.allocatedSizeOfDirectory(at: documentsDirectory.appendingPathComponent("cache"))
+    func getAllDownloadedSize() -> String {
+        fileManager.allocatedSizeOfDirectory(at: documentsDirectory.appendingPathComponent("tiles"))
     }
     
-    func removeCache() {
-        try? FileManager.default.removeItem(at: documentsDirectory.appendingPathComponent("cache"))
+    func getEstimatedDownloadSize(for boundingBox: MKMapRect) -> Double {
+        let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
+        let count = self.filterTilesAlreadyExisting(paths: paths).count
+        let size: Double = 20000 // Bytes
+        return Double(count) * size
+    }
+    
+    func getDownloadedSize(for boundingBox: MKMapRect) -> Double {
+        let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
+        var accumulatedSize: UInt64 = 0
+        for path in paths {
+            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).jpeg"
+            let url = documentsDirectory.appendingPathComponent(file)
+            accumulatedSize += (try? url.regularFileAllocatedSize()) ?? 0
+        }
+        return Double(accumulatedSize)
+    }
+    
+    func removeAll() {
+        try? fileManager.removeItem(at: documentsDirectory.appendingPathComponent("tiles"))
         createDirectoriesIfNecessary()
     }
     
-    /// Download and save to cache all tiles within the boundingBox
-    func download(boundingBox: MKMapRect) {
+    func remove(for boundingBox: MKMapRect) {
+        let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
+        for path in paths {
+            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).jpeg"
+            let url = documentsDirectory.appendingPathComponent(file)
+            try? fileManager.removeItem(at: url)
+        }
+    }
+    
+    /// Download and persist all tiles within the boundingBox
+    func download(boundingBox: MKMapRect, name: String) {
         status = .downloading
         progress = 0.01
         DispatchQueue.global(qos: .background).async {
@@ -45,26 +74,21 @@ class TileManager: ObservableObject {
                 self.progress = Float(i) / Float(filteredPaths.count)
             }
             DispatchQueue.main.async {
-                NotificationManager.shared.sendNotification(title: "DownloadedTitle".localized, message: "Downloaded".localized)
+                NotificationManager.shared.sendNotification(title: "\("DownloadedTitle".localized) (\(self.getDownloadedSize(for: boundingBox).toBytes))", message: "\("Downloaded".localized) (\(name))")
                 self.progress = 0
                 self.status = .downloaded
             }
         }
     }
     
-    func getSize(for boundingBox: MKMapRect) -> Double {
-        let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
-        let count = self.filterTilesAlreadyExisting(paths: paths).count
-        let size: Double = 20000 // Bytes
-        return Double(count) * size
-    }
+    
     
     func getTileOverlay(for path: MKTileOverlayPath) -> URL {
         let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
         // Check is tile is already available
-        let cacheUrl = documentsDirectory.appendingPathComponent("cache").appendingPathComponent(file)
-        if FileManager.default.fileExists(atPath: cacheUrl.path){
-            return cacheUrl
+        let tilesUrl = documentsDirectory.appendingPathComponent("tiles").appendingPathComponent(file)
+        if fileManager.fileExists(atPath: tilesUrl.path){
+            return tilesUrl
         } else {
             if !UserDefaults.isOffline { // Get and persist newTile
                 return persistLocally(path: path)
@@ -75,7 +99,7 @@ class TileManager: ObservableObject {
     }
     
     // MARK: -  Private methods
-    private func computeTileOverlayPaths(boundingBox box: MKMapRect, maxZ: Int = 16) -> [MKTileOverlayPath] {
+    private func computeTileOverlayPaths(boundingBox box: MKMapRect, maxZ: Int = 17) -> [MKTileOverlayPath] {
         var paths = [MKTileOverlayPath]()
         for z in 1...maxZ {
             let topLeft = tranformCoordinate(coordinates: MKMapPoint(x: box.minX, y: box.minY).coordinate, zoom: z)
@@ -100,7 +124,7 @@ class TileManager: ObservableObject {
     
     @discardableResult private func persistLocally(path: MKTileOverlayPath) -> URL {
         let url = overlay.url(forTilePath: path)
-        let file = "cache/z\(path.z)x\(path.x)y\(path.y).jpeg"
+        let file = "tiles/z\(path.z)x\(path.x)y\(path.y).jpeg"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
             let data = try Data(contentsOf: url)
@@ -114,14 +138,14 @@ class TileManager: ObservableObject {
     private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath]) -> [MKTileOverlayPath] {
         paths.filter {
             let file = "z\($0.z)x\($0.x)y\($0.y).jpeg"
-            let cachePath = documentsDirectory.appendingPathComponent("cache").appendingPathComponent(file).path
-            return !FileManager.default.fileExists(atPath: cachePath)
+            let tilesPath = documentsDirectory.appendingPathComponent("tiles").appendingPathComponent(file).path
+            return !fileManager.fileExists(atPath: tilesPath)
         }
     }
     
     private func createDirectoriesIfNecessary() {
-        let cache = documentsDirectory.appendingPathComponent("cache")
-        try? FileManager.default.createDirectory(at: cache, withIntermediateDirectories: true, attributes: [:])
+        let tiles = documentsDirectory.appendingPathComponent("tiles")
+        try? fileManager.createDirectory(at: tiles, withIntermediateDirectories: true, attributes: [:])
     }
     
 }

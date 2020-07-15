@@ -13,6 +13,7 @@ struct TrailDetail: View {
     
     @ObservedObject var trail: Trail
     
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -100,7 +101,7 @@ struct TrailDetail: View {
                     
                     DisplayRow(id: trail.id.uuidString)
                     
-                    TilesRow(boundingBox: trail.polyline.boundingMapRect)
+                    TilesRow(boundingBox: trail.polyline.boundingMapRect, name: trail.name)
                     
                     VStack {
                         LineView(data: trail.elevations, title: "Profil", legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")

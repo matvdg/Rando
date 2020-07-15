@@ -11,13 +11,14 @@
 "Cancel" = "Cancel";
 "Add" = "Add";
 "Rename" = "Rename";
+"Left" = "left";
 
 // MapView
 "Map" = "Map";
 "MapSettings" = "Map settings";
 "MapOfflineSwitcher" = "Offline IGN map";
-"EmptyCache" = "Empty cache";
-"DeleteCache" = "Delete all the offline maps";
+"DeleteTiles" = "Delete offline maps";
+"DeleteAllTiles" = "Delete all the offline maps";
 "Altitude" = "Altitude";
 "Filter" = "Filter";
 "ign" = "IGN";

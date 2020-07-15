@@ -11,13 +11,14 @@
 "Cancel" = "Annuler";
 "Add" = "Ajouter";
 "Rename" = "Renommer";
+"Left" = "restant";
 
 // MapView
 "Map" = "Carte";
 "MapSettings" = "Réglages de la carte";
 "MapOfflineSwitcher" = "Carte IGN hors ligne";
-"EmptyCache" = "Vider le cache";
-"DeleteCache" = "Supprimer toutes les cartes mises en cache pour une utilisation hors ligne";
+"DeleteTiles" = "Supprimer les cartes hors ligne";
+"DeleteAllTiles" = "Supprimer toutes les cartes enregistrées pour une utilisation hors ligne";
 "Altitude" = "Altitude";
 "Filter" = "Filtrer";
 "ign" = "IGN";

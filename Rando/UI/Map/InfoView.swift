@@ -45,7 +45,7 @@ struct InfoView: View {
                 Button(action: {
                     self.showAlert = true
                 }) {
-                    Text("EmptyCache".localized)
+                    Text("DeleteTiles".localized)
                         .foregroundColor(.text)
                     Spacer()
                     Image(systemName: "trash")
@@ -74,13 +74,15 @@ struct InfoView: View {
                     }
             )
         }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("\("Delete".localized) (\(TileManager.shared.getCacheSize()))"),
-                message: Text("DeleteCache".localized),
-                primaryButton: .destructive(Text("Delete".localized), action: { TileManager.shared.removeCache() }),
-                secondaryButton: .cancel(Text("Cancel".localized)))
-            
+        .actionSheet(isPresented: $showAlert) {
+            ActionSheet(
+                title: Text("\("Delete".localized) (\(TileManager.shared.getAllDownloadedSize()))"),
+                message: Text("DeleteAllTiles".localized),
+                buttons: [
+                    .destructive(Text("Delete".localized), action: { TileManager.shared.removeAll() }),
+                    .cancel(Text("Cancel".localized))
+                ]
+            )
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
