@@ -5,7 +5,7 @@
     "category" : "refuge",
     "alt" : 1670,
     "phone" : "05 59 66 14 46",
-    "description": "Le refuge est ouvert de fin mai à mi-octobre, mais cela peut varier en fonction de l'enneigement. Durant cette période, le gardien vous accueille après une journée de randonnée, vous préparera un bon repas chaud et convivial le soir ainsi que le petit-déjeuner (demi-pension). Il y a également un espace pour les campeurs. Nous proposons aussi des piques-niques à emporter et du snack à toutes heures et disposons d'une petite alimentation afin de ravitailler les randonneurs. Mode de paiement : chèques/espèces",
+    "description": "Le refuge est ouvert de fin mai à mi-octobre, mais cela peut varier en fonction de l'enneigement. Durant cette période, le gardien vous accueille après une journée de randonnée, vous préparera un bon repas chaud et convivial le soir ainsi que le petit-déjeuner (demi-pension). Il y a également un espace pour les campeurs. Nous proposons aussi des piques-niques à emporter et du snack à toutes heures et disposons d'une petite alimentation afin de ravitailler les randonneurs. Modes de paiement : chèques/espèces uniquement.",
     "website": "refugejeandel.com",
     "lat" : 42.978130,
     "lng" : -0.749795
@@ -27,7 +27,7 @@
     "category" : "refuge",
     "alt" : 2652,
     "phone" : "09 74 77 66 52",
-    "description": "Le refuge des Oulettes idéalement situé au fond de la vallée de Gaude au pied de la face nord du Vignemale se révèle être un camp de base pour les pratiques de montagne. CB, chèques et espèces acceptés.",
+    "description": "Le refuge des Oulettes idéalement situé au fond de la vallée de Gaude au pied de la face nord du Vignemale se révèle être un camp de base pour les pratiques de montagne. Modes de paiement: CB, chèques et espèces acceptés.",
     "website": "refugeoulettesdegaube.ffcam.fr",
     "lat" : 42.779177,
     "lng" : -0.124149
@@ -38,7 +38,7 @@
     "category" : "refuge",
     "alt" : 1954,
     "phone" : "05 59 05 37 00",
-    "description": "Situé sur le massif du Vignemale, avec une vue imprenable sur le cirque de Gavarnie, le refuge de Bayssellance est le plus haut gardé des Pyrénées. Mode de paiement : chèques/espèces",
+    "description": "Situé sur le massif du Vignemale, avec une vue imprenable sur le cirque de Gavarnie, le refuge de Bayssellance est le plus haut gardé des Pyrénées.  Modes de paiement : chèques/espèces uniquement.",
     "website": "refugebayssellance.ffcam.fr",
     "lat" : 42.848500,
     "lng" : -0.491390
@@ -71,7 +71,7 @@
     "category" : "refuge",
     "alt" : 1967,
     "phone" : "05 61 79 20 01",
-    "description": "Le refuge d'Espingo est de par sa situation, un refuge idéal pour la découverte du milieu montagnard. Bordé par les lacs d'Espingo et de Saoussat, il est le théâtre de beaucoup d'acteurs alpinistes, pêcheurs, randonneurs et amis de la nature. Mode de paiement : chèques/espèces",
+    "description": "Le refuge d'Espingo est de par sa situation, un refuge idéal pour la découverte du milieu montagnard. Bordé par les lacs d'Espingo et de Saoussat, il est le théâtre de beaucoup d'acteurs alpinistes, pêcheurs, randonneurs et amis de la nature. Mode de paiement : chèques/espèces uniquement.",
     "website": "refugedespingo.ffcam.fr",
     "lat" : 42.730510,
     "lng" : 0.499941
@@ -82,7 +82,7 @@
     "category" : "refuge",
     "alt" : 1944,
     "phone" : "05 61 96 73 73",
-    "description": "Au coeur du PNR des Pyrénées Ariégeoises, le refuge est situé au bord de l'étang d'Araing et au pied du Pic du Crabère, magnifique belvédère sur les plus hauts sommets Pyrénéens.",
+    "description": "Au coeur du PNR des Pyrénées Ariégeoises, le refuge est situé au bord de l'étang d'Araing et au pied du Pic du Crabère, magnifique belvédère sur les plus hauts sommets Pyrénéens. Mode de paiement : chèques/espèces uniquement.",
     "website": "refugeetangdaraing.ffcam.fr",
     "lat" : 42.834915,
     "lng" : 0.873399
@@ -104,7 +104,7 @@
     "category" : "refuge",
     "alt" : 2190,
     "phone" : "06 74 24 50 71",
-    "description": "Au coeur des estives de la haute vallée de l’Aston, le refuge du Rulhe est le plus accessible des refuges ariégeois. Il se trouve aussi à la croisée des grands chemins de randonnée : le Rando, le GR Transfrontalier, le Tour des montagnes d’Ax et la HRP. Des accès de tout niveau permettent de s’y rendre en quelques heures, à la demi-journée ou à la journée. Vallée d'Aston, près des étangs d'Estagnol, Joclar et Fontargente",
+    "description": "Au coeur des estives de la haute vallée de l’Aston, le refuge du Rulhe est le plus accessible des refuges ariégeois. Il se trouve aussi à la croisée des grands chemins de randonnée : le Rando, le GR Transfrontalier, le Tour des montagnes d’Ax et la HRP. Des accès de tout niveau permettent de s’y rendre en quelques heures, à la demi-journée ou à la journée. Vallée d'Aston, près des étangs d'Estagnol, Joclar et Fontargente.  Modes de paiement : chèques/espèces uniquement.",
     "website": "rulhe.com",
     "lat" : 42.637848,
     "lng" : 1.725750
@@ -115,7 +115,7 @@
     "category" : "refuge",
     "alt" : 2106,
     "phone" : "09 88 77 35 28",
-    "description": "Situé au coeur d'un site à la fois minéral et boisé, à la frontière entre l'Ariège et les Pyrénées-Orientales, le refuge des Bésines jouit d'une position particulièrement favorable pour la découverte des hautes terres catalanes et des vallées profondes",
+    "description": "Situé au coeur d'un site à la fois minéral et boisé, à la frontière entre l'Ariège et les Pyrénées-Orientales, le refuge des Bésines jouit d'une position particulièrement favorable pour la découverte des hautes terres catalanes et des vallées profondes.  Modes de paiement : chèques/espèces uniquement.",
     "website": "refugedesbesines.ffcam.fr",
     "lat" : 42.603872,
     "lng" : 1.868194
@@ -137,7 +137,7 @@
     "category" : "refuge",
     "alt" : 1686,
     "phone" : "04 68 05 57 99",
-    "description": "Le refuge de Mariailles, niché au cœur du Massif du Canigou (catalan : Canigó), est un lieu de convivialité et de partage. Au milieu de la nature et des paysages grandioses, vous trouverez le dépaysement, l'isolement, le confort, le repos et le calme. Chèques ou espèces uniquement, pas de cartes bancaires.",
+    "description": "Le refuge de Mariailles, niché au cœur du Massif du Canigou (catalan : Canigó), est un lieu de convivialité et de partage. Au milieu de la nature et des paysages grandioses, vous trouverez le dépaysement, l'isolement, le confort, le repos et le calme. Modes de paiement : chèques/espèces uniquement.",
     "website": "refugedemariailles.fr",
     "lat" : 42.501502,
     "lng" : 2.407783
@@ -148,7 +148,7 @@
     "category" : "refuge",
     "alt" : 2150,
     "phone" : "04 68 96 36 19",
-    "description": "Étape sur la traversée des Pyrénées, le refuge des Cortalets situé à 2150 m donne accès au sommet du Canigou à 2784 m d'altitude.",
+    "description": "Étape sur la traversée des Pyrénées, le refuge des Cortalets situé à 2150 m donne accès au sommet du Canigou à 2784 m d'altitude. Modes de paiement: CB, chèques et espèces acceptés.",
     "website": "refugedescortalets.ffcam.fr",
     "lat" : 42.534241,
     "lng" : 2.464639
@@ -233,6 +233,39 @@
     "alt" : 3298,
     "lat" : 42.774453,
     "lng" : -0.146813
-  }
+  },
+  {
+    "id" : 24,
+    "name" : "Refuge d'en Beys",
+    "category" : "refuge",
+    "alt" : 1970,
+    "phone" : "05 61 64 24 24",
+    "description": "Le refuge d'en Beys est un refuge de montagne des Pyrénées, situé en Ariège, dans la réserve nationale de faune sauvage d'Orlu sur le bord des étangs d'en Beys, à 1 970 m d'altitude, à la frontière entre Haute-Ariège et Cerdagne. Modes de paiement : chèques/espèces uniquement.",
+    "website": "refuge-enbeys.com/fr/",
+    "lat" : 42.627233,
+    "lng" : 1.944386
+  },
+  {
+    "id" : 25,
+    "name" : "Refuge de l'Étang du Pinet",
+    "category" : "refuge",
+    "alt" : 2240,
+    "phone" : "05 61 64 80 81",
+    "description": "Le refuge du Pinet est un refuge situé sur la commune d'Auzat, dans les Pyrénées, à 2 240 mètres d'altitude. Il est gardé de début juin à fin septembre. Modes de paiement : chèques/espèces uniquement.",
+    "website": "refugeetangpinet.ffcam.fr",
+    "lat" : 42.691491,
+    "lng" : 1.396565
+  },
+  {
+    "id" : 26,
+    "name" : "Refuge les Estagnous",
+    "category" : "refuge",
+    "alt" : 2246,
+    "phone" : "05 61 96 76 22",
+    "description": "Le refuge a été construit en 1912 et il est gardé depuis 1976. Il  appartient à la Communauté des Communes Couserans Pyrénées, il est situé sur la commune de Bordes/Uchentein dans la Réserve domaniale du Mont Valier au cœur du Parc Naturel Régional des Pyrénées Ariégeoises. Modes de paiement : chèques/espèces uniquement.",
+    "website": "refuge-les-estagnous.com",
+    "lat" : 42.798014,
+    "lng" : 1.072662
+  },
   
 ]
