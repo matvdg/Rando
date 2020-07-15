@@ -270,7 +270,7 @@ struct MapView: UIViewRepresentable {
         if !clockwise {
           locs.reverse()
         }
-        let Δ = 100
+        let Δ = locs.count / 10
         if currentPlayingTourState {
             timer?.invalidate()
             let camera = MKMapCamera(lookingAtCenter: locs[Δ], fromEyeCoordinate: locs[0], eyeAltitude: altitude)
