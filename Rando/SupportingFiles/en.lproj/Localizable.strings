@@ -13,7 +13,8 @@
 "Add" = "Add";
 "Rename" = "Rename";
 "Download" = "Download maps";
-"DisplayOnMap" = "Display on the map";
+"DisplayOnMap" = "Display the trail on the map";
+"DoNotDisplayOnMap" = "Remove the trail from the map";
 
 // CacheView
 "ManageCache" = "Manage cache";

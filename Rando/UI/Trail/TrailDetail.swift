@@ -98,6 +98,9 @@ struct TrailDetail: View {
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     .frame(maxHeight: 100)
                     
+                    DisplayRow(id: trail.id.uuidString)
+                    
+                    CacheRow(directory: .rando)
                     
                     VStack {
                         LineView(data: trail.elevations, title: "Profil", legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")

@@ -20,9 +20,7 @@ struct TrailRow: View {
         Feedback.success()
       }) {
         Image(systemName: trail.displayed ? "eye" : "eye.slash")
-          .resizable()
           .foregroundColor(trail.displayed ? .tintColor : .lightgray)
-          .frame(width: 40, height: 30, alignment: .center)
       }
       
       

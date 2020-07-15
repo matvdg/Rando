@@ -63,7 +63,6 @@ struct CacheRow: View {
     }
     
   }
-  .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
   .frame(height: 80.0)
   .alert(isPresented: $showAlert) {
   Alert(

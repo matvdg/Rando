@@ -12,7 +12,8 @@
 "Add" = "Ajouter";
 "Rename" = "Renommer";
 "Download" = "Télécharger les cartes";
-"DisplayOnMap" = "Afficher sur la carte";
+"DisplayOnMap" = "Afficher le tracé sur la carte";
+"DoNotDisplayOnMap" = "Retirer le tracé de la carte";
 
 // CacheView
 "ManageCache" = "Gérer le cache";

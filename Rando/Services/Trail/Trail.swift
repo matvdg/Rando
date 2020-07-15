@@ -28,7 +28,7 @@ class Gpx: Codable, Identifiable {
 
 class Trail: Identifiable, ObservableObject {
         
-    init(gpx: Gpx = Gpx(name: "test", locations: [])) {
+    init(gpx: Gpx = Gpx(name: "test", locations: [mockLoc1])) {
         self.gpx = gpx
         self.name = gpx.name
     }
@@ -100,7 +100,7 @@ class Trail: Identifiable, ObservableObject {
         return formatter.string(from: duration) ?? ""
     }
     
-    var displayed: Bool { false }
+    var displayed: Bool { UserDefaults.currentTrail == self.id.uuidString }
     
     var elevations: [CLLocationDistance] {
         var simplified = [CLLocationDistance]()

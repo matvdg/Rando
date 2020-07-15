@@ -94,12 +94,13 @@ class TileManager: ObservableObject {
   func startDownload() {
     guard !hasRecordedTiles else { return }
     progress = 0.01
+    let locs =  TrailManager.shared.currentTrail.locations
     DispatchQueue.global(qos: .background).async {
-      let locs =  TrailManager.shared.currentLocationsCoordinate // Average one loc per 60 meters
+         // Average one loc per 60 meters
       for (i, loc) in locs.enumerated() {
         guard i % 10 == 0 else { continue } // approximately take a gpx point every 600m
         if i % 100 == 0 { self.progress =  Float(i) / Float(locs.count) }
-        let circle = MKCircle(center: loc, radius: 1000) // and draw a 1km circle around (low radius for highest zoom levels)
+        let circle = MKCircle(center: loc.clLocation.coordinate, radius: 1000) // and draw a 1km circle around (low radius for highest zoom levels)
         let paths = self.computeTileOverlayPaths(boundingBox: circle.boundingMapRect)
         let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
         filteredPaths.forEach { self.persistLocally(path: $0) }
@@ -133,7 +134,8 @@ class TileManager: ObservableObject {
   
   // MARK: -  Private methods
   private func saveTilesAroundBoundingBox() {
-    let paths = computeTileOverlayPaths(boundingBox: TrailManager.shared.boundingBox, maxZ: 8)
+    let boundingBox = TrailManager.shared.currentTrail.polyline.boundingMapRect
+    let paths = computeTileOverlayPaths(boundingBox: boundingBox, maxZ: 8)
     let filteredPaths = filterTilesAlreadyExisting(paths: paths)
     filteredPaths.forEach { persistLocally(path: $0) }
   }
@@ -188,8 +190,6 @@ class TileManager: ObservableObject {
     let rando = documentsDirectory.appendingPathComponent(Directory.rando.rawValue)
     try? FileManager.default.createDirectory(at: cache, withIntermediateDirectories: true, attributes: [:])
     try? FileManager.default.createDirectory(at: rando, withIntermediateDirectories: true, attributes: [:])
-    let gpx = documentsDirectory.appendingPathComponent(Directory.trails.rawValue)
-    try? FileManager.default.createDirectory(at: gpx, withIntermediateDirectories: true, attributes: [:])
   }
   
 }

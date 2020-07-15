@@ -9,7 +9,7 @@
 import SwiftUI
 
 enum Tracking {
-  case initState, disabled, enabled, heading
+  case bounding, disabled, enabled, heading
   var icon: String {
     switch self {
     case .enabled: return "location.fill"
