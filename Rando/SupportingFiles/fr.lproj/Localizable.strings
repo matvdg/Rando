@@ -55,7 +55,7 @@
 "Download" = "Télécharger les cartes";
 "DisplayOnMap" = "Afficher le tracé sur la carte";
 "DoNotDisplayOnMap" = "Retirer le tracé de la carte";
-"active" = "Active";
+"importDate" = "Ajout";
 "name" = "Nom";
 "distance" = "Distance";
 "elevation" = "Dénivelé";

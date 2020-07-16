@@ -55,7 +55,7 @@
 "Download" = "Download maps";
 "DisplayOnMap" = "Display the trail on the map";
 "DoNotDisplayOnMap" = "Remove the trail from the map";
-"active" = "Active";
+"importDate" = "Import";
 "name" = "Name";
 "distance" = "Distance";
 "elevation" = "Elevation";

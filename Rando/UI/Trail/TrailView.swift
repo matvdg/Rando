@@ -12,32 +12,34 @@ import MapKit
 struct TrailView: View {
     
     enum Sorting: String, CaseIterable, Equatable {
-        case name, active, distance, elevation
+        case importDate, name, distance, elevation
         var localized: String { self.rawValue.localized }
     }
     
     @State var showFilePicker = false
-    @State var sorting: Sorting = .name
+    @State var sorting: Sorting = .importDate
+    @State var isFilterActive: Bool = false
+    @State var showFilter: Bool = false
     
     @ObservedObject var trailManager = TrailManager.shared
     
     var trails: [Trail] {
-        if sorting == .active {
-            return trailManager.trails.filter { $0.displayed }
-        } else {
-            return trailManager.trails.sorted {
-                switch sorting {
-                case .elevation : return $0.positiveElevation < $1.positiveElevation
-                case .distance: return $0.distance < $1.distance
-                default: return $0.name < $1.name
-                }
+        trailManager.trails.sorted {
+            switch sorting {
+            case .elevation : return $0.positiveElevation < $1.positiveElevation
+            case .distance: return $0.distance < $1.distance
+            case .name: return $0.name < $1.name
+            case .importDate: return $0.date < $1.date
             }
         }
     }
     
     func removeRows(at offsets: IndexSet) {
-        offsets.forEach { trailManager.remove(id: self.trailManager.trails[$0].id) }
-        trailManager.trails.remove(atOffsets: offsets)
+        offsets.forEach {
+            let id = trails[$0].id
+            trailManager.remove(id: id)
+            trailManager.trails.removeAll { $0.id == id }
+        }
     }
     
     var body: some View {
@@ -45,12 +47,22 @@ struct TrailView: View {
         NavigationView {
             
             VStack {
-                Picker(selection: $sorting, label: Text("")) {
-                    ForEach(Sorting.allCases, id: \.self) { layer in
-                        Text(layer.localized)
+                HStack {
+                    Picker(selection: $sorting, label: Text("")) {
+                        ForEach(Sorting.allCases, id: \.self) { layer in
+                            Text(layer.localized)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    Button(action: {
+                        Feedback.success()
+                        self.isFilterActive.toggle()
+                        self.showFilter.toggle()
+                    }) {
+                        Image(systemName: isFilterActive ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                    
                 .padding()
                 
                 List {
