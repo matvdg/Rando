@@ -24,6 +24,11 @@ class TrailManager: ObservableObject {
         self.trails.first { $0.id.uuidString == UserDefaults.currentTrail } ?? Trail()
     }
     
+    var departments: [String] {
+        ["all".localized, "Ariège", "Haute-Garonne", "Pyrénées-Orientales", "Hautes-Pyrénées"]
+    }
+    
+    
     init() {
         getTrails()
     }

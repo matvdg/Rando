@@ -13,6 +13,7 @@
 "Rename" = "Renommer";
 "Left" = "restant";
 
+
 // MapView
 "Map" = "Carte";
 "MapSettings" = "Réglages de la carte";
@@ -20,7 +21,6 @@
 "DeleteTiles" = "Supprimer les cartes hors ligne";
 "DeleteAllTiles" = "Supprimer toutes les cartes enregistrées pour une utilisation hors ligne";
 "Altitude" = "Altitude";
-"Filter" = "Filtrer";
 "ign" = "IGN";
 "standard" = "Standard";
 "satellite" = "Satellite";
@@ -60,3 +60,6 @@
 "distance" = "Distance";
 "elevation" = "Dénivelé";
 "Profile" = "Profil";
+"Filter" = "Filtrer";
+"Active" = "Afficher uniquement la randonnée active";
+"Departments" = "Filtrer par département :";

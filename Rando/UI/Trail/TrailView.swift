@@ -18,19 +18,25 @@ struct TrailView: View {
     
     @State var showFilePicker = false
     @State var sorting: Sorting = .importDate
-    @State var isFilterActive: Bool = false
+    @State var isActive: Bool = false
     @State var showFilter: Bool = false
+    @State var department: String = "all".localized
     
     @ObservedObject var trailManager = TrailManager.shared
     
     var trails: [Trail] {
-        trailManager.trails.sorted {
+        let sorted = trailManager.trails.sorted {
             switch sorting {
             case .elevation : return $0.positiveElevation < $1.positiveElevation
             case .distance: return $0.distance < $1.distance
             case .name: return $0.name < $1.name
             case .importDate: return $0.date < $1.date
             }
+        }
+        if isActive {
+            return sorted.filter { $0.displayed }
+        } else {
+            return sorted
         }
     }
     
@@ -45,34 +51,46 @@ struct TrailView: View {
     var body: some View {
         
         NavigationView {
-            
-            VStack {
-                HStack {
-                    Picker(selection: $sorting, label: Text("")) {
-                        ForEach(Sorting.allCases, id: \.self) { layer in
-                            Text(layer.localized)
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    Button(action: {
-                        Feedback.success()
-                        self.isFilterActive.toggle()
-                        self.showFilter.toggle()
-                    }) {
-                        Image(systemName: isFilterActive ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
-                    }
-                }
-                    
-                .padding()
+            ZStack {
                 
-                List {
-                    ForEach(trails) { trail in
-                        NavigationLink(destination: TrailDetail(trail: trail)) {
-                            TrailRow(trail: trail)
+                VStack {
+                    HStack {
+                        Picker(selection: $sorting, label: Text("")) {
+                            ForEach(Sorting.allCases, id: \.self) { layer in
+                                Text(layer.localized)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        Button(action: {
+                            Feedback.success()
+                            self.showFilter.toggle()
+                        }) {
+                            Image(systemName: showFilter ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
                         }
                     }
-                    .onDelete(perform: removeRows)
+                        
+                    .padding()
+                    
+                    List {
+                        ForEach(trails) { trail in
+                            NavigationLink(destination: TrailDetail(trail: trail)) {
+                                TrailRow(trail: trail)
+                            }
+                        }
+                        .onDelete(perform: removeRows)
+                    }
                 }
+                
+                VStack(alignment: .leading) {
+                    
+                    Spacer()
+                    
+                    SortView(isActive: $isActive, department: $department, isSortDisplayed: $showFilter)
+                        .offset(y: showFilter ? 0 : 500)
+                        .animation(.default)
+                    
+                }
+                
             }
             .sheet(isPresented: $showFilePicker, onDismiss: {self.showFilePicker = false}) {
                 DocumentView(callback: self.trailManager.createTrail, onDismiss: { self.showFilePicker = false })
@@ -89,6 +107,8 @@ struct TrailView: View {
                     }
                     
             })
+            
+            
         }
         
     }
