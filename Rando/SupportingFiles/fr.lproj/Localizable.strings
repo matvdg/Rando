@@ -61,5 +61,6 @@
 "elevation" = "Dénivelé";
 "Profile" = "Profil";
 "Filter" = "Filtrer";
+"Filtered" = "Filtré";
 "Active" = "Afficher uniquement la randonnée active";
 "Departments" = "Filtrer par département :";

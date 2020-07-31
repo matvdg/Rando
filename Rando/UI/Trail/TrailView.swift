@@ -22,10 +22,15 @@ struct TrailView: View {
     @State var showFilter: Bool = false
     @State var department: String = "all".localized
     
+    private var isFiltered: Bool {
+        department != "all".localized || isActive
+    }
+    
     @ObservedObject var trailManager = TrailManager.shared
     
     var trails: [Trail] {
-        let sorted = trailManager.trails.sorted {
+        // Sort
+        var sortedTrails = trailManager.trails.sorted {
             switch sorting {
             case .elevation : return $0.positiveElevation < $1.positiveElevation
             case .distance: return $0.distance < $1.distance
@@ -33,10 +38,15 @@ struct TrailView: View {
             case .importDate: return $0.date < $1.date
             }
         }
+        // Filter by department if necessary
+        if department != "all".localized {
+            sortedTrails = sortedTrails.filter { $0.department == department }
+        }
+        // Filter by isActive if necessary
         if isActive {
-            return sorted.filter { $0.displayed }
+            return sortedTrails.filter { $0.displayed }
         } else {
-            return sorted
+            return sortedTrails
         }
     }
     
@@ -65,7 +75,8 @@ struct TrailView: View {
                             Feedback.success()
                             self.showFilter.toggle()
                         }) {
-                            Image(systemName: showFilter ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
+                            Image(systemName: isFiltered ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
+                            Text(isFiltered ? "Filtered".localized : "Filter".localized)
                         }
                     }
                         

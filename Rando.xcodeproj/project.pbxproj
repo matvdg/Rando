@@ -46,6 +46,8 @@
 		D0FF45AE246BE3080087697B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45AD246BE3080087697B /* Feedback.swift */; };
 		D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */; };
 		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
+		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
+		F6A5816F24D46B7A0030F457 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5816E24D46B7A0030F457 /* Array.swift */; };
 		F6CAAF3B24BC91DB006F991A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */; };
 		F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */; };
 		F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */; };
@@ -112,6 +114,8 @@
 		D0FF45AD246BE3080087697B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
+		F6979BA024D4523D00228A0C /* CLGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoder.swift; sourceTree = "<group>"; };
+		F6A5816E24D46B7A0030F457 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
 		F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "613AD245-A082-4FDF-8103-199F3CA71C80.json"; sourceTree = "<group>"; };
@@ -230,8 +234,8 @@
 			children = (
 				D05B15002460042E00B24666 /* UI */,
 				D05B15022460048700B24666 /* Services */,
-				D09FB00A2465E14A0007F55B /* Extensions */,
 				D05B15012460045100B24666 /* SupportingFiles */,
+				D09FB00A2465E14A0007F55B /* Extensions */,
 				D0634798245D768C003BA9E7 /* Assets.xcassets */,
 			);
 			path = Rando;
@@ -275,6 +279,8 @@
 				D0FF45E1246C06910087697B /* CLLocationDistance.swift */,
 				F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */,
 				F6CFD0A824BEAC9C00DA224C /* Double.swift */,
+				F6979BA024D4523D00228A0C /* CLGeocoder.swift */,
+				F6A5816E24D46B7A0030F457 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -459,12 +465,14 @@
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				F6FE98A824C05047007D5D85 /* SortView.swift in Sources */,
+				F6A5816F24D46B7A0030F457 /* Array.swift in Sources */,
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
 				D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
 				F6CFD0A724BE9EEA00DA224C /* TilesRow.swift in Sources */,
 				F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */,
 				F6CFD0AB24BEAD5E00DA224C /* TileOverlay.swift in Sources */,
+				F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
 				D08AB2682465BAAD00793417 /* TrailRow.swift in Sources */,
 				D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */,

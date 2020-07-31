@@ -25,7 +25,9 @@ class TrailManager: ObservableObject {
     }
     
     var departments: [String] {
-        ["all".localized, "Ariège", "Haute-Garonne", "Pyrénées-Orientales", "Hautes-Pyrénées"]
+        var departments = ["all".localized]
+        departments.append(contentsOf: trails.compactMap { $0.department }.removingDuplicates() )
+        return departments
     }
     
     
@@ -42,8 +44,13 @@ class TrailManager: ObservableObject {
             guard let lat = line.latitude, let lng = line.longitude else { continue }
             locations.append(Location(latitude: lat, longitude: lng, altitude: i + 1 < lines.count ? lines[i + 1].altitude ?? 0 : 0))
         }
-        let trail = Trail(gpx: Gpx(name: url.lastPathComponent.name, locations: locations))
-        save(trail: trail)
+        
+        guard let loc = locations.last?.clLocation else { return }
+        LocationManager.shared.getDepartment(location: loc) { department in
+            let trail = Trail(gpx: Gpx(name: url.lastPathComponent.name, locations: locations, department: department))
+            self.save(trail: trail)
+        }
+        
     }
     
     func save(trail: Trail) {
@@ -86,9 +93,17 @@ class TrailManager: ObservableObject {
         }
         self.trails = trails ?? []
     }
+        
+    func addMissingDepartment(trail: Trail) {
+        guard trail.department == nil, let loc = trail.locations.last?.clLocation else { return }
+        LocationManager.shared.getDepartment(location: loc) { department in
+            trail.department = department
+            self.save(trail: trail)
+        }
+    }
     
     // MARK: - Private methods
-    func loadDemoTrails() {
+    private func loadDemoTrails() {
         guard !UserDefaults.hasBeenLaunched else { return }
         try? FileManager.default.createDirectory(at: documentsDirectory.appendingPathComponent("trails"), withIntermediateDirectories: true, attributes: [:])
         Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: nil)?.forEach { url in

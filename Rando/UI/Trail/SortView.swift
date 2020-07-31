@@ -27,6 +27,8 @@ struct SortView: View {
                     self.isActive.toggle()
                 }
                 
+                Divider()
+                
                 Text("Departments".localized)
                     .font(.headline)
                 
@@ -35,6 +37,7 @@ struct SortView: View {
                         Text(text)
                     }
                 }
+            .labelsHidden()
                 
             }.padding()
                 

@@ -60,5 +60,6 @@
 "elevation" = "Elevation";
 "Profile" = "Profile";
 "Filter" = "Filter";
+"Filtered" = "Filtered";
 "Active" = "Only display active trail";
 "Departments" = "Filter by department:";

@@ -109,7 +109,6 @@ struct MapView: UIViewRepresentable {
             // Max zoom check
             let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
             var span = mapView.region.span
-            print(span.latitudeDelta)
             let maxZoom: CLLocationDegrees = 0.010
             if span.latitudeDelta < maxZoom {
                 span = MKCoordinateSpan(latitudeDelta: maxZoom, longitudeDelta: maxZoom)

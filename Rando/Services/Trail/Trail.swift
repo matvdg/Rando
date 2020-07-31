@@ -12,11 +12,12 @@ import MapKit
 
 class Gpx: Codable, Identifiable {
     
-    init(name: String, locations: [Location], date: Date? = Date()) {
+    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil) {
         self.id = UUID()
         self.name = name
         self.locations = locations
         self.date = date
+        self.department = department
     }
     
     // Decodable properties
@@ -24,15 +25,17 @@ class Gpx: Codable, Identifiable {
     var name: String
     var locations: [Location]
     var date: Date?
+    var department: String?
     
     
 }
 
 class Trail: Identifiable, ObservableObject {
         
-    init(gpx: Gpx = Gpx(name: "test", locations: [mockLoc1])) {
+    init(gpx: Gpx = Gpx()) {
         self.gpx = gpx
         self.name = gpx.name
+        self.department = gpx.department
     }
     
     // Decodable properties
@@ -46,6 +49,12 @@ class Trail: Identifiable, ObservableObject {
     @Published var name: String {
         didSet {
             gpx.name = name
+        }
+    }
+    
+    @Published var department: String? {
+        didSet {
+            gpx.department = department
         }
     }
     

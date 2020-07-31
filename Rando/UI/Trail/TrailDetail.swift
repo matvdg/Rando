@@ -31,6 +31,10 @@ struct TrailDetail: View {
                         }
                     .font(.system(size: 28, weight: .bold, design: Font.Design.default))
                     
+                    Text(trail.department ?? "")
+                    .font(.system(size: 20, weight: .light, design: Font.Design.default))
+                    .isHidden(trail.department == nil || trail.department == "?", remove: true)
+                    
                     HStack(alignment: .center, spacing: 20.0) {
                         
                         VStack(alignment: .leading, spacing: 8) {
@@ -113,6 +117,9 @@ struct TrailDetail: View {
                 
             }
             .navigationBarTitle(Text(trail.name))
+        }
+        .onAppear {
+            TrailManager.shared.addMissingDepartment(trail: self.trail)
         }
     }
 }
