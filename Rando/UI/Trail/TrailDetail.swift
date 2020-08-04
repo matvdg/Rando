@@ -108,7 +108,7 @@ struct TrailDetail: View {
                     TilesRow(boundingBox: trail.polyline.boundingMapRect, name: trail.name)
                     
                     VStack {
-                        LineView(data: trail.elevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
+                        LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
                     }
                     .frame(height: 340)
                     

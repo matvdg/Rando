@@ -48,6 +48,7 @@
 		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
 		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
 		F6A5816F24D46B7A0030F457 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5816E24D46B7A0030F457 /* Array.swift */; };
+		F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */ = {isa = PBXBuildFile; productRef = F6AEA1E924D83DBA007509C1 /* Surge */; };
 		F6CAAF3B24BC91DB006F991A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */; };
 		F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */; };
 		F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */; };
@@ -67,6 +68,7 @@
 		F6CFD0B324BF8FE100DA224C /* PoiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */; };
 		F6CFD0B424BF8FE100DA224C /* PoiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B124BF8FE100DA224C /* PoiRow.swift */; };
 		F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B524BF90CA00DA224C /* CircleImage.swift */; };
+		F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0702F24D4780300EEE183 /* ItineraryRow.swift */; };
 		F6FE98A824C05047007D5D85 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FE98A724C05047007D5D85 /* SortView.swift */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,7 @@
 		F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiDetail.swift; sourceTree = "<group>"; };
 		F6CFD0B124BF8FE100DA224C /* PoiRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiRow.swift; sourceTree = "<group>"; };
 		F6CFD0B524BF90CA00DA224C /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		F6F0702F24D4780300EEE183 /* ItineraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRow.swift; sourceTree = "<group>"; };
 		F6FE98A724C05047007D5D85 /* SortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */,
+				F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +161,7 @@
 				D08AB2692465BC7000793417 /* TrailDetail.swift */,
 				D08AB2672465BAAD00793417 /* TrailRow.swift */,
 				F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */,
+				F6F0702F24D4780300EEE183 /* ItineraryRow.swift */,
 				F6CFD0A624BE9EEA00DA224C /* TilesRow.swift */,
 				F6FE98A724C05047007D5D85 /* SortView.swift */,
 				D007B888246AEE160040E1CF /* MapViewContainer.swift */,
@@ -381,6 +386,7 @@
 			name = Rando;
 			packageProductDependencies = (
 				D039506424B6097800C31D34 /* SwiftUICharts */,
+				F6AEA1E924D83DBA007509C1 /* Surge */,
 			);
 			productName = GR10;
 			productReference = D063478F245D768B003BA9E7 /* Rando.app */;
@@ -413,6 +419,7 @@
 			mainGroup = D0634786245D768B003BA9E7;
 			packageReferences = (
 				D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */,
+				F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */,
 			);
 			productRefGroup = D0634790245D768B003BA9E7 /* Products */;
 			projectDirPath = "";
@@ -468,6 +475,7 @@
 				F6A5816F24D46B7A0030F457 /* Array.swift in Sources */,
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
 				D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */,
+				F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
 				F6CFD0A724BE9EEA00DA224C /* TilesRow.swift in Sources */,
 				F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */,
@@ -726,6 +734,14 @@
 				minimumVersion = 1.5.3;
 			};
 		};
+		F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jounce/Surge.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -733,6 +749,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		F6AEA1E924D83DBA007509C1 /* Surge */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */;
+			productName = Surge;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

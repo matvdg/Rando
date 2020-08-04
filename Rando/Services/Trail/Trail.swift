@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Surge
 
 class Gpx: Codable, Identifiable {
     
@@ -31,7 +32,7 @@ class Gpx: Codable, Identifiable {
 }
 
 class Trail: Identifiable, ObservableObject {
-        
+    
     init(gpx: Gpx = Gpx()) {
         self.gpx = gpx
         self.name = gpx.name
@@ -70,35 +71,68 @@ class Trail: Identifiable, ObservableObject {
         }.0
     }
     
+    lazy var elevations: [CLLocationDistance] = computeFilteredElevations()
+    
+    /// Max 100 elevations for chart
+    var simplifiedElevations: [CLLocationDistance] {
+        let size = 100
+        guard elevations.count > size else { return elevations }
+        var simplifiedElevations = [CLLocationDistance]()
+        for (i, alt) in elevations.enumerated() {
+            guard i % (elevations.count / size) == 0 else { continue }
+            simplifiedElevations.append(alt)
+        }
+        return simplifiedElevations
+    }
+    
+    func computeFilteredElevations() -> [CLLocationDistance] {
+        let size = 5
+        let threshold: CLLocationDistance = 7
+        guard var lastAltitude = locations.first?.altitude else { return [] }
+        var filteredBuffer = [CLLocationDistance]()
+        var circularBuffer = CircularBuffer(size: size)
+        circularBuffer.append(lastAltitude)
+        filteredBuffer.append(circularBuffer.average)
+        let altitudes = locations.compactMap { $0.altitude }
+        for altitude in altitudes {
+            guard abs(altitude - lastAltitude) > threshold else { continue }
+            circularBuffer.append(altitude)
+            filteredBuffer.append(circularBuffer.average)
+            lastAltitude = circularBuffer.average
+        }
+        return filteredBuffer
+    }
+    
     var positiveElevation: CLLocationDistance {
-        guard !locations.isEmpty else { return .nan }
-        return locations.reduce((0, locations[0].altitude)) { (accumulation, nextValue) -> (CLLocationDistance, CLLocationDistance) in
-            var delta =  nextValue.altitude - accumulation.1
+        guard !elevations.isEmpty else { return .nan }
+        return elevations.reduce((0, elevations[0])) { (accumulation, nextValue) -> (CLLocationDistance, CLLocationDistance) in
+            var delta =  nextValue - accumulation.1
             delta = delta > 0 ? delta : 0
-            return (accumulation.0 + delta, nextValue.altitude)
+            return (accumulation.0 + delta, nextValue)
         }.0
     }
     
     var negativeElevation: CLLocationDistance {
-        guard !locations.isEmpty else { return .nan }
-        return locations.reduce((0, locations[0].altitude)) { (accumulation, nextValue) -> (CLLocationDistance, CLLocationDistance) in
-            var delta =  nextValue.altitude - accumulation.1
+        guard !elevations.isEmpty else { return .nan }
+        return elevations.reduce((0, elevations[0])) { (accumulation, nextValue) -> (CLLocationDistance, CLLocationDistance) in
+            var delta =  nextValue - accumulation.1
             delta = delta < 0 ? abs(delta) : 0
-            return (accumulation.0 + delta, nextValue.altitude)
+            return (accumulation.0 + delta, nextValue)
         }.0
     }
     
     var minAlt: CLLocationDistance {
-        guard !locations.isEmpty else { return .nan }
-        return locations.reduce(locations[0].altitude) { (accumulation, nextValue) -> CLLocationDistance in
-            nextValue.altitude < accumulation ? nextValue.altitude : accumulation
+        guard !elevations.isEmpty else { return .nan }
+        let min = elevations.reduce(elevations[0]) { (accumulation, nextValue) -> CLLocationDistance in
+            nextValue < accumulation ? nextValue : accumulation
         }
+        return min < 0 ? 0 : min
     }
     
     var maxAlt: CLLocationDistance {
-        guard !locations.isEmpty else { return .nan }
-        return locations.reduce(locations[0].altitude) { (accumulation, nextValue) -> CLLocationDistance in
-            nextValue.altitude > accumulation ? nextValue.altitude : accumulation
+        guard !elevations.isEmpty else { return .nan }
+        return elevations.reduce(elevations[0]) { (accumulation, nextValue) -> CLLocationDistance in
+            nextValue > accumulation ? nextValue : accumulation
         }
     }
     
@@ -114,15 +148,6 @@ class Trail: Identifiable, ObservableObject {
     
     var displayed: Bool { UserDefaults.currentTrail == self.id.uuidString }
     
-    var elevations: [CLLocationDistance] {
-        var simplified = [CLLocationDistance]()
-        let elevations =  locations.map { $0.altitude }
-        for (i, alt) in elevations.enumerated() {
-            guard i % 10 == 0 else { continue }
-            simplified.append(alt)
-        }
-        return simplified
-    }
 }
 
 
