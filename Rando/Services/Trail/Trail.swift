@@ -45,7 +45,7 @@ class Trail: Identifiable, ObservableObject {
     // Computed properties
     var id: UUID { gpx.id }
     var locations: [Location] { gpx.locations }
-    var date: Date { gpx.date ?? Date() }
+    var date: Date { gpx.date ?? Date(timeIntervalSince1970: 0) }
     
     @Published var name: String {
         didSet {

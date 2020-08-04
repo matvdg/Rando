@@ -35,7 +35,7 @@ struct TrailView: View {
             case .elevation : return $0.positiveElevation < $1.positiveElevation
             case .distance: return $0.distance < $1.distance
             case .name: return $0.name < $1.name
-            case .importDate: return $0.date < $1.date
+            case .importDate: return $0.date > $1.date
             }
         }
         // Filter by department if necessary
