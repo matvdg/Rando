@@ -12,6 +12,8 @@
 "Add" = "Add";
 "Rename" = "Rename";
 "Left" = "left";
+"Error" = "Oops!";
+"Network" = "Please check your internet connection then retry";
 
 // MapView
 "Map" = "Map";

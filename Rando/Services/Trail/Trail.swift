@@ -9,7 +9,6 @@
 import Foundation
 import CoreLocation
 import MapKit
-import Surge
 
 class Gpx: Codable, Identifiable {
     

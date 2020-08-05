@@ -12,7 +12,8 @@
 "Add" = "Ajouter";
 "Rename" = "Renommer";
 "Left" = "restant";
-
+"Error" = "Oups !";
+"Network" = "Merci de vérifier votre connexion internet puis réessayer";
 
 // MapView
 "Map" = "Carte";

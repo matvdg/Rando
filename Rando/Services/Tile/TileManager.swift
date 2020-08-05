@@ -1,5 +1,6 @@
 import Foundation
 import MapKit
+import Network
 
 class TileManager: ObservableObject {
     
@@ -33,7 +34,7 @@ class TileManager: ObservableObject {
     func getEstimatedDownloadSize(for boundingBox: MKMapRect) -> Double {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
         let count = self.filterTilesAlreadyExisting(paths: paths).count
-        let size: Double = 20000 // Bytes
+        let size: Double = 20000 // Bytes (average size)
         return Double(count) * size
     }
     
@@ -60,25 +61,35 @@ class TileManager: ObservableObject {
             let url = documentsDirectory.appendingPathComponent(file)
             try? fileManager.removeItem(at: url)
         }
+        self.status = .download
     }
     
     /// Download and persist all tiles within the boundingBox
     func download(boundingBox: MKMapRect, name: String) {
-        status = .downloading
-        progress = 0.01
-        DispatchQueue.global(qos: .background).async {
-            let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
-            let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
+        let pathMonitor = NWPathMonitor()
+        pathMonitor.pathUpdateHandler = { [weak self] in
+            guard $0.status == .satisfied else { // No network
+                DispatchQueue.main.async {
+                    NotificationManager.shared.sendNotification(title: "Error".localized, message: "Network".localized)
+                }
+                return pathMonitor.cancel()
+            }
+            pathMonitor.cancel()
+            self?.status = .downloading
+            self?.progress = 0.01
+            let paths = self?.computeTileOverlayPaths(boundingBox: boundingBox) ?? []
+            let filteredPaths = self?.filterTilesAlreadyExisting(paths: paths) ?? []
             for i in 0..<filteredPaths.count {
-                self.persistLocally(path: filteredPaths[i])
-                self.progress = Float(i) / Float(filteredPaths.count)
+                self?.persistLocally(path: filteredPaths[i])
+                self?.progress = Float(i) / Float(filteredPaths.count)
             }
             DispatchQueue.main.async {
-                NotificationManager.shared.sendNotification(title: "\("DownloadedTitle".localized) (\(self.getDownloadedSize(for: boundingBox).toBytes))", message: "\("Downloaded".localized) (\(name))")
-                self.progress = 0
-                self.status = .downloaded
+                NotificationManager.shared.sendNotification(title: "\("DownloadedTitle".localized) (\((self?.getDownloadedSize(for: boundingBox) ?? 0).toBytes))", message: "\("Downloaded".localized) (\(name))")
+                self?.progress = 0
+                self?.status = .downloaded
             }
         }
+        pathMonitor.start(queue: DispatchQueue.global(qos: .background))
     }
     
     
