@@ -29,14 +29,7 @@ struct TrailRow: View {
                 }
                 
                 
-                HStack(spacing: 8) {
-                    Text(trail.distance.toString).fontWeight(.bold)
-                    HStack(alignment: .bottom, spacing: 4) {
-                        Text("PositiveElevation".localized)
-                            .font(.caption)
-                        Text(trail.positiveElevation.toStringMeters).fontWeight(.bold)
-                    }
-                }
+                Text("\(trail.distance.toString) - \(trail.positiveElevation.toStringMeters)")
                 .font(.subheadline)
                 .minimumScaleFactor(0.5)
                 .lineLimit(1)
@@ -44,6 +37,9 @@ struct TrailRow: View {
             }
             
             Spacer()
+            
+            Image(systemName: trail.isFavorite ? "heart.fill" : "heart")
+                .foregroundColor(.red)
             
         }
         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)

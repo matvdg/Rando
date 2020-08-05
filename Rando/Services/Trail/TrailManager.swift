@@ -98,7 +98,7 @@ class TrailManager: ObservableObject {
         guard trail.department == nil, let loc = trail.locations.last?.clLocation else { return }
         LocationManager.shared.getDepartment(location: loc) { department in
             trail.department = department
-            self.save(trail: trail)
+            TrailManager.shared.save(trail: trail)
         }
     }
     

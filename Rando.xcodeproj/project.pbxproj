@@ -50,6 +50,7 @@
 		F6A5816F24D46B7A0030F457 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5816E24D46B7A0030F457 /* Array.swift */; };
 		F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */ = {isa = PBXBuildFile; productRef = F6AEA1E924D83DBA007509C1 /* Surge */; };
 		F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */; };
+		F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */; };
 		F6CAAF3B24BC91DB006F991A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */; };
 		F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */; };
 		F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */; };
@@ -120,6 +121,7 @@
 		F6979BA024D4523D00228A0C /* CLGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoder.swift; sourceTree = "<group>"; };
 		F6A5816E24D46B7A0030F457 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailPreview.swift; sourceTree = "<group>"; };
+		F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRow.swift; sourceTree = "<group>"; };
 		F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
 		F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "613AD245-A082-4FDF-8103-199F3CA71C80.json"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				D08AB2672465BAAD00793417 /* TrailRow.swift */,
 				F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */,
 				F6F0702F24D4780300EEE183 /* ItineraryRow.swift */,
+				F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */,
 				F6CFD0A624BE9EEA00DA224C /* TilesRow.swift */,
 				F6FE98A724C05047007D5D85 /* SortView.swift */,
 				D007B888246AEE160040E1CF /* MapViewContainer.swift */,
@@ -495,6 +498,7 @@
 				D08F1A9C2465919300335281 /* PoiManager.swift in Sources */,
 				D09FB0092465D2360007F55B /* MiniImage.swift in Sources */,
 				D08AB26A2465BC7000793417 /* TrailDetail.swift in Sources */,
+				F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */,
 				D0531A742467FE4C0020FFE0 /* String.swift in Sources */,
 				D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,

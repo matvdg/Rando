@@ -10,7 +10,8 @@ import SwiftUI
 
 struct SortView: View {
     
-    @Binding var isActive: Bool
+    @Binding var onlyDisplayed: Bool
+    @Binding var onlyFavs: Bool
     @Binding var department: String
     @Binding var isSortDisplayed: Bool
     
@@ -20,11 +21,18 @@ struct SortView: View {
             
             VStack(alignment: .center, spacing: 20.0) {
                 
-                Toggle(isOn: self.$isActive) {
+                Toggle(isOn: self.$onlyDisplayed) {
                     Text("Active".localized)
                 }
                 .onTapGesture {
-                    self.isActive.toggle()
+                    self.onlyDisplayed.toggle()
+                }
+                
+                Toggle(isOn: self.$onlyFavs) {
+                    Text("Favs".localized)
+                }
+                .onTapGesture {
+                    self.onlyFavs.toggle()
                 }
                 
                 Divider()
@@ -52,7 +60,7 @@ struct SortView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
-        .frame(height: 400.0, alignment: .top)
+        .frame(height: 480.0, alignment: .top)
         .shadow(radius: 10)
         .gesture(DragGesture().onEnded { value in
             if value.translation.height > 100 {
@@ -69,9 +77,10 @@ struct SortView: View {
 struct SortView_Previews: PreviewProvider {
     @State static var department: String = "Ariège"
     @State static var isSortDisplayed = true
-    @State static var isActive = false
+    @State static var onlyDisplayed = false
+    @State static var onlyFavs = false
     static var previews: some View {
-        SortView(isActive: $isActive, department: $department, isSortDisplayed: $isSortDisplayed)
+        SortView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $isSortDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
                 .environment(\.colorScheme, .dark)

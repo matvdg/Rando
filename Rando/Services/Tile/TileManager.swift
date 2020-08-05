@@ -31,6 +31,10 @@ class TileManager: ObservableObject {
         fileManager.allocatedSizeOfDirectory(at: documentsDirectory.appendingPathComponent("tiles"))
     }
     
+    func hasBeenDownloaded(for boundingBox: MKMapRect) -> Bool {
+        getEstimatedDownloadSize(for: boundingBox) == 0
+    }
+    
     func getEstimatedDownloadSize(for boundingBox: MKMapRect) -> Double {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
         let count = self.filterTilesAlreadyExisting(paths: paths).count
@@ -91,8 +95,6 @@ class TileManager: ObservableObject {
         }
         pathMonitor.start(queue: DispatchQueue.global(qos: .background))
     }
-    
-    
     
     func getTileOverlay(for path: MKTileOverlayPath) -> URL {
         let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"

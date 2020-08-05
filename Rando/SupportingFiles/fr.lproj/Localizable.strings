@@ -63,7 +63,12 @@
 "Profile" = "Profil";
 "Filter" = "Filtrer";
 "Filtered" = "Filtré";
-"Active" = "Afficher uniquement la randonnée active";
+"Active" = "Afficher uniquement les randonnée active";
+"Favs" = "Afficher uniquement les favoris";
 "Departments" = "Filtrer par département :";
 "Direction" = "Obtenir l'itinéraire en voiture";
 "Departure" = "Départ";
+"DeleteTrail" = "Supprimer la randonnée";
+"DeleteTrailMessage" = "Supprimer la randonnée et les cartes associées ?";
+"DeleteTrailAndMaps" = "Supprimer la randonnée et les cartes";
+"DeleteTrailNotMaps" = "Supprimer la randonnée mais conserver les cartes";

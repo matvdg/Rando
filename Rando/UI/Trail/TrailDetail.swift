@@ -28,12 +28,12 @@ struct TrailDetail: View {
                     
                     TextField("Rename".localized, text: $trail.name) {
                         TrailManager.shared.save(trail: self.trail)
-                        }
+                    }
                     .font(.system(size: 28, weight: .bold, design: Font.Design.default))
                     
                     Text(trail.department ?? "")
-                    .font(.system(size: 20, weight: .light, design: Font.Design.default))
-                    .isHidden(trail.department == nil || trail.department == "?", remove: true)
+                        .font(.system(size: 20, weight: .light, design: Font.Design.default))
+                        .isHidden(trail.department == nil || trail.department == "?", remove: true)
                     
                     HStack(alignment: .center, spacing: 20.0) {
                         
@@ -103,11 +103,13 @@ struct TrailDetail: View {
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     .frame(maxHeight: 100)
                     
+                    ItineraryRow(location: trail.firstLocation)
+                    
                     DisplayRow(id: trail.id.uuidString)
                     
                     TilesRow(boundingBox: trail.polyline.boundingMapRect, name: trail.name)
                     
-                    ItineraryRow(location: trail.firstLocation)
+                    DeleteRow(trail: trail)
                     
                     VStack {
                         LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
@@ -119,6 +121,16 @@ struct TrailDetail: View {
                 
             }
             .navigationBarTitle(Text(trail.name))
+            .navigationBarItems(trailing:
+                Button(action: {
+                    Feedback.selected()
+                    self.trail.isFav = !self.trail.isFavorite
+                    TrailManager.shared.save(trail: self.trail)
+                }) {
+                    Image(systemName: trail.isFavorite ? "heart.fill" : "heart")
+                        .accentColor(.red)
+                }
+            )
         }
         .onAppear {
             TrailManager.shared.addMissingDepartment(trail: self.trail)
@@ -128,7 +140,7 @@ struct TrailDetail: View {
 
 // MARK: Previews
 struct TrailDetail_Previews: PreviewProvider {
-        
+    
     static var previews: some View {
         TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
@@ -151,7 +163,7 @@ extension  Styles {
         textColor: Color.black,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
-   
+    
     
     public static let lineViewDarkModeTwo = ChartStyle(
         backgroundColor: Color.black,

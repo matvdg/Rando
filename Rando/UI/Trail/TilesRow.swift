@@ -61,7 +61,7 @@ struct TilesRow: View {
                 self.otherDownloadInProgress = true
                 return
             }
-            self.tileManager.status = self.tileManager.getEstimatedDownloadSize(for: self.boundingBox) == 0 ? .downloaded : .download
+            self.tileManager.status = self.tileManager.hasBeenDownloaded(for: self.boundingBox) ? .downloaded : .download
         }
         .actionSheet(isPresented: $showAlert) {
             ActionSheet(

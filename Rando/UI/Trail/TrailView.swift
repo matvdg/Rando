@@ -18,12 +18,13 @@ struct TrailView: View {
     
     @State var showFilePicker = false
     @State var sorting: Sorting = .importDate
-    @State var isActive: Bool = false
+    @State var onlyDisplayed: Bool = false
+    @State var onlyFavs: Bool = false
     @State var showFilter: Bool = false
     @State var department: String = "all".localized
     
     private var isFiltered: Bool {
-        department != "all".localized || isActive
+        department != "all".localized || onlyDisplayed || onlyFavs
     }
     
     @ObservedObject var trailManager = TrailManager.shared
@@ -42,12 +43,15 @@ struct TrailView: View {
         if department != "all".localized {
             sortedTrails = sortedTrails.filter { $0.department == department }
         }
-        // Filter by isActive if necessary
-        if isActive {
-            return sortedTrails.filter { $0.displayed }
-        } else {
-            return sortedTrails
+        // Filter by onlyDisplayed if necessary
+        if onlyDisplayed {
+            sortedTrails = sortedTrails.filter { $0.displayed }
         }
+        // Filter by onlyFavs if necessary
+        if onlyFavs {
+            sortedTrails = sortedTrails.filter { $0.isFavorite }
+        }
+        return sortedTrails
     }
     
     func removeRows(at offsets: IndexSet) {
@@ -96,8 +100,8 @@ struct TrailView: View {
                     
                     Spacer()
                     
-                    SortView(isActive: $isActive, department: $department, isSortDisplayed: $showFilter)
-                        .offset(y: showFilter ? 0 : 500)
+                    SortView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $showFilter)
+                        .offset(y: showFilter ? 0 : 520)
                         .animation(.default)
                     
                 }
@@ -106,6 +110,9 @@ struct TrailView: View {
             .sheet(isPresented: $showFilePicker, onDismiss: {self.showFilePicker = false}) {
                 DocumentView(callback: self.trailManager.createTrail, onDismiss: { self.showFilePicker = false })
             }
+            .onAppear(perform: {
+                self.trailManager.getTrails()
+            })
             .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
             .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
@@ -118,7 +125,6 @@ struct TrailView: View {
                     }
                     
             })
-            
             
         }
         

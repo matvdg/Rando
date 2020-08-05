@@ -1,4 +1,4 @@
-# Rando
+# ![Rando app icon](https://github.com/matvdg/Rando/blob/master/Rando/Assets.xcassets/AppIcon.appiconset/87.png?raw=true) Rando Pyrénées
 
 ## Assistance
 Support or contact: [matvdg@me.com](matvdg@me.com)
@@ -15,3 +15,6 @@ No internet connection is required (during hiking) except for the first launch o
 - iPhone running iOS 13.4 or later
 - iPad running iPadOS 13.4 or later
 - Mac running macOS Catalina 10.15 or later
+
+## Changelog
+[Changelog](https://github.com/matvdg/Rando/wiki/Changelog)
