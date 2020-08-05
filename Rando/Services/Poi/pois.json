@@ -267,5 +267,130 @@
     "lat" : 42.798014,
     "lng" : 1.072662
   },
-  
+  {
+    "id" : 27,
+    "name" : "Pic de la Munia",
+    "category" : "peak",
+    "description" : "Le pic de la Munia est le point culminant de l'ensemble des trois cirques de Troumouse, Barroude et Barrosa. Situé à la frontière entre la France (département des Hautes-Pyrénées) et l'Espagne (province de Huesca).",
+    "alt" : 3133,
+    "lat" : 42.717423,
+    "lng" : 0.133247
+  },
+  {
+    "id" : 28,
+    "name" : "Pic d'Estats",
+    "category" : "peak",
+    "description" : "La Pique d'Estats (espagnol et catalan : Pica d'Estats) est un sommet des Pyrénées situé sur la frontière franco-espagnole, dans le département de l'Ariège côté français et la comarque catalane de Pallars Sobirà côté espagnol. Avec 3 143 mètres d'altitude, c'est le plus haut sommet du massif du Montcalm, toutefois son ascension ne présente pas de difficulté particulière (ni escalade, ni glacier).",
+    "alt" : 3143,
+    "lat" : 42.667471,
+    "lng" : 1.397905
+  },
+  {
+    "id" : 29,
+    "name" : "Pic de Verdaguer",
+    "category" : "peak",
+    "description" : "Le pic de Verdaguer est un sommet du massif du Montcalm. Il constitue un avant-sommet de la pique d'Estats, point culminant du secteur. De par son statut de sommet secondaire, il peut être enchaîné avec la pique d'Estats, ou bien simplement contourné pour simplifier l'ascension au pic principal.",
+    "alt" : 3131,
+    "lat" : 42.668660,
+    "lng" : 1.397068
+  },
+  {
+    "id" : 30,
+    "name" : "Pic du Balaïtous",
+    "category" : "peak",
+    "description" : "Le pic du Balaïtous (3 144 m) est le premier pic de la chaîne dépassant l'altitude de 3 000 m depuis la côte atlantique. Il est le plus haut sommet du massif du Balaïtous, massif granitique pyrénéen se situant à la frontière entre la France et l'Espagne.",
+    "alt" : 3144,
+    "lat" : 42.838957,
+    "lng" : -0.290169
+  },
+  {
+    "id" : 31,
+    "name" : "Pic Long",
+    "category" : "peak",
+    "description" : "Le pic Long est un sommet des Pyrénées françaises. Avec ses 3 192 mètres, c'est le plus haut sommet du massif du Néouvielle et le troisième plus haut sommet des Pyrénées situé entièrement en France, après la pointe Chausenque et le piton Carré.",
+    "alt" : 3192,
+    "lat" : 42.800951,
+    "lng" : 0.100446
+  },
+  {
+    "id" : 32,
+    "name" : "Pic Perdiguère",
+    "category" : "peak",
+    "description" : "Le pic Perdiguère est le plus haut sommet du massif de Perdiguère de la chaîne des Pyrénées, situé sur la frontière franco-espagnole. Il est le point culminant de la Haute-Garonne.",
+    "alt" : 3222,
+    "lat" : 42.692782,
+    "lng" : 0.518496
+  },
+  {
+    "id" : 33,
+    "name" : "Pic d'Aneto",
+    "category" : "peak",
+    "description" : "Le pic d’Aneto (jusqu'au xixe siècle : Néthou) est le point culminant de la chaîne des Pyrénées avec une altitude de 3 404 m. Il se situe en Espagne, au nord-est de l’Aragon et de la province de Huesca, dans la comarque de Ribagorce. En plein centre du Parc naturel de Posets-Maladeta, il fait partie du massif de la Maladeta dont il constitue la partie sud-est avec le Pic Russell.",
+    "alt" : 3404,
+    "lat" : 42.631847,
+    "lng" : 0.656474
+  },
+  {
+    "id" : 34,
+    "name" : "Le Mont Perdu",
+    "category" : "peak",
+    "description" : "Le mont Perdu (ou Monte Perdido en espagnol), situé en Espagne, proche de la frontière franco-espagnole, est le sommet le plus élevé du massif du Mont-Perdu avec 3 355 m d'altitude, sur la crête séparant les canyons d'Ordesa et de Pineta (ou Pinède). C'est le pic central des Tres Serols (en aragonais) ou Tres Hermanas (en espagnol) constituées par le Cylindre du Marboré, le Soum de Ramond, et le mont Perdu lui-même.",
+    "alt" : 3355,
+    "lat" : 42.676098,
+    "lng" : 0.033845
+  },
+  {
+    "id" : 35,
+    "name" : "Pic des Posets",
+    "category" : "peak",
+    "description" : "Le pic des Posets, ou pointe de Llardana est un sommet des Pyrénées espagnoles qui culmine à 3 375 mètres d'altitude (fréquemment donné aussi à 3 369 sur les cartes espagnoles). Il s'agit du point culminant du massif des Posets, deuxième plus haut massif des Pyrénées, en plein centre du parc naturel de Posets-Maladeta, et également du deuxième plus haut sommet des Pyrénées, après l'Aneto. À ce titre, il est le cinquième plus haut sommet d'Espagne, après le Teide, le Mulhacén, l'Aneto et le Veleta. Il se situe au nord-est de l’Aragon et de la province de Huesca.",
+    "alt" : 3375,
+    "lat" : 42.665934,
+    "lng" : 0.424487
+  },
+  {
+    "id" : 36,
+    "name" : "Pic des Trois-Seigneurs",
+    "category" : "peak",
+    "description" : "Le pic des Trois-Seigneurs est un sommet des Pyrénées françaises dans le département de l'Ariège en région Occitanie. Il culmine à 2 199 m d'altitude.",
+    "alt" : 2199,
+    "lat" : 42.831236,
+    "lng" : 1.440415
+  },
+  {
+    "id" : 37,
+    "name" : "Pic du Midi de Bigorre",
+    "category" : "peak",
+    "description" : "Le pic du Midi de Bigorre est situé dans les Hautes-Pyrénées, et atteint une altitude de 2 876 mètres. Il est connu entre autres pour la présence d'un observatoire astronomique et d'un relais de télévision, installés à son sommet.",
+    "alt" : 2876,
+    "lat" : 42.937594,
+    "lng" : 0.140878
+  },
+  {
+    "id" : 38,
+    "name" : "Pic Carlit",
+    "category" : "peak",
+    "description" : "Le pic Carlit (ou Puig Carlit) est un sommet granitique des Pyrénées françaises situé dans le massif du Carlit. C'est le point culminant du département des Pyrénées-Orientales avec une altitude de 2 921 mètres. Son nom est issu du massif dans lequel il se trouve. Le climat subocéanique froid apporte de nombreuses perturbations (d’ouest à sud-ouest) et un enneigement hivernal durable au-dessus de 2 000 mètres de novembre à avril. Le fleuve Têt prend sa source sur le pic, en faisant la principale réserve d'eau du département des Pyrénées-Orientales. Le classement de la zone sous la protection réseau Natura 2000 en 2015 permet de conserver et de faire croître la richesse faunistique et floristique du site.",
+    "alt" : 2921,
+    "lat" : 42.571623,
+    "lng" : 1.932437
+  },
+  {
+    "id" : 39,
+    "name" : "Pic d'Ardiden",
+    "category" : "peak",
+    "description" : "Le pic d'Ardiden est un sommet des Pyrénées françaises qui culmine à 2 988 m d'altitude. Il domine la station de sports d'hiver de Luz-Ardiden et les lacs d'Ardiden.",
+    "alt" : 2988,
+    "lat" : 42.834665,
+    "lng" : -0.067955
+  },
+  {
+    "id" : 40,
+    "name" : "Pic de Cagire",
+    "category" : "peak",
+    "description" : "Le pic de Cagire est un sommet des Pyrénées françaises, dans la région du Comminges dans la Haute-Garonne. Son altitude est de 1 912 mètres.",
+    "alt" : 1912,
+    "lat" : 42.947236,
+    "lng" : 0.766027
+  }
 ]

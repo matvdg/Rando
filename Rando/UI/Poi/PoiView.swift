@@ -28,7 +28,7 @@ struct PoiView: View {
     case .peak: selectedPois =  pois.filter { $0.category == .peak }
     default: selectedPois = pois.filter { $0.category == .waterfall }
     }
-    return selectedPois.sorted { $0.id < $1.id }
+    return selectedPois.sorted { $0.alt > $1.alt }
   }
   
   var body: some View {
