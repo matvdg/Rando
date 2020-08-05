@@ -107,6 +107,8 @@ struct TrailDetail: View {
                     
                     TilesRow(boundingBox: trail.polyline.boundingMapRect, name: trail.name)
                     
+                    ItineraryRow(location: trail.firstLocation)
+                    
                     VStack {
                         LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
                     }

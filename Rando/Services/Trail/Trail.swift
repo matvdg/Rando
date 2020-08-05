@@ -70,6 +70,10 @@ class Trail: Identifiable, ObservableObject {
         }.0
     }
     
+    var firstLocation: CLLocationCoordinate2D {
+        locations.first?.clLocation.coordinate ?? CLLocationCoordinate2D()
+    }
+    
     lazy var elevations: [CLLocationDistance] = computeFilteredElevations()
     
     /// Max 100 elevations for chart

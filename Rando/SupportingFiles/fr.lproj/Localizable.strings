@@ -65,3 +65,5 @@
 "Filtered" = "Filtré";
 "Active" = "Afficher uniquement la randonnée active";
 "Departments" = "Filtrer par département :";
+"Direction" = "Obtenir l'itinéraire en voiture";
+"Departure" = "Départ";
