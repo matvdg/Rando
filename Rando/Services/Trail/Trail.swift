@@ -151,6 +151,23 @@ class Trail: Identifiable, ObservableObject {
     
     var displayed: Bool { UserDefaults.currentTrail == self.id.uuidString }
     
+    var locationsPreview: [CGPoint] {
+        let frame = CGRect(origin: .zero, size: CGSize(width: 80, height: 80))
+        let view = UIView(frame: frame)
+        let mapView = MKMapView(frame: frame)
+        var region = MKCoordinateRegion(polyline.boundingMapRect)
+        region.span.latitudeDelta += 0.01
+        region.span.longitudeDelta += 0.01
+        mapView.region = region
+        let mapPoints = polyline.points()
+        var points = [CGPoint]()
+        let max = polyline.pointCount - 1
+        for i in 0...max {
+           let coordinate = mapPoints[i].coordinate
+           points.append(mapView.convert(coordinate, toPointTo: view))
+        }
+        return points
+    }
 }
 
 
