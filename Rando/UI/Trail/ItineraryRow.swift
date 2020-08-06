@@ -23,14 +23,14 @@ struct ItineraryRow: View {
         }) {
             HStack(spacing: 10) {
                 Image(systemName: "car")
-                Text("Direction".localized)
+                Text("Directions".localized)
                     .font(.headline)
             }
         }
         
         .actionSheet(isPresented: $showAlert) {
             ActionSheet(
-                title: Text("Direction".localized),
+                title: Text("Directions".localized),
                 buttons: [
                     .default(Text(" Maps"), action: { let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: self.location))
                         mapItem.name = "Departure".localized

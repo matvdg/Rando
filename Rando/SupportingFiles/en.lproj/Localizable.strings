@@ -66,7 +66,7 @@
 "Active" = "Only display active trail";
 "Favs" = "Only display favorites";
 "Departments" = "Filter by department:";
-"Direction" = "Get car directions";
+"Directions" = "Get car directions";
 "Departure" = "Departure";
 "DeleteTrail" = "Delete trail";
 "DeleteTrailMessage" = "Delete trail and associated maps";
