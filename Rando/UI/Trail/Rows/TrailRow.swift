@@ -22,8 +22,8 @@ struct TrailRow: View {
             VStack(alignment: .leading, spacing: 10) {
                 
                 HStack {
-                    Image(systemName: trail.displayed ? "eye" : "eye.slash")
-                        .foregroundColor(trail.displayed ? .tintColor : .lightgray)
+                    Image(systemName: trail.isDisplayed ? "eye" : "eye.slash")
+                        .foregroundColor(trail.isDisplayed ? .tintColor : .lightgray)
                     Text(trail.name)
                         .font(.headline)
                 }
@@ -38,7 +38,7 @@ struct TrailRow: View {
             
             Spacer()
             
-            Image(systemName: trail.isFavorite ? "heart.fill" : "heart")
+            Image(systemName: trail.isFav ? "heart.fill" : "heart")
                 .foregroundColor(.red)
             
         }

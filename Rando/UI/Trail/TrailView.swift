@@ -45,11 +45,11 @@ struct TrailView: View {
         }
         // Filter by onlyDisplayed if necessary
         if onlyDisplayed {
-            sortedTrails = sortedTrails.filter { $0.displayed }
+            sortedTrails = sortedTrails.filter { $0.isDisplayed }
         }
         // Filter by onlyFavs if necessary
         if onlyFavs {
-            sortedTrails = sortedTrails.filter { $0.isFavorite }
+            sortedTrails = sortedTrails.filter { $0.isFav }
         }
         return sortedTrails
     }
@@ -112,6 +112,7 @@ struct TrailView: View {
             }
             .onAppear(perform: {
                 self.trailManager.getTrails()
+                self.trailManager.objectWillChange.send()
             })
             .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
             .navigationBarItems(leading: EditButton(), trailing:

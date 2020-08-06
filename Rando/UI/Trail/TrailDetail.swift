@@ -13,14 +13,13 @@ struct TrailDetail: View {
     
     @ObservedObject var trail: Trail
     
-    
     var body: some View {
         ScrollView {
             VStack {
                 
                 NavigationLink(destination: MapViewContainer(trail: trail)) {
                     
-                    MapView(trail: trail)
+                    MapView(trails: [trail])
                         .frame(height: 300)
                 }
                 
@@ -105,7 +104,9 @@ struct TrailDetail: View {
                     
                     ItineraryRow(location: trail.firstLocation)
                     
-                    DisplayRow(id: trail.id.uuidString)
+                    DisplayRow(trail: trail)
+                    
+                    ColorRow(trail: trail)
                     
                     TilesRow(boundingBox: trail.polyline.boundingMapRect, name: trail.name)
                     
@@ -124,10 +125,10 @@ struct TrailDetail: View {
             .navigationBarItems(trailing:
                 Button(action: {
                     Feedback.selected()
-                    self.trail.isFav = !self.trail.isFavorite
+                    self.trail.isFav.toggle()
                     TrailManager.shared.save(trail: self.trail)
                 }) {
-                    Image(systemName: trail.isFavorite ? "heart.fill" : "heart")
+                    Image(systemName: trail.isFav ? "heart.fill" : "heart")
                         .accentColor(.red)
                 }
             )

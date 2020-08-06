@@ -9,16 +9,19 @@
 import Foundation
 import CoreLocation
 import MapKit
+import SwiftUI
 
 class Gpx: Codable, Identifiable {
     
-    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false) {
+    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: Int? = 0) {
         self.id = UUID()
         self.name = name
         self.locations = locations
         self.date = date
         self.department = department
         self.isFav = isFav
+        self.isDisplayed = isDisplayed
+        self.color = color
     }
     
     // Decodable properties
@@ -28,6 +31,8 @@ class Gpx: Codable, Identifiable {
     var date: Date?
     var department: String?
     var isFav: Bool?
+    var isDisplayed: Bool?
+    var color: Int?
     
     
 }
@@ -38,7 +43,9 @@ class Trail: Identifiable, ObservableObject {
         self.gpx = gpx
         self.name = gpx.name
         self.department = gpx.department
-        self.isFav = gpx.isFav
+        self.isFav = gpx.isFav ?? false
+        self.isDisplayed = gpx.isDisplayed ?? false
+        self.color = (gpx.color ?? 0).color
     }
     
     // Decodable properties
@@ -46,7 +53,6 @@ class Trail: Identifiable, ObservableObject {
     
     // Computed properties
     var id: UUID { gpx.id }
-    var isFavorite: Bool { gpx.isFav ?? false }
     var locations: [Location] { gpx.locations }
     var date: Date { gpx.date ?? Date(timeIntervalSince1970: 0) }
     
@@ -62,14 +68,28 @@ class Trail: Identifiable, ObservableObject {
         }
     }
     
-    @Published var isFav: Bool? {
+    @Published var isFav: Bool {
         didSet {
             gpx.isFav = isFav
         }
     }
     
-    var polyline: MKPolyline {
-        MKPolyline(coordinates: locations.map { $0.clLocation.coordinate }, count: locations.count)
+    @Published var isDisplayed: Bool {
+        didSet {
+            gpx.isDisplayed = isDisplayed
+        }
+    }
+    
+    @Published var color: Color {
+        didSet {
+            gpx.color = color.code
+        }
+    }
+    
+    var polyline: Polyline {
+        let polyline = Polyline(coordinates: locations.map { $0.clLocation.coordinate }, count: locations.count)
+        polyline.color = color.uiColor
+        return polyline
     }
     
     var distance: CLLocationDistance {
@@ -158,9 +178,7 @@ class Trail: Identifiable, ObservableObject {
         formatter.unitsStyle = .abbreviated
         return formatter.string(from: duration) ?? ""
     }
-    
-    var displayed: Bool { UserDefaults.currentTrail == self.id.uuidString }
-    
+        
     var locationsPreview: [CGPoint] {
         let frame = CGRect(origin: .zero, size: CGSize(width: 80, height: 80))
         let view = UIView(frame: frame)
@@ -206,4 +224,8 @@ public struct Location: Codable {
         
         self.init(latitude: latitude, longitude: longitude, altitude: altitude)
     }
+}
+
+class Polyline: MKPolyline {
+    var color: UIColor?
 }

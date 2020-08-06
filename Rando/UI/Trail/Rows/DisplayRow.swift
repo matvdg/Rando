@@ -10,18 +10,16 @@ import SwiftUI
 
 struct DisplayRow: View {
     
-    var id: String
-    @State private var storedId = UserDefaults.currentTrail
+    var trail: Trail
     
     var body: some View {
         
         Button(action: {
             Feedback.selected()
-            UserDefaults.currentTrail = UserDefaults.currentTrail == self.id ? "nil" : self.id
-            self.storedId = UserDefaults.currentTrail
-            TrailManager.shared.getTrails()
+            self.trail.isDisplayed.toggle()
+            TrailManager.shared.save(trail: self.trail)
         }) {
-            if storedId == id {
+            if trail.isDisplayed {
                 HStack(spacing: 10) {
                     Image(systemName: "eye.slash")
                     Text("DoNotDisplayOnMap".localized)
@@ -41,10 +39,10 @@ struct DisplayRow: View {
 
 // MARK: Previews
 struct DisplayRow_Previews: PreviewProvider {
-    
+        
     static var previews: some View {
         
-        DisplayRow(id: "test")
+        DisplayRow(trail: Trail())
             .previewLayout(.fixed(width: 300, height: 80))
             .environment(\.colorScheme, .light)
     }

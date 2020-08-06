@@ -22,7 +22,7 @@ struct SortView: View {
             VStack(alignment: .center, spacing: 20.0) {
                 
                 Toggle(isOn: self.$onlyDisplayed) {
-                    Text("Active".localized)
+                    Text("Displayed".localized)
                 }
                 .onTapGesture {
                     self.onlyDisplayed.toggle()

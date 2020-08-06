@@ -15,7 +15,7 @@ struct MapViewContainer: View {
     var trail: Trail
     
     var body: some View {
-        MapView(trail: trail)
+        MapView(trails: [trail])
             .navigationBarTitle(Text("Map".localized))
     }
 }

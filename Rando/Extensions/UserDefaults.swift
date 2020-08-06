@@ -20,14 +20,6 @@ extension UserDefaults {
         }
     }
     
-    static var currentTrail: String? {
-        get {
-            UserDefaults.standard.string(forKey: "currentTrail") ?? nil
-        } set {
-            UserDefaults.standard.set(newValue, forKey: "currentTrail")
-        }
-    }
-    
     static var isOffline: Bool {
       get {
         UserDefaults.standard.bool(forKey: "isOffline")

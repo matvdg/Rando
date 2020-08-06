@@ -56,6 +56,7 @@
 "Download" = "Download maps";
 "DisplayOnMap" = "Display the trail on the map";
 "DoNotDisplayOnMap" = "Remove the trail from the map";
+"Color" = "Pick a path color";
 "importDate" = "Import";
 "name" = "Name";
 "distance" = "Distance";
@@ -63,8 +64,8 @@
 "Profile" = "Profile";
 "Filter" = "Filter";
 "Filtered" = "Filtered";
-"Active" = "Only display active trail";
-"Favs" = "Only display favorites";
+"Displayed" = "Filter displayed";
+"Favs" = "Filter favorites";
 "Departments" = "Filter by department:";
 "Directions" = "Get car directions";
 "Departure" = "Departure";

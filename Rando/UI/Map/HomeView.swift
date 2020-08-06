@@ -17,7 +17,7 @@ struct HomeView: View {
     @State var isPlayingTour: Bool = false
     @State var clockwise = true
     @State var selectedPoi: Poi?
-    @State var trail = TrailManager.shared.currentTrail
+    @State var trails = TrailManager.shared.currentTrails
     
     private var isInfoPoiDisplayed: Bool { selectedPoi != nil }
     
@@ -25,7 +25,7 @@ struct HomeView: View {
         
         ZStack {
             
-            MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, isDetailMap: false, clockwise: $clockwise, trail: $trail)
+            MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, isDetailMap: false, clockwise: $clockwise, trails: $trails)
                 .edgesIgnoringSafeArea(.top)
                 .accentColor(.grblue)
             
@@ -117,7 +117,7 @@ struct HomeView: View {
         .onAppear {
             NotificationManager.shared.requestAuthorization()
             LocationManager.shared.requestAuthorization()
-            self.trail = TrailManager.shared.currentTrail
+            self.trails = TrailManager.shared.currentTrails
             self.selectedTracking = .bounding
         }
         

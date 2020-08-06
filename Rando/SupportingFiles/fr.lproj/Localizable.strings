@@ -56,6 +56,7 @@
 "Download" = "Télécharger les cartes";
 "DisplayOnMap" = "Afficher le tracé sur la carte";
 "DoNotDisplayOnMap" = "Retirer le tracé de la carte";
+"Color" = "Choisir une couleur de tracé";
 "importDate" = "Ajout";
 "name" = "Nom";
 "distance" = "Distance";
@@ -63,8 +64,8 @@
 "Profile" = "Profil";
 "Filter" = "Filtrer";
 "Filtered" = "Filtré";
-"Active" = "Afficher uniquement les randonnée active";
-"Favs" = "Afficher uniquement les favoris";
+"Displayed" = "Filtrer les affichés sur la carte";
+"Favs" = "Filtrer les favoris";
 "Departments" = "Filtrer par département :";
 "Directions" = "Obtenir l'itinéraire en voiture";
 "Departure" = "Départ";

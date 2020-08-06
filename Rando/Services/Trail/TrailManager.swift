@@ -20,8 +20,9 @@ class TrailManager: ObservableObject {
     private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
     
     @Published var trails = [Trail]()
-    var currentTrail: Trail {
-        self.trails.first { $0.id.uuidString == UserDefaults.currentTrail } ?? Trail()
+    
+    var currentTrails: [Trail] {
+        self.trails.filter { $0.isDisplayed }
     }
     
     var departments: [String] {

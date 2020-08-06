@@ -17,7 +17,7 @@ struct PoiDetail: View {
             
             NavigationLink(destination: MapViewContainer(trail: poi.pseudoTrail) ){
                 
-                MapView(trail: poi.pseudoTrail)
+                MapView(trails: [poi.pseudoTrail])
                     .frame(height: 300)
             }
             

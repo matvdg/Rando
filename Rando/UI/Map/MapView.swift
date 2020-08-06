@@ -24,11 +24,11 @@ struct MapView: UIViewRepresentable {
     @Binding var selectedPoi: Poi?
     @Binding var isPlayingTour: Bool
     @Binding var clockwise: Bool
-    @Binding var trail: Trail
+    @Binding var trails: [Trail]
     
     // MARK: Constructors
-    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, isDetailMap: Bool, clockwise: Binding<Bool>, trail: Binding<Trail>) {
-        self._trail = trail
+    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>) {
+        self._trails = trails
         self._selectedTracking = selectedTracking
         self._selectedLayer = selectedLayer
         self._selectedPoi = selectedPoi
@@ -38,8 +38,8 @@ struct MapView: UIViewRepresentable {
     }
     
     // Convenience init
-    init(trail: Trail) {
-        self.init(selectedTracking: Binding<Tracking>.constant(.bounding), selectedLayer: Binding<Layer>.constant(.ign), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false),  isDetailMap: true, clockwise: Binding<Bool>.constant(false), trail: Binding<Trail>.constant(trail))
+    init(trails: [Trail]) {
+        self.init(selectedTracking: Binding<Tracking>.constant(.bounding), selectedLayer: Binding<Layer>.constant(.ign), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false),  isDetailMap: true, clockwise: Binding<Bool>.constant(false), trails: Binding<[Trail]>.constant(trails))
     }
     
     // MARK: Properties
@@ -72,11 +72,12 @@ struct MapView: UIViewRepresentable {
             switch overlay {
             case let overlay as MKTileOverlay:
                 return MKTileOverlayRenderer(tileOverlay: overlay)
-            default:
+            case let polyline as Polyline:
                 let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-                polylineRenderer.strokeColor = .grblue
+                polylineRenderer.strokeColor = polyline.color ?? .grblue
                 polylineRenderer.lineWidth = 3
                 return polylineRenderer
+            default: return MKOverlayRenderer()
             }
         }
         
@@ -195,7 +196,7 @@ struct MapView: UIViewRepresentable {
         mapView.isPitchEnabled = true
         mapView.addAnnotations(annotations)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            mapView.addOverlay(self.trail.polyline, level: .aboveLabels)
+            mapView.addOverlays(self.trails.map { $0.polyline }, level: .aboveLabels)
         }
         // Custom compass
         #if !targetEnvironment(macCatalyst)
@@ -209,7 +210,20 @@ struct MapView: UIViewRepresentable {
     private func setTracking(mapView: MKMapView, headingView: UIImageView?) {
         switch selectedTracking {
         case .bounding:
-            var region = MKCoordinateRegion(trail.polyline.boundingMapRect)
+            guard let firstBoundingBox = trails.first?.polyline.boundingMapRect else {
+                self.selectedTracking = .enabled
+                return
+            }
+            let boundingBox = trails
+                .map { $0.polyline.boundingMapRect }
+                .reduce(firstBoundingBox) { (boundingBox, nextResult) -> MKMapRect in
+                    let minX = nextResult.minX < boundingBox.minX ? nextResult.minX : boundingBox.minX
+                    let maxX = nextResult.maxX > boundingBox.maxX ? nextResult.maxX : boundingBox.maxX
+                    let minY = nextResult.minY < boundingBox.minY ? nextResult.minY : boundingBox.minY
+                    let maxY = nextResult.maxY > boundingBox.maxY ? nextResult.maxY : boundingBox.maxY
+                    return MKMapRect(origin: MKMapPoint(x: minX, y: minY), size: MKMapSize(width: maxX-minX, height: maxY-minY))
+                }
+            var region = MKCoordinateRegion(boundingBox)
             region.span.latitudeDelta += 0.01
             region.span.longitudeDelta += 0.01
             mapView.setRegion(region, animated: false)
@@ -244,7 +258,7 @@ struct MapView: UIViewRepresentable {
         default:
             mapView.mapType = .standard
         }
-        mapView.addOverlay(trail.polyline, level: .aboveLabels)
+        mapView.addOverlays(trails.map { $0.polyline }, level: .aboveLabels)
     }
     
     private func setAnnotations(mapView: MKMapView) {
@@ -263,7 +277,7 @@ struct MapView: UIViewRepresentable {
             currentPlayingTourState = false
             return
         }
-        var locs = trail.locations.map { $0.clLocation.coordinate }
+        var locs = trails.first!.locations.map { $0.clLocation.coordinate }
         let animationDuration: TimeInterval = 4
         let altitude: CLLocationDistance = 1000
         if !clockwise {
@@ -303,7 +317,7 @@ struct MapView: UIViewRepresentable {
 struct MapView_Previews: PreviewProvider {
     
     static var previews: some View {
-        MapView(trail: Trail())
+        MapView(trails: [Trail()])
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)
