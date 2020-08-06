@@ -29,7 +29,7 @@ struct ColorView: View {
                 }) {
                     Circle()
                     .foregroundColor(self.colors[row][column])
-                        .shadow(color: .black, radius: 4, x: 4, y: 4)
+                        .shadow(color: .text, radius: 1, x: 0, y: 1)
                 }
             }
         .padding(20)
