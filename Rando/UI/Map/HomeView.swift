@@ -61,7 +61,7 @@ struct HomeView: View {
             #if !targetEnvironment(macCatalyst)
             VStack {
                 BlurView(effect: UIBlurEffect(style: .light))
-                    .frame(height: 40)
+                    .frame(height: UIDevice.hasNotch ? 40 : 20)
                 Spacer()
             }
             .edgesIgnoringSafeArea(.top)
