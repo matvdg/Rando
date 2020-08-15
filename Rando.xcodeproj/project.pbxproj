@@ -46,6 +46,7 @@
 		D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */; };
 		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
 		F618724824E7F4DC00F98918 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724724E7F4DC00F98918 /* Device.swift */; };
+		F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724924E7F6F500F98918 /* NetworkManager.swift */; };
 		F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F639047A24DC8E58005B4FC1 /* GridStack.swift */; };
 		F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */; };
 		F67BAEBF24E6FE5300AC8A9F /* TourRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */; };
@@ -125,6 +126,7 @@
 		D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
 		F618724724E7F4DC00F98918 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		F618724924E7F6F500F98918 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F639047A24DC8E58005B4FC1 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
 		F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourRow.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				D06347BB245DD66A003BA9E7 /* Tile */,
 				D06347AA245DD493003BA9E7 /* Trail */,
 				D05B1503246004BE00B24666 /* Location */,
+				F618724B24E7F6FA00F98918 /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -351,6 +354,14 @@
 				D0F9373F246831D9005E8503 /* NotificationManager.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		F618724B24E7F6FA00F98918 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F618724924E7F6F500F98918 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F6CFD09024BDC18F00DA224C /* Gpx */ = {
@@ -532,6 +543,7 @@
 				D08AB26A2465BC7000793417 /* TrailDetail.swift in Sources */,
 				F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */,
 				D0531A742467FE4C0020FFE0 /* String.swift in Sources */,
+				F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */,
 				D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,

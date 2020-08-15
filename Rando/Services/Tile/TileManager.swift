@@ -1,6 +1,5 @@
 import Foundation
 import MapKit
-import Network
 
 class TileManager: ObservableObject {
     
@@ -70,30 +69,21 @@ class TileManager: ObservableObject {
     
     /// Download and persist all tiles within the boundingBox
     func download(boundingBox: MKMapRect, name: String) {
-        let pathMonitor = NWPathMonitor()
-        pathMonitor.pathUpdateHandler = { [weak self] in
-            guard $0.status == .satisfied else { // No network
-                DispatchQueue.main.async {
-                    NotificationManager.shared.sendNotification(title: "Error".localized, message: "Network".localized)
-                }
-                return pathMonitor.cancel()
-            }
-            pathMonitor.cancel()
-            self?.status = .downloading
-            self?.progress = 0.01
-            let paths = self?.computeTileOverlayPaths(boundingBox: boundingBox) ?? []
-            let filteredPaths = self?.filterTilesAlreadyExisting(paths: paths) ?? []
+        NetworkManager.shared.runIfNetwork {
+            self.status = .downloading
+            self.progress = 0.01
+            let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
+            let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
             for i in 0..<filteredPaths.count {
-                self?.persistLocally(path: filteredPaths[i])
-                self?.progress = Float(i) / Float(filteredPaths.count)
+                self.persistLocally(path: filteredPaths[i])
+                self.progress = Float(i) / Float(filteredPaths.count)
             }
             DispatchQueue.main.async {
-                NotificationManager.shared.sendNotification(title: "\("DownloadedTitle".localized) (\((self?.getDownloadedSize(for: boundingBox) ?? 0).toBytes))", message: "\("Downloaded".localized) (\(name))")
-                self?.progress = 0
-                self?.status = .downloaded
+                NotificationManager.shared.sendNotification(title: "\("DownloadedTitle".localized) (\((self.getDownloadedSize(for: boundingBox)).toBytes))", message: "\("Downloaded".localized) (\(name))")
+                self.progress = 0
+                self.status = .downloaded
             }
         }
-        pathMonitor.start(queue: DispatchQueue.global(qos: .background))
     }
     
     func getTileOverlay(for path: MKTileOverlayPath) -> URL {

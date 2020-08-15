@@ -31,9 +31,11 @@ struct TourView: View {
                         .animation(.default)
             })
             .onAppear {
-                isPlayingTour = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.clockwise = true
+                NetworkManager.shared.runIfNetwork {
+                    isPlayingTour = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.clockwise = true
+                    }
                 }
             }
             .onDisappear {
