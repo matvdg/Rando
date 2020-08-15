@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DisplayRow: View {
     
-    var trail: Trail
+    @ObservedObject var trail: Trail
     
     var body: some View {
         

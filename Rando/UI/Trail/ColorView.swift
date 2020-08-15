@@ -12,9 +12,9 @@ struct ColorView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var trail: Trail
+    @ObservedObject var trail: Trail
     
-    var colors: [[Color]] = [[.grblue, .grgreen, .red],[.pink, .black, .white],[.purple, .gray, .yellow]]
+    var colors: [[Color]] = [[.grblue, .grgreen, .red],[.orange, .black, .white],[.purple, .gray, .yellow]]
     
     var body: some View {
         
@@ -25,6 +25,7 @@ struct ColorView: View {
                 Button(action: {
                     self.trail.color = self.colors[row][column]
                     TrailManager.shared.save(trail: self.trail)
+                    currentLayer = nil
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Circle()

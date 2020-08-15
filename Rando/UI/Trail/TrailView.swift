@@ -29,9 +29,9 @@ struct TrailView: View {
     
     @ObservedObject var trailManager = TrailManager.shared
     
-    var trails: [Trail] {
+    var sortedTrails: [Trail] {
         // Sort
-        var sortedTrails = trailManager.trails.sorted {
+        var sortedTrails = trailManager.trails.array.sorted {
             switch sorting {
             case .elevation : return $0.positiveElevation < $1.positiveElevation
             case .distance: return $0.distance < $1.distance
@@ -56,9 +56,8 @@ struct TrailView: View {
     
     func removeRows(at offsets: IndexSet) {
         offsets.forEach {
-            let id = trails[$0].id
+            let id = sortedTrails[$0].id
             trailManager.remove(id: id)
-            trailManager.trails.removeAll { $0.id == id }
         }
     }
     
@@ -87,7 +86,7 @@ struct TrailView: View {
                     .padding()
                     
                     List {
-                        ForEach(trails) { trail in
+                        ForEach(sortedTrails) { trail in
                             NavigationLink(destination: TrailDetail(trail: trail)) {
                                 TrailRow(trail: trail)
                             }
@@ -100,7 +99,7 @@ struct TrailView: View {
                     
                     Spacer()
                     
-                    SortView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $showFilter)
+                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $showFilter)
                         .offset(y: showFilter ? 0 : 520)
                         .animation(.default)
                     
@@ -110,10 +109,6 @@ struct TrailView: View {
             .sheet(isPresented: $showFilePicker, onDismiss: {self.showFilePicker = false}) {
                 DocumentView(callback: self.trailManager.createTrail, onDismiss: { self.showFilePicker = false })
             }
-            .onAppear(perform: {
-                self.trailManager.getTrails()
-                self.trailManager.objectWillChange.send()
-            })
             .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
             .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
@@ -124,7 +119,6 @@ struct TrailView: View {
                         Text("Add".localized)
                         Image(systemName: "plus")
                     }
-                    
             })
             
         }

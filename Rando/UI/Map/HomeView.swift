@@ -10,12 +10,9 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var animationRotationAmount = 0.0
     @State var selectedTracking: Tracking = .bounding
     @State var selectedLayer: Layer = .ign
     @State var isInfoDisplayed: Bool = false
-    @State var isPlayingTour: Bool = false
-    @State var clockwise = true
     @State var selectedPoi: Poi?
     @State var trails = TrailManager.shared.currentTrails
     
@@ -25,7 +22,7 @@ struct HomeView: View {
         
         ZStack {
             
-            MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, isPlayingTour: $isPlayingTour, isDetailMap: false, clockwise: $clockwise, trails: $trails)
+            MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails)
                 .edgesIgnoringSafeArea(.top)
                 .accentColor(.grblue)
             
@@ -36,7 +33,6 @@ struct HomeView: View {
                     MapControl(tracking: $selectedTracking, isInfoDisplayed: $isInfoDisplayed)
                         .padding(.trailing, 8)
                         .padding(.top, 16)
-                        .isHidden(isPlayingTour)
                 }
                 
                 Spacer()
@@ -47,8 +43,8 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
-                    .offset(y: isInfoDisplayed ? 0 : 500)
+                InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+                    .offset(y: isInfoDisplayed ? 10 : 500)
                     .animation(.default)
                 
             }
@@ -58,50 +54,8 @@ struct HomeView: View {
                 Spacer()
                 
                 InfoPoiView(poi: $selectedPoi)
-                    .offset(y: isInfoPoiDisplayed ? 0 : 500)
+                    .offset(y: isInfoPoiDisplayed ? 10 : 500)
                     .animation(.default)
-                
-            }
-            
-            VStack(alignment: .trailing) {
-                
-                HStack(alignment: .center) {
-                    
-                    Button(action: {
-                        self.isPlayingTour = false
-                    }) {
-                        Text("Stop".localized)
-                            .foregroundColor(.text)
-                    }
-                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-                    .background(Color.alpha)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .shadow(radius: 1)
-                    .padding(.top, 8)
-                    .isHidden(!isPlayingTour)
-                    
-                    Button(action: {
-                        self.clockwise.toggle()
-                        self.animationRotationAmount += .pi
-                    }) {
-                        HStack {
-                            Text("Direction".localized)
-                            Image(systemName: "arrow.2.circlepath")
-                                .rotation3DEffect(.radians(animationRotationAmount), axis: (x: 0, y: 0, z: 1))
-                                .animation(.default)
-                        }
-                        .foregroundColor(.text)
-                    }
-                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-                    .background(Color.alpha)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .shadow(radius: 1)
-                    .padding(.top, 8)
-                    .isHidden(!isPlayingTour)
-                    
-                }
-                
-                Spacer()
                 
             }
             #if !targetEnvironment(macCatalyst)
@@ -119,6 +73,7 @@ struct HomeView: View {
             LocationManager.shared.requestAuthorization()
             self.trails = TrailManager.shared.currentTrails
             self.selectedTracking = .bounding
+            self.isInfoDisplayed = false
         }
         
     }

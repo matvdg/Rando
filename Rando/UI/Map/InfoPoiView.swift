@@ -16,67 +16,57 @@ struct InfoPoiView: View {
         
         NavigationView {
             
-            HStack(alignment: .top, spacing: 16) {
+            VStack {
                 
-                MiniImage(id: poi?.id ?? 0)
-                    .frame(width: 70.0, height: 70.0)
-                VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Altitude".localized)
-                            .foregroundColor(Color("grgray"))
-                        Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
-                    }
-                    .font(.subheadline)
-                    .frame(maxHeight: 100)
-                    
-                    ScrollView {
-                        Text(poi?.description ?? "")
-                            .font(.body)
-                            .padding(.trailing, 8)
-                    }
-                    .frame(height: 110, alignment: .top)
+                HStack {
+                    Text(poi?.name ?? "")
+                        .font(.system(size: 20, weight: .bold))
                     
                     Spacer()
+                    Button(action: {
+                        Feedback.selected()
+                        self.poi = nil
+                    }) {
+                        DismissButton()
+                    }
                 }
-                .padding(.bottom, 16)
+                
+                HStack(alignment: .top, spacing: 16) {
+                                        
+                    MiniImage(id: poi?.id ?? 0)
+                        .frame(width: 70.0, height: 70.0)
+                    
+                    VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Altitude".localized)
+                                .foregroundColor(Color("grgray"))
+                            Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
+                        }
+                        .font(.subheadline)
+                        .frame(maxHeight: 100)
+                        
+                        ScrollView {
+                            Text(poi?.description ?? "")
+                                .font(.body)
+                                .padding(.trailing, 8)
+                        }
+                        .frame(height: 110, alignment: .top)
+                        
+                        Spacer()
+                    }
+                    .padding(.bottom, 16)
+                }
             }
             .padding()
-            .navigationBarTitle(Text(poi?.name ?? ""), displayMode: .inline)
-            .navigationBarItems(leading:
-                Button(action: {
-                    self.poi = nil
-                }) {
-                    Image(systemName: "chevron.down")
-                }, trailing:
-                HStack(spacing: 16) {
-                    Button(action: {
-                        guard let url = self.poi?.phoneNumber else { return }
-                        UIApplication.shared.open(url)
-                        Feedback.selected()
-                    }) {
-                        Image(systemName: "phone.fill")
-                    }
-                    .isHidden(!(self.poi?.hasPhoneNumber ?? false), remove: true)
-                    Button(action: {
-                        guard let url = self.poi?.url else { return }
-                        UIApplication.shared.open(url)
-                        Feedback.selected()
-                    }) {
-                        Image(systemName: "globe")
-                    }
-                    .isHidden(!(self.poi?.hasWebsite ?? false), remove: true)
-            })
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
             
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
         .frame(height: 300.0, alignment: .top)
+        .cornerRadius(8)
         .shadow(radius: 10)
-        .gesture(DragGesture().onEnded { value in
-            guard value.translation.height > 100 else { return }
-            Feedback.selected()
-            self.poi = nil
-        })
         
     }
 }

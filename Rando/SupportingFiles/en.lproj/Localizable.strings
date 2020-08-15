@@ -16,8 +16,7 @@
 "Network" = "Please check your internet connection then retry";
 
 // MapView
-"Map" = "Map";
-"MapSettings" = "Map settings";
+"MapSettings" = "Map Settings";
 "MapOfflineSwitcher" = "Offline IGN map";
 "DeleteTiles" = "Delete offline maps";
 "DeleteAllTiles" = "Delete all the offline maps";
@@ -26,7 +25,6 @@
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
-"Stop" = "Stop the tour";
 "Pin" = "User pin";
 
 // PoiView
@@ -73,3 +71,4 @@
 "DeleteTrailMessage" = "Delete trail and associated maps";
 "DeleteTrailAndMaps" = "Delete trail and maps";
 "DeleteTrailNotMaps" = "Delete trail but keep maps";
+"3D" = "Watch the 3D tour";

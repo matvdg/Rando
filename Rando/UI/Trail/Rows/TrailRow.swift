@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TrailRow: View {
     
-    @State var trail: Trail
+    @ObservedObject var trail: Trail
     
     var body: some View {
         

@@ -13,7 +13,7 @@ import MapKit
 var currentLayer: Layer?
 var selectedAnnotation: PoiAnnotation?
 var mapChangedFromUserInteraction = false
-var currentPlayingTourState = false
+var isPlayingTour = false
 var timer: Timer?
 
 struct MapView: UIViewRepresentable {
@@ -22,31 +22,72 @@ struct MapView: UIViewRepresentable {
     @Binding var selectedTracking: Tracking
     @Binding var selectedLayer: Layer
     @Binding var selectedPoi: Poi?
-    @Binding var isPlayingTour: Bool
     @Binding var clockwise: Bool
     @Binding var trails: [Trail]
     
     // MARK: Constructors
-    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isPlayingTour: Binding<Bool>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>) {
+    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>) {
         self._trails = trails
         self._selectedTracking = selectedTracking
         self._selectedLayer = selectedLayer
         self._selectedPoi = selectedPoi
-        self._isPlayingTour = isPlayingTour
         self.isDetailMap = isDetailMap
         self._clockwise = clockwise
     }
     
-    // Convenience init
-    init(trails: [Trail]) {
-        self.init(selectedTracking: Binding<Tracking>.constant(.bounding), selectedLayer: Binding<Layer>.constant(.ign), selectedPoi: Binding<Poi?>.constant(nil), isPlayingTour: Binding<Bool>.constant(false),  isDetailMap: true, clockwise: Binding<Bool>.constant(false), trails: Binding<[Trail]>.constant(trails))
+    /// Convenience init for  TrailDetail map
+    init(trail: Trail) {
+        self.init(
+            selectedTracking: Binding<Tracking>.constant(.bounding),
+            selectedLayer: Binding<Layer>.constant(.ign),
+            selectedPoi: Binding<Poi?>.constant(nil),
+            isDetailMap: true,
+            clockwise: Binding<Bool>.constant(false),
+            trails: Binding<[Trail]>.constant([trail])
+        )
+    }
+    
+    /// Convenience init for  PoiDetail map
+    init(poi: Poi) {
+        self.init(
+            selectedTracking: Binding<Tracking>.constant(.bounding),
+            selectedLayer: Binding<Layer>.constant(.ign),
+            selectedPoi: Binding<Poi?>.constant(nil),
+            isDetailMap: true,
+            clockwise: Binding<Bool>.constant(false),
+            trails: Binding<[Trail]>.constant([poi.pseudoTrail])
+        )
+    }
+    
+    /// Convenience init for  HomeView map
+    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, trails: Binding<[Trail]>) {
+        self.init(
+            selectedTracking: selectedTracking,
+            selectedLayer: selectedLayer,
+            selectedPoi: selectedPoi,
+            isDetailMap: false,
+            clockwise: Binding<Bool>.constant(false),
+            trails: trails
+        )
+    }
+    
+    /// Convenience init for  TourView map
+    init(clockwise: Binding<Bool>, trail: Trail) {
+        self.init(
+            selectedTracking: Binding<Tracking>.constant(.bounding),
+            selectedLayer: Binding<Layer>.constant(.flyover),
+            selectedPoi: Binding<Poi?>.constant(nil),
+            isDetailMap: true,
+            clockwise: clockwise,
+            trails: Binding<[Trail]>.constant([trail])
+        )
     }
     
     // MARK: Properties
     var isDetailMap: Bool
     let locationManager = LocationManager.shared
     var annotations: [PoiAnnotation] { PoiManager.shared.pois.map { PoiAnnotation(poi: $0) } }
-    var compassY: CGFloat { self.isDetailMap ? 8 : isPlayingTour ? 50 : 160 }
+    var compassY: CGFloat { self.isDetailMap ? 8 : 160 }
     
     // MARK: Coordinator
     func makeCoordinator() -> Coordinator {
@@ -106,7 +147,7 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-            guard !parent.isPlayingTour, parent.selectedLayer == .ign else { return }
+            guard !isPlayingTour, parent.selectedLayer == .ign else { return }
             // Max zoom check
             let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
             var span = mapView.region.span
@@ -119,7 +160,7 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            guard let annotation = view.annotation as? PoiAnnotation else {
+            guard let annotation = view.annotation as? PoiAnnotation, !parent.isDetailMap else {
                 return }
             self.parent.selectedPoi = annotation.poi
             selectedAnnotation = annotation
@@ -180,10 +221,11 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
-        playTour(mapView: uiView)
         setTracking(mapView: uiView, headingView: context.coordinator.headingImageView)
         setOverlays(mapView: uiView)
         setAnnotations(mapView: uiView)
+        guard isPlayingTour else { return }
+        self.playTour(mapView: uiView)
     }
     
     // MARK: Private methods
@@ -222,7 +264,7 @@ struct MapView: UIViewRepresentable {
                     let minY = nextResult.minY < boundingBox.minY ? nextResult.minY : boundingBox.minY
                     let maxY = nextResult.maxY > boundingBox.maxY ? nextResult.maxY : boundingBox.maxY
                     return MKMapRect(origin: MKMapPoint(x: minX, y: minY), size: MKMapSize(width: maxX-minX, height: maxY-minY))
-                }
+            }
             var region = MKCoordinateRegion(boundingBox)
             region.span.latitudeDelta += 0.01
             region.span.longitudeDelta += 0.01
@@ -267,38 +309,20 @@ struct MapView: UIViewRepresentable {
     }
     
     private func playTour(mapView: MKMapView) {
-        #if !targetEnvironment(macCatalyst)
-        if let compass = mapView.subviews.filter({$0 is MKCompassButton}).first as? MKCompassButton {
-            compass.frame.origin.y = compassY
-        }
-        #endif
-        guard isPlayingTour else {
-            timer?.invalidate()
-            currentPlayingTourState = false
-            return
-        }
+        timer?.invalidate()
         var locs = trails.first!.locations.map { $0.clLocation.coordinate }
         let animationDuration: TimeInterval = 4
         let altitude: CLLocationDistance = 1000
         if !clockwise {
-          locs.reverse()
+            locs.reverse()
         }
         let Δ = locs.count / 10
-        if currentPlayingTourState {
-            timer?.invalidate()
-            let camera = MKMapCamera(lookingAtCenter: locs[Δ], fromEyeCoordinate: locs[0], eyeAltitude: altitude)
-            camera.pitch = 0
-            mapView.camera = camera
-        }
-        currentPlayingTourState = true
         var i = 0
-        guard locs.count > Δ else { return }
         mapView.camera = MKMapCamera(lookingAtCenter: locs[i + Δ], fromEyeCoordinate: locs[i], eyeAltitude: altitude)
         timer = Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: true) { timer in
             i += Δ
             guard i < locs.count else {
-                self.isPlayingTour = false
-                currentPlayingTourState = false
+                isPlayingTour = false
                 return timer.invalidate()
             }
             let camera =  MKMapCamera(lookingAtCenter: locs[i], fromEyeCoordinate: locs[i - Δ], eyeAltitude: altitude)
@@ -317,7 +341,7 @@ struct MapView: UIViewRepresentable {
 struct MapView_Previews: PreviewProvider {
     
     static var previews: some View {
-        MapView(trails: [Trail()])
+        MapView(trail: Trail())
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)

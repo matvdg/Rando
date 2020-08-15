@@ -39,7 +39,6 @@ struct DeleteRow: View {
             if !tileManager.hasBeenDownloaded(for: boundingBox) {
                 return ActionSheet(
                     title: Text("Delete".localized),
-                    message: Text("DeleteTrail".localized),
                     buttons: [
                         .destructive(Text("DeleteTrail".localized), action: {
                             self.trailManager.remove(id: self.trail.id)

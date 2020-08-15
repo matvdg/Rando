@@ -16,7 +16,6 @@
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
 
 // MapView
-"Map" = "Carte";
 "MapSettings" = "Réglages de la carte";
 "MapOfflineSwitcher" = "Carte IGN hors ligne";
 "DeleteTiles" = "Supprimer les cartes hors ligne";
@@ -26,7 +25,6 @@
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
-"Stop" = "Arrêter le tour";
 "Pin" = "Repère sur la carte";
 
 // PoiView
@@ -73,3 +71,4 @@
 "DeleteTrailMessage" = "Supprimer la randonnée et les cartes associées ?";
 "DeleteTrailAndMaps" = "Supprimer la randonnée et les cartes";
 "DeleteTrailNotMaps" = "Supprimer la randonnée mais conserver les cartes";
+"3D" = "Visualiser le parcours en 3D";

@@ -1,5 +1,5 @@
 //
-//  ColorRow.swift
+//  TourRow.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 6/08/2020.
@@ -8,16 +8,16 @@
 
 import SwiftUI
 
-struct ColorRow: View {
+struct TourRow: View {
     
     @ObservedObject var trail: Trail
     
     var body: some View {
         
-        NavigationLink(destination: ColorView(trail: trail)) {
+        NavigationLink(destination: TourView(trail: trail)) {
             HStack(spacing: 10) {
-                Image(systemName: "eyedropper")
-                Text("Color".localized)
+                Image(systemName: "view.3d")
+                Text("3D".localized)
                     .font(.headline)
             }
         }.accentColor(.tintColor)
@@ -26,11 +26,11 @@ struct ColorRow: View {
 }
 
 // MARK: Previews
-struct ColorRow_Previews: PreviewProvider {
+struct TourRow_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        ColorRow(trail: Trail())
+        TourRow(trail: Trail())
             .previewLayout(.fixed(width: 300, height: 80))
             .environment(\.colorScheme, .light)
     }

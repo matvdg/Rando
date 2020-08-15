@@ -19,13 +19,14 @@ extension Color {
     static var lightgray: Color { Color("lightgray") }
     static var lightgrayInverted: Color { Color("lightgrayInverted") }
     static var alpha: Color { Color("alpha") }
+    static var background: Color { Color("background") }
     
     var code: Int {
         switch self {
         case .grblue: return 0
         case .grgreen: return 1
         case .red: return 2
-        case .pink: return 3
+        case .orange: return 3
         case .black: return 4
         case .white: return 5
         case .purple: return 6
@@ -39,7 +40,7 @@ extension Color {
         case .grblue: return .grblue
         case .grgreen: return .grgreen
         case .red: return .red
-        case .pink: return .systemPink
+        case .orange: return .orange
         case .black: return .black
         case .white: return .white
         case .purple: return .purple
@@ -56,7 +57,7 @@ extension Int {
         case 0: return .grblue
         case 1: return .grgreen
         case 2: return .red
-        case 3: return .pink
+        case 3: return .orange
         case 4: return .black
         case 5: return .white
         case 6: return .purple

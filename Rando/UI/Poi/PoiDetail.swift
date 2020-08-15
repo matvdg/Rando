@@ -15,9 +15,8 @@ struct PoiDetail: View {
     var body: some View {
         VStack {
             
-            NavigationLink(destination: MapViewContainer(trail: poi.pseudoTrail) ){
-                
-                MapView(trails: [poi.pseudoTrail])
+            NavigationLink(destination: MapView(poi: poi)) {
+                MapView(poi: poi)
                     .frame(height: 300)
             }
             

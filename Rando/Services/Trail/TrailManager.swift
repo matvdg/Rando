@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Combine
 
 let mockLoc1 = Location(latitude: 42.835191, longitude: 0.872005, altitude: 1944)
 let mockLoc2 = Location(latitude: 42.835181, longitude: 0.862005, altitude: 2000)
@@ -19,18 +20,20 @@ class TrailManager: ObservableObject {
     
     private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
     
-    @Published var trails = [Trail]()
-    
+    @Published var trails: ObservableArray<Trail> = try! ObservableArray(array: []).observeChildrenChanges(Trail.self)
+        
     var currentTrails: [Trail] {
-        self.trails.filter { $0.isDisplayed }
+        self.trails.array.filter { $0.isDisplayed }
     }
     
     var departments: [String] {
         var departments = ["all".localized]
-        departments.append(contentsOf: trails.compactMap { $0.department }.removingDuplicates() )
+        departments.append(contentsOf: trails.array.compactMap { $0.department }.removingDuplicates() )
         return departments
     }
     
+    var cancellables = [AnyCancellable]()
+
     
     init() {
         getTrails()
@@ -49,21 +52,21 @@ class TrailManager: ObservableObject {
         guard let loc = locations.last?.clLocation else { return }
         LocationManager.shared.getDepartment(location: loc) { department in
             let trail = Trail(gpx: Gpx(name: url.lastPathComponent.name, locations: locations, department: department))
-            self.save(trail: trail)
+            self.persist(trail: trail)
+            self.trails.array.append(trail)
+            self.objectWillChange.send()
         }
         
     }
     
     func save(trail: Trail) {
-        let file = "trails/\(trail.id).json"
-        let filename = documentsDirectory.appendingPathComponent(file)
-        do {
-            let data = try JSONEncoder().encode(trail.gpx)
-            try data.write(to: filename)
-            self.getTrails()
-        } catch {
-            print("❤️ PersistLocallyError = \(error)")
+        let index = trails.array.firstIndex { $0.id == trail.id}
+        if let i = index {
+            trails.array[i] = trail
+            trail.objectWillChange.send()
+            self.objectWillChange.send()
         }
+        self.persist(trail: trail)
     }
     
     func remove(id: UUID) {
@@ -71,6 +74,8 @@ class TrailManager: ObservableObject {
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
             try FileManager.default.removeItem(at: filename)
+            trails.array.removeAll { $0.id == id }
+            self.objectWillChange.send()
         } catch {
             print("❤️ RemoveItemError = \(error)")
         }
@@ -92,7 +97,7 @@ class TrailManager: ObservableObject {
                 return nil
             }
         }
-        self.trails = trails ?? []
+        self.trails.array = trails ?? []
     }
         
     func addMissingDepartment(trail: Trail) {
@@ -114,6 +119,17 @@ class TrailManager: ObservableObject {
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    private func persist(trail: Trail) {
+        let file = "trails/\(trail.id).json"
+        let filename = documentsDirectory.appendingPathComponent(file)
+        do {
+            let data = try JSONEncoder().encode(trail.gpx)
+            try data.write(to: filename)
+        } catch {
+            print("❤️ PersistLocallyError = \(error)")
         }
     }
     

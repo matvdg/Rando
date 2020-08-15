@@ -17,15 +17,26 @@ struct InfoView: View {
     
     @Binding var selectedLayer: Layer
     @Binding var isInfoDisplayed: Bool
-    @Binding var isPlayingTour: Bool
     @State var isOffline: Bool = UserDefaults.isOffline
     @State private var showAlert = false
     
     var body: some View {
-        
         NavigationView {
-            
             VStack(alignment: .leading, spacing: 20.0) {
+                
+                HStack {
+                    Text("MapSettings".localized)
+                        .font(.system(size: 20, weight: .bold))
+                    
+                    Spacer()
+                    Button(action: {
+                        self.isInfoDisplayed.toggle()
+                        Feedback.selected()
+                    }) {
+                        DismissButton()
+                    }
+                }
+                .offset(y: -10)
                 
                 Picker(selection: $selectedLayer, label: Text("")) {
                     ForEach(Layer.allCases, id: \.self) { layer in
@@ -33,6 +44,9 @@ struct InfoView: View {
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                
+                
+                Divider()
                 
                 Toggle(isOn: self.$isOffline) {
                     Text("MapOfflineSwitcher".localized)
@@ -51,29 +65,13 @@ struct InfoView: View {
                     Image(systemName: "trash")
                         .foregroundColor(.gray)
                 }
-                .frame(height: 20, alignment: .top)
                 
-            }.padding()
-                
-                .navigationBarTitle(Text("MapSettings".localized), displayMode: .inline)
-                .navigationBarItems(leading:
-                    Button(action: {
-                        self.isInfoDisplayed.toggle()
-                        Feedback.selected()
-                    }) {
-                        Image(systemName: "chevron.down")
-                    },
-                                    trailing:
-                    Button(action: {
-                        self.selectedLayer = .flyover
-                        self.isInfoDisplayed = false
-                        self.isPlayingTour.toggle()
-                        Feedback.selected()
-                    }) {
-                        Text("Tour")
-                    }
-            )
+            }
+            .padding()
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .actionSheet(isPresented: $showAlert) {
             ActionSheet(
                 title: Text("\("Delete".localized) (\(TileManager.shared.getAllDownloadedSize()))"),
@@ -84,18 +82,10 @@ struct InfoView: View {
                 ]
             )
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
-        .frame(height: 200.0, alignment: .top)
+        .frame(height: 250.0, alignment: .top)
+        .cornerRadius(8)
         .shadow(radius: 10)
-        .gesture(DragGesture().onEnded { value in
-            if value.translation.height > 100 {
-                self.isInfoDisplayed.toggle()
-                Feedback.selected()
-            }
-        })
-        
-        
     }
     
 }
@@ -104,23 +94,22 @@ struct InfoView: View {
 struct InfoView_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = .ign
     @State static var isInfoDisplayed = true
-    @State static var isPlayingTour = false
     @State static var isOffline = false
     static var previews: some View {
         Group {
-            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
+            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
                 .environment(\.colorScheme, .dark)
-            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
+            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
                 .previewDisplayName("iPad Pro")
+                
                 .environment(\.colorScheme, .light)
-            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed, isPlayingTour: $isPlayingTour)
+            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
                 .previewDisplayName("iPhone SE")
                 .environment(\.colorScheme, .light)
         }
-        
     }
 }
