@@ -33,6 +33,9 @@ struct MapView: UIViewRepresentable {
         self._selectedPoi = selectedPoi
         self.isDetailMap = isDetailMap
         self._clockwise = clockwise
+        UITableView.appearance().backgroundColor = .background
+        UITableViewCell.appearance().backgroundColor = .background
+        UITableView.appearance().separatorStyle = .none
     }
     
     /// Convenience init for  TrailDetail map

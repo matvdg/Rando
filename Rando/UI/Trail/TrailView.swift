@@ -8,6 +8,7 @@
 
 import SwiftUI
 import MapKit
+import UIKit
 
 struct TrailView: View {
     
@@ -82,8 +83,7 @@ struct TrailView: View {
                             Text(isFiltered ? "Filtered".localized : "Filter".localized)
                         }
                     }
-                        
-                    .padding()
+                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
                     
                     List {
                         ForEach(sortedTrails) { trail in
@@ -92,9 +92,10 @@ struct TrailView: View {
                             }
                         }
                         .onDelete(perform: removeRows)
+                        .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
+                        .listRowBackground(Color.background)
                     }
                 }
-                
                 VStack(alignment: .leading) {
                     
                     Spacer()
@@ -106,7 +107,7 @@ struct TrailView: View {
                 }
                 
             }
-            .sheet(isPresented: $showFilePicker, onDismiss: {self.showFilePicker = false}) {
+            .sheet(isPresented: $showFilePicker, onDismiss: { self.showFilePicker = false}) {
                 DocumentView(callback: self.trailManager.createTrail, onDismiss: { self.showFilePicker = false })
             }
             .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
@@ -122,7 +123,6 @@ struct TrailView: View {
             })
             
         }
-        
     }
     
 }

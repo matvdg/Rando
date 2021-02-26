@@ -24,9 +24,9 @@ struct TrailDetail: View {
                 
                 VStack(alignment: .leading, spacing: 20.0) {
                     
-                    TextField("Rename".localized, text: $trail.name) {
+                    TextField("Rename".localized, text: $trail.name, onCommit:  {
                         TrailManager.shared.save(trail: self.trail)
-                    }
+                    })
                     .font(.system(size: 28, weight: .bold, design: Font.Design.default))
                     
                     Text(trail.department ?? "")
@@ -144,10 +144,25 @@ struct TrailDetail: View {
 struct TrailDetail_Previews: PreviewProvider {
     
     static var previews: some View {
-        TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-            .previewDisplayName("iPhone SE")
-            .environment(\.colorScheme, .light)
+        Group {
+            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+                .previewDisplayName("iPhone SE")
+                .environment(\.colorScheme, .light)
+            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+                .previewDisplayName("iPhone SE")
+                .environment(\.colorScheme, .light)
+            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+                .previewDisplayName("iPhone SE")
+                .environment(\.colorScheme, .light)
+            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
+                .preferredColorScheme(.dark)
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+                .previewDisplayName("iPhone SE")
+                .environment(\.colorScheme, .light)
+        }
     }
 }
 

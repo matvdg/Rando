@@ -73,5 +73,6 @@ extension UIColor {
     static var grblue: UIColor { UIColor(named: "grblue")! }
     static var grgray: UIColor { UIColor(named: "grgray")! }
     static var alpha: UIColor { UIColor(named: "alpha")! }
+    static var background: UIColor { UIColor(named: "background")! }
     
 }

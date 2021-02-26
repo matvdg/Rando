@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,18 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountains" translatesAutoresizingMaskIntoConstraints="NO" id="NPS-Pk-uEV">
-                                <rect key="frame" x="0.0" y="196" width="414" height="917"/>
-                            </imageView>
-                            <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moE-jw-Xq4">
-                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem image="map" catalog="system" id="Ghv-tN-WBJ"/>
-                                    <tabBarItem image="location.north" catalog="system" id="3Yj-NZ-wfu"/>
-                                    <tabBarItem image="mappin.and.ellipse" catalog="system" id="flX-sc-c9G"/>
-                                </items>
-                            </tabBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-Vq-ho9">
                                 <rect key="frame" x="0.0" y="428" width="414" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,23 +39,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NPS-Pk-uEV" firstAttribute="top" secondItem="GdG-eb-i7u" secondAttribute="bottom" constant="-72.5" id="0NO-IA-mqJ"/>
                             <constraint firstItem="GdG-eb-i7u" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-200" id="27S-QG-7qr"/>
                             <constraint firstItem="DxS-Vq-ho9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3jS-rK-Zd6"/>
                             <constraint firstItem="PJo-Cl-Uk3" firstAttribute="centerX" secondItem="GdG-eb-i7u" secondAttribute="centerX" id="6TT-qc-4ke"/>
                             <constraint firstItem="PJo-Cl-Uk3" firstAttribute="top" secondItem="GdG-eb-i7u" secondAttribute="bottom" constant="-6.5" id="ISq-sM-5gi"/>
-                            <constraint firstItem="moE-jw-Xq4" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MCv-LQ-lde"/>
-                            <constraint firstItem="NPS-Pk-uEV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UiW-I9-oTQ"/>
                             <constraint firstItem="GdG-eb-i7u" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="a2p-3u-zna"/>
                             <constraint firstItem="DxS-Vq-ho9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iDC-uj-qe7"/>
-                            <constraint firstAttribute="bottom" secondItem="moE-jw-Xq4" secondAttribute="bottom" id="lFp-eK-KoW"/>
-                            <constraint firstAttribute="trailing" secondItem="NPS-Pk-uEV" secondAttribute="trailing" id="qtN-5Z-l81"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="moE-jw-Xq4" secondAttribute="trailing" id="wQc-Mx-jtb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DxS-Vq-ho9" secondAttribute="trailing" id="x7N-T4-PRP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -75,12 +59,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="location.north" catalog="system" width="108" height="128"/>
-        <image name="map" catalog="system" width="128" height="113"/>
-        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
-        <image name="mountains" width="896" height="917"/>
         <namedColor name="tintColor">
             <color red="0.15999999642372131" green="0.31600001454353333" blue="0.67900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

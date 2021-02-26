@@ -37,7 +37,7 @@ class TileManager: ObservableObject {
     func getEstimatedDownloadSize(for boundingBox: MKMapRect) -> Double {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
         let count = self.filterTilesAlreadyExisting(paths: paths).count
-        let size: Double = 20000 // Bytes (average size)
+        let size: Double = 30000 // Bytes (average size)
         return Double(count) * size
     }
     
@@ -45,7 +45,7 @@ class TileManager: ObservableObject {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
         var accumulatedSize: UInt64 = 0
         for path in paths {
-            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).jpeg"
+            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).png"
             let url = documentsDirectory.appendingPathComponent(file)
             accumulatedSize += (try? url.regularFileAllocatedSize()) ?? 0
         }
@@ -60,7 +60,7 @@ class TileManager: ObservableObject {
     func remove(for boundingBox: MKMapRect) {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
         for path in paths {
-            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).jpeg"
+            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).png"
             let url = documentsDirectory.appendingPathComponent(file)
             try? fileManager.removeItem(at: url)
         }
@@ -87,7 +87,7 @@ class TileManager: ObservableObject {
     }
     
     func getTileOverlay(for path: MKTileOverlayPath) -> URL {
-        let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
+        let file = "z\(path.z)x\(path.x)y\(path.y).png"
         // Check is tile is already available
         let tilesUrl = documentsDirectory.appendingPathComponent("tiles").appendingPathComponent(file)
         if fileManager.fileExists(atPath: tilesUrl.path){
@@ -127,7 +127,7 @@ class TileManager: ObservableObject {
     
     @discardableResult private func persistLocally(path: MKTileOverlayPath) -> URL {
         let url = overlay.url(forTilePath: path)
-        let file = "tiles/z\(path.z)x\(path.x)y\(path.y).jpeg"
+        let file = "tiles/z\(path.z)x\(path.x)y\(path.y).png"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
             let data = try Data(contentsOf: url)
@@ -140,7 +140,7 @@ class TileManager: ObservableObject {
     
     private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath]) -> [MKTileOverlayPath] {
         paths.filter {
-            let file = "z\($0.z)x\($0.x)y\($0.y).jpeg"
+            let file = "z\($0.z)x\($0.x)y\($0.y).png"
             let tilesPath = documentsDirectory.appendingPathComponent("tiles").appendingPathComponent(file).path
             return !fileManager.fileExists(atPath: tilesPath)
         }

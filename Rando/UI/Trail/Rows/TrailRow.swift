@@ -42,7 +42,7 @@ struct TrailRow: View {
                 .foregroundColor(.red)
             
         }
-        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
         .frame(height: 80.0)
     }
     
@@ -54,6 +54,7 @@ struct TrailRow_Previews: PreviewProvider {
     static var previews: some View {
         
         TrailRow(trail: Trail())
+            .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 320, height: 80))
         
     }

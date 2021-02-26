@@ -18,7 +18,6 @@ struct MiniImage: View {
       .background(Color.white)
       .frame(width: 70, height: 70, alignment: .center)
       .clipShape(Circle())
-      .shadow(radius: 4)
   }
 }
 

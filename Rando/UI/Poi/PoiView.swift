@@ -35,23 +35,28 @@ struct PoiView: View {
     
     NavigationView {
       
-      VStack {
+        VStack(alignment: .leading, spacing: 0) {
         
         Picker(selection: $selectedFilter, label: Text("")) {
           ForEach(Filter.allCases, id: \.self) { filter in
             Text(filter.localized)
           }
         }.pickerStyle(SegmentedPickerStyle())
-          .padding()
+          .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
         
-        List(selectedPois) { poi in
-          NavigationLink(destination: PoiDetail(poi: poi)) {
-            PoiRow(poi: poi)
-          }
+        List {
+            ForEach(selectedPois) { poi in
+                NavigationLink(destination: PoiDetail(poi: poi)) {
+                    PoiRow(poi: poi)
+                }
+            }
+            .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
+            .listRowBackground(Color.background)
         }
+        
       }
       .navigationBarTitle(Text("Steps".localized), displayMode: .inline)
-    }
+    }.edgesIgnoringSafeArea(.all)
     
   }
 }
@@ -62,6 +67,6 @@ struct PoiView_Previews: PreviewProvider {
     PoiView()
       .previewDevice(PreviewDevice(rawValue: "iPhone X"))
       .previewDisplayName("iPhone X")
-      .environment(\.colorScheme, .dark)
+      .environment(\.colorScheme, .light)
   }
 }

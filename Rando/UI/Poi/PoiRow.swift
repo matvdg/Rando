@@ -33,13 +33,12 @@ struct PoiRow: View {
         .font(.subheadline)
         .minimumScaleFactor(0.5)
         .lineLimit(1)
-        
       }
       
       Spacer()
       
     }
-    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+    .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
     .frame(height: 80.0)
   }
   
@@ -52,7 +51,8 @@ struct PoiRow_Previews: PreviewProvider {
   static var previews: some View {
     
     Group {
-      PoiRow(poi: pois[0])
+        PoiRow(poi: pois[0])
+            .preferredColorScheme(.dark)
     }
     .previewLayout(.fixed(width: 320, height: 80))
     

@@ -127,6 +127,7 @@
 		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
 		F618724724E7F4DC00F98918 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		F618724924E7F6F500F98918 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F618724C24E7FB1900F98918 /* RandoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandoRelease.entitlements; sourceTree = "<group>"; };
 		F639047A24DC8E58005B4FC1 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
 		F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourRow.swift; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		F6DB543C24DC6543002EABDE /* ColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRow.swift; sourceTree = "<group>"; };
 		F6DB543E24DC8D20002EABDE /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		F6F0702F24D4780300EEE183 /* ItineraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRow.swift; sourceTree = "<group>"; };
+		F6F8E25424E825D20030CCEA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F6FE98A724C05047007D5D85 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +212,7 @@
 				D0634794245D768B003BA9E7 /* SceneDelegate.swift */,
 				D063479D245D768C003BA9E7 /* LaunchScreen.storyboard */,
 				D0B01A8C2460420A00EE62AD /* Rando.entitlements */,
+				F618724C24E7FB1900F98918 /* RandoRelease.entitlements */,
 				D06347A0245D768C003BA9E7 /* Info.plist */,
 				D0531A712467FD8C0020FFE0 /* Localizable.strings */,
 			);
@@ -242,6 +245,7 @@
 			children = (
 				D0634791245D768B003BA9E7 /* Rando */,
 				D0634790245D768B003BA9E7 /* Products */,
+				F6F8E25324E825D20030CCEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,6 +418,14 @@
 			path = Rows;
 			sourceTree = "<group>";
 		};
+		F6F8E25324E825D20030CCEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8E25424E825D20030CCEA /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -445,7 +457,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Mathieu Vandeginste";
 				TargetAttributes = {
 					D063478E245D768B003BA9E7 = {
@@ -616,6 +628,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -640,7 +653,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -677,6 +690,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -695,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -712,7 +726,7 @@
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/Rando.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				ENABLE_PREVIEWS = YES;
@@ -721,7 +735,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -734,11 +748,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/Rando.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/RandoRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				ENABLE_PREVIEWS = YES;
@@ -747,7 +761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
