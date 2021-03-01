@@ -41,6 +41,9 @@ struct MapView: UIViewRepresentable {
     self._selectedFilter = selectedFilter
     self._isPlayingTour = isPlayingTour
     self._isHendayeToBanyuls = isHendayeToBanyuls
+    UITableView.appearance().backgroundColor = .background
+    UITableViewCell.appearance().backgroundColor = .background
+    UITableView.appearance().tableFooterView = UIView()
     
   }
   

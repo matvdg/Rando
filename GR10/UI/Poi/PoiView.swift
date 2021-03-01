@@ -47,10 +47,14 @@ struct PoiView: View {
         }.pickerStyle(SegmentedPickerStyle())
           .padding()
         
-        List(selectedPois) { poi in
-          NavigationLink(destination: PoiDetail(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)) {
-            PoiRow(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)
-          }
+        List {
+            ForEach(selectedPois) { poi in
+                NavigationLink(destination: PoiDetail(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)) {
+                        PoiRow(isHendayeToBanyuls: self.$isHendayeToBanyuls, poi: poi)
+                    }
+                }
+                .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
+            .listRowBackground(Color.background)
         }
       }
         
