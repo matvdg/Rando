@@ -117,7 +117,7 @@ class TileManager: ObservableObject {
   }
   
   func getTileOverlay(for path: MKTileOverlayPath) -> URL {
-    let file = "z\(path.z)x\(path.x)y\(path.y).jpeg"
+    let file = "z\(path.z)x\(path.x)y\(path.y).png"
     // Check is tile is already available
     let grUrl = documentsDirectory.appendingPathComponent(Directory.gr10.rawValue).appendingPathComponent(file)
     let cacheUrl = documentsDirectory.appendingPathComponent(Directory.cache.rawValue).appendingPathComponent(file)
@@ -166,7 +166,7 @@ class TileManager: ObservableObject {
   
   @discardableResult private func persistLocally(path: MKTileOverlayPath, directory: Directory = .gr10) -> URL {
     let url = overlay.url(forTilePath: path)
-    let file = "\(directory)/z\(path.z)x\(path.x)y\(path.y).jpeg"
+    let file = "\(directory)/z\(path.z)x\(path.x)y\(path.y).png"
     let filename = documentsDirectory.appendingPathComponent(file)
     do {
       let data = try Data(contentsOf: url)
@@ -179,7 +179,7 @@ class TileManager: ObservableObject {
   
   private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath]) -> [MKTileOverlayPath] {
     return paths.filter {
-      let file = "z\($0.z)x\($0.x)y\($0.y).jpeg"
+      let file = "z\($0.z)x\($0.x)y\($0.y).png"
       let grPath = documentsDirectory.appendingPathComponent(Directory.gr10.rawValue).appendingPathComponent(file).path
       let cachePath = documentsDirectory.appendingPathComponent(Directory.cache.rawValue).appendingPathComponent(file).path
       return !FileManager.default.fileExists(atPath: grPath) && !FileManager.default.fileExists(atPath: cachePath)
