@@ -22,7 +22,7 @@ struct HomeView: View {
         
         ZStack {
             
-            MapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails)
+            OldMapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails)
                 .edgesIgnoringSafeArea(.top)
                 .accentColor(.grblue)
             

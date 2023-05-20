@@ -16,7 +16,7 @@ struct TourView: View {
     
     var body: some View {
         
-        MapView(clockwise: $clockwise, trail: trail)
+        OldMapView(clockwise: $clockwise, trail: trail)
             .accentColor(.grblue)
             .navigationBarTitle(Text(trail.name))
             .navigationBarItems(trailing:

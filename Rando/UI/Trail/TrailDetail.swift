@@ -17,8 +17,8 @@ struct TrailDetail: View {
         ScrollView {
             VStack {
                 
-                NavigationLink(destination: MapView(trail: trail)) {
-                    MapView(trail: trail)
+                NavigationLink(destination: OldMapView(trail: trail)) {
+                    OldMapView(trail: trail)
                         .frame(height: 300)
                 }
                 
