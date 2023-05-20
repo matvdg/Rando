@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import MapKit
 import Combine
+import GPXKit
 
 let mockLoc1 = Location(latitude: 42.835191, longitude: 0.872005, altitude: 1944)
 let mockLoc2 = Location(latitude: 42.835181, longitude: 0.862005, altitude: 2000)
@@ -41,14 +42,15 @@ class TrailManager: ObservableObject {
     
     // MARK: - Public methods
     func createTrail(from url: URL) {
-        guard let contents = try? String(contentsOf: url) else { return }
-        let lines = contents.components(separatedBy: "\n")
+        guard let xml = try? String(contentsOf: url) else { return }
         var locations = [Location]()
-        for (i, line) in lines.enumerated() {
-            guard let lat = line.latitude, let lng = line.longitude else { continue }
-            locations.append(Location(latitude: lat, longitude: lng, altitude: i + 1 < lines.count ? lines[i + 1].altitude ?? 0 : 0))
-        }
-        
+        let parser = GPXFileParser(xmlString: xml)
+            switch parser.parse() {
+            case .success(let track):
+                locations.append(contentsOf: track.trackPoints.map { Location(coordinate: $0.coordinate)})
+            case .failure(let error):
+                print(error)
+            }
         guard let loc = locations.last?.clLocation else { return }
         LocationManager.shared.getDepartment(location: loc) { department in
             let trail = Trail(gpx: Gpx(name: url.lastPathComponent.name, locations: locations, department: department))
@@ -56,7 +58,21 @@ class TrailManager: ObservableObject {
             self.trails.array.append(trail)
             self.objectWillChange.send()
         }
+    }
+    
+    
+    func doSomethingWith(_ track: GPXTrack) {
+        let formatter = MeasurementFormatter()
+        formatter.unitStyle = .short
+        formatter.unitOptions = .naturalScale
+        formatter.numberFormatter.maximumFractionDigits = 1
+        let trackGraph = track.graph
+        print("Track length: \(formatter.string(from: Measurement<UnitLength>(value: trackGraph.distance, unit: .meters)))")
+        print("Track elevation: \(formatter.string(from: Measurement<UnitLength>(value: trackGraph.elevationGain, unit: .meters)))")
         
+        for point in track.trackPoints {
+            print("Lat: \(point.coordinate.latitude), lon: \(point.coordinate.longitude)")
+        }
     }
     
     func save(trail: Trail) {

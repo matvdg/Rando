@@ -54,6 +54,7 @@
 		F67BAEC124E705B100AC8A9F /* TourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC024E705B100AC8A9F /* TourView.swift */; };
 		F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC224E7469300AC8A9F /* DismissButton.swift */; };
 		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
+		F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */ = {isa = PBXBuildFile; productRef = F69B110B2A1924EE006D3EA0 /* GPXKit */; };
 		F6A5816F24D46B7A0030F457 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5816E24D46B7A0030F457 /* Array.swift */; };
 		F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */ = {isa = PBXBuildFile; productRef = F6AEA1E924D83DBA007509C1 /* Surge */; };
 		F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */; };
@@ -172,6 +173,7 @@
 			files = (
 				D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */,
 				F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */,
+				F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +450,7 @@
 			packageProductDependencies = (
 				D039506424B6097800C31D34 /* SwiftUICharts */,
 				F6AEA1E924D83DBA007509C1 /* Surge */,
+				F69B110B2A1924EE006D3EA0 /* GPXKit */,
 			);
 			productName = GR10;
 			productReference = D063478F245D768B003BA9E7 /* Rando.app */;
@@ -481,6 +484,7 @@
 			packageReferences = (
 				D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */,
 				F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */,
+				F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */,
 			);
 			productRefGroup = D0634790245D768B003BA9E7 /* Products */;
 			projectDirPath = "";
@@ -812,6 +816,14 @@
 				minimumVersion = 1.5.3;
 			};
 		};
+		F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mmllr/GPXKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Jounce/Surge.git";
@@ -827,6 +839,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		F69B110B2A1924EE006D3EA0 /* GPXKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */;
+			productName = GPXKit;
 		};
 		F6AEA1E924D83DBA007509C1 /* Surge */ = {
 			isa = XCSwiftPackageProductDependency;

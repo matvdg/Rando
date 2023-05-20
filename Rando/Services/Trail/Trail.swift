@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import MapKit
 import SwiftUI
+import GPXKit
 
 class Gpx: Codable, Identifiable {
     
@@ -210,6 +211,13 @@ public struct Location: Codable {
         self.longitude = longitude
         self.altitude = altitude
     }
+    
+    init(coordinate: Coordinate) {
+        self.latitude = coordinate.latitude
+        self.longitude = coordinate.longitude
+        self.altitude = coordinate.elevation
+    }
+    
     
     var clLocation: CLLocation {
         CLLocation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), altitude: altitude, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
