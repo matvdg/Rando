@@ -141,8 +141,10 @@ class TileManager: ObservableObject {
     }
     
     private func createDirectoriesIfNecessary() {
-        let tiles = documentsDirectory.appendingPathComponent("tiles")
-        try? fileManager.createDirectory(at: tiles, withIntermediateDirectories: true, attributes: [:])
+        Layer.allCases.forEach { layer in
+            let tiles = documentsDirectory.appendingPathComponent(layer.rawValue)
+            try? fileManager.createDirectory(at: tiles, withIntermediateDirectories: true, attributes: [:])
+        }
     }
     
 }
