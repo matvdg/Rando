@@ -11,10 +11,6 @@ import UIKit
 
 extension UIDevice {
     
-    static var hasNotch: Bool {
-        modelName.contains("iPad") ? false : UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0 > 0
-    }
-    
     static let modelName: String = {
         var systemInfo = utsname()
         uname(&systemInfo)

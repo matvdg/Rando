@@ -15,8 +15,7 @@ class TileManager: ObservableObject {
     }
     
     // MARK: -  Private properties
-    private var overlay: MKTileOverlay { MKTileOverlay(urlTemplate: template) }
-    
+      
     private var documentsDirectory: URL { fileManager.urls(for: .documentDirectory, in: .userDomainMask).first! }
     
     private let fileManager = FileManager.default
@@ -30,13 +29,13 @@ class TileManager: ObservableObject {
         fileManager.allocatedSizeOfDirectory(at: documentsDirectory.appendingPathComponent("tiles"))
     }
     
-    func hasBeenDownloaded(for boundingBox: MKMapRect) -> Bool {
-        getEstimatedDownloadSize(for: boundingBox) == 0
+    func hasBeenDownloaded(for boundingBox: MKMapRect, layer: Layer) -> Bool {
+        getEstimatedDownloadSize(for: boundingBox, layer: layer) == 0
     }
     
-    func getEstimatedDownloadSize(for boundingBox: MKMapRect) -> Double {
+    func getEstimatedDownloadSize(for boundingBox: MKMapRect, layer: Layer) -> Double {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
-        let count = self.filterTilesAlreadyExisting(paths: paths).count
+        let count = self.filterTilesAlreadyExisting(paths: paths, layer: layer).count
         let size: Double = 30000 // Bytes (average size)
         return Double(count) * size
     }
@@ -52,30 +51,16 @@ class TileManager: ObservableObject {
         return Double(accumulatedSize)
     }
     
-    func removeAll() {
-        try? fileManager.removeItem(at: documentsDirectory.appendingPathComponent("tiles"))
-        createDirectoriesIfNecessary()
-    }
-    
-    func remove(for boundingBox: MKMapRect) {
-        let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
-        for path in paths {
-            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).png"
-            let url = documentsDirectory.appendingPathComponent(file)
-            try? fileManager.removeItem(at: url)
-        }
-        self.status = .download
-    }
     
     /// Download and persist all tiles within the boundingBox
-    func download(boundingBox: MKMapRect, name: String) {
+    func download(boundingBox: MKMapRect, name: String, layer: Layer) {
         NetworkManager.shared.runIfNetwork {
             self.status = .downloading
             self.progress = 0.01
             let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
-            let filteredPaths = self.filterTilesAlreadyExisting(paths: paths)
+            let filteredPaths = self.filterTilesAlreadyExisting(paths: paths, layer: layer)
             for i in 0..<filteredPaths.count {
-                self.persistLocally(path: filteredPaths[i])
+                self.persistLocally(path: filteredPaths[i], layer: layer)
                 self.progress = Float(i) / Float(filteredPaths.count)
             }
             DispatchQueue.main.async {
@@ -86,18 +71,14 @@ class TileManager: ObservableObject {
         }
     }
     
-    func getTileOverlay(for path: MKTileOverlayPath) -> URL {
+    func getTileOverlay(for path: MKTileOverlayPath, layer: Layer) -> URL {
         let file = "z\(path.z)x\(path.x)y\(path.y).png"
         // Check is tile is already available
-        let tilesUrl = documentsDirectory.appendingPathComponent("tiles").appendingPathComponent(file)
-        if fileManager.fileExists(atPath: tilesUrl.path){
+        let tilesUrl = documentsDirectory.appendingPathComponent("\(layer.rawValue)").appendingPathComponent(file)
+        if fileManager.fileExists(atPath: tilesUrl.path) {
             return tilesUrl
         } else {
-            if !UserDefaults.isOffline { // Get and persist newTile
-                return persistLocally(path: path)
-            } else { // Else display empty tile (transparent over Maps tiles)
-                return Bundle.main.url(forResource: "alpha", withExtension: "png")!
-            }
+            return persistLocally(path: path, layer: layer)
         }
     }
     
@@ -125,9 +106,22 @@ class TileManager: ObservableObject {
         return (tileX, tileY, zoom)
     }
     
-    @discardableResult private func persistLocally(path: MKTileOverlayPath) -> URL {
+    @discardableResult private func persistLocally(path: MKTileOverlayPath, layer: Layer) -> URL {
+        let overlay: MKTileOverlay
+        switch layer {
+        case .ign:
+            overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix={z}&TileCol={x}&TileRow={y}")
+        case .ign25:
+            overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}")
+        case .openStreetMap:
+            overlay = MKTileOverlay(urlTemplate: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png")
+        case .openTopoMap:
+            overlay = MKTileOverlay(urlTemplate: "https://b.tile.opentopomap.org/{z}/{x}/{y}.png")
+        default: //swissTopo:
+            overlay = MKTileOverlay(urlTemplate: "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg")
+        }
         let url = overlay.url(forTilePath: path)
-        let file = "tiles/z\(path.z)x\(path.x)y\(path.y).png"
+        let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
             let data = try Data(contentsOf: url)
@@ -138,10 +132,10 @@ class TileManager: ObservableObject {
         return url
     }
     
-    private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath]) -> [MKTileOverlayPath] {
+    private func filterTilesAlreadyExisting(paths: [MKTileOverlayPath], layer: Layer) -> [MKTileOverlayPath] {
         paths.filter {
             let file = "z\($0.z)x\($0.x)y\($0.y).png"
-            let tilesPath = documentsDirectory.appendingPathComponent("tiles").appendingPathComponent(file).path
+            let tilesPath = documentsDirectory.appendingPathComponent("\(layer.rawValue)").appendingPathComponent(file).path
             return !fileManager.fileExists(atPath: tilesPath)
         }
     }

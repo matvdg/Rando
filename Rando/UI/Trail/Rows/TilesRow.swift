@@ -12,7 +12,6 @@ import MapKit
 struct TilesRow: View {
     
     @ObservedObject var tileManager = TileManager.shared
-    @State private var showAlert = false
     @State var otherDownloadInProgress = false
     
     var boundingBox: MKMapRect
@@ -24,32 +23,27 @@ struct TilesRow: View {
         Button(action: {
             if self.tileManager.status == .download {
                 Feedback.selected()
-                self.tileManager.download(boundingBox: self.boundingBox, name: self.name)
-            } else if self.tileManager.status == .downloaded {
-                Feedback.selected()
-                self.showAlert = true
+                self.tileManager.download(boundingBox: self.boundingBox, name: self.name, layer: currentLayer ?? .ign25)
             }
         }) {
             HStack(spacing: 15) {
                 if tileManager.status == .downloaded {
-                    Image(systemName: "trash")
-                    .accentColor(.red)
+                    Image(systemName: "checkmark")
+                    .accentColor(.green)
                 } else {
                     Image(systemName: "map")
                 }
                 VStack(alignment: .leading) {
                     if tileManager.status == .download {
-                        Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox).toBytes))")
+                        Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: currentLayer ?? .ign25).toBytes))")
                             .font(.headline)
                     } else if tileManager.status == .downloading {
-                        Text("\("Downloading".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox).toBytes) \("Left".localized))")
+                        Text("\("Downloading".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: currentLayer ?? .ign25).toBytes) \("Left".localized))")
                         .font(.headline)
                     } else {
-                        Text("\("DeleteTiles".localized) (\(tileManager.getDownloadedSize(for: boundingBox).toBytes))")
-                        .font(.headline)
-                        .accentColor(.red)
+                        Text("Downloaded".localized)
                     }
-                    ProgressBar(value: $tileManager.progress)
+                    ProgressView(value: tileManager.progress)
                         .frame(height: 10)
                         .isHidden(tileManager.status != .downloading, remove: true)
                 }
@@ -61,17 +55,7 @@ struct TilesRow: View {
                 self.otherDownloadInProgress = true
                 return
             }
-            self.tileManager.status = self.tileManager.hasBeenDownloaded(for: self.boundingBox) ? .downloaded : .download
-        }
-        .actionSheet(isPresented: $showAlert) {
-            ActionSheet(
-                title: Text("\("Delete".localized) (\(self.tileManager.getDownloadedSize(for: boundingBox).toBytes))"),
-                message: Text("DeleteTiles".localized),
-                buttons: [
-                    .destructive(Text("Delete".localized), action: { self.tileManager.remove(for: self.boundingBox) }),
-                    .cancel(Text("Cancel".localized))
-                ]
-            )
+            self.tileManager.status = self.tileManager.hasBeenDownloaded(for: self.boundingBox, layer: currentLayer ?? .ign25) ? .downloaded : .download
         }
     }
 }

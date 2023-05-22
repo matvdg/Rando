@@ -44,16 +44,18 @@ class TrailManager: ObservableObject {
     func createTrail(from url: URL) {
         guard let xml = try? String(contentsOf: url) else { return }
         var locations = [Location]()
+        var name = ""
         let parser = GPXFileParser(xmlString: xml)
             switch parser.parse() {
             case .success(let track):
                 locations.append(contentsOf: track.trackPoints.map { Location(coordinate: $0.coordinate)})
+                name = track.title
             case .failure(let error):
                 print(error)
             }
         guard let loc = locations.last?.clLocation else { return }
         LocationManager.shared.getDepartment(location: loc) { department in
-            let trail = Trail(gpx: Gpx(name: url.lastPathComponent.name, locations: locations, department: department))
+            let trail = Trail(gpx: Gpx(name: name, locations: locations, department: department))
             self.persist(trail: trail)
             self.trails.array.append(trail)
             self.objectWillChange.send()

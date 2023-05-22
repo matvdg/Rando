@@ -36,35 +36,16 @@ struct DeleteRow: View {
         }
         
         .actionSheet(isPresented: $showAlert) {
-            if !tileManager.hasBeenDownloaded(for: boundingBox) {
-                return ActionSheet(
-                    title: Text("Delete".localized),
-                    buttons: [
-                        .destructive(Text("DeleteTrail".localized), action: {
-                            self.trailManager.remove(id: self.trail.id)
-                            self.presentationMode.wrappedValue.dismiss()
-                        }),
-                        .cancel(Text("Cancel".localized))
-                    ]
-                )
-            } else {
-                return ActionSheet(
+            return ActionSheet(
                 title: Text("Delete".localized),
-                message: Text("\("DeleteTrailMessage".localized) (\(self.tileManager.getDownloadedSize(for: boundingBox).toBytes))"),
                 buttons: [
-                    .destructive(Text("DeleteTrailAndMaps".localized), action: {
-                        self.tileManager.remove(for: self.boundingBox)
-                        self.trailManager.remove(id: self.trail.id)
-                        self.presentationMode.wrappedValue.dismiss()
-                    }),
-                    .destructive(Text("DeleteTrailNotMaps".localized), action: {
+                    .destructive(Text("DeleteTrail".localized), action: {
                         self.trailManager.remove(id: self.trail.id)
                         self.presentationMode.wrappedValue.dismiss()
                     }),
                     .cancel(Text("Cancel".localized))
                 ]
-                )
-            }
+            )
         }
     }
 }

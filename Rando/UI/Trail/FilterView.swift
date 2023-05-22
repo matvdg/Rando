@@ -51,17 +51,20 @@ struct FilterView: View {
                 }
                 
                 Divider()
-                
-                Text("Departments".localized)
-                    .font(.headline)
-                
-                Picker(selection: $department, label: Text("")) {
-                    ForEach(TrailManager.shared.departments, id: \.self) { text in
-                        Text(text)
+    
+                HStack {
+                    Text("Departments".localized)
+                        .font(.headline)
+                    Spacer()
+                    Picker(selection: $department, label: Text("")) {
+                        
+                        ForEach(TrailManager.shared.departments, id: \.self) { text in
+                            Text(text)
+                        }
                     }
+                    .pickerStyle(.menu)
                 }
-            .labelsHidden()
-                
+                            
             }
             .padding()
             .navigationBarTitle("", displayMode: .inline)
@@ -69,7 +72,7 @@ struct FilterView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
-        .frame(height: 480.0, alignment: .top)
+        .frame(height: 300, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
         
@@ -85,8 +88,8 @@ struct FilterView_Previews: PreviewProvider {
     @State static var onlyFavs = false
     static var previews: some View {
         FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $isSortDisplayed)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
+                .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
+                .previewDisplayName("iPhone 14 Pro Max")
                 .environment(\.colorScheme, .dark)
         
     }

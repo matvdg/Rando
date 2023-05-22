@@ -42,7 +42,7 @@ struct OldMapView: UIViewRepresentable {
     init(trail: Trail) {
         self.init(
             selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: Binding<Layer>.constant(.ign),
+            selectedLayer: Binding<Layer>.constant(.ign25),
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
@@ -54,7 +54,7 @@ struct OldMapView: UIViewRepresentable {
     init(poi: Poi) {
         self.init(
             selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: Binding<Layer>.constant(.ign),
+            selectedLayer: Binding<Layer>.constant(.ign25),
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
@@ -150,7 +150,7 @@ struct OldMapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-            guard !isPlayingTour, parent.selectedLayer == .ign else { return }
+            guard !isPlayingTour, parent.selectedLayer == .ign25 else { return }
             // Max zoom check
             let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
             var span = mapView.region.span
@@ -291,17 +291,27 @@ struct OldMapView: UIViewRepresentable {
         currentLayer = selectedLayer
         mapView.removeOverlays(mapView.overlays)
         switch selectedLayer {
-        case .ign:
-            let overlay = TileOverlay()
-            overlay.canReplaceMapContent = false
-            mapView.mapType = .standard
-            mapView.addOverlay(overlay, level: .aboveLabels)
         case .satellite:
             mapView.mapType = .hybrid
         case .flyover:
             mapView.mapType = .hybridFlyover
-        default:
+        case .standard:
             mapView.mapType = .standard
+        default:
+            let overlay: MKTileOverlay
+            switch selectedLayer {                
+            case .ign25:
+                overlay = IGN25Overlay()
+            case .openStreetMap:
+                overlay = OpenStreetMapOverlay()
+            case .openTopoMap:
+                overlay = OpenTopoMapOverlay()
+            default: //ign
+                overlay = IGNV2Overlay()
+            }
+            overlay.canReplaceMapContent = false
+            mapView.mapType = .standard
+            mapView.addOverlay(overlay, level: .aboveLabels)
         }
         mapView.addOverlays(trails.map { $0.polyline }, level: .aboveLabels)
     }

@@ -8,9 +8,11 @@
 
 import SwiftUI
 
-enum Layer: String, CaseIterable, Equatable {
-    case ign, standard, satellite, flyover
+enum Layer: String, CaseIterable, Equatable, Identifiable {
+    
+    case ign25, ign, standard, satellite, flyover, openStreetMap, openTopoMap
     var localized: String { self.rawValue.localized }
+    var id: Self { self }
 }
 
 struct InfoView: View {
@@ -18,11 +20,10 @@ struct InfoView: View {
     @Binding var selectedLayer: Layer
     @Binding var isInfoDisplayed: Bool
     @State var isOffline: Bool = UserDefaults.isOffline
-    @State private var showAlert = false
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 20.0) {
+            VStack(alignment: .leading, spacing: 10.0) {
                 
                 HStack {
                     Text("MapSettings".localized)
@@ -36,35 +37,26 @@ struct InfoView: View {
                         DismissButton()
                     }
                 }
-                .offset(y: -10)
                 
-                Picker(selection: $selectedLayer, label: Text("")) {
-                    ForEach(Layer.allCases, id: \.self) { layer in
-                        Text(layer.localized)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        ForEach(Layer.allCases) { layer in
+                            Button {
+                                selectedLayer = layer
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous).fill(layer == selectedLayer ? .blue : .clear)
+                                    VStack {
+                                        Image(layer.rawValue).resizable().frame(width: 100, height: 100, alignment: .center).clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                        Text(layer.localized).foregroundColor(Color.primary)
+                                    }.padding(8)
+                                }
+                                
+                            }
+                        }
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                
-                Divider()
-                
-                Toggle(isOn: self.$isOffline) {
-                    Text("MapOfflineSwitcher".localized)
-                }
-                .onTapGesture {
-                    self.isOffline.toggle()
-                    UserDefaults.isOffline = self.isOffline
-                }
-                
-                Button(action: {
-                    self.showAlert = true
-                }) {
-                    Text("DeleteTiles".localized)
-                        .foregroundColor(.text)
-                    Spacer()
-                    Image(systemName: "trash")
-                        .foregroundColor(.gray)
-                }
+                .padding()
                 
             }
             .padding()
@@ -72,16 +64,6 @@ struct InfoView: View {
             .navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .actionSheet(isPresented: $showAlert) {
-            ActionSheet(
-                title: Text("\("Delete".localized) (\(TileManager.shared.getAllDownloadedSize()))"),
-                message: Text("DeleteAllTiles".localized),
-                buttons: [
-                    .destructive(Text("Delete".localized), action: { TileManager.shared.removeAll() }),
-                    .cancel(Text("Cancel".localized))
-                ]
-            )
-        }
         .frame(maxWidth: 500)
         .frame(height: 250.0, alignment: .top)
         .cornerRadius(8)
@@ -92,7 +74,7 @@ struct InfoView: View {
 
 // MARK: Previews
 struct InfoView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign
+    @State static var selectedLayer: Layer = .ign25
     @State static var isInfoDisplayed = true
     @State static var isOffline = false
     static var previews: some View {
@@ -104,7 +86,7 @@ struct InfoView_Previews: PreviewProvider {
             InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
                 .previewDisplayName("iPad Pro")
-                
+            
                 .environment(\.colorScheme, .light)
             InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))

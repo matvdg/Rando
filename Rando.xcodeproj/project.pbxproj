@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		D02C05DF24B3998D0047F5E8 /* Trail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C05DE24B3998D0047F5E8 /* Trail.swift */; };
 		D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039504924B4CB0600C31D34 /* DocumentView.swift */; };
 		D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D039506424B6097800C31D34 /* SwiftUICharts */; };
-		D0531A6A246788920020FFE0 /* alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = D0531A69246788920020FFE0 /* alpha.png */; };
 		D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0531A712467FD8C0020FFE0 /* Localizable.strings */; };
 		D0531A742467FE4C0020FFE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A732467FE4C0020FFE0 /* String.swift */; };
 		D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A75246820BA0020FFE0 /* MapControl.swift */; };
@@ -27,7 +26,6 @@
 		D06347A7245DCD34003BA9E7 /* OldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A6245DCD34003BA9E7 /* OldMapView.swift */; };
 		D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A8245DCD8B003BA9E7 /* TrailView.swift */; };
 		D06347C5245DD784003BA9E7 /* TrailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347C4245DD784003BA9E7 /* TrailManager.swift */; };
-		D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D083A78B246739EA00E87F08 /* ProgressBar.swift */; };
 		D08AB2682465BAAD00793417 /* TrailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2672465BAAD00793417 /* TrailRow.swift */; };
 		D08AB26A2465BC7000793417 /* TrailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* TrailDetail.swift */; };
 		D08F1A9C2465919300335281 /* PoiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9B2465919300335281 /* PoiManager.swift */; };
@@ -88,7 +86,6 @@
 		D007B88A246B60090040E1CF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		D02C05DE24B3998D0047F5E8 /* Trail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trail.swift; sourceTree = "<group>"; };
 		D039504924B4CB0600C31D34 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
-		D0531A69246788920020FFE0 /* alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alpha.png; sourceTree = "<group>"; };
 		D0531A6C2467FD3A0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D0531A702467FD8C0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0531A722467FD940020FFE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -109,7 +106,6 @@
 		D06347A6245DCD34003BA9E7 /* OldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMapView.swift; sourceTree = "<group>"; };
 		D06347A8245DCD8B003BA9E7 /* TrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailView.swift; sourceTree = "<group>"; };
 		D06347C4245DD784003BA9E7 /* TrailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailManager.swift; sourceTree = "<group>"; };
-		D083A78B246739EA00E87F08 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		D08AB2672465BAAD00793417 /* TrailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailRow.swift; sourceTree = "<group>"; };
 		D08AB2692465BC7000793417 /* TrailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetail.swift; sourceTree = "<group>"; };
 		D08F1A9B2465919300335281 /* PoiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiManager.swift; sourceTree = "<group>"; };
@@ -208,7 +204,6 @@
 		D05B15012460045100B24666 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				D0531A69246788920020FFE0 /* alpha.png */,
 				F6CFD09124BDF08E00DA224C /* Trails */,
 				F6CFD09024BDC18F00DA224C /* Gpx */,
 				D063479A245D768C003BA9E7 /* Preview Content */,
@@ -322,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
-				D083A78B246739EA00E87F08 /* ProgressBar.swift */,
 				F6CFD0B524BF90CA00DA224C /* CircleImage.swift */,
 				D058FCB8246D7B1B003BDFF8 /* BlurView.swift */,
 				F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */,
@@ -462,8 +456,9 @@
 		D0634787245D768B003BA9E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Mathieu Vandeginste";
 				TargetAttributes = {
 					D063478E245D768B003BA9E7 = {
@@ -506,7 +501,6 @@
 				D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */,
 				F6CFD09D24BDF08E00DA224C /* AC87370D-6A8F-43D5-A980-95356F6ACDA9.json in Resources */,
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
-				D0531A6A246788920020FFE0 /* alpha.png in Resources */,
 				F6CFD0A324BDF08E00DA224C /* 0F68603E-267D-41F9-AF21-A1A3235722DA.json in Resources */,
 				F6CFD0AD24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json in Resources */,
 				F6CFD0A124BDF08E00DA224C /* C57678B0-ADD8-49CA-85EE-7C3EB5060783.json in Resources */,
@@ -574,7 +568,6 @@
 				F6CFD0B424BF8FE100DA224C /* PoiRow.swift in Sources */,
 				F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */,
 				F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */,
-				D083A78C246739EA00E87F08 /* ProgressBar.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */,
 				D058FCB9246D7B1B003BDFF8 /* BlurView.swift in Sources */,
 				F6DB543D24DC6543002EABDE /* ColorRow.swift in Sources */,
@@ -739,6 +732,8 @@
 				DEVELOPMENT_TEAM = QJPL572NZY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -764,15 +759,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
-				DEVELOPMENT_TEAM = 3WAQF3AS82;
+				DEVELOPMENT_TEAM = QJPL572NZY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.maisondarlos.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";

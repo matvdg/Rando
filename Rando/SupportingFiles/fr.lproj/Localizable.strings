@@ -16,12 +16,12 @@
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
 
 // MapView
-"MapSettings" = "Réglages de la carte";
-"MapOfflineSwitcher" = "Carte IGN hors ligne";
-"DeleteTiles" = "Supprimer les cartes hors ligne";
-"DeleteAllTiles" = "Supprimer toutes les cartes enregistrées pour une utilisation hors ligne";
+"MapSettings" = "Fonds de carte";
 "Altitude" = "Altitude";
-"ign" = "IGN";
+"ign" = "IGN v2";
+"ign25" = "IGN  1:25 000";
+"openStreetMap" = "Open Street Map";
+"openTopoMap" = "Open Topo Map";
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
@@ -68,7 +68,4 @@
 "Directions" = "Obtenir l'itinéraire en voiture";
 "Departure" = "Départ";
 "DeleteTrail" = "Supprimer la randonnée";
-"DeleteTrailMessage" = "Supprimer la randonnée et les cartes associées ?";
-"DeleteTrailAndMaps" = "Supprimer la randonnée et les cartes";
-"DeleteTrailNotMaps" = "Supprimer la randonnée mais conserver les cartes";
 "3D" = "Visualiser le parcours en 3D";

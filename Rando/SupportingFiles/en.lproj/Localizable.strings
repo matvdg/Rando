@@ -16,12 +16,12 @@
 "Network" = "Please check your internet connection then retry";
 
 // MapView
-"MapSettings" = "Map Settings";
-"MapOfflineSwitcher" = "Offline IGN map";
-"DeleteTiles" = "Delete offline maps";
-"DeleteAllTiles" = "Delete all the offline maps";
+"MapSettings" = "Map layers";
 "Altitude" = "Altitude";
 "ign" = "IGN";
+"ign25" = "IGN  1:25 000";
+"openStreetMap" = "Open Street Map";
+"openTopoMap" = "Open Topo Map";
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
@@ -68,7 +68,4 @@
 "Directions" = "Get car directions";
 "Departure" = "Departure";
 "DeleteTrail" = "Delete trail";
-"DeleteTrailMessage" = "Delete trail and associated maps";
-"DeleteTrailAndMaps" = "Delete trail and maps";
-"DeleteTrailNotMaps" = "Delete trail but keep maps";
 "3D" = "Watch the 3D tour";

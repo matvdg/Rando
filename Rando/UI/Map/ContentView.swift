@@ -10,42 +10,52 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
-  
-  @State private var selection = 0
-  
-  var body: some View {
-    ZStack {
-      TabView(selection: $selection) {
-        HomeView()
-          .tabItem {
-            Image(systemName: "map")
+    
+    @State private var selection = 0
+    
+    var body: some View {
+        ZStack {
+            TabView(selection: $selection) {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "map")
+                    }
+                    .tag(0)
+                TrailView()
+                    .tabItem {
+                        Image(systemName: "point.topleft.down.curvedto.point.filled.bottomright.up")
+                    }
+                    .tag(1)
+                PoiView()
+                    .tabItem {
+                        Image(systemName: "mappin.and.ellipse")
+                    }
+                    .tag(2)
+            }
         }
-        .tag(0)
-        TrailView()
-          .tabItem {
-            Image(systemName: "location.north")
+        .accentColor(Color.tintColor)
+        .onAppear {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            // correct the transparency bug for Navigation bars
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
-        .tag(1)
-        PoiView()
-          .tabItem {
-            Image(systemName: "mappin.and.ellipse")
-        }
-        .tag(2)
-      }
     }
-    .accentColor(Color.tintColor)
-  }
-  
+        
 }
+
 
 // MARK: Previews
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    Group {
-      ContentView()
-      .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-      .previewDisplayName("iPhone X")
-      .environment(\.colorScheme, .dark)
+    static var previews: some View {
+        Group {
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
+                .previewDisplayName("iPhone 14 pro")
+                .environment(\.colorScheme, .light)
+        }
     }
-  }
 }

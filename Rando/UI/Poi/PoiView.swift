@@ -50,13 +50,12 @@ struct PoiView: View {
                     PoiRow(poi: poi)
                 }
             }
-            .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
             .listRowBackground(Color.background)
         }
         
       }
       .navigationBarTitle(Text("Steps".localized), displayMode: .inline)
-    }.edgesIgnoringSafeArea(.all)
+    }
     
   }
 }

@@ -9,76 +9,77 @@
 import SwiftUI
 
 enum Tracking {
-  case bounding, disabled, enabled, heading
-  var icon: String {
-    switch self {
-    case .enabled: return "location.fill"
-    case .heading: return "location.north.line.fill"
-    default: return "location"
+    case bounding, disabled, enabled, heading
+    var icon: String {
+        switch self {
+        case .enabled: return "location.fill"
+        case .heading: return "location.north.line.fill"
+        default: return "location"
+        }
     }
-  }
 }
 
 struct MapControl: View {
-  let buttonWidth: CGFloat = 22
-  let width: CGFloat = 45
-  @Binding var tracking: Tracking
-  @Binding var isInfoDisplayed: Bool
-  
-  var body: some View {
-    VStack() {
-      Button(action: {
-        self.isInfoDisplayed.toggle()
-        Feedback.selected()
-      }) {
-        Image(systemName: isInfoDisplayed ? "info.circle.fill" : "info.circle")
-          .resizable()
-          .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
-          .offset(y: -2)
-      }
-      Divider()
-      Button(action: {
-        switch self.tracking {
-        case .disabled:
-          self.tracking = .enabled
-        case .enabled:
-          #if targetEnvironment(macCatalyst)
-          self.tracking = .disabled
-          #else
-          self.tracking = .heading
-          #endif
-        case .heading:
-          self.tracking = .disabled
-        default:
-          self.tracking = .enabled
+    
+    let buttonWidth: CGFloat = 22
+    let width: CGFloat = 45
+    @Binding var tracking: Tracking
+    @Binding var isInfoDisplayed: Bool
+    
+    var body: some View {
+        VStack() {
+            Button(action: {
+                self.isInfoDisplayed.toggle()
+                Feedback.selected()
+            }) {
+                Image(systemName: isInfoDisplayed ? "square.2.layers.3d.top.filled" : "square.2.layers.3d.bottom.filled")
+                    .resizable()
+                    .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+                    .offset(y: -2)
+            }
+            Divider()
+            Button(action: {
+                switch self.tracking {
+                case .disabled:
+                    self.tracking = .enabled
+                case .enabled:
+#if targetEnvironment(macCatalyst)
+                    self.tracking = .disabled
+#else
+                    self.tracking = .heading
+#endif
+                case .heading:
+                    self.tracking = .disabled
+                default:
+                    self.tracking = .enabled
+                }
+                Feedback.selected()
+            }) {
+                Image(systemName: tracking.icon)
+                    .resizable()
+                    .frame(width: tracking == .heading ? 16 : buttonWidth, height: tracking == .heading ? 28 : buttonWidth, alignment: .center)
+                    .offset(y: 3)
+            }
         }
-        Feedback.selected()
-      }) {
-        Image(systemName: tracking.icon)
-          .resizable()
-          .frame(width: tracking == .heading ? 16 : buttonWidth, height: tracking == .heading ? 28 : buttonWidth, alignment: .center)
-          .offset(y: 3)
-      }
+        .frame(width: width, height: width*2, alignment: .center)
+        .background(Color.alpha)
+        .cornerRadius(8)
+        .shadow(radius: 1)
     }
-    .frame(width: width, height: width*2, alignment: .center)
-    .background(Color.alpha)
-    .cornerRadius(8)
-    .shadow(radius: 1)
-  }
 }
 
 // MARK: Previews
 struct MapControl_Previews: PreviewProvider {
-  @State static var tracking: Tracking = .disabled
-  @State static var isInfoDisplayed = false
-  static var previews: some View {
-    Group {
-      MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
-        .environment(\.colorScheme, .light)
-      MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
-        .environment(\.colorScheme, .dark)
+    @State static var tracking: Tracking = .disabled
+    @State static var isInfoDisplayed = false
+    static var previews: some View {
+        Group {
+            MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
+                .environment(\.colorScheme, .light)
+            MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
+                .environment(\.colorScheme, .dark)
+        }
+        
+        .previewLayout(.fixed(width: 60, height: 100))
     }
-      
-    .previewLayout(.fixed(width: 60, height: 100))
-  }
 }

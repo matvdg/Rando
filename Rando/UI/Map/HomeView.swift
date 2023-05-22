@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State var selectedTracking: Tracking = .bounding
-    @State var selectedLayer: Layer = .ign
+    @State var selectedLayer: Layer = .ign25
     @State var isInfoDisplayed: Bool = false
     @State var selectedPoi: Poi?
     @State var trails = TrailManager.shared.currentTrails
@@ -45,7 +45,7 @@ struct HomeView: View {
                 
                 InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                     .offset(y: isInfoDisplayed ? 10 : 500)
-                    .animation(.default)
+                    .animation(.default, value: isInfoPoiDisplayed ? 10 : 500)
                 
             }
             
@@ -55,17 +55,10 @@ struct HomeView: View {
                 
                 InfoPoiView(poi: $selectedPoi)
                     .offset(y: isInfoPoiDisplayed ? 10 : 500)
-                    .animation(.default)
+                    .animation(Animation.easeInOut(duration: 1.0), value: isInfoPoiDisplayed ? 10 : 500)
+
                 
             }
-            #if !targetEnvironment(macCatalyst)
-            VStack {
-                BlurView(effect: UIBlurEffect(style: .light))
-                    .frame(height: UIDevice.hasNotch ? 40 : 20)
-                Spacer()
-            }
-            .edgesIgnoringSafeArea(.top)
-            #endif
             
         }
         .onAppear {
@@ -73,7 +66,6 @@ struct HomeView: View {
             LocationManager.shared.requestAuthorization()
             self.trails = TrailManager.shared.currentTrails
             self.selectedTracking = .bounding
-            self.isInfoDisplayed = false
         }
         
     }

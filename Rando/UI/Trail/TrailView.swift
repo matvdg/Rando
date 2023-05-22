@@ -92,7 +92,6 @@ struct TrailView: View {
                             }
                         }
                         .onDelete(perform: removeRows)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 0))
                         .listRowBackground(Color.background)
                     }
                 }
@@ -102,7 +101,7 @@ struct TrailView: View {
                     
                     FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $showFilter)
                         .offset(y: showFilter ? 0 : 520)
-                        .animation(.default)
+                        .animation(Animation.easeInOut(duration: 1.0), value: showFilter ? 0 : 520)
                     
                 }
                 

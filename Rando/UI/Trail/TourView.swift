@@ -28,7 +28,7 @@ struct TourView: View {
                     Text("Direction".localized)
                     Image(systemName: "arrow.2.circlepath")
                         .rotation3DEffect(.radians(animationRotationAmount), axis: (x: 0, y: 0, z: 1))
-                        .animation(.default)
+                        .animation(.default, value: clockwise)
             })
             .onAppear {
                 NetworkManager.shared.runIfNetwork {
