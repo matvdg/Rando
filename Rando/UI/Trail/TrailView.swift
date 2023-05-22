@@ -100,9 +100,7 @@ struct TrailView: View {
                     Spacer()
                     
                     FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $showFilter)
-                        .offset(y: showFilter ? 0 : 520)
-                        .animation(Animation.easeInOut(duration: 1.0), value: showFilter ? 0 : 520)
-                    
+                        .offset(y: showFilter ? 0 : 520)                    
                 }
                 
             }

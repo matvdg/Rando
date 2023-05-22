@@ -78,6 +78,12 @@
 		F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B524BF90CA00DA224C /* CircleImage.swift */; };
 		F6DB543D24DC6543002EABDE /* ColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543C24DC6543002EABDE /* ColorRow.swift */; };
 		F6DB543F24DC8D20002EABDE /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543E24DC8D20002EABDE /* ColorView.swift */; };
+		F6E830E62A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830DE2A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json */; };
+		F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */; };
+		F6E830E82A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */; };
+		F6E830E92A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */; };
+		F6E830EB2A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E32A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json */; };
+		F6E830EC2A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */; };
 		F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0702F24D4780300EEE183 /* ItineraryRow.swift */; };
 		F6FE98A824C05047007D5D85 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FE98A724C05047007D5D85 /* FilterView.swift */; };
 /* End PBXBuildFile section */
@@ -157,6 +163,12 @@
 		F6CFD0B524BF90CA00DA224C /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		F6DB543C24DC6543002EABDE /* ColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRow.swift; sourceTree = "<group>"; };
 		F6DB543E24DC8D20002EABDE /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		F6E830DE2A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "6FBF6A76-9683-4434-90B8-72F391839861.json"; sourceTree = "<group>"; };
+		F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "B89C418A-A8C0-4384-BB24-242524E33A7B.json"; sourceTree = "<group>"; };
+		F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json"; sourceTree = "<group>"; };
+		F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "22A1FD18-B18D-4263-859B-CD9A8336F840.json"; sourceTree = "<group>"; };
+		F6E830E32A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json"; sourceTree = "<group>"; };
+		F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json"; sourceTree = "<group>"; };
 		F6F0702F24D4780300EEE183 /* ItineraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRow.swift; sourceTree = "<group>"; };
 		F6F8E25424E825D20030CCEA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F6FE98A724C05047007D5D85 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
@@ -379,6 +391,12 @@
 		F6CFD09124BDF08E00DA224C /* Trails */ = {
 			isa = PBXGroup;
 			children = (
+				F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */,
+				F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */,
+				F6E830DE2A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json */,
+				F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */,
+				F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */,
+				F6E830E32A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json */,
 				F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */,
 				F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */,
 				F6CFD09324BDF08E00DA224C /* AC87370D-6A8F-43D5-A980-95356F6ACDA9.json */,
@@ -497,14 +515,20 @@
 			files = (
 				D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */,
 				F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */,
+				F6E830EB2A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json in Resources */,
 				F6CFD0A224BDF08E00DA224C /* C7CB0ED5-743B-40DC-88C1-F8ABF8172B11.json in Resources */,
 				D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */,
+				F6E830EC2A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json in Resources */,
 				F6CFD09D24BDF08E00DA224C /* AC87370D-6A8F-43D5-A980-95356F6ACDA9.json in Resources */,
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
 				F6CFD0A324BDF08E00DA224C /* 0F68603E-267D-41F9-AF21-A1A3235722DA.json in Resources */,
 				F6CFD0AD24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json in Resources */,
 				F6CFD0A124BDF08E00DA224C /* C57678B0-ADD8-49CA-85EE-7C3EB5060783.json in Resources */,
+				F6E830E92A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json in Resources */,
+				F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */,
 				D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */,
+				F6E830E82A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json in Resources */,
+				F6E830E62A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json in Resources */,
 				D0634799245D768C003BA9E7 /* Assets.xcassets in Resources */,
 				F6CFD09E24BDF08E00DA224C /* 6012EAA9-1C93-4FC9-BCA7-765EB62A3D87.json in Resources */,
 				F6CFD0A524BDF08E00DA224C /* 3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json in Resources */,

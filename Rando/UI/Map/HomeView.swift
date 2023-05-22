@@ -45,8 +45,6 @@ struct HomeView: View {
                 
                 InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                     .offset(y: isInfoDisplayed ? 10 : 500)
-                    .animation(.default, value: isInfoPoiDisplayed ? 10 : 500)
-                
             }
             
             VStack(alignment: .leading) {
@@ -54,10 +52,7 @@ struct HomeView: View {
                 Spacer()
                 
                 InfoPoiView(poi: $selectedPoi)
-                    .offset(y: isInfoPoiDisplayed ? 10 : 500)
-                    .animation(Animation.easeInOut(duration: 1.0), value: isInfoPoiDisplayed ? 10 : 500)
-
-                
+                    .offset(y: isInfoPoiDisplayed ? 10 : 500)                
             }
             
         }
