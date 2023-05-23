@@ -34,7 +34,9 @@ extension UserDefaults {
           Layer(rawValue: UserDefaults.standard.string(forKey: "layer") ?? "ign25") ?? .ign25
       }
       set {
+          guard newValue != self.currentLayer else { return }
           UserDefaults.standard.set(newValue.rawValue, forKey: "layer")
+          print("Layer has been set to \(newValue)")
       }
     }
 }

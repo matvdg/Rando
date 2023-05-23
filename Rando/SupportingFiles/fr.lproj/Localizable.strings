@@ -49,8 +49,9 @@
 "Distance" = "Distance";
 "DurationEstimated" = "Temps estimé";
 "Downloading" = "Téléchargement...";
-"DownloadedTitle" = "Téléchargement terminé";
-"Downloaded" = "Cartes disponibles hors ligne";
+"OtherDownloadInProcess" = "Un autre téléchargement est en cours...";
+"Downloaded" = "Carte téléchargée";
+"DownloadedMessage" = "est disponible hors ligne";
 "Download" = "Télécharger les cartes";
 "DisplayOnMap" = "Afficher le tracé sur la carte";
 "DoNotDisplayOnMap" = "Retirer le tracé de la carte";

@@ -90,7 +90,12 @@ class Trail: Identifiable, ObservableObject {
     var polyline: Polyline {
         let polyline = Polyline(coordinates: locations.map { $0.clLocation.coordinate }, count: locations.count)
         polyline.color = color.uiColor
+        polyline.id = id
         return polyline
+    }
+    
+    var boundingBox: MKMapRect {
+        self.polyline.boundingMapRect
     }
     
     var distance: CLLocationDistance {
@@ -236,4 +241,10 @@ public struct Location: Codable {
 
 class Polyline: MKPolyline {
     var color: UIColor?
+    var id: UUID?
+    
+    func isEqual(polyline: Polyline) -> Bool {
+        guard let id1 = self.id, let id2 = polyline.id, let color1 = self.color, let color2 = polyline.color else { return false}
+        return id1 == id2 && color1 == color2
+    }
 }

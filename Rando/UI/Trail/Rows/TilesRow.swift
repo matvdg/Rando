@@ -12,61 +12,80 @@ import MapKit
 struct TilesRow: View {
     
     @ObservedObject var tileManager = TileManager.shared
-    @State var otherDownloadInProgress = false
     
-    var boundingBox: MKMapRect
-    var name: String
-    
+    var trail: Trail
     
     var body: some View {
         
         Button(action: {
-            if self.tileManager.status == .download {
+            if self.tileManager.status == .idle {
                 Feedback.selected()
-                self.tileManager.download(boundingBox: self.boundingBox, name: self.name, layer: UserDefaults.currentLayer)
+                Task {
+                    await self.tileManager.download(trail: trail)
+                }
             }
         }) {
             HStack(spacing: 15) {
-                if tileManager.status == .downloaded {
-                    Image(systemName: "checkmark")
-                    .accentColor(.green)
-                } else {
-                    Image(systemName: "map")
-                }
-                VStack(alignment: .leading) {
-                    if tileManager.status == .download {
-                        Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: UserDefaults.currentLayer).toBytes))")
-                            .font(.headline)
-                    } else if tileManager.status == .downloading {
-                        Text("\("Downloading".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: UserDefaults.currentLayer).toBytes) \("Left".localized))")
-                        .font(.headline)
-                    } else {
-                        Text("Downloaded".localized)
-                    }
+                let hasBeenDownloaded = self.tileManager.hasBeenDownloaded(for: trail.boundingBox)
+                if hasBeenDownloaded { // Downloaded
+                    Image(systemName: "checkmark.icloud")
+                    Text("Downloaded".localized)
+                } else if tileManager.status == .downloading(id: trail.id) { // Downloading
                     ProgressView(value: tileManager.progress)
-                        .frame(height: 10)
-                        .isHidden(tileManager.status != .downloading, remove: true)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .grgreen))
+                    VStack(alignment: .leading) {
+                        Text("\("Downloading".localized) (\(tileManager.getEstimatedDownloadSize(for: trail.boundingBox).toBytes) \("Left".localized))")
+                            .font(.headline)
+                        ProgressView(value: tileManager.progress)
+                            .progressViewStyle(LinearProgressViewStyle(tint: .grgreen))
+                            .frame(height: 10)
+                    }
+                } else if tileManager.status == .idle { // Download
+                    Image(systemName: "icloud.and.arrow.down")
+                    Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: trail.boundingBox).toBytes))")
+                        .font(.headline)
+                } else { // Other downloading in progress
+                    Image(systemName: "xmark.icloud")
+                    Text("OtherDownloadInProcess".localized)
                 }
             }
-            .isHidden(otherDownloadInProgress, remove: true)
         }
-        .onAppear {
-            guard self.tileManager.status != .downloading else {
-                self.otherDownloadInProgress = true
-                return
-            }
-            self.tileManager.status = self.tileManager.hasBeenDownloaded(for: self.boundingBox, layer: UserDefaults.currentLayer) ? .downloaded : .download
-        }
+        .buttonStyle(MyButtonStyle())
+        .disabled(!(self.tileManager.status == .idle) || self.tileManager.hasBeenDownloaded(for: trail.boundingBox))
     }
 }
 
 // MARK: Previews
 struct TilesRow_Previews: PreviewProvider {
-        
+    
     static var previews: some View {
         
-        TilesRow(boundingBox: MKMapRect(), name: "test")
+        TilesRow(trail: Trail())
             .previewLayout(.fixed(width: 300, height: 80))
             .environment(\.colorScheme, .light)
+    }
+}
+
+struct MyButtonStyle: ButtonStyle {
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        MyButtonStyleView(configuration: configuration)
+    }
+    
+    struct MyButtonStyleView: View {
+        // tracks if the button is enabled or not
+        @Environment(\.isEnabled) var isEnabled
+        // tracks the pressed state
+        let configuration: MyButtonStyle.Configuration
+        
+        var body: some View {
+            return configuration.label
+            // change the text color based on if it's disabled
+                .foregroundColor(isEnabled ? .tintColor : .grgreen)
+            // make the button a bit more translucent when pressed
+                .opacity(configuration.isPressed ? 0.8 : 1.0)
+            // make the button a bit smaller when pressed
+                .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
+        }
     }
 }

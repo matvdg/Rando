@@ -109,7 +109,7 @@ struct TrailDetail: View {
                     
                     ColorRow(trail: trail)
                     
-                    TilesRow(boundingBox: trail.polyline.boundingMapRect, name: trail.name)
+                    TilesRow(trail: trail)
                     
                     DeleteRow(trail: trail)
                     

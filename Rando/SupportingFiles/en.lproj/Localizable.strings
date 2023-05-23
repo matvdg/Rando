@@ -49,8 +49,9 @@
 "Distance" = "Distance";
 "DurationEstimated" = "Estimated time";
 "Downloading" = "Downloading...";
-"DownloadedTitle" = "Download succeeded";
-"Downloaded" = "Offline maps are available";
+"OtherDownloadInProcess" = "Another download is processing...";
+"Downloaded" = "Maps downloaded";
+"DownloadedMessage" = "is available offline";
 "Download" = "Download maps";
 "DisplayOnMap" = "Display the trail on the map";
 "DoNotDisplayOnMap" = "Remove the trail from the map";

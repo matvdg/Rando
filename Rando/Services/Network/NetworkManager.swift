@@ -14,19 +14,20 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     // MARK: -  Public methods
-    func runIfNetwork(completion: @escaping ()->() ) {
+    func runIfNetwork() async {
         let pathMonitor = NWPathMonitor()
-        pathMonitor.pathUpdateHandler = {
-            guard $0.status == .satisfied else { // No network
-                DispatchQueue.main.async {
-                    NotificationManager.shared.sendNotification(title: "Error".localized, message: "Network".localized)
+        return await withCheckedContinuation { continuation in
+            pathMonitor.pathUpdateHandler = {
+                guard $0.status == .satisfied else { // No network
+                    DispatchQueue.main.async {
+                        NotificationManager.shared.sendNotification(title: "Error".localized, message: "Network".localized)
+                    }
+                    return pathMonitor.cancel()
                 }
-                return pathMonitor.cancel()
+                pathMonitor.cancel()
+                continuation.resume(returning: ())
             }
-            pathMonitor.cancel()
-            completion()
+            pathMonitor.start(queue: DispatchQueue.global(qos: .background))
         }
-        pathMonitor.start(queue: DispatchQueue.global(qos: .background))
     }
-    
 }

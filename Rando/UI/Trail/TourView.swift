@@ -31,7 +31,8 @@ struct TourView: View {
                         .animation(.default, value: clockwise)
             })
             .onAppear {
-                NetworkManager.shared.runIfNetwork {
+                Task {
+                    await NetworkManager.shared.runIfNetwork()
                     isPlayingTour = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.clockwise = true

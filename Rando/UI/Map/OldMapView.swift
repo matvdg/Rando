@@ -279,6 +279,28 @@ struct OldMapView: UIViewRepresentable {
     
     private func setOverlays(mapView: MKMapView) {
         UserDefaults.currentLayer = selectedLayer
+        let currentTileOverlay = mapView.overlays.first { $0 is MKTileOverlay}
+        let currentPolylines = mapView.overlays.compactMap { $0 as? Polyline }
+        var layerHasChanged: Bool
+        switch selectedLayer {
+        case .ign25:
+            layerHasChanged = !(currentTileOverlay is IGN25Overlay)
+        case .ign:
+            layerHasChanged = !(currentTileOverlay is IGNV2Overlay)
+        case .standard:
+            layerHasChanged = !(mapView.mapType == .standard)
+        case .satellite:
+            layerHasChanged = !(mapView.mapType == .satellite)
+        case .flyover:
+            layerHasChanged = !(mapView.mapType == .hybridFlyover)
+        case .openStreetMap:
+            layerHasChanged = !(currentTileOverlay is OpenStreetMapOverlay)
+        case .openTopoMap:
+            layerHasChanged = !(currentTileOverlay is OpenTopoMapOverlay)
+        }
+        let polylines = trails.map { $0.polyline }
+        let polylinesHaveChanged = !currentPolylines.equals(polylines: polylines)
+        guard polylinesHaveChanged || layerHasChanged else { return }
         mapView.removeOverlays(mapView.overlays)
         switch selectedLayer {
         case .satellite:
@@ -300,10 +322,10 @@ struct OldMapView: UIViewRepresentable {
                 overlay = IGNV2Overlay()
             }
             overlay.canReplaceMapContent = false
-            mapView.mapType = .standard
+            mapView.mapType = .satellite
             mapView.addOverlay(overlay, level: .aboveLabels)
         }
-        mapView.addOverlays(trails.map { $0.polyline }, level: .aboveLabels)
+        mapView.addOverlays(polylines, level: .aboveLabels)
     }
     
     private func setAnnotations(mapView: MKMapView) {
@@ -334,7 +356,7 @@ struct OldMapView: UIViewRepresentable {
                 mapView.camera = camera
             })
         }
-        
+                
     }
     
 }
@@ -349,4 +371,17 @@ struct OldMapView_Previews: PreviewProvider {
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)
     }
+}
+
+extension Array where Iterator.Element == Polyline {
+    
+    func equals(polylines: [Polyline]) -> Bool {
+        let currentArray: [Polyline] = self
+        if self.count == polylines.count {
+            return polylines.elementsEqual(currentArray) { $0.isEqual(polyline: $1) }
+        } else {
+            return false
+        }
+    }
+    
 }
