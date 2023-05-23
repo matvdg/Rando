@@ -13,18 +13,20 @@ struct PoiDetail: View {
     var poi: Poi
     
     var body: some View {
-        VStack {
-            
-            NavigationLink(destination: OldMapView(poi: poi)) {
-                OldMapView(poi: poi)
-                    .frame(height: 300)
-            }
-            
-            CircleImage(id: poi.id)
-                .offset(x: 0, y: -130)
-                .padding(.bottom, -130)
-            
-            ScrollView {
+        
+        ScrollView(showsIndicators: false) {
+            VStack {
+                
+                NavigationLink(destination: OldMapView(poi: poi)) {
+                    OldMapView(poi: poi)
+                        .frame(height: 150)
+                }
+                
+                CircleImage(id: poi.id)
+                    .offset(x: 0, y: -130)
+                    .padding(.bottom, -130)
+                
+                
                 VStack(alignment: .leading, spacing: 16) {
                     
                     Text(poi.name)
@@ -75,6 +77,7 @@ struct PoiDetail: View {
             
             Spacer()
         }
+        .edgesIgnoringSafeArea(.all)
         .navigationBarTitle(Text(poi.name))
     }
 }

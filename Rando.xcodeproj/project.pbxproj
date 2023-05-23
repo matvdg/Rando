@@ -14,7 +14,6 @@
 		D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0531A712467FD8C0020FFE0 /* Localizable.strings */; };
 		D0531A742467FE4C0020FFE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A732467FE4C0020FFE0 /* String.swift */; };
 		D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A75246820BA0020FFE0 /* MapControl.swift */; };
-		D058FCB9246D7B1B003BDFF8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058FCB8246D7B1B003BDFF8 /* BlurView.swift */; };
 		D05B14FF2460041F00B24666 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B14FE2460041F00B24666 /* HomeView.swift */; };
 		D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0630B6A245F571F006F6C44 /* LocationManager.swift */; };
 		D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0634792245D768B003BA9E7 /* AppDelegate.swift */; };
@@ -35,7 +34,7 @@
 		D0B7CDB22468550D00464C79 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB12468550D00464C79 /* Color.swift */; };
 		D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */; };
 		D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */; };
-		D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB72469184F00464C79 /* InfoView.swift */; };
+		D0B7CDB82469184F00464C79 /* LayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CDB72469184F00464C79 /* LayerView.swift */; };
 		D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */; };
 		D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C40E03245F37F900EF4873 /* TileManager.swift */; };
 		D0F8633124615D56007C363A /* pois.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F8633024615D56007C363A /* pois.json */; };
@@ -78,11 +77,9 @@
 		F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B524BF90CA00DA224C /* CircleImage.swift */; };
 		F6DB543D24DC6543002EABDE /* ColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543C24DC6543002EABDE /* ColorRow.swift */; };
 		F6DB543F24DC8D20002EABDE /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543E24DC8D20002EABDE /* ColorView.swift */; };
-		F6E830E62A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830DE2A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json */; };
 		F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */; };
 		F6E830E82A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */; };
 		F6E830E92A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */; };
-		F6E830EB2A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E32A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json */; };
 		F6E830EC2A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */; };
 		F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0702F24D4780300EEE183 /* ItineraryRow.swift */; };
 		F6FE98A824C05047007D5D85 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FE98A724C05047007D5D85 /* FilterView.swift */; };
@@ -97,7 +94,6 @@
 		D0531A722467FD940020FFE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0531A732467FE4C0020FFE0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D0531A75246820BA0020FFE0 /* MapControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControl.swift; sourceTree = "<group>"; };
-		D058FCB8246D7B1B003BDFF8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		D05B14FE2460041F00B24666 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D0630B6A245F571F006F6C44 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang d'Araing.gpx"; sourceTree = "<group>"; };
@@ -121,7 +117,7 @@
 		D0B01A8C2460420A00EE62AD /* Rando.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rando.entitlements; sourceTree = "<group>"; };
 		D0B7CDB12468550D00464C79 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D0B7CDB32468691800464C79 /* Etang de Rulhe.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang de Rulhe.gpx"; sourceTree = "<group>"; };
-		D0B7CDB72469184F00464C79 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		D0B7CDB72469184F00464C79 /* LayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerView.swift; sourceTree = "<group>"; };
 		D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPoiView.swift; sourceTree = "<group>"; };
 		D0C40E03245F37F900EF4873 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 		D0F8633024615D56007C363A /* pois.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pois.json; sourceTree = "<group>"; };
@@ -163,11 +159,9 @@
 		F6CFD0B524BF90CA00DA224C /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		F6DB543C24DC6543002EABDE /* ColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRow.swift; sourceTree = "<group>"; };
 		F6DB543E24DC8D20002EABDE /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
-		F6E830DE2A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "6FBF6A76-9683-4434-90B8-72F391839861.json"; sourceTree = "<group>"; };
 		F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "B89C418A-A8C0-4384-BB24-242524E33A7B.json"; sourceTree = "<group>"; };
 		F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json"; sourceTree = "<group>"; };
 		F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "22A1FD18-B18D-4263-859B-CD9A8336F840.json"; sourceTree = "<group>"; };
-		F6E830E32A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json"; sourceTree = "<group>"; };
 		F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json"; sourceTree = "<group>"; };
 		F6F0702F24D4780300EEE183 /* ItineraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRow.swift; sourceTree = "<group>"; };
 		F6F8E25424E825D20030CCEA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -330,7 +324,6 @@
 			children = (
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
 				F6CFD0B524BF90CA00DA224C /* CircleImage.swift */,
-				D058FCB8246D7B1B003BDFF8 /* BlurView.swift */,
 				F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */,
 				F639047A24DC8E58005B4FC1 /* GridStack.swift */,
 				F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */,
@@ -346,7 +339,7 @@
 				D05B14FE2460041F00B24666 /* HomeView.swift */,
 				D06347A6245DCD34003BA9E7 /* OldMapView.swift */,
 				D0531A75246820BA0020FFE0 /* MapControl.swift */,
-				D0B7CDB72469184F00464C79 /* InfoView.swift */,
+				D0B7CDB72469184F00464C79 /* LayerView.swift */,
 				D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */,
 				F61E421D29D4203A008D4275 /* MapView.swift */,
 			);
@@ -393,10 +386,8 @@
 			children = (
 				F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */,
 				F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */,
-				F6E830DE2A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json */,
 				F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */,
 				F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */,
-				F6E830E32A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json */,
 				F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */,
 				F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */,
 				F6CFD09324BDF08E00DA224C /* AC87370D-6A8F-43D5-A980-95356F6ACDA9.json */,
@@ -515,7 +506,6 @@
 			files = (
 				D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */,
 				F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */,
-				F6E830EB2A1B18C8002A646F /* F72A1ED9-0503-4ED2-8F9D-62AFA351B6BD.json in Resources */,
 				F6CFD0A224BDF08E00DA224C /* C7CB0ED5-743B-40DC-88C1-F8ABF8172B11.json in Resources */,
 				D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */,
 				F6E830EC2A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json in Resources */,
@@ -528,7 +518,6 @@
 				F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */,
 				D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */,
 				F6E830E82A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json in Resources */,
-				F6E830E62A1B18C8002A646F /* 6FBF6A76-9683-4434-90B8-72F391839861.json in Resources */,
 				D0634799245D768C003BA9E7 /* Assets.xcassets in Resources */,
 				F6CFD09E24BDF08E00DA224C /* 6012EAA9-1C93-4FC9-BCA7-765EB62A3D87.json in Resources */,
 				F6CFD0A524BDF08E00DA224C /* 3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json in Resources */,
@@ -585,7 +574,7 @@
 				D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
-				D0B7CDB82469184F00464C79 /* InfoView.swift in Sources */,
+				D0B7CDB82469184F00464C79 /* LayerView.swift in Sources */,
 				F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */,
 				F618724824E7F4DC00F98918 /* Device.swift in Sources */,
 				F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */,
@@ -593,7 +582,6 @@
 				F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */,
 				F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */,
-				D058FCB9246D7B1B003BDFF8 /* BlurView.swift in Sources */,
 				F6DB543D24DC6543002EABDE /* ColorRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
@@ -748,21 +736,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/Rando.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = QJPL572NZY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maisondarlos.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -777,22 +767,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/RandoRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = QJPL572NZY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.maisondarlos.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";

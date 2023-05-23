@@ -14,12 +14,12 @@ struct TrailDetail: View {
     @ObservedObject var trail: Trail
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 
                 NavigationLink(destination: OldMapView(trail: trail)) {
                     OldMapView(trail: trail)
-                        .frame(height: 300)
+                        .frame(height: 200)
                 }
                 
                 VStack(alignment: .leading, spacing: 20.0) {
@@ -134,6 +134,7 @@ struct TrailDetail: View {
                 }
             )
         }
+        .edgesIgnoringSafeArea(.all)
         .onAppear {
             TrailManager.shared.addMissingDepartment(trail: self.trail)
         }

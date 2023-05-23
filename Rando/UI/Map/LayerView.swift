@@ -15,7 +15,7 @@ enum Layer: String, CaseIterable, Equatable, Identifiable {
     var id: Self { self }
 }
 
-struct InfoView: View {
+struct LayerView: View {
     
     @Binding var selectedLayer: Layer
     @Binding var isInfoDisplayed: Bool
@@ -64,7 +64,6 @@ struct InfoView: View {
             .navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .frame(maxWidth: 500)
         .frame(height: 250.0, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
@@ -79,16 +78,16 @@ struct InfoView_Previews: PreviewProvider {
     @State static var isOffline = false
     static var previews: some View {
         Group {
-            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
                 .environment(\.colorScheme, .dark)
-            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
                 .previewDisplayName("iPad Pro")
             
                 .environment(\.colorScheme, .light)
-            InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
                 .previewDisplayName("iPhone SE")
                 .environment(\.colorScheme, .light)

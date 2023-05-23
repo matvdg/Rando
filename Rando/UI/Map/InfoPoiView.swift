@@ -45,7 +45,7 @@ struct InfoPoiView: View {
                         .font(.subheadline)
                         .frame(maxHeight: 100)
                         
-                        ScrollView {
+                        ScrollView(showsIndicators: false) {
                             Text(poi?.description ?? "")
                                 .font(.body)
                                 .padding(.trailing, 8)

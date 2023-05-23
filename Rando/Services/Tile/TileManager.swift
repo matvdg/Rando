@@ -25,10 +25,6 @@ class TileManager: ObservableObject {
     @Published var status: DownloadStatus = .download
     
     // MARK: -  Public methods
-    func getAllDownloadedSize() -> String {
-        fileManager.allocatedSizeOfDirectory(at: documentsDirectory.appendingPathComponent("tiles"))
-    }
-    
     func hasBeenDownloaded(for boundingBox: MKMapRect, layer: Layer) -> Bool {
         getEstimatedDownloadSize(for: boundingBox, layer: layer) == 0
     }
@@ -44,7 +40,7 @@ class TileManager: ObservableObject {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
         var accumulatedSize: UInt64 = 0
         for path in paths {
-            let file = "tiles/z\(path.z)x\(path.x)y\(path.y).png"
+            let file = "\(currentLayer?.rawValue ?? Layer.ign25.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
             let url = documentsDirectory.appendingPathComponent(file)
             accumulatedSize += (try? url.regularFileAllocatedSize()) ?? 0
         }

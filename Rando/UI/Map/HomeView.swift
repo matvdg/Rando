@@ -23,7 +23,7 @@ struct HomeView: View {
         ZStack {
             
             OldMapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails)
-                .edgesIgnoringSafeArea(.top)
+                .edgesIgnoringSafeArea(.all)
                 .accentColor(.grblue)
             
             VStack(alignment: .trailing) {
@@ -43,7 +43,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                InfoView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+                LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                     .offset(y: isInfoDisplayed ? 10 : 500)
             }
             
