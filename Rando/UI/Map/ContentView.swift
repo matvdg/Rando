@@ -8,10 +8,12 @@
 
 import SwiftUI
 import MapKit
+import HidableTabView
 
 struct ContentView: View {
     
     @State private var selection = 0
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
         ZStack {
@@ -42,6 +44,12 @@ struct ContentView: View {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        }
+        
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                UITabBar.toogleTabBarVisibility()
+            }
         }
     }
         

@@ -46,6 +46,7 @@
 		F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724924E7F6F500F98918 /* NetworkManager.swift */; };
 		F61E421E29D4203A008D4275 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E421D29D4203A008D4275 /* MapView.swift */; };
 		F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F639047A24DC8E58005B4FC1 /* GridStack.swift */; };
+		F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */ = {isa = PBXBuildFile; productRef = F658C2D52A1CFEF200979723 /* HidableTabView */; };
 		F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */; };
 		F67BAEBF24E6FE5300AC8A9F /* TourRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */; };
 		F67BAEC124E705B100AC8A9F /* TourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC024E705B100AC8A9F /* TourView.swift */; };
@@ -174,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */,
+				F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */,
 				F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */,
 				F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */,
 			);
@@ -454,6 +456,7 @@
 				D039506424B6097800C31D34 /* SwiftUICharts */,
 				F6AEA1E924D83DBA007509C1 /* Surge */,
 				F69B110B2A1924EE006D3EA0 /* GPXKit */,
+				F658C2D52A1CFEF200979723 /* HidableTabView */,
 			);
 			productName = GR10;
 			productReference = D063478F245D768B003BA9E7 /* Rando.app */;
@@ -489,6 +492,7 @@
 				D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */,
 				F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */,
 				F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */,
+				F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */,
 			);
 			productRefGroup = D0634790245D768B003BA9E7 /* Products */;
 			projectDirPath = "";
@@ -830,6 +834,14 @@
 				minimumVersion = 1.5.3;
 			};
 		};
+		F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliMert/HidableTabView-SwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mmllr/GPXKit";
@@ -853,6 +865,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		F658C2D52A1CFEF200979723 /* HidableTabView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */;
+			productName = HidableTabView;
 		};
 		F69B110B2A1924EE006D3EA0 /* GPXKit */ = {
 			isa = XCSwiftPackageProductDependency;

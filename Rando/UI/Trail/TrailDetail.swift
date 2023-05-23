@@ -134,7 +134,7 @@ struct TrailDetail: View {
                 }
             )
         }
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.horizontal)
         .onAppear {
             TrailManager.shared.addMissingDepartment(trail: self.trail)
         }

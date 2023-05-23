@@ -71,13 +71,11 @@ struct PoiDetail: View {
                         .foregroundColor(.text)
                         .padding(.trailing, 8)
                 }
-                
+                .padding()
             }
-            .padding()
             
-            Spacer()
         }
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.horizontal)
         .navigationBarTitle(Text(poi.name))
     }
 }

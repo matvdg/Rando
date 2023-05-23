@@ -32,7 +32,7 @@ struct HomeView: View {
                     Spacer()
                     MapControl(tracking: $selectedTracking, isInfoDisplayed: $isInfoDisplayed)
                         .padding(.trailing, 8)
-                        .padding(.top, 16)
+                        .padding(.top, 70)
                 }
                 
                 Spacer()
@@ -52,7 +52,7 @@ struct HomeView: View {
                 Spacer()
                 
                 InfoPoiView(poi: $selectedPoi)
-                    .offset(y: isInfoPoiDisplayed ? 10 : 500)                
+                    .offset(y: isInfoPoiDisplayed ? 10 : 500)
             }
             
         }

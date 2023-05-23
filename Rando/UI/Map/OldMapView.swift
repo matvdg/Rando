@@ -239,17 +239,11 @@ struct OldMapView: UIViewRepresentable {
         mapView.showsUserLocation = true
         mapView.showsScale = true
         mapView.isPitchEnabled = true
+        mapView.showsCompass = true // Remove default
         mapView.addAnnotations(annotations)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             mapView.addOverlays(self.trails.map { $0.polyline }, level: .aboveLabels)
         }
-        // Custom compass
-        #if !targetEnvironment(macCatalyst)
-        mapView.showsCompass = false // Remove default
-        let compass = MKCompassButton(mapView: mapView)
-        compass.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.width - 53, y: compassY), size: CGSize(width: 45, height: 45))
-        mapView.addSubview(compass)
-        #endif
     }
     
     private func setTracking(mapView: MKMapView, headingView: UIImageView?) {
