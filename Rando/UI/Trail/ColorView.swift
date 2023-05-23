@@ -14,14 +14,14 @@ struct ColorView: View {
     
     @ObservedObject var trail: Trail
     
-    var colors: [[Color]] = [[.grblue, .grgreen, .red],[.orange, .black, .white],[.purple, .gray, .yellow]]
+    var colors: [[Color]] = [[.grblue, .grgreen, .red],[.orange, .black, .white],[.purple, .gray, .yellow], [.green, .blue, .cyan], [.brown, .indigo, .pink]]
     
     var body: some View {
         
         Button(action: {
             Feedback.selected()
         }) {
-            GridStack(rows: 3, columns: 3) { row, column in
+            GridStack(rows: 5, columns: 3) { row, column in
                 Button(action: {
                     self.trail.color = self.colors[row][column]
                     TrailManager.shared.save(trail: self.trail)
