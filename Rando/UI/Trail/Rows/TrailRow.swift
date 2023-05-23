@@ -16,7 +16,7 @@ struct TrailRow: View {
         
         HStack {
             
-            TrailPreview(points: trail.locationsPreview)
+            TrailPreview(color: trail.color, points: trail.locationsPreview)
                 .frame(width: 80, height: 80)
             
             VStack(alignment: .leading, spacing: 10) {

@@ -23,7 +23,7 @@ struct TilesRow: View {
         Button(action: {
             if self.tileManager.status == .download {
                 Feedback.selected()
-                self.tileManager.download(boundingBox: self.boundingBox, name: self.name, layer: currentLayer ?? .ign25)
+                self.tileManager.download(boundingBox: self.boundingBox, name: self.name, layer: UserDefaults.currentLayer)
             }
         }) {
             HStack(spacing: 15) {
@@ -35,10 +35,10 @@ struct TilesRow: View {
                 }
                 VStack(alignment: .leading) {
                     if tileManager.status == .download {
-                        Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: currentLayer ?? .ign25).toBytes))")
+                        Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: UserDefaults.currentLayer).toBytes))")
                             .font(.headline)
                     } else if tileManager.status == .downloading {
-                        Text("\("Downloading".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: currentLayer ?? .ign25).toBytes) \("Left".localized))")
+                        Text("\("Downloading".localized) (\(tileManager.getEstimatedDownloadSize(for: boundingBox, layer: UserDefaults.currentLayer).toBytes) \("Left".localized))")
                         .font(.headline)
                     } else {
                         Text("Downloaded".localized)
@@ -55,7 +55,7 @@ struct TilesRow: View {
                 self.otherDownloadInProgress = true
                 return
             }
-            self.tileManager.status = self.tileManager.hasBeenDownloaded(for: self.boundingBox, layer: currentLayer ?? .ign25) ? .downloaded : .download
+            self.tileManager.status = self.tileManager.hasBeenDownloaded(for: self.boundingBox, layer: UserDefaults.currentLayer) ? .downloaded : .download
         }
     }
 }

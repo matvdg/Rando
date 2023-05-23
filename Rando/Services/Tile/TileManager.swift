@@ -40,7 +40,7 @@ class TileManager: ObservableObject {
         let paths = self.computeTileOverlayPaths(boundingBox: boundingBox)
         var accumulatedSize: UInt64 = 0
         for path in paths {
-            let file = "\(currentLayer?.rawValue ?? Layer.ign25.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
+            let file = "\(UserDefaults.currentLayer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
             let url = documentsDirectory.appendingPathComponent(file)
             accumulatedSize += (try? url.regularFileAllocatedSize()) ?? 0
         }

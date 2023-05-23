@@ -43,6 +43,7 @@ struct LayerView: View {
                         ForEach(Layer.allCases) { layer in
                             Button {
                                 selectedLayer = layer
+                                Feedback.selected()
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10, style: .continuous).fill(layer == selectedLayer ? .blue : .clear)
@@ -73,7 +74,7 @@ struct LayerView: View {
 
 // MARK: Previews
 struct InfoView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign25
+    @State static var selectedLayer: Layer = UserDefaults.currentLayer
     @State static var isInfoDisplayed = true
     @State static var isOffline = false
     static var previews: some View {

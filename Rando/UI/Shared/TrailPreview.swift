@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TrailPreview: View {
     
+    var color: Color
     var points: [CGPoint]
     var body: some View {
         Path { path in
@@ -18,12 +19,12 @@ struct TrailPreview: View {
                 path.addLine(to: $0)
             }
         }
-        .stroke(Color.tintColor, lineWidth: 1)
+        .stroke(color, lineWidth: 1)
     }
 }
 
 struct TrailPreview_Previews: PreviewProvider {
     static var previews: some View {
-        TrailPreview(points: [CGPoint(x: 1, y: 1), CGPoint(x: 10, y: 1), CGPoint(x: 1, y: 10)])
+        TrailPreview(color: .red, points: [CGPoint(x: 1, y: 1), CGPoint(x: 10, y: 1), CGPoint(x: 1, y: 10)])
     }
 }

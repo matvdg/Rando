@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State var selectedTracking: Tracking = .bounding
-    @State var selectedLayer: Layer = .ign25
+    @State var selectedLayer: Layer = UserDefaults.currentLayer
     @State var isInfoDisplayed: Bool = false
     @State var selectedPoi: Poi?
     @State var trails = TrailManager.shared.currentTrails

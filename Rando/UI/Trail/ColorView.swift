@@ -25,7 +25,6 @@ struct ColorView: View {
                 Button(action: {
                     self.trail.color = self.colors[row][column]
                     TrailManager.shared.save(trail: self.trail)
-                    currentLayer = nil
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Circle()

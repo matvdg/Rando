@@ -28,4 +28,13 @@ extension UserDefaults {
         UserDefaults.standard.set(newValue, forKey: "isOffline")
       }
     }
+    
+    static var currentLayer: Layer {
+      get {
+          Layer(rawValue: UserDefaults.standard.string(forKey: "layer") ?? "ign25") ?? .ign25
+      }
+      set {
+          UserDefaults.standard.set(newValue.rawValue, forKey: "layer")
+      }
+    }
 }

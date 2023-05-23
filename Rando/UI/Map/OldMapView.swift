@@ -10,7 +10,6 @@ import SwiftUI
 import UIKit
 import MapKit
 
-var currentLayer: Layer?
 var selectedAnnotation: PoiAnnotation?
 var mapChangedFromUserInteraction = false
 var isPlayingTour = false
@@ -42,7 +41,7 @@ struct OldMapView: UIViewRepresentable {
     init(trail: Trail) {
         self.init(
             selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: Binding<Layer>.constant(.ign25),
+            selectedLayer: Binding<Layer>.constant(UserDefaults.currentLayer),
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
@@ -54,7 +53,7 @@ struct OldMapView: UIViewRepresentable {
     init(poi: Poi) {
         self.init(
             selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: Binding<Layer>.constant(.ign25),
+            selectedLayer: Binding<Layer>.constant(UserDefaults.currentLayer),
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
@@ -150,7 +149,7 @@ struct OldMapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-            guard !isPlayingTour, parent.selectedLayer == .ign25 else { return }
+            guard !isPlayingTour else { return }
             // Max zoom check
             let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
             var span = mapView.region.span
@@ -216,7 +215,6 @@ struct OldMapView: UIViewRepresentable {
     
     // MARK: UIViewRepresentable lifecycle methods
     func makeUIView(context: Context) -> MKMapView {
-        currentLayer = nil
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
         self.configureMap(mapView: mapView)
@@ -280,9 +278,7 @@ struct OldMapView: UIViewRepresentable {
     }
     
     private func setOverlays(mapView: MKMapView) {
-        // Avoid refreshing UI if selectedLayer has not changed
-        guard currentLayer != selectedLayer else { return }
-        currentLayer = selectedLayer
+        UserDefaults.currentLayer = selectedLayer
         mapView.removeOverlays(mapView.overlays)
         switch selectedLayer {
         case .satellite:

@@ -44,11 +44,16 @@ struct ContentView: View {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+            UITabBar.showTabBar(animated: false)
         }
         
-        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { orientation in
             if UIDevice.current.userInterfaceIdiom == .phone {
-                UITabBar.toogleTabBarVisibility()
+                if UIDevice.current.orientation == .portrait {
+                    UITabBar.showTabBar(animated: false)
+                } else {
+                    UITabBar.hideTabBar(animated: false)
+                }
             }
         }
     }
