@@ -22,6 +22,11 @@ extension Color {
     static var background: Color { Color("background") }
     
     var code: Int {
+        /*[.grblue, .grgreen, .red],
+         [.orange, .black, .white],
+         [.purple, .gray, .yellow],
+         [.green, .blue, .cyan],
+         [.brown, .indigo, .pink]*/
         switch self {
         case .grblue: return 0
         case .grgreen: return 1
@@ -31,23 +36,18 @@ extension Color {
         case .white: return 5
         case .purple: return 6
         case .gray: return 7
-        default: return 8
+        case .yellow: return 8
+        case .green: return 9
+        case .blue: return 10
+        case .cyan: return 11
+        case .brown: return 12
+        case .indigo: return 13
+        case .pink: return 14
+        default: return 15
         }
     }
     
-    var uiColor: UIColor {
-        switch self {
-        case .grblue: return .grblue
-        case .grgreen: return .grgreen
-        case .red: return .red
-        case .orange: return .orange
-        case .black: return .black
-        case .white: return .white
-        case .purple: return .purple
-        case .gray: return .gray
-        default: return .yellow
-        }
-    }
+    var uiColor: UIColor { UIColor(self) }
     
 }
 
@@ -62,7 +62,14 @@ extension Int {
         case 5: return .white
         case 6: return .purple
         case 7: return .gray
-        default: return .yellow
+        case 8: return .yellow
+        case 9: return .green
+        case 10: return .blue
+        case 11: return .cyan
+        case 12: return .brown
+        case 13: return .indigo
+        case 14: return .pink
+        default: return .mint
         }
     }
 }

@@ -14,7 +14,13 @@ struct ColorView: View {
     
     @ObservedObject var trail: Trail
     
-    var colors: [[Color]] = [[.grblue, .grgreen, .red],[.orange, .black, .white],[.purple, .gray, .yellow], [.green, .blue, .cyan], [.brown, .indigo, .pink]]
+    var colors: [[Color]] = [
+        [.grblue, .grgreen, .red],
+        [.orange, .black, .white],
+        [.purple, .gray, .yellow],
+        [.green, .blue, .cyan],
+        [.brown, .indigo, .pink]
+    ]
     
     var body: some View {
         
@@ -28,11 +34,11 @@ struct ColorView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Circle()
-                    .foregroundColor(self.colors[row][column])
+                        .foregroundColor(self.colors[row][column])
                         .shadow(color: .text, radius: 1, x: 0, y: 1)
                 }
             }
-        .padding(20)
+            .padding(20)
         }
         .navigationBarTitle(Text("Color".localized))
     }
