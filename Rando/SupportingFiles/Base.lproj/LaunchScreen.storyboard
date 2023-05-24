@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,51 +14,48 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-Vq-ho9">
-                                <rect key="frame" x="0.0" y="428" width="414" height="40"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GR10" translatesAutoresizingMaskIntoConstraints="NO" id="fOB-Dw-bxF">
-                                        <rect key="frame" x="107" y="-80" width="200" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="KJl-jO-hnN"/>
-                                            <constraint firstAttribute="height" constant="200" id="ieE-Ch-kSM"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain_sil" translatesAutoresizingMaskIntoConstraints="NO" id="fOB-Dw-bxF">
+                                <rect key="frame" x="-50" y="486" width="514" height="300"/>
+                                <color key="tintColor" red="0.15686275059999999" green="0.2901961207" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="HkJ-O0-DDY"/>
-                                    <constraint firstItem="fOB-Dw-bxF" firstAttribute="centerX" secondItem="DxS-Vq-ho9" secondAttribute="centerX" id="Npu-zj-Jck"/>
-                                    <constraint firstItem="fOB-Dw-bxF" firstAttribute="centerY" secondItem="DxS-Vq-ho9" secondAttribute="centerY" id="zeq-XL-Yr3"/>
+                                    <constraint firstAttribute="height" constant="300" id="ieE-Ch-kSM"/>
                                 </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rando" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdG-eb-i7u">
-                                <rect key="frame" x="152.66666666666666" y="227.66666666666666" width="108.99999999999997" height="40.999999999999972"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="34"/>
-                                <color key="textColor" name="tintColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pyrénées" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJo-Cl-Uk3">
-                                <rect key="frame" x="154" y="262" width="106" height="32"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="27"/>
-                                <color key="textColor" name="tintColor"/>
+                                <rect key="frame" x="110.66666666666669" y="198" width="193" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="50"/>
+                                <color key="textColor" red="0.15686275059999999" green="0.2901961207" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rando" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GdG-eb-i7u">
+                                <rect key="frame" x="111" y="131.66666666666663" width="192" height="73.000000000000028"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="61"/>
+                                <color key="textColor" red="0.21568627450980393" green="0.33725490196078434" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GR10" translatesAutoresizingMaskIntoConstraints="NO" id="HH4-KO-GX7">
+                                <rect key="frame" x="107" y="268" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="lqJ-13-Iqx"/>
+                                    <constraint firstAttribute="width" constant="200" id="rS8-0G-iNR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GdG-eb-i7u" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-200" id="27S-QG-7qr"/>
-                            <constraint firstItem="DxS-Vq-ho9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3jS-rK-Zd6"/>
+                            <constraint firstItem="fOB-Dw-bxF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-50" id="5c3-CI-xMx"/>
                             <constraint firstItem="PJo-Cl-Uk3" firstAttribute="centerX" secondItem="GdG-eb-i7u" secondAttribute="centerX" id="6TT-qc-4ke"/>
                             <constraint firstItem="PJo-Cl-Uk3" firstAttribute="top" secondItem="GdG-eb-i7u" secondAttribute="bottom" constant="-6.5" id="ISq-sM-5gi"/>
+                            <constraint firstItem="HH4-KO-GX7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="PYA-BS-gKr"/>
+                            <constraint firstItem="fOB-Dw-bxF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="50" id="Uh8-7u-3Yc"/>
                             <constraint firstItem="GdG-eb-i7u" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="a2p-3u-zna"/>
-                            <constraint firstItem="DxS-Vq-ho9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iDC-uj-qe7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DxS-Vq-ho9" secondAttribute="trailing" id="x7N-T4-PRP"/>
+                            <constraint firstAttribute="bottom" secondItem="fOB-Dw-bxF" secondAttribute="bottom" constant="-50" id="kji-1A-vUo"/>
+                            <constraint firstItem="HH4-KO-GX7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rMi-72-z52"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -71,9 +67,7 @@
     </scenes>
     <resources>
         <image name="GR10" width="808" height="798"/>
-        <namedColor name="tintColor">
-            <color red="0.15999999642372131" green="0.31600001454353333" blue="0.67900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="mountain_sil" width="2471" height="1054"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

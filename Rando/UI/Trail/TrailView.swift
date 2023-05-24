@@ -92,7 +92,7 @@ struct TrailView: View {
                             }
                         }
                         .onDelete(perform: removeRows)
-                        .listRowBackground(Color.clear)
+                        .accentColor(.tintColor)
                     }
                 }
                 VStack(alignment: .leading) {
@@ -119,7 +119,7 @@ struct TrailView: View {
                     }
             })
             
-        }
+        }.accentColor(.tintColor)
     }
     
 }

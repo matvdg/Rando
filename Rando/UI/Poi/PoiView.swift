@@ -50,11 +50,11 @@ struct PoiView: View {
                     PoiRow(poi: poi)
                 }
             }
-            .listRowBackground(Color.clear)
         }
-        
+
       }
       .navigationBarTitle(Text("Steps".localized), displayMode: .inline)
+      .accentColor(.tintColor)
     }
     
   }

@@ -26,11 +26,13 @@ struct TrailRow: View {
                         .foregroundColor(trail.isDisplayed ? .tintColor : .lightgray)
                     Text(trail.name)
                         .font(.headline)
+                        .foregroundColor(.lightgrayInverted)
                 }
                 
                 
                 Text("\(trail.distance.toString) - \(trail.positiveElevation.toStringMeters)")
                 .font(.subheadline)
+                .foregroundColor(.lightgrayInverted)
                 .minimumScaleFactor(0.5)
                 .lineLimit(1)
                 

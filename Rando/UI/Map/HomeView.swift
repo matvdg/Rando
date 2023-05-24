@@ -24,7 +24,6 @@ struct HomeView: View {
             
             OldMapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails)
                 .edgesIgnoringSafeArea(.all)
-                .accentColor(.grblue)
             
             VStack(alignment: .trailing) {
                 

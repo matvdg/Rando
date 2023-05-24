@@ -62,7 +62,6 @@ class TrailManager: ObservableObject {
         }
     }
     
-    
     func doSomethingWith(_ track: GPXTrack) {
         let formatter = MeasurementFormatter()
         formatter.unitStyle = .short

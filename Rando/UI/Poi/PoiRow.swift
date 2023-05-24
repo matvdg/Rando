@@ -22,6 +22,7 @@ struct PoiRow: View {
       VStack(alignment: .leading, spacing: 10) {
         Text(poi.name)
           .font(.headline)
+          .foregroundColor(.lightgrayInverted)
         
         HStack(spacing: 8) {
           HStack(alignment: .bottom, spacing: 4) {
@@ -33,6 +34,8 @@ struct PoiRow: View {
         .font(.subheadline)
         .minimumScaleFactor(0.5)
         .lineLimit(1)
+        .foregroundColor(.lightgrayInverted)
+
       }
       
       Spacer()

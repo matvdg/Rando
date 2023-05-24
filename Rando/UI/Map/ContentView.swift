@@ -35,7 +35,7 @@ struct ContentView: View {
                     .tag(2)
             }
         }
-        .accentColor(Color.tintColor)
+        .accentColor(Color.tintColorTabBar)
         .onAppear {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithOpaqueBackground()
