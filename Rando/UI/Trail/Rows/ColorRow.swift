@@ -20,7 +20,7 @@ struct ColorRow: View {
                 Text("Color".localized)
                     .font(.headline)
             }
-        }.accentColor(.tintColor)
+        }.accentColor(.tintColorTabBar)
         
     }
 }

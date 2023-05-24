@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State var selectedTracking: Tracking = .bounding
-    @State var selectedLayer: Layer = UserDefaults.currentLayer
+    @Binding var selectedLayer: Layer
     @State var isInfoDisplayed: Bool = false
     @State var selectedPoi: Poi?
     @State var trails = TrailManager.shared.currentTrails
@@ -70,8 +70,9 @@ struct HomeView: View {
 
 // MARK: Previews
 struct HomeView_Previews: PreviewProvider {
+    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        HomeView()
+        HomeView(selectedLayer: $selectedLayer)
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)

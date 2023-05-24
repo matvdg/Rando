@@ -20,7 +20,7 @@ struct TourRow: View {
                 Text("3D".localized)
                     .font(.headline)
             }
-        }.accentColor(.tintColor)
+        }.accentColor(.tintColorTabBar)
         
     }
 }

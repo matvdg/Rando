@@ -14,6 +14,9 @@ enum Layer: String, CaseIterable, Equatable, Identifiable {
 
     var localized: String { self.rawValue.localized }
     
+    /// Only layers we can actually download (MKTileOverlay),  (Maps currentType standard, hybrid, flyover are not  overlays)
+    static var onlyOverlaysLayers: [Layer] { [.ign25, .openTopoMap, .ign, .openStreetMap] }
+    
     /// Default rawValue to actually download some tiles (Maps is not an overlay)
     var fallbackLayer: Layer {
         switch self {

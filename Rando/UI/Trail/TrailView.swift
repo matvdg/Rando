@@ -23,6 +23,7 @@ struct TrailView: View {
     @State var onlyFavs: Bool = false
     @State var showFilter: Bool = false
     @State var department: String = "all".localized
+    @Binding var selectedLayer: Layer
     
     private var isFiltered: Bool {
         department != "all".localized || onlyDisplayed || onlyFavs
@@ -87,7 +88,7 @@ struct TrailView: View {
                     
                     List {
                         ForEach(sortedTrails) { trail in
-                            NavigationLink(destination: TrailDetail(trail: trail)) {
+                            NavigationLink(destination: TrailDetail(trail: trail, selectedLayer: $selectedLayer)) {
                                 TrailRow(trail: trail)
                             }
                         }
@@ -126,8 +127,9 @@ struct TrailView: View {
 
 // MARK: Previews
 struct TrailView_Previews: PreviewProvider {
+    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        TrailView()
+        TrailView(selectedLayer: $selectedLayer)
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)

@@ -54,6 +54,7 @@
 		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
 		F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */ = {isa = PBXBuildFile; productRef = F69B110B2A1924EE006D3EA0 /* GPXKit */; };
 		F6A5816F24D46B7A0030F457 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5816E24D46B7A0030F457 /* Array.swift */; };
+		F6AB729A2A1E42770017C8AB /* MapSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */; };
 		F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */ = {isa = PBXBuildFile; productRef = F6AEA1E924D83DBA007509C1 /* Surge */; };
 		F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */; };
 		F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */; };
@@ -136,6 +137,7 @@
 		F67BAEC224E7469300AC8A9F /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		F6979BA024D4523D00228A0C /* CLGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoder.swift; sourceTree = "<group>"; };
 		F6A5816E24D46B7A0030F457 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSettingsRow.swift; sourceTree = "<group>"; };
 		F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailPreview.swift; sourceTree = "<group>"; };
 		F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRow.swift; sourceTree = "<group>"; };
 		F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				D08AB2672465BAAD00793417 /* TrailRow.swift */,
 				F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */,
 				F6DB543C24DC6543002EABDE /* ColorRow.swift */,
+				F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */,
 				F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */,
 				F6F0702F24D4780300EEE183 /* ItineraryRow.swift */,
 				F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */,
@@ -548,6 +551,7 @@
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				F6FE98A824C05047007D5D85 /* FilterView.swift in Sources */,
+				F6AB729A2A1E42770017C8AB /* MapSettingsRow.swift in Sources */,
 				F6A5816F24D46B7A0030F457 /* Array.swift in Sources */,
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
 				D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */,

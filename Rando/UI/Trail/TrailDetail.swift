@@ -12,13 +12,14 @@ import SwiftUICharts
 struct TrailDetail: View {
     
     @ObservedObject var trail: Trail
+    @Binding var selectedLayer: Layer
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
                 
-                NavigationLink(destination: OldMapView(trail: trail)) {
-                    OldMapView(trail: trail)
+                NavigationLink(destination: OldMapView(trail: trail, selectedLayer: $selectedLayer)) {
+                    OldMapView(trail: trail, selectedLayer: $selectedLayer)
                         .frame(height: 200)
                 }
                 
@@ -101,25 +102,28 @@ struct TrailDetail: View {
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     .frame(maxHeight: 100)
                     
-                    ItineraryRow(location: trail.firstLocation)
-                    
-                    TourRow(trail: trail)
-                    
-                    DisplayRow(trail: trail)
-                    
-                    ColorRow(trail: trail)
-                    
-                    TilesRow(trail: trail)
-                    
-                    DeleteRow(trail: trail)
-                    
-                    VStack {
+                    Group {
+                        ItineraryRow(location: trail.firstLocation)
+                        
+                        TourRow(trail: trail)
+                                                
+                        DisplayRow(trail: trail)
+                        
+                        ColorRow(trail: trail)
+                        
+                        MapSettingsRow(selectedLayer: $selectedLayer)
+                                            
+                        TilesRow(selectedLayer: $selectedLayer, trail: trail)
+                        
+                        DeleteRow(trail: trail)
+                        
                         LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
+                        .frame(height: 340)
                     }
-                    .frame(height: 340)
                     
                 }
                 .padding()
+                .accentColor(.tintColorTabBar)
                 
             }
             .navigationBarTitle(Text(trail.name))
@@ -139,31 +143,17 @@ struct TrailDetail: View {
             TrailManager.shared.addMissingDepartment(trail: self.trail)
         }
     }
+        
 }
 
 // MARK: Previews
 struct TrailDetail_Previews: PreviewProvider {
-    
+    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        Group {
-            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
+        TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])), selectedLayer: $selectedLayer)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
                 .previewDisplayName("iPhone SE")
                 .environment(\.colorScheme, .light)
-            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-                .environment(\.colorScheme, .light)
-            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-                .environment(\.colorScheme, .light)
-            TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])))
-                .preferredColorScheme(.dark)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-                .environment(\.colorScheme, .light)
-        }
     }
 }
 

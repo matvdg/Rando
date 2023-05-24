@@ -13,22 +13,23 @@ import HidableTabView
 struct ContentView: View {
     
     @State private var selection = 0
+    @State var selectedLayer: Layer = UserDefaults.currentLayer
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                HomeView()
+                HomeView(selectedLayer: $selectedLayer)
                     .tabItem {
                         Image(systemName: "map")
                     }
                     .tag(0)
-                TrailView()
+                TrailView(selectedLayer: $selectedLayer)
                     .tabItem {
                         Image(systemName: "point.topleft.down.curvedto.point.filled.bottomright.up")
                     }
                     .tag(1)
-                PoiView()
+                PoiView(selectedLayer: $selectedLayer)
                     .tabItem {
                         Image(systemName: "mappin.and.ellipse")
                     }
@@ -48,11 +49,12 @@ struct ContentView: View {
         }
         
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { orientation in
+            let orientation = UIDevice.current.orientation
             if UIDevice.current.userInterfaceIdiom == .phone {
-                if UIDevice.current.orientation == .portrait {
-                    UITabBar.showTabBar(animated: false)
-                } else {
+                if orientation == .landscapeLeft || orientation == .landscapeRight {
                     UITabBar.hideTabBar(animated: false)
+                } else {
+                    UITabBar.showTabBar(animated: false)
                 }
             }
         }

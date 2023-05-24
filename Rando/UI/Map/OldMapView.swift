@@ -35,10 +35,10 @@ struct OldMapView: UIViewRepresentable {
     }
     
     /// Convenience init for  TrailDetail map
-    init(trail: Trail) {
+    init(trail: Trail, selectedLayer: Binding<Layer>) {
         self.init(
             selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: Binding<Layer>.constant(UserDefaults.currentLayer),
+            selectedLayer: selectedLayer,
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
@@ -47,10 +47,10 @@ struct OldMapView: UIViewRepresentable {
     }
     
     /// Convenience init for  PoiDetail map
-    init(poi: Poi) {
+    init(poi: Poi, selectedLayer: Binding<Layer>) {
         self.init(
             selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: Binding<Layer>.constant(UserDefaults.currentLayer),
+            selectedLayer: selectedLayer,
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
@@ -287,7 +287,7 @@ struct OldMapView: UIViewRepresentable {
         case .standard:
             layerHasChanged = !(mapView.mapType == .standard)
         case .satellite:
-            layerHasChanged = !(mapView.mapType == .satellite)
+            layerHasChanged = !(mapView.mapType == .hybrid)
         case .flyover:
             layerHasChanged = !(mapView.mapType == .hybridFlyover)
         case .openStreetMap:
@@ -319,7 +319,7 @@ struct OldMapView: UIViewRepresentable {
                 overlay = IGNV2Overlay()
             }
             overlay.canReplaceMapContent = false
-            mapView.mapType = .satellite
+            mapView.mapType = .satellite // Other type underneath the overlay not used in standard/hybrid/hybridFlyover cases to track changes
             mapView.addOverlay(overlay, level: .aboveLabels)
         }
         mapView.addOverlays(polylines, level: .aboveLabels)
@@ -361,9 +361,9 @@ struct OldMapView: UIViewRepresentable {
 
 // MARK: Previews
 struct OldMapView_Previews: PreviewProvider {
-    
+    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        OldMapView(trail: Trail())
+        OldMapView(trail: Trail(), selectedLayer: $selectedLayer)
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)

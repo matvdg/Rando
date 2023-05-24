@@ -12,37 +12,48 @@ import MapKit
 struct TilesRow: View {
     
     @ObservedObject var tileManager = TileManager.shared
+    @Binding var selectedLayer: Layer
     
     var trail: Trail
+    @StateObject private var taskManager = TaskManager.shared
     
     var body: some View {
         
-        Button(action: {
-            if self.tileManager.status == .idle {
+        Button(action: { // Action only when enabled
+            if self.tileManager.state == .idle { // Download (can't be downloaded because the button is disabled in that case)
                 Feedback.selected()
-                Task {
-                    await self.tileManager.download(trail: trail)
+                taskManager.task = Task(priority: .background) {
+                    do {
+                        try await tileManager.download(trail: trail, layer: selectedLayer)
+                    } catch {
+                        print("􀌓 Download cancelled")
+                    }
                 }
+            } else { // Downloading (can't be downloading other trail because the button is disabled in that case)
+                print("􀌓 User cancelled download")
+                taskManager.task?.cancel()
+                tileManager.state = .idle
             }
         }) {
             HStack(spacing: 15) {
-                let hasBeenDownloaded = self.tileManager.hasBeenDownloaded(for: trail.boundingBox)
+                let hasBeenDownloaded = tileManager.hasBeenDownloaded(for: trail.boundingBox, layer: selectedLayer)
                 if hasBeenDownloaded { // Downloaded
                     Image(systemName: "checkmark.icloud")
                     Text("Downloaded".localized)
-                } else if tileManager.status == .downloading(id: trail.id) { // Downloading
+                } else if tileManager.state == .downloading(id: trail.id) { // Downloading
                     ProgressView(value: tileManager.progress)
-                        .progressViewStyle(CircularProgressViewStyle(tint: .grgreen))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
                     VStack(alignment: .leading) {
-                        Text("\("Downloading".localized) (\(tileManager.getEstimatedDownloadSize(for: trail.boundingBox).toBytes) \("Left".localized))")
+                        Text("\("Downloading".localized) (\(tileManager.sizeLeft) \("Left".localized))")
                             .font(.headline)
                         ProgressView(value: tileManager.progress)
-                            .progressViewStyle(LinearProgressViewStyle(tint: .grgreen))
+                            .progressViewStyle(LinearProgressViewStyle(tint: .tintColorTabBar))
                             .frame(height: 10)
                     }
-                } else if tileManager.status == .idle { // Download
+                    Image(systemName: "xmark.circle").foregroundColor(.red)
+                } else if tileManager.state == .idle { // Download
                     Image(systemName: "icloud.and.arrow.down")
-                    Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: trail.boundingBox).toBytes))")
+                    Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: trail.boundingBox, layer: selectedLayer)))")
                         .font(.headline)
                 } else { // Other downloading in progress
                     Image(systemName: "xmark.icloud")
@@ -51,16 +62,21 @@ struct TilesRow: View {
             }
         }
         .buttonStyle(MyButtonStyle())
-        .disabled(!(self.tileManager.status == .idle) || self.tileManager.hasBeenDownloaded(for: trail.boundingBox))
+        .disabled( // enabled when download or downloading
+            // disabled when other download in progress
+            tileManager.state.isDownloadingButAnotherTrail(id2: trail.id)
+            // and disabled when downloaded
+            || tileManager.hasBeenDownloaded(for: trail.boundingBox, layer: selectedLayer)
+        )
     }
 }
 
 // MARK: Previews
 struct TilesRow_Previews: PreviewProvider {
-    
+    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
         
-        TilesRow(trail: Trail())
+        TilesRow(selectedLayer: $selectedLayer, trail: Trail())
             .previewLayout(.fixed(width: 300, height: 80))
             .environment(\.colorScheme, .light)
     }
@@ -81,7 +97,7 @@ struct MyButtonStyle: ButtonStyle {
         var body: some View {
             return configuration.label
             // change the text color based on if it's disabled
-                .foregroundColor(isEnabled ? .tintColor : .grgreen)
+                .foregroundColor(isEnabled ? .tintColorTabBar : .grgreen)
             // make the button a bit more translucent when pressed
                 .opacity(configuration.isPressed ? 0.8 : 1.0)
             // make the button a bit smaller when pressed

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct PoiDetail: View {
     
+    @Binding var selectedLayer: Layer
+    
     var poi: Poi
     
     var body: some View {
@@ -17,8 +19,8 @@ struct PoiDetail: View {
         ScrollView(showsIndicators: false) {
             VStack {
                 
-                NavigationLink(destination: OldMapView(poi: poi)) {
-                    OldMapView(poi: poi)
+                NavigationLink(destination: OldMapView(poi: poi, selectedLayer: $selectedLayer)) {
+                    OldMapView(poi: poi, selectedLayer: $selectedLayer)
                         .frame(height: 150)
                 }
                 
@@ -83,8 +85,9 @@ struct PoiDetail: View {
 // MARK: Previews
 struct PoiDetail_Previews: PreviewProvider {
     @State static var clockwise = true
+    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        PoiDetail(poi: pois[7])
+        PoiDetail(selectedLayer: $selectedLayer, poi: pois[7])
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
             .previewDisplayName("iPhone SE")
             .environment(\.colorScheme, .light)
