@@ -2,6 +2,7 @@
     "id": "0F68603E-267D-41F9-AF21-A1A3235722DA",
     "name": "Pic Du Canigou",
     "department": "Pyrénées-Orientales",
+    "color":11,
     "locations": [
         {
             "altitude": 1123,

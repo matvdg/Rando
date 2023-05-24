@@ -2,6 +2,7 @@
     "id": "4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E",
     "name": "Pic de Crabère",
     "department": "Haute-Garonne",
+    "color":15,
     "locations": [
         {
             "altitude": 1053.6,

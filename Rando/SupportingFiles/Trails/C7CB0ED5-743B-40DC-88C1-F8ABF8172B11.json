@@ -2,6 +2,7 @@
     "id": "C7CB0ED5-743B-40DC-88C1-F8ABF8172B11",
     "name": "Cagateille",
     "department": "Ariège",
+    "color":10,
     "locations": [
         {
             "altitude": 1035.4,

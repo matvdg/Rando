@@ -2,6 +2,7 @@
     "id": "613AD245-A082-4FDF-8103-199F3CA71C80",
     "name": "Lac d’Espingo et lac d’Ôo",
     "department": "Haute-Garonne",
+    "color":14,
     "locations": [
         {
             "altitude": 1144.6,

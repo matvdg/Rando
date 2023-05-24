@@ -2,6 +2,7 @@
     "id": "AC87370D-6A8F-43D5-A980-95356F6ACDA9",
     "name": "Lacs Du Neouvielle",
     "department": "Hautes-Pyrénées",
+    "color":6,
     "locations": [
         {
             "altitude": 1671.55,

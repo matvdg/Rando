@@ -2,6 +2,7 @@
     "id": "C57678B0-ADD8-49CA-85EE-7C3EB5060783",
     "name": "Etangs Fontargente",
     "department": "Ariège",
+    "color":9,
     "locations": [
         {
             "altitude": 1559,
