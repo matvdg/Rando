@@ -28,7 +28,7 @@ class TileManager: ObservableObject {
     static let shared = TileManager()
     
     init() {
-        print("❤️ DocumentsDirectory = \(documentsDirectory)")
+        print("􀈝 DocumentsDirectory = \(documentsDirectory)")
         createDirectoriesIfNecessary()
     }
     
@@ -68,8 +68,9 @@ class TileManager: ObservableObject {
     
     /// Download and persist all tiles within the boundingBox
     func download(trail: Trail) async {
-        guard status == .idle else { return }
+        guard status == .idle else { return print("􀌓 Another download is in progress") }
         await NetworkManager.shared.runIfNetwork()
+        print("􀌕 Downloading \(trail.name) maps, for \(UserDefaults.currentLayer.fallbackLayer) layer")
         self.status = .downloading(id: trail.id)
         self.progress = 0.01
         let paths = self.computeTileOverlayPaths(boundingBox: trail.boundingBox)
@@ -82,6 +83,7 @@ class TileManager: ObservableObject {
             NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\((self.getDownloadedSize(for: trail.boundingBox)).toBytes))", message: "\(trail.name) \("DownloadedMessage".localized)")
             self.progress = 0
             self.status = .idle
+            print("􀢓 Downloaded \(trail.name) maps, for \(UserDefaults.currentLayer.fallbackLayer) layer")
         }
     }
     
@@ -141,7 +143,7 @@ class TileManager: ObservableObject {
             let data = try Data(contentsOf: url)
             try data.write(to: filename)
         } catch {
-            print("❤️ PersistLocallyError = \(error)")
+            print("􀌓 Tile persistLocallyError = \(error)")
         }
         return url
     }
@@ -168,7 +170,7 @@ class TileManager: ObservableObject {
             let data = try Data(contentsOf: url1)
             try data.write(to: filename)
         } catch {
-            print("❤️ PersistLocallyError = \(error)")
+            print("􀌓 Tile persistLocallyError = \(error)")
         }
         return url1
     }

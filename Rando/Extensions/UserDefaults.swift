@@ -36,7 +36,7 @@ extension UserDefaults {
       set {
           guard newValue != self.currentLayer else { return }
           UserDefaults.standard.set(newValue.rawValue, forKey: "layer")
-          print("Layer has been set to \(newValue)")
+          print("􀯮 Layer has been set to \(newValue)")
       }
     }
 }

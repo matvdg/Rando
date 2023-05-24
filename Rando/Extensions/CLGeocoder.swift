@@ -14,7 +14,7 @@ extension CLGeocoder {
     func getDepartment(from location: CLLocation, completion: @escaping (String?) -> Void) {
         self.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
             guard error == nil else {
-                print("❤️ Error = \(error!.localizedDescription)")
+                print("􀵳 CLGeocoder error = \(error!.localizedDescription)")
                 return completion(nil)
             } // No internet, retry later
             guard let code = placemarks?.first?.postalCode, placemarks?.first?.country == "France", let departmentNumber = Int(code.prefix(2)) else {

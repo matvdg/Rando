@@ -95,7 +95,7 @@ class TrailManager: ObservableObject {
             trails.array.removeAll { $0.id == id }
             self.objectWillChange.send()
         } catch {
-            print("❤️ RemoveItemError = \(error)")
+            print("􀈾 RemoveItemError = \(error)")
         }
     }
     
@@ -109,8 +109,8 @@ class TrailManager: ObservableObject {
                 return Trail(gpx: gpx)
             } catch {
                 switch error {
-                case DecodingError.keyNotFound(let key, let context): print("❤️ Error = \(error.localizedDescription), key not found = \(key), context = \(context)")
-                default: print("❤️ Error = \(error.localizedDescription)")
+                case DecodingError.keyNotFound(let key, let context): print("􀈾 Trail decodding error = \(error.localizedDescription), key not found = \(key), context = \(context)")
+                default: print("􀈾 Trail decodding error = \(error.localizedDescription)")
                 }
                 return nil
             }
@@ -147,7 +147,7 @@ class TrailManager: ObservableObject {
             let data = try JSONEncoder().encode(trail.gpx)
             try data.write(to: filename)
         } catch {
-            print("❤️ PersistLocallyError = \(error)")
+            print("􀌓 Trail persistLocallyError = \(error)")
         }
     }
     

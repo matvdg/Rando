@@ -20,7 +20,7 @@ class NotificationManager {
   // MARK: - Public methods
   func requestAuthorization() {
     center.requestAuthorization(options: [.sound, .alert]) { (didAllow, error) in
-      print("❤️ RequestAuthorization = \(didAllow) \(error?.localizedDescription ?? "")")
+      print("􀋙 RequestAuthorization = \(didAllow) \(error?.localizedDescription ?? "")")
     }
   }
   

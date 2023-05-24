@@ -25,12 +25,12 @@ class PoiManager {
     do {
       let data = try Data(contentsOf: url)
       let pois = try JSONDecoder().decode([Poi].self, from: data)
-      print("❤️ Pois = \(pois.count)")
+      print("􀎫 Pois = \(pois.count)")
       return pois
     } catch {
       switch error {
-      case DecodingError.keyNotFound(let key, let context): print("❤️ Error = \(error.localizedDescription), key not found = \(key), context = \(context)")
-      default: print("❤️ Error = \(error.localizedDescription)")
+      case DecodingError.keyNotFound(let key, let context): print("􀎫 Decoding pois error = \(error.localizedDescription), key not found = \(key), context = \(context)")
+      default: print("􀎫 Decoding pois error = \(error.localizedDescription)")
       }
       return []
     }
