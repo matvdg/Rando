@@ -169,13 +169,13 @@ struct TrailDetail_Previews: PreviewProvider {
 
 extension  Styles {
     public static var customStyle: ChartStyle {
-        let style = lineChartStyleTwo
-        style.darkModeStyle = lineViewDarkModeTwo
+        let style = lineChartStyle
+        style.darkModeStyle = darkModeStyle
         return style
     }
     
-    public static let lineChartStyleTwo = ChartStyle(
-        backgroundColor: Color.white,
+    public static let lineChartStyle = ChartStyle(
+        backgroundColor: Color.clear,
         accentColor: Colors.GradientNeonBlue,
         secondGradientColor: Colors.GradientPurple,
         textColor: Color.black,
@@ -183,8 +183,8 @@ extension  Styles {
         dropShadowColor: Color.gray)
     
     
-    public static let lineViewDarkModeTwo = ChartStyle(
-        backgroundColor: Color.black,
+    public static let darkModeStyle = ChartStyle(
+        backgroundColor: Color.clear,
         accentColor: Colors.GradientLowerBlue,
         secondGradientColor: Colors.GradientUpperBlue,
         textColor: Color.white,

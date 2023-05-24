@@ -50,7 +50,7 @@ struct PoiView: View {
                     PoiRow(poi: poi)
                 }
             }
-            .listRowBackground(Color.background)
+            .listRowBackground(Color.clear)
         }
         
       }

@@ -92,7 +92,7 @@ struct TrailView: View {
                             }
                         }
                         .onDelete(perform: removeRows)
-                        .listRowBackground(Color.background)
+                        .listRowBackground(Color.clear)
                     }
                 }
                 VStack(alignment: .leading) {
