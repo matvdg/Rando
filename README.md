@@ -1,4 +1,4 @@
-# ![Rando app icon](https://github.com/matvdg/Rando/blob/2ea9ec2c2e844f4088a109c599b87ae8a6c655fc/Rando/Assets.xcassets/AppIcon.appiconset/mountain.png) Rando Pyrénées
+# Rando Pyrénées
 
 ## Assistance
 Support or contact: [matvdg@me.com](matvdg@me.com)
