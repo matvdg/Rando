@@ -22,6 +22,8 @@
 "ign25" = "IGN  1:25 000";
 "openStreetMap" = "Open Street Map";
 "openTopoMap" = "Open Topo Map";
+"swissTopo" = "Swiss Topo";
+"ignEspaña" = "IGN España";
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";

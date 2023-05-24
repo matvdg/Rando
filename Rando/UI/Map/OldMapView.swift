@@ -294,6 +294,8 @@ struct OldMapView: UIViewRepresentable {
             layerHasChanged = !(currentTileOverlay is OpenStreetMapOverlay)
         case .openTopoMap:
             layerHasChanged = !(currentTileOverlay is OpenTopoMapOverlay)
+        case .swissTopo:
+            layerHasChanged = !(currentTileOverlay is SwissTopoMapOverlay)
         }
         let polylines = trails.map { $0.polyline }
         let polylinesHaveChanged = !currentPolylines.equals(polylines: polylines)
@@ -315,6 +317,8 @@ struct OldMapView: UIViewRepresentable {
                 overlay = OpenStreetMapOverlay()
             case .openTopoMap:
                 overlay = OpenTopoMapOverlay()
+            case .swissTopo:
+                overlay = SwissTopoMapOverlay()
             default: //ign
                 overlay = IGNV2Overlay()
             }

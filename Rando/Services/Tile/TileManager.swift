@@ -19,13 +19,17 @@ class OpenStreetMapOverlay: MKTileOverlay {
     override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .openStreetMap) }
 }
 
+class SwissTopoMapOverlay: MKTileOverlay {
+    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .swissTopo) }
+}
+
 class TaskManager: ObservableObject {
     static let shared = TaskManager()
-    @Published var task: Task<Void, Never>?
+    var downloadTilesTask: Task<Void, Never>?
 }
 
 class TileManager: ObservableObject {
-    
+        
     enum DownloadState: Equatable {
         case idle, downloading(id: UUID)
         func isDownloadingButAnotherTrail(id2: UUID) -> Bool {
@@ -112,7 +116,7 @@ class TileManager: ObservableObject {
         guard state == .idle else { return print("􀌓 Another download is in progress") }
         self.progress = 0
         await NetworkManager.shared.runIfNetwork()
-        print("􀌕 Downloading \(trail.name) maps, for \(UserDefaults.currentLayer.fallbackLayer) layer")
+        print("􀌕 Downloading \(trail.name) maps, for \(layer) layer")
         self.state = .downloading(id: trail.id)
         let filteredPaths = computeAndFilterTileOverlayPaths(for: trail.boundingBox, layer: layer)
         try Task.checkCancellation()
@@ -123,7 +127,7 @@ class TileManager: ObservableObject {
             sizeLeftInBytes -= tileSize
         }
         self.state = .idle
-        print("􀢓 Downloaded \(trail.name) maps, for \(UserDefaults.currentLayer.fallbackLayer) layer")
+        print("􀢓 Downloaded \(trail.name) maps, for \(layer) layer")
         DispatchQueue.main.async {
             NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\((self.getDownloadedSize(for: trail.boundingBox, layer: layer)).toBytes))", message: "\(trail.name) \("DownloadedMessage".localized)")
             
@@ -140,17 +144,21 @@ class TileManager: ObservableObject {
             overlay = MKTileOverlay(urlTemplate: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png")
         case .openTopoMap:
             overlay = MKTileOverlay(urlTemplate: "https://b.tile.opentopomap.org/{z}/{x}/{y}.png")
+        case .swissTopo:
+            overlay = MKTileOverlay(urlTemplate: "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg")
         default: //IGN25:
             overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}")
         }
         let url = overlay.url(forTilePath: path)
-        let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
-        let filename = documentsDirectory.appendingPathComponent(file)
-        do {
-            let data = try Data(contentsOf: url)
-            try data.write(to: filename)
-        } catch {
-            print("􀌓 Tile persistLocallyError = \(error)")
+        Task(priority: .background) {
+            let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
+            let filename = documentsDirectory.appendingPathComponent(file)
+            do {
+                let data = try Data(contentsOf: url)
+                try data.write(to: filename)
+            } catch {
+                print("􀌓 Tile persistLocallyError = \(error)")
+            }
         }
         return url
     }
@@ -182,10 +190,11 @@ class TileManager: ObservableObject {
             overlay = MKTileOverlay(urlTemplate: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png")
         case .openTopoMap:
             overlay = MKTileOverlay(urlTemplate: "https://b.tile.opentopomap.org/{z}/{x}/{y}.png")
+        case .swissTopo:
+            overlay = MKTileOverlay(urlTemplate: "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg")
         default: // IGN25
             overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}")
         }
-        // SwissTopo (removed because Rando "Pyrénées", but in case we go someday in Switzerland, I keep this link safe..."https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg")
         let url = overlay.url(forTilePath: path)
         let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
         let filename = documentsDirectory.appendingPathComponent(file)

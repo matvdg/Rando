@@ -60,7 +60,7 @@
          </EnvironmentVariable>
       </EnvironmentVariables>
       <LocationScenarioReference
-         identifier = "../../Rando/SupportingFiles/Gpx/Etang d&apos;Araing.gpx"
+         identifier = "../../Rando/SupportingFiles/Gpx/Etang de Rulhe.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>

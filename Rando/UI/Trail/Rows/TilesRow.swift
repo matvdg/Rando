@@ -15,14 +15,13 @@ struct TilesRow: View {
     @Binding var selectedLayer: Layer
     
     var trail: Trail
-    @StateObject private var taskManager = TaskManager.shared
     
     var body: some View {
         
         Button(action: { // Action only when enabled
             if self.tileManager.state == .idle { // Download (can't be downloaded because the button is disabled in that case)
                 Feedback.selected()
-                taskManager.task = Task(priority: .background) {
+                TaskManager.shared.downloadTilesTask = Task(priority: .background) {
                     do {
                         try await tileManager.download(trail: trail, layer: selectedLayer)
                     } catch {
@@ -31,7 +30,7 @@ struct TilesRow: View {
                 }
             } else { // Downloading (can't be downloading other trail because the button is disabled in that case)
                 print("􀌓 User cancelled download")
-                taskManager.task?.cancel()
+                TaskManager.shared.downloadTilesTask?.cancel()
                 tileManager.state = .idle
             }
         }) {

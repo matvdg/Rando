@@ -10,26 +10,13 @@ import SwiftUI
 
 enum Layer: String, CaseIterable, Equatable, Identifiable {
     
-    case ign25, openTopoMap, ign, openStreetMap, standard, satellite, flyover
+    case ign25, openTopoMap, ign, openStreetMap, standard, satellite, flyover, swissTopo
 
     var localized: String { self.rawValue.localized }
     
     /// Only layers we can actually download (MKTileOverlay),  (Maps currentType standard, hybrid, flyover are not  overlays)
-    static var onlyOverlaysLayers: [Layer] { [.ign25, .openTopoMap, .ign, .openStreetMap] }
+    static var onlyOverlaysLayers: [Layer] { [.ign25, .openTopoMap, .ign, .openStreetMap, .swissTopo] }
     
-    /// Default rawValue to actually download some tiles (Maps is not an overlay)
-    var fallbackLayer: Layer {
-        switch self {
-        case .ign25, .flyover, .standard, .satellite:
-            return .ign25
-        case .ign:
-            return .ign
-        case .openStreetMap:
-            return .openStreetMap
-        case .openTopoMap:
-            return .openTopoMap
-        }
-    }
     var id: Self { self }
 }
 
