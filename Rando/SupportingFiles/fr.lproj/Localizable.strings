@@ -57,7 +57,9 @@
 "Download" = "Télécharger la carte";
 "DisplayOnMap" = "Afficher le tracé sur la carte";
 "DoNotDisplayOnMap" = "Retirer le tracé de la carte";
-"Color" = "Choisir une couleur de tracé";
+"CustomPath" = "Personnaliser le tracé";
+"Color" = "Couleur du tracé";
+"Thickness" = "Épaisseur du tracé";
 "importDate" = "Ajout";
 "name" = "Nom";
 "distance" = "Distance";

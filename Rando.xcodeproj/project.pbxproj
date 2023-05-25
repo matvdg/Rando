@@ -76,8 +76,9 @@
 		F6CFD0B324BF8FE100DA224C /* PoiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */; };
 		F6CFD0B424BF8FE100DA224C /* PoiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B124BF8FE100DA224C /* PoiRow.swift */; };
 		F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B524BF90CA00DA224C /* CircleImage.swift */; };
-		F6DB543D24DC6543002EABDE /* ColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543C24DC6543002EABDE /* ColorRow.swift */; };
-		F6DB543F24DC8D20002EABDE /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543E24DC8D20002EABDE /* ColorView.swift */; };
+		F6D80BDA2A1FAE5C00DED446 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D80BDC2A1FAE5C00DED446 /* InfoPlist.strings */; };
+		F6DB543D24DC6543002EABDE /* CustomPathRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543C24DC6543002EABDE /* CustomPathRow.swift */; };
+		F6DB543F24DC8D20002EABDE /* CustomPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543E24DC8D20002EABDE /* CustomPathView.swift */; };
 		F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */; };
 		F6E830E82A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */; };
 		F6E830E92A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */; };
@@ -158,8 +159,10 @@
 		F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiDetail.swift; sourceTree = "<group>"; };
 		F6CFD0B124BF8FE100DA224C /* PoiRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiRow.swift; sourceTree = "<group>"; };
 		F6CFD0B524BF90CA00DA224C /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
-		F6DB543C24DC6543002EABDE /* ColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRow.swift; sourceTree = "<group>"; };
-		F6DB543E24DC8D20002EABDE /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		F6D80BDB2A1FAE5C00DED446 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F6D80BDD2A1FAE6200DED446 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F6DB543C24DC6543002EABDE /* CustomPathRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPathRow.swift; sourceTree = "<group>"; };
+		F6DB543E24DC8D20002EABDE /* CustomPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPathView.swift; sourceTree = "<group>"; };
 		F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "B89C418A-A8C0-4384-BB24-242524E33A7B.json"; sourceTree = "<group>"; };
 		F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json"; sourceTree = "<group>"; };
 		F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "22A1FD18-B18D-4263-859B-CD9A8336F840.json"; sourceTree = "<group>"; };
@@ -192,7 +195,7 @@
 				F6DB543B24DC651A002EABDE /* Rows */,
 				F6FE98A724C05047007D5D85 /* FilterView.swift */,
 				D039504924B4CB0600C31D34 /* DocumentView.swift */,
-				F6DB543E24DC8D20002EABDE /* ColorView.swift */,
+				F6DB543E24DC8D20002EABDE /* CustomPathView.swift */,
 				F67BAEC024E705B100AC8A9F /* TourView.swift */,
 			);
 			path = Trail;
@@ -221,6 +224,7 @@
 				D0B01A8C2460420A00EE62AD /* Rando.entitlements */,
 				F618724C24E7FB1900F98918 /* RandoRelease.entitlements */,
 				D06347A0245D768C003BA9E7 /* Info.plist */,
+				F6D80BDC2A1FAE5C00DED446 /* InfoPlist.strings */,
 				D0531A712467FD8C0020FFE0 /* Localizable.strings */,
 			);
 			path = SupportingFiles;
@@ -418,7 +422,7 @@
 			children = (
 				D08AB2672465BAAD00793417 /* TrailRow.swift */,
 				F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */,
-				F6DB543C24DC6543002EABDE /* ColorRow.swift */,
+				F6DB543C24DC6543002EABDE /* CustomPathRow.swift */,
 				F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */,
 				F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */,
 				F6F0702F24D4780300EEE183 /* ItineraryRow.swift */,
@@ -517,6 +521,7 @@
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
 				F6CFD0A324BDF08E00DA224C /* 0F68603E-267D-41F9-AF21-A1A3235722DA.json in Resources */,
 				F6CFD0AD24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json in Resources */,
+				F6D80BDA2A1FAE5C00DED446 /* InfoPlist.strings in Resources */,
 				F6CFD0A124BDF08E00DA224C /* C57678B0-ADD8-49CA-85EE-7C3EB5060783.json in Resources */,
 				F6E830E92A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json in Resources */,
 				F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */,
@@ -558,7 +563,7 @@
 				F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* OldMapView.swift in Sources */,
 				F6CFD0A724BE9EEA00DA224C /* TilesRow.swift in Sources */,
-				F6DB543F24DC8D20002EABDE /* ColorView.swift in Sources */,
+				F6DB543F24DC8D20002EABDE /* CustomPathView.swift in Sources */,
 				F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */,
 				F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
@@ -586,7 +591,7 @@
 				F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */,
 				F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */,
-				F6DB543D24DC6543002EABDE /* ColorRow.swift in Sources */,
+				F6DB543D24DC6543002EABDE /* CustomPathRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
 				D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */,
@@ -613,6 +618,15 @@
 				D0531A6C2467FD3A0020FFE0 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F6D80BDC2A1FAE5C00DED446 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D80BDB2A1FAE5C00DED446 /* en */,
+				F6D80BDD2A1FAE6200DED446 /* fr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -748,6 +762,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
@@ -780,6 +795,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";

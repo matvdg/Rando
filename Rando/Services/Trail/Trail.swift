@@ -14,7 +14,7 @@ import GPXKit
 
 class Gpx: Codable, Identifiable {
     
-    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: Int? = Int.random(in: 0...15)) {
+    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: Int? = Int.random(in: 0...15), lineWidth: CGFloat? = 1) {
         self.id = UUID()
         self.name = name
         self.locations = locations
@@ -23,6 +23,7 @@ class Gpx: Codable, Identifiable {
         self.isFav = isFav
         self.isDisplayed = isDisplayed
         self.color = color
+        self.lineWidth = lineWidth
     }
     
     // Decodable properties
@@ -34,7 +35,7 @@ class Gpx: Codable, Identifiable {
     var isFav: Bool?
     var isDisplayed: Bool?
     var color: Int?
-    
+    var lineWidth: CGFloat?
     
 }
 
@@ -47,6 +48,7 @@ class Trail: Identifiable, ObservableObject {
         self.isFav = gpx.isFav ?? false
         self.isDisplayed = gpx.isDisplayed ?? false
         self.color = (gpx.color ?? 0).color
+        self.lineWidth = gpx.lineWidth ?? 3
     }
     
     // Decodable properties
@@ -87,10 +89,17 @@ class Trail: Identifiable, ObservableObject {
         }
     }
     
+    @Published var lineWidth: CGFloat {
+        didSet {
+            gpx.lineWidth = lineWidth
+        }
+    }
+    
     var polyline: Polyline {
         let polyline = Polyline(coordinates: locations.map { $0.clLocation.coordinate }, count: locations.count)
         polyline.color = color.uiColor
         polyline.id = id
+        polyline.lineWidth = lineWidth
         return polyline
     }
     
@@ -240,11 +249,14 @@ public struct Location: Codable {
 }
 
 class Polyline: MKPolyline {
+    
     var color: UIColor?
     var id: UUID?
+    var lineWidth: CGFloat?
     
     func isEqual(polyline: Polyline) -> Bool {
-        guard let id1 = self.id, let id2 = polyline.id, let color1 = self.color, let color2 = polyline.color else { return false}
-        return id1 == id2 && color1 == color2
+        guard let id1 = self.id, let id2 = polyline.id, let color1 = self.color, let color2 = polyline.color, let lineWidth1 = self.lineWidth, let lineWidth2 = polyline.lineWidth else { return false }
+        return id1 == id2 && color1 == color2 && lineWidth1 == lineWidth2
     }
+    
 }

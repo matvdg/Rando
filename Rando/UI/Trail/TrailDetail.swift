@@ -109,7 +109,7 @@ struct TrailDetail: View {
                                                 
                         DisplayRow(trail: trail)
                         
-                        ColorRow(trail: trail)
+                        CustomPathRow(trail: trail)
                         
                         MapSettingsRow(selectedLayer: $selectedLayer)
                                             

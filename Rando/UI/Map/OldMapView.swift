@@ -115,7 +115,7 @@ struct OldMapView: UIViewRepresentable {
             case let polyline as Polyline:
                 let polylineRenderer = MKPolylineRenderer(overlay: overlay)
                 polylineRenderer.strokeColor = polyline.color ?? .grblue
-                polylineRenderer.lineWidth = 3
+                polylineRenderer.lineWidth = polyline.lineWidth ?? 3
                 return polylineRenderer
             default: return MKOverlayRenderer()
             }
@@ -142,15 +142,11 @@ struct OldMapView: UIViewRepresentable {
                     if let view = view {
                         view.annotation = annotation
                     } else {
-                        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                        view = MKUserLocationView(annotation: annotation, reuseIdentifier: identifier)
                     }
-                    if let view = view as? MKMarkerAnnotationView {
-                        view.glyphImage = UIImage(systemName: "figure.hiking")!
-                        view.markerTintColor = UIColor.grblue
+                    if let view = view as? MKUserLocationView {
                         view.canShowCallout = true
-                        view.titleVisibility = .hidden
-                        let label = UILabel()
-                        view.detailCalloutAccessoryView = label
+                        view.detailCalloutAccessoryView = UILabel()
                     }
                     return view
             } else {

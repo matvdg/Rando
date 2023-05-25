@@ -24,8 +24,10 @@
 	<string>public.app-category.travel</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationUsageDescription</key>
+	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Rando needs your GPS position to show your position on the map</string>
+	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

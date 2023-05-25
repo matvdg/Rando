@@ -1,23 +1,23 @@
 //
-//  ColorRow.swift
+//  CustomPathRow.swift
 //  Rando
 //
-//  Created by Mathieu Vandeginste on 6/08/2020.
-//  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
+//  Created by Mathieu Vandeginste on 5/25/2023.
+//  Copyright © 2023 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
 
-struct ColorRow: View {
+struct CustomPathRow: View {
     
     @ObservedObject var trail: Trail
     
     var body: some View {
         
-        NavigationLink(destination: ColorView(trail: trail)) {
+        NavigationLink(destination: CustomPathView(trail: trail)) {
             HStack(spacing: 10) {
                 Image(systemName: "eyedropper")
-                Text("Color".localized)
+                Text("CustomPath".localized)
                     .font(.headline)
             }
         }.accentColor(.tintColorTabBar)
@@ -30,7 +30,7 @@ struct ColorRow_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        ColorRow(trail: Trail())
+        CustomPathRow(trail: Trail())
             .previewLayout(.fixed(width: 300, height: 80))
             .environment(\.colorScheme, .light)
     }

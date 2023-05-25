@@ -55,7 +55,9 @@
 "Download" = "Download maps";
 "DisplayOnMap" = "Display the trail on the map";
 "DoNotDisplayOnMap" = "Remove the trail from the map";
-"Color" = "Pick a path color";
+"CustomPath" = "Customize the path";
+"Color" = "Path color";
+"Thickness" = "Path thickness";
 "importDate" = "Import";
 "name" = "Name";
 "distance" = "Distance";
