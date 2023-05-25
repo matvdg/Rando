@@ -105,7 +105,7 @@ struct OldMapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-            mapView.userLocation.subtitle = "Alt. \(Int(parent.locationManager.currentPosition.altitude))m"
+            mapView.userLocation.title = "Alt. \(Int(parent.locationManager.currentPosition.altitude))m"
         }
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -122,20 +122,40 @@ struct OldMapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            guard let annotation = annotation as? PoiAnnotation else { return nil }
-            let identifier = "Annotation"
-            var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            if let view = view {
-                view.annotation = annotation
+            if let annotation = annotation as? PoiAnnotation {
+                let identifier = "Annotation"
+                var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                if let view = view {
+                    view.annotation = annotation
+                } else {
+                    view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    view?.canShowCallout = true
+                }
+                if let view = view as? MKMarkerAnnotationView {
+                    view.glyphImage = annotation.markerGlyph
+                    view.markerTintColor = annotation.markerColor
+                }
+                return view
+            } else if let annotation = annotation as? MKUserLocation {
+                    let identifier = "User"
+                    var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                    if let view = view {
+                        view.annotation = annotation
+                    } else {
+                        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    }
+                    if let view = view as? MKMarkerAnnotationView {
+                        view.glyphImage = UIImage(systemName: "figure.hiking")!
+                        view.markerTintColor = UIColor.grblue
+                        view.canShowCallout = true
+                        view.titleVisibility = .hidden
+                        let label = UILabel()
+                        view.detailCalloutAccessoryView = label
+                    }
+                    return view
             } else {
-                view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view?.canShowCallout = true
+                return nil
             }
-            if let view = view as? MKMarkerAnnotationView {
-                view.glyphImage = annotation.markerGlyph
-                view.markerTintColor = annotation.markerColor
-            }
-            return view
         }
         
         func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
