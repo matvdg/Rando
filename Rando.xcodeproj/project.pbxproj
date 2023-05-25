@@ -55,7 +55,6 @@
 		F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */ = {isa = PBXBuildFile; productRef = F69B110B2A1924EE006D3EA0 /* GPXKit */; };
 		F6A5816F24D46B7A0030F457 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5816E24D46B7A0030F457 /* Array.swift */; };
 		F6AB729A2A1E42770017C8AB /* MapSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */; };
-		F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */ = {isa = PBXBuildFile; productRef = F6AEA1E924D83DBA007509C1 /* Surge */; };
 		F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */; };
 		F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */; };
 		F6CAAF3B24BC91DB006F991A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */; };
@@ -179,7 +178,6 @@
 			files = (
 				D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */,
 				F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */,
-				F6AEA1EA24D83DBA007509C1 /* Surge in Frameworks */,
 				F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +456,6 @@
 			name = Rando;
 			packageProductDependencies = (
 				D039506424B6097800C31D34 /* SwiftUICharts */,
-				F6AEA1E924D83DBA007509C1 /* Surge */,
 				F69B110B2A1924EE006D3EA0 /* GPXKit */,
 				F658C2D52A1CFEF200979723 /* HidableTabView */,
 			);
@@ -494,7 +491,6 @@
 			mainGroup = D0634786245D768B003BA9E7;
 			packageReferences = (
 				D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */,
-				F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */,
 				F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */,
 				F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */,
 			);
@@ -758,7 +754,7 @@
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/Rando.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				ENABLE_PREVIEWS = YES;
@@ -791,7 +787,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				ENABLE_PREVIEWS = YES;
@@ -865,14 +861,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Jounce/Surge.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.3.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -890,11 +878,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */;
 			productName = GPXKit;
-		};
-		F6AEA1E924D83DBA007509C1 /* Surge */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F6AEA1E824D83DBA007509C1 /* XCRemoteSwiftPackageReference "Surge" */;
-			productName = Surge;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

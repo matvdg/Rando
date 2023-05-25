@@ -11,6 +11,7 @@ import CoreLocation
 import MapKit
 import SwiftUI
 import GPXKit
+import Accelerate
 
 class Gpx: Codable, Identifiable {
     
@@ -126,8 +127,8 @@ class Trail: Identifiable, ObservableObject {
         let size = 100
         guard elevations.count > size else { return elevations }
         var simplifiedElevations = [CLLocationDistance]()
-        for (i, alt) in elevations.enumerated() {
-            guard i % (elevations.count / size) == 0 else { continue }
+        elevations.enumerated().forEach{ (index, alt) in
+            guard index % (elevations.count / size) == 0 else { return }
             simplifiedElevations.append(alt)
         }
         return simplifiedElevations
@@ -142,9 +143,9 @@ class Trail: Identifiable, ObservableObject {
         circularBuffer.append(lastAltitude)
         filteredBuffer.append(circularBuffer.average)
         let altitudes = locations.compactMap { $0.altitude }
-        for altitude in altitudes {
-            guard abs(altitude - lastAltitude) > threshold else { continue }
-            circularBuffer.append(altitude)
+        altitudes.forEach {
+            guard abs($0 - lastAltitude) > threshold else { return }
+            circularBuffer.append($0)
             filteredBuffer.append(circularBuffer.average)
             lastAltitude = circularBuffer.average
         }
@@ -259,4 +260,22 @@ class Polyline: MKPolyline {
         return id1 == id2 && color1 == color2 && lineWidth1 == lineWidth2
     }
     
+}
+
+struct CircularBuffer {
+    
+    var size: Int
+    var values = [Double]()
+    var average: Double { vDSP.mean(values) }
+    
+    init(size: Int) {
+        self.size = size
+    }
+    
+    mutating func append(_ value: Double) {
+        values.append(value)
+        if values.count > size {
+            values.removeFirst()
+        }
+    }
 }

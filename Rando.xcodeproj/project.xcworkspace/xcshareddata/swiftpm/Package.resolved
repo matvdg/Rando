@@ -28,15 +28,6 @@
       }
     },
     {
-      "identity" : "surge",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Jounce/Surge.git",
-      "state" : {
-        "revision" : "b9777a8d0c1df1ed0a22d238fb987c60d13513ac",
-        "version" : "2.3.0"
-      }
-    },
-    {
       "identity" : "swift-algorithms",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-algorithms",
