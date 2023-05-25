@@ -202,6 +202,7 @@ struct OldMapView: UIViewRepresentable {
             guard headingImageView == nil else { return }
             let image = UIImage(named: "beam")!
             headingImageView = UIImageView(image: image)
+            headingImageView?.tintColor = .grblue
             let size: CGFloat = 100
             headingImageView!.frame = CGRect(x: annotationView.frame.size.width/2 - size/2, y: annotationView.frame.size.height/2 - size/2, width: size, height: size)
             annotationView.insertSubview(headingImageView!, at: 0)
@@ -233,6 +234,7 @@ struct OldMapView: UIViewRepresentable {
         mapView.showsBuildings = false
         mapView.showsUserLocation = true
         mapView.showsScale = true
+        mapView.tintColor = .grblue
         mapView.isPitchEnabled = true
         mapView.showsCompass = true // Remove default
         mapView.addAnnotations(annotations)
