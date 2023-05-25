@@ -44,6 +44,7 @@ struct HomeView: View {
                 
                 LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
                     .isHidden(!isInfoDisplayed)
+                    .offset(y: 10)
             }
             
             VStack(alignment: .leading) {
@@ -52,6 +53,7 @@ struct HomeView: View {
                 
                 InfoPoiView(poi: $selectedPoi)
                     .isHidden(!isInfoPoiDisplayed)
+                    .offset(y: 10)
             }
             
         }
