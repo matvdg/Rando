@@ -29,9 +29,7 @@ struct CustomPathView: View {
             Slider(value: $trail.lineWidth, in: 3...10, onEditingChanged: { _ in
                 TrailManager.shared.save(trail: trail)
             })
-            .tint(trail.color)
-            .background(.secondary)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .tint(trail.colorForSlider)
             .frame(width: 200)
             Label("Color".localized, systemImage: "paintpalette")
             Button(action: {
@@ -44,7 +42,7 @@ struct CustomPathView: View {
                     }) {
                         Circle()
                             .foregroundColor(colors[row][column])
-                            .shadow(color: .text, radius: 1, x: 0, y: 1)
+                            .shadow(color: .gray, radius: 5, x: 3, y: 2)
                     }
                 }
                 .padding(20)

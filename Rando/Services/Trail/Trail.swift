@@ -96,6 +96,14 @@ class Trail: Identifiable, ObservableObject {
         }
     }
     
+    var colorForSlider: Color { // Remove both black and white to see slider tintColor in dark and light mode
+        if color == .black || color == .white {
+            return .gray
+        } else {
+            return color
+        }
+    }
+    
     var polyline: Polyline {
         let polyline = Polyline(coordinates: locations.map { $0.clLocation.coordinate }, count: locations.count)
         polyline.color = color.uiColor
