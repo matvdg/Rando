@@ -92,7 +92,7 @@ class TileManager: ObservableObject {
     /// Load TrailManager computations for TrailDetailView if TileManager available
     /// - Parameters:
     ///   - trail: the concerned Trail
-    func load(for trail: Trail, selectedLayer: Layer) {g
+    func load(for trail: Trail, selectedLayer: Layer) {
         guard state.isIdle() else { return } // No override if currently downloading for another trail for another TrailDetailView
         Task(priority: .userInitiated) {
             let paths = computeAndFilterTileOverlayPaths(for: trail.boundingBox, layer: selectedLayer)
