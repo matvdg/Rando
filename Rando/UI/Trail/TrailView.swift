@@ -18,7 +18,7 @@ struct TrailView: View {
     }
     
     @State var showFilePicker = false
-    @State var sorting: Sorting = .importDate
+    @State var sorting: Sorting = .name
     @State var onlyDisplayed: Bool = false
     @State var onlyFavs: Bool = false
     @State var onlyGR10: Bool = false
@@ -36,8 +36,8 @@ struct TrailView: View {
         // Sort
         var sortedTrails = trailManager.trails.array.sorted {
             switch sorting {
-            case .elevation : return $0.positiveElevation < $1.positiveElevation
-            case .distance: return $0.distance < $1.distance
+            case .elevation : return $0.positiveElevation > $1.positiveElevation
+            case .distance: return $0.distance > $1.distance
             case .name: return $0.name < $1.name
             case .importDate: return $0.date > $1.date
             }
