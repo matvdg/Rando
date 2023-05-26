@@ -1,5 +1,5 @@
 //
-//  TrailDetail.swift
+//  TrailDetailView.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 08/07/2020.
@@ -9,7 +9,7 @@
 import SwiftUI
 import SwiftUICharts
 
-struct TrailDetail: View {
+struct TrailDetailView: View {
     
     @ObservedObject var trail: Trail
     @Binding var selectedLayer: Layer
@@ -51,7 +51,7 @@ struct TrailDetail: View {
                             
                         }
                         
-                        if trail.positiveElevation > 0 {
+                        if trail.elevationGain > 0 {
                             Divider()
                             
                             VStack(alignment: .leading, spacing: 8) {
@@ -77,7 +77,7 @@ struct TrailDetail: View {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("PositiveElevation".localized)
                                             .foregroundColor(Color("grgray"))
-                                        Text(trail.positiveElevation.toStringMeters).fontWeight(.bold)
+                                        Text(trail.elevationGain.toStringMeters).fontWeight(.bold)
                                     }
                                 }
                                 
@@ -85,7 +85,7 @@ struct TrailDetail: View {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("NegativeElevation".localized)
                                             .foregroundColor(Color("grgray"))
-                                        Text(trail.negativeElevation.toStringMeters).fontWeight(.bold)
+                                        Text(trail.elevationLoss.toStringMeters).fontWeight(.bold)
                                     }
                                 }
                                 
@@ -104,12 +104,12 @@ struct TrailDetail: View {
                         
                         CustomPathRow(trail: trail)
                         
-                        MapSettingsRow(selectedLayer: $selectedLayer)
+                        MapSettingsRow(selectedLayer: $selectedLayer).disabled(TileManager.shared.state.isDownloading())
                         
-                        TilesRow(selectedLayer: $selectedLayer, trail: trail)
-                        
+                        TilesRow(selectedLayer: $selectedLayer, state: $trail.downloadState, trail: trail)
+
                         DeleteRow(trail: trail)
-                        if trail.positiveElevation > 0 {
+                        if trail.elevationGain > 0 {
                             LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
                                 .frame(height: 340)
                         }
@@ -134,6 +134,7 @@ struct TrailDetail: View {
         }
         .edgesIgnoringSafeArea(.horizontal)
         .onAppear {
+            TileManager.shared.load(for: trail, selectedLayer: selectedLayer)
             TrailManager.shared.addMissingDepartment(trail: self.trail)
         }
     }
@@ -144,7 +145,7 @@ struct TrailDetail: View {
 struct TrailDetail_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])), selectedLayer: $selectedLayer)
+        TrailDetailView(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])), selectedLayer: $selectedLayer)
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
             .previewDisplayName("iPhone SE")
             .environment(\.colorScheme, .light)

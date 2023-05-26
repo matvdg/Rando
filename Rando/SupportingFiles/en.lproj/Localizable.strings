@@ -7,13 +7,13 @@
 */
 
 // General
-"Delete" = "Delete";
 "Cancel" = "Cancel";
 "Add" = "Add";
 "Rename" = "Rename";
 "Left" = "left";
 "Error" = "Oops!";
 "Network" = "Please check your internet connection then retry";
+"Loading" = "Loading...";
 
 // MapView
 "MapSettings" = "Map layers";
@@ -72,4 +72,5 @@
 "Directions" = "Get car directions";
 "Departure" = "Departure";
 "DeleteTrail" = "Delete trail";
+"DeleteTrailMessage" = "This will remove this trail, not the associated maps";
 "3D" = "Watch the 3D tour";

@@ -29,7 +29,7 @@ struct HomeView: View {
                 
                 HStack(alignment: .top) {
                     Spacer()
-                    MapControl(tracking: $selectedTracking, isLayerViewDisplayed: $isLayerViewDisplayed)
+                    MapControlView(tracking: $selectedTracking, isLayerViewDisplayed: $isLayerViewDisplayed)
                         .padding(.trailing, 8)
                         .padding(.top, 70)
                 }

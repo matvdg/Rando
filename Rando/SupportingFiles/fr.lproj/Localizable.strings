@@ -7,13 +7,13 @@
 */
 
 // General
-"Delete" = "Supprimer";
 "Cancel" = "Annuler";
 "Add" = "Ajouter";
 "Rename" = "Renommer";
 "Left" = "restant";
 "Error" = "Oups !";
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
+"Loading" = "Chargement...";
 
 // MapView
 "MapSettings" = "Fonds de carte";
@@ -74,4 +74,5 @@
 "Directions" = "Obtenir l'itinéraire en voiture";
 "Departure" = "Départ";
 "DeleteTrail" = "Supprimer la randonnée";
+"DeleteTrailMessage" = "Cette action supprimera la randonnée, pas les cartes associées";
 "3D" = "Visualiser le parcours en 3D";

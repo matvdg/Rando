@@ -1,2 +1,2 @@
-"NSLocationUsageDescription" = "Rando needs your GPS position to show your position on the map";
-"NSLocationWhenInUseUsageDescription" = "Rando needs your GPS position to show your position on the map";
+"NSLocationUsageDescription" = "Rando needs your current location to show your position on the map";
+"NSLocationWhenInUseUsageDescription" = "Rando needs your current location to show your position on the map";

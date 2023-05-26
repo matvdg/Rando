@@ -13,7 +13,7 @@
 		D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D039506424B6097800C31D34 /* SwiftUICharts */; };
 		D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0531A712467FD8C0020FFE0 /* Localizable.strings */; };
 		D0531A742467FE4C0020FFE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A732467FE4C0020FFE0 /* String.swift */; };
-		D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A75246820BA0020FFE0 /* MapControl.swift */; };
+		D0531A76246820BA0020FFE0 /* MapControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A75246820BA0020FFE0 /* MapControlView.swift */; };
 		D05B14FF2460041F00B24666 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B14FE2460041F00B24666 /* HomeView.swift */; };
 		D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0630B6A245F571F006F6C44 /* LocationManager.swift */; };
 		D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0634792245D768B003BA9E7 /* AppDelegate.swift */; };
@@ -26,7 +26,7 @@
 		D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347A8245DCD8B003BA9E7 /* TrailView.swift */; };
 		D06347C5245DD784003BA9E7 /* TrailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06347C4245DD784003BA9E7 /* TrailManager.swift */; };
 		D08AB2682465BAAD00793417 /* TrailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2672465BAAD00793417 /* TrailRow.swift */; };
-		D08AB26A2465BC7000793417 /* TrailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* TrailDetail.swift */; };
+		D08AB26A2465BC7000793417 /* TrailDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08AB2692465BC7000793417 /* TrailDetailView.swift */; };
 		D08F1A9C2465919300335281 /* PoiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9B2465919300335281 /* PoiManager.swift */; };
 		D08F1A9E2465A66300335281 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F1A9D2465A66300335281 /* Poi.swift */; };
 		D09FB0092465D2360007F55B /* MiniImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FB0082465D2360007F55B /* MiniImage.swift */; };
@@ -84,7 +84,7 @@
 		F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0A824BEAC9C00DA224C /* Double.swift */; };
 		F6CFD0AD24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */; };
 		F6CFD0B224BF8FE100DA224C /* PoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0AF24BF8FE100DA224C /* PoiView.swift */; };
-		F6CFD0B324BF8FE100DA224C /* PoiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */; };
+		F6CFD0B324BF8FE100DA224C /* PoiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B024BF8FE100DA224C /* PoiDetailView.swift */; };
 		F6CFD0B424BF8FE100DA224C /* PoiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B124BF8FE100DA224C /* PoiRow.swift */; };
 		F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B524BF90CA00DA224C /* CircleImage.swift */; };
 		F6D80BDA2A1FAE5C00DED446 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D80BDC2A1FAE5C00DED446 /* InfoPlist.strings */; };
@@ -102,7 +102,7 @@
 		D0531A702467FD8C0020FFE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0531A722467FD940020FFE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0531A732467FE4C0020FFE0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		D0531A75246820BA0020FFE0 /* MapControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControl.swift; sourceTree = "<group>"; };
+		D0531A75246820BA0020FFE0 /* MapControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControlView.swift; sourceTree = "<group>"; };
 		D05B14FE2460041F00B24666 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D0630B6A245F571F006F6C44 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D0630B6C245F5828006F6C44 /* Etang d'Araing.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Etang d'Araing.gpx"; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		D06347A8245DCD8B003BA9E7 /* TrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailView.swift; sourceTree = "<group>"; };
 		D06347C4245DD784003BA9E7 /* TrailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailManager.swift; sourceTree = "<group>"; };
 		D08AB2672465BAAD00793417 /* TrailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailRow.swift; sourceTree = "<group>"; };
-		D08AB2692465BC7000793417 /* TrailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetail.swift; sourceTree = "<group>"; };
+		D08AB2692465BC7000793417 /* TrailDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetailView.swift; sourceTree = "<group>"; };
 		D08F1A9B2465919300335281 /* PoiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiManager.swift; sourceTree = "<group>"; };
 		D08F1A9D2465A66300335281 /* Poi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
 		D09FB0082465D2360007F55B /* MiniImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniImage.swift; sourceTree = "<group>"; };
@@ -160,6 +160,7 @@
 		F6BA8BD92A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json"; sourceTree = "<group>"; };
 		F6BA8BDA2A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "86B666DB-910E-49F2-A13E-6809148DC2FB.json"; sourceTree = "<group>"; };
 		F6BA8BDB2A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "966EDBBC-D452-4993-BC2D-E660F528B385.json"; sourceTree = "<group>"; };
+		F6BA8BE92A20AE4B00F81120 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
 		F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "613AD245-A082-4FDF-8103-199F3CA71C80.json"; sourceTree = "<group>"; };
@@ -175,7 +176,7 @@
 		F6CFD0A824BEAC9C00DA224C /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json"; sourceTree = "<group>"; };
 		F6CFD0AF24BF8FE100DA224C /* PoiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiView.swift; sourceTree = "<group>"; };
-		F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiDetail.swift; sourceTree = "<group>"; };
+		F6CFD0B024BF8FE100DA224C /* PoiDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiDetailView.swift; sourceTree = "<group>"; };
 		F6CFD0B124BF8FE100DA224C /* PoiRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiRow.swift; sourceTree = "<group>"; };
 		F6CFD0B524BF90CA00DA224C /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		F6D80BDB2A1FAE5C00DED446 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -205,7 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				D06347A8245DCD8B003BA9E7 /* TrailView.swift */,
-				D08AB2692465BC7000793417 /* TrailDetail.swift */,
+				D08AB2692465BC7000793417 /* TrailDetailView.swift */,
 				F6DB543B24DC651A002EABDE /* Rows */,
 				F6FE98A724C05047007D5D85 /* FilterView.swift */,
 				D039504924B4CB0600C31D34 /* DocumentView.swift */,
@@ -357,7 +358,7 @@
 				D0634796245D768B003BA9E7 /* ContentView.swift */,
 				D05B14FE2460041F00B24666 /* HomeView.swift */,
 				D06347A6245DCD34003BA9E7 /* OldMapView.swift */,
-				D0531A75246820BA0020FFE0 /* MapControl.swift */,
+				D0531A75246820BA0020FFE0 /* MapControlView.swift */,
 				D0B7CDB72469184F00464C79 /* LayerView.swift */,
 				D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */,
 				F61E421D29D4203A008D4275 /* MapView.swift */,
@@ -434,7 +435,7 @@
 			children = (
 				F6CFD0AF24BF8FE100DA224C /* PoiView.swift */,
 				F6CFD0B124BF8FE100DA224C /* PoiRow.swift */,
-				F6CFD0B024BF8FE100DA224C /* PoiDetail.swift */,
+				F6CFD0B024BF8FE100DA224C /* PoiDetailView.swift */,
 			);
 			path = Poi;
 			sourceTree = "<group>";
@@ -457,6 +458,7 @@
 		F6F8E25324E825D20030CCEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6BA8BE92A20AE4B00F81120 /* MobileCoreServices.framework */,
 				F6F8E25424E825D20030CCEA /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -572,7 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6CFD0B324BF8FE100DA224C /* PoiDetail.swift in Sources */,
+				F6CFD0B324BF8FE100DA224C /* PoiDetailView.swift in Sources */,
 				F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */,
 				F67BAEBF24E6FE5300AC8A9F /* TourRow.swift in Sources */,
 				F67BAEC124E705B100AC8A9F /* TourView.swift in Sources */,
@@ -604,11 +606,11 @@
 				D007B88B246B60090040E1CF /* FileManager.swift in Sources */,
 				D08F1A9C2465919300335281 /* PoiManager.swift in Sources */,
 				D09FB0092465D2360007F55B /* MiniImage.swift in Sources */,
-				D08AB26A2465BC7000793417 /* TrailDetail.swift in Sources */,
+				D08AB26A2465BC7000793417 /* TrailDetailView.swift in Sources */,
 				F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */,
 				D0531A742467FE4C0020FFE0 /* String.swift in Sources */,
 				F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */,
-				D0531A76246820BA0020FFE0 /* MapControl.swift in Sources */,
+				D0531A76246820BA0020FFE0 /* MapControlView.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
 				D0B7CDB82469184F00464C79 /* LayerView.swift in Sources */,
@@ -789,8 +791,9 @@
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
+				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
@@ -822,8 +825,9 @@
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
+				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";

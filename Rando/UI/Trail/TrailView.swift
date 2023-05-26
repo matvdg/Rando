@@ -36,7 +36,7 @@ struct TrailView: View {
         // Sort
         var sortedTrails = trailManager.trails.array.sorted {
             switch sorting {
-            case .elevation : return $0.positiveElevation > $1.positiveElevation
+            case .elevation : return $0.elevationGain > $1.elevationGain
             case .distance: return $0.distance > $1.distance
             case .name: return $0.name < $1.name
             case .importDate: return $0.date > $1.date
@@ -93,7 +93,7 @@ struct TrailView: View {
                     
                     List {
                         ForEach(sortedTrails) { trail in
-                            NavigationLink(destination: TrailDetail(trail: trail, selectedLayer: $selectedLayer)) {
+                            NavigationLink(destination: TrailDetailView(trail: trail, selectedLayer: $selectedLayer)) {
                                 TrailRow(trail: trail)
                             }
                         }

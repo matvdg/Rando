@@ -1,5 +1,5 @@
 //
-//  MapControl.swift
+//  MapControlView.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 10/05/2020.
@@ -19,7 +19,7 @@ enum Tracking {
     }
 }
 
-struct MapControl: View {
+struct MapControlView: View {
     
     let buttonWidth: CGFloat = 22
     let width: CGFloat = 45
@@ -81,9 +81,9 @@ struct MapControl_Previews: PreviewProvider {
     @State static var isInfoDisplayed = false
     static var previews: some View {
         Group {
-            MapControl(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
+            MapControlView(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
                 .environment(\.colorScheme, .light)
-            MapControl(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
+            MapControlView(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
                 .environment(\.colorScheme, .dark)
         }
         
