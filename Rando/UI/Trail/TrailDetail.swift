@@ -109,9 +109,10 @@ struct TrailDetail: View {
                         TilesRow(selectedLayer: $selectedLayer, trail: trail)
                         
                         DeleteRow(trail: trail)
-                        
-                        LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
-                            .frame(height: 340)
+                        if trail.positiveElevation > 0 {
+                            LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
+                                .frame(height: 340)
+                        }
                     }
                     
                 }
