@@ -67,9 +67,9 @@
 "Profile" = "Profil";
 "Filter" = "Filtrer";
 "Filtered" = "Filtré";
-"Displayed" = "N'afficher que les tracés visibles sur la carte";
-"Favs" = "N'afficher que les favoris";
-"GR10filtering" = "N'afficher que le GR10";
+"Displayed" = "Ne montrer que les tracés affichés";
+"Favs" = "Ne montrer que les favoris";
+"GR10filtering" = "Ne montrer que le GR10";
 "Departments" = "Filtrer par département :";
 "Directions" = "Obtenir l'itinéraire en voiture";
 "Departure" = "Départ";
