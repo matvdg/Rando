@@ -29,13 +29,19 @@ struct TrailRow: View {
                         .foregroundColor(.lightgrayInverted)
                 }
                 
-                
-                Text("\(trail.distance.toString) - \(trail.positiveElevation.toStringMeters)")
-                .font(.subheadline)
-                .foregroundColor(.lightgrayInverted)
-                .minimumScaleFactor(0.5)
-                .lineLimit(1)
-                
+                if trail.positiveElevation > 0 {
+                    Text("\(trail.distance.toString) - \(trail.positiveElevation.toStringMeters)")
+                        .font(.subheadline)
+                        .foregroundColor(.lightgrayInverted)
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                } else {
+                    Text("\(trail.distance.toString)")
+                        .font(.subheadline)
+                        .foregroundColor(.lightgrayInverted)
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                }
             }
             
             Spacer()

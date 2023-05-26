@@ -38,66 +38,59 @@ struct TrailDetail: View {
                         
                         VStack(alignment: .leading, spacing: 8) {
                             VStack(alignment: .leading, spacing: 8) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Distance".localized)
-                                        .foregroundColor(Color("grgray"))
-                                    Text(trail.distance.toString).fontWeight(.bold)
-                                }
+                                Text("Distance".localized)
+                                    .foregroundColor(Color("grgray"))
+                                Text(trail.distance.toString).fontWeight(.bold)
                             }
                             
                             VStack(alignment: .leading, spacing: 8) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("DurationEstimated".localized)
-                                        .foregroundColor(Color("grgray"))
-                                    Text(trail.estimatedTime).fontWeight(.bold)
-                                }
+                                Text("DurationEstimated".localized)
+                                    .foregroundColor(Color("grgray"))
+                                Text(trail.estimatedTime).fontWeight(.bold)
                             }
                             
                         }
                         
-                        Divider()
-                        
-                        VStack(alignment: .leading, spacing: 8) {
+                        if trail.positiveElevation > 0 {
+                            Divider()
+                            
                             VStack(alignment: .leading, spacing: 8) {
-                                VStack(alignment: .leading, spacing: 4) {
+                                VStack(alignment: .leading, spacing: 8) {
                                     Text("AltMin".localized)
                                         .foregroundColor(Color("grgray"))
                                     Text(trail.minAlt.toStringMeters).fontWeight(.bold)
                                 }
-                            }
-                            
-                            VStack(alignment: .leading, spacing: 8) {
-                                VStack(alignment: .leading, spacing: 4) {
+                                
+                                VStack(alignment: .leading, spacing: 8) {
                                     Text("AltMax".localized)
                                         .foregroundColor(Color("grgray"))
                                     Text(trail.maxAlt.toStringMeters).fontWeight(.bold)
                                 }
+                                
                             }
                             
-                        }
-                        
-                        Divider()
-                        
-                        VStack(alignment: .leading, spacing: 8) {
+                            Divider()
                             
                             VStack(alignment: .leading, spacing: 8) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("PositiveElevation".localized)
-                                        .foregroundColor(Color("grgray"))
-                                    Text(trail.positiveElevation.toStringMeters).fontWeight(.bold)
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("PositiveElevation".localized)
+                                            .foregroundColor(Color("grgray"))
+                                        Text(trail.positiveElevation.toStringMeters).fontWeight(.bold)
+                                    }
                                 }
-                            }
-                            
-                            VStack(alignment: .leading, spacing: 8) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("NegativeElevation".localized)
-                                        .foregroundColor(Color("grgray"))
-                                    Text(trail.negativeElevation.toStringMeters).fontWeight(.bold)
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("NegativeElevation".localized)
+                                            .foregroundColor(Color("grgray"))
+                                        Text(trail.negativeElevation.toStringMeters).fontWeight(.bold)
+                                    }
                                 }
+                                
                             }
-                            
                         }
-                        
                     }
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     .frame(maxHeight: 100)
@@ -106,19 +99,19 @@ struct TrailDetail: View {
                         ItineraryRow(location: trail.firstLocation)
                         
                         TourRow(trail: trail)
-                                                
+                        
                         DisplayRow(trail: trail)
                         
                         CustomPathRow(trail: trail)
                         
                         MapSettingsRow(selectedLayer: $selectedLayer)
-                                            
+                        
                         TilesRow(selectedLayer: $selectedLayer, trail: trail)
                         
                         DeleteRow(trail: trail)
                         
                         LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
-                        .frame(height: 340)
+                            .frame(height: 340)
                     }
                     
                 }
@@ -128,14 +121,14 @@ struct TrailDetail: View {
             }
             .navigationBarTitle(Text(trail.name))
             .navigationBarItems(trailing:
-                Button(action: {
-                    Feedback.selected()
-                    self.trail.isFav.toggle()
-                    TrailManager.shared.save(trail: self.trail)
-                }) {
-                    Image(systemName: trail.isFav ? "heart.fill" : "heart")
-                        .accentColor(.red)
-                }
+                                    Button(action: {
+                Feedback.selected()
+                self.trail.isFav.toggle()
+                TrailManager.shared.save(trail: self.trail)
+            }) {
+                Image(systemName: trail.isFav ? "heart.fill" : "heart")
+                    .accentColor(.red)
+            }
             )
         }
         .edgesIgnoringSafeArea(.horizontal)
@@ -143,7 +136,7 @@ struct TrailDetail: View {
             TrailManager.shared.addMissingDepartment(trail: self.trail)
         }
     }
-        
+    
 }
 
 // MARK: Previews
@@ -151,9 +144,9 @@ struct TrailDetail_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = .ign
     static var previews: some View {
         TrailDetail(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])), selectedLayer: $selectedLayer)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-                .environment(\.colorScheme, .light)
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+            .previewDisplayName("iPhone SE")
+            .environment(\.colorScheme, .light)
     }
 }
 

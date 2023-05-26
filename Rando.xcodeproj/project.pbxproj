@@ -57,6 +57,18 @@
 		F6AB729A2A1E42770017C8AB /* MapSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */; };
 		F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */; };
 		F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */; };
+		F6BA8BDC2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BCF2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json */; };
+		F6BA8BDD2A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD02A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json */; };
+		F6BA8BDE2A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD12A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json */; };
+		F6BA8BDF2A202EFB00F81120 /* 81F88398-D066-4F6B-83D2-6B51C1649031.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD22A202EFB00F81120 /* 81F88398-D066-4F6B-83D2-6B51C1649031.json */; };
+		F6BA8BE02A202EFB00F81120 /* 1F2EFFAF-C5C7-420E-B7C4-269E84A01053.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD32A202EFB00F81120 /* 1F2EFFAF-C5C7-420E-B7C4-269E84A01053.json */; };
+		F6BA8BE12A202EFB00F81120 /* 2FD21731-5092-4270-B542-D2726FC74181.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD42A202EFB00F81120 /* 2FD21731-5092-4270-B542-D2726FC74181.json */; };
+		F6BA8BE22A202EFB00F81120 /* E7BB994D-CB88-434E-9B46-1ECF5D62B71D.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD52A202EFB00F81120 /* E7BB994D-CB88-434E-9B46-1ECF5D62B71D.json */; };
+		F6BA8BE42A202EFB00F81120 /* 602A32BA-DDFC-40C4-A133-D6F450C1AB6A.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD72A202EFB00F81120 /* 602A32BA-DDFC-40C4-A133-D6F450C1AB6A.json */; };
+		F6BA8BE52A202EFB00F81120 /* 14BAC0BC-FF48-43BC-9E54-F382C5857758.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD82A202EFB00F81120 /* 14BAC0BC-FF48-43BC-9E54-F382C5857758.json */; };
+		F6BA8BE62A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD92A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json */; };
+		F6BA8BE72A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BDA2A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json */; };
+		F6BA8BE82A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BDB2A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json */; };
 		F6CAAF3B24BC91DB006F991A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */; };
 		F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */; };
 		F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */; };
@@ -78,10 +90,6 @@
 		F6D80BDA2A1FAE5C00DED446 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D80BDC2A1FAE5C00DED446 /* InfoPlist.strings */; };
 		F6DB543D24DC6543002EABDE /* CustomPathRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543C24DC6543002EABDE /* CustomPathRow.swift */; };
 		F6DB543F24DC8D20002EABDE /* CustomPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB543E24DC8D20002EABDE /* CustomPathView.swift */; };
-		F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */; };
-		F6E830E82A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */; };
-		F6E830E92A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */; };
-		F6E830EC2A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */; };
 		F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F0702F24D4780300EEE183 /* ItineraryRow.swift */; };
 		F6FE98A824C05047007D5D85 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FE98A724C05047007D5D85 /* FilterView.swift */; };
 /* End PBXBuildFile section */
@@ -140,6 +148,18 @@
 		F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSettingsRow.swift; sourceTree = "<group>"; };
 		F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailPreview.swift; sourceTree = "<group>"; };
 		F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRow.swift; sourceTree = "<group>"; };
+		F6BA8BCF2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3A3D319A-661F-4CAD-B926-A628C2DC45C4.json"; sourceTree = "<group>"; };
+		F6BA8BD02A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "93C5647B-D07A-4907-A588-1D8561079B79.json"; sourceTree = "<group>"; };
+		F6BA8BD12A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DE343206-FB9F-4DDD-9379-E69E14DC4A93.json"; sourceTree = "<group>"; };
+		F6BA8BD22A202EFB00F81120 /* 81F88398-D066-4F6B-83D2-6B51C1649031.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "81F88398-D066-4F6B-83D2-6B51C1649031.json"; sourceTree = "<group>"; };
+		F6BA8BD32A202EFB00F81120 /* 1F2EFFAF-C5C7-420E-B7C4-269E84A01053.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1F2EFFAF-C5C7-420E-B7C4-269E84A01053.json"; sourceTree = "<group>"; };
+		F6BA8BD42A202EFB00F81120 /* 2FD21731-5092-4270-B542-D2726FC74181.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2FD21731-5092-4270-B542-D2726FC74181.json"; sourceTree = "<group>"; };
+		F6BA8BD52A202EFB00F81120 /* E7BB994D-CB88-434E-9B46-1ECF5D62B71D.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "E7BB994D-CB88-434E-9B46-1ECF5D62B71D.json"; sourceTree = "<group>"; };
+		F6BA8BD72A202EFB00F81120 /* 602A32BA-DDFC-40C4-A133-D6F450C1AB6A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "602A32BA-DDFC-40C4-A133-D6F450C1AB6A.json"; sourceTree = "<group>"; };
+		F6BA8BD82A202EFB00F81120 /* 14BAC0BC-FF48-43BC-9E54-F382C5857758.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "14BAC0BC-FF48-43BC-9E54-F382C5857758.json"; sourceTree = "<group>"; };
+		F6BA8BD92A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json"; sourceTree = "<group>"; };
+		F6BA8BDA2A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "86B666DB-910E-49F2-A13E-6809148DC2FB.json"; sourceTree = "<group>"; };
+		F6BA8BDB2A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "966EDBBC-D452-4993-BC2D-E660F528B385.json"; sourceTree = "<group>"; };
 		F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
 		F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "613AD245-A082-4FDF-8103-199F3CA71C80.json"; sourceTree = "<group>"; };
@@ -162,10 +182,6 @@
 		F6D80BDD2A1FAE6200DED446 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6DB543C24DC6543002EABDE /* CustomPathRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPathRow.swift; sourceTree = "<group>"; };
 		F6DB543E24DC8D20002EABDE /* CustomPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPathView.swift; sourceTree = "<group>"; };
-		F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "B89C418A-A8C0-4384-BB24-242524E33A7B.json"; sourceTree = "<group>"; };
-		F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json"; sourceTree = "<group>"; };
-		F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "22A1FD18-B18D-4263-859B-CD9A8336F840.json"; sourceTree = "<group>"; };
-		F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json"; sourceTree = "<group>"; };
 		F6F0702F24D4780300EEE183 /* ItineraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRow.swift; sourceTree = "<group>"; };
 		F6F8E25424E825D20030CCEA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F6FE98A724C05047007D5D85 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
@@ -387,10 +403,18 @@
 		F6CFD09124BDF08E00DA224C /* Trails */ = {
 			isa = PBXGroup;
 			children = (
-				F6E830E42A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json */,
-				F6E830E02A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json */,
-				F6E830E12A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json */,
-				F6E830DF2A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json */,
+				F6BA8BD32A202EFB00F81120 /* 1F2EFFAF-C5C7-420E-B7C4-269E84A01053.json */,
+				F6BA8BD42A202EFB00F81120 /* 2FD21731-5092-4270-B542-D2726FC74181.json */,
+				F6BA8BCF2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json */,
+				F6BA8BD82A202EFB00F81120 /* 14BAC0BC-FF48-43BC-9E54-F382C5857758.json */,
+				F6BA8BD22A202EFB00F81120 /* 81F88398-D066-4F6B-83D2-6B51C1649031.json */,
+				F6BA8BDA2A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json */,
+				F6BA8BD02A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json */,
+				F6BA8BD92A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json */,
+				F6BA8BD72A202EFB00F81120 /* 602A32BA-DDFC-40C4-A133-D6F450C1AB6A.json */,
+				F6BA8BDB2A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json */,
+				F6BA8BD12A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json */,
+				F6BA8BD52A202EFB00F81120 /* E7BB994D-CB88-434E-9B46-1ECF5D62B71D.json */,
 				F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */,
 				F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */,
 				F6CFD09324BDF08E00DA224C /* AC87370D-6A8F-43D5-A980-95356F6ACDA9.json */,
@@ -511,24 +535,32 @@
 				D063479F245D768C003BA9E7 /* LaunchScreen.storyboard in Resources */,
 				F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */,
 				F6CFD0A224BDF08E00DA224C /* C7CB0ED5-743B-40DC-88C1-F8ABF8172B11.json in Resources */,
+				F6BA8BE82A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json in Resources */,
 				D0B7CDB52468694600464C79 /* Etang d'Araing.gpx in Resources */,
-				F6E830EC2A1B18C8002A646F /* 0B50E466-EA08-4E5D-92F9-8D4530A87AB8.json in Resources */,
+				F6BA8BE02A202EFB00F81120 /* 1F2EFFAF-C5C7-420E-B7C4-269E84A01053.json in Resources */,
 				F6CFD09D24BDF08E00DA224C /* AC87370D-6A8F-43D5-A980-95356F6ACDA9.json in Resources */,
+				F6BA8BDF2A202EFB00F81120 /* 81F88398-D066-4F6B-83D2-6B51C1649031.json in Resources */,
 				D063479C245D768C003BA9E7 /* Preview Assets.xcassets in Resources */,
 				F6CFD0A324BDF08E00DA224C /* 0F68603E-267D-41F9-AF21-A1A3235722DA.json in Resources */,
 				F6CFD0AD24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json in Resources */,
+				F6BA8BDC2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json in Resources */,
 				F6D80BDA2A1FAE5C00DED446 /* InfoPlist.strings in Resources */,
 				F6CFD0A124BDF08E00DA224C /* C57678B0-ADD8-49CA-85EE-7C3EB5060783.json in Resources */,
-				F6E830E92A1B18C8002A646F /* 22A1FD18-B18D-4263-859B-CD9A8336F840.json in Resources */,
-				F6E830E72A1B18C8002A646F /* B89C418A-A8C0-4384-BB24-242524E33A7B.json in Resources */,
+				F6BA8BDD2A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json in Resources */,
 				D0531A6F2467FD8C0020FFE0 /* Localizable.strings in Resources */,
-				F6E830E82A1B18C8002A646F /* 2E236792-6BD7-40AA-8AE5-E28C0EA97EE4.json in Resources */,
+				F6BA8BE72A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json in Resources */,
+				F6BA8BE52A202EFB00F81120 /* 14BAC0BC-FF48-43BC-9E54-F382C5857758.json in Resources */,
 				D0634799245D768C003BA9E7 /* Assets.xcassets in Resources */,
+				F6BA8BE12A202EFB00F81120 /* 2FD21731-5092-4270-B542-D2726FC74181.json in Resources */,
+				F6BA8BE42A202EFB00F81120 /* 602A32BA-DDFC-40C4-A133-D6F450C1AB6A.json in Resources */,
 				F6CFD09E24BDF08E00DA224C /* 6012EAA9-1C93-4FC9-BCA7-765EB62A3D87.json in Resources */,
 				F6CFD0A524BDF08E00DA224C /* 3DC59D8C-AE95-4AE5-93E6-DAB661B0FB78.json in Resources */,
+				F6BA8BDE2A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json in Resources */,
 				D0F8633124615D56007C363A /* pois.json in Resources */,
+				F6BA8BE62A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json in Resources */,
 				F6CFD0A424BDF08E00DA224C /* 6753F1F8-B34A-49EE-BCD9-8F22FAE0016F.json in Resources */,
 				D0B7CDB42468694200464C79 /* Etang de Rulhe.gpx in Resources */,
+				F6BA8BE22A202EFB00F81120 /* E7BB994D-CB88-434E-9B46-1ECF5D62B71D.json in Resources */,
 				F6CFD0A024BDF08E00DA224C /* 82197AB4-C068-4C69-82E2-9D078DDCBD11.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

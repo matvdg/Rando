@@ -21,6 +21,7 @@ struct TrailView: View {
     @State var sorting: Sorting = .importDate
     @State var onlyDisplayed: Bool = false
     @State var onlyFavs: Bool = false
+    @State var onlyGR10: Bool = false
     @State var showFilter: Bool = false
     @State var department: String = "all".localized
     @Binding var selectedLayer: Layer
@@ -52,6 +53,10 @@ struct TrailView: View {
         // Filter by onlyFavs if necessary
         if onlyFavs {
             sortedTrails = sortedTrails.filter { $0.isFav }
+        }
+        // Filter by GR10 if necessary
+        if onlyGR10 {
+            sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("gr10") }
         }
         return sortedTrails
     }
@@ -100,8 +105,9 @@ struct TrailView: View {
                     
                     Spacer()
                     
-                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $showFilter)
-                        .offset(y: showFilter ? 0 : 520)                    
+                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyGR10: $onlyGR10, department: $department, isSortDisplayed: $showFilter)
+                        .isHidden(!showFilter)
+                        .offset(y: 10)
                 }
                 
             }

@@ -65,8 +65,9 @@
 "Profile" = "Profile";
 "Filter" = "Filter";
 "Filtered" = "Filtered";
-"Displayed" = "Filter displayed";
-"Favs" = "Filter favorites";
+"Displayed" = "Display only trails visible on map";
+"Favs" = "Display only favorites";
+"GR10filtering" = "Display only GR10 trails";
 "Departments" = "Filter by department:";
 "Directions" = "Get car directions";
 "Departure" = "Departure";

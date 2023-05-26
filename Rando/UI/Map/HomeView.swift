@@ -12,11 +12,11 @@ struct HomeView: View {
     
     @State var selectedTracking: Tracking = .bounding
     @Binding var selectedLayer: Layer
-    @State var isInfoDisplayed: Bool = false
+    @State var isLayerViewDisplayed: Bool = false
     @State var selectedPoi: Poi?
     @State var trails = TrailManager.shared.currentTrails
     
-    private var isInfoPoiDisplayed: Bool { selectedPoi != nil }
+    private var isInfoPoiViewDisplayed: Bool { selectedPoi != nil }
     
     var body: some View {
         
@@ -29,7 +29,7 @@ struct HomeView: View {
                 
                 HStack(alignment: .top) {
                     Spacer()
-                    MapControl(tracking: $selectedTracking, isInfoDisplayed: $isInfoDisplayed)
+                    MapControl(tracking: $selectedTracking, isLayerViewDisplayed: $isLayerViewDisplayed)
                         .padding(.trailing, 8)
                         .padding(.top, 70)
                 }
@@ -42,8 +42,8 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
-                    .isHidden(!isInfoDisplayed)
+                LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isLayerViewDisplayed)
+                    .isHidden(!isLayerViewDisplayed)
                     .offset(y: 10)
             }
             
@@ -52,7 +52,7 @@ struct HomeView: View {
                 Spacer()
                 
                 InfoPoiView(poi: $selectedPoi)
-                    .isHidden(!isInfoPoiDisplayed)
+                    .isHidden(!isInfoPoiViewDisplayed)
                     .offset(y: 10)
             }
             

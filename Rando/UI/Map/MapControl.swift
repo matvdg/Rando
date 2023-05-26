@@ -24,18 +24,25 @@ struct MapControl: View {
     let buttonWidth: CGFloat = 22
     let width: CGFloat = 45
     @Binding var tracking: Tracking
-    @Binding var isInfoDisplayed: Bool
+    @Binding var isLayerViewDisplayed: Bool
     
     var body: some View {
         VStack() {
             Button(action: {
-                self.isInfoDisplayed.toggle()
+                self.isLayerViewDisplayed.toggle()
                 Feedback.selected()
             }) {
-                Image(systemName: isInfoDisplayed ? "square.2.layers.3d.top.filled" : "square.2.layers.3d.bottom.filled")
-                    .resizable()
-                    .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
-                    .offset(y: -2)
+                if #available(iOS 16, *) {
+                    Image(systemName: isLayerViewDisplayed ? "square.2.layers.3d.top.filled" : "square.2.layers.3d.bottom.filled")
+                        .resizable()
+                        .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+                        .offset(y: -2)
+                } else {
+                    Image(systemName: isLayerViewDisplayed ? "map.fill" : "map")
+                        .resizable()
+                        .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+                        .offset(y: -2)
+                }
             }
             Divider()
             Button(action: {
@@ -74,9 +81,9 @@ struct MapControl_Previews: PreviewProvider {
     @State static var isInfoDisplayed = false
     static var previews: some View {
         Group {
-            MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
+            MapControl(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
                 .environment(\.colorScheme, .light)
-            MapControl(tracking: $tracking, isInfoDisplayed: $isInfoDisplayed)
+            MapControl(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
                 .environment(\.colorScheme, .dark)
         }
         

@@ -12,6 +12,7 @@ struct FilterView: View {
     
     @Binding var onlyDisplayed: Bool
     @Binding var onlyFavs: Bool
+    @Binding var onlyGR10: Bool
     @Binding var department: String
     @Binding var isSortDisplayed: Bool
     
@@ -50,6 +51,13 @@ struct FilterView: View {
                     self.onlyFavs.toggle()
                 }
                 
+                Toggle(isOn: self.$onlyGR10) {
+                    Text("GR10filtering".localized)
+                }
+                .onTapGesture {
+                    self.onlyGR10.toggle()
+                }
+                
                 Divider()
     
                 HStack {
@@ -72,7 +80,7 @@ struct FilterView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
-        .frame(height: 300, alignment: .top)
+        .frame(height: 330, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
         
@@ -86,8 +94,9 @@ struct FilterView_Previews: PreviewProvider {
     @State static var isSortDisplayed = true
     @State static var onlyDisplayed = false
     @State static var onlyFavs = false
+    @State static var onlyGR10 = false
     static var previews: some View {
-        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, department: $department, isSortDisplayed: $isSortDisplayed)
+        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyGR10: $onlyGR10, department: $department, isSortDisplayed: $isSortDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
                 .previewDisplayName("iPhone 14 Pro Max")
                 .environment(\.colorScheme, .dark)

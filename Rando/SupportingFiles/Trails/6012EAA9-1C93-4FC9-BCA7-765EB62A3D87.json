@@ -3,6 +3,7 @@
     "name": "Cirque De Gavarnie",
     "department": "Hautes-Pyrénées",
     "color":7,
+    "lineWidth": 5,
     "locations": [
         {
             "altitude": 1473,

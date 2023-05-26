@@ -341,7 +341,7 @@ struct OldMapView: UIViewRepresentable {
                 overlay = IGNV2Overlay()
             }
             overlay.canReplaceMapContent = false
-            mapView.mapType = .satellite // Other type underneath the overlay not used in standard/hybrid/hybridFlyover cases to track changes
+            mapView.mapType = .mutedStandard // Other type underneath the overlay not used in standard/hybrid/hybridFlyover cases to track changes
             mapView.addOverlay(overlay, level: .aboveLabels)
         }
         mapView.addOverlays(polylines, level: .aboveLabels)
