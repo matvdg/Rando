@@ -12,9 +12,9 @@ Full offline maps for Pyrénées trails (detailed maps + gpx management) written
 No internet connection is required (during hiking) except for the first launch of the app where you can download all the maps.
 
 ## Requirements
-- iPhone running iOS 13.4 or later
-- iPad running iPadOS 13.4 or later
-- Mac running macOS Catalina 10.15 or later
+- iPhone running iOS 15 or later
+- iPad running iPadOS 15 or later
+- Mac running macOS 12 or later (Monterey, Ventura)
 
 ## Changelog
-[Changelog](https://github.com/matvdg/Rando/wiki/Changelog)
+[Changelog](https://github.com/matvdg/Rando.wiki.git)
