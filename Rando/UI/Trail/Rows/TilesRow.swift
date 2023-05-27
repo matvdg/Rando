@@ -21,19 +21,9 @@ struct TilesRow: View {
         
         Button(action: { // Action only when enabled
             if trail.downloadState == .notDownloaded {
-                Feedback.selected()
-                TaskManager.shared.downloadTilesTask = Task(priority: .background) {
-                    do {
-                        try await tileManager.download(trail: trail, layer: selectedLayer)
-                    } catch {
-                        print("􀌓 Download cancelled")
-                    }
-                }
+                tileManager.download(trail: trail, layer: selectedLayer)
             } else {
-                print("􀌓 User cancelled download")
-                TaskManager.shared.downloadTilesTask?.cancel()
-                tileManager.state = .idle
-                trail.downloadState = .notDownloaded
+                tileManager.cancelDownload(trail: trail)
             }
         }) {
             HStack(spacing: 15) {
@@ -55,7 +45,7 @@ struct TilesRow: View {
                         ProgressView(value: tileManager.progress)
                             .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
                         VStack(alignment: .leading) {
-                            Text("\("Downloading".localized) (\(tileManager.sizeLeft) \("Left".localized))")
+                            Text("\("Downloading".localized) \(Int(tileManager.progress*100))% (\(tileManager.sizeLeft) \("Left".localized))")
                                 .font(.headline)
                             ProgressView(value: tileManager.progress)
                                 .progressViewStyle(LinearProgressViewStyle(tint: .tintColorTabBar))
@@ -79,6 +69,9 @@ struct TilesRow: View {
             || trail.downloadState == .unknown
         )
         .onChange(of: selectedLayer) { newValue in
+            tileManager.load(for: trail, selectedLayer: selectedLayer)
+        }
+        .onChange(of: tileManager.state) { newValue in
             tileManager.load(for: trail, selectedLayer: selectedLayer)
         }
     }

@@ -104,7 +104,7 @@ struct TrailDetailView: View {
                         
                         CustomPathRow(trail: trail)
                         
-                        MapSettingsRow(selectedLayer: $selectedLayer).disabled(TileManager.shared.state.isDownloading())
+                        MapSettingsRow(selectedLayer: $selectedLayer).disabled(trail.downloadState == .downloading || TileManager.shared.state.isDownloading())
                         
                         TilesRow(selectedLayer: $selectedLayer, state: $trail.downloadState, trail: trail)
 
