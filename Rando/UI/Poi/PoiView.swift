@@ -56,6 +56,11 @@ struct PoiView: View {
             }
             .navigationBarTitle(Text("Steps".localized), displayMode: .inline)
             .accentColor(.tintColor)
+            HStack {
+                Image(systemName: "sidebar.left")
+                    .imageScale(.large)
+                Text("SelectInSidebar".localized)
+            }
         }
         
     }

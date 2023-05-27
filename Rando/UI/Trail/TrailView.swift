@@ -24,8 +24,9 @@ struct TrailView: View {
     @State var gr10filter: Gr10filter = .all
     @State var showFilter: Bool = false
     @State var department: String = "all".localized
+    @State private var searchText = ""
     @Binding var selectedLayer: Layer
-    
+
     private var isFiltered: Bool {
         department != "all".localized || onlyDisplayed || onlyFavs || gr10filter != .all
     }
@@ -63,6 +64,10 @@ struct TrailView: View {
         case .all:
             break
         }
+        // Filter by search
+        if !searchText.isEmpty {
+            sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
         return sortedTrails
     }
     
@@ -96,7 +101,7 @@ struct TrailView: View {
                     }
                     .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
                     
-                    EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department)
+                    EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, searchText: $searchText)
                         .isHidden(!isFiltered, remove: true)
                     
                     List {
@@ -124,17 +129,21 @@ struct TrailView: View {
             }
             .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
             .navigationBarItems(leading: EditButton(), trailing:
-                Button(action: {
-                    Feedback.selected()
-                    self.showFilePicker = true
-                }) {
-                    HStack {
-                        Text("Add".localized)
-                        Image(systemName: "plus")
-                    }
+                                    Button(action: {
+                Feedback.selected()
+                self.showFilePicker = true
+            }) {
+                Image(systemName: "plus.circle.fill")
             })
+            HStack {
+                Image(systemName: "sidebar.left")
+                    .imageScale(.large)
+                Text("SelectInSidebar".localized)
+            }
             
-        }.accentColor(.tintColor)
+        }
+        .accentColor(.tintColor)
+        .searchable(text: $searchText, placement: .toolbar, prompt: "Search".localized)
     }
     
 }

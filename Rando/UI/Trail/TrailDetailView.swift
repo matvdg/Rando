@@ -29,6 +29,7 @@ struct TrailDetailView: View {
                         TrailManager.shared.save(trail: self.trail)
                     })
                     .font(.system(size: 28, weight: .bold, design: Font.Design.default))
+                    .lineLimit(3)
                     
                     Text(trail.department ?? "")
                         .font(.system(size: 20, weight: .light, design: Font.Design.default))

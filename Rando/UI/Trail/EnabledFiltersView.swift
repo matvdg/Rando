@@ -14,6 +14,7 @@ struct EnabledFiltersView: View {
     @Binding var onlyFavs: Bool
     @Binding var gr10filter: Gr10filter
     @Binding var department: String
+    @Binding var searchText: String
     
     var body: some View {
         
@@ -22,6 +23,27 @@ struct EnabledFiltersView: View {
             HStack(alignment: .center, spacing: 8) {
                 
                 Spacer()
+                
+                Button {
+                    searchText = ""
+                } label: {
+                    FilterButton(label: searchText)
+                }
+                .isHidden(searchText.isEmpty, remove: true)
+                
+                Button {
+                    onlyFavs.toggle()
+                } label: {
+                    FilterButton(label: "Favs".localized)
+                }
+                .isHidden(!onlyFavs, remove: true)
+                
+                Button {
+                    onlyDisplayed.toggle()
+                } label: {
+                    FilterButton(label: "Displayed".localized)
+                }
+                .isHidden(!onlyDisplayed, remove: true)
                 
                 Button {
                     department = "all".localized
@@ -37,19 +59,6 @@ struct EnabledFiltersView: View {
                 }
                 .isHidden(gr10filter == .all, remove: true)
                 
-                Button {
-                    onlyFavs.toggle()
-                } label: {
-                    FilterButton(label: "Favs".localized)
-                }
-                .isHidden(!onlyFavs, remove: true)
-                
-                Button {
-                    onlyDisplayed.toggle()
-                } label: {
-                    FilterButton(label: "Displayed".localized)
-                }
-                .isHidden(!onlyDisplayed, remove: true)
                 
                 Spacer()
             }
@@ -66,8 +75,9 @@ struct EnabledFiltersView_Previews: PreviewProvider {
     @State static var onlyFavs: Bool = true
     @State static var gr10filter: Gr10filter = .notgr10
     @State static var department: String = "Ariège"
+    @State static var searchText: String = "Cagateille"
     
     static var previews: some View {
-        EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department)
+        EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, searchText: $searchText)
     }
 }
