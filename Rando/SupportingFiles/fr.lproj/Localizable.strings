@@ -67,10 +67,11 @@
 "Profile" = "Profil";
 "Filter" = "Filtrer";
 "Filtered" = "Filtré";
-"Displayed" = "Ne montrer que les tracés affichés";
-"Favs" = "Ne montrer que les favoris";
-"GR10filtering" = "Ne montrer que le GR10";
-"Departments" = "Filtrer par département :";
+"Displayed" = "Visibles sur la carte";
+"Favs" = "Favoris";
+"gr10" = "GR10";
+"notgr10" = "Non GR10";
+"Departments" = "Département";
 "Directions" = "Obtenir l'itinéraire en voiture";
 "Departure" = "Départ";
 "DeleteTrail" = "Supprimer la randonnée";

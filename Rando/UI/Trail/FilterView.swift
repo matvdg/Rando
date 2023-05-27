@@ -8,11 +8,16 @@
 
 import SwiftUI
 
+enum Gr10filter: String, CaseIterable {
+    case gr10, notgr10, all
+    var localized: String { rawValue.localized }
+}
+
 struct FilterView: View {
     
     @Binding var onlyDisplayed: Bool
     @Binding var onlyFavs: Bool
-    @Binding var onlyGR10: Bool
+    @Binding var gr10filter: Gr10filter
     @Binding var department: String
     @Binding var isSortDisplayed: Bool
     
@@ -51,15 +56,20 @@ struct FilterView: View {
                     self.onlyFavs.toggle()
                 }
                 
-                Toggle(isOn: self.$onlyGR10) {
-                    Text("GR10filtering".localized)
-                }
-                .onTapGesture {
-                    self.onlyGR10.toggle()
-                }
                 
                 Divider()
-    
+                HStack {
+                    Text("gr10".localized)
+                        .font(.headline)
+                    Spacer()
+                    Picker(selection: $gr10filter, label: Text("")) {
+                        
+                        ForEach(Gr10filter.allCases, id: \.self) { gr10filter in
+                            Text(gr10filter.localized)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                }
                 HStack {
                     Text("Departments".localized)
                         .font(.headline)
@@ -94,9 +104,9 @@ struct FilterView_Previews: PreviewProvider {
     @State static var isSortDisplayed = true
     @State static var onlyDisplayed = false
     @State static var onlyFavs = false
-    @State static var onlyGR10 = false
+    @State static var gr10filter: Gr10filter = .notgr10
     static var previews: some View {
-        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyGR10: $onlyGR10, department: $department, isSortDisplayed: $isSortDisplayed)
+        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, isSortDisplayed: $isSortDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
                 .previewDisplayName("iPhone 14 Pro Max")
                 .environment(\.colorScheme, .dark)
