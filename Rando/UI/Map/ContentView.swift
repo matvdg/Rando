@@ -13,13 +13,14 @@ import HidableTabView
 struct ContentView: View {
     
     @State private var selection = 0
+    @State var isLocked = false
     @State var selectedLayer: Layer = UserDefaults.currentLayer
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                HomeView(selectedLayer: $selectedLayer)
+                HomeView(selectedLayer: $selectedLayer, isLocked: $isLocked)
                     .tabItem {
                         Image(systemName: "map")
                     }
@@ -47,15 +48,11 @@ struct ContentView: View {
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
             UITabBar.showTabBar(animated: false)
         }
-        
-        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { orientation in
-            let orientation = UIDevice.current.orientation
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                if orientation == .landscapeLeft || orientation == .landscapeRight {
-                    UITabBar.hideTabBar(animated: false)
-                } else {
-                    UITabBar.showTabBar(animated: false)
-                }
+        .onChange(of: isLocked) { newValue in
+            if newValue {
+                UITabBar.hideTabBar(animated: false)
+            } else {
+                UITabBar.showTabBar(animated: false)
             }
         }
     }
