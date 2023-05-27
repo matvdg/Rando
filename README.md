@@ -17,4 +17,4 @@ No internet connection is required (during hiking) except for the first launch o
 - Mac running macOS 12 or later (Monterey, Ventura)
 
 ## Changelog
-[Changelog](https://github.com/matvdg/Rando.wiki.git)
+[Changelog](https://github.com/matvdg/Rando/wiki)
