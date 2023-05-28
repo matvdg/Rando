@@ -83,7 +83,7 @@ struct FilterView: View {
         .frame(maxWidth: 500)
         .frame(height: 330, alignment: .top)
         .cornerRadius(8)
-        .shadow(radius: 10)g
+        .shadow(radius: 10)
         
     }
     
