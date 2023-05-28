@@ -141,6 +141,20 @@ class TileManager: ObservableObject {
         trail.downloadState = .notDownloaded
     }
     
+    /// Remove all tiles of the specified layer
+    /// - Parameters:
+    ///   - layer: selectedLayer we want to remove
+    func remove(layer: Layer) {
+        try? FileManager.default.removeItem(at: documentsDirectory.appendingPathComponent(layer.rawValue))
+        createDirectoriesIfNecessary()
+    }
+    
+    /// Get downloaded size for all tiles of the specified layer
+    /// - Parameters:
+    ///   - layer: selectedLayer
+    func getDownloadedSize(layer: Layer) -> Double { documentsDirectory.appendingPathComponent(layer.rawValue).allocatedSizeOfDirectory
+    }
+    
     /// Get the tile URL for the specified layer and path (streaming tile in live, persist it if necessary)
     /// - Parameters:
     ///   - path: MKTileOverlayPath
@@ -157,7 +171,7 @@ class TileManager: ObservableObject {
         }
     }
     
-    // MARK: -  Private methods only in streaming mode (sync)
+    // MARK: -  Sync private methods
     private func persistLocally(path: MKTileOverlayPath, layer: Layer) -> URL {
         let overlay: MKTileOverlay
         switch layer {
@@ -198,7 +212,7 @@ class TileManager: ObservableObject {
         }
     }
     
-    // MARK: -  Private methods only in downloading state (async)
+    // MARK: -  Async private methods only in downloading state
     private func tranformCoordinate(coordinates: CLLocationCoordinate2D , zoom: Int) -> TileCoordinates {
         let lng = coordinates.longitude
         let lat = coordinates.latitude
@@ -263,11 +277,6 @@ class TileManager: ObservableObject {
         return Double(accumulatedSize)
     }
     
-    /// Download and persist all tiles within the boundingBox  (async background thread  private method)
-    /// - Parameters:
-    ///   - trail: the concerned Trail
-    ///   - layer: selectedLayer we want to download
-    /// - Throws: if download cancelled
     private func download(trail: Trail, layer: Layer) async throws {
         guard state == .idle else { return print("􀌓 Another download is in progress") }
         await NetworkManager.shared.runIfNetwork()

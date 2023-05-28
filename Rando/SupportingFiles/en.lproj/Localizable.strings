@@ -24,10 +24,13 @@
 "ign25" = "IGN  1:25 000";
 "openStreetMap" = "Open Street Map";
 "openTopoMap" = "Open Topo Map";
+"swissTopo" = "Swiss Topo";
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
 "Pin" = "User pin";
+"DeleteLayer" = "Delete map layers";
+"DeleteLayerMessage" = "This will remove the map layer:";
 
 // PoiView
 "all" = "All";

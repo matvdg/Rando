@@ -43,7 +43,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isLayerViewDisplayed)
+                LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isLayerViewDisplayed)
                     .isHidden(!isLayerViewDisplayed)
                     .offset(y: 10)
             }

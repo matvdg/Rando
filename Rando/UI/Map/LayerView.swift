@@ -11,38 +11,27 @@ import SwiftUI
 enum Layer: String, CaseIterable, Equatable, Identifiable {
     
     case ign25, openTopoMap, ign, openStreetMap, standard, satellite, flyover, swissTopo
-
+    
     var localized: String { self.rawValue.localized }
     
     /// Only layers we can actually download (MKTileOverlay),  (Maps currentType standard, hybrid, flyover are not  overlays)
     static var onlyOverlaysLayers: [Layer] { [.ign25, .openTopoMap, .ign, .openStreetMap, .swissTopo] }
     
     var id: Self { self }
+    
+    var downloadedSize: Double { TileManager.shared.getDownloadedSize(layer: self) }
 }
 
 struct LayerView: View {
     
     @Binding var selectedLayer: Layer
-    @Binding var isInfoDisplayed: Bool
+    @Binding var isLayerDisplayed: Bool
     @State var isOffline: Bool = UserDefaults.isOffline
+    @State private var showingChildView = false
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 10.0) {
-                
-                HStack {
-                    Text("MapSettings".localized)
-                        .font(.system(size: 20, weight: .bold))
-                    
-                    Spacer()
-                    Button(action: {
-                        self.isInfoDisplayed.toggle()
-                        Feedback.selected()
-                    }) {
-                        DismissButton()
-                    }
-                }
-                
+            VStack {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
                         ForEach(Layer.allCases) { layer in
@@ -63,16 +52,28 @@ struct LayerView: View {
                     }
                 }
                 .padding()
-                
+                NavigationLink("", destination: RemoveLayerView(), isActive: $showingChildView)
             }
             .padding()
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(true)
+            .navigationBarTitle(Text("MapSettings".localized), displayMode: .inline)
+            .navigationBarItems(leading: Button(action:{
+                Feedback.selected()
+                showingChildView = true
+            }) {
+                Image(systemName: "trash")
+            }, trailing: Button(action: {
+                self.isLayerDisplayed.toggle()
+                Feedback.selected()
+            }) {
+                DismissButton()
+            })
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        
         .frame(height: 250.0, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
+        
     }
     
 }
@@ -84,16 +85,16 @@ struct InfoView_Previews: PreviewProvider {
     @State static var isOffline = false
     static var previews: some View {
         Group {
-            LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
                 .environment(\.colorScheme, .dark)
-            LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
                 .previewDisplayName("iPad Pro")
             
                 .environment(\.colorScheme, .light)
-            LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
                 .previewDisplayName("iPhone SE")
                 .environment(\.colorScheme, .light)

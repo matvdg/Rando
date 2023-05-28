@@ -59,6 +59,7 @@
 		F6AB729A2A1E42770017C8AB /* MapSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */; };
 		F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */; };
 		F6AEA1FB24DB022D007509C1 /* DeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */; };
+		F6B6C4A42A2371EA00B360E1 /* RemoveLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6C4A32A2371EA00B360E1 /* RemoveLayerView.swift */; };
 		F6BA8BDC2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BCF2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json */; };
 		F6BA8BDD2A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD02A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json */; };
 		F6BA8BDE2A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD12A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json */; };
@@ -152,6 +153,7 @@
 		F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSettingsRow.swift; sourceTree = "<group>"; };
 		F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailPreview.swift; sourceTree = "<group>"; };
 		F6AEA1FA24DB022D007509C1 /* DeleteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRow.swift; sourceTree = "<group>"; };
+		F6B6C4A32A2371EA00B360E1 /* RemoveLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveLayerView.swift; sourceTree = "<group>"; };
 		F6BA8BCF2A202EFB00F81120 /* 3A3D319A-661F-4CAD-B926-A628C2DC45C4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3A3D319A-661F-4CAD-B926-A628C2DC45C4.json"; sourceTree = "<group>"; };
 		F6BA8BD02A202EFB00F81120 /* 93C5647B-D07A-4907-A588-1D8561079B79.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "93C5647B-D07A-4907-A588-1D8561079B79.json"; sourceTree = "<group>"; };
 		F6BA8BD12A202EFB00F81120 /* DE343206-FB9F-4DDD-9379-E69E14DC4A93.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DE343206-FB9F-4DDD-9379-E69E14DC4A93.json"; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				D0B7CDB72469184F00464C79 /* LayerView.swift */,
 				D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */,
 				F61E421D29D4203A008D4275 /* MapView.swift */,
+				F6B6C4A32A2371EA00B360E1 /* RemoveLayerView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */,
 				F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* OldMapView.swift in Sources */,
+				F6B6C4A42A2371EA00B360E1 /* RemoveLayerView.swift in Sources */,
 				F6CFD0A724BE9EEA00DA224C /* TilesRow.swift in Sources */,
 				F6DB543F24DC8D20002EABDE /* CustomPathView.swift in Sources */,
 				F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */,

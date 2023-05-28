@@ -27,21 +27,6 @@ struct FilterView: View {
             
             VStack(alignment: .center, spacing: 20.0) {
                 
-                HStack {
-                    Text("Filter".localized)
-                        .font(.system(size: 20, weight: .bold))
-                    
-                    Spacer()
-                    Button(action: {
-                        self.isSortDisplayed = false
-                        Feedback.selected()
-                    }) {
-                        DismissButton()
-                    }
-                }
-                
-                Divider()
-                
                 Toggle(isOn: self.$onlyDisplayed) {
                     Text("Displayed".localized)
                 }
@@ -56,8 +41,8 @@ struct FilterView: View {
                     self.onlyFavs.toggle()
                 }
                 
-                
                 Divider()
+                
                 HStack {
                     Text("gr10".localized)
                         .font(.headline)
@@ -70,6 +55,7 @@ struct FilterView: View {
                     }
                     .pickerStyle(.menu)
                 }
+                
                 HStack {
                     Text("Departments".localized)
                         .font(.headline)
@@ -85,10 +71,15 @@ struct FilterView: View {
                             
             }
             .padding()
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(true)
+            .navigationBarTitle("Filter".localized, displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                isSortDisplayed = false
+                Feedback.selected()
+            }) {
+                DismissButton()
+            })
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
         .frame(height: 330, alignment: .top)
         .cornerRadius(8)

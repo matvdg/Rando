@@ -25,11 +25,12 @@
 "openStreetMap" = "Open Street Map";
 "openTopoMap" = "Open Topo Map";
 "swissTopo" = "Swiss Topo";
-"ignEspaña" = "IGN España";
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
 "Pin" = "Repère sur la carte";
+"DeleteLayer" = "Supprimer les fonds de carte";
+"DeleteLayerMessage" = "Cette action supprimera les fonds de carte";
 
 // PoiView
 "all" = "Tous";
