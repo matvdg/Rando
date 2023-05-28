@@ -78,12 +78,12 @@ struct FilterView: View {
             }) {
                 DismissButton()
             })
-            .navigationViewStyle(StackNavigationViewStyle())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
         .frame(height: 330, alignment: .top)
         .cornerRadius(8)
-        .shadow(radius: 10)
+        .shadow(radius: 10)g
         
     }
     

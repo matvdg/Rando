@@ -12,6 +12,7 @@ struct RemoveLayerView: View {
     
     @State private var showAlert = false
     @State var selectedLayer: Layer = .ign
+    @Binding var isLayerDisplayed: Bool
     
     var body: some View {
         List {
@@ -31,11 +32,18 @@ struct RemoveLayerView: View {
             }
         }
         .navigationBarTitle("DeleteLayer".localized, displayMode: .inline)
+        .navigationBarItems(trailing: Button(action: {
+            self.isLayerDisplayed.toggle()
+            Feedback.selected()
+        }) {
+            DismissButton()
+        })
         .actionSheet(isPresented: $showAlert) {
             return ActionSheet(
                 title: Text("\("DeleteLayerMessage".localized) \(selectedLayer.localized)"),
                 buttons: [
                     .destructive(Text("DeleteLayer".localized), action: {
+                        Feedback.selected()
                         TileManager.shared.remove(layer: selectedLayer)
                     }),
                     .cancel(Text("Cancel".localized))
@@ -46,7 +54,8 @@ struct RemoveLayerView: View {
 }
 
 struct RemoveLayerView_Previews: PreviewProvider {
+    @State static var isLayerDisplayed: Bool = true
     static var previews: some View {
-        RemoveLayerView()
+        RemoveLayerView(isLayerDisplayed: $isLayerDisplayed)
     }
 }

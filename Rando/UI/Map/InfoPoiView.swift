@@ -49,8 +49,8 @@ struct InfoPoiView: View {
             }) {
                 DismissButton()
             })
-            .navigationViewStyle(StackNavigationViewStyle())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
         .frame(height: 300.0, alignment: .top)
         .cornerRadius(8)

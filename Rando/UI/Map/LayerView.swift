@@ -52,7 +52,7 @@ struct LayerView: View {
                     }
                 }
                 .padding()
-                NavigationLink("", destination: RemoveLayerView(), isActive: $showingChildView)
+                NavigationLink("", destination: RemoveLayerView(isLayerDisplayed: $isLayerDisplayed), isActive: $showingChildView)
             }
             .padding()
             .navigationBarTitle(Text("MapSettings".localized), displayMode: .inline)
@@ -67,9 +67,8 @@ struct LayerView: View {
             }) {
                 DismissButton()
             })
-            .navigationViewStyle(StackNavigationViewStyle())
         }
-        
+        .navigationViewStyle(StackNavigationViewStyle())
         .frame(height: 250.0, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
