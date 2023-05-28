@@ -1,5 +1,5 @@
 //
-//  CircleImage.swift
+//  MiniImage.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 08/05/2020.

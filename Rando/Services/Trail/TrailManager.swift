@@ -42,37 +42,29 @@ class TrailManager: ObservableObject {
     
     // MARK: - Public methods
     func createTrail(from url: URL) {
+        
         guard let xml = try? String(contentsOf: url) else { return }
         var locations = [Location]()
+        var distance: CLLocationDistance?
+        var elevationGain: CLLocationDistance?
         var name = ""
         let parser = GPXFileParser(xmlString: xml)
             switch parser.parse() {
             case .success(let track):
                 locations.append(contentsOf: track.trackPoints.map { Location(coordinate: $0.coordinate)})
+                distance = track.graph.distance
+                elevationGain = track.graph.elevationGain
                 name = track.title
             case .failure(let error):
                 print(error)
             }
         guard let loc = locations.last?.clLocation else { return }
         LocationManager.shared.getDepartment(location: loc) { department in
-            let trail = Trail(gpx: Gpx(name: name, locations: locations, department: department))
-            self.persist(trail: trail)
+            let gpx = Gpx(name: name, locations: locations, department: department, distance: distance, elevationGain: elevationGain)
+            let trail = Trail(gpx: gpx)
+            self.persist(gpx: gpx)
             self.trails.array.append(trail)
             self.objectWillChange.send()
-        }
-    }
-    
-    func doSomethingWith(_ track: GPXTrack) {
-        let formatter = MeasurementFormatter()
-        formatter.unitStyle = .short
-        formatter.unitOptions = .naturalScale
-        formatter.numberFormatter.maximumFractionDigits = 1
-        let trackGraph = track.graph
-        print("Track length: \(formatter.string(from: Measurement<UnitLength>(value: trackGraph.distance, unit: .meters)))")
-        print("Track elevation: \(formatter.string(from: Measurement<UnitLength>(value: trackGraph.elevationGain, unit: .meters)))")
-        
-        for point in track.trackPoints {
-            print("Lat: \(point.coordinate.latitude), lon: \(point.coordinate.longitude)")
         }
     }
     
@@ -83,7 +75,7 @@ class TrailManager: ObservableObject {
             trail.objectWillChange.send()
             self.objectWillChange.send()
         }
-        self.persist(trail: trail)
+        self.persist(gpx: trail.gpx)
     }
     
     func remove(id: UUID) {
@@ -118,10 +110,11 @@ class TrailManager: ObservableObject {
     }
         
     func addMissingDepartment(trail: Trail) {
-        guard trail.department == nil, let loc = trail.locations.last?.clLocation else { return }
-        LocationManager.shared.getDepartment(location: loc) { department in
-            trail.department = department
-            TrailManager.shared.save(trail: trail)
+        Task(priority: .background) {
+            guard trail.department == nil, let loc = trail.locations.last?.clLocation else { return }
+            LocationManager.shared.getDepartment(location: loc) { department in
+                trail.department = department
+            }
         }
     }
     
@@ -139,11 +132,11 @@ class TrailManager: ObservableObject {
         }
     }
     
-    private func persist(trail: Trail) {
-        let file = "trails/\(trail.id).json"
+    private func persist(gpx: Gpx) {
+        let file = "trails/\(gpx.id).json"
         let filename = documentsDirectory.appendingPathComponent(file)
         do {
-            let data = try JSONEncoder().encode(trail.gpx)
+            let data = try JSONEncoder().encode(gpx)
             try data.write(to: filename)
         } catch {
             print("􀌓 Trail persistLocallyError = \(error)")

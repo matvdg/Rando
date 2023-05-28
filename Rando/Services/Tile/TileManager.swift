@@ -23,24 +23,40 @@ class SwissTopoMapOverlay: MKTileOverlay {
     override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .swissTopo) }
 }
 
-class TaskManager: ObservableObject {
-    static let shared = TaskManager()
-    var downloadTilesTask: Task<Void, Never>?
-}
 
 class TileManager: ObservableObject {
-        
+    
     enum DownloadState: Equatable {
         case idle, downloading(id: UUID)
-        func isDownloadingButAnotherTrail(id2: UUID) -> Bool {
+        func isDownloading() -> Bool {
+            guard case .downloading = self else { return false }
+            return true
+        }
+        func isIdle() -> Bool {
+            guard case .idle = self else { return false }
+            return true
+        }
+        func isDownloadingAnotherTrail(id: UUID) -> Bool {
             switch self {
             case .idle:
                 return false
-            case .downloading(id: let id1):
-                if id1 == id2 {
+            case .downloading(id: let id2):
+                if id == id2 {
                     return false
                 } else {
                     return true
+                }
+            }
+        }
+        func isDownloadingTrail(id: UUID) -> Bool {
+            switch self {
+            case .idle:
+                return false
+            case .downloading(id: let id2):
+                if id == id2 {
+                    return true
+                } else {
+                    return false
                 }
             }
         }
@@ -59,14 +75,85 @@ class TileManager: ObservableObject {
     private var sizeLeftInBytes: Double = 0
     private let fileManager = FileManager.default
     private var currentFilteredPaths = [MKTileOverlayPath]() // Without those already persisted
+    private var downloadTilesTask: Task<(), Never>?
     
     // MARK: -  Public property
     @Published var progress: Float = 0
-    @Published var state: DownloadState = .idle
     var sizeLeft: String { sizeLeftInBytes.toBytes }
     var hasBeenDownloaded: Bool = false
+    var state: DownloadState = .idle
     
     // MARK: -  Public methods
+    
+    /// Load TrailManager computations for TrailDetailView if TileManager available
+    /// - Parameters:
+    ///   - trail: the concerned Trail
+    func load(for trail: Trail, selectedLayer: Layer) {
+        guard state.isIdle() else { return } // No override if currently downloading for another trail for another TrailDetailView
+        self.downloadTilesTask?.cancel() // Just in case
+        Task(priority: .userInitiated) {
+            let paths = computeAndFilterTileOverlayPaths(for: trail.boundingBox, layer: selectedLayer)
+            sizeLeftInBytes = Double(paths.count) * tileSize // Update estimation
+            DispatchQueue.main.async { [weak self] in
+                // Update trail state from .unknown to...
+                if let isDownloading = self?.state.isDownloadingTrail(id: trail.id), isDownloading {
+                    trail.downloadState = .downloading
+                } else {
+                    trail.downloadState = paths.isEmpty ? .downloaded : .notDownloaded
+                }
+            }
+        }
+        
+    }
+    
+    /// Download and persist all tiles within the boundingBox (sync main thread UI public method)
+    /// - Parameters:
+    ///   - trail: the concerned Trail
+    ///   - layer: selectedLayer we want to download
+    func download(trail: Trail, layer: Layer) {
+        Feedback.selected() // Give user feedback
+        trail.downloadState = .downloading // Sync. Immediate UI update before we go async
+        self.downloadTilesTask = Task(priority: .background) { // Async
+            do {
+                try await download(trail: trail, layer: layer)
+            } catch {
+                DispatchQueue.main.async { [weak self] in
+                    if let errorDomain = error as? URLError, errorDomain.code != .cancelled {
+                        NotificationManager.shared.sendNotification(title: "Error".localized, message: "Network".localized)
+                    }
+                    self?.state = .idle
+                    trail.downloadState = .notDownloaded
+                    print("􀌓 Download cancelled: \(error)")
+                    self?.downloadTilesTask?.cancel()
+                }
+            }
+        }
+    }
+    
+    /// Cancel download
+    /// - Parameters:
+    ///   - trail: the concerned Trail
+    func cancelDownload(trail: Trail) {
+        Feedback.selected() // Give user feedback
+        print("􀌓 User cancelled download")
+        self.downloadTilesTask?.cancel()
+        self.state = .idle
+        trail.downloadState = .notDownloaded
+    }
+    
+    /// Remove all tiles of the specified layer
+    /// - Parameters:
+    ///   - layer: selectedLayer we want to remove
+    func remove(layer: Layer) {
+        try? FileManager.default.removeItem(at: documentsDirectory.appendingPathComponent(layer.rawValue))
+        createDirectoriesIfNecessary()
+    }
+    
+    /// Get downloaded size for all tiles of the specified layer
+    /// - Parameters:
+    ///   - layer: selectedLayer
+    func getDownloadedSize(layer: Layer) -> Double { documentsDirectory.appendingPathComponent(layer.rawValue).allocatedSizeOfDirectory
+    }
     
     /// Get the tile URL for the specified layer and path (streaming tile in live, persist it if necessary)
     /// - Parameters:
@@ -84,57 +171,7 @@ class TileManager: ObservableObject {
         }
     }
     
-    /// Has the tiles for the specified layer and bounding box are already downloaded (only for idle state,  then get var hasBeenDownloaded for downloading state)
-    /// - Parameters:
-    ///   - boundingBox: boundingMapRect surrounding the trail
-    ///   - layer: selectedLayer for which tiles have been downloaded
-    /// - Returns: if tiles have already been downloaded or not
-    func hasBeenDownloaded(for boundingBox: MKMapRect, layer: Layer) -> Bool {
-        guard state == .idle else { return hasBeenDownloaded }
-        hasBeenDownloaded = computeAndFilterTileOverlayPaths(for: boundingBox, layer: layer).isEmpty
-        return hasBeenDownloaded
-    }
-    
-    /// Get estimated download size for specified layer and bounding box (only for idle state,  then get var sizeLeft for downloading state)
-    /// - Parameters:
-    ///   - boundingBox: boundingMapRect surrounding the trail
-    ///   - layer: selectedLayer for which we want estimated download size
-    /// - Returns: String describing size to download
-    func getEstimatedDownloadSize(for boundingBox: MKMapRect, layer: Layer) -> String {
-        guard state == .idle else { return "" }
-        let count = computeAndFilterTileOverlayPaths(for: boundingBox, layer: layer).count
-        sizeLeftInBytes = Double(count) * tileSize
-        return sizeLeft
-    }
-    
-    /// Download and persist all tiles within the boundingBox
-    /// - Parameters:
-    ///   - trail: the concerned Trail
-    ///   - layer: selectedLayer we want to download
-    /// - Throws: if download cancelled
-    func download(trail: Trail, layer: Layer) async throws {
-        guard state == .idle else { return print("􀌓 Another download is in progress") }
-        self.progress = 0
-        await NetworkManager.shared.runIfNetwork()
-        print("􀌕 Downloading \(trail.name) maps, for \(layer) layer")
-        self.state = .downloading(id: trail.id)
-        let filteredPaths = computeAndFilterTileOverlayPaths(for: trail.boundingBox, layer: layer)
-        try Task.checkCancellation()
-        for i in 0..<filteredPaths.count {
-            try await self.persistLocally(path: filteredPaths[i], layer: layer)
-            self.progress = Float(i) / Float(filteredPaths.count)
-            print( "􀌕 Downloading \(i)/\(filteredPaths.count) tiles, \(Int(self.progress*100))%")
-            sizeLeftInBytes -= tileSize
-        }
-        self.state = .idle
-        print("􀢓 Downloaded \(trail.name) maps, for \(layer) layer")
-        DispatchQueue.main.async {
-            NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\((self.getDownloadedSize(for: trail.boundingBox, layer: layer)).toBytes))", message: "\(trail.name) \("DownloadedMessage".localized)")
-            
-        }
-    }
-    
-    // MARK: -  Private methods only in streaming mode (sync)
+    // MARK: -  Sync private methods
     private func persistLocally(path: MKTileOverlayPath, layer: Layer) -> URL {
         let overlay: MKTileOverlay
         switch layer {
@@ -150,17 +187,22 @@ class TileManager: ObservableObject {
             overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}")
         }
         let url = overlay.url(forTilePath: path)
-        Task(priority: .background) {
+        Task(priority: .background) { // Persist layer (async)...
             let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
             let filename = documentsDirectory.appendingPathComponent(file)
-            do {
-                let data = try Data(contentsOf: url)
-                try data.write(to: filename)
-            } catch {
-                print("􀌓 Tile persistLocallyError = \(error)")
+            if !fileManager.fileExists(atPath:  filename.path)  { // Recheck if file is absent to avoid conflict with the async persistLocally method in case of parallel download of the maps while the map tiles are still streaming (e.g. user loads a TrailDetailView, but immediately clicks on download while the tilesl of the preview map are still loading
+                do {
+                    let response = try await URLSession.shared.data(from: url)
+                    try response.0.write(to: filename)
+                }
+                catch {
+                    print("􀌓 TileManager persistLocallyError = \(error)")
+                }
+            } else {
+                print("􀌓 TileManager persistLocallyError already downloaded by other async process ")
             }
         }
-        return url
+        return url // ...but stream now (sync)
     }
     
     private func createDirectoriesIfNecessary() {
@@ -170,7 +212,7 @@ class TileManager: ObservableObject {
         }
     }
     
-    // MARK: -  Private methods only in downloading state (async)
+    // MARK: -  Async private methods only in downloading state
     private func tranformCoordinate(coordinates: CLLocationCoordinate2D , zoom: Int) -> TileCoordinates {
         let lng = coordinates.longitude
         let lat = coordinates.latitude
@@ -233,6 +275,35 @@ class TileManager: ObservableObject {
             accumulatedSize += (try? url.regularFileAllocatedSize()) ?? 0
         }
         return Double(accumulatedSize)
+    }
+    
+    private func download(trail: Trail, layer: Layer) async throws {
+        guard state == .idle else { return print("􀌓 Another download is in progress") }
+        await NetworkManager.shared.runIfNetwork()
+        DispatchQueue.main.async { [weak self] in
+            self?.progress = 0
+            print("􀌕 Downloading \(trail.name) maps, for \(layer) layer")
+            self?.state = .downloading(id: trail.id)
+            trail.downloadState = .downloading
+        }
+        let filteredPaths = computeAndFilterTileOverlayPaths(for: trail.boundingBox, layer: layer)
+        try Task.checkCancellation()
+        let total = filteredPaths.count
+        for i in 0..<total {
+            try await self.persistLocally(path: filteredPaths[i], layer: layer)
+            DispatchQueue.main.async { [weak self] in
+                self?.progress = Float(i) / Float(total)
+            }
+            print( "􀌕 Downloading \(i)/\(total) tiles, \(Int(self.progress*100))%")
+            sizeLeftInBytes = Double(total - i) * tileSize // Update estimation
+        }
+        DispatchQueue.main.async { [weak self] in
+            NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytes))", message: "\(trail.name) \("DownloadedMessage".localized)")
+            self?.progress = 1
+            self?.state = .idle
+            trail.downloadState = .downloaded
+            print("􀢓 Downloaded \(trail.name) maps, for \(layer) layer")
+        }
     }
     
 }

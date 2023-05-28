@@ -7,13 +7,15 @@
 */
 
 // General
-"Delete" = "Delete";
 "Cancel" = "Cancel";
 "Add" = "Add";
 "Rename" = "Rename";
 "Left" = "left";
 "Error" = "Oops!";
 "Network" = "Please check your internet connection then retry";
+"Loading" = "Loading...";
+"SelectInSidebar" = "Select an item in the left sidebar";
+"Search" = "Search";
 
 // MapView
 "MapSettings" = "Map layers";
@@ -22,10 +24,13 @@
 "ign25" = "IGN  1:25 000";
 "openStreetMap" = "Open Street Map";
 "openTopoMap" = "Open Topo Map";
+"swissTopo" = "Swiss Topo";
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
 "Pin" = "User pin";
+"DeleteLayer" = "Delete map layers";
+"DeleteLayerMessage" = "This will remove the map layer:";
 
 // PoiView
 "all" = "All";
@@ -65,11 +70,13 @@
 "Profile" = "Profile";
 "Filter" = "Filter";
 "Filtered" = "Filtered";
-"Displayed" = "Show only displayed trails";
-"Favs" = "Show only favorites";
-"GR10filtering" = "Show only GR10 trails";
-"Departments" = "Filter by department:";
+"Displayed" = "Displayed on map";
+"Favs" = "Favorites";
+"gr10" = "GR10";
+"notgr10" = "Not GR10";
+"Departments" = "Region";
 "Directions" = "Get car directions";
 "Departure" = "Departure";
 "DeleteTrail" = "Delete trail";
+"DeleteTrailMessage" = "This will remove this trail, not the associated maps";
 "3D" = "Watch the 3D tour";

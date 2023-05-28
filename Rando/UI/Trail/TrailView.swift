@@ -21,13 +21,14 @@ struct TrailView: View {
     @State var sorting: Sorting = .name
     @State var onlyDisplayed: Bool = false
     @State var onlyFavs: Bool = false
-    @State var onlyGR10: Bool = false
+    @State var gr10filter: Gr10filter = .all
     @State var showFilter: Bool = false
     @State var department: String = "all".localized
+    @State private var searchText = ""
     @Binding var selectedLayer: Layer
-    
+
     private var isFiltered: Bool {
-        department != "all".localized || onlyDisplayed || onlyFavs
+        department != "all".localized || onlyDisplayed || onlyFavs || gr10filter != .all
     }
     
     @ObservedObject var trailManager = TrailManager.shared
@@ -36,7 +37,7 @@ struct TrailView: View {
         // Sort
         var sortedTrails = trailManager.trails.array.sorted {
             switch sorting {
-            case .elevation : return $0.positiveElevation > $1.positiveElevation
+            case .elevation : return $0.elevationGain > $1.elevationGain
             case .distance: return $0.distance > $1.distance
             case .name: return $0.name < $1.name
             case .importDate: return $0.date > $1.date
@@ -55,8 +56,17 @@ struct TrailView: View {
             sortedTrails = sortedTrails.filter { $0.isFav }
         }
         // Filter by GR10 if necessary
-        if onlyGR10 {
+        switch gr10filter {
+        case .gr10:
             sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("gr10") }
+        case .notgr10:
+            sortedTrails = sortedTrails.filter { !$0.name.localizedCaseInsensitiveContains("gr10") }
+        case .all:
+            break
+        }
+        // Filter by search
+        if !searchText.isEmpty {
+            sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
         return sortedTrails
     }
@@ -91,9 +101,12 @@ struct TrailView: View {
                     }
                     .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
                     
+                    EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, searchText: $searchText)
+                        .isHidden(!isFiltered, remove: true)
+                    
                     List {
                         ForEach(sortedTrails) { trail in
-                            NavigationLink(destination: TrailDetail(trail: trail, selectedLayer: $selectedLayer)) {
+                            NavigationLink(destination: TrailDetailView(trail: trail, selectedLayer: $selectedLayer)) {
                                 TrailRow(trail: trail)
                             }
                         }
@@ -105,7 +118,7 @@ struct TrailView: View {
                     
                     Spacer()
                     
-                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyGR10: $onlyGR10, department: $department, isSortDisplayed: $showFilter)
+                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, isSortDisplayed: $showFilter)
                         .isHidden(!showFilter)
                         .offset(y: 10)
                 }
@@ -116,17 +129,21 @@ struct TrailView: View {
             }
             .navigationBarTitle(Text("Trails".localized), displayMode: .inline)
             .navigationBarItems(leading: EditButton(), trailing:
-                Button(action: {
-                    Feedback.selected()
-                    self.showFilePicker = true
-                }) {
-                    HStack {
-                        Text("Add".localized)
-                        Image(systemName: "plus")
-                    }
+                                    Button(action: {
+                Feedback.selected()
+                self.showFilePicker = true
+            }) {
+                Image(systemName: "plus.circle.fill")
             })
+            HStack {
+                Image(systemName: "sidebar.left")
+                    .imageScale(.large)
+                Text("SelectInSidebar".localized)
+            }
             
-        }.accentColor(.tintColor)
+        }
+        .accentColor(.tintColor)
+        .searchable(text: $searchText, placement: .toolbar, prompt: "Search".localized)
     }
     
 }
@@ -136,8 +153,7 @@ struct TrailView_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = .ign
     static var previews: some View {
         TrailView(selectedLayer: $selectedLayer)
-            .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-            .previewDisplayName("iPhone X")
-            .environment(\.colorScheme, .dark)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+            .previewDisplayName("iPhone 14")
     }
 }

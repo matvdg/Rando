@@ -47,7 +47,7 @@ struct PoiView: View {
                 
                 List {
                     ForEach(selectedPois) { poi in
-                        NavigationLink(destination: PoiDetail(selectedLayer: $selectedLayer, poi: poi)) {
+                        NavigationLink(destination: PoiDetailView(selectedLayer: $selectedLayer, poi: poi)) {
                             PoiRow(poi: poi)
                         }
                     }
@@ -56,6 +56,11 @@ struct PoiView: View {
             }
             .navigationBarTitle(Text("Steps".localized), displayMode: .inline)
             .accentColor(.tintColor)
+            HStack {
+                Image(systemName: "sidebar.left")
+                    .imageScale(.large)
+                Text("SelectInSidebar".localized)
+            }
         }
         
     }

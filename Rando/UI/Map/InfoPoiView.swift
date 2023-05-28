@@ -16,53 +16,41 @@ struct InfoPoiView: View {
         
         NavigationView {
             
-            VStack {
+            HStack(alignment: .top, spacing: 16) {
                 
-                HStack {
-                    Text(poi?.name ?? "")
-                        .font(.system(size: 20, weight: .bold))
+                MiniImage(id: poi?.id ?? 0)
+                    .frame(width: 70.0, height: 70.0)
+                
+                VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Altitude".localized)
+                            .foregroundColor(Color("grgray"))
+                        Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
+                    }
+                    .font(.subheadline)
+                    .frame(maxHeight: 100)
+                    
+                    ScrollView(showsIndicators: false) {
+                        Text(poi?.description ?? "")
+                            .font(.body)
+                            .padding(.trailing, 8)
+                    }
+                    .frame(height: 110, alignment: .top)
                     
                     Spacer()
-                    Button(action: {
-                        Feedback.selected()
-                        self.poi = nil
-                    }) {
-                        DismissButton()
-                    }
                 }
-                
-                HStack(alignment: .top, spacing: 16) {
-                                        
-                    MiniImage(id: poi?.id ?? 0)
-                        .frame(width: 70.0, height: 70.0)
-                    
-                    VStack(alignment: .leading) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Altitude".localized)
-                                .foregroundColor(Color("grgray"))
-                            Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
-                        }
-                        .font(.subheadline)
-                        .frame(maxHeight: 100)
-                        
-                        ScrollView(showsIndicators: false) {
-                            Text(poi?.description ?? "")
-                                .font(.body)
-                                .padding(.trailing, 8)
-                        }
-                        .frame(height: 110, alignment: .top)
-                        
-                        Spacer()
-                    }
-                    .padding(.bottom, 16)
-                }
+                .padding(.bottom, 16)
             }
             .padding()
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(true)
-            
+            .navigationBarTitle(poi?.name ?? "", displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                self.poi = nil
+                Feedback.selected()
+            }) {
+                DismissButton()
+            })
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
         .frame(height: 300.0, alignment: .top)
         .cornerRadius(8)

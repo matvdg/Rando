@@ -1,5 +1,5 @@
 //
-//  PoiDetail.swift
+//  PoiDetailView.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 08/05/2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PoiDetail: View {
+struct PoiDetailView: View {
     
     @Binding var selectedLayer: Layer
     
@@ -87,7 +87,7 @@ struct PoiDetail_Previews: PreviewProvider {
     @State static var clockwise = true
     @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        PoiDetail(selectedLayer: $selectedLayer, poi: pois[7])
+        PoiDetailView(selectedLayer: $selectedLayer, poi: pois[7])
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
             .previewDisplayName("iPhone SE")
             .environment(\.colorScheme, .light)

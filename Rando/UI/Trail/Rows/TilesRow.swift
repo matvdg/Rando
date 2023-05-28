@@ -13,69 +13,77 @@ struct TilesRow: View {
     
     @ObservedObject var tileManager = TileManager.shared
     @Binding var selectedLayer: Layer
+    @Binding var state: Trail.DownloadState
     
     var trail: Trail
     
     var body: some View {
         
         Button(action: { // Action only when enabled
-            if self.tileManager.state == .idle { // Download (can't be downloaded because the button is disabled in that case)
-                Feedback.selected()
-                TaskManager.shared.downloadTilesTask = Task(priority: .background) {
-                    do {
-                        try await tileManager.download(trail: trail, layer: selectedLayer)
-                    } catch {
-                        print("􀌓 Download cancelled")
-                    }
-                }
-            } else { // Downloading (can't be downloading other trail because the button is disabled in that case)
-                print("􀌓 User cancelled download")
-                TaskManager.shared.downloadTilesTask?.cancel()
-                tileManager.state = .idle
+            if trail.downloadState == .notDownloaded {
+                tileManager.download(trail: trail, layer: selectedLayer)
+            } else {
+                tileManager.cancelDownload(trail: trail)
             }
         }) {
             HStack(spacing: 15) {
-                let hasBeenDownloaded = tileManager.hasBeenDownloaded(for: trail.boundingBox, layer: selectedLayer)
-                if hasBeenDownloaded { // Downloaded
-                    Image(systemName: "checkmark.icloud")
-                    Text("Downloaded".localized)
-                } else if tileManager.state == .downloading(id: trail.id) { // Downloading
-                    ProgressView(value: tileManager.progress)
-                        .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
-                    VStack(alignment: .leading) {
-                        Text("\("Downloading".localized) (\(tileManager.sizeLeft) \("Left".localized))")
-                            .font(.headline)
-                        ProgressView(value: tileManager.progress)
-                            .progressViewStyle(LinearProgressViewStyle(tint: .tintColorTabBar))
-                            .frame(height: 10)
-                    }
-                    Image(systemName: "xmark.circle").foregroundColor(.red)
-                } else if tileManager.state == .idle { // Download
-                    Image(systemName: "icloud.and.arrow.down")
-                    Text("\("Download".localized) (\(tileManager.getEstimatedDownloadSize(for: trail.boundingBox, layer: selectedLayer)))")
-                        .font(.headline)
-                } else { // Other downloading in progress
+                if tileManager.state.isDownloadingAnotherTrail(id: trail.id) {
                     Image(systemName: "xmark.icloud")
                     Text("OtherDownloadInProcess".localized)
+                } else {
+                    switch trail.downloadState {
+                    case .unknown :
+                        ProgressView(value: tileManager.progress)
+                            .progressViewStyle(CircularProgressViewStyle())
+                        Text("Loading".localized)
+                            .foregroundColor(.gray)
+                    case .notDownloaded:
+                        Image(systemName: "icloud.and.arrow.down")
+                        Text("\("Download".localized) (\(tileManager.sizeLeft))")
+                            .font(.headline)
+                    case .downloading:
+                        ProgressView(value: tileManager.progress)
+                            .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
+                        VStack(alignment: .leading) {
+                            Text("\("Downloading".localized) \(Int(tileManager.progress*100))% (\(tileManager.sizeLeft) \("Left".localized))")
+                                .font(.headline)
+                            ProgressView(value: tileManager.progress)
+                                .progressViewStyle(LinearProgressViewStyle(tint: .tintColorTabBar))
+                                .frame(height: 10)
+                        }
+                        Image(systemName: "xmark.circle").foregroundColor(.red)
+                    case .downloaded:
+                        Image(systemName: "checkmark.icloud")
+                        Text("Downloaded".localized)
+                    }
                 }
             }
         }
         .buttonStyle(MyButtonStyle())
-        .disabled( // enabled when download or downloading
+        .disabled( // enabled when notDownloaded (to download it) or downloading (to cancel it)
             // disabled when other download in progress
-            tileManager.state.isDownloadingButAnotherTrail(id2: trail.id)
+            tileManager.state.isDownloadingAnotherTrail(id: trail.id)
             // and disabled when downloaded
-            || tileManager.hasBeenDownloaded(for: trail.boundingBox, layer: selectedLayer)
+            || trail.downloadState == .downloaded
+            // and disabled when unkwnow
+            || trail.downloadState == .unknown
         )
+        .onChange(of: selectedLayer) { newValue in
+            tileManager.load(for: trail, selectedLayer: selectedLayer)
+        }
+        .onChange(of: tileManager.state) { newValue in
+            tileManager.load(for: trail, selectedLayer: selectedLayer)
+        }
     }
 }
 
 // MARK: Previews
 struct TilesRow_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = .ign
+    @State static var state: Trail.DownloadState = .unknown
     static var previews: some View {
         
-        TilesRow(selectedLayer: $selectedLayer, trail: Trail())
+        TilesRow(selectedLayer: $selectedLayer, state: $state, trail: Trail())
             .previewLayout(.fixed(width: 300, height: 80))
             .environment(\.colorScheme, .light)
     }

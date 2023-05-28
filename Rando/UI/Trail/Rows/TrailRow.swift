@@ -29,8 +29,8 @@ struct TrailRow: View {
                         .foregroundColor(.lightgrayInverted)
                 }
                 
-                if trail.positiveElevation > 0 {
-                    Text("\(trail.distance.toString) - \(trail.positiveElevation.toStringMeters)")
+                if trail.elevationGain > 0 {
+                    Text("\(trail.distance.toString) - \(trail.elevationGain.toStringMeters)")
                         .font(.subheadline)
                         .foregroundColor(.lightgrayInverted)
                         .minimumScaleFactor(0.5)

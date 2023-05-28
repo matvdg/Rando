@@ -7,13 +7,15 @@
 */
 
 // General
-"Delete" = "Supprimer";
 "Cancel" = "Annuler";
 "Add" = "Ajouter";
 "Rename" = "Renommer";
 "Left" = "restant";
 "Error" = "Oups !";
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
+"Loading" = "Chargement...";
+"SelectInSidebar" = "Sélectionner un élément dans la colonne de gauche";
+"Search" = "Rechercher";
 
 // MapView
 "MapSettings" = "Fonds de carte";
@@ -23,11 +25,12 @@
 "openStreetMap" = "Open Street Map";
 "openTopoMap" = "Open Topo Map";
 "swissTopo" = "Swiss Topo";
-"ignEspaña" = "IGN España";
 "standard" = "Standard";
 "satellite" = "Satellite";
 "flyover" = "3D";
 "Pin" = "Repère sur la carte";
+"DeleteLayer" = "Supprimer les fonds de carte";
+"DeleteLayerMessage" = "Cette action supprimera les fonds de carte";
 
 // PoiView
 "all" = "Tous";
@@ -67,11 +70,13 @@
 "Profile" = "Profil";
 "Filter" = "Filtrer";
 "Filtered" = "Filtré";
-"Displayed" = "Ne montrer que les tracés affichés";
-"Favs" = "Ne montrer que les favoris";
-"GR10filtering" = "Ne montrer que le GR10";
-"Departments" = "Filtrer par département :";
+"Displayed" = "Visibles sur la carte";
+"Favs" = "Favoris";
+"gr10" = "GR10";
+"notgr10" = "Non GR10";
+"Departments" = "Département";
 "Directions" = "Obtenir l'itinéraire en voiture";
 "Departure" = "Départ";
 "DeleteTrail" = "Supprimer la randonnée";
+"DeleteTrailMessage" = "Cette action supprimera la randonnée, pas les cartes associées";
 "3D" = "Visualiser le parcours en 3D";

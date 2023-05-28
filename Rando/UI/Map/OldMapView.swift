@@ -161,19 +161,6 @@ struct OldMapView: UIViewRepresentable {
             }
         }
         
-        func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-            guard !isPlayingTour else { return }
-            // Max zoom check
-            let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
-            var span = mapView.region.span
-            let maxZoom: CLLocationDegrees = 0.010
-            if span.latitudeDelta < maxZoom {
-                span = MKCoordinateSpan(latitudeDelta: maxZoom, longitudeDelta: maxZoom)
-                let region = MKCoordinateRegion(center: coordinate, span: span)
-                mapView.setRegion(region, animated: true)
-            }
-        }
-        
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             guard let annotation = view.annotation as? PoiAnnotation, !parent.isDetailMap else {
                 return }

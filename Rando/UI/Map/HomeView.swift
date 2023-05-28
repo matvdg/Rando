@@ -12,6 +12,7 @@ struct HomeView: View {
     
     @State var selectedTracking: Tracking = .bounding
     @Binding var selectedLayer: Layer
+    @Binding var isLocked: Bool
     @State var isLayerViewDisplayed: Bool = false
     @State var selectedPoi: Poi?
     @State var trails = TrailManager.shared.currentTrails
@@ -29,7 +30,7 @@ struct HomeView: View {
                 
                 HStack(alignment: .top) {
                     Spacer()
-                    MapControl(tracking: $selectedTracking, isLayerViewDisplayed: $isLayerViewDisplayed)
+                    MapControlView(tracking: $selectedTracking, isLayerViewDisplayed: $isLayerViewDisplayed, isLocked: $isLocked)
                         .padding(.trailing, 8)
                         .padding(.top, 70)
                 }
@@ -42,7 +43,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                LayerView(selectedLayer: $selectedLayer, isInfoDisplayed: $isLayerViewDisplayed)
+                LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isLayerViewDisplayed)
                     .isHidden(!isLayerViewDisplayed)
                     .offset(y: 10)
             }
@@ -66,15 +67,14 @@ struct HomeView: View {
         
     }
     
-    
-    
 }
 
 // MARK: Previews
 struct HomeView_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = .ign
+    @State static var isLocked = false
     static var previews: some View {
-        HomeView(selectedLayer: $selectedLayer)
+        HomeView(selectedLayer: $selectedLayer, isLocked: $isLocked)
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)

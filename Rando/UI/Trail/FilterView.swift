@@ -8,11 +8,16 @@
 
 import SwiftUI
 
+enum Gr10filter: String, CaseIterable {
+    case gr10, notgr10, all
+    var localized: String { rawValue.localized }
+}
+
 struct FilterView: View {
     
     @Binding var onlyDisplayed: Bool
     @Binding var onlyFavs: Bool
-    @Binding var onlyGR10: Bool
+    @Binding var gr10filter: Gr10filter
     @Binding var department: String
     @Binding var isSortDisplayed: Bool
     
@@ -21,21 +26,6 @@ struct FilterView: View {
         NavigationView {
             
             VStack(alignment: .center, spacing: 20.0) {
-                
-                HStack {
-                    Text("Filter".localized)
-                        .font(.system(size: 20, weight: .bold))
-                    
-                    Spacer()
-                    Button(action: {
-                        self.isSortDisplayed = false
-                        Feedback.selected()
-                    }) {
-                        DismissButton()
-                    }
-                }
-                
-                Divider()
                 
                 Toggle(isOn: self.$onlyDisplayed) {
                     Text("Displayed".localized)
@@ -51,15 +41,21 @@ struct FilterView: View {
                     self.onlyFavs.toggle()
                 }
                 
-                Toggle(isOn: self.$onlyGR10) {
-                    Text("GR10filtering".localized)
-                }
-                .onTapGesture {
-                    self.onlyGR10.toggle()
+                Divider()
+                
+                HStack {
+                    Text("gr10".localized)
+                        .font(.headline)
+                    Spacer()
+                    Picker(selection: $gr10filter, label: Text("")) {
+                        
+                        ForEach(Gr10filter.allCases, id: \.self) { gr10filter in
+                            Text(gr10filter.localized)
+                        }
+                    }
+                    .pickerStyle(.menu)
                 }
                 
-                Divider()
-    
                 HStack {
                     Text("Departments".localized)
                         .font(.headline)
@@ -75,10 +71,15 @@ struct FilterView: View {
                             
             }
             .padding()
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(true)
+            .navigationBarTitle("Filter".localized, displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                isSortDisplayed = false
+                Feedback.selected()
+            }) {
+                DismissButton()
+            })
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
         .frame(height: 330, alignment: .top)
         .cornerRadius(8)
@@ -94,9 +95,9 @@ struct FilterView_Previews: PreviewProvider {
     @State static var isSortDisplayed = true
     @State static var onlyDisplayed = false
     @State static var onlyFavs = false
-    @State static var onlyGR10 = false
+    @State static var gr10filter: Gr10filter = .notgr10
     static var previews: some View {
-        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyGR10: $onlyGR10, department: $department, isSortDisplayed: $isSortDisplayed)
+        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, isSortDisplayed: $isSortDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
                 .previewDisplayName("iPhone 14 Pro Max")
                 .environment(\.colorScheme, .dark)

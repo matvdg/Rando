@@ -1,5 +1,5 @@
 //
-//  MapControl.swift
+//  MapControlView.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 10/05/2020.
@@ -19,15 +19,16 @@ enum Tracking {
     }
 }
 
-struct MapControl: View {
+struct MapControlView: View {
     
     let buttonWidth: CGFloat = 22
     let width: CGFloat = 45
     @Binding var tracking: Tracking
     @Binding var isLayerViewDisplayed: Bool
+    @Binding var isLocked: Bool
     
     var body: some View {
-        VStack() {
+        VStack(alignment: .center) {
             Button(action: {
                 self.isLayerViewDisplayed.toggle()
                 Feedback.selected()
@@ -43,6 +44,16 @@ struct MapControl: View {
                         .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
                         .offset(y: -2)
                 }
+            }
+            Divider()
+            Button(action: {
+                self.isLocked.toggle()
+                Feedback.selected()
+            }) {
+                Image(systemName: isLocked ? "lock" : "lock.open")
+                    .resizable()
+                    .frame(width: isLocked ? 15 : buttonWidth, height: buttonWidth)
+                    
             }
             Divider()
             Button(action: {
@@ -68,7 +79,7 @@ struct MapControl: View {
                     .offset(y: 3)
             }
         }
-        .frame(width: width, height: width*2, alignment: .center)
+        .frame(width: width, height: width*3, alignment: .center)
         .background(Color.alpha)
         .cornerRadius(8)
         .shadow(radius: 1)
@@ -79,14 +90,9 @@ struct MapControl: View {
 struct MapControl_Previews: PreviewProvider {
     @State static var tracking: Tracking = .disabled
     @State static var isInfoDisplayed = false
+    @State static var isLocked = false
     static var previews: some View {
-        Group {
-            MapControl(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
-                .environment(\.colorScheme, .light)
-            MapControl(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed)
-                .environment(\.colorScheme, .dark)
-        }
-        
-        .previewLayout(.fixed(width: 60, height: 100))
+        MapControlView(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed, isLocked: $isLocked)
+        .previewLayout(.fixed(width: 60, height: 135))
     }
 }

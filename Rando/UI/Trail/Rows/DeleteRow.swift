@@ -37,7 +37,7 @@ struct DeleteRow: View {
         
         .actionSheet(isPresented: $showAlert) {
             return ActionSheet(
-                title: Text("Delete".localized),
+                title: Text("DeleteTrailMessage".localized),
                 buttons: [
                     .destructive(Text("DeleteTrail".localized), action: {
                         self.trailManager.remove(id: self.trail.id)

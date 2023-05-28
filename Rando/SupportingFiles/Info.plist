@@ -79,14 +79,10 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.data</string>
-			</array>
+			<key>UTTypeIconFile</key>
+            <string>gpxFile.png</string>
 			<key>UTTypeDescription</key>
 			<string>gpx</string>
-			<key>UTTypeIconFiles</key>
-			<array/>
 			<key>UTTypeIdentifier</key>
 			<string>com.matvdg.rando.document.gpx</string>
 			<key>UTTypeTagSpecification</key>
