@@ -24,7 +24,7 @@ struct CustomPathView: View {
         
         VStack(alignment: .center, spacing: 32) {
             
-            PathPreview(color: trail.color, lineWidth: trail.lineWidth).padding(.top).padding(.top)
+            PathPreview(color: trail.colorForSlider, lineWidth: trail.lineWidth).padding(.top).padding(.top)
             Label("Thickness".localized, systemImage: "paintbrush")
             Slider(value: $trail.lineWidth, in: 3...10, onEditingChanged: { _ in
                 TrailManager.shared.save(trail: trail)
