@@ -176,8 +176,8 @@ struct OldMapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-            if views.last?.annotation is MKUserLocation {
-                addHeadingView(toAnnotationView: views.last!)
+            if let userAnnotationView = views.first(where: { $0 is MKUserLocationView}) {
+                addHeadingView(toAnnotationView: userAnnotationView)
             }
         }
         
@@ -273,6 +273,7 @@ struct OldMapView: UIViewRepresentable {
         case .enabled:
             mapView.setUserTrackingMode(.follow, animated: true)
             locationManager.updateHeading = true
+            headingView?.isHidden = false
         case .heading:
             mapView.setUserTrackingMode(.followWithHeading, animated: true)
             headingView?.isHidden = true
