@@ -26,7 +26,7 @@ struct MapSettingsRow: View {
                 }
                 .onChange(of: selectedLayer) { newValue in
                     UserDefaults.currentLayer = newValue
-                    Feedback.success()
+                    Feedback.selected()
                 }
                 .pickerStyle(.menu)
             }

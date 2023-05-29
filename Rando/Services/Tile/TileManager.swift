@@ -125,6 +125,7 @@ class TileManager: ObservableObject {
                     self?.state = .idle
                     trail.downloadState = .downloaded
                     print("􀢓 Downloaded \(trail.name) maps, for \(layer) layer")
+                    Feedback.success()
                 }
             } catch {
                 DispatchQueue.main.async { [weak self] in
@@ -135,6 +136,7 @@ class TileManager: ObservableObject {
                     trail.downloadState = .notDownloaded
                     print("􀌓 Download cancelled: \(error)")
                     self?.downloadTilesTask?.cancel()
+                    Feedback.failed()
                 }
             }
         }

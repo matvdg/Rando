@@ -92,7 +92,7 @@ struct TrailView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         Button(action: {
-                            Feedback.success()
+                            Feedback.selected()
                             self.showFilter.toggle()
                         }) {
                             Image(systemName: isFiltered ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
