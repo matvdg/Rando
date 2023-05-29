@@ -28,6 +28,7 @@ struct CustomPathView: View {
             PathPreview(color: trail.colorHandlingLightAndDarkMode, lineWidth: trail.lineWidth).padding(.top).padding(.top)
             Label("Thickness".localized, systemImage: "paintbrush")
             Slider(value: $trail.lineWidth, in: 3...10, onEditingChanged: { _ in
+                Feedback.success()
                 TrailManager.shared.save(trail: trail)
             })
             .tint(trail.colorHandlingLightAndDarkMode)
@@ -38,6 +39,7 @@ struct CustomPathView: View {
             }) {
                 GridStack(rows: 5, columns: 3) { row, column in
                     Button(action: {
+                        Feedback.success()
                         trail.color = colors[row][column]
                         TrailManager.shared.save(trail: trail)
                     }) {

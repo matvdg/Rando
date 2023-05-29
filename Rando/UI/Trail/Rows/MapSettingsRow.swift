@@ -24,9 +24,9 @@ struct MapSettingsRow: View {
                         Text(layer.localized)
                     }
                 }
-                
                 .onChange(of: selectedLayer) { newValue in
                     UserDefaults.currentLayer = newValue
+                    Feedback.success()
                 }
                 .pickerStyle(.menu)
             }
