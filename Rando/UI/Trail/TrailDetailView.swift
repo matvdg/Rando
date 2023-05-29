@@ -97,14 +97,14 @@ struct TrailDetailView: View {
                     .frame(maxHeight: 100)
                     
                     Group {
-                        ItineraryRow(location: trail.firstLocation)
-                        
-                        TourRow(trail: trail)
-                        
                         DisplayRow(trail: trail)
                         
                         CustomPathRow(trail: trail)
                         
+                        ItineraryRow(location: trail.firstLocation)
+                        
+                        TourRow(trail: trail)
+                                                
                         MapSettingsRow(selectedLayer: $selectedLayer).disabled(trail.downloadState == .downloading || TileManager.shared.state.isDownloading())
                         
                         TilesRow(selectedLayer: $selectedLayer, state: $trail.downloadState, trail: trail)

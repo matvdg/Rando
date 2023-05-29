@@ -104,7 +104,7 @@ struct TrailView: View {
                     .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
                     
                     EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, searchText: $searchText)
-                        .isHidden(!isFiltered, remove: true)
+                        .isHidden(!isFiltered && searchText == "", remove: true)
                     
                     List {
                         ForEach(sortedTrails) { trail in
