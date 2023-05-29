@@ -79,6 +79,7 @@ struct FilterView: View {
                 DismissButton()
             })
         }
+        .tint(.tintColorTabBar)
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
         .frame(height: 330, alignment: .top)

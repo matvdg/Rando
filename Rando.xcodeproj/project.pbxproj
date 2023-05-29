@@ -49,6 +49,8 @@
 		F62779BC2A218FBA00185386 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62779BB2A218FBA00185386 /* FilterButton.swift */; };
 		F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F639047A24DC8E58005B4FC1 /* GridStack.swift */; };
 		F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */ = {isa = PBXBuildFile; productRef = F658C2D52A1CFEF200979723 /* HidableTabView */; };
+		F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */ = {isa = PBXBuildFile; productRef = F65DCC112A24D01100A24E10 /* Semaphore */; };
+		F65DCC142A24E1B400A24E10 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65DCC132A24E1B400A24E10 /* UIApplication.swift */; };
 		F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */; };
 		F67BAEBF24E6FE5300AC8A9F /* TourRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */; };
 		F67BAEC124E705B100AC8A9F /* TourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC024E705B100AC8A9F /* TourView.swift */; };
@@ -144,6 +146,7 @@
 		F62779B92A218C3C00185386 /* EnabledFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnabledFiltersView.swift; sourceTree = "<group>"; };
 		F62779BB2A218FBA00185386 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		F639047A24DC8E58005B4FC1 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
+		F65DCC132A24E1B400A24E10 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
 		F67BAEBE24E6FE5300AC8A9F /* TourRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourRow.swift; sourceTree = "<group>"; };
 		F67BAEC024E705B100AC8A9F /* TourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourView.swift; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */,
+				F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */,
 				F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */,
 				F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */,
 			);
@@ -342,6 +346,7 @@
 				F6979BA024D4523D00228A0C /* CLGeocoder.swift */,
 				F6A5816E24D46B7A0030F457 /* Array.swift */,
 				F618724724E7F4DC00F98918 /* Device.swift */,
+				F65DCC132A24E1B400A24E10 /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 				D039506424B6097800C31D34 /* SwiftUICharts */,
 				F69B110B2A1924EE006D3EA0 /* GPXKit */,
 				F658C2D52A1CFEF200979723 /* HidableTabView */,
+				F65DCC112A24D01100A24E10 /* Semaphore */,
 			);
 			productName = GR10;
 			productReference = D063478F245D768B003BA9E7 /* Rando.app */;
@@ -528,6 +534,7 @@
 				D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */,
 				F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */,
 				F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */,
+				F65DCC102A24D01100A24E10 /* XCRemoteSwiftPackageReference "Semaphore" */,
 			);
 			productRefGroup = D0634790245D768B003BA9E7 /* Products */;
 			projectDirPath = "";
@@ -591,6 +598,7 @@
 				D08F1A9E2465A66300335281 /* Poi.swift in Sources */,
 				D06347C5245DD784003BA9E7 /* TrailManager.swift in Sources */,
 				D02C05DF24B3998D0047F5E8 /* Trail.swift in Sources */,
+				F65DCC142A24E1B400A24E10 /* UIApplication.swift in Sources */,
 				F61E421E29D4203A008D4275 /* MapView.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
@@ -800,7 +808,7 @@
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/Rando.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
@@ -814,7 +822,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -834,7 +842,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
@@ -848,7 +856,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -901,6 +909,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F65DCC102A24D01100A24E10 /* XCRemoteSwiftPackageReference "Semaphore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/Semaphore.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.8;
+			};
+		};
 		F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mmllr/GPXKit";
@@ -921,6 +937,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */;
 			productName = HidableTabView;
+		};
+		F65DCC112A24D01100A24E10 /* Semaphore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F65DCC102A24D01100A24E10 /* XCRemoteSwiftPackageReference "Semaphore" */;
+			productName = Semaphore;
 		};
 		F69B110B2A1924EE006D3EA0 /* GPXKit */ = {
 			isa = XCSwiftPackageProductDependency;

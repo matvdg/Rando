@@ -16,14 +16,14 @@ struct TrailRow: View {
         
         HStack {
             
-            TrailPreview(color: trail.color, points: trail.locationsPreview)
+            TrailPreview(color: trail.colorHandlingLightAndDarkMode, points: trail.locationsPreview)
                 .frame(width: 80, height: 80)
             
             VStack(alignment: .leading, spacing: 10) {
                 
                 HStack {
                     Image(systemName: trail.isDisplayed ? "eye" : "eye.slash")
-                        .foregroundColor(trail.isDisplayed ? .tintColor : .lightgray)
+                        .foregroundColor(trail.isDisplayed ? .tintColorTabBar : .lightgray)
                     Text(trail.name)
                         .font(.headline)
                         .foregroundColor(.lightgrayInverted)
@@ -52,6 +52,7 @@ struct TrailRow: View {
         }
         .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
         .frame(height: 80.0)
+        .tint(.tintColorTabBar)
     }
     
 }

@@ -1,5 +1,6 @@
 import Foundation
 import MapKit
+import Semaphore
 
 typealias TileCoordinates = (x: Int, y: Int, z: Int)
 
@@ -65,6 +66,7 @@ class TileManager: ObservableObject {
     static let shared = TileManager()
     
     init() {
+        semaphore = AsyncSemaphore(value: 5)
         print("􀈝 DocumentsDirectory = \(documentsDirectory)")
         createDirectoriesIfNecessary()
     }
@@ -76,6 +78,7 @@ class TileManager: ObservableObject {
     private let fileManager = FileManager.default
     private var currentFilteredPaths = [MKTileOverlayPath]() // Without those already persisted
     private var downloadTilesTask: Task<(), Never>?
+    private let semaphore: AsyncSemaphore
     
     // MARK: -  Public property
     @Published var progress: Float = 0
@@ -116,6 +119,13 @@ class TileManager: ObservableObject {
         self.downloadTilesTask = Task(priority: .background) { // Async
             do {
                 try await download(trail: trail, layer: layer)
+                DispatchQueue.main.async { [weak self] in
+                    NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytes))", message: "\(trail.name) \("DownloadedMessage".localized)")
+                    self?.progress = 1
+                    self?.state = .idle
+                    trail.downloadState = .downloaded
+                    print("􀢓 Downloaded \(trail.name) maps, for \(layer) layer")
+                }
             } catch {
                 DispatchQueue.main.async { [weak self] in
                     if let errorDomain = error as? URLError, errorDomain.code != .cancelled {
@@ -212,36 +222,12 @@ class TileManager: ObservableObject {
         }
     }
     
-    // MARK: -  Async private methods only in downloading state
     private func tranformCoordinate(coordinates: CLLocationCoordinate2D , zoom: Int) -> TileCoordinates {
         let lng = coordinates.longitude
         let lat = coordinates.latitude
         let tileX = Int(floor((lng + 180) / 360.0 * pow(2.0, Double(zoom))))
         let tileY = Int(floor((1 - log( tan( lat * Double.pi / 180.0 ) + 1 / cos( lat * Double.pi / 180.0 )) / Double.pi ) / 2 * pow(2.0, Double(zoom))))
         return (tileX, tileY, zoom)
-    }
-    
-    private func persistLocally(path: MKTileOverlayPath, layer: Layer) async throws {
-        // Throw an error if the task was already cancelled.
-        try Task.checkCancellation()
-        let overlay: MKTileOverlay
-        switch layer {
-        case .ign:
-            overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix={z}&TileCol={x}&TileRow={y}")
-        case .openStreetMap:
-            overlay = MKTileOverlay(urlTemplate: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png")
-        case .openTopoMap:
-            overlay = MKTileOverlay(urlTemplate: "https://b.tile.opentopomap.org/{z}/{x}/{y}.png")
-        case .swissTopo:
-            overlay = MKTileOverlay(urlTemplate: "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg")
-        default: // IGN25
-            overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}")
-        }
-        let url = overlay.url(forTilePath: path)
-        let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
-        let filename = documentsDirectory.appendingPathComponent(file)
-        let response = try await URLSession.shared.data(from: url)
-        try response.0.write(to: filename)
     }
     
     private func computeAndFilterTileOverlayPaths(for boundingBox: MKMapRect, layer: Layer, filtered: Bool = true) -> [MKTileOverlayPath] {
@@ -277,6 +263,7 @@ class TileManager: ObservableObject {
         return Double(accumulatedSize)
     }
     
+    // MARK: -  Async private method only in downloading state
     private func download(trail: Trail, layer: Layer) async throws {
         guard state == .idle else { return print("􀌓 Another download is in progress") }
         await NetworkManager.shared.runIfNetwork()
@@ -292,18 +279,34 @@ class TileManager: ObservableObject {
         for i in 0..<total {
             try await self.persistLocally(path: filteredPaths[i], layer: layer)
             DispatchQueue.main.async { [weak self] in
+                self?.sizeLeftInBytes = Double(total - i) * (self?.tileSize ?? 30000) // Update estimation
                 self?.progress = Float(i) / Float(total)
+                print( "􀌕 Downloading \(i)/\(total) tiles, \(Int((self?.progress ?? 0) * 100))%")
             }
-            print( "􀌕 Downloading \(i)/\(total) tiles, \(Int(self.progress*100))%")
-            sizeLeftInBytes = Double(total - i) * tileSize // Update estimation
         }
-        DispatchQueue.main.async { [weak self] in
-            NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytes))", message: "\(trail.name) \("DownloadedMessage".localized)")
-            self?.progress = 1
-            self?.state = .idle
-            trail.downloadState = .downloaded
-            print("􀢓 Downloaded \(trail.name) maps, for \(layer) layer")
+    }
+    
+    private func persistLocally(path: MKTileOverlayPath, layer: Layer) async throws {
+        try await semaphore.waitUnlessCancelled()
+        defer { semaphore.signal() }
+        let overlay: MKTileOverlay
+        switch layer {
+        case .ign:
+            overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/pratique/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix={z}&TileCol={x}&TileRow={y}")
+        case .openStreetMap:
+            overlay = MKTileOverlay(urlTemplate: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png")
+        case .openTopoMap:
+            overlay = MKTileOverlay(urlTemplate: "https://b.tile.opentopomap.org/{z}/{x}/{y}.png")
+        case .swissTopo:
+            overlay = MKTileOverlay(urlTemplate: "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg")
+        default: //IGN25:
+            overlay = MKTileOverlay(urlTemplate: "https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.MAPS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix={z}&TileCol={x}&TileRow={y}")
         }
+        let url = overlay.url(forTilePath: path)
+        let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
+        let filename = documentsDirectory.appendingPathComponent(file)
+        let response = try await URLSession.shared.data(from: url)
+        try response.0.write(to: filename)
     }
     
 }

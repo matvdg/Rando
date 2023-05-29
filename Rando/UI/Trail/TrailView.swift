@@ -96,7 +96,9 @@ struct TrailView: View {
                             self.showFilter.toggle()
                         }) {
                             Image(systemName: isFiltered ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
+                                .tint(.tintColorTabBar)
                             Text(isFiltered ? "Filtered".localized : "Filter".localized)
+                                .tint(.tintColorTabBar)
                         }
                     }
                     .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
@@ -113,6 +115,7 @@ struct TrailView: View {
                         .onDelete(perform: removeRows)
                         .accentColor(.tintColor)
                     }
+                    .tint(.tintColor)
                 }
                 VStack(alignment: .leading) {
                     
@@ -134,6 +137,7 @@ struct TrailView: View {
                 self.showFilePicker = true
             }) {
                 Image(systemName: "plus.circle.fill")
+                    .tint(.tintColorTabBar)
             })
             HStack {
                 Image(systemName: "sidebar.left")
@@ -142,7 +146,6 @@ struct TrailView: View {
             }
             
         }
-        .accentColor(.tintColor)
         .searchable(text: $searchText, placement: .toolbar, prompt: "Search".localized)
     }
     

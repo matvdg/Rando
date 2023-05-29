@@ -133,6 +133,7 @@ struct TrailDetailView: View {
             }
             )
         }
+        .tint(.tintColorTabBar)
         .edgesIgnoringSafeArea(.horizontal)
         .onAppear {
             TileManager.shared.load(for: trail, selectedLayer: selectedLayer)

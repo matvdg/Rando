@@ -40,7 +40,7 @@ struct LayerView: View {
                                 Feedback.selected()
                             } label: {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous).fill(layer == selectedLayer ? .blue : .clear)
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous).fill(layer == selectedLayer ? Color.tintColor : .clear)
                                     VStack {
                                         Image(layer.rawValue).resizable().frame(width: 100, height: 100, alignment: .center).clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                         Text(layer.localized).foregroundColor(Color.primary)

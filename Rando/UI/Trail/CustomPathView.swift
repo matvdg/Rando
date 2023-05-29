@@ -11,6 +11,7 @@ import SwiftUI
 struct CustomPathView: View {
     
     @ObservedObject var trail: Trail
+    @Environment(\.colorScheme) var colorScheme
     
     var colors: [[Color]] = [
         [.grblue, .grgreen, .red],
@@ -24,12 +25,12 @@ struct CustomPathView: View {
         
         VStack(alignment: .center, spacing: 32) {
             
-            PathPreview(color: trail.colorForSlider, lineWidth: trail.lineWidth).padding(.top).padding(.top)
+            PathPreview(color: trail.colorHandlingLightAndDarkMode, lineWidth: trail.lineWidth).padding(.top).padding(.top)
             Label("Thickness".localized, systemImage: "paintbrush")
             Slider(value: $trail.lineWidth, in: 3...10, onEditingChanged: { _ in
                 TrailManager.shared.save(trail: trail)
             })
-            .tint(trail.colorForSlider)
+            .tint(trail.colorHandlingLightAndDarkMode)
             .frame(width: 200)
             Label("Color".localized, systemImage: "paintpalette")
             Button(action: {
@@ -40,9 +41,17 @@ struct CustomPathView: View {
                         trail.color = colors[row][column]
                         TrailManager.shared.save(trail: trail)
                     }) {
-                        Circle()
-                            .foregroundColor(colors[row][column])
-                            .shadow(color: .gray, radius: 5, x: 3, y: 2)
+                        ZStack {
+                            Circle()
+                                .foregroundColor(colors[row][column])
+                                .shadow(color: .gray, radius: 10, x: 5, y: 5)
+                            Image(systemName: "checkmark")
+                                .resizable()
+                                .frame(width: 30, height: 30, alignment: .center)
+                                .foregroundColor(trail.checkMarkColorHandlingBlackAndWhite)
+                                .isHidden(!(trail.color == colors[row][column]))
+                        }
+                        
                     }
                 }
                 .padding(20)

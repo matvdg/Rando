@@ -36,7 +36,6 @@ struct TilesRow: View {
                         ProgressView(value: tileManager.progress)
                             .progressViewStyle(CircularProgressViewStyle())
                         Text("Loading".localized)
-                            .foregroundColor(.gray)
                     case .notDownloaded:
                         Image(systemName: "icloud.and.arrow.down")
                         Text("\("Download".localized) (\(tileManager.sizeLeft))")
@@ -46,7 +45,6 @@ struct TilesRow: View {
                             .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
                         VStack(alignment: .leading) {
                             Text("\("Downloading".localized) \(Int(tileManager.progress*100))% (\(tileManager.sizeLeft) \("Left".localized))")
-                                .font(.headline)
                             ProgressView(value: tileManager.progress)
                                 .progressViewStyle(LinearProgressViewStyle(tint: .tintColorTabBar))
                                 .frame(height: 10)
@@ -54,12 +52,13 @@ struct TilesRow: View {
                         Image(systemName: "xmark.circle").foregroundColor(.red)
                     case .downloaded:
                         Image(systemName: "checkmark.icloud")
+                            .foregroundColor(.tintColorTabBar)
                         Text("Downloaded".localized)
+                            .foregroundColor(.tintColorTabBar)
                     }
                 }
             }
         }
-        .buttonStyle(MyButtonStyle())
         .disabled( // enabled when notDownloaded (to download it) or downloading (to cancel it)
             // disabled when other download in progress
             tileManager.state.isDownloadingAnotherTrail(id: trail.id)
@@ -86,29 +85,5 @@ struct TilesRow_Previews: PreviewProvider {
         TilesRow(selectedLayer: $selectedLayer, state: $state, trail: Trail())
             .previewLayout(.fixed(width: 300, height: 80))
             .environment(\.colorScheme, .light)
-    }
-}
-
-struct MyButtonStyle: ButtonStyle {
-    
-    func makeBody(configuration: Self.Configuration) -> some View {
-        MyButtonStyleView(configuration: configuration)
-    }
-    
-    struct MyButtonStyleView: View {
-        // tracks if the button is enabled or not
-        @Environment(\.isEnabled) var isEnabled
-        // tracks the pressed state
-        let configuration: MyButtonStyle.Configuration
-        
-        var body: some View {
-            return configuration.label
-            // change the text color based on if it's disabled
-                .foregroundColor(isEnabled ? .tintColorTabBar : .grgreen)
-            // make the button a bit more translucent when pressed
-                .opacity(configuration.isPressed ? 0.8 : 1.0)
-            // make the button a bit smaller when pressed
-                .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
-        }
     }
 }

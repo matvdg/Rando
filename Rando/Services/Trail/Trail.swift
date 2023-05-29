@@ -105,11 +105,22 @@ class Trail: Identifiable, ObservableObject {
         }
     }
     
-    var colorForSlider: Color { // Remove both black and white to see slider tintColor in dark and light mode
-        if color == .black || color == .white {
+    /// Replace black in darkMode and white in lightMode by gray color to be able to see them
+    var colorHandlingLightAndDarkMode: Color {
+        let style = UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle
+        if let style, style == .dark && color == .black || style == .light && color == .white {
             return .gray
         } else {
             return color
+        }
+    }
+    
+    /// Replace black by white and white by black
+    var checkMarkColorHandlingBlackAndWhite: Color {
+        if color == .white {
+            return .black
+        } else {
+            return .white
         }
     }
     
