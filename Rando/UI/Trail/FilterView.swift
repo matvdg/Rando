@@ -48,11 +48,13 @@ struct FilterView: View {
                         .font(.headline)
                     Spacer()
                     Picker(selection: $gr10filter, label: Text("")) {
-                        
                         ForEach(Gr10filter.allCases, id: \.self) { gr10filter in
                             Text(gr10filter.localized)
                         }
                     }
+                    .onChange(of: gr10filter, perform: { newValue in
+                        Feedback.selected()
+                    })
                     .pickerStyle(.menu)
                 }
                 
@@ -66,6 +68,9 @@ struct FilterView: View {
                             Text(text)
                         }
                     }
+                    .onChange(of: department, perform: { newValue in
+                        Feedback.selected()
+                    })
                     .pickerStyle(.menu)
                 }
                             

@@ -25,6 +25,7 @@ struct EnabledFiltersView: View {
                 Spacer()
                 
                 Button {
+                    Feedback.selected()
                     searchText = ""
                 } label: {
                     FilterButton(label: searchText)
@@ -32,6 +33,7 @@ struct EnabledFiltersView: View {
                 .isHidden(searchText.isEmpty, remove: true)
                 
                 Button {
+                    Feedback.selected()
                     onlyFavs.toggle()
                 } label: {
                     FilterButton(label: "Favs".localized)
@@ -39,6 +41,7 @@ struct EnabledFiltersView: View {
                 .isHidden(!onlyFavs, remove: true)
                 
                 Button {
+                    Feedback.selected()
                     onlyDisplayed.toggle()
                 } label: {
                     FilterButton(label: "Displayed".localized)
@@ -46,6 +49,7 @@ struct EnabledFiltersView: View {
                 .isHidden(!onlyDisplayed, remove: true)
                 
                 Button {
+                    Feedback.selected()
                     department = "all".localized
                 } label: {
                     FilterButton(label: department)
@@ -53,6 +57,7 @@ struct EnabledFiltersView: View {
                 .isHidden(department == "all".localized, remove: true)
                 
                 Button {
+                    Feedback.selected()
                     gr10filter = .all
                 } label: {
                     FilterButton(label: gr10filter.localized)
