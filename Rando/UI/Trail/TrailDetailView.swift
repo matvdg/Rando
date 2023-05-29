@@ -130,10 +130,8 @@ struct TrailDetailView: View {
             }) {
                 Image(systemName: trail.isFav ? "heart.fill" : "heart")
                     .accentColor(.red)
-            }
-            )
+            })
         }
-        .tint(.tintColorTabBar)
         .edgesIgnoringSafeArea(.horizontal)
         .onAppear {
             TileManager.shared.load(for: trail, selectedLayer: selectedLayer)
