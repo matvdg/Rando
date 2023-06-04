@@ -42,6 +42,11 @@
 		D0FF45AE246BE3080087697B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45AD246BE3080087697B /* Feedback.swift */; };
 		D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */; };
 		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
+		F60D12B22A28321700437AA1 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = F60D12B12A28321700437AA1 /* CoreGPX */; };
+		F60D12B42A28906200437AA1 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B32A28906100437AA1 /* WorkoutManager.swift */; };
+		F60D12B62A28A12300437AA1 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B52A28A12300437AA1 /* WorkoutView.swift */; };
+		F60D12B82A28A7A700437AA1 /* WorkoutRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B72A28A7A700437AA1 /* WorkoutRow.swift */; };
+		F60D12BA2A28AB8200437AA1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B92A28AB8200437AA1 /* Date.swift */; };
 		F618724824E7F4DC00F98918 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724724E7F4DC00F98918 /* Device.swift */; };
 		F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724924E7F6F500F98918 /* NetworkManager.swift */; };
 		F61E421E29D4203A008D4275 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E421D29D4203A008D4275 /* MapView.swift */; };
@@ -56,7 +61,6 @@
 		F67BAEC124E705B100AC8A9F /* TourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC024E705B100AC8A9F /* TourView.swift */; };
 		F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC224E7469300AC8A9F /* DismissButton.swift */; };
 		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
-		F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */ = {isa = PBXBuildFile; productRef = F69B110B2A1924EE006D3EA0 /* GPXKit */; };
 		F6A5816F24D46B7A0030F457 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5816E24D46B7A0030F457 /* Array.swift */; };
 		F6AB729A2A1E42770017C8AB /* MapSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB72992A1E42760017C8AB /* MapSettingsRow.swift */; };
 		F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEA1F824DAE8E1007509C1 /* TrailPreview.swift */; };
@@ -74,6 +78,8 @@
 		F6BA8BE62A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BD92A202EFB00F81120 /* 97B49B60-33E8-431B-8BE3-BCFC9B932AA3.json */; };
 		F6BA8BE72A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BDA2A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json */; };
 		F6BA8BE82A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json in Resources */ = {isa = PBXBuildFile; fileRef = F6BA8BDB2A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json */; };
+		F6BCB4442A27ECF700D8AD78 /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCB4432A27ECF700D8AD78 /* ImportView.swift */; };
+		F6BCB4482A28054B00D8AD78 /* ImportGpxTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCB4472A28054B00D8AD78 /* ImportGpxTileView.swift */; };
 		F6CAAF3B24BC91DB006F991A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */; };
 		F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */; };
 		F6CFD09C24BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */; };
@@ -139,6 +145,10 @@
 		D0FF45AD246BE3080087697B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
+		F60D12B32A28906100437AA1 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		F60D12B52A28A12300437AA1 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		F60D12B72A28A7A700437AA1 /* WorkoutRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRow.swift; sourceTree = "<group>"; };
+		F60D12B92A28AB8200437AA1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F618724724E7F4DC00F98918 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		F618724924E7F6F500F98918 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F618724C24E7FB1900F98918 /* RandoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandoRelease.entitlements; sourceTree = "<group>"; };
@@ -170,6 +180,8 @@
 		F6BA8BDA2A202EFB00F81120 /* 86B666DB-910E-49F2-A13E-6809148DC2FB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "86B666DB-910E-49F2-A13E-6809148DC2FB.json"; sourceTree = "<group>"; };
 		F6BA8BDB2A202EFB00F81120 /* 966EDBBC-D452-4993-BC2D-E660F528B385.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "966EDBBC-D452-4993-BC2D-E660F528B385.json"; sourceTree = "<group>"; };
 		F6BA8BE92A20AE4B00F81120 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		F6BCB4432A27ECF700D8AD78 /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
+		F6BCB4472A28054B00D8AD78 /* ImportGpxTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportGpxTileView.swift; sourceTree = "<group>"; };
 		F6CAAF3A24BC91DB006F991A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F6CAAF3C24BC98FA006F991A /* DisplayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
 		F6CFD09224BDF08E00DA224C /* 613AD245-A082-4FDF-8103-199F3CA71C80.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "613AD245-A082-4FDF-8103-199F3CA71C80.json"; sourceTree = "<group>"; };
@@ -203,16 +215,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */,
+				F60D12B22A28321700437AA1 /* CoreGPX in Frameworks */,
 				F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */,
 				F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */,
-				F69B110C2A1924EE006D3EA0 /* GPXKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D0531A6B2467FC150020FFE0 /* Trail */ = {
+		D0531A6B2467FC150020FFE0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				D06347A8245DCD8B003BA9E7 /* TrailView.swift */,
@@ -223,17 +235,8 @@
 				D039504924B4CB0600C31D34 /* DocumentView.swift */,
 				F6DB543E24DC8D20002EABDE /* CustomPathView.swift */,
 				F67BAEC024E705B100AC8A9F /* TourView.swift */,
-			);
-			path = Trail;
-			sourceTree = "<group>";
-		};
-		D05B15002460042E00B24666 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				D0B7CDB624690C0800464C79 /* Map */,
-				F6CFD0AE24BF8FD200DA224C /* Poi */,
-				D09FB00D2465E3F30007F55B /* Shared */,
-				D0531A6B2467FC150020FFE0 /* Trail */,
+				F6BCB4432A27ECF700D8AD78 /* ImportView.swift */,
+				F6BCB4472A28054B00D8AD78 /* ImportGpxTileView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -254,19 +257,6 @@
 				D0531A712467FD8C0020FFE0 /* Localizable.strings */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		D05B15022460048700B24666 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				D0F9373E24683191005E8503 /* Notification */,
-				D0F8632F24615D24007C363A /* Poi */,
-				D06347BB245DD66A003BA9E7 /* Tile */,
-				D06347AA245DD493003BA9E7 /* Trail */,
-				D05B1503246004BE00B24666 /* Location */,
-				F618724B24E7F6FA00F98918 /* Network */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		D05B1503246004BE00B24666 /* Location */ = {
@@ -297,11 +287,18 @@
 		D0634791245D768B003BA9E7 /* Rando */ = {
 			isa = PBXGroup;
 			children = (
-				D05B15002460042E00B24666 /* UI */,
-				D05B15022460048700B24666 /* Services */,
-				D05B15012460045100B24666 /* SupportingFiles */,
-				D09FB00A2465E14A0007F55B /* Extensions */,
 				D0634798245D768C003BA9E7 /* Assets.xcassets */,
+				D09FB00A2465E14A0007F55B /* Extensions */,
+				D05B1503246004BE00B24666 /* Location */,
+				D0B7CDB624690C0800464C79 /* Map */,
+				F618724B24E7F6FA00F98918 /* Network */,
+				D0F9373E24683191005E8503 /* Notification */,
+				D0F8632F24615D24007C363A /* Poi */,
+				D09FB00D2465E3F30007F55B /* Shared */,
+				D05B15012460045100B24666 /* SupportingFiles */,
+				D06347BB245DD66A003BA9E7 /* Tile */,
+				D06347AA245DD493003BA9E7 /* Trail */,
+				F60E96912A2BFBF900CE8C81 /* Workout */,
 			);
 			path = Rando;
 			sourceTree = "<group>";
@@ -317,10 +314,12 @@
 		D06347AA245DD493003BA9E7 /* Trail */ = {
 			isa = PBXGroup;
 			children = (
+				D0531A6B2467FC150020FFE0 /* UI */,
 				D06347C4245DD784003BA9E7 /* TrailManager.swift */,
 				D02C05DE24B3998D0047F5E8 /* Trail.swift */,
 			);
-			path = Trail;
+			name = Trail;
+			path = Services/Trail;
 			sourceTree = "<group>";
 		};
 		D06347BB245DD66A003BA9E7 /* Tile */ = {
@@ -347,6 +346,7 @@
 				F6A5816E24D46B7A0030F457 /* Array.swift */,
 				F618724724E7F4DC00F98918 /* Device.swift */,
 				F65DCC132A24E1B400A24E10 /* UIApplication.swift */,
+				F60D12B92A28AB8200437AA1 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -383,11 +383,13 @@
 		D0F8632F24615D24007C363A /* Poi */ = {
 			isa = PBXGroup;
 			children = (
+				F6CFD0AE24BF8FD200DA224C /* UI */,
 				D0F8633024615D56007C363A /* pois.json */,
 				D08F1A9B2465919300335281 /* PoiManager.swift */,
 				D08F1A9D2465A66300335281 /* Poi.swift */,
 			);
-			path = Poi;
+			name = Poi;
+			path = Services/Poi;
 			sourceTree = "<group>";
 		};
 		D0F9373E24683191005E8503 /* Notification */ = {
@@ -396,6 +398,16 @@
 				D0F9373F246831D9005E8503 /* NotificationManager.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		F60E96912A2BFBF900CE8C81 /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				F60D12B32A28906100437AA1 /* WorkoutManager.swift */,
+				F60D12B72A28A7A700437AA1 /* WorkoutRow.swift */,
+				F60D12B52A28A12300437AA1 /* WorkoutView.swift */,
+			);
+			path = Workout;
 			sourceTree = "<group>";
 		};
 		F618724B24E7F6FA00F98918 /* Network */ = {
@@ -444,14 +456,14 @@
 			path = Trails;
 			sourceTree = "<group>";
 		};
-		F6CFD0AE24BF8FD200DA224C /* Poi */ = {
+		F6CFD0AE24BF8FD200DA224C /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				F6CFD0AF24BF8FE100DA224C /* PoiView.swift */,
 				F6CFD0B124BF8FE100DA224C /* PoiRow.swift */,
 				F6CFD0B024BF8FE100DA224C /* PoiDetailView.swift */,
 			);
-			path = Poi;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		F6DB543B24DC651A002EABDE /* Rows */ = {
@@ -496,9 +508,9 @@
 			name = Rando;
 			packageProductDependencies = (
 				D039506424B6097800C31D34 /* SwiftUICharts */,
-				F69B110B2A1924EE006D3EA0 /* GPXKit */,
 				F658C2D52A1CFEF200979723 /* HidableTabView */,
 				F65DCC112A24D01100A24E10 /* Semaphore */,
+				F60D12B12A28321700437AA1 /* CoreGPX */,
 			);
 			productName = GR10;
 			productReference = D063478F245D768B003BA9E7 /* Rando.app */;
@@ -532,9 +544,9 @@
 			mainGroup = D0634786245D768B003BA9E7;
 			packageReferences = (
 				D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */,
-				F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */,
 				F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */,
 				F65DCC102A24D01100A24E10 /* XCRemoteSwiftPackageReference "Semaphore" */,
+				F60D12B02A28321700437AA1 /* XCRemoteSwiftPackageReference "CoreGPX" */,
 			);
 			productRefGroup = D0634790245D768B003BA9E7 /* Products */;
 			projectDirPath = "";
@@ -605,7 +617,10 @@
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				F6FE98A824C05047007D5D85 /* FilterView.swift in Sources */,
 				F6AB729A2A1E42770017C8AB /* MapSettingsRow.swift in Sources */,
+				F60D12B42A28906200437AA1 /* WorkoutManager.swift in Sources */,
 				F6A5816F24D46B7A0030F457 /* Array.swift in Sources */,
+				F6BCB4442A27ECF700D8AD78 /* ImportView.swift in Sources */,
+				F6BCB4482A28054B00D8AD78 /* ImportGpxTileView.swift in Sources */,
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
 				D039504A24B4CB0600C31D34 /* DocumentView.swift in Sources */,
 				F6F0703024D4780300EEE183 /* ItineraryRow.swift in Sources */,
@@ -614,6 +629,7 @@
 				F6CFD0A724BE9EEA00DA224C /* TilesRow.swift in Sources */,
 				F6DB543F24DC8D20002EABDE /* CustomPathView.swift in Sources */,
 				F6CAAF3D24BC98FA006F991A /* DisplayRow.swift in Sources */,
+				F60D12BA2A28AB8200437AA1 /* Date.swift in Sources */,
 				F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
 				D08AB2682465BAAD00793417 /* TrailRow.swift in Sources */,
@@ -640,9 +656,11 @@
 				F6CFD0B424BF8FE100DA224C /* PoiRow.swift in Sources */,
 				F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */,
 				F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */,
+				F60D12B82A28A7A700437AA1 /* WorkoutRow.swift in Sources */,
 				D06347A9245DCD8B003BA9E7 /* TrailView.swift in Sources */,
 				F6DB543D24DC6543002EABDE /* CustomPathRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
+				F60D12B62A28A12300437AA1 /* WorkoutView.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
 				D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */,
 				D0FF45AE246BE3080087697B /* Feedback.swift in Sources */,
@@ -806,9 +824,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/Rando.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
@@ -822,9 +840,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -840,9 +859,8 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/RandoRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
@@ -856,11 +874,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -901,6 +918,14 @@
 				minimumVersion = 1.5.3;
 			};
 		};
+		F60D12B02A28321700437AA1 /* XCRemoteSwiftPackageReference "CoreGPX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
 		F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AliMert/HidableTabView-SwiftUI.git";
@@ -917,14 +942,6 @@
 				minimumVersion = 0.0.8;
 			};
 		};
-		F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mmllr/GPXKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -932,6 +949,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		F60D12B12A28321700437AA1 /* CoreGPX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F60D12B02A28321700437AA1 /* XCRemoteSwiftPackageReference "CoreGPX" */;
+			productName = CoreGPX;
 		};
 		F658C2D52A1CFEF200979723 /* HidableTabView */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -942,11 +964,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F65DCC102A24D01100A24E10 /* XCRemoteSwiftPackageReference "Semaphore" */;
 			productName = Semaphore;
-		};
-		F69B110B2A1924EE006D3EA0 /* GPXKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F69B110A2A1924EE006D3EA0 /* XCRemoteSwiftPackageReference "GPXKit" */;
-			productName = GPXKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -80,7 +80,7 @@
 	<array>
 		<dict>
 			<key>UTTypeIconFile</key>
-            <string>gpxFile.png</string>
+			<string>gpxFile.png</string>
 			<key>UTTypeDescription</key>
 			<string>gpx</string>
 			<key>UTTypeIdentifier</key>
@@ -94,5 +94,7 @@
 			</dict>
 		</dict>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string></string>
 </dict>
 </plist>

@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "gpxkit",
+      "identity" : "coregpx",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mmllr/GPXKit",
+      "location" : "https://github.com/vincentneo/CoreGPX.git",
       "state" : {
-        "revision" : "0189f2cb26cc8cc4fa8a3d71f10f82acd31c2ecd",
-        "version" : "1.8.1"
+        "revision" : "90dea5dea799e2b3684f5c72f07141d8516ce80b",
+        "version" : "0.9.2"
       }
     },
     {
@@ -34,24 +34,6 @@
       "state" : {
         "revision" : "f1c4a0acabeb591068dea6cffdd39660b86dec28",
         "version" : "0.0.8"
-      }
-    },
-    {
-      "identity" : "swift-algorithms",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-algorithms",
-      "state" : {
-        "revision" : "b14b7f4c528c942f121c8b860b9410b2bf57825e",
-        "version" : "1.0.0"
-      }
-    },
-    {
-      "identity" : "swift-numerics",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-numerics",
-      "state" : {
-        "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
-        "version" : "1.0.2"
       }
     }
   ],

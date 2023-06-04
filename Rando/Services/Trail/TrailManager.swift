@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 import MapKit
 import Combine
-import GPXKit
+import CoreGPX
 
 let mockLoc1 = Location(latitude: 42.835191, longitude: 0.872005, altitude: 1944)
 let mockLoc2 = Location(latitude: 42.835181, longitude: 0.862005, altitude: 2000)
@@ -22,50 +22,43 @@ class TrailManager: ObservableObject {
     private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
     
     @Published var trails: ObservableArray<Trail> = try! ObservableArray(array: []).observeChildrenChanges(Trail.self)
-        
+    
     var currentTrails: [Trail] {
         self.trails.array.filter { $0.isDisplayed }
     }
     
     var departments: [String] {
-        var departments = ["all".localized]
+        var departments = ["all"]
         departments.append(contentsOf: trails.array.compactMap { $0.department }.removingDuplicates() )
         return departments
     }
     
     var cancellables = [AnyCancellable]()
-
     
     init() {
         getTrails()
     }
     
     // MARK: - Public methods
-    func createTrail(from url: URL) {
-        
-        guard let xml = try? String(contentsOf: url) else { return }
-        var locations = [Location]()
-        var distance: CLLocationDistance?
-        var elevationGain: CLLocationDistance?
-        var name = ""
-        let parser = GPXFileParser(xmlString: xml)
-            switch parser.parse() {
-            case .success(let track):
-                locations.append(contentsOf: track.trackPoints.map { Location(coordinate: $0.coordinate)})
-                distance = track.graph.distance
-                elevationGain = track.graph.elevationGain
-                name = track.title
-            case .failure(let error):
-                print(error)
+    func loadTrails(from urls: [URL]) -> [Trail] {
+        return urls.compactMap { url -> Trail? in
+            let gpx = GPXParser(withURL: url)?.parsedData()
+            let points = gpx?.tracks.first?.segments.first?.points
+            guard let points else { return nil }
+            let locations = points.compactMap { point -> Location? in
+                if let lat = point.latitude, let lng = point.longitude {
+                    return Location(latitude: lat, longitude: lng, altitude: point.elevation ?? 0)
+                } else {
+                    return nil
+                }
             }
-        guard let loc = locations.last?.clLocation else { return }
-        LocationManager.shared.getDepartment(location: loc) { department in
-            let gpx = Gpx(name: name, locations: locations, department: department, distance: distance, elevationGain: elevationGain)
-            let trail = Trail(gpx: gpx)
-            self.persist(gpx: gpx)
-            self.trails.array.append(trail)
-            self.objectWillChange.send()
+            let name = gpx?.metadata?.name ?? gpx?.tracks.first?.name ?? url.lastPathComponent
+            return Trail(gpx: Gpx(name: name, locations: locations))
         }
+    }
+        
+    func save(trails: [Trail]) {
+        trails.forEach { save(trail: $0) }
     }
     
     func save(trail: Trail) {
@@ -73,6 +66,9 @@ class TrailManager: ObservableObject {
         if let i = index {
             trails.array[i] = trail
             trail.objectWillChange.send()
+            self.objectWillChange.send()
+        } else {
+            trails.array.append(trail)
             self.objectWillChange.send()
         }
         self.persist(gpx: trail.gpx)
@@ -108,12 +104,13 @@ class TrailManager: ObservableObject {
         }
         self.trails.array = trails ?? []
     }
-        
+    
     func addMissingDepartment(trail: Trail) {
         Task(priority: .background) {
             guard trail.department == nil, let loc = trail.locations.last?.clLocation else { return }
             LocationManager.shared.getDepartment(location: loc) { department in
                 trail.department = department
+                self.save(trail: trail)
             }
         }
     }

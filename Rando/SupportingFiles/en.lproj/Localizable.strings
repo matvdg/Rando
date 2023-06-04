@@ -12,10 +12,18 @@
 "Rename" = "Rename";
 "Left" = "left";
 "Error" = "Oops!";
+"UrlError" = "Check the URL format";
+"WorkoutError" = "Check permissions in the Health app";
 "Network" = "Please check your internet connection then retry";
 "Loading" = "Loading...";
 "SelectInSidebar" = "Select an item in the left sidebar";
 "Search" = "Search";
+"or" = "or";
+"Delete" = "Delete";
+"Today" = "Today";
+"Yesterday" = "Yesterday";
+"at" = "at";
+"MoreThan" = "More than";
 
 // MapView
 "MapSettings" = "Map layers";
@@ -67,6 +75,8 @@
 "name" = "Name";
 "distance" = "Distance";
 "elevation" = "Elevation";
+"date" = "Date";
+"duration" = "Duration";
 "Profile" = "Profile";
 "Filter" = "Filter";
 "Filtered" = "Filtered";
@@ -80,3 +90,14 @@
 "DeleteTrail" = "Delete trail";
 "DeleteTrailMessage" = "This will remove this trail, not the associated maps";
 "3D" = "Watch the 3D tour";
+"ImportGPX" = "Import GPX";
+"GPXtoImport" = "GPX to import:";
+"ImportFromURL" = "URL";
+"ImportFromFitness" = "My workouts";
+"ImportFromFiles" = "Files";
+"GPXwithoutAlt" = "No elevation data in this GPX";
+"ImportFromWorkout" = "Import workout path";
+"walking" = "Walking";
+"hiking" = "Hiking";
+"running" = "Running";
+"cycling" = "Cycling";

@@ -13,9 +13,17 @@
 "Left" = "restant";
 "Error" = "Oups !";
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
+"UrlError" = "Vérifier le format de l'URL";
+"WorkoutError" = "Vérifier les permissions dans l'app Santé";
 "Loading" = "Chargement...";
 "SelectInSidebar" = "Sélectionner un élément dans la colonne de gauche";
 "Search" = "Rechercher";
+"or" = "ou";
+"Delete" = "Supprimer";
+"Today" = "Aujourd'hui";
+"Yesterday" = "Hier";
+"at" = "à";
+"MoreThan" = "Plus de";
 
 // MapView
 "MapSettings" = "Fonds de carte";
@@ -67,6 +75,8 @@
 "name" = "Nom";
 "distance" = "Distance";
 "elevation" = "Dénivelé";
+"date" = "Date";
+"duration" = "Durée";
 "Profile" = "Profil";
 "Filter" = "Filtrer";
 "Filtered" = "Filtré";
@@ -80,3 +90,17 @@
 "DeleteTrail" = "Supprimer la randonnée";
 "DeleteTrailMessage" = "Cette action supprimera la randonnée, pas les cartes associées";
 "3D" = "Visualiser le parcours en 3D";
+"ImportGPX" = "Importer des GPX";
+"GPXtoImport" = "GPX à importer :";
+"ImportFromURL" = "URL";
+"ImportFromFitness" = "Mes exercices";
+"ImportFromFiles" = "Fichiers";
+"GPXwithoutAlt" = "Pas de données d'altitude dans ce GPX";
+"ImportFromWorkout" = "Importer un tracé";
+"walking" = "Marche";
+"hiking" = "Rando";
+"running" = "Course";
+"cycling" = "Vélo";
+
+
+

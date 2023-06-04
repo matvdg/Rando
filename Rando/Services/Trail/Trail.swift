@@ -15,7 +15,7 @@ import Accelerate
 
 class Gpx: Codable, Identifiable {
     
-    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: Int? = Int.random(in: 0...15), lineWidth: CGFloat? = 1, distance: CLLocationDistance? = nil, elevationGain: CLLocationDistance? = nil) {
+    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: Int? = Int.random(in: 0...15), lineWidth: CGFloat? = 3, distance: CLLocationDistance? = nil, elevationGain: CLLocationDistance? = nil) {
         self.id = UUID()
         self.name = name
         self.locations = locations
@@ -144,7 +144,6 @@ class Trail: Identifiable, ObservableObject {
             return (accumulation.0 + delta, nextValue.clLocation)
         }.0
         gpx.distance = distance
-        TrailManager.shared.save(trail: self)
         return distance
     }
     
@@ -184,8 +183,10 @@ class Trail: Identifiable, ObservableObject {
         return filteredBuffer
     }
     
+    var hasElevationData: Bool { elevationGain > 0 }
+    
     var elevationGain: CLLocationDistance {
-        if let elevationGain =  gpx.elevationGain { return elevationGain }// Optimization if we import a Gpx (GPXKit already compute it so inside the JSON file)
+        if let elevationGain =  gpx.elevationGain { return elevationGain }// Optimization if we import a Gpx
         guard !elevations.isEmpty else { return .nan }
         let elevationGain = elevations.reduce((0, elevations[0])) { (accumulation, nextValue) -> (CLLocationDistance, CLLocationDistance) in
             var delta =  nextValue - accumulation.1
@@ -193,7 +194,6 @@ class Trail: Identifiable, ObservableObject {
             return (accumulation.0 + delta, nextValue)
         }.0
         gpx.elevationGain = elevationGain
-        TrailManager.shared.save(trail: self)
         return elevationGain
     }
     
@@ -225,10 +225,7 @@ class Trail: Identifiable, ObservableObject {
         let speed: CLLocationSpeed = 1.111 // 4Km.h-1
         let totalDistance = distance + 10 * elevationGain
         let duration = totalDistance/speed
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute]
-        formatter.unitsStyle = .abbreviated
-        return formatter.string(from: duration) ?? ""
+        return duration.toDurationString
     }
         
     var locationsPreview: [CGPoint] {
@@ -264,10 +261,10 @@ public struct Location: Codable {
         self.altitude = altitude
     }
     
-    init(coordinate: Coordinate) {
-        self.latitude = coordinate.latitude
-        self.longitude = coordinate.longitude
-        self.altitude = coordinate.elevation
+    init(location: CLLocation) {
+        self.latitude = location.coordinate.latitude
+        self.longitude = location.coordinate.longitude
+        self.altitude = location.altitude
     }
     
     

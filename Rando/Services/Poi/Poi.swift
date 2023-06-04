@@ -41,7 +41,7 @@ struct Poi: Decodable, Identifiable {
     
     init(lat: CLLocationDegrees, lng: CLLocationDegrees, alt: CLLocationDistance) {
         self.id = 0
-        self.name = "Pin".localized
+        self.name = "Pin"
         self.category = .step
         self.lat = lat
         self.lng = lng
