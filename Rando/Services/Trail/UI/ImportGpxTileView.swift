@@ -15,6 +15,14 @@ struct ImportGpxTileView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
+            HStack(alignment: .top, spacing: 8) {
+                Spacer()
+                Button {
+                    trailsToImport.removeAll { $0.id == trail.id }
+                } label: {
+                    DismissButton()
+                }
+            }
             Text(trail.name)
                 .font(.largeTitle)
                 .foregroundColor(.white)
@@ -41,7 +49,7 @@ struct ImportGpxTileView: View {
         }
         .padding(8)
         .frame(width: 200, height: 300, alignment: .center)
-        .background(Color.grgreen)
+        .background(Color.green)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .contextMenu {
             Button {

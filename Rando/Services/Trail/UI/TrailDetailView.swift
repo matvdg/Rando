@@ -108,6 +108,12 @@ struct TrailDetailView: View {
                         MapSettingsRow(selectedLayer: $selectedLayer).disabled(trail.downloadState == .downloading || TileManager.shared.state.isDownloading())
                         
                         TilesRow(selectedLayer: $selectedLayer, state: $trail.downloadState, trail: trail)
+                        
+                        HStack(spacing: 10) {
+                            Image(systemName: "share")
+                            Text("Share")
+                                .font(.headline)
+                        }.tint(.tintColorTabBar)
 
                         DeleteRow(trail: trail)
                         if trail.hasElevationData {

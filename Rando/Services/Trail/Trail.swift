@@ -10,7 +10,6 @@ import Foundation
 import CoreLocation
 import MapKit
 import SwiftUI
-import GPXKit
 import Accelerate
 
 class Gpx: Codable, Identifiable {

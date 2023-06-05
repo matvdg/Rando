@@ -24,6 +24,7 @@
 "Yesterday" = "Hier";
 "at" = "à";
 "MoreThan" = "Plus de";
+"Share" = "Partager";
 
 // MapView
 "MapSettings" = "Fonds de carte";
@@ -92,7 +93,7 @@
 "3D" = "Visualiser le parcours en 3D";
 "ImportGPX" = "Importer des GPX";
 "GPXtoImport" = "GPX à importer :";
-"ImportFromURL" = "URL";
+"ImportFromURL" = "Coller ici l'URL du GPX à importer";
 "ImportFromFitness" = "Mes exercices";
 "ImportFromFiles" = "Fichiers";
 "GPXwithoutAlt" = "Pas de données d'altitude dans ce GPX";

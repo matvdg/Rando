@@ -24,6 +24,7 @@
 "Yesterday" = "Yesterday";
 "at" = "at";
 "MoreThan" = "More than";
+"Share" = "Share";
 
 // MapView
 "MapSettings" = "Map layers";
@@ -92,7 +93,7 @@
 "3D" = "Watch the 3D tour";
 "ImportGPX" = "Import GPX";
 "GPXtoImport" = "GPX to import:";
-"ImportFromURL" = "URL";
+"ImportFromURL" = "Paste here the GPX's URL to import";
 "ImportFromFitness" = "My workouts";
 "ImportFromFiles" = "Files";
 "GPXwithoutAlt" = "No elevation data in this GPX";
