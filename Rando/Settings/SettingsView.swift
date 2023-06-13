@@ -56,6 +56,7 @@ struct SettingsView: View {
                         content: {
                             VStack(alignment: .center, spacing: 16) {
                                 Stepper(averageSpeed.toSpeedString, value: $averageSpeed, in: 0.3...2.7, step: 0.1) { _ in
+                                    Feedback.selected()
                                     UserDefaults.averageSpeed = averageSpeed
                                 }
                                 Button {

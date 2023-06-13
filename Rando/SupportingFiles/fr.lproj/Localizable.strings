@@ -111,7 +111,7 @@
 "RateApp" = "Noter l'app";
 "Donate" = "Faire un don";
 "AverageSpeed" = "Vitesse moyenne";
-"ResetAverageSpeed" = "Réinitialiser valeur par défaut";
+"ResetAverageSpeed" = "Réinitialiser la valeur par défaut";
 "AverageSpeedDescription" = "Afin de proposer une durée estimée prenant en compte la distance et le dénivelé, l'app se base sur une vitesse moyenne de 4km/h. Vous pouvez augmenter ou diminuer cette moyenne pour obtenir une durée estimée plus adaptée à votre profil.";
 
 
