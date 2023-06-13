@@ -230,7 +230,7 @@ class Trail: Identifiable, ObservableObject {
     }
     
     var estimatedTime: String {
-        let speed: CLLocationSpeed = 1.111 // 4Km.h-1
+        let speed: CLLocationSpeed = UserDefaults.averageSpeed // 4Km.h-1
         let totalDistance = distance + 10 * elevationGain
         let duration = totalDistance/speed
         return duration.toDurationString

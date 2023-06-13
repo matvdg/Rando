@@ -61,7 +61,7 @@
 "PositiveElevation" = "Positive elevation";
 "NegativeElevation" = "Negative elevation";
 "Distance" = "Distance";
-"DurationEstimated" = "Estimated time";
+"DurationEstimated" = "Estimated duration";
 "Downloading" = "Downloading...";
 "OtherDownloadInProcess" = "Another download is processing...";
 "Downloaded" = "Maps downloaded";
@@ -110,3 +110,6 @@
 "ContactMe" = "Contact me";
 "RateApp" = "Rate the app!";
 "Donate" = "Donate";
+"AverageSpeed" = "Average speed";
+"ResetAverageSpeed" = "Reset default value";
+"AverageSpeedDescription" = "In order to propose an estimated duration taking into account the distance and the elevation, the app is based on an average speed of 4km/h. You can increase or decrease this average to obtain an estimated duration more suited to your profile.";

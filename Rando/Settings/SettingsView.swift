@@ -21,7 +21,9 @@ struct SettingsView: View {
     let recipientEmail = "contact@maisondarlos.fr"
     let subject = "Rando Pyrénées"
     
-    @State private var isExpanded = false
+    @State private var isAboutExpanded = false
+    @State private var isAverageSpeedExpanded = false
+    @State private var averageSpeed: Double = UserDefaults.averageSpeed
     
     var body: some View {
         
@@ -45,36 +47,50 @@ struct SettingsView: View {
                     NavigationLink {
                         RemoveLayerView()
                     } label: {
-                        HStack(spacing: 10) {
-                            Image(systemName: "map")
-                            Text("DeleteLayer")
-                        }
+                        Label("DeleteLayer", systemImage: "map")
                     }.tint(.accentColor)
                     
+                    
                     DisclosureGroup(
-                        isExpanded: $isExpanded,
+                        isExpanded: $isAverageSpeedExpanded,
+                        content: {
+                            VStack(alignment: .center, spacing: 16) {
+                                Stepper(averageSpeed.toSpeedString, value: $averageSpeed, in: 0.3...2.7, step: 0.1) { _ in
+                                    UserDefaults.averageSpeed = averageSpeed
+                                }
+                                Button {
+                                    averageSpeed = defaultAverageSpeed
+                                    UserDefaults.averageSpeed = defaultAverageSpeed
+                                } label: {
+                                    Text("ResetAverageSpeed")
+                                }.buttonStyle(.borderedProminent)
+                                Text("AverageSpeedDescription")
+                            }
+                            
+                                .font(.subheadline)
+                        },
+                        label: {
+                            Label("AverageSpeed", systemImage: "speedometer")
+                        }
+                    )
+                    
+                    DisclosureGroup(
+                        isExpanded: $isAboutExpanded,
                         content: {
                             Text("AboutMe")
                                 .font(.subheadline)
-                                .foregroundColor(.primary)
                         },
                         label: {
-                            HStack(spacing: 10) {
-                                Image(systemName: "questionmark.circle")
-                                Text("About")
-                            }
+                            Label("About", systemImage: "questionmark.circle")
                         }
-                    ).tint(.gray)
+                    )
                     
                     NavigationLink {
                         WebView(url: maisondarlosUrl)
                             .navigationTitle("Maison d'Arlos")
                     } label: {
-                        HStack(spacing: 10) {
-                            Image(systemName: "globe")
-                            Text("Maison d'Arlos")
-                        }
-                    }.tint(.accentColor)
+                        Label("Maison d'Arlos", systemImage: "globe")
+                    }
                     
                     Button {
 #if targetEnvironment(macCatalyst)
@@ -83,25 +99,20 @@ struct SettingsView: View {
                         rateApp()
 #endif
                     } label: {
-                        HStack(spacing: 10) {
-                            Image(systemName: "star")
-                            Text("RateApp")
-                        }
+                        Label("RateApp", systemImage: "star")
                     }.foregroundColor(.primary)
                     
                     
                     Button {
                         openEmailApp()
                     } label: {
-                        HStack(spacing: 10) {
-                            Image(systemName: "envelope")
-                            Link("ContactMe", destination: URL(string: "mailto:contact@maisondarlos.fr")!)
-                        }
+                        Label("ContactMe", systemImage: "envelope")
                     }.foregroundColor(.primary)
                     
                     
                     
                 }
+                .foregroundColor(.primary)
             }
             .accentColor(.tintColor)
             HStack {

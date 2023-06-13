@@ -24,7 +24,7 @@ struct RemoveLayerView: View {
                         Image(systemName: "trash").tint(.red)
                         Text(LocalizedStringKey(layer.rawValue))
                         Spacer()
-                        Text(layer.downloadedSize.toBytes).foregroundColor(.gray)
+                        Text(layer.downloadedSize.toBytesString).foregroundColor(.gray)
                     }
                 }
                 .disabled(layer.downloadedSize == 0)

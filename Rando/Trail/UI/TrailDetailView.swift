@@ -95,6 +95,7 @@ struct TrailDetailView: View {
                     }
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     .frame(maxHeight: 100)
+                
                     Group {
                         DisplayRow(trail: trail)
                         
@@ -114,7 +115,7 @@ struct TrailDetailView: View {
                         DeleteRow(trail: trail)
                         
                         if trail.hasElevationData {
-                            LineView(data: trail.simplifiedElevations, title: "Profile", legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
+                            LineView(data: trail.simplifiedElevations, title: "Profile".localized, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
                                 .frame(height: 340)
                         }
                     }

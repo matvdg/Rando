@@ -82,7 +82,7 @@ class TileManager: ObservableObject {
     
     // MARK: -  Public property
     @Published var progress: Float = 0
-    var sizeLeft: String { sizeLeftInBytes.toBytes }
+    var sizeLeft: String { sizeLeftInBytes.toBytesString }
     var hasBeenDownloaded: Bool = false
     var state: DownloadState = .idle
     
@@ -120,7 +120,7 @@ class TileManager: ObservableObject {
             do {
                 try await download(trail: trail, layer: layer)
                 DispatchQueue.main.async { [weak self] in
-                    NotificationManager.shared.sendNotification(title: "\("Downloaded") (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytes))", message: "\(trail.name) \("DownloadedMessage")")
+                    NotificationManager.shared.sendNotification(title: "\("Downloaded") (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytesString))", message: "\(trail.name) \("DownloadedMessage")")
                     self?.progress = 1
                     self?.state = .idle
                     trail.downloadState = .downloaded
