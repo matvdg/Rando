@@ -11,8 +11,16 @@ import CoreLocation
 import MapKit
 import SwiftUI
 import Accelerate
+import CoreTransferable
+import UniformTypeIdentifiers
 
-class Gpx: Codable, Identifiable {
+
+
+class Gpx: Codable, Identifiable, Transferable {
+    
+    static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .gpx)
+    }
     
     init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: Int? = Int.random(in: 0...15), lineWidth: CGFloat? = 3, distance: CLLocationDistance? = nil, elevationGain: CLLocationDistance? = nil) {
         self.id = UUID()
@@ -43,6 +51,7 @@ class Gpx: Codable, Identifiable {
 }
 
 class Trail: Identifiable, ObservableObject {
+    
     
     init(gpx: Gpx = Gpx()) {
         self.gpx = gpx
@@ -226,7 +235,7 @@ class Trail: Identifiable, ObservableObject {
         let duration = totalDistance/speed
         return duration.toDurationString
     }
-        
+    
     var locationsPreview: [CGPoint] {
         
         let frame = CGRect(origin: .zero, size: CGSize(width: 80, height: 80))
@@ -240,8 +249,8 @@ class Trail: Identifiable, ObservableObject {
         var points = [CGPoint]()
         let max = polyline.pointCount - 1
         for i in 0...max {
-           let coordinate = mapPoints[i].coordinate
-           points.append(mapView.convert(coordinate, toPointTo: view))
+            let coordinate = mapPoints[i].coordinate
+            points.append(mapView.convert(coordinate, toPointTo: view))
         }
         return points
     }

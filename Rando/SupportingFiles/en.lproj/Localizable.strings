@@ -93,7 +93,7 @@
 "3D" = "Watch the 3D tour";
 "ImportGPX" = "Import GPX";
 "GPXtoImport" = "GPX to import:";
-"ImportFromURL" = "Paste here the GPX's URL to import";
+"ImportFromURL" = "Paste here the link of the GPX to import";
 "ImportFromFitness" = "My workouts";
 "ImportFromFiles" = "Files";
 "GPXwithoutAlt" = "No elevation data in this GPX";
@@ -102,3 +102,11 @@
 "hiking" = "Hiking";
 "running" = "Running";
 "cycling" = "Cycling";
+
+// Settings
+"ShareApp" = "Share the app";
+"About" = "About";
+"AboutMe" = "Hello ! I'm Mat. I am a Swift developer but above all passionate about the Pyrenees and hiking. With my partner Anna, we even moved to the heart of the Pyrenees, in Haute-Garonne, right in the middle of the GR10, to renovate a house and transform it into a B&B: the Maison d'Arlos! This app is therefore the fruit of my two passions, others exist but it has the merit of being simple, free and without advertising. It is designed to be able to explore the Pyrenees and the GR10 but it works very well everywhere in the world with OpenTopo maps in particular. Developed in Swift / Swift UI for iPhone, iPad and Apple Silicon Mac (bigger screen are practical for planning your hikes!), I plan to add features and improve it over time. Do not hesitate to contact me to let me know your comments or desires for improvement!";
+"ContactMe" = "Contact me";
+"RateApp" = "Rate the app!";
+"Donate" = "Donate";

@@ -95,7 +95,6 @@ struct TrailDetailView: View {
                     }
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     .frame(maxHeight: 100)
-                    
                     Group {
                         DisplayRow(trail: trail)
                         
@@ -104,18 +103,16 @@ struct TrailDetailView: View {
                         ItineraryRow(location: trail.firstLocation)
                         
                         TourRow(trail: trail)
-                                                
+                        
                         MapSettingsRow(selectedLayer: $selectedLayer).disabled(trail.downloadState == .downloading || TileManager.shared.state.isDownloading())
                         
                         TilesRow(selectedLayer: $selectedLayer, state: $trail.downloadState, trail: trail)
                         
-                        HStack(spacing: 10) {
-                            Image(systemName: "share")
-                            Text("Share")
-                                .font(.headline)
-                        }.tint(.tintColorTabBar)
-
+                        ShareLink("Share", item: trail.gpx, preview: SharePreview(trail.name))
+                            .font(.headline)
+                                                
                         DeleteRow(trail: trail)
+                        
                         if trail.hasElevationData {
                             LineView(data: trail.simplifiedElevations, title: "Profile", legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
                                 .frame(height: 340)
@@ -152,13 +149,11 @@ struct TrailDetail_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = .ign
     static var previews: some View {
         TrailDetailView(trail: Trail(gpx: Gpx(name: "Rando", locations: [mockLoc1,mockLoc2])), selectedLayer: $selectedLayer)
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-            .previewDisplayName("iPhone SE")
-            .environment(\.colorScheme, .light)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }
 
-extension  Styles {
+extension Styles {
     public static var customStyle: ChartStyle {
         let style = lineChartStyle
         style.darkModeStyle = darkModeStyle

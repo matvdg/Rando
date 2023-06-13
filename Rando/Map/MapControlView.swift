@@ -33,17 +33,10 @@ struct MapControlView: View {
                 self.isLayerViewDisplayed.toggle()
                 Feedback.selected()
             }) {
-                if #available(iOS 16, *) {
-                    Image(systemName: isLayerViewDisplayed ? "square.2.layers.3d.top.filled" : "square.2.layers.3d.bottom.filled")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
-                        .offset(y: -2)
-                } else {
-                    Image(systemName: isLayerViewDisplayed ? "map.fill" : "map")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
-                        .offset(y: -2)
-                }
+                Image(systemName: isLayerViewDisplayed ? "map.fill" : "map")
+                    .resizable()
+                    .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+                    .offset(y: -2)
             }
             Divider()
             Button(action: {
@@ -53,7 +46,7 @@ struct MapControlView: View {
                 Image(systemName: isLocked ? "lock" : "lock.open")
                     .resizable()
                     .frame(width: isLocked ? 15 : buttonWidth, height: buttonWidth)
-                    
+                
             }
             Divider()
             Button(action: {
@@ -93,6 +86,6 @@ struct MapControl_Previews: PreviewProvider {
     @State static var isLocked = false
     static var previews: some View {
         MapControlView(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed, isLocked: $isLocked)
-        .previewLayout(.fixed(width: 60, height: 135))
+            .previewLayout(.fixed(width: 60, height: 135))
     }
 }

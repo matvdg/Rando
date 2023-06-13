@@ -50,6 +50,6 @@ struct Poi: Decodable, Identifiable {
     
     
     enum Category: String, Decodable, CaseIterable {
-        case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge
+        case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, cabin
     }
 }

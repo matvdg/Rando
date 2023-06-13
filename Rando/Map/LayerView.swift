@@ -12,7 +12,7 @@ enum Layer: String, CaseIterable, Equatable, Identifiable {
     
     case ign25, openTopoMap, ign, openStreetMap, standard, satellite, flyover, swissTopo
     
-    var localized: String { self.rawValue }
+    var localized: String { self.rawValue.localized }
     
     /// Only layers we can actually download (MKTileOverlay),  (Maps currentType standard, hybrid, flyover are not  overlays)
     static var onlyOverlaysLayers: [Layer] { [.ign25, .openTopoMap, .ign, .openStreetMap, .swissTopo] }
@@ -54,15 +54,9 @@ struct LayerView: View {
                     }
                 }
                 .padding(.vertical, 8)
-                NavigationLink("", destination: RemoveLayerView(isLayerDisplayed: $isLayerDisplayed), isActive: $showingChildView)
             }
             .navigationBarTitle(Text("MapSettings"), displayMode: .inline)
-            .navigationBarItems(leading: Button(action:{
-                Feedback.selected()
-                showingChildView = true
-            }) {
-                Image(systemName: "trash")
-            }, trailing: Button(action: {
+            .navigationBarItems(trailing: Button(action: {
                 self.isLayerDisplayed.toggle()
                 Feedback.selected()
             }) {

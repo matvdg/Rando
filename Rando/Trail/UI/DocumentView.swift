@@ -11,6 +11,12 @@ import SwiftUI
 import UniformTypeIdentifiers
 import MobileCoreServices
 
+let GPX_TYPE = "com.matvdg.rando.document.gpx"
+
+extension UTType {
+    static var gpx: UTType { UTType(exportedAs: GPX_TYPE) }
+}
+
 struct DocumentView: UIViewControllerRepresentable {
     
     private var callback: ([URL]) -> Void
@@ -21,15 +27,14 @@ struct DocumentView: UIViewControllerRepresentable {
     
     func makeCoordinator() -> Coordinator { Coordinator(self) }
     
-    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<DocumentView>) {
-    }
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<DocumentView>) {}
     
     func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
         let types: [UTType] = [
             .xml,
             UTType(filenameExtension: "gpx", conformingTo: .xml)!,
             UTType(filenameExtension: "gpx", conformingTo: .data)!,
-            UTType(exportedAs: "com.matvdg.rando.document.gpx")
+            UTType(exportedAs: GPX_TYPE)
         ]
         let controller = UIDocumentPickerViewController(forOpeningContentTypes: types, asCopy: true)
         controller.delegate = context.coordinator

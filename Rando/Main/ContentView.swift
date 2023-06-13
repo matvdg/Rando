@@ -35,6 +35,11 @@ struct ContentView: View {
                         Image(systemName: "mappin.and.ellipse")
                     }
                     .tag(2)
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                    }
+                    .tag(3)
             }
         }
         .accentColor(Color.tintColorTabBar)

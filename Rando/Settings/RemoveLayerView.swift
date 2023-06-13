@@ -12,7 +12,6 @@ struct RemoveLayerView: View {
     
     @State private var showAlert = false
     @State var selectedLayer: Layer = .ign
-    @Binding var isLayerDisplayed: Bool
     
     var body: some View {
         List {
@@ -32,15 +31,9 @@ struct RemoveLayerView: View {
             }
         }
         .navigationBarTitle("DeleteLayer", displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            self.isLayerDisplayed.toggle()
-            Feedback.selected()
-        }) {
-            DismissButton()
-        })
         .actionSheet(isPresented: $showAlert) {
             return ActionSheet(
-                title: Text("\("DeleteLayerMessage") \(selectedLayer.rawValue)"),
+                title: Text("\("DeleteLayerMessage".localized) \(selectedLayer.localized)"),
                 buttons: [
                     .destructive(Text("DeleteLayer"), action: {
                         Feedback.selected()
@@ -54,8 +47,7 @@ struct RemoveLayerView: View {
 }
 
 struct RemoveLayerView_Previews: PreviewProvider {
-    @State static var isLayerDisplayed: Bool = true
     static var previews: some View {
-        RemoveLayerView(isLayerDisplayed: $isLayerDisplayed)
+        RemoveLayerView()
     }
 }
