@@ -12,7 +12,7 @@ struct TrailPreview: View {
     
     var color: Color
     var points: [CGPoint]
-    var lineWidth: CGFloat = defaultLineWidth
+    var lineWidth: CGFloat = 1
     
     var body: some View {
         if let firstPoint = points.first {
