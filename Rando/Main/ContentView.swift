@@ -22,22 +22,22 @@ struct ContentView: View {
             TabView(selection: $selection) {
                 HomeView(selectedLayer: $selectedLayer, isLocked: $isLocked)
                     .tabItem {
-                        Image(systemName: "map")
+                        Label("Map", systemImage: "map.fill")
                     }
                     .tag(0)
-                TrailView(selectedLayer: $selectedLayer)
+                TrailsView(selectedLayer: $selectedLayer)
                     .tabItem {
-                        Image(systemName: "point.topleft.down.curvedto.point.filled.bottomright.up")
+                        Label("Trails", systemImage: "point.topleft.down.curvedto.point.filled.bottomright.up")
                     }
                     .tag(1)
                 PoiView(selectedLayer: $selectedLayer)
                     .tabItem {
-                        Image(systemName: "mappin.and.ellipse")
+                        Label("Steps", systemImage: "mappin.and.ellipse")
                     }
                     .tag(2)
                 SettingsView()
                     .tabItem {
-                        Image(systemName: "gearshape.fill")
+                        Label("Settings", systemImage: "gearshape")
                     }
                     .tag(3)
             }

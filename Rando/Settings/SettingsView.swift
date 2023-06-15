@@ -17,7 +17,7 @@ struct SettingsView: View {
     
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
     let systemVersion = UIDevice.current.systemVersion
-    let modelName = UIDevice.current.model
+    let modelName = UIDevice.modelName
     let recipientEmail = "contact@maisondarlos.fr"
     let subject = "Rando Pyrénées"
     
@@ -60,6 +60,7 @@ struct SettingsView: View {
                                     UserDefaults.averageSpeed = averageSpeed
                                 }
                                 Button {
+                                    Feedback.success()
                                     averageSpeed = defaultAverageSpeed
                                     UserDefaults.averageSpeed = defaultAverageSpeed
                                 } label: {
@@ -136,7 +137,7 @@ struct SettingsView: View {
         guard MFMailComposeViewController.canSendMail() else { return }
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let rootViewController = windowScene.windows.first?.rootViewController {
-            let body = "v\(appVersion), system: \(systemVersion), device: \(modelName)"
+            let body = "Message: \n\n\n\n\n\n Technical data: \n Rando v\(appVersion), system: \(systemVersion), device: \(modelName)"
             let mailComposeViewController = MFMailComposeViewController()
             mailComposeViewController.setToRecipients([recipientEmail])
             mailComposeViewController.setSubject(subject)

@@ -59,7 +59,6 @@ struct HomeView: View {
             
         }
         .onAppear {
-            NotificationManager.shared.requestAuthorization()
             LocationManager.shared.requestAuthorization()
             self.trails = TrailManager.shared.currentTrails
             self.selectedTracking = .bounding

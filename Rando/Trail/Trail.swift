@@ -14,7 +14,8 @@ import Accelerate
 import CoreTransferable
 import UniformTypeIdentifiers
 
-
+let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+let defaultLineWidth: CGFloat = 6
 
 class Gpx: Codable, Identifiable, Transferable {
     
@@ -22,28 +23,30 @@ class Gpx: Codable, Identifiable, Transferable {
         CodableRepresentation(contentType: .gpx)
     }
     
-    init(name: String = "test", locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: Int? = Int.random(in: 0...15), lineWidth: CGFloat? = 3, distance: CLLocationDistance? = nil, elevationGain: CLLocationDistance? = nil) {
+    init(name: String = "test", description: String = lorem, locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: String? = CGColor.randomColor.hexaCode, lineWidth: CGFloat? = defaultLineWidth, distance: CLLocationDistance? = nil, elevationGain: CLLocationDistance? = nil) {
         self.id = UUID()
         self.name = name
+        self.description = description
         self.locations = locations
         self.date = date
         self.department = department
         self.isFav = isFav
         self.isDisplayed = isDisplayed
-        self.color = color
+        self.hexaColor = color
         self.lineWidth = lineWidth
         self.distance = distance
         self.elevationGain = elevationGain
     }
     
     var id: UUID
+    var description: String?
     var name: String
     var locations: [Location]
     var date: Date?
     var department: String?
     var isFav: Bool?
     var isDisplayed: Bool?
-    var color: Int?
+    var hexaColor: String?
     var lineWidth: CGFloat?
     var distance: CLLocationDistance?
     var elevationGain: CLLocationDistance?
@@ -52,19 +55,43 @@ class Gpx: Codable, Identifiable, Transferable {
 
 class Trail: Identifiable, ObservableObject {
     
-    
     init(gpx: Gpx = Gpx()) {
         self.gpx = gpx
         self.name = gpx.name
+        self.description = gpx.description ?? ""
         self.department = gpx.department
         self.isFav = gpx.isFav ?? false
         self.isDisplayed = gpx.isDisplayed ?? false
-        self.color = (gpx.color ?? 0).color
-        self.lineWidth = gpx.lineWidth ?? 3
+        self.color = (gpx.hexaColor ?? "").hexToColor
+        self.lineWidth = gpx.lineWidth ?? defaultLineWidth
     }
     
     // Decodable properties
     var gpx: Gpx
+    
+    var difficulty: Difficulty {
+        if hasElevationData {
+            switch elevationGain {
+            case 0..<500: return .easy
+            case 500..<1000: return .medium
+            default: return .hard
+            }
+        } else {
+            switch distance {
+            case 0..<10: return .easy
+            case 10...15: return .medium
+            default: return .hard
+            }
+        }
+    }
+    
+    var isLoop: Bool {
+        if let lastLoc = locations.last?.clLocation.coordinate, firstLocation.distance(from: lastLoc) < 100 {
+            return true
+        } else {
+            return false
+        }
+    }
     
     // Computed properties
     var id: UUID { gpx.id }
@@ -75,11 +102,21 @@ class Trail: Identifiable, ObservableObject {
         case unknown, notDownloaded, downloading, downloaded
     }
     
+    enum Difficulty {
+        case easy, medium, hard
+    }
+    
     @Published var downloadState: DownloadState = .unknown
     
     @Published var name: String {
         didSet {
             gpx.name = name
+        }
+    }
+    
+    @Published var description: String {
+        didSet {
+            gpx.description = description
         }
     }
     
@@ -101,9 +138,9 @@ class Trail: Identifiable, ObservableObject {
         }
     }
     
-    @Published var color: Color {
+    @Published var color: CGColor {
         didSet {
-            gpx.color = color.code
+            gpx.hexaColor = color.hexaCode
         }
     }
     
@@ -116,25 +153,16 @@ class Trail: Identifiable, ObservableObject {
     /// Replace black in darkMode and white in lightMode by gray color to be able to see them
     var colorHandlingLightAndDarkMode: Color {
         let style = UIApplication.shared.keyWindow?.traitCollection.userInterfaceStyle
-        if let style, style == .dark && color == .black || style == .light && color == .white {
-            return .gray
+        if let style, style == .dark && color == UIColor.black.cgColor || style == .light && color == UIColor.white.cgColor {
+            return Color.gray
         } else {
-            return color
-        }
-    }
-    
-    /// Replace black by white and white by black
-    var checkMarkColorHandlingBlackAndWhite: Color {
-        if color == .white {
-            return .black
-        } else {
-            return .white
+            return Color(UIColor(cgColor: color))
         }
     }
     
     var polyline: Polyline {
         let polyline = Polyline(coordinates: locations.map { $0.clLocation.coordinate }, count: locations.count)
-        polyline.color = color.uiColor
+        polyline.color = UIColor(cgColor: color)
         polyline.id = id
         polyline.lineWidth = lineWidth
         return polyline
@@ -205,15 +233,6 @@ class Trail: Identifiable, ObservableObject {
         return elevationGain
     }
     
-    var elevationLoss: CLLocationDistance {
-        guard !elevations.isEmpty else { return .nan }
-        return elevations.reduce((0, elevations[0])) { (accumulation, nextValue) -> (CLLocationDistance, CLLocationDistance) in
-            var delta =  nextValue - accumulation.1
-            delta = delta < 0 ? abs(delta) : 0
-            return (accumulation.0 + delta, nextValue)
-        }.0
-    }
-    
     var minAlt: CLLocationDistance {
         guard !elevations.isEmpty else { return .nan }
         let min = elevations.reduce(elevations[0]) { (accumulation, nextValue) -> CLLocationDistance in
@@ -256,7 +275,6 @@ class Trail: Identifiable, ObservableObject {
     }
 }
 
-
 public struct Location: Codable {
     
     var latitude: CLLocationDegrees
@@ -274,7 +292,6 @@ public struct Location: Codable {
         self.longitude = location.coordinate.longitude
         self.altitude = location.altitude
     }
-    
     
     var clLocation: CLLocation {
         CLLocation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), altitude: altitude, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
@@ -320,12 +337,4 @@ struct CircularBuffer {
             values.removeFirst()
         }
     }
-}
-
-
-func printTimeElapsedWhenRunningCode(title:String, operation:()->()) {
-    let startTime = CFAbsoluteTimeGetCurrent()
-    operation()
-    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-    print("Time elapsed for \(title): \(timeElapsed) s.")
 }

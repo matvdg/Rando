@@ -21,13 +21,8 @@ struct ItineraryRow: View {
             Feedback.selected()
             self.showAlert.toggle()
         }) {
-            HStack(spacing: 10) {
-                Image(systemName: "car")
-                Text("Directions")
-                    .font(.headline)
-            }
+            Label("Directions", systemImage: "car")
         }
-        
         .actionSheet(isPresented: $showAlert) {
             ActionSheet(
                 title: Text("Directions"),

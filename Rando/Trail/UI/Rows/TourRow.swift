@@ -13,15 +13,9 @@ struct TourRow: View {
     @ObservedObject var trail: Trail
     
     var body: some View {
-        
         NavigationLink(destination: TourView(trail: trail)) {
-            HStack(spacing: 10) {
-                Image(systemName: "view.3d")
-                Text("3D")
-                    .font(.headline)
-            }
-        }.accentColor(.tintColorTabBar)
-        
+            Label("3D", systemImage: "view.3d")
+        }.accentColor(.primary)
     }
 }
 

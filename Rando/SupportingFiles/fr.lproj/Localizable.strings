@@ -9,7 +9,8 @@
 // General
 "Cancel" = "Annuler";
 "Add" = "Ajouter";
-"Rename" = "Renommer";
+"Rename" = "Modifier le nom";
+"RenameDescription" = "Choisir un nom pour votre randonnée";
 "Left" = "restant";
 "Error" = "Oups !";
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
@@ -20,11 +21,16 @@
 "Search" = "Rechercher";
 "or" = "ou";
 "Delete" = "Supprimer";
+"Edit" = "Modifier";
 "Today" = "Aujourd'hui";
 "Yesterday" = "Hier";
 "at" = "à";
 "MoreThan" = "Plus de";
 "Share" = "Partager";
+"Settings" = "Réglages";
+"Map" = "Carte";
+"MoreInfos" = "Plus d'informations...";
+"Imported" = "Importé le";
 
 // MapView
 "MapSettings" = "Fonds de carte";
@@ -56,22 +62,20 @@
 
 // TrailView
 "Trails" = "Randonnées";
-"AltMin" = "Alt. min";
-"AltMax" = "Alt. max";
-"PositiveElevation" = "Dénivelé positif";
-"NegativeElevation" = "Dénivelé négatif";
+"Elevation" = "Dénivelé cumulé";
 "Distance" = "Distance";
-"DurationEstimated" = "Durée estimée";
+"Difficulty" = "Difficulté"; 
+"EstimatedDuration" = "Durée estimée";
 "Downloading" = "Téléchargement...";
 "OtherDownloadInProcess" = "Un autre téléchargement est en cours...";
 "Downloaded" = "Carte téléchargée";
 "DownloadedMessage" = "est disponible hors ligne";
 "Download" = "Télécharger la carte";
-"DisplayOnMap" = "Afficher le tracé sur la carte";
-"DoNotDisplayOnMap" = "Retirer le tracé de la carte";
-"CustomPath" = "Personnaliser le tracé";
-"Color" = "Couleur du tracé";
-"Thickness" = "Épaisseur du tracé";
+"DisplayOnMap" = "Afficher sur la carte";
+"CustomPath" = "Personnaliser";
+"Path" = "Tracé";
+"Color" = "Couleur";
+"Thickness" = "Épaisseur";
 "importDate" = "Ajout";
 "name" = "Nom";
 "distance" = "Distance";
@@ -86,11 +90,11 @@
 "gr10" = "GR10";
 "notgr10" = "Non GR10";
 "Departments" = "Département";
-"Directions" = "Obtenir l'itinéraire en voiture";
+"Directions" = "Aller au départ";
 "Departure" = "Départ";
 "DeleteTrail" = "Supprimer la randonnée";
 "DeleteTrailMessage" = "Cette action supprimera la randonnée, pas les cartes associées";
-"3D" = "Visualiser le parcours en 3D";
+"3D" = "Visualiser le parcours";
 "ImportGPX" = "Importer des GPX";
 "GPXtoImport" = "GPX à importer :";
 "ImportFromURL" = "Coller ici le lien du GPX à importer";
@@ -102,6 +106,8 @@
 "hiking" = "Rando";
 "running" = "Course";
 "cycling" = "Vélo";
+"oneWay" = "Aller simple";
+"loop" = "Boucle";
 
 // Settings
 "ShareApp" = "Partager l'app";
@@ -112,6 +118,6 @@
 "Donate" = "Faire un don";
 "AverageSpeed" = "Vitesse moyenne";
 "ResetAverageSpeed" = "Réinitialiser la valeur par défaut";
-"AverageSpeedDescription" = "Afin de proposer une durée estimée prenant en compte la distance et le dénivelé, l'app se base sur une vitesse moyenne de 4km/h. Vous pouvez augmenter ou diminuer cette moyenne pour obtenir une durée estimée plus adaptée à votre profil.";
+"AverageSpeedDescription" = "Afin de proposer une durée estimée prenant en compte la distance et le dénivelé, l'app se base sur une vitesse moyenne de 4km/h. Vous pouvez augmenter ou diminuer cette moyenne pour obtenir une durée estimée plus adaptée à votre profil. Conseil : faites une randonnée avec le réglage par défaut, puis comparer la durée estimée et la durée réelle, et augmentez ou diminuez d'un cran pour améliorer l'estimation pour la prochaine fois, le réglage est sensible !";
 
 

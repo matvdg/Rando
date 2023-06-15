@@ -60,8 +60,6 @@ struct WorkoutView: View {
                     
                     Slider(value: $minDistance, in: 0...20000, onEditingChanged: { _ in
                         Feedback.selected()
-                        
-                        
                     })
                     .tint(.tintColorTabBar)
                     Text("\("MoreThan".localized) \(minDistance.toString)")

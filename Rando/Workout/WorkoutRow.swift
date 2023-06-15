@@ -22,6 +22,13 @@ struct WorkoutRow: View {
     private var name: String {
         WorkoutActivity.activity(from: workout.workoutActivityType).localized + " · " + workout.startDate.toString
     }
+    private var description: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        let date = formatter.string(from: Date())
+        return name + " · \("Imported".localized) \(date)"
+    }
     private var distance: String {
         workout.totalDistance?.doubleValue(for: .meter()).toString ?? "_"
     }
@@ -86,14 +93,14 @@ struct WorkoutRow: View {
                         Task {
                             do {
                                 locations = try await workoutManager.getLocations(for: workout)
-                                trailsToImport.insert(Trail(gpx: Gpx(name: name, locations: locations, date: workout.startDate)), at: 0)
+                                trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: workout.startDate)), at: 0)
                                 showHealthView = false
                             } catch {
                                 print(error)
                             }
                         }
                     } else {
-                        trailsToImport.insert(Trail(gpx: Gpx(name: name, locations: locations, date: workout.startDate)), at: 0)
+                        trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: workout.startDate)), at: 0)
                         showHealthView = false
                     }
                 } label: {
@@ -112,7 +119,7 @@ struct WorkoutRow: View {
                 MapView(coordinates: $locations)
                     .navigationBarTitle(name, displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
-                        trailsToImport.insert(Trail(gpx: Gpx(name: name, locations: locations, date: workout.startDate)), at: 0)
+                        trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: workout.startDate)), at: 0)
                         showHealthView = false
                         Feedback.selected()
                     }) {

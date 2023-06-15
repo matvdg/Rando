@@ -10,12 +10,8 @@ import SwiftUI
 
 struct DismissButton: View {
     var body: some View {
-        Image(systemName: "multiply")
-            .accentColor(.lightgrayInverted)
-        .frame(width: 30, height: 30, alignment: .center)
-        .background(Color.lightgray)
-        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-        
+        Image(systemName: "xmark.circle.fill")
+            .foregroundColor(.lightgrayInverted)
     }
 }
 

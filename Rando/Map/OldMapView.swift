@@ -114,7 +114,7 @@ struct OldMapView: UIViewRepresentable {
             case let polyline as Polyline:
                 let polylineRenderer = MKPolylineRenderer(overlay: overlay)
                 polylineRenderer.strokeColor = polyline.color ?? .grblue
-                polylineRenderer.lineWidth = polyline.lineWidth ?? 3
+                polylineRenderer.lineWidth = polyline.lineWidth ?? defaultLineWidth
                 return polylineRenderer
             default: return MKOverlayRenderer()
             }

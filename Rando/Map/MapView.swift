@@ -31,7 +31,7 @@ struct MapView: UIViewRepresentable {
             if let polylineOverlay = overlay as? MKPolyline {
                 let renderer = MKPolylineRenderer(overlay: polylineOverlay)
                 renderer.strokeColor = UIColor.grgreen
-                renderer.lineWidth = 6
+                renderer.lineWidth = defaultLineWidth
                 return renderer
             }
             

@@ -85,3 +85,16 @@ extension View {
     }
 
 }
+
+extension View {
+    func asImage() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
+        
+        let renderer = UIGraphicsImageRenderer(size: view!.bounds.size)
+        let image = renderer.image { _ in
+            view!.drawHierarchy(in: view!.bounds, afterScreenUpdates: true)
+        }
+        return image
+    }
+}

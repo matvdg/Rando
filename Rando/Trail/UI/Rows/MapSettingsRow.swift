@@ -15,10 +15,7 @@ struct MapSettingsRow: View {
     var body: some View {
         
             HStack(spacing: 10) {
-                Image(systemName: "map").foregroundColor(.tintColorTabBar)
-                Text("MapSettings")
-                    .font(.headline)
-                    .foregroundColor(.tintColorTabBar)
+                Label("MapSettings", systemImage: "map")
                 Picker(selection: $selectedLayer, label: Text("")) {
                     ForEach(Layer.onlyOverlaysLayers, id: \.self) { layer in
                         Text(LocalizedStringKey(layer.rawValue))

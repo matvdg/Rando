@@ -28,18 +28,15 @@ struct TilesRow: View {
         }) {
             HStack(spacing: 15) {
                 if tileManager.state.isDownloadingAnotherTrail(id: trail.id) {
-                    Image(systemName: "xmark.icloud")
-                    Text("OtherDownloadInProcess")
+                    Label("OtherDownloadInProcess", systemImage: "xmark.icloud")
                 } else {
                     switch trail.downloadState {
                     case .unknown :
                         ProgressView(value: tileManager.progress)
                             .progressViewStyle(CircularProgressViewStyle())
-                        Text("Loading")
+                        Text("Download")
                     case .notDownloaded:
-                        Image(systemName: "icloud.and.arrow.down")
-                        Text("\("Download".localized) (\(tileManager.sizeLeft))")
-                            .font(.headline)
+                        Label("\("Download".localized) (\(tileManager.sizeLeft))", systemImage: "icloud.and.arrow.down")
                     case .downloading:
                         ProgressView(value: tileManager.progress)
                             .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
@@ -51,14 +48,12 @@ struct TilesRow: View {
                         }
                         Image(systemName: "xmark.circle").foregroundColor(.red)
                     case .downloaded:
-                        Image(systemName: "checkmark.icloud")
-                            .foregroundColor(.tintColorTabBar)
-                        Text("Downloaded")
-                            .foregroundColor(.tintColorTabBar)
+                        Label("Downloaded", systemImage: "checkmark.icloud")
                     }
                 }
             }
         }
+        .tint(.primary)
         .disabled( // enabled when notDownloaded (to download it) or downloading (to cancel it)
             // disabled when other download in progress
             tileManager.state.isDownloadingAnotherTrail(id: trail.id)

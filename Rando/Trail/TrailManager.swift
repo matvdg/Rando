@@ -52,8 +52,9 @@ class TrailManager: ObservableObject {
                     return nil
                 }
             }
-            let name = gpx?.metadata?.name ?? gpx?.tracks.first?.name ?? url.lastPathComponent
-            return Trail(gpx: Gpx(name: name, locations: locations))
+            let name = (gpx?.metadata?.name ?? gpx?.tracks.first?.name ?? url.lastPathComponent).cleanHtmlString
+            let description = (gpx?.metadata?.desc ?? gpx?.tracks.first?.desc ?? "").cleanHtmlString
+            return Trail(gpx: Gpx(name: name, description: description, locations: locations))
         }
     }
         
@@ -96,8 +97,8 @@ class TrailManager: ObservableObject {
                 return Trail(gpx: gpx)
             } catch {
                 switch error {
-                case DecodingError.keyNotFound(let key, let context): print("􀈾 Trail decodding error = \(error.localizedDescription), key not found = \(key), context = \(context)")
-                default: print("􀈾 Trail decodding error = \(error.localizedDescription)")
+                case DecodingError.keyNotFound(let key, let context): print("􀈾 Trail decoding error = \(error.localizedDescription), key not found = \(key), context = \(context)")
+                default: print("􀈾 Trail decoding error = \(error.localizedDescription)")
                 }
                 return nil
             }

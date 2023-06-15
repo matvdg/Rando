@@ -164,8 +164,7 @@ class TileManager: ObservableObject {
     /// Get downloaded size for all tiles of the specified layer
     /// - Parameters:
     ///   - layer: selectedLayer
-    func getDownloadedSize(layer: Layer) -> Double { documentsDirectory.appendingPathComponent(layer.rawValue).allocatedSizeOfDirectory
-    }
+    func getDownloadedSize(layer: Layer) -> Double { documentsDirectory.appendingPathComponent(layer.rawValue).allocatedSizeOfDirectory }
     
     /// Get the tile URL for the specified layer and path (streaming tile in live, persist it if necessary)
     /// - Parameters:

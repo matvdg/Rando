@@ -19,7 +19,7 @@ struct ImportView: View {
     @State private var isLoadingUrl = false
     @State private var isLoadingFiles = false
     @State private var isLoadingFitness = false
-    @State var showHealthView: Bool = false
+    @State var showWorkoutView: Bool = false
     @State var workouts: [HKWorkout] = []
     
     private let trailManager = TrailManager.shared
@@ -81,7 +81,7 @@ struct ImportView: View {
                             Task {
                                 do {
                                     workouts = try await workoutManager.getWorkouts()
-                                    showHealthView = true
+                                    showWorkoutView = true
                                 } catch {
                                     print(error)
                                     showAlert = true
@@ -157,10 +157,11 @@ struct ImportView: View {
                 isLoadingFiles = false
             }
         }
-        .sheet(isPresented: $showHealthView, onDismiss: {
+        
+        .sheet(isPresented: $showWorkoutView, onDismiss: {
             isLoadingFitness = false
         }) {
-            WorkoutView(showWorkoutView: $showHealthView, workouts: $workouts, trailsToImport: $trailsToImport)
+            WorkoutView(showWorkoutView: $showWorkoutView, workouts: $workouts, trailsToImport: $trailsToImport)
         }
         
     }

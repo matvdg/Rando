@@ -27,11 +27,7 @@ struct DeleteRow: View {
             Feedback.selected()
             self.showAlert.toggle()
         }) {
-            HStack(spacing: 10) {
-                Image(systemName: "trash")
-                Text("DeleteTrail")
-                    .font(.headline)
-            }
+            Label("DeleteTrail", systemImage: "trash")
             .accentColor(.red)
         }
         
