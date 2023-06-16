@@ -44,7 +44,7 @@ struct InfoPoiView: View {
             .padding()
             .navigationBarTitle(poi?.name ?? "", displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
-                self.poi = nil
+                poi = nil
                 Feedback.selected()
             }) {
                 DismissButton()

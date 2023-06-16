@@ -16,24 +16,24 @@ struct DifficultyView: View {
     
     var body: some View {
         
-        HStack(spacing: 3) {
+        HStack(spacing: 5) {
             switch difficulty {
             case .easy:
                 Circle().foregroundColor(.green)
                 Circle().foregroundColor(.lightgray)
                 Circle().foregroundColor(.lightgray)
             case .medium:
-                Circle().foregroundColor(.orange)
+                Circle().foregroundColor(.lightgray)
                 Circle().foregroundColor(.orange)
                 Circle().foregroundColor(.lightgray)
             case .hard:
-                Circle().foregroundColor(.red)
-                Circle().foregroundColor(.red)
+                Circle().foregroundColor(.lightgray)
+                Circle().foregroundColor(.lightgray)
                 Circle().foregroundColor(.red)
             }
             
         }
-        .frame(width: 30, height: 9, alignment: .center)
+        .frame(width: 60, height: 15, alignment: .center)
         
     
     }

@@ -46,6 +46,6 @@ extension String {
         guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
             return ""
         }
-        return attributedString.string
+        return attributedString.string.replacingOccurrences(of: "\\", with: "")
     }
 }

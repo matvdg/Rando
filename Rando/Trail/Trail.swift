@@ -233,6 +233,15 @@ class Trail: Identifiable, ObservableObject {
         return elevationGain
     }
     
+    var elevationLoss: CLLocationDistance {
+        guard !elevations.isEmpty else { return .nan }
+        return elevations.reduce((0, elevations[0])) { (accumulation, nextValue) -> (CLLocationDistance, CLLocationDistance) in
+            var delta =  nextValue - accumulation.1
+            delta = delta < 0 ? abs(delta) : 0
+            return (accumulation.0 + delta, nextValue)
+        }.0
+    }
+    
     var minAlt: CLLocationDistance {
         guard !elevations.isEmpty else { return .nan }
         let min = elevations.reduce(elevations[0]) { (accumulation, nextValue) -> CLLocationDistance in

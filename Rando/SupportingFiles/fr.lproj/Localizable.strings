@@ -8,6 +8,7 @@
 
 // General
 "Cancel" = "Annuler";
+"Save" = "Sauvegarder";
 "Add" = "Ajouter";
 "Rename" = "Modifier le nom";
 "RenameDescription" = "Choisir un nom pour votre randonnée";
@@ -62,7 +63,10 @@
 
 // TrailView
 "Trails" = "Randonnées";
-"Elevation" = "Dénivelé cumulé";
+"ElevationGain" = "Dénivelé positif";
+"ElevationLoss" = "Dénivelé négatif";
+"AltMin" = "Alt. min.";
+"AltMax" = "Alt. max.";
 "Distance" = "Distance";
 "Difficulty" = "Difficulté"; 
 "EstimatedDuration" = "Durée estimée";
@@ -108,16 +112,17 @@
 "cycling" = "Vélo";
 "oneWay" = "Aller simple";
 "loop" = "Boucle";
+"EditDescription" = "Modifier la description de la randonnée";
 
 // Settings
 "ShareApp" = "Partager l'app";
 "About" = "À propos";
-"AboutMe" = "Salut ! Moi c'est Mathieu. Je suis développeur iPhone mais surtout passioné des Pyrénées et de la randonnée. Avec ma compagne Anna, nous avons même emmenagé au coeur des Pyrénées, en Haute-Garonne, en plein milieu du GR10, pour rénover une maison et la transformer en chambres et table d'hôtes : la Maison d'Arlos ! Cette app est donc le fruit de mes deux passions, d'autres existent mais elle a le mérite d'être simple, gratuite et sans publicité. Elle est conçue pour pouvoir explorer les Pyrénées et le GR10 mais elle fonctionne très bien partout dans le monde avec notamment les cartes OpenTopo. Développée en Swift / Swift UI pour iOS (iPhone), iPadOS et macOS (les grands écrans c'est moins pratique pendant la rando mais très agréable pour bien planifier ses randos !), je compte rajouter des fonctionnalités et l'améliorer au fil du temps. N'hésitez pas à me contacter pour me faire part de vos remarques ou envies d'améliorations !";
+"AboutMe" = "Salut ! Moi c'est Mathieu. Je suis développeur iPhone mais surtout passioné des Pyrénées et de la randonnée. Avec ma compagne Anna, nous avons même emmenagé au coeur des Pyrénées, en Haute-Garonne, en plein milieu du GR10, pour rénover une maison et la transformer en chambres et table d'hôtes : la Maison d'Arlos ! Cette app est donc le fruit de mes deux passions, d'autres existent mais elle a le mérite d'être simple, gratuite et sans publicité. Elle est conçue pour pouvoir explorer les Pyrénées et le GR10 mais elle fonctionne très bien partout dans le monde avec notamment les cartes OpenTopo. N'hésitez pas à me contacter pour me faire part de vos remarques ou envies d'améliorations !";
 "ContactMe" = "Me contacter";
 "RateApp" = "Noter l'app";
 "Donate" = "Faire un don";
 "AverageSpeed" = "Vitesse moyenne";
 "ResetAverageSpeed" = "Réinitialiser la valeur par défaut";
-"AverageSpeedDescription" = "Afin de proposer une durée estimée prenant en compte la distance et le dénivelé, l'app se base sur une vitesse moyenne de 4km/h. Vous pouvez augmenter ou diminuer cette moyenne pour obtenir une durée estimée plus adaptée à votre profil. Conseil : faites une randonnée avec le réglage par défaut, puis comparer la durée estimée et la durée réelle, et augmentez ou diminuez d'un cran pour améliorer l'estimation pour la prochaine fois, le réglage est sensible !";
+"AverageSpeedDescription" = "Afin de proposer une durée estimée prenant en compte la distance et le dénivelé, l'app se base sur une vitesse moyenne de 4km/h. Vous pouvez augmenter ou diminuer cette moyenne pour obtenir une durée estimée plus adaptée à votre profil.";
 
 

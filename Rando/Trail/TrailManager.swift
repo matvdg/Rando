@@ -52,7 +52,7 @@ class TrailManager: ObservableObject {
                     return nil
                 }
             }
-            let name = (gpx?.metadata?.name ?? gpx?.tracks.first?.name ?? url.lastPathComponent).cleanHtmlString
+            let name = (gpx?.metadata?.name ?? gpx?.tracks.first?.name ?? url.lastPathComponent.name).cleanHtmlString
             let description = (gpx?.metadata?.desc ?? gpx?.tracks.first?.desc ?? "").cleanHtmlString
             return Trail(gpx: Gpx(name: name, description: description, locations: locations))
         }

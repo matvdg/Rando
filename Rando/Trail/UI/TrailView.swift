@@ -15,6 +15,7 @@ struct TrailView: View {
     @ObservedObject var trail: Trail
     @Binding var selectedLayer: Layer
     @State var showNameAlert: Bool = false
+    @State var showDescriptionSheet: Bool = false
     @State var thickness: Thickness = .normal
     
     enum Thickness: String, CaseIterable {
@@ -35,72 +36,138 @@ struct TrailView: View {
         VStack(alignment: .leading, spacing: 0) {
             NavigationLink(destination: OldMapView(trail: trail, selectedLayer: $selectedLayer)) {
                 OldMapView(trail: trail, selectedLayer: $selectedLayer)
-                    .frame(height: 200).disabled(true)
+                    .frame(height: 250).disabled(true)
             }
             
             List {
                 
-                Section(header: Text(trail.department ?? "")) {
+                Section(header: Text("Description")) {
+                    
+                    HStack(alignment: .center, spacing: 20.0) {
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Distance".localized)
+                                    .font(.system(size: 12))
+                                    .foregroundColor(Color("grgray"))
+                                    .lineLimit(1)
+                                Text(trail.distance.toString)
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("EstimatedDuration".localized)
+                                    .font(.system(size: 12))
+                                    .foregroundColor(Color("grgray"))
+                                    .lineLimit(1)
+                                Text(trail.estimatedTime)
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 18))
+                            }
+                            
+                        }
+                        
+                        if trail.elevationGain > 0 {
+                            Divider()
+                            VStack(alignment: .leading, spacing: 8) {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text("AltMin".localized)
+                                        .font(.system(size: 12))
+                                        .foregroundColor(Color("grgray"))
+                                        .lineLimit(1)
+                                    Text(trail.minAlt.toStringMeters)
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 18))
+                                }
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text("AltMax".localized)
+                                        .font(.system(size: 12))
+                                        .foregroundColor(Color("grgray"))
+                                        .lineLimit(1)
+                                    Text(trail.maxAlt.toStringMeters)
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 18))
+                                }
+                                
+                            }
+                            Spacer()
+                            Divider()
+                            VStack(alignment: .leading, spacing: 8) {
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("ElevationGain".localized)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color("grgray"))
+                                            .lineLimit(1)
+                                        Text(trail.elevationGain.toStringMeters).fontWeight(.bold)
+                                            .font(.system(size: 18))
+                                    }
+                                }
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("ElevationLoss".localized)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color("grgray"))
+                                            .lineLimit(1)
+                                        Text(trail.elevationLoss.toStringMeters).fontWeight(.bold)
+                                            .font(.system(size: 18))
+                                    }
+                                }
+                                
+                            }
+                            Spacer()
+                        }
+                    }
+                    .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+                    .frame(maxHeight: 100)
+                    
+
                     
                     HStack {
                         Label("Difficulty", systemImage: "figure.hiking")
                         Spacer()
                         DifficultyView(difficulty: trail.difficulty)
                     }
-                    HStack {
-                        Label("Distance", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
-                        Spacer()
-                        Text(trail.distance.toString)
-                    }
+                
                     DisclosureGroup {
-                        HStack {
-                            Label("Elevation", systemImage: "arrow.up.forward")
-                            Spacer()
-                            Text(trail.hasElevationData ? trail.elevationGain.toStringMeters : "-")
-                        }
-                        HStack {
-                            Label("EstimatedDuration", systemImage: "clock")
-                            Spacer()
-                            Text(trail.estimatedTime)
-                        }
-                        HStack {
-                            Label("Altitude", systemImage: "arrow.up.and.line.horizontal.and.arrow.down")
-                            Spacer()
-                            Text(trail.hasElevationData ? "\(trail.minAlt.toStringMeters) → \(trail.maxAlt.toStringMeters)" : "-")
-                        }
+                        
                         if trail.isLoop {
                             Label("loop", systemImage: "arrow.triangle.capsulepath")
                         } else {
                             Label("oneWay", systemImage: "arrow.right")
                         }
+                        if let department = trail.department {
+                            Label(department, systemImage: "mappin.and.ellipse")
+                        }
+                        DisclosureGroup {
+                            VStack {
+                                Text(trail.description).font(.system(size: 14))
+                                Button {
+                                    showDescriptionSheet = true
+                                } label: {
+                                    Text("Edit").foregroundColor(.primary)
+                                        .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
+                                        .frame(maxWidth: .infinity)
+                                }
+                                
+                                .buttonStyle(.bordered)
+                                .tint(.secondary)
+                            }
+                            
+                        } label: {
+                            Label("Description", systemImage: "text.justify.leading")
+                            
+                        }
+                        
                     } label: {
                         Label("MoreInfos", systemImage: "info.circle")
                     }
                     
-                    DisclosureGroup {
-                        VStack {
-                            Text(trail.description).font(.system(size: 14))
-                            /*  Button {
-                                //
-                            } label: {
-                                Text("Edit").foregroundColor(.primary)
-                                    .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
-                                    .frame(maxWidth: .infinity)
-                            }
-                            .buttonStyle(.bordered)
-                            .tint(.secondary)*/
-                        }
-                        
-                    } label: {
-                        Label("Description", systemImage: "text.justify.leading")
-                        
-                    }
                     
-                    Button {
-                        showNameAlert = true
-                    } label: {
-                        Label("Rename", systemImage: "pencil.line")
-                    }
                 }
                 
                 Section(header: Text("Path")) {
@@ -122,21 +189,8 @@ struct TrailView: View {
                                     Feedback.selected()
                                     TrailManager.shared.save(trail: trail)
                                 }
-                            ).frame(width: 100)
+                            ).frame(width: 150)
                         }
-                        //Stepper option
-                        //  HStack(alignment: .center, spacing: 8) {
-                        //                            Label("Thickness", systemImage: "eyedropper").lineLimit(1)
-                        //                            Spacer()
-                        //                            Stepper(value: $trail.lineWidth, in: 3...10, step: 1) {
-                        //                                EmptyView()
-                        //                            } onEditingChanged: { _ in
-                        //                                Feedback.selected()
-                        //                                TrailManager.shared.save(trail: trail)
-                        //                            }
-                        //                            .labelsHidden()
-                        //                        }
-                        
                         
                         HStack(alignment: .center, spacing: 8) {
                             Label("Color", systemImage: "paintpalette").lineLimit(1)
@@ -183,13 +237,26 @@ struct TrailView: View {
         .onChange(of: trail.color, perform: { newValue in
             TrailManager.shared.save(trail: trail)
         })
+        .onChange(of: trail.description, perform: { newValue in
+            TrailManager.shared.save(trail: trail)
+        })
         .alert("Rename", isPresented: $showNameAlert) {
             TextField("Enter your name", text: $trail.name)
             Button("OK", action: submit)
         } message: {
             Text("RenameDescription")
         }
-        .navigationBarTitle(Text(trail.name), displayMode: .inline)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Button(action: {
+                    showNameAlert = true
+                }) {
+                    Text(trail.name)
+                        .font(.headline)
+                }
+            }
+        }
         .navigationBarItems(trailing: HStack {
             // LIKE
             Button {
@@ -209,6 +276,10 @@ struct TrailView: View {
              Image(systemName: "square.and.arrow.up")
              }*/
         })
+        .sheet(isPresented: $showDescriptionSheet) {
+            EditDescriptionView(trail: trail, showDescriptionSheet: $showDescriptionSheet)
+        }
+        
     }
     
     func submit() {
