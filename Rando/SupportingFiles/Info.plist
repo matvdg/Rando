@@ -96,5 +96,7 @@
 	</array>
 	<key>NSHealthShareUsageDescription</key>
 	<string>Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées</string>
 </dict>
 </plist>
