@@ -1,3 +1,4 @@
 "NSLocationUsageDescription" = "Rando needs your current location to show your position on the map";
 "NSLocationWhenInUseUsageDescription" = "Rando needs your current location to show your position on the map";
 "NSHealthShareUsageDescription" = "Rando needs your permission to read your workouts ant let you import them into your trails";
+"NSHealthUpdateUsageDescription" = "Rando needs your permission to read your workouts ant let you import them into your trails";

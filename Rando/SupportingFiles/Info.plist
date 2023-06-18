@@ -25,9 +25,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationUsageDescription</key>
-	<string></string>
+	<string>Rando a besoin de votre position GPS pour la montrer sur la carte !</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Rando a besoin de votre position GPS pour la montrer sur la carte !</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -95,6 +95,6 @@
 		</dict>
 	</array>
 	<key>NSHealthShareUsageDescription</key>
-	<string></string>
+	<string>Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées</string>
 </dict>
 </plist>
