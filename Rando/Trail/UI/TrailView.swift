@@ -18,6 +18,7 @@ struct TrailView: View {
     @State var showDescriptionSheet: Bool = false
     @State var thickness: Thickness = .normal
     
+    
     enum Thickness: String, CaseIterable {
         case extraThin, thin, normal, thick, extraThick
         var lineWidth: CGFloat {
@@ -31,6 +32,16 @@ struct TrailView: View {
         }
     }
     
+    
+    struct Person: Identifiable {
+        let givenName: String
+        let familyName: String
+        let emailAddress: String
+        let id = UUID()
+        
+        var fullName: String { givenName + " " + familyName }
+    }
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
@@ -41,98 +52,82 @@ struct TrailView: View {
             
             List {
                 
-                Section(header: Text("Description")) {
+                Section(header: Text("Trail")) {
                     
-                    HStack(alignment: .center, spacing: 20.0) {
+                    Button(action: {
+                        showNameAlert = true
+                    }) {
+                        Text(trail.name)
+                    }
+                    
+                    HStack(alignment: .top, spacing:  8) {
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("Distance".localized)
-                                    .font(.system(size: 12))
-                                    .foregroundColor(Color("grgray"))
-                                    .lineLimit(1)
-                                Text(trail.distance.toString)
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 18))
-                            }
-                            
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("EstimatedDuration".localized)
-                                    .font(.system(size: 12))
-                                    .foregroundColor(Color("grgray"))
-                                    .lineLimit(1)
-                                Text(trail.estimatedTime)
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 18))
-                            }
-                            
+                            Text("Distance".localized)
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("grgray"))
+                            Text(trail.distance.toString)
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
+                            Text("EstimatedDuration".localized)
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("grgray"))
+                            Text(trail.estimatedTime)
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
                         }
+                        .minimumScaleFactor(0.5)
+                        .frame(maxWidth: .infinity)
                         
-                        if trail.elevationGain > 0 {
-                            Divider()
-                            VStack(alignment: .leading, spacing: 8) {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text("AltMin".localized)
-                                        .font(.system(size: 12))
-                                        .foregroundColor(Color("grgray"))
-                                        .lineLimit(1)
-                                    Text(trail.minAlt.toStringMeters)
-                                        .fontWeight(.bold)
-                                        .font(.system(size: 18))
-                                }
-                                
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text("AltMax".localized)
-                                        .font(.system(size: 12))
-                                        .foregroundColor(Color("grgray"))
-                                        .lineLimit(1)
-                                    Text(trail.maxAlt.toStringMeters)
-                                        .fontWeight(.bold)
-                                        .font(.system(size: 18))
-                                }
-                                
-                            }
-                            Spacer()
-                            Divider()
-                            VStack(alignment: .leading, spacing: 8) {
-                                
-                                VStack(alignment: .leading, spacing: 8) {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text("ElevationGain".localized)
-                                            .font(.system(size: 12))
-                                            .foregroundColor(Color("grgray"))
-                                            .lineLimit(1)
-                                        Text(trail.elevationGain.toStringMeters).fontWeight(.bold)
-                                            .font(.system(size: 18))
-                                    }
-                                }
-                                
-                                VStack(alignment: .leading, spacing: 8) {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text("ElevationLoss".localized)
-                                            .font(.system(size: 12))
-                                            .foregroundColor(Color("grgray"))
-                                            .lineLimit(1)
-                                        Text(trail.elevationLoss.toStringMeters).fontWeight(.bold)
-                                            .font(.system(size: 18))
-                                    }
-                                }
-                                
-                            }
-                            Spacer()
+                        Divider()
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("AltMin".localized)
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("grgray"))
+                            Text(trail.hasElevationData ? trail.minAlt.toStringMeters : "-")
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
+                            Text("AltMax".localized)
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("grgray"))
+                            Text(trail.hasElevationData ? trail.maxAlt.toStringMeters : "-")
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
                         }
+                        .minimumScaleFactor(0.5)
+                        .frame(maxWidth: .infinity)
+                        
+                        Divider()
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            
+                            Text("ElevationGain".localized)
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("grgray"))
+                            Text(trail.hasElevationData ? trail.elevationGain.toStringMeters : "-").fontWeight(.bold)
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
+                            Text("ElevationLoss".localized)
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("grgray"))
+                            Text(trail.hasElevationData ? trail.elevationLoss.toStringMeters : "-").fontWeight(.bold)
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
+                            
+                        }
+                        .minimumScaleFactor(0.5)
+                        .frame(maxWidth: .infinity)
                     }
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     .frame(maxHeight: 100)
-                    
-
                     
                     HStack {
                         Label("Difficulty", systemImage: "figure.hiking")
                         Spacer()
                         DifficultyView(difficulty: trail.difficulty)
                     }
-                
+                    
                     DisclosureGroup {
                         
                         if trail.isLoop {
@@ -149,7 +144,7 @@ struct TrailView: View {
                                 Button {
                                     showDescriptionSheet = true
                                 } label: {
-                                    Text("Edit").foregroundColor(.primary)
+                                    Text(trail.description.isEmpty ? "AddDescription" : "Edit").foregroundColor(.primary)
                                         .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
                                         .frame(maxWidth: .infinity)
                                 }
@@ -160,13 +155,11 @@ struct TrailView: View {
                             
                         } label: {
                             Label("Description", systemImage: "text.justify.leading")
-                            
                         }
                         
                     } label: {
                         Label("MoreInfos", systemImage: "info.circle")
                     }
-                    
                     
                 }
                 
@@ -221,6 +214,7 @@ struct TrailView: View {
                 
                 if trail.hasElevationData {
                     Section(header: Text("Profile")) {
+//                        LineChart(trail: trail)
                         LineView(data: trail.simplifiedElevations, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
                             .frame(height: 340)
                     }
@@ -242,7 +236,8 @@ struct TrailView: View {
         })
         .alert("Rename", isPresented: $showNameAlert) {
             TextField("Enter your name", text: $trail.name)
-            Button("OK", action: submit)
+            Button("OK", role: .destructive ,action: submit)
+            Button("Cancel", role: .cancel, action: {})
         } message: {
             Text("RenameDescription")
         }
@@ -253,7 +248,8 @@ struct TrailView: View {
                     showNameAlert = true
                 }) {
                     Text(trail.name)
-                        .font(.headline)
+                        .lineLimit(1)
+                        .frame(maxWidth: 250)
                 }
             }
         }

@@ -102,7 +102,7 @@ class Trail: Identifiable, ObservableObject {
         case unknown, notDownloaded, downloading, downloaded
     }
     
-    enum Difficulty {
+    enum Difficulty: String {
         case easy, medium, hard
     }
     
@@ -189,6 +189,11 @@ class Trail: Identifiable, ObservableObject {
     
     lazy var elevations: [CLLocationDistance] = computeFilteredElevations()
     
+    lazy var graphElevations: [GraphData] =  {
+        elevations.enumerated().map { GraphData(index: $0, elevation: $1 )}
+    }()
+
+    
     /// Max 100 elevations for chart
     var simplifiedElevations: [CLLocationDistance] {
         let size = 100
@@ -242,20 +247,9 @@ class Trail: Identifiable, ObservableObject {
         }.0
     }
     
-    var minAlt: CLLocationDistance {
-        guard !elevations.isEmpty else { return .nan }
-        let min = elevations.reduce(elevations[0]) { (accumulation, nextValue) -> CLLocationDistance in
-            nextValue < accumulation ? nextValue : accumulation
-        }
-        return min < 0 ? 0 : min
-    }
+    var minAlt: CLLocationDistance { elevations.min() ?? .nan }
     
-    var maxAlt: CLLocationDistance {
-        guard !elevations.isEmpty else { return .nan }
-        return elevations.reduce(elevations[0]) { (accumulation, nextValue) -> CLLocationDistance in
-            nextValue > accumulation ? nextValue : accumulation
-        }
-    }
+    var maxAlt: CLLocationDistance { elevations.max() ?? .nan }
     
     var estimatedTime: String {
         let speed: CLLocationSpeed = UserDefaults.averageSpeed // 4Km.h-1
@@ -346,4 +340,10 @@ struct CircularBuffer {
             values.removeFirst()
         }
     }
+}
+
+struct GraphData: Identifiable {
+    let id = UUID()
+    let index: Int
+    let elevation: CLLocationDistance
 }

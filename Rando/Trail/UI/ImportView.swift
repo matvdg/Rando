@@ -11,12 +11,10 @@ import HealthKit
 
 struct ImportView: View {
     
-    @State var url: String = ""
     @State var showFilePicker = false
     @Binding var showImportView: Bool
     @State var trailsToImport = [Trail]()
     @State private var showAlert = false
-    @State private var isLoadingUrl = false
     @State private var isLoadingFiles = false
     @State private var isLoadingFitness = false
     @State var showWorkoutView: Bool = false
@@ -31,35 +29,24 @@ struct ImportView: View {
         NavigationView {
             VStack(alignment: .leading, spacing: 8) {
                 VStack(alignment: .center, spacing: 8) {
-                    HStack(alignment: .center, spacing: 8) {
-                        TextField("ImportFromURL", text: $url)
-                            .textFieldStyle(.roundedBorder)
-                        Button {
-                            if let url = URL(string: url), let _ = url.scheme {
-                                isLoadingUrl = true
-                                trailsToImport.insert(contentsOf: TrailManager.shared.loadTrails(from: [url]), at: 0)
-                                isLoadingUrl = false
-                            } else {
-                                showAlert = true
-                            }
-                        } label: {
-                            if isLoadingUrl {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .gray))
-                            } else {
-                                Image(systemName: "arrow.down.doc.fill")
-                            }
-                            
+                    Button {
+                        if let clipboardString = UIPasteboard.general.string, let url = URL(string: clipboardString), let _ = url.scheme {
+                            trailsToImport.insert(contentsOf: TrailManager.shared.loadTrails(from: [url]), at: 0)
+                        } else {
+                            showAlert = true
                         }
-                        .buttonStyle(.borderedProminent)
-                        .alert(isPresented: $showAlert) {
-                            Alert(title: Text("Error"), message: Text("UrlError"), dismissButton: .default(Text("OK")))
-                        }
-                        .disabled(isLoadingUrl)
+                    } label: {
+                        Label("ImportFromPasteboard", systemImage: "clipboard")
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("Error"), message: Text("UrlError"), dismissButton: .default(Text("OK")))
                     }
                     Text("or")
                     HStack(alignment: .center, spacing: 8) {
                         Button {
+                            Feedback.selected()
                             isLoadingFiles = true
                             showFilePicker = true
                         } label: {
@@ -77,6 +64,7 @@ struct ImportView: View {
                         .buttonStyle(.borderedProminent)
                         .disabled(isLoadingFiles)
                         Button {
+                            Feedback.selected()
                             isLoadingFitness = true
                             Task {
                                 do {
@@ -108,38 +96,32 @@ struct ImportView: View {
                         .isHidden(isHealthNotAvailable, remove: true)
                     }
                 } // Top
-                .padding()
+                .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
                 Divider()
                 VStack(alignment: .center, spacing: 0) {
                     Spacer()
                     Text("GPXtoImport").font(.headline)
                     Spacer()
                     ScrollView(.horizontal, showsIndicators: false) {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 16) {
-                                ForEach(trailsToImport) { ImportGpxTileView(trailsToImport: $trailsToImport, trail: $0) }
-                            }
+                        HStack(spacing: 16) {
+                            ForEach(trailsToImport) { ImportGpxTileView(trailsToImport: $trailsToImport, trail: $0) }
                         }
-                        .padding()
+                        .padding(.horizontal)
                     }
                     Spacer()
                     Button {
+                        Feedback.selected()
                         trailManager.save(trails: trailsToImport)
                         trailsToImport.removeAll()
                         showImportView = false
                     } label: {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("\("Add".localized) \(trailsToImport.count) GPX")
-                        }
+                        Label("\("Add".localized) \(trailsToImport.count) GPX", systemImage: "plus.circle.fill")
                         .frame(maxWidth: .infinity, minHeight: 50)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding()
                 } // Bottom
                 .isHidden(trailsToImport.isEmpty)
-                
-                
             }
             .navigationBarTitle(Text("ImportGPX"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
@@ -148,10 +130,12 @@ struct ImportView: View {
             }) {
                 DismissButton()
             })
-            .accentColor(.grgreen)
+            .accentColor(.tintColor)
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $showFilePicker) {
+        .sheet(isPresented: $showFilePicker, onDismiss: {
+            isLoadingFiles = false
+        }) {
             DocumentView {
                 trailsToImport.insert(contentsOf: trailManager.loadTrails(from: $0), at: 0)
                 isLoadingFiles = false

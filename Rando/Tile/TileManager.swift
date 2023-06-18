@@ -120,7 +120,7 @@ class TileManager: ObservableObject {
             do {
                 try await download(trail: trail, layer: layer)
                 DispatchQueue.main.async { [weak self] in
-                    NotificationManager.shared.sendNotification(title: "\("Downloaded") (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytesString))", message: "\(trail.name) \("DownloadedMessage")")
+                    NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytesString))", message: "\(trail.name) \("DownloadedMessage".localized)")
                     self?.progress = 1
                     self?.state = .idle
                     trail.downloadState = .downloaded

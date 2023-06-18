@@ -11,18 +11,15 @@ import StoreKit
 import MessageUI
 
 let maisondarlosUrl = URL(string: "https://maisondarlos.fr")!
-
+let systemVersion = UIDevice.current.systemVersion
+let modelName = UIDevice.modelName
+let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
 
 struct SettingsView: View {
-    
-    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
-    let systemVersion = UIDevice.current.systemVersion
-    let modelName = UIDevice.modelName
-    let recipientEmail = "contact@maisondarlos.fr"
-    let subject = "Rando Pyrénées"
-    
+        
     @State private var isAboutExpanded = false
     @State private var isAverageSpeedExpanded = false
+    @State private var showMailView = false
     @State private var averageSpeed: Double = UserDefaults.averageSpeed
     
     var body: some View {
@@ -104,14 +101,13 @@ struct SettingsView: View {
                         Label("RateApp", systemImage: "star")
                     }.foregroundColor(.primary)
                     
-                    
-                    Button {
-                        openEmailApp()
-                    } label: {
-                        Label("ContactMe", systemImage: "envelope")
-                    }.foregroundColor(.primary)
-                    
-                    
+                    if MFMailComposeViewController.canSendMail() {
+                        Button {
+                            showMailView = true
+                        } label: {
+                            Label("ContactMe", systemImage: "envelope")
+                        }.foregroundColor(.primary)
+                    }
                     
                 }
                 .foregroundColor(.primary)
@@ -123,7 +119,9 @@ struct SettingsView: View {
                 Text("SelectInSidebar")
             }
         }
-        
+        .sheet(isPresented: $showMailView, content: {
+            MailView()
+        })
         
     }
     
@@ -133,20 +131,8 @@ struct SettingsView: View {
         }
     }
     
-    private func openEmailApp() {
-        guard MFMailComposeViewController.canSendMail() else { return }
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let rootViewController = windowScene.windows.first?.rootViewController {
-            let body = "Message: \n\n\n\n\n\n Technical data: \n Rando v\(appVersion), system: \(systemVersion), device: \(modelName)"
-            let mailComposeViewController = MFMailComposeViewController()
-            mailComposeViewController.setToRecipients([recipientEmail])
-            mailComposeViewController.setSubject(subject)
-            mailComposeViewController.setMessageBody(body, isHTML: false)
-            
-            rootViewController.present(mailComposeViewController, animated: true)
-        }
-    }
 }
+
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {

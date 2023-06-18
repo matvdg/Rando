@@ -21,14 +21,16 @@ struct TrailsView: View {
     @State var sorting: Sorting = .importDate
     @State var onlyDisplayed: Bool = false
     @State var onlyFavs: Bool = false
-    @State var gr10filter: Gr10filter = .all
+    @State var onlyLoops: Bool = false
+    @State var gr10Filter: Gr10Filter = .all
+    @State var difficultyFilter: DifficultyFilter = .all
     @State var showFilter: Bool = false
     @State var department: String = "all"
     @State private var searchText = ""
     @Binding var selectedLayer: Layer
     
     private var isFiltered: Bool {
-        department != "all" || onlyDisplayed || onlyFavs || gr10filter != .all
+        department != "all" || onlyDisplayed || onlyFavs || onlyLoops || gr10Filter != .all || difficultyFilter != .all
     }
     
     @ObservedObject var trailManager = TrailManager.shared
@@ -47,6 +49,10 @@ struct TrailsView: View {
         if department != "all" {
             sortedTrails = sortedTrails.filter { $0.department == department }
         }
+        // Filter by difficulty if necessary
+        if difficultyFilter != .all {
+            sortedTrails = sortedTrails.filter { $0.difficulty.rawValue == difficultyFilter.rawValue }
+        }
         // Filter by onlyDisplayed if necessary
         if onlyDisplayed {
             sortedTrails = sortedTrails.filter { $0.isDisplayed }
@@ -55,8 +61,12 @@ struct TrailsView: View {
         if onlyFavs {
             sortedTrails = sortedTrails.filter { $0.isFav }
         }
+        // Filter by onlyLoops if necessary
+        if onlyLoops {
+            sortedTrails = sortedTrails.filter { $0.isLoop }
+        }
         // Filter by GR10 if necessary
-        switch gr10filter {
+        switch gr10Filter {
         case .gr10:
             sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("gr10") }
         case .notgr10:
@@ -104,7 +114,7 @@ struct TrailsView: View {
                     }
                     .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
                     
-                    EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, searchText: $searchText)
+                    EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, searchText: $searchText)
                         .isHidden(!isFiltered && searchText == "", remove: true)
                     
                     List {
@@ -122,7 +132,7 @@ struct TrailsView: View {
                     
                     Spacer()
                     
-                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, isSortDisplayed: $showFilter)
+                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $showFilter)
                         .isHidden(!showFilter)
                         .offset(y: 10)
                 }

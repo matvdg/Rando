@@ -8,8 +8,13 @@
 
 import SwiftUI
 
-enum Gr10filter: String, CaseIterable {
+enum Gr10Filter: String, CaseIterable {
     case gr10, notgr10, all
+    var localized: String { rawValue.localized }
+}
+
+enum DifficultyFilter: String, CaseIterable {
+    case easy, medium, hard, all
     var localized: String { rawValue.localized }
 }
 
@@ -17,7 +22,9 @@ struct FilterView: View {
     
     @Binding var onlyDisplayed: Bool
     @Binding var onlyFavs: Bool
-    @Binding var gr10filter: Gr10filter
+    @Binding var onlyLoops: Bool
+    @Binding var gr10Filter: Gr10Filter
+    @Binding var difficultyFilter: DifficultyFilter
     @Binding var department: String
     @Binding var isSortDisplayed: Bool
     
@@ -41,18 +48,25 @@ struct FilterView: View {
                     self.onlyFavs.toggle()
                 }
                 
+                Toggle(isOn: self.$onlyLoops) {
+                    Text("loops")
+                }
+                .onTapGesture {
+                    self.onlyLoops.toggle()
+                }
+                
                 Divider()
                 
                 HStack {
                     Text("gr10")
                         .font(.headline)
                     Spacer()
-                    Picker(selection: $gr10filter, label: Text("")) {
-                        ForEach(Gr10filter.allCases, id: \.self) { gr10filter in
-                            Text(LocalizedStringKey(gr10filter.rawValue))
+                    Picker(selection: $gr10Filter, label: Text("")) {
+                        ForEach(Gr10Filter.allCases, id: \.self) { gr10Filter in
+                            Text(LocalizedStringKey(gr10Filter.rawValue))
                         }
                     }
-                    .onChange(of: gr10filter, perform: { newValue in
+                    .onChange(of: gr10Filter, perform: { newValue in
                         Feedback.selected()
                     })
                     .pickerStyle(.menu)
@@ -73,6 +87,22 @@ struct FilterView: View {
                     })
                     .pickerStyle(.menu)
                 }
+                
+                HStack {
+                    Text("Difficulty")
+                        .font(.headline)
+                    Spacer()
+                    Picker(selection: $difficultyFilter, label: Text("")) {
+                        
+                        ForEach(DifficultyFilter.allCases, id: \.self) { difficultyFilter in
+                            Text(LocalizedStringKey(difficultyFilter.rawValue))
+                        }
+                    }
+                    .onChange(of: difficultyFilter, perform: { newValue in
+                        Feedback.selected()
+                    })
+                    .pickerStyle(.menu)
+                }
                             
             }
             .padding()
@@ -87,7 +117,7 @@ struct FilterView: View {
         .tint(.tintColorTabBar)
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
-        .frame(height: 330, alignment: .top)
+        .frame(height: 400, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
         
@@ -101,9 +131,11 @@ struct FilterView_Previews: PreviewProvider {
     @State static var isSortDisplayed = true
     @State static var onlyDisplayed = false
     @State static var onlyFavs = false
-    @State static var gr10filter: Gr10filter = .notgr10
+    @State static var onlyLoops = false
+    @State static var gr10Filter: Gr10Filter = .notgr10
+    @State static var difficultyFilter: DifficultyFilter = .hard
     static var previews: some View {
-        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, gr10filter: $gr10filter, department: $department, isSortDisplayed: $isSortDisplayed)
+        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $isSortDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
                 .previewDisplayName("iPhone 14 Pro Max")
                 .environment(\.colorScheme, .dark)

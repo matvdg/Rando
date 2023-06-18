@@ -10,12 +10,10 @@
 "Cancel" = "Annuler";
 "Save" = "Sauvegarder";
 "Add" = "Ajouter";
-"Rename" = "Modifier le nom";
-"RenameDescription" = "Choisir un nom pour votre randonnée";
 "Left" = "restant";
 "Error" = "Oups !";
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
-"UrlError" = "Vérifier le format de l'URL";
+"UrlError" = "Le presse-papier est vide ou ne contient pas un URL de GPX au format valide";
 "WorkoutError" = "Vérifier les permissions dans l'app Santé";
 "Loading" = "Chargement...";
 "SelectInSidebar" = "Sélectionner un élément dans la colonne de gauche";
@@ -30,8 +28,6 @@
 "Share" = "Partager";
 "Settings" = "Réglages";
 "Map" = "Carte";
-"MoreInfos" = "Plus d'informations...";
-"Imported" = "Importé le";
 
 // MapView
 "MapSettings" = "Fonds de carte";
@@ -62,13 +58,17 @@
 "Website" = "Visiter le site internet";
 
 // TrailView
+"Trail" = "Randonnée";
 "Trails" = "Randonnées";
 "ElevationGain" = "Dénivelé positif";
 "ElevationLoss" = "Dénivelé négatif";
-"AltMin" = "Alt. min.";
-"AltMax" = "Alt. max.";
+"AltMin" = "Altitude minimum";
+"AltMax" = "Altitude maximum";
 "Distance" = "Distance";
-"Difficulty" = "Difficulté"; 
+"Difficulty" = "Difficulté";
+"easy" = "Facile";
+"medium" = "Moyenne";
+"hard" = "Difficile";
 "EstimatedDuration" = "Durée estimée";
 "Downloading" = "Téléchargement...";
 "OtherDownloadInProcess" = "Un autre téléchargement est en cours...";
@@ -101,7 +101,7 @@
 "3D" = "Visualiser le parcours";
 "ImportGPX" = "Importer des GPX";
 "GPXtoImport" = "GPX à importer :";
-"ImportFromURL" = "Coller ici le lien du GPX à importer";
+"ImportFromPasteboard" = "Lien GPX du presse-papier";
 "ImportFromFitness" = "Mes exercices";
 "ImportFromFiles" = "Fichiers";
 "GPXwithoutAlt" = "Pas de données d'altitude dans ce GPX";
@@ -112,7 +112,13 @@
 "cycling" = "Vélo";
 "oneWay" = "Aller simple";
 "loop" = "Boucle";
+"loops" = "Boucles";
 "EditDescription" = "Modifier la description de la randonnée";
+"AddDescription" = "Ajouter une description";
+"Rename" = "Modifier le nom";
+"RenameDescription" = "Choisir un nom pour votre randonnée";
+"MoreInfos" = "Plus d'informations...";
+"Imported" = "Importé le";
 
 // Settings
 "ShareApp" = "Partager l'app";

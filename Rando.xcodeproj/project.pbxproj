@@ -47,6 +47,7 @@
 		F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */ = {isa = PBXBuildFile; productRef = F658C2D52A1CFEF200979723 /* HidableTabView */; };
 		F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */ = {isa = PBXBuildFile; productRef = F65DCC112A24D01100A24E10 /* Semaphore */; };
 		F65DCC142A24E1B400A24E10 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65DCC132A24E1B400A24E10 /* UIApplication.swift */; };
+		F66AFEBC2A3E8FFB0030086A /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66AFEBB2A3E8FFB0030086A /* LineChart.swift */; };
 		F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */; };
 		F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC224E7469300AC8A9F /* DismissButton.swift */; };
 		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
@@ -106,6 +107,7 @@
 		F6D80BDA2A1FAE5C00DED446 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D80BDC2A1FAE5C00DED446 /* InfoPlist.strings */; };
 		F6E2C0D42A3A5F64001FD8F1 /* TrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E2C0D32A3A5F64001FD8F1 /* TrailView.swift */; };
 		F6E2C0D62A3A725A001FD8F1 /* DifficultyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E2C0D52A3A725A001FD8F1 /* DifficultyView.swift */; };
+		F6E7FCB82A3DE5D900097C93 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E7FCB72A3DE5D900097C93 /* MailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +153,7 @@
 		F639047A24DC8E58005B4FC1 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		F6577E732A3C483F00162B81 /* EditDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDescriptionView.swift; sourceTree = "<group>"; };
 		F65DCC132A24E1B400A24E10 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		F66AFEBB2A3E8FFB0030086A /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
 		F67BAEC224E7469300AC8A9F /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		F6979BA024D4523D00228A0C /* CLGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoder.swift; sourceTree = "<group>"; };
@@ -212,6 +215,7 @@
 		F6D80BDD2A1FAE6200DED446 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F6E2C0D32A3A5F64001FD8F1 /* TrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailView.swift; sourceTree = "<group>"; };
 		F6E2C0D52A3A725A001FD8F1 /* DifficultyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyView.swift; sourceTree = "<group>"; };
+		F6E7FCB72A3DE5D900097C93 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		F6F8E25424E825D20030CCEA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -420,13 +424,14 @@
 				F6A3DECD2A37C23A00C69B55 /* TrailsView.swift */,
 				F6E2C0D32A3A5F64001FD8F1 /* TrailView.swift */,
 				F6A3DECE2A37C23A00C69B55 /* FilterView.swift */,
-				F6A3DECF2A37C23A00C69B55 /* ImportGpxTileView.swift */,
 				F6A3DED12A37C23A00C69B55 /* Rows */,
 				F6A3DEDA2A37C23A00C69B55 /* DocumentView.swift */,
 				F6A3DEDB2A37C23A00C69B55 /* EnabledFiltersView.swift */,
 				F6A3DEDD2A37C23A00C69B55 /* ImportView.swift */,
+				F6A3DECF2A37C23A00C69B55 /* ImportGpxTileView.swift */,
 				F6A3DEDE2A37C23A00C69B55 /* TourView.swift */,
 				F6577E732A3C483F00162B81 /* EditDescriptionView.swift */,
+				F66AFEBB2A3E8FFB0030086A /* LineChart.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 			children = (
 				F6A3DEFA2A37DE7900C69B55 /* SettingsView.swift */,
 				F6B6C4A32A2371EA00B360E1 /* RemoveLayerView.swift */,
+				F6E7FCB72A3DE5D900097C93 /* MailView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -634,6 +640,7 @@
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
 				F60D12B42A28906200437AA1 /* WorkoutManager.swift in Sources */,
+				F66AFEBC2A3E8FFB0030086A /* LineChart.swift in Sources */,
 				F6A3DEF72A37C23A00C69B55 /* TourView.swift in Sources */,
 				F6A5816F24D46B7A0030F457 /* Array.swift in Sources */,
 				F6A3DEED2A37C23A00C69B55 /* TilesRow.swift in Sources */,
@@ -662,6 +669,7 @@
 				D09FB0092465D2360007F55B /* MiniImage.swift in Sources */,
 				D0531A742467FE4C0020FFE0 /* String.swift in Sources */,
 				F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */,
+				F6E7FCB82A3DE5D900097C93 /* MailView.swift in Sources */,
 				D0531A76246820BA0020FFE0 /* MapControlView.swift in Sources */,
 				F6E2C0D42A3A5F64001FD8F1 /* TrailView.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,

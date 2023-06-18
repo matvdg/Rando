@@ -11,11 +11,13 @@ import SwiftUI
 
 struct WorkoutRow: View {
     
-    @State var showMap: Bool = false
+    @State var showMap = false
     @Binding var showHealthView: Bool
     @State var selectedLayer: Layer = .standard
     @State var locations: [Location] = []
     @Binding var trailsToImport: [Trail]
+    @State var isLoading = false
+    @State var isLoadingMap = false
     
     var workout: HKWorkout
     private let workoutManager = WorkoutManager.shared
@@ -75,28 +77,40 @@ struct WorkoutRow: View {
                     Feedback.selected()
                     Task {
                         do {
+                            isLoadingMap = true
                             locations = try await workoutManager.getLocations(for: workout)
                             guard !locations.isEmpty else { return }
                             showMap = true
+                            isLoadingMap = false
                         } catch {
                             print(error)
+                            isLoadingMap = false
                         }
                     }
                 } label: {
-                    Image(systemName: "map.fill")
+                    if isLoadingMap {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                    } else {
+                        Image(systemName: "map.fill")
+                    }
                 }
+                .disabled(isLoadingMap)
                 .buttonStyle(.borderedProminent)
-                .tint(.grgreen)
+                .tint(.grblue)
                 Button {
                     Feedback.selected()
                     if locations.isEmpty {
                         Task {
                             do {
+                                isLoading = true
                                 locations = try await workoutManager.getLocations(for: workout)
                                 trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: workout.startDate)), at: 0)
                                 showHealthView = false
+                                isLoading = false
                             } catch {
                                 print(error)
+                                isLoading = false
                             }
                         }
                     } else {
@@ -104,10 +118,16 @@ struct WorkoutRow: View {
                         showHealthView = false
                     }
                 } label: {
-                    Image(systemName: "arrow.down.doc.fill")
+                    if isLoading {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                    } else {
+                        Image(systemName: "arrow.down.doc.fill")
+                    }
                 }
+                .disabled(isLoading)
                 .buttonStyle(.borderedProminent)
-                .tint(.grgreen)
+                .tint(.grblue)
                 
             }
             

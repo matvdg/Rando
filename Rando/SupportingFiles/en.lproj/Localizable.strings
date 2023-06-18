@@ -10,11 +10,9 @@
 "Cancel" = "Cancel";
 "Save" = "Save";
 "Add" = "Add";
-"Rename" = "Edit name";
-"RenameDescription" = "Pick a name for your trail";
 "Left" = "left";
 "Error" = "Oops!";
-"UrlError" = "Check the URL format";
+"UrlError" = "The clipboard is empty or does not contain a valid GPX's URL";
 "WorkoutError" = "Check permissions in the Health app";
 "Network" = "Please check your internet connection then retry";
 "Loading" = "Loading...";
@@ -30,8 +28,6 @@
 "Share" = "Share";
 "Settings" = "Settings";
 "Map" = "Map";
-"MoreInfos" = "More infos...";
-"Imported" = "Imported on";
 
 // MapView
 "MapSettings" = "Map layers";
@@ -62,8 +58,12 @@
 "Website" = "Go to the website";
 
 // TrailView
+"Trail" = "Trail";
 "Trails" = "Trails";
 "Difficulty" = "Difficulty";
+"easy" = "Easy";
+"medium" = "Medium";
+"hard" = "Hard";
 "ElevationGain" = "Elevation gain";
 "ElevationLoss" = "Elevation loss";
 "AltMin" = "Alt. min.";
@@ -101,7 +101,7 @@
 "3D" = "Watch trail";
 "ImportGPX" = "Import GPX";
 "GPXtoImport" = "GPX to import:";
-"ImportFromURL" = "Paste here the link of the GPX to import";
+"ImportFromPasteboard" = "GPX link from clipboard";
 "ImportFromFitness" = "My workouts";
 "ImportFromFiles" = "Files";
 "GPXwithoutAlt" = "No elevation data in this GPX";
@@ -112,8 +112,13 @@
 "cycling" = "Cycling";
 "oneWay" = "One way";
 "loop" = "Loop";
+"loops" = "Loops";
 "EditDescription" = "Edit trail's description";
-
+"AddDescription" = "Add a description";
+"Rename" = "Edit name";
+"RenameDescription" = "Pick a name for your trail";
+"MoreInfos" = "More infos...";
+"Imported" = "Imported on";
 
 // Settings
 "ShareApp" = "Share the app";

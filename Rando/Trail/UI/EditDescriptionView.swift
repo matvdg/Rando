@@ -19,7 +19,7 @@ struct EditDescriptionView: View {
         
         NavigationView {
             VStack(alignment: .leading, spacing: 8) {
-                TextField("EditDescription", text: $textFieldInput, axis: .vertical)
+                TextField(trail.description.isEmpty ? "AddDescription" : "EditDescription", text: $textFieldInput, axis: .vertical)
                     .lineLimit(10...100)
                     .padding()
                     .focused($isFocused)
