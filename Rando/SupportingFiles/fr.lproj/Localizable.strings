@@ -8,14 +8,26 @@
 
 // General
 "Cancel" = "Annuler";
+"Save" = "Sauvegarder";
 "Add" = "Ajouter";
-"Rename" = "Renommer";
 "Left" = "restant";
 "Error" = "Oups !";
 "Network" = "Merci de vérifier votre connexion internet puis réessayer";
+"UrlError" = "Le presse-papier est vide ou ne contient pas un URL de GPX au format valide";
+"WorkoutError" = "Vérifier les permissions dans l'app Santé";
 "Loading" = "Chargement...";
 "SelectInSidebar" = "Sélectionner un élément dans la colonne de gauche";
 "Search" = "Rechercher";
+"or" = "ou";
+"Delete" = "Supprimer";
+"Edit" = "Modifier";
+"Today" = "Aujourd'hui";
+"Yesterday" = "Hier";
+"at" = "à";
+"MoreThan" = "Plus de";
+"Share" = "Partager";
+"Settings" = "Réglages";
+"Map" = "Carte";
 
 // MapView
 "MapSettings" = "Fonds de carte";
@@ -46,27 +58,34 @@
 "Website" = "Visiter le site internet";
 
 // TrailView
+"Trail" = "Randonnée";
 "Trails" = "Randonnées";
-"AltMin" = "Alt. min";
-"AltMax" = "Alt. max";
-"PositiveElevation" = "Dénivelé positif";
-"NegativeElevation" = "Dénivelé négatif";
+"ElevationGain" = "Dénivelé positif";
+"ElevationLoss" = "Dénivelé négatif";
+"AltMin" = "Altitude minimum";
+"AltMax" = "Altitude maximum";
 "Distance" = "Distance";
-"DurationEstimated" = "Temps estimé";
+"Difficulty" = "Difficulté";
+"easy" = "Facile";
+"medium" = "Moyenne";
+"hard" = "Difficile";
+"EstimatedDuration" = "Durée estimée";
 "Downloading" = "Téléchargement...";
 "OtherDownloadInProcess" = "Un autre téléchargement est en cours...";
 "Downloaded" = "Carte téléchargée";
 "DownloadedMessage" = "est disponible hors ligne";
 "Download" = "Télécharger la carte";
-"DisplayOnMap" = "Afficher le tracé sur la carte";
-"DoNotDisplayOnMap" = "Retirer le tracé de la carte";
-"CustomPath" = "Personnaliser le tracé";
-"Color" = "Couleur du tracé";
-"Thickness" = "Épaisseur du tracé";
+"DisplayOnMap" = "Afficher sur la carte";
+"CustomPath" = "Personnaliser";
+"Path" = "Tracé";
+"Color" = "Couleur";
+"Thickness" = "Épaisseur";
 "importDate" = "Ajout";
 "name" = "Nom";
 "distance" = "Distance";
 "elevation" = "Dénivelé";
+"date" = "Date";
+"duration" = "Durée";
 "Profile" = "Profil";
 "Filter" = "Filtrer";
 "Filtered" = "Filtré";
@@ -75,8 +94,41 @@
 "gr10" = "GR10";
 "notgr10" = "Non GR10";
 "Departments" = "Département";
-"Directions" = "Obtenir l'itinéraire en voiture";
+"Directions" = "Aller au départ";
 "Departure" = "Départ";
 "DeleteTrail" = "Supprimer la randonnée";
 "DeleteTrailMessage" = "Cette action supprimera la randonnée, pas les cartes associées";
-"3D" = "Visualiser le parcours en 3D";
+"3D" = "Visualiser le parcours";
+"ImportGPX" = "Importer des GPX";
+"GPXtoImport" = "GPX à importer :";
+"ImportFromPasteboard" = "Lien GPX du presse-papier";
+"ImportFromFitness" = "Mes exercices";
+"ImportFromFiles" = "Fichiers";
+"GPXwithoutAlt" = "Pas de données d'altitude dans ce GPX";
+"ImportFromWorkout" = "Importer un tracé";
+"walking" = "Marche";
+"hiking" = "Rando";
+"running" = "Course";
+"cycling" = "Vélo";
+"oneWay" = "Aller simple";
+"loop" = "Boucle";
+"loops" = "Boucles";
+"EditDescription" = "Modifier la description de la randonnée";
+"AddDescription" = "Ajouter une description";
+"Rename" = "Modifier le nom";
+"RenameDescription" = "Choisir un nom pour votre randonnée";
+"MoreInfos" = "Plus d'informations...";
+"Imported" = "Importé le";
+
+// Settings
+"ShareApp" = "Partager l'app";
+"About" = "À propos";
+"AboutMe" = "Salut ! Moi c'est Mathieu. Je suis développeur iPhone mais surtout passioné des Pyrénées et de la randonnée. Avec ma compagne Anna, nous avons même emmenagé au coeur des Pyrénées, en Haute-Garonne, en plein milieu du GR10, pour rénover une maison et la transformer en chambres et table d'hôtes : la Maison d'Arlos ! Cette app est donc le fruit de mes deux passions, d'autres existent mais elle a le mérite d'être simple, gratuite et sans publicité. Elle est conçue pour pouvoir explorer les Pyrénées et le GR10 mais elle fonctionne très bien partout dans le monde avec notamment les cartes OpenTopo. N'hésitez pas à me contacter pour me faire part de vos remarques ou envies d'améliorations !";
+"ContactMe" = "Me contacter";
+"RateApp" = "Noter l'app";
+"Donate" = "Faire un don";
+"AverageSpeed" = "Vitesse moyenne";
+"ResetAverageSpeed" = "Réinitialiser la valeur par défaut";
+"AverageSpeedDescription" = "Afin de proposer une durée estimée prenant en compte la distance et le dénivelé, l'app se base sur une vitesse moyenne de 4km/h. Vous pouvez augmenter ou diminuer cette moyenne pour obtenir une durée estimée plus adaptée à votre profil.";
+
+

@@ -1,2 +1,3 @@
 "NSLocationUsageDescription" = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
 "NSLocationWhenInUseUsageDescription" = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
+"NSHealthShareUsageDescription" = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";

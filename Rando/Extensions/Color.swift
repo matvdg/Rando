@@ -22,57 +22,27 @@ extension Color {
     static var alpha: Color { Color("alpha") }
     static var background: Color { Color("background") }
     
-    var code: Int {
-        /*[.grblue, .grgreen, .red],
-         [.orange, .black, .white],
-         [.purple, .gray, .yellow],
-         [.green, .blue, .cyan],
-         [.brown, .indigo, .pink]*/
-        switch self {
-        case .grblue: return 0
-        case .grgreen: return 1
-        case .red: return 2
-        case .orange: return 3
-        case .black: return 4
-        case .white: return 5
-        case .purple: return 6
-        case .gray: return 7
-        case .yellow: return 8
-        case .green: return 9
-        case .blue: return 10
-        case .cyan: return 11
-        case .brown: return 12
-        case .indigo: return 13
-        case .pink: return 14
-        default: return 15
-        }
-    }
-    
     var uiColor: UIColor { UIColor(self) }
+    var cgColor: CGColor { uiColor.cgColor }
     
 }
 
-extension Int {
-    var color: Color {
-        switch self {
-        case 0: return .grblue
-        case 1: return .grgreen
-        case 2: return .red
-        case 3: return .orange
-        case 4: return .black
-        case 5: return .white
-        case 6: return .purple
-        case 7: return .gray
-        case 8: return .yellow
-        case 9: return .green
-        case 10: return .blue
-        case 11: return .cyan
-        case 12: return .brown
-        case 13: return .indigo
-        case 14: return .pink
-        default: return .mint
+extension String {
+    
+    var hexToColor: CGColor {
+        var cleanedString = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        cleanedString = cleanedString.replacingOccurrences(of: "#", with: "")
+        let randomColor = CGColor.randomColor
+        guard cleanedString.count == 6, let rgbValue = UInt32(cleanedString, radix: 16) else {
+            return randomColor
         }
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0
+        let green = CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0
+        let blue = CGFloat(rgbValue & 0x0000FF) / 255.0
+        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        return color.cgColor
     }
+    
 }
 
 extension UIColor {
@@ -83,4 +53,25 @@ extension UIColor {
     static var alpha: UIColor { UIColor(named: "alpha")! }
     static var background: UIColor { UIColor(named: "background")! }
     
+}
+
+extension CGColor {
+    
+    static var randomColor: CGColor {
+        let colors: [Color] = [.grblue, .grgreen, .red, .orange, .indigo, .pink, .purple, .gray, .yellow, .green, .blue, .cyan, .brown, .mint]
+        return colors.randomElement()?.cgColor ?? CGColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+    }
+    
+    var hexaCode: String? {
+        guard let components = self.components, components.count >= 3 else {
+            return nil
+        }
+        
+        let red = Int(components[0] * 255)
+        let green = Int(components[1] * 255)
+        let blue = Int(components[2] * 255)
+        
+        let hexString = String(format: "#%02X%02X%02X", red, green, blue)
+        return hexString
+    }
 }

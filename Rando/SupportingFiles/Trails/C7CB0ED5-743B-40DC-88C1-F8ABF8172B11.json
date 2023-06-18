@@ -3,7 +3,6 @@
   "name": "Cagateille",
   "department": "Ariège",
   "lineWidth": 5,
-  "color": 10,
   "locations": [
     {
       "altitude": 1035.4,
