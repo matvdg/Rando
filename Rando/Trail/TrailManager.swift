@@ -104,6 +104,7 @@ class TrailManager: ObservableObject {
             }
         }
         self.trails.array = trails ?? []
+        self.objectWillChange.send()
     }
     
     func addMissingDepartment(trail: Trail) {
@@ -114,6 +115,11 @@ class TrailManager: ObservableObject {
                 self.save(trail: trail)
             }
         }
+    }
+    
+    func restoreDemoTrails() {
+        UserDefaults.hasBeenLaunched = false
+        self.getTrails()
     }
     
     // MARK: - Private methods

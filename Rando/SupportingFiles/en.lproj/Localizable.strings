@@ -130,3 +130,5 @@
 "AverageSpeed" = "Average speed";
 "ResetAverageSpeed" = "Reset default value";
 "AverageSpeedDescription" = "In order to propose an estimated duration taking into account the distance and the elevation, the app is based on an average speed of 4km/h. You can increase or decrease this average to obtain an estimated duration more suited to your profile.";
+"Restore" = "Restore app trails";
+"RestoreMessage" = "You have deleted the Pyrenees trails preloaded with the app, and you regret your action?";

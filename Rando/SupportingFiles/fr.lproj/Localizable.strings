@@ -130,5 +130,6 @@
 "AverageSpeed" = "Vitesse moyenne";
 "ResetAverageSpeed" = "Réinitialiser la valeur par défaut";
 "AverageSpeedDescription" = "Afin de proposer une durée estimée prenant en compte la distance et le dénivelé, l'app se base sur une vitesse moyenne de 4km/h. Vous pouvez augmenter ou diminuer cette moyenne pour obtenir une durée estimée plus adaptée à votre profil.";
-
+"Restore" = "Restaurer les randos de l'app";
+"RestoreMessage" = "Vous avez supprimé les randonnées des Pyrénées préchargées avec l'app, et vous regrettez votre geste ?";
 

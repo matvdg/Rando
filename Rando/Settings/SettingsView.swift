@@ -16,11 +16,10 @@ let modelName = UIDevice.modelName
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
 
 struct SettingsView: View {
-        
-    @State private var isAboutExpanded = false
-    @State private var isAverageSpeedExpanded = false
+    
     @State private var showMailView = false
     @State private var averageSpeed: Double = UserDefaults.averageSpeed
+    @Binding var selection: Int
     
     var body: some View {
         
@@ -49,24 +48,26 @@ struct SettingsView: View {
                     
                     
                     DisclosureGroup(
-                        isExpanded: $isAverageSpeedExpanded,
                         content: {
                             VStack(alignment: .center, spacing: 16) {
                                 Stepper(averageSpeed.toSpeedString, value: $averageSpeed, in: 0.3...2.7, step: 0.1) { _ in
                                     Feedback.selected()
                                     UserDefaults.averageSpeed = averageSpeed
                                 }
+                                Text("AverageSpeedDescription")
                                 Button {
                                     Feedback.success()
                                     averageSpeed = defaultAverageSpeed
                                     UserDefaults.averageSpeed = defaultAverageSpeed
                                 } label: {
-                                    Text("ResetAverageSpeed")
-                                }.buttonStyle(.borderedProminent)
-                                Text("AverageSpeedDescription")
+                                    Text("ResetAverageSpeed").foregroundColor(.primary)
+                                        .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .buttonStyle(.bordered)
+                                .tint(.secondary)
                             }
-                            
-                                .font(.subheadline)
+                            .font(.subheadline)
                         },
                         label: {
                             Label("AverageSpeed", systemImage: "speedometer")
@@ -74,13 +75,35 @@ struct SettingsView: View {
                     )
                     
                     DisclosureGroup(
-                        isExpanded: $isAboutExpanded,
                         content: {
                             Text("AboutMe")
                                 .font(.subheadline)
                         },
                         label: {
                             Label("About", systemImage: "questionmark.circle")
+                        }
+                    )
+                    
+                    DisclosureGroup(
+                        content: {
+                            VStack(alignment: .center, spacing: 16) {
+                                Text("RestoreMessage")
+                                Button {
+                                    TrailManager.shared.restoreDemoTrails()
+                                    Feedback.success()
+                                    selection = 1
+                                } label: {
+                                    Text("Restore").foregroundColor(.primary)
+                                        .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .buttonStyle(.bordered)
+                                .tint(.secondary)
+                            }
+                            .font(.subheadline)
+                        },
+                        label: {
+                            Label("Restore", systemImage: "lifepreserver")
                         }
                     )
                     
@@ -135,7 +158,8 @@ struct SettingsView: View {
 
 
 struct SettingsView_Previews: PreviewProvider {
+    @State static private var selection = 0
     static var previews: some View {
-        SettingsView()
+        SettingsView(selection: $selection)
     }
 }

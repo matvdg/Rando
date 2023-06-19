@@ -35,7 +35,7 @@ struct ContentView: View {
                         Label("Steps", systemImage: "mappin.and.ellipse")
                     }
                     .tag(2)
-                SettingsView()
+                SettingsView(selection: $selection)
                     .tabItem {
                         Label("Settings", systemImage: "gearshape")
                     }
