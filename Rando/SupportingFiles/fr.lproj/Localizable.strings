@@ -30,7 +30,6 @@
 "Map" = "Carte";
 
 // MapView
-"MapSettings" = "Fonds de carte";
 "Altitude" = "Altitude";
 "ign" = "IGN v2";
 "ign25" = "IGN  1:25 000";
@@ -66,9 +65,11 @@
 "AltMax" = "Altitude maximum";
 "Distance" = "Distance";
 "Difficulty" = "Difficulté";
+"beginner" = "Débutant";
 "easy" = "Facile";
 "medium" = "Moyenne";
 "hard" = "Difficile";
+"extreme" = "Extrême";
 "EstimatedDuration" = "Durée estimée";
 "Downloading" = "Téléchargement...";
 "OtherDownloadInProcess" = "Un autre téléchargement est en cours...";

@@ -16,25 +16,43 @@ struct DifficultyView: View {
     
     var body: some View {
         
-        HStack(spacing: 5) {
+        HStack(spacing: 3) {
+            
             switch difficulty {
+            case .beginner:
+                Circle().foregroundColor(.primary)
+                Circle().stroke(Color.primary, lineWidth: 1)
+                Circle().stroke(Color.primary, lineWidth: 1)
+                Circle().stroke(Color.primary, lineWidth: 1)
+                Circle().stroke(Color.primary, lineWidth: 1)
             case .easy:
-                Circle().foregroundColor(.green)
-                Circle().foregroundColor(.lightgray)
-                Circle().foregroundColor(.lightgray)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().stroke(Color.primary, lineWidth: 1)
+                Circle().stroke(Color.primary, lineWidth: 1)
+                Circle().stroke(Color.primary, lineWidth: 1)
             case .medium:
-                Circle().foregroundColor(.lightgray)
-                Circle().foregroundColor(.orange)
-                Circle().foregroundColor(.lightgray)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().stroke(Color.primary, lineWidth: 1)
+                Circle().stroke(Color.primary, lineWidth: 1)
             case .hard:
-                Circle().foregroundColor(.lightgray)
-                Circle().foregroundColor(.lightgray)
-                Circle().foregroundColor(.red)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().stroke(Color.primary, lineWidth: 1)
+            case .extreme:
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
+                Circle().foregroundColor(.primary)
             }
             
         }
-        .frame(width: 60, height: 15, alignment: .center)
-        
+        .frame(width: 60, height: 10, alignment: .center)
     
     }
 }

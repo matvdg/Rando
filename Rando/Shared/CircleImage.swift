@@ -24,7 +24,7 @@ struct CircleImage: View {
 // MARK: Previews
 struct CircleImage_Previews: PreviewProvider {
   static var previews: some View {
-    CircleImage(id: 0)
+    CircleImage(id: 2)
       .previewDevice(PreviewDevice(rawValue: "iPhone X"))
       .previewDisplayName("iPhone X")
       .environment(\.colorScheme, .dark)

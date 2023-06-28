@@ -55,7 +55,7 @@ struct ImportGpxTileView: View {
         }
         .padding(8)
         .frame(width: 200, height: 290, alignment: .center)
-        .background(Color.grblue)
+        .background(LinearGradient(gradient: Gradient(colors: [Color.grblue, Color.grgreen]), startPoint: .top, endPoint: .bottom))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .contextMenu {
             Button {

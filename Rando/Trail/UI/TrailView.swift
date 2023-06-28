@@ -14,51 +14,60 @@ struct TrailView: View {
     
     @ObservedObject var trail: Trail
     @Binding var selectedLayer: Layer
-    @State var showNameAlert: Bool = false
-    @State var showDescriptionSheet: Bool = false
-    @State var thickness: Thickness = .normal
-    
-    
-    enum Thickness: String, CaseIterable {
-        case extraThin, thin, normal, thick, extraThick
-        var lineWidth: CGFloat {
-            switch self {
-            case .extraThin: return 2
-            case .thin: return 4
-            case .normal: return defaultLineWidth
-            case .thick: return 8
-            case .extraThick: return 10
-            }
-        }
-    }
-    
-    
-    struct Person: Identifiable {
-        let givenName: String
-        let familyName: String
-        let emailAddress: String
-        let id = UUID()
-        
-        var fullName: String { givenName + " " + familyName }
-    }
+    @State var showEditTrailSheet: Bool = false
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
-            NavigationLink(destination: OldMapView(trail: trail, selectedLayer: $selectedLayer)) {
-                OldMapView(trail: trail, selectedLayer: $selectedLayer)
-                    .frame(height: 250).disabled(true)
+            ZStack(alignment: .top) {
+                NavigationLink(destination: OldMapView(trail: trail, selectedLayer: $selectedLayer).navigationTitle("Map")) {
+                    OldMapView(trail: trail, selectedLayer: $selectedLayer)
+                        .edgesIgnoringSafeArea(.vertical)
+                        .frame(height: 250)
+                        .disabled(true)
+                }
+                VStack {
+                    HStack(alignment: .top, spacing: 8) {
+                        if UIDevice.current.userInterfaceIdiom == .phone {
+                            Button {
+                                Feedback.selected()
+                                presentationMode.wrappedValue.dismiss()
+                                
+                            } label: {
+                                BackIconButton()
+                            }
+                        }
+                        Spacer()
+                        Button {
+                            Feedback.selected()
+                            showEditTrailSheet = true
+                        } label: {
+                            EditIconButton()
+                        }
+                        Button {
+                            Feedback.selected()
+                            trail.isFav.toggle()
+                            TrailManager.shared.save(trail: trail)
+                        } label: {
+                            LikeIconButton(isLiked: $trail.isFav)
+                        }
+                        Button {
+                            Feedback.selected()
+                        } label: {
+                            ShareIconButton()
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 8)
+                }
+                
+                
             }
             
             List {
                 
-                Section(header: Text("Trail")) {
-                    
-                    Button(action: {
-                        showNameAlert = true
-                    }) {
-                        Text(trail.name)
-                    }
+                Section(header: Text(trail.name).foregroundColor(.primary).font(.system(size: 20, weight: .bold))) {
                     
                     HStack(alignment: .top, spacing:  8) {
                         
@@ -128,38 +137,21 @@ struct TrailView: View {
                         DifficultyView(difficulty: trail.difficulty)
                     }
                     
-                    DisclosureGroup {
-                        
-                        if trail.isLoop {
-                            Label("loop", systemImage: "arrow.triangle.capsulepath")
-                        } else {
-                            Label("oneWay", systemImage: "arrow.right")
-                        }
-                        if let department = trail.department {
-                            Label(department, systemImage: "mappin.and.ellipse")
-                        }
-                        DisclosureGroup {
-                            VStack {
-                                Text(trail.description).font(.system(size: 14))
-                                Button {
-                                    showDescriptionSheet = true
-                                } label: {
-                                    Text(trail.description.isEmpty ? "AddDescription" : "Edit").foregroundColor(.primary)
-                                        .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
-                                        .frame(maxWidth: .infinity)
-                                }
-                                
-                                .buttonStyle(.bordered)
-                                .tint(.secondary)
-                            }
-                            
-                        } label: {
-                            Label("Description", systemImage: "text.justify.leading")
-                        }
-                        
-                    } label: {
-                        Label("MoreInfos", systemImage: "info.circle")
+                    if let department = trail.department {
+                        Label(department, systemImage: "mappin.and.ellipse")
                     }
+                    
+                    if trail.isLoop {
+                        Label("loop", systemImage: "arrow.triangle.capsulepath")
+                    } else {
+                        Label("oneWay", systemImage: "arrow.right")
+                    }
+                    
+                    DisclosureGroup {
+                        Text(trail.description).font(.system(size: 14))
+                    } label: {
+                        Label("Description", systemImage: "text.justify.leading")
+                    }.isHidden(trail.description.isEmpty, remove: true)
                     
                 }
                 
@@ -214,7 +206,7 @@ struct TrailView: View {
                 
                 if trail.hasElevationData {
                     Section(header: Text("Profile")) {
-//                        LineChart(trail: trail)
+                        //                        LineChart(trail: trail)
                         LineView(data: trail.simplifiedElevations, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
                             .frame(height: 340)
                     }
@@ -234,52 +226,11 @@ struct TrailView: View {
         .onChange(of: trail.description, perform: { newValue in
             TrailManager.shared.save(trail: trail)
         })
-        .alert("Rename", isPresented: $showNameAlert) {
-            TextField("Enter your name", text: $trail.name)
-            Button("OK", role: .destructive ,action: submit)
-            Button("Cancel", role: .cancel, action: {})
-        } message: {
-            Text("RenameDescription")
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Button(action: {
-                    showNameAlert = true
-                }) {
-                    Text(trail.name)
-                        .lineLimit(1)
-                        .frame(maxWidth: 250)
-                }
-            }
-        }
-        .navigationBarItems(trailing: HStack {
-            // LIKE
-            Button {
-                Feedback.selected()
-                self.trail.isFav.toggle()
-                TrailManager.shared.save(trail: self.trail)
-            } label: {
-                Image(systemName: trail.isFav ? "heart.fill" : "heart")
-                    .accentColor(trail.isFav ? .red : .primary)
-            }
-            /* SHARING
-             ShareLink("Share", item: trail.gpx, preview: SharePreview(trail.name))
-             Button {
-             Feedback.selected()
-             // Todo
-             } label: {
-             Image(systemName: "square.and.arrow.up")
-             }*/
-        })
-        .sheet(isPresented: $showDescriptionSheet) {
-            EditDescriptionView(trail: trail, showDescriptionSheet: $showDescriptionSheet)
+        .navigationBarHidden(true)
+        .sheet(isPresented: $showEditTrailSheet) {
+            EditTrailView(trail: trail, showEditTrailSheet: $showEditTrailSheet)
         }
         
-    }
-    
-    func submit() {
-        TrailManager.shared.save(trail: trail)
     }
     
 }

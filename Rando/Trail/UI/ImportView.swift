@@ -130,7 +130,7 @@ struct ImportView: View {
             }) {
                 DismissButton()
             })
-            .accentColor(.tintColor)
+            .accentColor(.grblue)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showFilePicker, onDismiss: {

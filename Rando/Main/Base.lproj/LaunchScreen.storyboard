@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain_sil" translatesAutoresizingMaskIntoConstraints="NO" id="fOB-Dw-bxF">
-                                <rect key="frame" x="-50" y="536" width="514" height="200"/>
-                                <color key="tintColor" red="0.1843137443" green="0.33333334329999997" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="ieE-Ch-kSM"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pyrénées" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJo-Cl-Uk3">
                                 <rect key="frame" x="110.66666666666669" y="198" width="193" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="50"/>
@@ -41,6 +34,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="8IB-Bh-NGT"/>
                                     <constraint firstAttribute="height" constant="200" id="ADA-p2-NkB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain_sil" translatesAutoresizingMaskIntoConstraints="NO" id="fOB-Dw-bxF">
+                                <rect key="frame" x="-50" y="536" width="514" height="200"/>
+                                <color key="tintColor" red="0.1843137443" green="0.33333334329999997" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="ieE-Ch-kSM"/>
                                 </constraints>
                             </imageView>
                         </subviews>

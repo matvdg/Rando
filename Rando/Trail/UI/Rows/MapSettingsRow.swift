@@ -15,7 +15,7 @@ struct MapSettingsRow: View {
     var body: some View {
         
             HStack(spacing: 10) {
-                Label("MapSettings", systemImage: "map")
+                Label("Map", systemImage: "map").lineLimit(1).minimumScaleFactor(0.5)
                 Picker(selection: $selectedLayer, label: Text("")) {
                     ForEach(Layer.onlyOverlaysLayers, id: \.self) { layer in
                         Text(LocalizedStringKey(layer.rawValue))

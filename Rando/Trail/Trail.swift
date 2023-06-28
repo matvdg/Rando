@@ -15,7 +15,7 @@ import CoreTransferable
 import UniformTypeIdentifiers
 
 let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-let defaultLineWidth: CGFloat = 6
+let defaultLineWidth: CGFloat = 4
 
 class Gpx: Codable, Identifiable, Transferable {
     
@@ -72,15 +72,19 @@ class Trail: Identifiable, ObservableObject {
     var difficulty: Difficulty {
         if hasElevationData {
             switch elevationGain {
-            case 0..<500: return .easy
+            case 0..<200: return .beginner
+            case 200..<500: return .easy
             case 500..<1000: return .medium
-            default: return .hard
+            case 1000..<1500: return .hard
+            default: return .extreme
             }
         } else {
             switch distance {
-            case 0..<10: return .easy
-            case 10...15: return .medium
-            default: return .hard
+            case 0..<5: return .beginner
+            case 5..<10: return .easy
+            case 10..<15: return .medium
+            case 15..<20: return .hard
+            default: return .extreme
             }
         }
     }
@@ -103,7 +107,7 @@ class Trail: Identifiable, ObservableObject {
     }
     
     enum Difficulty: String {
-        case easy, medium, hard
+        case beginner, easy, medium, hard, extreme
     }
     
     @Published var downloadState: DownloadState = .unknown

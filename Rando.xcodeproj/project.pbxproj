@@ -42,8 +42,9 @@
 		F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724924E7F6F500F98918 /* NetworkManager.swift */; };
 		F61E421E29D4203A008D4275 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E421D29D4203A008D4275 /* MapView.swift */; };
 		F62779BC2A218FBA00185386 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62779BB2A218FBA00185386 /* FilterButton.swift */; };
+		F629CBFC2A4B8EE7003BFDAD /* IconButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F629CBFB2A4B8EE7003BFDAD /* IconButtons.swift */; };
 		F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F639047A24DC8E58005B4FC1 /* GridStack.swift */; };
-		F6577E742A3C483F00162B81 /* EditDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6577E732A3C483F00162B81 /* EditDescriptionView.swift */; };
+		F6577E742A3C483F00162B81 /* EditTrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6577E732A3C483F00162B81 /* EditTrailView.swift */; };
 		F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */ = {isa = PBXBuildFile; productRef = F658C2D52A1CFEF200979723 /* HidableTabView */; };
 		F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */ = {isa = PBXBuildFile; productRef = F65DCC112A24D01100A24E10 /* Semaphore */; };
 		F65DCC142A24E1B400A24E10 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65DCC132A24E1B400A24E10 /* UIApplication.swift */; };
@@ -150,8 +151,9 @@
 		F618724C24E7FB1900F98918 /* RandoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandoRelease.entitlements; sourceTree = "<group>"; };
 		F61E421D29D4203A008D4275 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F62779BB2A218FBA00185386 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		F629CBFB2A4B8EE7003BFDAD /* IconButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtons.swift; sourceTree = "<group>"; };
 		F639047A24DC8E58005B4FC1 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
-		F6577E732A3C483F00162B81 /* EditDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDescriptionView.swift; sourceTree = "<group>"; };
+		F6577E732A3C483F00162B81 /* EditTrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrailView.swift; sourceTree = "<group>"; };
 		F65DCC132A24E1B400A24E10 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		F66AFEBB2A3E8FFB0030086A /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				F639047A24DC8E58005B4FC1 /* GridStack.swift */,
 				F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */,
 				F67BAEC224E7469300AC8A9F /* DismissButton.swift */,
+				F629CBFB2A4B8EE7003BFDAD /* IconButtons.swift */,
 				F62779BB2A218FBA00185386 /* FilterButton.swift */,
 				F6A3DF022A37E58900C69B55 /* AppIcon.swift */,
 				F6A3DF042A37EABD00C69B55 /* WebView.swift */,
@@ -430,7 +433,7 @@
 				F6A3DEDD2A37C23A00C69B55 /* ImportView.swift */,
 				F6A3DECF2A37C23A00C69B55 /* ImportGpxTileView.swift */,
 				F6A3DEDE2A37C23A00C69B55 /* TourView.swift */,
-				F6577E732A3C483F00162B81 /* EditDescriptionView.swift */,
+				F6577E732A3C483F00162B81 /* EditTrailView.swift */,
 				F66AFEBB2A3E8FFB0030086A /* LineChart.swift */,
 			);
 			path = UI;
@@ -678,7 +681,7 @@
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
 				D0B7CDB82469184F00464C79 /* LayerView.swift in Sources */,
 				F6A3DEF92A37C23A00C69B55 /* TrailManager.swift in Sources */,
-				F6577E742A3C483F00162B81 /* EditDescriptionView.swift in Sources */,
+				F6577E742A3C483F00162B81 /* EditTrailView.swift in Sources */,
 				F6A3DEF42A37C23A00C69B55 /* EnabledFiltersView.swift in Sources */,
 				F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */,
 				F6A3DEEF2A37C23A00C69B55 /* DisplayRow.swift in Sources */,
@@ -693,6 +696,7 @@
 				F6A3DEE42A37C23A00C69B55 /* PoiManager.swift in Sources */,
 				F6A3DEEB2A37C23A00C69B55 /* TourRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
+				F629CBFC2A4B8EE7003BFDAD /* IconButtons.swift in Sources */,
 				F60D12B62A28A12300437AA1 /* WorkoutView.swift in Sources */,
 				D0634797245D768B003BA9E7 /* ContentView.swift in Sources */,
 				D0630B6B245F571F006F6C44 /* LocationManager.swift in Sources */,
@@ -860,7 +864,7 @@
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/Rando.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 41;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
@@ -874,7 +878,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -894,7 +898,7 @@
 				CODE_SIGN_ENTITLEMENTS = Rando/SupportingFiles/RandoRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 41;
 				DEVELOPMENT_ASSET_PATHS = "\"Rando/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = 3WAQF3AS82;
 				DONT_GENERATE_INFOPLIST_FILE = NO;
@@ -908,7 +912,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matvdg.rando;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

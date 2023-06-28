@@ -14,7 +14,7 @@ enum Gr10Filter: String, CaseIterable {
 }
 
 enum DifficultyFilter: String, CaseIterable {
-    case easy, medium, hard, all
+    case beginner, easy, medium, hard, extreme, all
     var localized: String { rawValue.localized }
 }
 

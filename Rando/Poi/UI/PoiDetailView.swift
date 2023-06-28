@@ -19,7 +19,7 @@ struct PoiDetailView: View {
         ScrollView(showsIndicators: false) {
             VStack {
                 
-                NavigationLink(destination: OldMapView(poi: poi, selectedLayer: $selectedLayer)) {
+                NavigationLink(destination: OldMapView(poi: poi, selectedLayer: $selectedLayer).navigationTitle("Map")) {
                     OldMapView(poi: poi, selectedLayer: $selectedLayer)
                         .frame(height: 150)
                 }

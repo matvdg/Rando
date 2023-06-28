@@ -30,7 +30,6 @@
 "Map" = "Map";
 
 // MapView
-"MapSettings" = "Map layers";
 "Altitude" = "Altitude";
 "ign" = "IGN";
 "ign25" = "IGN  1:25 000";
@@ -61,9 +60,11 @@
 "Trail" = "Trail";
 "Trails" = "Trails";
 "Difficulty" = "Difficulty";
+"beginner" = "Beginner";
 "easy" = "Easy";
 "medium" = "Medium";
 "hard" = "Hard";
+"extreme" = "Extreme";
 "ElevationGain" = "Elevation gain";
 "ElevationLoss" = "Elevation loss";
 "AltMin" = "Alt. min.";

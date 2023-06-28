@@ -28,7 +28,7 @@ struct TilesRow: View {
         }) {
             HStack(spacing: 15) {
                 if tileManager.state.isDownloadingAnotherTrail(id: trail.id) {
-                    Label("OtherDownloadInProcess", systemImage: "xmark.icloud")
+                    Label("OtherDownloadInProcess", systemImage: "xmark.icloud").lineLimit(1).minimumScaleFactor(0.5)
                 } else {
                     switch trail.downloadState {
                     case .unknown :
@@ -36,12 +36,12 @@ struct TilesRow: View {
                             .progressViewStyle(CircularProgressViewStyle())
                         Text("Download")
                     case .notDownloaded:
-                        Label("\("Download".localized) (\(tileManager.sizeLeft))", systemImage: "icloud.and.arrow.down")
+                        Label("\("Download".localized) (\(tileManager.sizeLeft))", systemImage: "icloud.and.arrow.down").lineLimit(1).minimumScaleFactor(0.5)
                     case .downloading:
                         ProgressView(value: tileManager.progress)
                             .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
                         VStack(alignment: .leading) {
-                            Text("\("Downloading".localized) \(Int(tileManager.progress*100))% (\(tileManager.sizeLeft) \("Left".localized))")
+                            Text("\("Downloading".localized) \(Int(tileManager.progress*100))% (\(tileManager.sizeLeft) \("Left".localized))").lineLimit(1).minimumScaleFactor(0.5)
                             ProgressView(value: tileManager.progress)
                                 .progressViewStyle(LinearProgressViewStyle(tint: .tintColorTabBar))
                                 .frame(height: 10)
