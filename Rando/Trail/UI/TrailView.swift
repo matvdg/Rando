@@ -21,7 +21,7 @@ struct TrailView: View {
         
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .top) {
-                NavigationLink(destination: OldMapView(trail: trail, selectedLayer: $selectedLayer).navigationTitle("Map")) {
+                NavigationLink(destination: TrailMapView(trail: trail, selectedLayer: $selectedLayer)) {
                     OldMapView(trail: trail, selectedLayer: $selectedLayer)
                         .edgesIgnoringSafeArea(.vertical)
                         .frame(height: 250)
@@ -59,9 +59,7 @@ struct TrailView: View {
                         }
                     }
                     .padding(.horizontal, 20)
-                    .padding(.vertical, 8)
                 }
-                
                 
             }
             
@@ -220,10 +218,13 @@ struct TrailView: View {
             TileManager.shared.load(for: trail, selectedLayer: selectedLayer)
             TrailManager.shared.addMissingDepartment(trail: self.trail)
         }
-        .onChange(of: trail.color, perform: { newValue in
+        .onChange(of: trail.color, perform: { _ in
             TrailManager.shared.save(trail: trail)
         })
-        .onChange(of: trail.description, perform: { newValue in
+        .onChange(of: trail.isDisplayed, perform: { _ in
+            TrailManager.shared.save(trail: trail)
+        })
+        .onChange(of: trail.description, perform: { _ in
             TrailManager.shared.save(trail: trail)
         })
         .navigationBarHidden(true)

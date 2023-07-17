@@ -51,6 +51,7 @@
 		F66AFEBC2A3E8FFB0030086A /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66AFEBB2A3E8FFB0030086A /* LineChart.swift */; };
 		F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */; };
 		F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC224E7469300AC8A9F /* DismissButton.swift */; };
+		F68AF33E2A558FF300B3A629 /* TrailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AF33D2A558FF300B3A629 /* TrailMapView.swift */; };
 		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
 		F6A3DEE12A37C23A00C69B55 /* PoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DEC52A37C23A00C69B55 /* PoiView.swift */; };
 		F6A3DEE22A37C23A00C69B55 /* PoiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DEC62A37C23A00C69B55 /* PoiDetailView.swift */; };
@@ -65,7 +66,6 @@
 		F6A3DEEC2A37C23A00C69B55 /* ItineraryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DED32A37C23A00C69B55 /* ItineraryRow.swift */; };
 		F6A3DEED2A37C23A00C69B55 /* TilesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DED42A37C23A00C69B55 /* TilesRow.swift */; };
 		F6A3DEEE2A37C23A00C69B55 /* MapSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DED52A37C23A00C69B55 /* MapSettingsRow.swift */; };
-		F6A3DEEF2A37C23A00C69B55 /* DisplayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DED62A37C23A00C69B55 /* DisplayRow.swift */; };
 		F6A3DEF02A37C23A00C69B55 /* TrailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DED72A37C23A00C69B55 /* TrailRow.swift */; };
 		F6A3DEF12A37C23A00C69B55 /* DeleteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DED82A37C23A00C69B55 /* DeleteRow.swift */; };
 		F6A3DEF32A37C23A00C69B55 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DEDA2A37C23A00C69B55 /* DocumentView.swift */; };
@@ -158,6 +158,7 @@
 		F66AFEBB2A3E8FFB0030086A /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
 		F67BAEC224E7469300AC8A9F /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		F68AF33D2A558FF300B3A629 /* TrailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailMapView.swift; sourceTree = "<group>"; };
 		F6979BA024D4523D00228A0C /* CLGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoder.swift; sourceTree = "<group>"; };
 		F6A3DEC52A37C23A00C69B55 /* PoiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiView.swift; sourceTree = "<group>"; };
 		F6A3DEC62A37C23A00C69B55 /* PoiDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiDetailView.swift; sourceTree = "<group>"; };
@@ -172,7 +173,6 @@
 		F6A3DED32A37C23A00C69B55 /* ItineraryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItineraryRow.swift; sourceTree = "<group>"; };
 		F6A3DED42A37C23A00C69B55 /* TilesRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TilesRow.swift; sourceTree = "<group>"; };
 		F6A3DED52A37C23A00C69B55 /* MapSettingsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSettingsRow.swift; sourceTree = "<group>"; };
-		F6A3DED62A37C23A00C69B55 /* DisplayRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayRow.swift; sourceTree = "<group>"; };
 		F6A3DED72A37C23A00C69B55 /* TrailRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailRow.swift; sourceTree = "<group>"; };
 		F6A3DED82A37C23A00C69B55 /* DeleteRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteRow.swift; sourceTree = "<group>"; };
 		F6A3DEDA2A37C23A00C69B55 /* DocumentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
@@ -435,6 +435,7 @@
 				F6A3DEDE2A37C23A00C69B55 /* TourView.swift */,
 				F6577E732A3C483F00162B81 /* EditTrailView.swift */,
 				F66AFEBB2A3E8FFB0030086A /* LineChart.swift */,
+				F68AF33D2A558FF300B3A629 /* TrailMapView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -446,7 +447,6 @@
 				F6A3DED32A37C23A00C69B55 /* ItineraryRow.swift */,
 				F6A3DED42A37C23A00C69B55 /* TilesRow.swift */,
 				F6A3DED52A37C23A00C69B55 /* MapSettingsRow.swift */,
-				F6A3DED62A37C23A00C69B55 /* DisplayRow.swift */,
 				F6A3DED72A37C23A00C69B55 /* TrailRow.swift */,
 				F6A3DED82A37C23A00C69B55 /* DeleteRow.swift */,
 			);
@@ -676,6 +676,7 @@
 				D0531A76246820BA0020FFE0 /* MapControlView.swift in Sources */,
 				F6E2C0D42A3A5F64001FD8F1 /* TrailView.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,
+				F68AF33E2A558FF300B3A629 /* TrailMapView.swift in Sources */,
 				F6A3DEF62A37C23A00C69B55 /* ImportView.swift in Sources */,
 				F6A3DF052A37EABD00C69B55 /* WebView.swift in Sources */,
 				D0C40E04245F37F900EF4873 /* TileManager.swift in Sources */,
@@ -684,7 +685,6 @@
 				F6577E742A3C483F00162B81 /* EditTrailView.swift in Sources */,
 				F6A3DEF42A37C23A00C69B55 /* EnabledFiltersView.swift in Sources */,
 				F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */,
-				F6A3DEEF2A37C23A00C69B55 /* DisplayRow.swift in Sources */,
 				F618724824E7F4DC00F98918 /* Device.swift in Sources */,
 				F6A3DEEE2A37C23A00C69B55 /* MapSettingsRow.swift in Sources */,
 				F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */,
