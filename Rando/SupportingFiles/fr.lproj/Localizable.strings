@@ -101,6 +101,7 @@
 "DeleteTrailMessage" = "Cette action supprimera la randonnée, pas les cartes associées";
 "3D" = "Visualiser le parcours";
 "ImportGPX" = "Importer des GPX";
+"GPXImported" = "GPX importé";
 "GPXtoImport" = "GPX à importer :";
 "ImportFromPasteboard" = "Lien GPX du presse-papier";
 "ImportFromFitness" = "Mes exercices";

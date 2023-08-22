@@ -872,7 +872,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -906,7 +914,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

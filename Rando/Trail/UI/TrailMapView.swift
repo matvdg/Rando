@@ -12,7 +12,7 @@ struct TrailMapView: View {
     
     var trail: Trail
     @Binding var selectedLayer: Layer
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -22,7 +22,7 @@ struct TrailMapView: View {
                 HStack(alignment: .top, spacing: 8) {
                     Button {
                         Feedback.selected()
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                         
                     } label: {
                         BackIconButton()

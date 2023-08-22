@@ -102,6 +102,7 @@
 "3D" = "Watch trail";
 "ImportGPX" = "Import GPX";
 "GPXtoImport" = "GPX to import:";
+"GPXImported" = "GPX imported";
 "ImportFromPasteboard" = "GPX link from clipboard";
 "ImportFromFitness" = "My workouts";
 "ImportFromFiles" = "Files";

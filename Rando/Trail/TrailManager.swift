@@ -57,6 +57,44 @@ class TrailManager: ObservableObject {
             return Trail(gpx: Gpx(name: name, description: description, locations: locations))
         }
     }
+    
+    func exportToGpxFile(trail: Trail) -> URL {
+        let root = GPXRoot(creator: "Rando Pyrénées")
+        let trackpoints = trail.locations.map {
+            let tp = GPXTrackPoint(latitude: $0.latitude, longitude: $0.longitude)
+            tp.elevation = $0.altitude
+            return tp
+        }
+        let track = GPXTrack()
+        let tracksegment = GPXTrackSegment()
+        tracksegment.add(trackpoints: trackpoints)
+        track.add(trackSegment: tracksegment)
+        root.add(track: track)
+        let meta = GPXMetadata()
+        meta.name = trail.name
+        meta.desc = trail.description
+        root.metadata = meta
+        let gpx = root.gpx()
+        // Save file
+        let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(trail.name).gpx")
+        print("Saving file at path: \(fileURL)")
+        // write gpx to file
+        var writeError: Error?
+        let saved: Bool
+        do {
+            try gpx.write(toFile: fileURL.path, atomically: true, encoding: String.Encoding.utf8)
+            saved = true
+        } catch let error {
+            writeError = error
+            saved = false
+        }
+        if !saved {
+            if let error = writeError {
+                print("[ERROR] GPXFileManager:save: \(error.localizedDescription)")
+            }
+        }
+        return fileURL
+    }
         
     func save(trails: [Trail]) {
         trails.forEach { save(trail: $0) }

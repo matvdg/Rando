@@ -17,7 +17,7 @@ struct DeleteRow: View {
     private let trailManager = TrailManager.shared
     private var boundingBox: MKMapRect { trail.polyline.boundingMapRect }
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
     
     var trail: Trail
     
@@ -37,7 +37,7 @@ struct DeleteRow: View {
                 buttons: [
                     .destructive(Text("DeleteTrail"), action: {
                         self.trailManager.remove(id: self.trail.id)
-                        self.presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }),
                     .cancel(Text("Cancel"))
                 ]

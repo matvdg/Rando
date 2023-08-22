@@ -15,7 +15,7 @@ struct TrailView: View {
     @ObservedObject var trail: Trail
     @Binding var selectedLayer: Layer
     @State var showEditTrailSheet: Bool = false
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         
@@ -32,7 +32,7 @@ struct TrailView: View {
                         if UIDevice.current.userInterfaceIdiom == .phone {
                             Button {
                                 Feedback.selected()
-                                presentationMode.wrappedValue.dismiss()
+                                dismiss()
                                 
                             } label: {
                                 BackIconButton()
@@ -52,9 +52,8 @@ struct TrailView: View {
                         } label: {
                             LikeIconButton(isLiked: $trail.isFav)
                         }
-                        Button {
-                            Feedback.selected()
-                        } label: {
+                        
+                        ShareLink(item: TrailManager.shared.exportToGpxFile(trail: trail)) {
                             ShareIconButton()
                         }
                     }
@@ -233,6 +232,7 @@ struct TrailView: View {
         }
         
     }
+    
     
 }
 

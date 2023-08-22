@@ -17,12 +17,8 @@ import UniformTypeIdentifiers
 let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 let defaultLineWidth: CGFloat = 4
 
-class Gpx: Codable, Identifiable, Transferable {
-    
-    static var transferRepresentation: some TransferRepresentation {
-        CodableRepresentation(contentType: .gpx)
-    }
-    
+class Gpx: Codable, Identifiable {
+
     init(name: String = "test", description: String = lorem, locations: [Location] = [mockLoc1], date: Date? = Date(), department: String? = nil, isFav: Bool? = false, isDisplayed: Bool? = false, color: String? = CGColor.randomColor.hexaCode, lineWidth: CGFloat? = defaultLineWidth, distance: CLLocationDistance? = nil, elevationGain: CLLocationDistance? = nil) {
         self.id = UUID()
         self.name = name
