@@ -18,8 +18,8 @@ struct InfoPoiView: View {
             
             HStack(alignment: .top, spacing: 16) {
                 
-                MiniImage(id: poi?.id ?? 0)
-                    .frame(width: 70.0, height: 70.0)
+//                MiniImage(id: poi?.id ?? 0)
+//                    .frame(width: 70.0, height: 70.0)
                 
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: 4) {

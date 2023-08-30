@@ -8,11 +8,21 @@
 
 import Foundation
 import HealthKit
-
+import SwiftUI
 
 enum WorkoutActivity: String, CaseIterable, Equatable {
     case all, hiking, walking, running, cycling
     var localized: String { self.rawValue.localized }
+    var icon: Image {
+        switch self {
+        case .all: return Image(systemName: "infinity")
+        case .hiking: return Image(systemName: "figure.hiking")
+        case .walking: return Image(systemName: "figure.walk")
+        case .running: return Image(systemName: "figure.run")
+        case .cycling: return Image(systemName: "figure.outdoor.cycle")
+        }
+    }
+    
     var activity: HKWorkoutActivityType? {
         switch self {
         case .all: return nil
@@ -22,6 +32,7 @@ enum WorkoutActivity: String, CaseIterable, Equatable {
         case .cycling: return .cycling
         }
     }
+    
     static func activity(from: HKWorkoutActivityType) -> WorkoutActivity {
         switch from {
         case .hiking: return .hiking

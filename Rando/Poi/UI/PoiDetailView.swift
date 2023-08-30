@@ -24,9 +24,9 @@ struct PoiDetailView: View {
                         .frame(height: 150)
                 }
                 
-                CircleImage(id: poi.id)
-                    .offset(x: 0, y: -130)
-                    .padding(.bottom, -130)
+//                CircleImage(id: poi.id)
+//                    .offset(x: 0, y: -130)
+//                    .padding(.bottom, -130)
                 
                 
                 VStack(alignment: .leading, spacing: 16) {
@@ -56,7 +56,7 @@ struct PoiDetailView: View {
                     .isHidden(!self.poi.hasPhoneNumber, remove: true)
                     
                     Button(action: {
-                        guard let url = self.poi.url else { return }
+                        guard let url = self.poi.website else { return }
                         UIApplication.shared.open(url)
                         Feedback.selected()
                     }) {

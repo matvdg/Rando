@@ -77,13 +77,7 @@ struct WorkoutView: View {
                 ForEach(WorkoutActivity.allCases, id: \.self) { activity in
                     HStack(alignment: .center, spacing: 8) {
                         Text(LocalizedStringKey(activity.rawValue))
-                        switch activity {
-                        case .all: Image(systemName: "infinity")
-                        case .hiking: Image(systemName: "figure.hiking")
-                        case .walking: Image(systemName: "figure.walk")
-                        case .running: Image(systemName: "figure.run")
-                        case .cycling: Image(systemName: "figure.outdoor.cycle")
-                        }
+                        activity.icon
                     }
                 }
             }.tint(.tintColorTabBar)

@@ -282,9 +282,9 @@ public struct Location: Codable {
     
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
-    var altitude: CLLocationDistance
+    var altitude: CLLocationDistance?
     
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, altitude: CLLocationDistance) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, altitude: CLLocationDistance?) {
         self.latitude = latitude
         self.longitude = longitude
         self.altitude = altitude
@@ -297,7 +297,7 @@ public struct Location: Codable {
     }
     
     var clLocation: CLLocation {
-        CLLocation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), altitude: altitude, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
+        CLLocation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), altitude: altitude ?? 0, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: Date())
     }
     
     public init(from decoder: Decoder) throws {

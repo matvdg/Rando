@@ -46,6 +46,7 @@
 // PoiView
 "all" = "All";
 "refuge" = "Refuge";
+"sheld" = "Sheld";
 "spring" = "Spring";
 "waterfall" = "Waterfall";
 "lake" = "Lake";
