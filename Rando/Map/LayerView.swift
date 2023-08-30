@@ -24,10 +24,26 @@ enum Layer: String, CaseIterable, Equatable, Identifiable {
 
 struct LayerView: View {
     
+    enum PoiFilter: String, CaseIterable {
+        case none, all, refuge, peak, waterfall, sheld
+        var localized: String { rawValue }
+        var icon: Image {
+            switch self {
+            case .none: return Image(systemName: "eye.slash")
+            case .all: return Image(systemName: "infinity")
+            case .refuge: return Image(systemName: "house.lodge.fill")
+            case .peak: return Image(systemName: "mountain.2")
+            case .waterfall: return Image(systemName: "camera")
+            case .sheld: return Image(systemName: "house")
+            }
+        }
+    }
+    
     @Binding var selectedLayer: Layer
     @Binding var isLayerDisplayed: Bool
     @State var isOffline: Bool = UserDefaults.isOffline
     @State private var showingChildView = false
+    @Binding var filter: PoiFilter
     
     var body: some View {
         NavigationView {
@@ -62,6 +78,14 @@ struct LayerView: View {
             }) {
                 DismissButton()
             })
+            .navigationBarItems(leading: Picker(selection: $filter, label: Text("")) {
+                ForEach(PoiFilter.allCases, id: \.self) { filter in
+                    HStack(alignment: .center, spacing: 8) {
+                        Text(LocalizedStringKey(filter.rawValue))
+                        filter.icon
+                    }
+                }
+            })
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(height: 250.0, alignment: .top)
@@ -73,22 +97,23 @@ struct LayerView: View {
 }
 
 // MARK: Previews
-struct InfoView_Previews: PreviewProvider {
+struct LayerView_Previews: PreviewProvider {
     @State static var selectedLayer: Layer = UserDefaults.currentLayer
     @State static var isInfoDisplayed = true
     @State static var isOffline = false
+    @State static var filter: LayerView.PoiFilter = .none
     static var previews: some View {
         Group {
-            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed, filter: $filter)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("iPhone 11 Pro Max")
                 .environment(\.colorScheme, .dark)
-            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed, filter: $filter)
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
                 .previewDisplayName("iPad Pro")
             
                 .environment(\.colorScheme, .light)
-            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed)
+            LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isInfoDisplayed, filter: $filter)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
                 .previewDisplayName("iPhone SE")
                 .environment(\.colorScheme, .light)

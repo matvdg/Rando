@@ -24,9 +24,9 @@ struct PoiDetailView: View {
                         .frame(height: 150)
                 }
                 
-//                CircleImage(id: poi.id)
-//                    .offset(x: 0, y: -130)
-//                    .padding(.bottom, -130)
+                CircleImage(poi: poi)
+                    .offset(x: 0, y: -130)
+                    .padding(.bottom, -130)
                 
                 
                 VStack(alignment: .leading, spacing: 16) {

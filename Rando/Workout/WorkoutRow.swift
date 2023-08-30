@@ -105,7 +105,7 @@ struct WorkoutRow: View {
                             do {
                                 isLoading = true
                                 locations = try await workoutManager.getLocations(for: workout)
-                                trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: workout.startDate)), at: 0)
+                                trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: Date())), at: 0)
                                 showHealthView = false
                                 isLoading = false
                             } catch {
@@ -114,7 +114,7 @@ struct WorkoutRow: View {
                             }
                         }
                     } else {
-                        trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: workout.startDate)), at: 0)
+                        trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: Date())), at: 0)
                         showHealthView = false
                     }
                 } label: {
@@ -139,7 +139,7 @@ struct WorkoutRow: View {
                 MapView(coordinates: $locations)
                     .navigationBarTitle(name, displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
-                        trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: workout.startDate)), at: 0)
+                        trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: Date())), at: 0)
                         showHealthView = false
                         Feedback.selected()
                     }) {

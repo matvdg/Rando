@@ -19,7 +19,7 @@ enum Filter: String, CaseIterable {
         case .all: return Image(systemName: "infinity")
         case .refuge: return Image(systemName: "house.lodge.fill")
         case .peak: return Image(systemName: "mountain.2")
-        case .waterfall: return Image(systemName: "eye")
+        case .waterfall: return Image(systemName: "camera")
         case .sheld: return Image(systemName: "house")
         }
     }

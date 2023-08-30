@@ -12,6 +12,7 @@ struct RemoveLayerView: View {
     
     @State private var showAlert = false
     @State var selectedLayer: Layer = .ign
+    @State var hasComputedSizes: Bool = false
     
     var body: some View {
         List {
@@ -24,10 +25,18 @@ struct RemoveLayerView: View {
                         Image(systemName: "trash").tint(.red)
                         Text(LocalizedStringKey(layer.rawValue))
                         Spacer()
-                        Text(layer.downloadedSize.toBytesString).foregroundColor(.gray)
+                        if hasComputedSizes {
+                            Text(layer.downloadedSize.toBytesString).foregroundColor(.gray)
+                        } else {
+                            ProgressView(value: 0)
+                                .progressViewStyle(CircularProgressViewStyle())
+                        }
                     }
                 }
                 .disabled(layer.downloadedSize == 0)
+                .onAppear {
+                    
+                }
             }
         }
         .navigationBarTitle("DeleteLayer", displayMode: .inline)

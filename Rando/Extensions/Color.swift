@@ -55,13 +55,19 @@ extension UIColor {
     
 }
 
+extension Color {
+    static var random: Color {
+        Color(cgColor: CGColor.randomColor)
+    }
+}
+
 extension CGColor {
     
     static var randomColor: CGColor {
         let colors: [Color] = [.grblue, .grgreen, .red, .orange, .indigo, .pink, .purple, .gray, .yellow, .green, .blue, .cyan, .brown, .mint]
         return colors.randomElement()?.cgColor ?? CGColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     }
-    
+        
     var hexaCode: String? {
         guard let components = self.components, components.count >= 3 else {
             return nil

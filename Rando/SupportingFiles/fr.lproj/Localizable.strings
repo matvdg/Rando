@@ -44,6 +44,7 @@
 "DeleteLayerMessage" = "Cette action supprimera les fonds de carte";
 
 // PoiView
+"none" = "Aucun";
 "all" = "Tous";
 "refuge" = "Refuge";
 "sheld" = "Abri";
@@ -53,7 +54,7 @@
 "lake" = "Lac";
 "peak" = "Pic";
 "Direction" = "Sens";
-"Steps" = "Étapes";
+"Steps" = "Points d'intérêts";
 "Phone" = "Téléphoner";
 "Website" = "Visiter le site internet";
 

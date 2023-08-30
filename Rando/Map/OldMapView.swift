@@ -23,15 +23,17 @@ struct OldMapView: UIViewRepresentable {
     @Binding var selectedPoi: Poi?
     @Binding var clockwise: Bool
     @Binding var trails: [Trail]
+    @Binding var filter: LayerView.PoiFilter
     
     // MARK: Constructors
-    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>) {
+    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, poiFilter: Binding<LayerView.PoiFilter>) {
         self._trails = trails
         self._selectedTracking = selectedTracking
         self._selectedLayer = selectedLayer
         self._selectedPoi = selectedPoi
         self.isDetailMap = isDetailMap
         self._clockwise = clockwise
+        self._filter = poiFilter
     }
     
     /// Convenience init for  TrailDetail map
@@ -42,7 +44,8 @@ struct OldMapView: UIViewRepresentable {
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
-            trails: Binding<[Trail]>.constant([trail])
+            trails: Binding<[Trail]>.constant([trail]),
+            poiFilter: Binding<LayerView.PoiFilter>.constant(.all)
         )
     }
     
@@ -54,19 +57,21 @@ struct OldMapView: UIViewRepresentable {
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
-            trails: Binding<[Trail]>.constant([poi.pseudoTrail])
+            trails: Binding<[Trail]>.constant([poi.pseudoTrail]),
+            poiFilter: Binding<LayerView.PoiFilter>.constant(.all)
         )
     }
     
     /// Convenience init for  HomeView map
-    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, trails: Binding<[Trail]>) {
+    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, trails: Binding<[Trail]>, poiFilter: Binding<LayerView.PoiFilter>) {
         self.init(
             selectedTracking: selectedTracking,
             selectedLayer: selectedLayer,
             selectedPoi: selectedPoi,
             isDetailMap: false,
             clockwise: Binding<Bool>.constant(false),
-            trails: trails
+            trails: trails,
+            poiFilter: poiFilter
         )
     }
     
@@ -78,14 +83,27 @@ struct OldMapView: UIViewRepresentable {
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: clockwise,
-            trails: Binding<[Trail]>.constant([trail])
+            trails: Binding<[Trail]>.constant([trail]),
+            poiFilter: Binding<LayerView.PoiFilter>.constant(.all)
         )
     }
     
     // MARK: Properties
     var isDetailMap: Bool
     let locationManager = LocationManager.shared
-    var annotations: [PoiAnnotation] { PoiManager.shared.pois.map { PoiAnnotation(poi: $0) } }
+    var annotations: [PoiAnnotation] {
+        PoiManager.shared.pois.map { PoiAnnotation(poi: $0) }
+            .filter {
+                switch filter {
+                case .peak: return $0.poi.category == .peak
+                case .refuge: return $0.poi.category == .refuge
+                case .waterfall: return $0.poi.category == .waterfall
+                case .sheld: return $0.poi.category == .sheld
+                case .all: return true
+                case .none: return false
+                }
+            }
+    }
     
     // MARK: Coordinator
     func makeCoordinator() -> Coordinator {
@@ -239,10 +257,6 @@ struct OldMapView: UIViewRepresentable {
         mapView.tintColor = .grblue
         mapView.isPitchEnabled = true
         mapView.showsCompass = true // Remove default
-        mapView.addAnnotations(annotations)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            mapView.addOverlays(self.trails.map { $0.polyline }, level: .aboveLabels)
-        }
     }
     
     private func setTracking(mapView: MKMapView, headingView: UIImageView?) {
@@ -335,8 +349,14 @@ struct OldMapView: UIViewRepresentable {
     }
     
     private func setAnnotations(mapView: MKMapView) {
-        guard selectedPoi == nil else { return }
-        mapView.deselectAnnotation(selectedAnnotation, animated: true)
+        let previousAnnotations = mapView.annotations
+        if previousAnnotations.count != annotations.count + 1 {
+            mapView.removeAnnotations(previousAnnotations)
+            mapView.addAnnotations(annotations)
+        } else {
+            guard selectedPoi == nil else { return }
+            mapView.deselectAnnotation(selectedAnnotation, animated: true)
+        }
     }
     
     private func playTour(mapView: MKMapView) {

@@ -44,6 +44,7 @@
 "DeleteLayerMessage" = "This will remove the map layer:";
 
 // PoiView
+"none" = "None";
 "all" = "All";
 "refuge" = "Refuge";
 "sheld" = "Sheld";
@@ -53,7 +54,7 @@
 "bridge" = "Bridge";
 "peak" = "Peak";
 "Direction" = "Reverse";
-"Steps" = "Steps";
+"Steps" = "POIs";
 "Phone" = "Phone";
 "Website" = "Go to the website";
 

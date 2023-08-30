@@ -3,32 +3,57 @@
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 08/05/2020.
-//  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
+//  Copyright © 2023 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
 
 struct MiniImage: View {
-  
-  let id: Int
-  
-  var body: some View {
-    Image(String(id))
-      .resizable()
-      .background(Color.white)
-      .frame(width: 70, height: 70, alignment: .center)
-      .clipShape(Circle())
-  }
+    
+    let poi: Poi
+    @State var image: Image?
+    
+    var body: some View {
+        if let image {
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 70, height: 70, alignment: .center)
+                .clipShape(Circle())
+        } else {
+            poi.image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50, alignment: .center)
+                .foregroundColor(.white)
+                .frame(width: 70, height: 70, alignment: .center)
+                .background(Color.random)
+                .clipShape(Circle())
+                .onAppear {
+                    Task {
+                        do {
+                            image = try await poi.loadImageFromURL()
+                        } catch {
+                            print(error)
+                        }
+                    }
+                    
+                }
+        }
+        
+    }
+    
 }
 
 // MARK: Previews
 struct MiniImage_Previews: PreviewProvider {
-  static var previews: some View {
-    Group {
-      MiniImage(id: 3)
-      MiniImage(id: 7)
+    static var previews: some View {
+        Group {
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            
+        }
+        .previewLayout(.fixed(width: 100, height: 100))
+        .environment(\.colorScheme, .light)
     }
-    .previewLayout(.fixed(width: 100, height: 100))
-    .environment(\.colorScheme, .light)
-  }
 }

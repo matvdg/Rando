@@ -15,6 +15,7 @@ struct HomeView: View {
     @Binding var isLocked: Bool
     @State var isLayerViewDisplayed: Bool = false
     @State var selectedPoi: Poi?
+    @State var poiFilter: LayerView.PoiFilter = .none
     @State var trails = TrailManager.shared.currentTrails
     
     private var isInfoPoiViewDisplayed: Bool { selectedPoi != nil }
@@ -23,7 +24,7 @@ struct HomeView: View {
         
         ZStack {
             
-            OldMapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails)
+            OldMapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails, poiFilter: $poiFilter)
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .trailing) {
@@ -43,7 +44,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isLayerViewDisplayed)
+                LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isLayerViewDisplayed, filter: $poiFilter)
                     .isHidden(!isLayerViewDisplayed)
                     .offset(y: 10)
             }

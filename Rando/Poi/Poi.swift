@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 import CoreLocation
 
 struct Poi: Decodable, Identifiable {
@@ -23,9 +24,9 @@ struct Poi: Decodable, Identifiable {
     var phone: String?
     var description: String?
     var url: String?
-    var photo: String?
+    var photoUrl: String?
     
-    init(lat: CLLocationDegrees, lng: CLLocationDegrees, alt: CLLocationDistance) {
+    init(lat: CLLocationDegrees = 0, lng: CLLocationDegrees = 0, alt: CLLocationDistance = 0) {
         self.name = "Pin"
         self.category = .step
         self.lat = lat
@@ -43,7 +44,7 @@ struct Poi: Decodable, Identifiable {
         case phone
         case description
         case url
-        case photo
+        case photoUrl
     }
     
     init(from decoder: Decoder) throws {
@@ -57,7 +58,7 @@ struct Poi: Decodable, Identifiable {
         phone = try? container.decode(String.self, forKey: .phone)
         description = try? container.decode(String.self, forKey: .description)
         url = try? container.decode(String.self, forKey: .url)
-        photo = try? container.decode(String.self, forKey: .photo)
+        photoUrl = try? container.decode(String.self, forKey: .photoUrl)
     }
     
     // Computed properties
@@ -74,6 +75,34 @@ struct Poi: Decodable, Identifiable {
         guard let url else { return nil }
         return URL(string: "http://\(url)")
     }
+    
+    var image: Image {
+        switch category {
+        case .camping: return Image(systemName: "tent")
+        case .parking: return Image(systemName: "car")
+        case .peak, .pass: return Image(systemName: "mountain.2")
+        case .pov: return Image(systemName: "eye")
+        case .waterfall, .lake, .dam, .bridge: return Image(systemName: "camera")
+        case .refuge: return Image(systemName: "house.lodge")
+        case .sheld: return Image(systemName: "house")
+        case .shop: return Image(systemName: "basket")
+        case .spring: return Image(systemName: "drop")
+        default: return Image(systemName: "mappin.circle")
+        }
+    }
+    
+    func loadImageFromURL() async throws -> Image? {
+        guard let photoUrl, let url = URL(string: photoUrl) else {
+            return nil
+        }
+        let response = try await URLSession.shared.data(from: url)
+        if let uiImage = UIImage(data: response.0) {
+            return Image(uiImage: uiImage)
+        } else {
+            return nil
+        }
+    }
+    
     var phoneNumber: URL? {
         guard let number = phone else { return nil }
         let cleaned = number.components(separatedBy: " ").joined()
@@ -83,6 +112,6 @@ struct Poi: Decodable, Identifiable {
     var hasPhoneNumber: Bool { phoneNumber != nil }
     
     enum Category: String, Decodable, CaseIterable {
-        case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, cabin, sheld
+        case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, sheld
     }
 }

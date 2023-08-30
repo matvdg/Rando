@@ -16,8 +16,8 @@ struct PoiRow: View {
     
     HStack(spacing: 20.0) {
       
-//      MiniImage(id: poi.id)
-//        .frame(width: 70.0, height: 70.0)
+      MiniImage(poi: poi)
+        .frame(width: 70.0, height: 70.0)
       
       VStack(alignment: .leading, spacing: 10) {
         Text(poi.name)
