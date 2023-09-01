@@ -22,10 +22,39 @@ struct InfoPoiView: View {
                     .frame(width: 70.0, height: 70.0)
                 
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Altitude")
-                            .foregroundColor(Color("grgray"))
-                        Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("altitude")
+                                .foregroundColor(Color("grgray"))
+                            Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
+                        }
+                        VStack(alignment: .leading, spacing: 4) {
+                            Button(action: {
+                                guard let url = poi?.phoneNumber else { return }
+                                UIApplication.shared.open(url)
+                                Feedback.selected()
+                            }) {
+                                HStack(spacing: 10) {
+                                    Image(systemName: "phone.fill")
+                                    Text("Phone")
+                                        .font(.headline)
+                                }
+                            }
+                            .isHidden(!(poi?.hasPhoneNumber ?? false), remove: true)
+                            
+                            Button(action: {
+                                guard let url = poi?.website else { return }
+                                UIApplication.shared.open(url)
+                                Feedback.selected()
+                            }) {
+                                HStack(spacing: 10) {
+                                    Image(systemName: "globe")
+                                    Text("Website")
+                                        .font(.headline)
+                                }
+                            }
+                            .isHidden(!(poi?.hasWebsite ?? false), remove: true)
+                        }
                     }
                     .font(.subheadline)
                     .frame(maxHeight: 100)
@@ -48,6 +77,16 @@ struct InfoPoiView: View {
                 Feedback.selected()
             }) {
                 DismissButton()
+            })
+            .navigationBarItems(leading: Button(action: {
+                if let poi {
+                    CollectionManager.shared.addPoiToCollection(poi: poi)
+                    Feedback.selected()
+                    NotificationManager.shared.sendNotification(title: poi.name, message: "collected".localized)
+                    self.poi = nil
+                }
+            }) {
+                Image(systemName: "star.fill").isHidden(poi?.isCollectable(userPosition: LocationManager.shared.currentPosition) ?? true, remove: true)
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())

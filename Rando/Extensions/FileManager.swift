@@ -11,6 +11,8 @@ import Foundation
 
 public extension FileManager {
     
+    static var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
+
     /// Calculate the allocated size of a directory and all its contents on the volume.
     ///
     /// As there's no simple way to get this information from the file system the method

@@ -20,11 +20,17 @@ struct MiniImage: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 70, height: 70, alignment: .center)
                 .clipShape(Circle())
+        } else if let image = poi.image {
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 70, height: 70, alignment: .center)
+                .clipShape(Circle())
         } else {
-            poi.image
+            poi.icon
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 50, height: 50, alignment: .center)
+                .frame(width: 30, height: 30, alignment: .center)
                 .foregroundColor(.white)
                 .frame(width: 70, height: 70, alignment: .center)
                 .background(Color.random)

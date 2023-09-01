@@ -112,7 +112,7 @@ struct TrailsView: View {
                                 .tint(.tintColorTabBar)
                         }
                     }
-                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8))
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
                     
                     EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, searchText: $searchText)
                         .isHidden(!isFiltered && searchText == "", remove: true)

@@ -27,25 +27,38 @@ enum Filter: String, CaseIterable {
 
 struct PoiView: View {
     
+    enum Sorting: String, CaseIterable, Equatable {
+        case altitude, name
+        var localized: String { self.rawValue }
+    }
+    
     @State var selectedFilter: Filter = .all
     @State private var searchText = ""
+    @State var sorting: Sorting = .altitude
 
     @Binding var selectedLayer: Layer
     
     var selectedPois: [Poi] {
-        var selectedPois: [Poi]
+        var filteredAndSortedPois: [Poi]
         switch selectedFilter {
-        case .all: selectedPois =  pois
-        case .refuge: selectedPois =  pois.filter { $0.category == .refuge }
-        case .peak: selectedPois =  pois.filter { $0.category == .peak }
-        case .sheld: selectedPois =  pois.filter { $0.category == .sheld }
-        default: selectedPois = pois.filter { $0.category == .waterfall }
+        case .all: filteredAndSortedPois =  pois
+        case .refuge: filteredAndSortedPois =  pois.filter { $0.category == .refuge }
+        case .peak: filteredAndSortedPois =  pois.filter { $0.category == .peak }
+        case .sheld: filteredAndSortedPois =  pois.filter { $0.category == .sheld }
+        default: filteredAndSortedPois = pois.filter { $0.category == .waterfall }
         }
         // Filter by search
         if !searchText.isEmpty {
-            selectedPois = selectedPois.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            filteredAndSortedPois = filteredAndSortedPois.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
-        return selectedPois.sorted { $0.alt ?? 0 > $1.alt ?? 0 }
+        
+        return filteredAndSortedPois.sorted {
+            switch sorting {
+            case .altitude: return $0.alt ?? 0 > $1.alt ?? 0
+            case .name: return $0.name < $1.name
+            }
+        }
+            
     }
     
     var body: some View {
@@ -53,7 +66,13 @@ struct PoiView: View {
         NavigationView {
             
             VStack(alignment: .leading, spacing: 0) {
-                
+                Picker(selection: $sorting, label: Text("")) {
+                    ForEach(Sorting.allCases, id: \.self) { sort in
+                        Text(LocalizedStringKey(sort.rawValue))
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 List {
                     ForEach(selectedPois) { poi in
                         NavigationLink(destination: PoiDetailView(selectedLayer: $selectedLayer, poi: poi)) {

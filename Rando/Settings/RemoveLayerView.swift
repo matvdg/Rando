@@ -12,7 +12,7 @@ struct RemoveLayerView: View {
     
     @State private var showAlert = false
     @State var selectedLayer: Layer = .ign
-    @State var hasComputedSizes: Bool = false
+    @State var sizes = [Layer:(String, Double)]()
     
     var body: some View {
         List {
@@ -25,17 +25,22 @@ struct RemoveLayerView: View {
                         Image(systemName: "trash").tint(.red)
                         Text(LocalizedStringKey(layer.rawValue))
                         Spacer()
-                        if hasComputedSizes {
-                            Text(layer.downloadedSize.toBytesString).foregroundColor(.gray)
+                        if let size = sizes[layer] {
+                            Text(size.0).foregroundColor(.gray)
                         } else {
                             ProgressView(value: 0)
                                 .progressViewStyle(CircularProgressViewStyle())
                         }
                     }
                 }
-                .disabled(layer.downloadedSize == 0)
+                .disabled(sizes[layer] == nil || sizes[layer]?.1 == 0)
                 .onAppear {
-                    
+                    DispatchQueue.global(qos: .background).async {
+                        Layer.onlyOverlaysLayers.forEach {
+                            let size = TileManager.shared.getDownloadedSize(layer: $0)
+                            sizes[$0] = (size.toBytesString, size)
+                        }
+                    }
                 }
             }
         }

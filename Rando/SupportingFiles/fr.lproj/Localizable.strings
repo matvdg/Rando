@@ -30,7 +30,7 @@
 "Map" = "Carte";
 
 // MapView
-"Altitude" = "Altitude";
+"altitude" = "Altitude";
 "ign" = "IGN v2";
 "ign25" = "IGN  1:25 000";
 "openStreetMap" = "Open Street Map";
@@ -57,6 +57,8 @@
 "Steps" = "Points d'intérêts";
 "Phone" = "Téléphoner";
 "Website" = "Visiter le site internet";
+"emptyCollection" = "Votre collection est encore vide. Randonnez et n'oublier de collecter les points d'intérêts sur la carte pour agrandir votre collection !";
+"collected" = "a été ajouté à votre collection, bravo !";
 
 // TrailView
 "Trail" = "Randonnée";

@@ -15,7 +15,7 @@ struct HomeView: View {
     @Binding var isLocked: Bool
     @State var isLayerViewDisplayed: Bool = false
     @State var selectedPoi: Poi?
-    @State var poiFilter: LayerView.PoiFilter = .none
+    @State var poiFilter: LayerView.PoiFilter = .all
     @State var trails = TrailManager.shared.currentTrails
     
     private var isInfoPoiViewDisplayed: Bool { selectedPoi != nil }

@@ -20,11 +20,17 @@ struct CircleImage: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 200, height: 200, alignment: .center)
                 .clipShape(Circle())
+        } else if let image = poi.image {
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 200, height: 200, alignment: .center)
+                .clipShape(Circle())
         } else {
-            poi.image
+            poi.icon
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 170, height: 170, alignment: .center)
+                .frame(width: 100, height: 100, alignment: .center)
                 .foregroundColor(.white)
                 .frame(width: 200, height: 200, alignment: .center)
                 .background(Color.random)

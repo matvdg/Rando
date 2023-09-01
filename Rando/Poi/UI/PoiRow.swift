@@ -31,10 +31,12 @@ struct PoiRow: View {
             Text(poi.altitudeInMeters).fontWeight(.bold)
           }
         }
+        .isHidden(poi.altitudeInMeters == "_", remove: true)
         .font(.subheadline)
         .minimumScaleFactor(0.5)
         .lineLimit(1)
         .foregroundColor(.lightgrayInverted)
+        
 
       }
       

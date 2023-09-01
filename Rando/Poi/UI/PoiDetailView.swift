@@ -36,7 +36,7 @@ struct PoiDetailView: View {
                         .fontWeight(.heavy)
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Altitude")
+                        Text("altitude")
                             .foregroundColor(Color("grgray"))
                         Text(poi.altitudeInMeters).fontWeight(.bold)
                     }

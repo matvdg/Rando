@@ -67,12 +67,11 @@ class TileManager: ObservableObject {
     
     init() {
         semaphore = AsyncSemaphore(value: 5)
-        print("􀈝 DocumentsDirectory = \(documentsDirectory)")
+        print("􀈝 DocumentsDirectory = \(FileManager.documentsDirectory)")
         createDirectoriesIfNecessary()
     }
     
     // MARK: -  Private properties
-    private var documentsDirectory: URL { fileManager.urls(for: .documentDirectory, in: .userDomainMask).first! }
     private let tileSize: Double = 30000 // Bytes (average size of a tile)
     private var sizeLeftInBytes: Double = 0
     private let fileManager = FileManager.default
@@ -157,14 +156,14 @@ class TileManager: ObservableObject {
     /// - Parameters:
     ///   - layer: selectedLayer we want to remove
     func remove(layer: Layer) {
-        try? FileManager.default.removeItem(at: documentsDirectory.appendingPathComponent(layer.rawValue))
+        try? FileManager.default.removeItem(at: FileManager.documentsDirectory.appendingPathComponent(layer.rawValue))
         createDirectoriesIfNecessary()
     }
     
     /// Get downloaded size for all tiles of the specified layer
     /// - Parameters:
     ///   - layer: selectedLayer
-    func getDownloadedSize(layer: Layer) -> Double { documentsDirectory.appendingPathComponent(layer.rawValue).allocatedSizeOfDirectory }
+    func getDownloadedSize(layer: Layer) -> Double { FileManager.documentsDirectory.appendingPathComponent(layer.rawValue).allocatedSizeOfDirectory }
     
     /// Get the tile URL for the specified layer and path (streaming tile in live, persist it if necessary)
     /// - Parameters:
@@ -174,7 +173,7 @@ class TileManager: ObservableObject {
     func getTileOverlay(for path: MKTileOverlayPath, layer: Layer) -> URL {
         let file = "z\(path.z)x\(path.x)y\(path.y).png"
         // Check is tile is already available
-        let tilesUrl = documentsDirectory.appendingPathComponent("\(layer.rawValue)").appendingPathComponent(file)
+        let tilesUrl = FileManager.documentsDirectory.appendingPathComponent("\(layer.rawValue)").appendingPathComponent(file)
         if fileManager.fileExists(atPath: tilesUrl.path) {
             return tilesUrl
         } else {
@@ -200,7 +199,7 @@ class TileManager: ObservableObject {
         let url = overlay.url(forTilePath: path)
         Task(priority: .background) { // Persist layer (async)...
             let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
-            let filename = documentsDirectory.appendingPathComponent(file)
+            let filename = FileManager.documentsDirectory.appendingPathComponent(file)
             if !fileManager.fileExists(atPath:  filename.path)  { // Recheck if file is absent to avoid conflict with the async persistLocally method in case of parallel download of the maps while the map tiles are still streaming (e.g. user loads a TrailDetailView, but immediately clicks on download while the tilesl of the preview map are still loading
                 do {
                     let response = try await URLSession.shared.data(from: url)
@@ -218,7 +217,7 @@ class TileManager: ObservableObject {
     
     private func createDirectoriesIfNecessary() {
         Layer.onlyOverlaysLayers.forEach { layer in
-            let tiles = documentsDirectory.appendingPathComponent(layer.rawValue)
+            let tiles = FileManager.documentsDirectory.appendingPathComponent(layer.rawValue)
             try? fileManager.createDirectory(at: tiles, withIntermediateDirectories: true, attributes: [:])
         }
     }
@@ -247,7 +246,7 @@ class TileManager: ObservableObject {
         if !filtered { return paths}
         currentFilteredPaths = paths.filter {
             let file = "z\($0.z)x\($0.x)y\($0.y).png"
-            let tilesPath = documentsDirectory.appendingPathComponent("\(layer.rawValue)").appendingPathComponent(file).path
+            let tilesPath = FileManager.documentsDirectory.appendingPathComponent("\(layer.rawValue)").appendingPathComponent(file).path
             return !fileManager.fileExists(atPath: tilesPath)
         }
         return currentFilteredPaths
@@ -258,7 +257,7 @@ class TileManager: ObservableObject {
         var accumulatedSize: UInt64 = 0
         for path in computeAndFilterTileOverlayPaths(for: boundingBox, layer: layer, filtered: false) {
             let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
-            let url = documentsDirectory.appendingPathComponent(file)
+            let url = FileManager.documentsDirectory.appendingPathComponent(file)
             accumulatedSize += (try? url.regularFileAllocatedSize()) ?? 0
         }
         return Double(accumulatedSize)
@@ -305,7 +304,7 @@ class TileManager: ObservableObject {
         }
         let url = overlay.url(forTilePath: path)
         let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
-        let filename = documentsDirectory.appendingPathComponent(file)
+        let filename = FileManager.documentsDirectory.appendingPathComponent(file)
         let response = try await URLSession.shared.data(from: url)
         try response.0.write(to: filename)
     }

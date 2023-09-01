@@ -15555,8 +15555,8 @@
     "alt": 2165,
     "description": "Le Pic de la Hage est un sommet montagneux d' Espagne , à la frontière avec la France. Il est situé dans la province de Província de Lleida et la région de Catalogne. Le pic du Pic de la Hage culmine à 2165 mètres d'altitude.",
     "photoUrl": "https://github.com/matvdg/Rando/blob/master/photos/hage.heic?raw=true",
-    "lat": 42.85767866859492,
-    "lng": 0.6773532832535537
+    "lat": 42.855272,
+    "lng": 0.678159
   },
   {
     "name": "Pic du Burat",
@@ -15564,8 +15564,8 @@
     "alt": 2154,
     "description": "Le pic du Burat est situé dans le massif des Pyrénées, dans le Luchonnais. Son altitude est de 2 154 mètres. Les neiges y sont abondantes en hiver et elles restent presque toute l'année.",
     "photoUrl": "https://github.com/matvdg/Rando/blob/master/photos/burat.heic?raw=true",
-    "lat": 42.86073195163208,
-    "lng": 0.6710897594203525
+    "lat": 42.85935,
+    "lng": 0.670702
   },
   {
     "name": "Pic de Bacanère",
@@ -15573,16 +15573,16 @@
     "alt": 2193,
     "description": "Le Pic de Bacanère 2193 m situé d'une part sur la commune Gouaux-de-Luchon, Haute-Garonne, France et le val d'Aran en Espagne.",
     "photoUrl": "https://github.com/matvdg/Rando/blob/master/photos/bacanere.heic?raw=true",
-    "lat": 42.85580655169727,
-    "lng": 0.6839784959063875
+    "lat": 42.846122,
+    "lng": 0.675203
   },
   {
     "name": "Pic de Sacaube",
     "category": "peak",
-    "alt": 1770,
+    "alt": 1777,
     "photoUrl": "https://github.com/matvdg/Rando/blob/master/photos/sacaube.heic?raw=true",
-    "lat": 42.85276073027935,
-    "lng": 0.7166659672712076
+    "lat": 42.860441,
+    "lng": 0.706021
   },
   {
     "name": "Pic de Crabère",

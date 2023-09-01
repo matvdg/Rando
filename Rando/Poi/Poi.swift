@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 import CoreLocation
 
-struct Poi: Decodable, Identifiable {
+struct Poi: Codable, Identifiable, Equatable, Hashable {
     
     var id: UUID
     
@@ -75,8 +75,31 @@ struct Poi: Decodable, Identifiable {
         guard let url else { return nil }
         return URL(string: "http://\(url)")
     }
+        
+    var image: Image? {
+        if let photoUrl, let url = URL(string: photoUrl) {
+            let fileUrl = FileManager.documentsDirectory.appendingPathComponent("pictures").appendingPathComponent(url.lastPathComponent)
+            if FileManager.default.fileExists(atPath: fileUrl.path) {
+                do {
+                    let data = try Data(contentsOf: fileUrl)
+                    if let uiImage = UIImage(data: data) {
+                        return Image(uiImage: uiImage)
+                    } else {
+                        return nil
+                    }
+                } catch {
+                    print(error)
+                    return nil
+                }
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
     
-    var image: Image {
+    var icon: Image {
         switch category {
         case .camping: return Image(systemName: "tent")
         case .parking: return Image(systemName: "car")
@@ -87,7 +110,7 @@ struct Poi: Decodable, Identifiable {
         case .sheld: return Image(systemName: "house")
         case .shop: return Image(systemName: "basket")
         case .spring: return Image(systemName: "drop")
-        default: return Image(systemName: "mappin.circle")
+        default: return Image(systemName: "mappin")
         }
     }
     
@@ -95,8 +118,16 @@ struct Poi: Decodable, Identifiable {
         guard let photoUrl, let url = URL(string: photoUrl) else {
             return nil
         }
+        let fileUrl = FileManager.documentsDirectory.appendingPathComponent("pictures").appendingPathComponent(url.lastPathComponent)
+        guard !FileManager.default.fileExists(atPath: fileUrl.path) else {
+            return nil
+        } // Prevent redownloading already downloaded picture
         let response = try await URLSession.shared.data(from: url)
         if let uiImage = UIImage(data: response.0) {
+            try? FileManager.default.createDirectory(at: FileManager.documentsDirectory.appendingPathComponent("pictures"), withIntermediateDirectories: true, attributes: [:])
+            let file = "pictures/\(url.lastPathComponent)"
+            let filename = FileManager.documentsDirectory.appendingPathComponent(file)
+            try response.0.write(to: filename)
             return Image(uiImage: uiImage)
         } else {
             return nil
@@ -111,7 +142,21 @@ struct Poi: Decodable, Identifiable {
     var hasWebsite: Bool { url != nil }
     var hasPhoneNumber: Bool { phoneNumber != nil }
     
-    enum Category: String, Decodable, CaseIterable {
+    enum Category: String, Codable, CaseIterable {
         case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, sheld
+    }
+    
+    func isCollectable(userPosition: CLLocation) -> Bool {
+        let isAlreadyCollected = CollectionManager.shared.collection.contains {
+            $0.poi.name == self.name
+        }
+        guard !isAlreadyCollected else {
+            return true
+        }
+        if self.coordinate.clLocation.distance(from: userPosition) < 1000 {
+            return false
+        } else {
+            return true
+        }
     }
 }

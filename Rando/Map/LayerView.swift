@@ -19,7 +19,6 @@ enum Layer: String, CaseIterable, Equatable, Identifiable {
     
     var id: Self { self }
     
-    var downloadedSize: Double { TileManager.shared.getDownloadedSize(layer: self) }
 }
 
 struct LayerView: View {

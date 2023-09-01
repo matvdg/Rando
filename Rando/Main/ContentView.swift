@@ -35,11 +35,16 @@ struct ContentView: View {
                         Label("Steps", systemImage: "mappin.and.ellipse")
                     }
                     .tag(2)
+                CollectionView(selectedLayer: $selectedLayer)
+                    .tabItem {
+                        Label("Collection", systemImage: "star")
+                    }
+                    .tag(3)
                 SettingsView(selection: $selection)
                     .tabItem {
                         Label("Settings", systemImage: "gearshape")
                     }
-                    .tag(3)
+                    .tag(4)
             }
         }
         .accentColor(Color.tintColorTabBar)

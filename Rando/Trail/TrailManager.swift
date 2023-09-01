@@ -18,9 +18,7 @@ let mockLoc2 = Location(latitude: 42.835181, longitude: 0.862005, altitude: 2000
 class TrailManager: ObservableObject {
     
     static let shared = TrailManager()
-    
-    private var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
-    
+        
     @Published var trails: ObservableArray<Trail> = try! ObservableArray(array: []).observeChildrenChanges(Trail.self)
     
     var currentTrails: [Trail] {
@@ -115,7 +113,7 @@ class TrailManager: ObservableObject {
     
     func remove(id: UUID) {
         let file = "trails/\(id).json"
-        let filename = documentsDirectory.appendingPathComponent(file)
+        let filename = FileManager.documentsDirectory.appendingPathComponent(file)
         do {
             try FileManager.default.removeItem(at: filename)
             trails.array.removeAll { $0.id == id }
@@ -127,7 +125,7 @@ class TrailManager: ObservableObject {
     
     func getTrails() {
         loadDemoTrails()
-        let urls = try? FileManager.default.contentsOfDirectory(at: documentsDirectory.appendingPathComponent("trails"), includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+        let urls = try? FileManager.default.contentsOfDirectory(at: FileManager.documentsDirectory.appendingPathComponent("trails"), includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
         let trails = urls?.compactMap { url -> Trail? in
             do {
                 let data = try Data(contentsOf: url)
@@ -163,11 +161,11 @@ class TrailManager: ObservableObject {
     // MARK: - Private methods
     private func loadDemoTrails() {
         guard !UserDefaults.hasBeenLaunched else { return }
-        try? FileManager.default.createDirectory(at: documentsDirectory.appendingPathComponent("trails"), withIntermediateDirectories: true, attributes: [:])
+        try? FileManager.default.createDirectory(at: FileManager.documentsDirectory.appendingPathComponent("trails"), withIntermediateDirectories: true, attributes: [:])
         Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: nil)?.forEach { url in
             guard url.lastPathComponent != "pois.json" else { return }
             do {
-                try FileManager.default.copyItem(at: url, to: documentsDirectory.appendingPathComponent("trails/\(url.lastPathComponent)"))
+                try FileManager.default.copyItem(at: url, to: FileManager.documentsDirectory.appendingPathComponent("trails/\(url.lastPathComponent)"))
             } catch {
                 print(error)
             }
@@ -176,7 +174,7 @@ class TrailManager: ObservableObject {
     
     private func persist(gpx: Gpx) {
         let file = "trails/\(gpx.id).json"
-        let filename = documentsDirectory.appendingPathComponent(file)
+        let filename = FileManager.documentsDirectory.appendingPathComponent(file)
         do {
             let data = try JSONEncoder().encode(gpx)
             try data.write(to: filename)
