@@ -12,7 +12,7 @@ import MapKit
 let pois = PoiManager.shared.pois
 
 enum Filter: String, CaseIterable {
-    case all, refuge, peak, waterfall, sheld
+    case all, refuge, peak, waterfall, shelter
     var localized: String { rawValue }
     var icon: Image {
         switch self {
@@ -20,7 +20,7 @@ enum Filter: String, CaseIterable {
         case .refuge: return Image(systemName: "house.lodge.fill")
         case .peak: return Image(systemName: "mountain.2")
         case .waterfall: return Image(systemName: "camera")
-        case .sheld: return Image(systemName: "house")
+        case .shelter: return Image(systemName: "house")
         }
     }
 }
@@ -44,7 +44,7 @@ struct PoiView: View {
         case .all: filteredAndSortedPois =  pois
         case .refuge: filteredAndSortedPois =  pois.filter { $0.category == .refuge }
         case .peak: filteredAndSortedPois =  pois.filter { $0.category == .peak }
-        case .sheld: filteredAndSortedPois =  pois.filter { $0.category == .sheld }
+        case .shelter: filteredAndSortedPois =  pois.filter { $0.category == .shelter }
         default: filteredAndSortedPois = pois.filter { $0.category == .waterfall }
         }
         // Filter by search

@@ -27,7 +27,7 @@ struct CollectionView: View {
         case .all: break
         case .refuge: collection = collection.filter { $0.poi.category == .refuge }
         case .peak: collection = collection.filter { $0.poi.category == .peak }
-        case .sheld: collection = collection.filter { $0.poi.category == .sheld }
+        case .shelter: collection = collection.filter { $0.poi.category == .shelter }
         default: collection = collection.filter{ $0.poi.category == .waterfall }
         }
         // Sort

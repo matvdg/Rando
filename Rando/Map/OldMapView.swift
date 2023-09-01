@@ -98,7 +98,7 @@ struct OldMapView: UIViewRepresentable {
                 case .peak: return $0.poi.category == .peak
                 case .refuge: return $0.poi.category == .refuge
                 case .waterfall: return $0.poi.category == .waterfall
-                case .sheld: return $0.poi.category == .sheld
+                case .shelter: return $0.poi.category == .shelter
                 case .all: return true
                 case .none: return false
                 }

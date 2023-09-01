@@ -107,7 +107,7 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
         case .pov: return Image(systemName: "eye")
         case .waterfall, .lake, .dam, .bridge: return Image(systemName: "camera")
         case .refuge: return Image(systemName: "house.lodge")
-        case .sheld: return Image(systemName: "house")
+        case .shelter: return Image(systemName: "house")
         case .shop: return Image(systemName: "basket")
         case .spring: return Image(systemName: "drop")
         default: return Image(systemName: "mappin")
@@ -143,7 +143,7 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
     var hasPhoneNumber: Bool { phoneNumber != nil }
     
     enum Category: String, Codable, CaseIterable {
-        case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, sheld
+        case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, shelter
     }
     
     func isCollectable(userPosition: CLLocation) -> Bool {
