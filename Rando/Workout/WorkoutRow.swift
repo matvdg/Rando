@@ -22,7 +22,7 @@ struct WorkoutRow: View {
     var workout: HKWorkout
     private let workoutManager = WorkoutManager.shared
     private var name: String {
-        WorkoutActivity.activity(from: workout.workoutActivityType).localized + " · " + workout.startDate.toString
+        WorkoutActivity.activity(from: workout.workoutActivityType).localized + " · " + workout.startDate.toStringAbsolute
     }
     private var description: String {
         let formatter = DateFormatter()

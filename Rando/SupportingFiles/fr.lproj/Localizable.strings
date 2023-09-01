@@ -57,7 +57,7 @@
 "Steps" = "Points d'intérêts";
 "Phone" = "Téléphoner";
 "Website" = "Visiter le site internet";
-"emptyCollection" = "Votre collection est encore vide. Randonnez et n'oublier de collecter les points d'intérêts sur la carte pour agrandir votre collection !";
+"emptyCollection" = "Votre collection est encore vide. Randonnez et n'oubliez pas de collecter les points d'intérêt sur la carte pour agrandir votre collection !";
 "collected" = "a été ajouté à votre collection, bravo !";
 
 // TrailView
