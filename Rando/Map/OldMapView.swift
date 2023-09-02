@@ -24,9 +24,10 @@ struct OldMapView: UIViewRepresentable {
     @Binding var clockwise: Bool
     @Binding var trails: [Trail]
     @Binding var filter: LayerView.PoiFilter
+    var userPositionLocation: Location?
     
     // MARK: Constructors
-    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, poiFilter: Binding<LayerView.PoiFilter>) {
+    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, poiFilter: Binding<LayerView.PoiFilter>, userPositionLocation: Location? = nil) {
         self._trails = trails
         self._selectedTracking = selectedTracking
         self._selectedLayer = selectedLayer
@@ -34,6 +35,7 @@ struct OldMapView: UIViewRepresentable {
         self.isDetailMap = isDetailMap
         self._clockwise = clockwise
         self._filter = poiFilter
+        self.userPositionLocation = userPositionLocation
     }
     
     /// Convenience init for  TrailDetail map
@@ -59,6 +61,20 @@ struct OldMapView: UIViewRepresentable {
             clockwise: Binding<Bool>.constant(false),
             trails: Binding<[Trail]>.constant([poi.pseudoTrail]),
             poiFilter: Binding<LayerView.PoiFilter>.constant(.all)
+        )
+    }
+    
+    /// Convenience init for  UserPosition  map
+    init(poi: Poi, selectedLayer: Binding<Layer>, userPosition: Location) {
+        self.init(
+            selectedTracking: Binding<Tracking>.constant(.bounding),
+            selectedLayer: selectedLayer,
+            selectedPoi: Binding<Poi?>.constant(nil),
+            isDetailMap: true,
+            clockwise: Binding<Bool>.constant(false),
+            trails: Binding<[Trail]>.constant([poi.pseudoTrail]),
+            poiFilter: Binding<LayerView.PoiFilter>.constant(.none),
+            userPositionLocation: userPosition
         )
     }
     
@@ -349,13 +365,19 @@ struct OldMapView: UIViewRepresentable {
     }
     
     private func setAnnotations(mapView: MKMapView) {
-        let previousAnnotations = mapView.annotations
-        if previousAnnotations.count != annotations.count + 1 {
-            mapView.removeAnnotations(previousAnnotations)
-            mapView.addAnnotations(annotations)
+        if let userPositionLocation {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = userPositionLocation.clLocation.coordinate
+            mapView.addAnnotation(annotation)
         } else {
-            guard selectedPoi == nil else { return }
-            mapView.deselectAnnotation(selectedAnnotation, animated: true)
+            let previousAnnotations = mapView.annotations
+            if previousAnnotations.count != annotations.count + 1 {
+                mapView.removeAnnotations(previousAnnotations)
+                mapView.addAnnotations(annotations)
+            } else {
+                guard selectedPoi == nil else { return }
+                mapView.deselectAnnotation(selectedAnnotation, animated: true)
+            }
         }
     }
     

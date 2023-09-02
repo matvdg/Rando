@@ -128,6 +128,7 @@
 
 // Settings
 "ShareApp" = "Partager l'app";
+"ShareMyPosition" = "Partager ma position";
 "About" = "À propos";
 "AboutMe" = "Salut ! Moi c'est Mathieu. Je suis développeur iPhone mais surtout passioné des Pyrénées et de la randonnée. Avec ma compagne Anna, nous avons même emmenagé au coeur des Pyrénées, en Haute-Garonne, en plein milieu du GR10, pour rénover une maison et la transformer en chambres et table d'hôtes : la Maison d'Arlos ! Cette app est donc le fruit de mes deux passions, d'autres existent mais elle a le mérite d'être simple, gratuite et sans publicité. Elle est conçue pour pouvoir explorer les Pyrénées et le GR10 mais elle fonctionne très bien partout dans le monde avec notamment les cartes OpenTopo. N'hésitez pas à me contacter pour me faire part de vos remarques ou envies d'améliorations !";
 "ContactMe" = "Me contacter";

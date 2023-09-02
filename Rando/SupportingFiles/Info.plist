@@ -7,10 +7,10 @@
 		<dict>
 			<key>CFBundleTypeName</key>
 			<string>GPS Exchange Format (GPX)</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.topografix.gpx</string>
@@ -18,6 +18,19 @@
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.data</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>rando</string>
 			</array>
 		</dict>
 	</array>
@@ -100,7 +113,5 @@
 			</dict>
 		</dict>
 	</array>
-	<key>UISupportsDocumentBrowser</key>
-	<true/>
 </dict>
 </plist>

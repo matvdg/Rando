@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 import StoreKit
 import MessageUI
 
@@ -20,6 +21,7 @@ struct SettingsView: View {
     @State private var showMailView = false
     @State private var averageSpeed: Double = UserDefaults.averageSpeed
     @Binding var selection: Int
+    @State private var showShareSheet = false
     
     var body: some View {
         
@@ -39,6 +41,13 @@ struct SettingsView: View {
                 ShareLink("ShareApp", item: URL(string: "https://apps.apple.com/fr/app/rando-pyr%C3%A9n%C3%A9es/id1523741976")!).foregroundColor(.primary)
                 
                 List {
+                    
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Label("ShareMyPosition", systemImage: "mappin")
+                    }
+                    
                     
                     NavigationLink {
                         RemoveLayerView()
@@ -145,6 +154,9 @@ struct SettingsView: View {
         .sheet(isPresented: $showMailView, content: {
             MailView()
         })
+        .sheet(isPresented: $showShareSheet, content: {
+            ActivityView()
+        })
         
     }
     
@@ -162,4 +174,15 @@ struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(selection: $selection)
     }
+}
+
+struct ActivityView: UIViewControllerRepresentable {
+    
+    private let text: String = "Voici ma position sur l'app Rando ! rando://position?lat=\(LocationManager.shared.currentPosition.coordinate.latitude)&lng=\(LocationManager.shared.currentPosition.coordinate.longitude)"
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityView>) -> UIActivityViewController {
+        return UIActivityViewController(activityItems: [text], applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityView>) {}
 }

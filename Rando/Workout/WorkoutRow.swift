@@ -136,7 +136,7 @@ struct WorkoutRow: View {
         .frame(height: 80.0)
         .sheet(isPresented: $showMap) {
             NavigationView {
-                MapView(coordinates: $locations)
+                WorkoutMapView(coordinates: $locations)
                     .navigationBarTitle(name, displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                         trailsToImport.insert(Trail(gpx: Gpx(name: name, description: description, locations: locations, date: Date())), at: 0)

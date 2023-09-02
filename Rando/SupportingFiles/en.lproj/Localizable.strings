@@ -128,6 +128,7 @@
 
 // Settings
 "ShareApp" = "Share the app";
+"ShareMyPosition" = "Share my position";
 "About" = "About";
 "AboutMe" = "Hello ! I'm Mat. I am a Swift developer but above all passionate about the Pyrenees and hiking. With my partner Anna, we even moved to the heart of the Pyrenees, in Haute-Garonne, right in the middle of the GR10, to renovate a house and transform it into a B&B: the Maison d'Arlos! This app is therefore the fruit of my two passions, others exist but it has the merit of being simple, free and without advertising. It is designed to be able to explore the Pyrenees and the GR10 but it works very well everywhere in the world with OpenTopo maps in particular. I plan to add features and improve it over time. Do not hesitate to contact me to let me know your comments or desires for improvement!";
 "ContactMe" = "Contact me";

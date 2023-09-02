@@ -9,10 +9,7 @@
 import SwiftUI
 import MapKit
 
-import SwiftUI
-import MapKit
-
-struct MapView: UIViewRepresentable {
+struct WorkoutMapView: UIViewRepresentable {
     
     @Binding var coordinates: [Location]
     

@@ -40,9 +40,10 @@
 		F60D12BA2A28AB8200437AA1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B92A28AB8200437AA1 /* Date.swift */; };
 		F618724824E7F4DC00F98918 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724724E7F4DC00F98918 /* Device.swift */; };
 		F618724A24E7F6F500F98918 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618724924E7F6F500F98918 /* NetworkManager.swift */; };
-		F61E421E29D4203A008D4275 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E421D29D4203A008D4275 /* MapView.swift */; };
+		F61E421E29D4203A008D4275 /* WorkoutMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E421D29D4203A008D4275 /* WorkoutMapView.swift */; };
 		F62779BC2A218FBA00185386 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62779BB2A218FBA00185386 /* FilterButton.swift */; };
 		F6281E132AA16F1600D454BE /* CollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6281E122AA16F1600D454BE /* CollectionManager.swift */; };
+		F6281E152AA2AA5300D454BE /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6281E142AA2AA5300D454BE /* UserView.swift */; };
 		F629CBFC2A4B8EE7003BFDAD /* IconButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F629CBFB2A4B8EE7003BFDAD /* IconButtons.swift */; };
 		F633290B2AA155A3008373A6 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F633290A2AA155A3008373A6 /* Collection.swift */; };
 		F633290D2AA156FC008373A6 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F633290C2AA156FC008373A6 /* CollectionView.swift */; };
@@ -152,9 +153,10 @@
 		F618724724E7F4DC00F98918 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		F618724924E7F6F500F98918 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F618724C24E7FB1900F98918 /* RandoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandoRelease.entitlements; sourceTree = "<group>"; };
-		F61E421D29D4203A008D4275 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F61E421D29D4203A008D4275 /* WorkoutMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapView.swift; sourceTree = "<group>"; };
 		F62779BB2A218FBA00185386 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		F6281E122AA16F1600D454BE /* CollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionManager.swift; sourceTree = "<group>"; };
+		F6281E142AA2AA5300D454BE /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		F629CBFB2A4B8EE7003BFDAD /* IconButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtons.swift; sourceTree = "<group>"; };
 		F633290A2AA155A3008373A6 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		F633290C2AA156FC008373A6 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -366,7 +368,6 @@
 				D0531A75246820BA0020FFE0 /* MapControlView.swift */,
 				D0B7CDB72469184F00464C79 /* LayerView.swift */,
 				D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */,
-				F61E421D29D4203A008D4275 /* MapView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -382,6 +383,7 @@
 		F60E96912A2BFBF900CE8C81 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
+				F61E421D29D4203A008D4275 /* WorkoutMapView.swift */,
 				F60D12B32A28906100437AA1 /* WorkoutManager.swift */,
 				F60D12B72A28A7A700437AA1 /* WorkoutRow.swift */,
 				F60D12B52A28A12300437AA1 /* WorkoutView.swift */,
@@ -476,6 +478,7 @@
 				F6A3DEFA2A37DE7900C69B55 /* SettingsView.swift */,
 				F6B6C4A32A2371EA00B360E1 /* RemoveLayerView.swift */,
 				F6E7FCB72A3DE5D900097C93 /* MailView.swift */,
+				F6281E142AA2AA5300D454BE /* UserView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -655,7 +658,7 @@
 				F6A3DEF82A37C23A00C69B55 /* Trail.swift in Sources */,
 				F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */,
 				F65DCC142A24E1B400A24E10 /* UIApplication.swift in Sources */,
-				F61E421E29D4203A008D4275 /* MapView.swift in Sources */,
+				F61E421E29D4203A008D4275 /* WorkoutMapView.swift in Sources */,
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
@@ -694,6 +697,7 @@
 				D0531A76246820BA0020FFE0 /* MapControlView.swift in Sources */,
 				F6E2C0D42A3A5F64001FD8F1 /* TrailView.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,
+				F6281E152AA2AA5300D454BE /* UserView.swift in Sources */,
 				F633290B2AA155A3008373A6 /* Collection.swift in Sources */,
 				F6281E132AA16F1600D454BE /* CollectionManager.swift in Sources */,
 				F68AF33E2A558FF300B3A629 /* TrailMapView.swift in Sources */,
@@ -901,6 +905,7 @@
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -943,6 +948,7 @@
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

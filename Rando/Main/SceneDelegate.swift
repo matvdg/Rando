@@ -38,7 +38,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let url = URLContexts.first?.url else { return }
-        self.loadGpx(url: url, scene: scene)
+        if let scheme = url.scheme, scheme.contains("rando") { // rando://xxx scheme
+            self.loadUserPosition(url: url, scene: scene)
+        } else {
+            self.loadGpx(url: url, scene: scene)
+        }
+    }
+    
+    private func loadUserPosition(url: URL, scene: UIScene) {
+        if let windowScene = scene as? UIWindowScene, let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true), let lat = Double(urlComponents.queryItems?.first?.value ?? ""), let lng = Double(urlComponents.queryItems?.last?.value ?? "") {
+            let window = UIWindow(windowScene: windowScene)
+            let location = Location(latitude: lat, longitude: lng, altitude: nil)
+            let contentView = UserView(location: location)
+            window.rootViewController = UIHostingController(rootView: contentView)
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
     
     private func loadGpx(url: URL, scene: UIScene) {
