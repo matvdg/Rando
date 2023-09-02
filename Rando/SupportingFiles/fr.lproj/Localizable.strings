@@ -46,8 +46,10 @@
 // PoiView
 "none" = "Aucun";
 "all" = "Tous";
+"other" = "Autre";
 "refuge" = "Refuge";
 "shelter" = "Abri";
+"shop" = "Boutique";
 "spring" = "Source";
 "waterfall" = "Cascade";
 "bridge" = "Pont";
@@ -57,7 +59,7 @@
 "Steps" = "Points d'intérêts";
 "Phone" = "Téléphoner";
 "Website" = "Visiter le site internet";
-"emptyCollection" = "Votre collection est encore vide. Randonnez et n'oubliez pas de collecter les points d'intérêt sur la carte pour agrandir votre collection !";
+"emptyCollection" = "Votre collection est encore vide. Randonnez et n'oubliez pas de collectionner les points d'intérêt sur la carte pour agrandir votre collection ! Pour cela, approchez vous du point d'intérêt, cliquez dessus sur la carte, et appuyez sur ✩";
 "collected" = "a été ajouté à votre collection, bravo !";
 
 // TrailView

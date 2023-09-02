@@ -146,11 +146,14 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
         case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, shelter
     }
     
-    func isCollectable(userPosition: CLLocation) -> Bool {
+    func isAlreadyCollected(userPosition: CLLocation) -> Bool {
         let isAlreadyCollected = CollectionManager.shared.collection.contains {
             $0.poi.name == self.name
         }
         guard !isAlreadyCollected else {
+            return true
+        }
+        if self.category == .shop {
             return true
         }
         if self.coordinate.clLocation.distance(from: userPosition) < 1000 {

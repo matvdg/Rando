@@ -28,6 +28,7 @@ struct CollectionView: View {
         case .refuge: collection = collection.filter { $0.poi.category == .refuge }
         case .peak: collection = collection.filter { $0.poi.category == .peak }
         case .shelter: collection = collection.filter { $0.poi.category == .shelter }
+        case .other: collection =  collection.filter { $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking }
         default: collection = collection.filter{ $0.poi.category == .waterfall }
         }
         // Sort
@@ -59,11 +60,12 @@ struct CollectionView: View {
                     VStack(alignment: .center, spacing: 8) {
                         Spacer()
                         Text("emptyCollection").foregroundColor(.gray)
+                            .padding()
                         Spacer()
                     }
                     .navigationBarTitle(Text("Collection"), displayMode: .inline)
                     .navigationBarItems(leading: Picker(selection: $selectedFilter, label: Text("")) {
-                        ForEach(Filter.allCases, id: \.self) { filter in
+                        ForEach(Filter.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {
                                 Text(LocalizedStringKey(filter.rawValue))
                                 filter.icon

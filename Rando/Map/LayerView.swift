@@ -24,16 +24,18 @@ enum Layer: String, CaseIterable, Equatable, Identifiable {
 struct LayerView: View {
     
     enum PoiFilter: String, CaseIterable {
-        case none, all, refuge, peak, waterfall, shelter
+        case none, all, refuge, peak, waterfall, shelter, shop, other
         var localized: String { rawValue }
         var icon: Image {
             switch self {
             case .none: return Image(systemName: "eye.slash")
             case .all: return Image(systemName: "infinity")
-            case .refuge: return Image(systemName: "house.lodge.fill")
+            case .other: return Image(systemName: "camera")
+            case .refuge: return Image(systemName: "house.lodge")
             case .peak: return Image(systemName: "mountain.2")
             case .waterfall: return Image(systemName: "camera")
             case .shelter: return Image(systemName: "house")
+            case .shop: return Image(systemName: "basket")
             }
         }
     }

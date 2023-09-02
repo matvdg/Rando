@@ -12,15 +12,18 @@ import MapKit
 let pois = PoiManager.shared.pois
 
 enum Filter: String, CaseIterable {
-    case all, refuge, peak, waterfall, shelter
+    static var allCasesForCollection: [Filter] = [.all, .refuge, .peak, .waterfall, .shelter, .other]
+    case all, refuge, peak, waterfall, shelter, shop, other
     var localized: String { rawValue }
     var icon: Image {
         switch self {
         case .all: return Image(systemName: "infinity")
-        case .refuge: return Image(systemName: "house.lodge.fill")
+        case .refuge: return Image(systemName: "house.lodge")
         case .peak: return Image(systemName: "mountain.2")
         case .waterfall: return Image(systemName: "camera")
         case .shelter: return Image(systemName: "house")
+        case .shop: return Image(systemName: "basket")
+        case .other: return Image(systemName: "camera")
         }
     }
 }
@@ -45,6 +48,8 @@ struct PoiView: View {
         case .refuge: filteredAndSortedPois =  pois.filter { $0.category == .refuge }
         case .peak: filteredAndSortedPois =  pois.filter { $0.category == .peak }
         case .shelter: filteredAndSortedPois =  pois.filter { $0.category == .shelter }
+        case .shop: filteredAndSortedPois =  pois.filter { $0.category == .shop }
+        case .other: filteredAndSortedPois =  pois.filter { $0.category == .pov || $0.category == .bridge || $0.category == .camping || $0.category == .dam || $0.category == .spring || $0.category == .pass || $0.category == .parking }
         default: filteredAndSortedPois = pois.filter { $0.category == .waterfall }
         }
         // Filter by search

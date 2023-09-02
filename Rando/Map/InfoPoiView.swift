@@ -26,8 +26,8 @@ struct InfoPoiView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("altitude")
                                 .foregroundColor(Color("grgray"))
-                            Text(poi?.altitudeInMeters ?? "").fontWeight(.bold)
-                        }
+                            Text(poi?.altitudeInMeters ?? "_").fontWeight(.bold)
+                        }.isHidden(poi?.altitudeInMeters ?? "_" == "_", remove: true)
                         VStack(alignment: .leading, spacing: 4) {
                             Button(action: {
                                 guard let url = poi?.phoneNumber else { return }
@@ -58,6 +58,7 @@ struct InfoPoiView: View {
                     }
                     .font(.subheadline)
                     .frame(maxHeight: 100)
+                    .isHidden(poi?.altitudeInMeters ?? "_" == "_" && !(poi?.hasPhoneNumber ?? false) && !(poi?.hasWebsite ?? false), remove: true)
                     
                     ScrollView(showsIndicators: false) {
                         Text(poi?.description ?? "")
@@ -86,7 +87,7 @@ struct InfoPoiView: View {
                     self.poi = nil
                 }
             }) {
-                Image(systemName: "star.fill").isHidden(poi?.isCollectable(userPosition: LocationManager.shared.currentPosition) ?? true, remove: true)
+                Image(systemName: "star").isHidden(poi?.isAlreadyCollected(userPosition: LocationManager.shared.currentPosition) ?? true, remove: true)
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())

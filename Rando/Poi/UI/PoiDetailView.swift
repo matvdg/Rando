@@ -41,6 +41,7 @@ struct PoiDetailView: View {
                         Text(poi.altitudeInMeters).fontWeight(.bold)
                     }
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+                    .isHidden(poi.altitudeInMeters == "_", remove: true)
                     
                     Button(action: {
                         guard let url = self.poi.phoneNumber else { return }

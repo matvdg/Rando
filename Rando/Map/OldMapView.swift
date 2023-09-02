@@ -115,6 +115,8 @@ struct OldMapView: UIViewRepresentable {
                 case .refuge: return $0.poi.category == .refuge
                 case .waterfall: return $0.poi.category == .waterfall
                 case .shelter: return $0.poi.category == .shelter
+                case .shop: return $0.poi.category == .shop
+                case .other: return $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking
                 case .all: return true
                 case .none: return false
                 }

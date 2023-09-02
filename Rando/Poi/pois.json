@@ -15627,7 +15627,277 @@
     "description": "Suspendu 150 m au-dessus du vide, le pont d'Holzarté est le plus spectaculaire de tous ceux que vous pourrez rencontrer entre l'Atlantique et la Méditerranée ! Accessible au terme d'une randonnée d'une heure environ, le pont suspendu saute sur 70 m le canyon d'Olhadubi pour permettre d'atteindre l'autre rive. Le panorama est saisissant, il ne faut pas avoir le vertige pour traverser tant on a l'impression de marcher dans le vide.",
     "photoUrl": "https://github.com/matvdg/Rando/blob/master/photos/holzarte.heic?raw=true",
     "lat": 43.00699869459812,
-    "lng": -0.9226813289233948
+    "lng": -0.9226813289233948,
+    "url": "https://fr.wikipedia.org/wiki/Gorges_d%27Holtzarte"
+  },
+  {
+    "name": "Intermarché Moustajon à Bagnères-De-Luchon",
+    "category": "shop",
+    "description": "Lundi au samedi 09:00–19:30 et Dimanche Fermé",
+    "lat": 42.80989250913865,
+    "lng": 0.5990928991692102
+  },
+  {
+    "name": "LIDL à Bagnères-De-Luchon",
+    "category": "shop",
+    "description": "Lundi au Samedi 08:30–20:00",
+    "lat": 42.79855750625973,
+    "lng": 0.5976766926790076
+  },
+  {
+    "name": "Pharmacie de Céciré à Bagnères-De-Luchon",
+    "category": "shop",
+    "description": "Lundi au Vendredi 09:00–12:30 14:30–19:00 Samedi 09:00–12:30 14:30–18:30 et Dimanche fermé",
+    "lat": 42.79873327750837,
+    "lng": 0.5977789891501285
+  },
+  {
+    "name": "Carrefour Montagne à Loudenvielle",
+    "category": "shop",
+    "description": "Lundi au Dimanche 07:00–20:00",
+    "lat": 42.796166877850155,
+    "lng": 0.409208966959177
+  },
+  {
+    "name": "Pharmacie de Louron à Loudenvielle",
+    "category": "shop",
+    "description": "Lundi 15:00–19:00 Mardi au Vendredi 09:30–12:30 15:00–19:00 Samedi 09:30–12:00 14:30–18:00 et Dimanche fermé",
+    "lat": 42.79650563919295,
+    "lng": 0.40938505458753416
+  },
+  {
+    "name": "Boulangerie Banh Mie à Loudenvielle",
+    "category": "shop",
+    "description": "Lundi au Dimanche 07:30–19:00",
+    "lat": 42.79871396696884,
+    "lng": 0.41002593888524547
+  },
+  {
+    "name": "Boulangerie La Broche du Louron à Loudenvielle",
+    "category": "shop",
+    "description": "lundi 10:00–18:30 mardi 10:00–16:00 mercredi Fermé jeudi 14:00–18:30 vendredi 10:00–18:30 samedi 10:00–18:30 dimanche 10:00–13:00",
+    "lat": 42.79675375042839,
+    "lng": 0.4115708911237436
+  },
+  {
+    "name": "Carrefour Montagne à Saint-Lary-Soulan",
+    "category": "shop",
+    "description": "Lundi au Samedi 08:00–21:00 Dimanche 09:00–21:00",
+    "lat": 42.81792218044827,
+    "lng": 0.32236397287251745
+  },
+  {
+    "name": "Marché alimentaire La Granges ô Traditions à Saint-Lary-Soulan",
+    "category": "shop",
+    "description": "Lundi au Dimanche 09:30–19:30",
+    "lat": 42.816023565226246,
+    "lng": 0.3208190204804448
+  },
+  {
+    "name": "Pharmacie Prat à Saint-Lary-Soulan",
+    "category": "shop",
+    "description": "Lundi au Dimanche 09:30–19:30",
+    "lat": 42.823295043865734,
+    "lng": 0.3217148797316032
+  },
+  {
+    "name": "Boulangerie Le Fournil de Saint lary à Saint-Lary-Soulan",
+    "category": "shop",
+    "description": "Lundi au Dimanche 07:00–19:30",
+    "lat": 42.821133,
+    "lng": 0.327113
+  },
+  {
+    "name": "Carrefour Montagne à La Mongie",
+    "category": "shop",
+    "description": "Lundi au Dimanche 08:00–20:00",
+    "lat": 42.91122,
+    "lng": 0.177535
+  },
+  {
+    "name": "Boulangerie Au Pain Gourmand du Tourmalet à Barèges",
+    "category": "shop",
+    "description": "Lundi au Vendredi 07:30–13:30 16:00–18:30 samedi 07:30–12:30 16:00–18:30 dimanche 07:30–13:30",
+    "lat": 42.91122,
+    "lng": 0.177535
+  },
+  {
+    "name": "Carrefour Montagne à Luz-Saint-Sauveur",
+    "category": "shop",
+    "description": "Lundi au Dimanche 08:00–20:00",
+    "lat": 42.87274,
+    "lng": -0.003637
+  },
+  {
+    "name": "Épicerie Cave des Pyrénnées à Luz-Saint-Sauveur",
+    "category": "shop",
+    "description": "Lundi au Samedi 09:30–19:00 Dimanche fermé",
+    "lat": 42.873099,
+    "lng": -0.003271
+  },
+  {
+    "name": "Boulangerie Montauban à Luz-Saint-Sauveur",
+    "category": "shop",
+    "description": "Lundi au dimanche 07:30–12:30 16:00–19:00",
+    "lat": 42.87573,
+    "lng": -0.0032
+  },
+  {
+    "name": "Pharmacie De L'Ardiden à Luz-Saint-Sauveur",
+    "category": "shop",
+    "description": "Lundi au samedi 08:30–12:30 14:30–19:30 Dimanche fermé",
+    "lat": 42.87445,
+    "lng": -0.00326
+  },
+  {
+    "name": "Carrefour Montagne à Cauterets",
+    "category": "shop",
+    "description": "Lundi au dimanche 08:00–21:00",
+    "lat": 42.88972,
+    "lng": -0.11436
+  },
+  {
+    "name": "Vival by Casino à Cauterets",
+    "category": "shop",
+    "description": "Lundi au dimanche 07:30–20:00",
+    "lat": 42.89074,
+    "lng": -0.11376
+  },
+  {
+    "name": "Pharmacie Thermale à Cauterets",
+    "category": "shop",
+    "description": "Lundi au samedi 09:00–12:30 14:30–19:00 dimanche fermé",
+    "lat": 42.89128,
+    "lng": -0.11444
+  },
+  {
+    "name": "Boulangerie Au peche mignon à Cauterets",
+    "category": "shop",
+    "description": "Lundi 07:00–13:30 15:00–19:30 Mardi au Samedi 07:00–19:30 et Dimanche 07:00–13:00",
+    "lat": 42.88862,
+    "lng": -0.11387
+  },
+  {
+    "name": "Supérette Proxi à Arrens-Marsous",
+    "category": "shop",
+    "description": "Lundi au Samedi 08:00–12:30 15:30–19:00 et Dimanche 08:00–12:30",
+    "lat": 42.95697,
+    "lng": -0.21147
+  },
+  {
+    "name": "Station-service à Arrens-Marsous",
+    "category": "shop",
+    "description": "Ouvert 7J/7 et 24h/24",
+    "lat": 42.95704,
+    "lng": -0.21084
+  },
+  {
+    "name": "Épicerie à Etsaut",
+    "category": "shop",
+    "description": "Lundi au dimanche 08:30–20:00",
+    "lat": 42.91201,
+    "lng": -0.57096
+  },
+  {
+    "name": "Ferme de Soubirou à Lescun",
+    "category": "shop",
+    "description": "Lundi au dimanche 10:00–13:00 16:00–20:00",
+    "lat": 42.93099,
+    "lng": -0.642
+  },
+  {
+    "name": "Épicerie de Lescun à Lescun",
+    "category": "shop",
+    "description": "Lundi au samedi 08:30–12:30 15:30–18:30 et dimanche 08:30–14:00",
+    "lat": 42.93422,
+    "lng": -0.6351
+  },
+  {
+    "name": "Épicerie de la Marmotte à Arette",
+    "category": "shop",
+    "description": "Lundi au vendredi 09:00–12:30 14:30–18:00 samedi et dimanche 08:30–12:30 14:30–18:30",
+    "lat": 42.97774,
+    "lng": -0.7452
+  },
+  {
+    "name": "Café Etxola à Mendive",
+    "category": "shop",
+    "description": "Mercredi au Lundi 09:00–18:00 Mardi fermé",
+    "lat": 43.04911,
+    "lng": -1.07302
+  },
+  {
+    "name": "LIDL à St-Jean-Pied-de-Port",
+    "category": "shop",
+    "description": "Lundi au Samedi 08:30–19:30 Dimanche fermé",
+    "lat": 43.16503,
+    "lng": -1.24291
+  },
+  {
+    "name": "Chemin de la Mâture",
+    "category": "pov",
+    "description": "Le chemin de la Mâture est un chemin de 1 200 mètres de long, taillé dans le rocher d'une falaise de la vallée encaissée du ruisseau La Secoue, près de sa confluence avec le gave d'Aspe, sur la commune d’Urdos dans les Pyrénées-Atlantiques.",
+    "lat": 42.888470616239886,
+    "lng": -0.5523790625690096,
+    "alt": 1280,
+    "url": "https://fr.wikipedia.org/wiki/Chemin_de_la_Mâture",
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/DSC_8428-chemin-de-la-mature.JPG"
+  },
+  {
+    "name": "Station-service à St-Jean-Pied-de-Port",
+    "category": "shop",
+    "description": "Ouvert 7J/7 et 24H/24",
+    "lat": 43.16757,
+    "lng": -1.23187
+  },
+  {
+    "name": "Pharmacie Okabe à St-Jean-Pied-de-Port",
+    "category": "shop",
+    "description": "Lundi au vendredi 09:00–12:30 14:00–19:30 Samedi 09:00–12:30 Dimanche fermé",
+    "lat": 43.16286,
+    "lng": -1.23995
+  },
+  {
+    "name": "Boulangerie Labeak à St-Jean-Pied-de-Port",
+    "category": "shop",
+    "description": "Lundi au samedi 07:00–19:00 Dimanche 07:00–12:45",
+    "lat": 43.16187,
+    "lng": -1.23905
+  },
+  {
+    "name": "Intermarché à Saint-Etienne-de-Baigorry",
+    "category": "shop",
+    "description": "Lundi au jeudi 09:00–12:50 14:30–19:20 Vendredi et Samedi 09:00–19:20 Dimanche fermé",
+    "lat": 43.18355,
+    "lng": -1.33567
+  },
+  {
+    "name": "Boulangerie Irastorza à Saint-Etienne-de-Baigorry",
+    "category": "shop",
+    "description": "Lundi au vendredi 06:00–13:00 15:00–19:30 samedi 06:00–13:00 16:00–19:00 Dimanche 06:00–13:00",
+    "lat": 43.18041,
+    "lng": -1.33971
+  },
+  {
+    "name": "Station-service à Saint-Etienne-de-Baigorry",
+    "category": "shop",
+    "description": "Lundi au vendredi 07:00–12:00 14:00–19:00 samedi 07:00–12:00 14:00–17:00 Dimanche fermé",
+    "lat": 43.17295,
+    "lng": -1.35104
+  },
+  {
+    "name": "Vival à Bidarray",
+    "category": "shop",
+    "description": "Lundi au samedi 08:00–12:15 16:00–19:00 Dimanche 08:00-12:00",
+    "lat": 43.27063,
+    "lng": -1.35044
+  },
+  {
+    "name": "SPAR à Sare",
+    "category": "shop",
+    "description": "Lundi au samedi 08:30–14:00 16:00–19:30 Dimanche 09:00-12:30",
+    "lat": 43.31467,
+    "lng": -1.58161
   }
 ]
 

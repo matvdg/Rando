@@ -54,9 +54,8 @@ class PoiAnnotation: MKPointAnnotation {
     switch poi.category {
     case .shelter: return UIImage(systemName: "house.fill")!
     case .refuge: return UIImage(systemName: "house.lodge.fill")!
-    case .waterfall, .lake, .dam, .bridge: return UIImage(systemName: "camera.fill")!
+    case .waterfall, .lake, .dam, .bridge, .pov: return UIImage(systemName: "camera.fill")!
     case .peak, .pass: return UIImage(systemName: "mountain.2.fill")!
-    case .pov: return UIImage(systemName: "eye.fill")!
     case .parking: return UIImage(systemName: "car.fill")!
     case .camping: return UIImage(systemName: "tent.fill")!
     case .shop: return UIImage(systemName: "basket")!

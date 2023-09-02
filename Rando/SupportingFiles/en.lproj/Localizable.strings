@@ -46,7 +46,9 @@
 // PoiView
 "none" = "None";
 "all" = "All";
+"other" = "Autre";
 "refuge" = "Refuge";
+"shop" = "Shops";
 "shelter" = "Shelter";
 "spring" = "Spring";
 "waterfall" = "Waterfall";
@@ -57,7 +59,7 @@
 "Steps" = "POIs";
 "Phone" = "Phone";
 "Website" = "Go to the website";
-"emptyCollection" = "Your collection is still empty. Hike and don't forget to collect points of interest on the map to expand your collection!";
+"emptyCollection" = "Your collection is still empty. Hike and don't forget to collect points of interest on the map to expand your collection! To do this, approach the point of interest, click on it on the map, and tap ✩";
 "collected" = "has been added to your collection, congratulations!";
 
 // TrailView
@@ -128,7 +130,7 @@
 
 // Settings
 "ShareApp" = "Share the app";
-"ShareMyPosition" = "Share my position";
+"ShareMyPosition" = "Share my location";
 "About" = "About";
 "AboutMe" = "Hello ! I'm Mat. I am a Swift developer but above all passionate about the Pyrenees and hiking. With my partner Anna, we even moved to the heart of the Pyrenees, in Haute-Garonne, right in the middle of the GR10, to renovate a house and transform it into a B&B: the Maison d'Arlos! This app is therefore the fruit of my two passions, others exist but it has the merit of being simple, free and without advertising. It is designed to be able to explore the Pyrenees and the GR10 but it works very well everywhere in the world with OpenTopo maps in particular. I plan to add features and improve it over time. Do not hesitate to contact me to let me know your comments or desires for improvement!";
 "ContactMe" = "Contact me";
