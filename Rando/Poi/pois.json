@@ -16452,15 +16452,6 @@
     "lat": 42.8865
   },
   {
-    "name": "Lac de Cap-de-Long",
-    "category": "lake",
-    "alt": 2161,
-    "description": "Le Lac de Cap-de-Long est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Cap-de-Long. Type: Barrage, émissaire : Neste de Couplan, Profondeur : 48m.",
-    "lng": 0.1262,
-    "lat": 42.8326,
-    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Lac_de_Cap_de_Long.jpg/240px-Lac_de_Cap_de_Long.jpg"
-  },
-  {
     "name": "Lac de Castillon",
     "category": "lake",
     "alt": 1740,
@@ -16491,6 +16482,24 @@
     "description": "Le Lac de Crabounouse est situé dans la commune d'Azet, dans la Vallée de la Neste d'Aure, Massif du Néouvielle, lieu-dit : Vallon de Crabounouse. Type: Naturel, émissaire : Ruisseau de Crabounouse.",
     "lng": 0.1415,
     "lat": 42.8901
+  },
+  {
+    "name": "Lac de Campana",
+    "category": "lake",
+    "alt": 2225,
+    "description": "Le lac du Campana est un lac pyrénéen français situé administrativement dans la commune de Bagnères-de-Bigorre dans le département des Hautes-Pyrénées en région Occitanie. Le lac a une superficie de 8 ha pour une altitude de 2 225 m, il atteint une profondeur de 41 m.",
+    "lng": 0.20268233523446777,
+    "lat": 42.880919994684376,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/laccampana.jpeg"
+  },
+  {
+    "name": "Lac de Miey",
+    "category": "lake",
+    "alt": 1914,
+    "description": "Le lac du Miey est un lac de la chaîne de montagnes des Pyrénées françaises situé dans le département des Pyrénées-Atlantiques de la région Nouvelle-Aquitaine. Le lac a une superficie de 1,0 ha pour une altitude de 1 914 m, il fait partie des lacs d'Ayous avec le lac Roumassot et le lac Gentau.",
+    "lng": -0.4832160631871726,
+    "lat": 42.84892100768306,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacmiey.jpeg"
   },
   {
     "name": "Lac de Cristol",
@@ -16552,11 +16561,11 @@
   {
     "name": "Lac de Glère",
     "category": "lake",
-    "alt": 2134,
-    "description": "Le Lac de Glère est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Glère. Type: Naturel, émissaire : Ruisseau de Glère.",
-    "lng": 0.0878,
-    "lat": 42.8831,
-    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vallée_de_Barège%2C_Lac_et_Refuge_de_la_Glère.JPG/240px-Vallée_de_Barège%2C_Lac_et_Refuge_de_la_Glère.JPG"
+    "alt": 2103,
+    "description": "Le lac de la Glère est un lac pyrénéen français situé administrativement dans la commune de Barèges dans le département français des Hautes-Pyrénées, dans le Lavedan en Occitanie. Le lac a une superficie de 2 ha pour une altitude de 2 103 m il atteint une profondeur de 10 m.",
+    "lng": 0.0922993899735281,
+    "lat": 42.860331676504735,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacglere.jpeg"
   },
   {
     "name": "Lac d'Ilhéou",
@@ -16619,15 +16628,6 @@
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Lac_de_Migouelou.JPG/528px-Lac_de_Migouelou.JPG"
   },
   {
-    "name": "Lac d'Oule",
-    "category": "lake",
-    "alt": 1819,
-    "description": "Le Lac d'Oule est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, émissaire : Neste d'Oule.",
-    "lng": 0.1411,
-    "lat": 42.8458,
-    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lac_d%27Oule_1.jpg/240px-Lac_d%27Oule_1.jpg"
-  },
-  {
     "name": "Lac de Port-Bielh",
     "category": "lake",
     "alt": 2059,
@@ -16655,9 +16655,19 @@
     "name": "Lac de Roumassot",
     "category": "lake",
     "alt": 1855,
-    "description": "Le Lac de Roumassot est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Roumassot. Type: Naturel, émissaire : Gave de Gaube.",
+    "description": "Le Lac de Roumassot est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Roumassot. Type: Naturel, émissaire : Gave de Gaube. Il fait partie des lacs d'Ayous avec le lac Miey et le lac Gentau.",
     "lng": -0.1344,
-    "lat": 42.7861
+    "lat": 42.7861,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacroumassot.jpeg"
+  },
+  {
+    "name": "Lac Gentau",
+    "category": "lake",
+    "alt": 1855,
+    "description": "Le lac Gentau est un lac glaciaire des Pyrénées françaises, situé dans le département des Pyrénées-Atlantiques de la région Nouvelle-Aquitaine. Il occupe un ombilic glaciaire. Il fait partie des lacs d'Ayous avec le lac Miey et le lac Roumassot.",
+    "lng": -0.4868745961796318,
+    "lat": 42.848197346136764,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacgentau.jpeg"
   },
   {
     "name": "Lac de Saoussat",
@@ -16734,10 +16744,11 @@
   {
     "name": "Lac de la Hourquette",
     "category": "lake",
-    "alt": 1922,
-    "description": "Le Lac de la Hourquette est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de la Hourquette. Type: Naturel, émissaire : Ruisseau de la Hourquette.",
-    "lng": -0.1451,
-    "lat": 42.7662
+    "alt": 2405,
+    "description": "Le lac de la Hourquette est un lac pyrénéen français situé administrativement dans la commune de Bagnères-de-Bigorre dans le département des Hautes-Pyrénées en région Occitanie. C’est un lac naturel qui a une superficie de 2,2 ha pour une altitude de 2 405 m, il atteint une profondeur de 5 m",
+    "lng": 0.20510862374394131,
+    "lat": 42.87011053856109,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lachourquette.jpeg"
   },
   {
     "name": "Lac de Peyrelade",
