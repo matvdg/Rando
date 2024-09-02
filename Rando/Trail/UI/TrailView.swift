@@ -162,6 +162,16 @@ struct TrailView: View {
                     }
                     
                     DisclosureGroup {
+                        
+                        HStack(alignment: .center, spacing: 8) {
+                            Label("Color", systemImage: "paintpalette").lineLimit(1)
+                            Spacer()
+                            ColorPicker(selection: $trail.color, label: {
+                                EmptyView()
+                            })
+                            .labelsHidden()
+                        }
+                        
                         HStack(alignment: .center, spacing: 8) {
                             Label("Thickness", systemImage: "pencil.tip").lineLimit(1)
                             Spacer()
@@ -175,14 +185,6 @@ struct TrailView: View {
                             ).frame(width: 150)
                         }
                         
-                        HStack(alignment: .center, spacing: 8) {
-                            Label("Color", systemImage: "paintpalette").lineLimit(1)
-                            Spacer()
-                            ColorPicker(selection: $trail.color, label: {
-                                EmptyView()
-                            })
-                            .labelsHidden()
-                        }
                     } label: {
                         Label("CustomPath", systemImage: "paintbrush")
                         
