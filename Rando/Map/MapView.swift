@@ -67,6 +67,7 @@ struct MapView: UIViewRepresentable {
             trails: Binding<[Trail]>.constant([poi.pseudoTrail]),
             userPositionLocation: userPosition
         )
+        isBounding = false
     }
     
     /// Convenience init for  HomeView map
@@ -77,6 +78,7 @@ struct MapView: UIViewRepresentable {
             clockwise: Binding<Bool>.constant(false),
             trails: trails
         )
+        isBounding = false
     }
     
     /// Convenience init for  TourView map
@@ -87,6 +89,7 @@ struct MapView: UIViewRepresentable {
             clockwise: clockwise,
             trails: Binding<[Trail]>.constant([trail])
         )
+        isBounding = false
     }
     
     // MARK: Properties
@@ -179,7 +182,7 @@ struct MapView: UIViewRepresentable {
             mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction(mapView)
             if mapChangedFromUserInteraction {
                 parent.appManager.selectedTracking = .disabled
-                
+                isBounding = false
             }
         }
         
@@ -404,12 +407,13 @@ struct MapView: UIViewRepresentable {
 
 
 // MARK: Previews
-struct OldMapView_Previews: PreviewProvider {
+struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView(trail: Trail())
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)
+            .environmentObject(AppManager.shared)
     }
 }
 
