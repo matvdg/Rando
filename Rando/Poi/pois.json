@@ -190,6 +190,15 @@
     "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/ars.heic"
   },
   {
+    "name": "Cascade de Gavarnie",
+    "category": "waterfall",
+    "description": "La cascade de Gavarnie, également appelée grande cascade de Gavarnie, est une chute d'eau du cirque de Gavarnie, cirque glaciaire localisé dans la partie centrale des Pyrénées françaises (département des Hautes-Pyrénées) et appartenant au parc national des Pyrénées. Elle chute de 422m !",
+    "alt": 2200,
+    "lat": 42.69478285091007,
+    "lng":  -0.005405699815326734,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cascadegavarnie.jpeg"
+  },
+  {
     "name": "Mont Valier",
     "category": "peak",
     "description": "Le mont Valier est un sommet de 2 838 m situé dans les Pyrénées ariégeoises, en Couserans, dominant toute la vallée d’Angouls et son torrent, à faible distance de la frontière espagnole",
@@ -1829,7 +1838,7 @@
     "lat": 42.7976911,
     "name": "Cabane de l'Artigues",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=921",
-    "description": "L abri d'artigues se trouve 50m au sud de la cabane ONF fermée dommage qu'il soit envahi par la vegetation et menace ruine car c est le seul endroit ou s abriter en cas d'intemperie table d'angle en pierre rare brlt brgt lt brgt brcabane forestière fermée aux randonneurs deux autres cabanes dans les environs la viellle cabane ruinee 50m au sud avec un coin aménagée ou on peut s abriter voir y dormir et une cabane sans doute privée non visitee un peu en aval et de l'autre cote du torrent brlt brgt.",
+    "description": "L abri d'artigues se trouve 50m au sud de la cabane ONF fermée dommage qu'il soit envahi par la vegetation et menace ruine car c est le seul endroit ou s abriter en cas d'intemperie table d'angle en pierre rare brlt brgt lt brgt brcabane forestière fermée aux randonneurs deux autres cabanes dans les environs la viellle cabane ruinee 50m au sud avec un coin aménagée ou on peut s abriter voir y dormir et une cabane sans doute privée non visitée un peu en aval et de l'autre cote du torrent brlt brgt.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/921_1219649957.jpg",
     "alt": 1053,
     "category": "shelter"
@@ -2532,7 +2541,7 @@
     "lat": 42.64,
     "name": "Cabane de Barleto",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1378",
-    "description": "Cabane située au sud de la punta suelza pas visitee.",
+    "description": "Cabane située au sud de la punta suelza pas visitée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20230305_891576.jpg",
     "alt": 2200,
     "category": "shelter"
@@ -2682,7 +2691,7 @@
     "lat": 42.7593,
     "name": "Cabane de Bassia Sailla",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1400",
-    "description": "Cabane pas visitee située au nord est du pic de thou",
+    "description": "Cabane pas visitée située au nord est du pic de thou",
 
     "alt": 2157,
     "category": "shelter"
@@ -2978,7 +2987,7 @@
     "lat": 42.8071,
     "name": "Cabane du Col de Bène",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1613",
-    "description": "Cabane notee sur geoportail pas visitee située 100m au nord du col de bene commune de lapege dans le vicdessos",
+    "description": "Cabane notee sur geoportail pas visitée située 100m au nord du col de bene commune de lapege dans le vicdessos",
 
     "alt": 1230,
     "category": "shelter"
@@ -3591,7 +3600,7 @@
     "lat": 42.803942,
     "name": "Cabane de Branya",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1020",
-    "description": "Cabane située sur la crète nord ouest du pic de montlude non visitee.",
+    "description": "Cabane située sur la crète nord ouest du pic de montlude non visitée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20211028_598704.jpg",
     "alt": 1795,
     "category": "shelter"
@@ -5444,7 +5453,7 @@
     "lat": 42.04483,
     "name": "Cabane de Couyassalès",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1460",
-    "description": "Deux petites cabanes située sous le col d'aran non visitee.",
+    "description": "Deux petites cabanes située sous le col d'aran non visitée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2005_1494877418.jpg",
     "alt": 1495,
     "category": "shelter"
@@ -6320,8 +6329,8 @@
     "lat": 42.72747309,
     "name": "Cabane du Lac d'Espingo",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=122",
-    "description": "En chantier le 3 07 11 réservé au berger à l'avenir.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/espingo_cab.jpg",
+    "description": "En chantier le 03/07/2011 réservé au berger à l'avenir.",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/espingo.jpeg"
     "alt": 1882,
     "category": "shelter"
   },
@@ -6330,7 +6339,7 @@
     "lat": 42.833611,
     "name": "Cabane d'Espiau sup",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1026",
-    "description": "Petite cabane apercue depuis les cretes du honteyde non visitee marquée sur la carte 1 50 mais pas sur la 1 25.",
+    "description": "Petite cabane apercue depuis les cretes du honteyde non visitée marquée sur la carte 1 50 mais pas sur la 1 25.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2003_1230323335.jpg",
     "alt": 1820,
     "category": "shelter"
@@ -6450,7 +6459,7 @@
     "lat": 42.756389,
     "name": "Cabane d'Esquierry 1908m",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1023",
-    "description": "Cabane située dans le vallon d'esquierry non loin du GR10 visitee plusieurs fois parfois ouverte parfois fermée 2lits table chaises parfois du bois dans l'appentis on peut beneficier avec de la chance du photo voltaique.",
+    "description": "Cabane située dans le vallon d'esquierry non loin du GR10 visitée plusieurs fois parfois ouverte parfois fermée 2lits table chaises parfois du bois dans l'appentis on peut beneficier avec de la chance du photo voltaique.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1023_1386490375.jpg",
     "alt": 1908,
     "category": "shelter"
@@ -6877,7 +6886,7 @@
     "lat": 42.8315,
     "name": "Cabane du Pla de Faradu",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1614",
-    "description": "Cabane non visitee notee sur geoportail vallée de vicdessos située 1km environ du village de genat",
+    "description": "Cabane non visitée notee sur geoportail vallée de vicdessos située 1km environ du village de genat",
 
     "alt": 1185,
     "category": "shelter"
@@ -7660,7 +7669,7 @@
     "lat": 42.7353419,
     "name": "Cabane Gerieys",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=621",
-    "description": "Cabane privée fermée abris vente un appendice à l'arriere ouvert non visitee.",
+    "description": "Cabane privée fermée abris vente un appendice à l'arriere ouvert non visitée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/621_1256466030.jpg",
     "alt": 1680,
     "category": "shelter"
@@ -7900,7 +7909,7 @@
     "lat": 42.8912653,
     "name": "Cabane de Greziolles",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=159",
-    "description": "Cheminee et puis c est tout pas de bas flanc caillou table assez grand belle terrasse pour le bivouac la cabane est située au dessus de lextremite gauche du barrage elle est hors du gr.",
+    "description": "Cheminée et puis c est tout pas de bas flanc caillou table assez grand belle terrasse pour le bivouac la cabane est située au dessus de lextremite gauche du barrage elle est hors du gr.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/159_1504981666.jpg",
     "alt": 2133,
     "category": "shelter"
@@ -9225,7 +9234,7 @@
     "lat": 42.8377,
     "name": "Cabane de Lazies",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1354",
-    "description": "Pas visitee cabane sous le GR10",
+    "description": "Pas visitée cabane sous le GR10",
 
     "alt": 1395,
     "category": "shelter"
@@ -10152,7 +10161,7 @@
     "lat": 42.838582820429,
     "name": "Cabane de la Fontaine Saint-Martin",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1615",
-    "description": "Cabane notee sur geoportail située dans la vallée du vicdessos au nord du vilage de genat pas visitee.",
+    "description": "Cabane notee sur geoportail située dans la vallée du vicdessos au nord du vilage de genat pas visitée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15907565778315.jpg",
     "alt": 880,
     "category": "shelter"
@@ -10392,7 +10401,7 @@
     "lat": 42.703,
     "name": "Refuge des Chasseurs de Miglos (Unarde Nord-Est)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1159",
-    "description": "Petite cabane non reportee sur les cartes et très peu visitee vu son emplacement assez confidentiel au nord est de la unarde accessible aussi depuis le vallon de larnoum par une montee assez difficile une petite partie ouverte aux randonneurs un bat flanc pour 3 personnes et une cheminée pas de table à l'intérieur mais une table dehors source aménagée devant la cabane petite forêt à 5mn en contre haut pour le bois.",
+    "description": "Petite cabane non reportee sur les cartes et très peu visitée vu son emplacement assez confidentiel au nord est de la unarde accessible aussi depuis le vallon de larnoum par une montee assez difficile une petite partie ouverte aux randonneurs un bat flanc pour 3 personnes et une cheminée pas de table à l'intérieur mais une table dehors source aménagée devant la cabane petite forêt à 5mn en contre haut pour le bois.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1159_1312488968.jpg",
     "alt": 2145,
     "category": "shelter"
@@ -12313,7 +12322,7 @@
     "lat": 42.7382,
     "name": "Cabane de Pinardel (crete)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1350",
-    "description": "Cabane reportee sur les cartes et située sur la crète de pinardel sous le pic du midi de siguer accessible par une piste pour ayants droits sans doute ONF pas visitee.",
+    "description": "Cabane reportee sur les cartes et située sur la crète de pinardel sous le pic du midi de siguer accessible par une piste pour ayants droits sans doute ONF pas visitée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1350_1527500302.jpg",
     "alt": 1480,
     "category": "shelter"
@@ -12521,7 +12530,7 @@
     "lat": 42.657969026644,
     "name": "Cabana Pleta del Duc",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1515",
-    "description": "Petite cabane 2 tables tabourets et bancs cheminée qui fume enormement couchage en mezzanine 3 places sur matelas 2 places au sol en bas janvier 2020 cabane ouverte occupéepar le berger aout 2015 visitee par les hrpistes et par les skieurs de baqueira attention toutes les cartes ne placent pas la cabane au même endroit pletiu del duc située sous le port de la bonaigua suivre les lignes haute tension cabane à 2090m dans le vallon au dessus des retenues d'eau cabana pletiu de arnaldo un peu plus loin à visiter.",
+    "description": "Petite cabane 2 tables tabourets et bancs cheminée qui fume enormement couchage en mezzanine 3 places sur matelas 2 places au sol en bas janvier 2020 cabane ouverte occupéepar le berger aout 2015 visitée par les hrpistes et par les skieurs de baqueira attention toutes les cartes ne placent pas la cabane au même endroit pletiu del duc située sous le port de la bonaigua suivre les lignes haute tension cabane à 2090m dans le vallon au dessus des retenues d'eau cabana pletiu de arnaldo un peu plus loin à visiter.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15785661285348.jpg",
     "alt": null,
     "category": "shelter"
@@ -13020,7 +13029,7 @@
     "lat": 42.574810879937,
     "name": "Cabana del Puerto (Sahun)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1456",
-    "description": "Petite cabane située pile au col de sahun pas visitee.",
+    "description": "Petite cabane située pile au col de sahun pas visitée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15724659244252.jpg",
     "alt": 2020,
     "category": "shelter"
@@ -13873,7 +13882,7 @@
     "lat": 42.819167,
     "name": "Refuge de Sans",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=944",
-    "description": " visitee en juin 2008 très sommaire bonne toiture pas de bat flanc aout 2015 chemin d'acces non entretenu hautes herbes autour de la cabane pas eu envie de rentrer ",
+    "description": " visitée en juin 2008 très sommaire bonne toiture pas de bat flanc aout 2015 chemin d'acces non entretenu hautes herbes autour de la cabane pas eu envie de rentrer ",
 
     "alt": 1563,
     "category": "shelter"
@@ -15243,7 +15252,7 @@
     "lat": 42.7609422,
     "name": "Uishèra",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1284",
-    "description": "Cabane non mentionnée sur les cartes excellent état table bancs couchage à l'étage visitee lors d'une sortie à skis cf http www camptocamp org outings 612009 fr montanha d'uishera versant s par la cabane d'Uishera.",
+    "description": "Cabane non mentionnée sur les cartes excellent état table bancs couchage à l'étage visitée lors d'une sortie à skis Montanha d'Uishera versant par la cabane d'Uishera.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1284_1478376364.jpg",
     "alt": 2000,
     "category": "shelter"
@@ -16013,7 +16022,17 @@
     "lat": 42.888470616239886,
     "lng": -0.5523790625690096,
     "alt": 1280,
-    "url": "fr.wikipedia.org/wiki/Chemin_de_la_Mâture.",
+    "url": "fr.wikipedia.org/wiki/Chemin_de_la_Mâture",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/gavarnie.jpeg"
+  },
+  {
+    "name": "Cirque de Gavarnie",
+    "category": "pov",
+    "description": "Le cirque de Gavarnie est un cirque naturel de type glaciaire situé dans le massif montagneux des Pyrénées, sur le territoire de la commune française de Gavarnie, dans le département des Hautes-Pyrénées, en région Occitanie. Il fait partie du parc national des Pyrénées et a été inscrit en 1997 au patrimoine mondial de l'UNESCO dans l'ensemble Pyrénées-Mont Perdu.",
+    "lat": 42.69800002731253,
+    "lng":  -0.008066451698985531,
+    "alt": 1570,
+    "url": "https://fr.wikipedia.org/wiki/Cirque_de_Gavarnie",
     "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/mature.jpeg"
   },
   {
@@ -16080,6 +16099,15 @@
     "lng": 0.492,
     "lat": 42.74,
     "photoUrl": "https://www.maisondelarando.com/wp-content/uploads/2020/11/Randonnee-autour-du-lac-dOo-dans-les-Pyrenees.jpg"
+  },
+  {
+    "name": "Lac d'Espingo",
+    "category": "lake",
+    "alt": 1882,
+    "description": "Le lac d'Espingo est un lac naturel des Pyrénées françaises sur la commune d'Oô proche de Bagnères-de-Luchon dans la Haute-Garonne (région Occitanie).",
+    "lng": 0.49584320859548997,
+    "lat": 42.72883386877106,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/espingo.jpeg"
   },
   {
     "name": "Lac de Gaube",
