@@ -13,16 +13,16 @@ import SwiftUICharts
 struct TrailView: View {
     
     @ObservedObject var trail: Trail
-    @Binding var selectedLayer: Layer
     @State var showEditTrailSheet: Bool = false
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var appManager: AppManager
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .top) {
-                NavigationLink(destination: TrailMapView(trail: trail, selectedLayer: $selectedLayer)) {
-                    OldMapView(trail: trail, selectedLayer: $selectedLayer)
+                NavigationLink(destination: TrailMapView(trail: trail)) {
+                    MapView(trail: trail)
                         .edgesIgnoringSafeArea(.vertical)
                         .frame(height: 250)
                         .disabled(true)
@@ -190,9 +190,9 @@ struct TrailView: View {
                 }
                 
                 Section(header: Text("Map")) {
-                    MapSettingsRow(selectedLayer: $selectedLayer)
+                    MapSettingsRow()
                         .disabled(TileManager.shared.state.isDownloading() || trail.downloadState == .downloading)
-                    TilesRow(selectedLayer: $selectedLayer, state: $trail.downloadState, trail: trail)
+                    TilesRow(state: $trail.downloadState, trail: trail)
                 }
                 
                 Section(header: Text("Actions")) {
@@ -214,7 +214,7 @@ struct TrailView: View {
         }
         .tint(Color.primary)
         .onAppear {
-            TileManager.shared.load(for: trail, selectedLayer: selectedLayer)
+            TileManager.shared.load(for: trail, selectedLayer: appManager.selectedLayer)
             TrailManager.shared.addMissingDepartment(trail: self.trail)
         }
         .onChange(of: trail.color, perform: { _ in
@@ -237,10 +237,9 @@ struct TrailView: View {
 }
 
 struct TrailView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign
     @State static var trail: Trail = Trail(gpx: Gpx(name: "Le Crabère", locations: [mockLoc1,mockLoc2], department: "Ariège"))
     static var previews: some View {
-        TrailView(trail: trail, selectedLayer: $selectedLayer)
+        TrailView(trail: trail).environmentObject(AppManager.shared)
     }
 }
 

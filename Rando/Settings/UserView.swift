@@ -16,7 +16,7 @@ struct UserView: View {
     
     var body: some View {
         NavigationView {
-            OldMapView(poi: poi, selectedLayer: $layer, userPosition: location)
+            MapView(poi: poi, userPosition: location)
                 .navigationBarTitle(Text("ShareMyPosition"), displayMode: .inline)
                 .navigationBarItems(trailing:
                                         Button(action: {

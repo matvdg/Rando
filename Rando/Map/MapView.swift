@@ -14,93 +14,78 @@ var selectedAnnotation: PoiAnnotation?
 var mapChangedFromUserInteraction = false
 var isPlayingTour = false
 var timer: Timer?
+var isBounding = false
 
-struct OldMapView: UIViewRepresentable {
+struct MapView: UIViewRepresentable {
     
     // MARK: Binding properties
-    @Binding var selectedTracking: Tracking
-    @Binding var selectedLayer: Layer
+    @EnvironmentObject var appManager: AppManager
+    
     @Binding var selectedPoi: Poi?
     @Binding var clockwise: Bool
     @Binding var trails: [Trail]
-    @Binding var filter: LayerView.PoiFilter
+    
     var userPositionLocation: Location?
     
     // MARK: Constructors
-    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, poiFilter: Binding<LayerView.PoiFilter>, userPositionLocation: Location? = nil) {
+    init(selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, userPositionLocation: Location? = nil) {
         self._trails = trails
-        self._selectedTracking = selectedTracking
-        self._selectedLayer = selectedLayer
         self._selectedPoi = selectedPoi
         self.isDetailMap = isDetailMap
         self._clockwise = clockwise
-        self._filter = poiFilter
         self.userPositionLocation = userPositionLocation
     }
     
     /// Convenience init for  TrailDetail map
-    init(trail: Trail, selectedLayer: Binding<Layer>) {
+    init(trail: Trail) {
         self.init(
-            selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: selectedLayer,
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
-            trails: Binding<[Trail]>.constant([trail]),
-            poiFilter: Binding<LayerView.PoiFilter>.constant(.all)
+            trails: Binding<[Trail]>.constant([trail])
         )
+        isBounding = true
     }
     
     /// Convenience init for  PoiDetail map
-    init(poi: Poi, selectedLayer: Binding<Layer>) {
+    init(poi: Poi) {
         self.init(
-            selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: selectedLayer,
-            selectedPoi: Binding<Poi?>.constant(nil),
+            selectedPoi: Binding<Poi?>.constant(poi),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
-            trails: Binding<[Trail]>.constant([poi.pseudoTrail]),
-            poiFilter: Binding<LayerView.PoiFilter>.constant(.all)
+            trails: Binding<[Trail]>.constant([poi.pseudoTrail])
         )
+        isBounding = true
     }
     
     /// Convenience init for  UserPosition  map
-    init(poi: Poi, selectedLayer: Binding<Layer>, userPosition: Location) {
+    init(poi: Poi, userPosition: Location) {
         self.init(
-            selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: selectedLayer,
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
             trails: Binding<[Trail]>.constant([poi.pseudoTrail]),
-            poiFilter: Binding<LayerView.PoiFilter>.constant(.none),
             userPositionLocation: userPosition
         )
     }
     
     /// Convenience init for  HomeView map
-    init(selectedTracking: Binding<Tracking>, selectedLayer: Binding<Layer>, selectedPoi: Binding<Poi?>, trails: Binding<[Trail]>, poiFilter: Binding<LayerView.PoiFilter>) {
+    init(selectedPoi: Binding<Poi?>, trails: Binding<[Trail]>) {
         self.init(
-            selectedTracking: selectedTracking,
-            selectedLayer: selectedLayer,
             selectedPoi: selectedPoi,
             isDetailMap: false,
             clockwise: Binding<Bool>.constant(false),
-            trails: trails,
-            poiFilter: poiFilter
+            trails: trails
         )
     }
     
     /// Convenience init for  TourView map
     init(clockwise: Binding<Bool>, trail: Trail) {
         self.init(
-            selectedTracking: Binding<Tracking>.constant(.bounding),
-            selectedLayer: Binding<Layer>.constant(.flyover),
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: clockwise,
-            trails: Binding<[Trail]>.constant([trail]),
-            poiFilter: Binding<LayerView.PoiFilter>.constant(.all)
+            trails: Binding<[Trail]>.constant([trail])
         )
     }
     
@@ -110,15 +95,16 @@ struct OldMapView: UIViewRepresentable {
     var annotations: [PoiAnnotation] {
         PoiManager.shared.pois.map { PoiAnnotation(poi: $0) }
             .filter {
-                switch filter {
+                switch appManager.selectedCategory {
                 case .peak: return $0.poi.category == .peak
                 case .refuge: return $0.poi.category == .refuge
                 case .waterfall: return $0.poi.category == .waterfall
+                case .lake: return $0.poi.category == .lake
                 case .shelter: return $0.poi.category == .shelter
                 case .shop: return $0.poi.category == .shop
-                case .other: return $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking
                 case .all: return true
                 case .none: return false
+                default: return $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking
                 }
             }
     }
@@ -130,10 +116,10 @@ struct OldMapView: UIViewRepresentable {
     
     class Coordinator: NSObject, MKMapViewDelegate, HeadingDelegate {
         
-        var parent: OldMapView
+        var parent: MapView
         var headingImageView: UIImageView?
         
-        init(_ parent: OldMapView) {
+        init(_ parent: MapView) {
             self.parent = parent
             super.init()
             parent.locationManager.headingDelegate = self
@@ -167,7 +153,7 @@ struct OldMapView: UIViewRepresentable {
                     view?.canShowCallout = true
                 }
                 if let view = view as? MKMarkerAnnotationView {
-                    view.glyphImage = annotation.markerGlyph
+                    view.glyphImage = annotation.poi.category.image
                     view.markerTintColor = annotation.markerColor
                 }
                 return view
@@ -192,7 +178,8 @@ struct OldMapView: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
             mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction(mapView)
             if mapChangedFromUserInteraction {
-                self.parent.selectedTracking = .disabled
+                parent.appManager.selectedTracking = .disabled
+                
             }
         }
         
@@ -217,7 +204,7 @@ struct OldMapView: UIViewRepresentable {
         }
         
         func didUpdate(_ heading: CLLocationDirection) {
-            guard let headingImageView = headingImageView, parent.selectedTracking == .enabled else { return }
+            guard let headingImageView = headingImageView, parent.appManager.selectedTracking == .enabled else { return }
             headingImageView.isHidden = false
             let rotation = CGFloat(heading/180 * Double.pi)
             headingImageView.transform = CGAffineTransform(rotationAngle: rotation)
@@ -278,10 +265,12 @@ struct OldMapView: UIViewRepresentable {
     }
     
     private func setTracking(mapView: MKMapView, headingView: UIImageView?) {
-        switch selectedTracking {
+        let tracking: Tracking = isBounding ? .bounding : appManager.selectedTracking
+        switch tracking {
         case .bounding:
             guard let firstBoundingBox = trails.first?.polyline.boundingMapRect else {
-                self.selectedTracking = .enabled
+                appManager.selectedTracking = .enabled
+                isBounding = false
                 return
             }
             let boundingBox = trails
@@ -301,22 +290,24 @@ struct OldMapView: UIViewRepresentable {
             mapView.setUserTrackingMode(.none, animated: true)
             locationManager.updateHeading = false
             headingView?.isHidden = true
+            isBounding = false
         case .enabled:
             mapView.setUserTrackingMode(.follow, animated: true)
             locationManager.updateHeading = true
             headingView?.isHidden = false
+            isBounding = false
         case .heading:
             mapView.setUserTrackingMode(.followWithHeading, animated: true)
             headingView?.isHidden = true
+            isBounding = false
         }
     }
     
     private func setOverlays(mapView: MKMapView) {
-        UserDefaults.currentLayer = selectedLayer
         let currentTileOverlay = mapView.overlays.first { $0 is MKTileOverlay}
         let currentPolylines = mapView.overlays.compactMap { $0 as? Polyline }
         var layerHasChanged: Bool
-        switch selectedLayer {
+        switch appManager.selectedLayer {
         case .ign25:
             layerHasChanged = !(currentTileOverlay is IGN25Overlay)
         case .ign:
@@ -338,7 +329,7 @@ struct OldMapView: UIViewRepresentable {
         let polylinesHaveChanged = !currentPolylines.equals(polylines: polylines)
         guard polylinesHaveChanged || layerHasChanged else { return }
         mapView.removeOverlays(mapView.overlays)
-        switch selectedLayer {
+        switch appManager.selectedLayer {
         case .satellite:
             mapView.mapType = .hybrid
         case .flyover:
@@ -347,7 +338,7 @@ struct OldMapView: UIViewRepresentable {
             mapView.mapType = .standard
         default:
             let overlay: MKTileOverlay
-            switch selectedLayer {                
+            switch appManager.selectedLayer {
             case .ign25:
                 overlay = IGN25Overlay()
             case .openStreetMap:
@@ -414,9 +405,8 @@ struct OldMapView: UIViewRepresentable {
 
 // MARK: Previews
 struct OldMapView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        OldMapView(trail: Trail(), selectedLayer: $selectedLayer)
+        MapView(trail: Trail())
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)

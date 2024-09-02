@@ -9,9 +9,7 @@
 import SwiftUI
 
 struct PoiDetailView: View {
-    
-    @Binding var selectedLayer: Layer
-    
+        
     var poi: Poi
     
     var body: some View {
@@ -19,8 +17,8 @@ struct PoiDetailView: View {
         ScrollView(showsIndicators: false) {
             VStack {
                 
-                NavigationLink(destination: OldMapView(poi: poi, selectedLayer: $selectedLayer).navigationTitle("Map")) {
-                    OldMapView(poi: poi, selectedLayer: $selectedLayer)
+                NavigationLink(destination: MapView(poi: poi).navigationTitle("Map")) {
+                    MapView(poi: poi)
                         .frame(height: 150)
                 }
                 
@@ -76,7 +74,13 @@ struct PoiDetailView: View {
                 }
                 .padding()
             }
-            
+            .navigationBarItems(leading: Button(action: {
+                CollectionManager.shared.addPoiToCollection(poi: poi)
+                Feedback.selected()
+                NotificationManager.shared.sendNotification(title: poi.name, message: "collected".localized)
+            }) {
+                Image(systemName: "star")
+            })
         }
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarTitle(Text(poi.name))
@@ -86,9 +90,8 @@ struct PoiDetailView: View {
 // MARK: Previews
 struct PoiDetail_Previews: PreviewProvider {
     @State static var clockwise = true
-    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        PoiDetailView(selectedLayer: $selectedLayer, poi: pois[7])
+        PoiDetailView(poi: pois[7])
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
             .previewDisplayName("iPhone SE")
             .environment(\.colorScheme, .light)

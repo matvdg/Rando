@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-enum Tracking {
+enum Tracking: String {
     case bounding, disabled, enabled, heading
     var icon: String {
         switch self {
@@ -23,9 +23,9 @@ struct MapControlView: View {
     
     let buttonWidth: CGFloat = 22
     let width: CGFloat = 45
-    @Binding var tracking: Tracking
+    
     @Binding var isLayerViewDisplayed: Bool
-    @Binding var isLocked: Bool
+    @EnvironmentObject var appManager: AppManager
     
     var body: some View {
         VStack(alignment: .center) {
@@ -40,39 +40,49 @@ struct MapControlView: View {
             }
             Divider()
             Button(action: {
-                self.isLocked.toggle()
+                appManager.isLocked.toggle()
                 Feedback.selected()
             }) {
-                Image(systemName: isLocked ? "lock" : "lock.open")
+                Image(systemName: appManager.isLocked ? "lock" : "lock.open")
                     .resizable()
-                    .frame(width: isLocked ? 15 : buttonWidth, height: buttonWidth)
+                    .frame(width: buttonWidth, height: buttonWidth)
                 
             }
             Divider()
             Button(action: {
-                switch self.tracking {
+                appManager.selectedTracking = .bounding
+                Feedback.selected()
+            }) {
+                Image(systemName: appManager.selectedTracking == .bounding ? "inset.filled.center.rectangle" :  "camera.metering.center.weighted.average")
+                    .resizable()
+                    .frame(width: buttonWidth, height: buttonWidth)
+                
+            }
+            Divider()
+            Button(action: {
+                switch appManager.selectedTracking {
                 case .disabled:
-                    self.tracking = .enabled
+                    appManager.selectedTracking = .enabled
                 case .enabled:
 #if targetEnvironment(macCatalyst)
-                    self.tracking = .disabled
+                    appManager.selectedTracking = .disabled
 #else
-                    self.tracking = .heading
+                    appManager.selectedTracking = .heading
 #endif
                 case .heading:
-                    self.tracking = .disabled
+                    appManager.selectedTracking = .disabled
                 default:
-                    self.tracking = .enabled
+                    appManager.selectedTracking = .enabled
                 }
                 Feedback.selected()
             }) {
-                Image(systemName: tracking.icon)
+                Image(systemName: appManager.selectedTracking.icon)
                     .resizable()
-                    .frame(width: tracking == .heading ? 16 : buttonWidth, height: tracking == .heading ? 28 : buttonWidth, alignment: .center)
+                    .frame(width: appManager.selectedTracking == .heading ? 16 : buttonWidth, height: appManager.selectedTracking == .heading ? 28 : buttonWidth, alignment: .center)
                     .offset(y: 3)
             }
         }
-        .frame(width: width, height: width*3, alignment: .center)
+        .frame(width: width, height: width*4, alignment: .center)
         .background(Color.alpha)
         .cornerRadius(8)
         .shadow(radius: 1)
@@ -81,11 +91,10 @@ struct MapControlView: View {
 
 // MARK: Previews
 struct MapControl_Previews: PreviewProvider {
-    @State static var tracking: Tracking = .disabled
-    @State static var isInfoDisplayed = false
-    @State static var isLocked = false
+    @State static var isLayerViewDisplayed = false
     static var previews: some View {
-        MapControlView(tracking: $tracking, isLayerViewDisplayed: $isInfoDisplayed, isLocked: $isLocked)
+        MapControlView(isLayerViewDisplayed: $isLayerViewDisplayed)
+            .environmentObject(AppManager.shared)
             .previewLayout(.fixed(width: 60, height: 135))
     }
 }

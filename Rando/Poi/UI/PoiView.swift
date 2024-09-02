@@ -11,23 +11,6 @@ import MapKit
 
 let pois = PoiManager.shared.pois
 
-enum Filter: String, CaseIterable {
-    static var allCasesForCollection: [Filter] = [.all, .refuge, .peak, .waterfall, .shelter, .other]
-    case all, refuge, peak, waterfall, shelter, shop, other
-    var localized: String { rawValue }
-    var icon: Image {
-        switch self {
-        case .all: return Image(systemName: "infinity")
-        case .refuge: return Image(systemName: "house.lodge")
-        case .peak: return Image(systemName: "mountain.2")
-        case .waterfall: return Image(systemName: "camera")
-        case .shelter: return Image(systemName: "house")
-        case .shop: return Image(systemName: "basket")
-        case .other: return Image(systemName: "camera")
-        }
-    }
-}
-
 struct PoiView: View {
     
     enum Sorting: String, CaseIterable, Equatable {
@@ -35,22 +18,22 @@ struct PoiView: View {
         var localized: String { self.rawValue }
     }
     
-    @State var selectedFilter: Filter = .all
+    @EnvironmentObject var appManager: AppManager
+    
     @State private var searchText = ""
-    @State var sorting: Sorting = .altitude
-
-    @Binding var selectedLayer: Layer
+    @State private var sorting: Sorting = .altitude
     
     var selectedPois: [Poi] {
         var filteredAndSortedPois: [Poi]
-        switch selectedFilter {
+        switch appManager.selectedCategory {
         case .all: filteredAndSortedPois =  pois
         case .refuge: filteredAndSortedPois =  pois.filter { $0.category == .refuge }
         case .peak: filteredAndSortedPois =  pois.filter { $0.category == .peak }
         case .shelter: filteredAndSortedPois =  pois.filter { $0.category == .shelter }
         case .shop: filteredAndSortedPois =  pois.filter { $0.category == .shop }
-        case .other: filteredAndSortedPois =  pois.filter { $0.category == .pov || $0.category == .bridge || $0.category == .camping || $0.category == .dam || $0.category == .spring || $0.category == .pass || $0.category == .parking }
-        default: filteredAndSortedPois = pois.filter { $0.category == .waterfall }
+        case .waterfall: filteredAndSortedPois = pois.filter { $0.category == .waterfall }
+        case .lake: filteredAndSortedPois = pois.filter { $0.category == .lake }
+        default: filteredAndSortedPois =  pois.filter { $0.category == .pov || $0.category == .bridge || $0.category == .camping || $0.category == .dam || $0.category == .spring || $0.category == .pass || $0.category == .parking }
         }
         // Filter by search
         if !searchText.isEmpty {
@@ -80,7 +63,7 @@ struct PoiView: View {
                 .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 List {
                     ForEach(selectedPois) { poi in
-                        NavigationLink(destination: PoiDetailView(selectedLayer: $selectedLayer, poi: poi)) {
+                        NavigationLink(destination: PoiDetailView(poi: poi)) {
                             PoiRow(poi: poi)
                         }
                     }
@@ -89,14 +72,20 @@ struct PoiView: View {
             }
             .searchable(text: $searchText, placement: .toolbar, prompt: "Search")
             .navigationBarTitle(Text("Steps"), displayMode: .inline)
-            .navigationBarItems(leading: Picker(selection: $selectedFilter, label: Text("")) {
-                ForEach(Filter.allCases, id: \.self) { filter in
-                    HStack(alignment: .center, spacing: 8) {
-                        Text(LocalizedStringKey(filter.rawValue))
-                        filter.icon
+            .navigationBarItems(leading:
+                                    HStack(content: {
+                Picker(selection: $appManager.selectedCategory, label: Text("")) {
+                    ForEach(Category.allCasesForCollection, id: \.self) { filter in
+                        HStack(alignment: .center, spacing: 8) {
+                            Text(LocalizedStringKey(filter.rawValue))
+                            filter.icon
+                        }
                     }
                 }
             })
+                                
+            
+            )
             .accentColor(.tintColor)
             HStack {
                 Image(systemName: "sidebar.left")
@@ -110,10 +99,10 @@ struct PoiView: View {
 
 // MARK: Previews
 struct PoiView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        PoiView(selectedLayer: $selectedLayer)
+        PoiView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
             .environment(\.colorScheme, .light)
+            .environmentObject(AppManager.shared)
     }
 }

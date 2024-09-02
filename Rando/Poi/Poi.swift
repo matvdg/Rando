@@ -98,22 +98,7 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
             return nil
         }
     }
-    
-    var icon: Image {
-        switch category {
-        case .camping: return Image(systemName: "tent")
-        case .parking: return Image(systemName: "car")
-        case .peak, .pass: return Image(systemName: "mountain.2")
-        case .pov: return Image(systemName: "eye")
-        case .waterfall, .lake, .dam, .bridge: return Image(systemName: "camera")
-        case .refuge: return Image(systemName: "house.lodge")
-        case .shelter: return Image(systemName: "house")
-        case .shop: return Image(systemName: "basket")
-        case .spring: return Image(systemName: "drop")
-        default: return Image(systemName: "mappin")
-        }
-    }
-    
+        
     func loadImageFromURL() async throws -> Image? {
         guard let photoUrl, let url = URL(string: photoUrl) else {
             return nil
@@ -142,24 +127,31 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
     var hasWebsite: Bool { url != nil }
     var hasPhoneNumber: Bool { phoneNumber != nil }
     
-    enum Category: String, Codable, CaseIterable {
-        case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, shelter
-    }
+}
+
+enum Category: String, Codable, CaseIterable {
+    case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, shelter, none, all, other
+    var localized: String { rawValue }
+    static var allCasesForCollection: [Category] = [.all, .refuge, .peak, .lake, .waterfall, .shelter, .other]
+    static var allCasesForMaps: [Category] = [.all, .refuge, .peak, .lake, .waterfall, .shelter, .other, .none]
     
-    func isAlreadyCollected(userPosition: CLLocation) -> Bool {
-        let isAlreadyCollected = CollectionManager.shared.collection.contains {
-            $0.poi.name == self.name
-        }
-        guard !isAlreadyCollected else {
-            return true
-        }
-        if self.category == .shop {
-            return true
-        }
-        if self.coordinate.clLocation.distance(from: userPosition) < 1000 {
-            return false
-        } else {
-            return true
+    var icon: Image { Image(uiImage: image) }
+        
+    var image: UIImage {
+        switch self {
+        case .camping: return UIImage(systemName: "tent")!
+        case .parking: return UIImage(systemName: "car")!
+        case .peak, .pass: return UIImage(systemName: "mountain.2")!
+        case .pov: return UIImage(systemName: "eye")!
+        case .refuge: return UIImage(systemName: "house.lodge")!
+        case .shelter: return UIImage(systemName: "house")!
+        case .shop: return UIImage(systemName: "basket")!
+        case .spring: return UIImage(systemName: "drop")!
+        case .waterfall: return UIImage(systemName: "camera")!
+        case .lake: return UIImage(systemName: "water.waves")!
+        case .none: return UIImage(systemName: "eye.slash")!
+        case .all: return UIImage(systemName: "infinity")!
+        default: return UIImage(systemName: "mappin")!
         }
     }
 }

@@ -15,21 +15,23 @@ struct CollectionView: View {
         var localized: String { self.rawValue }
     }
     
-    @State var selectedFilter: Filter = .all
     @State var sorting: Sorting = .importDate
-    @Binding var selectedLayer: Layer
     @ObservedObject var collectionManager = CollectionManager.shared
+    @EnvironmentObject var appManager: AppManager
+    
     
     private var collection: [Collection] {
         var collection = collectionManager.collection
         // Filter
-        switch selectedFilter {
+        switch appManager.selectedCategory {
         case .all: break
         case .refuge: collection = collection.filter { $0.poi.category == .refuge }
         case .peak: collection = collection.filter { $0.poi.category == .peak }
         case .shelter: collection = collection.filter { $0.poi.category == .shelter }
-        case .other: collection =  collection.filter { $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking }
-        default: collection = collection.filter{ $0.poi.category == .waterfall }
+        case .waterfall: collection = collection.filter{ $0.poi.category == .waterfall }
+        case .lake: collection = collection.filter{ $0.poi.category == .lake }
+        default: collection = collection.filter { $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking }
+            
         }
         // Sort
         collection = collection.sorted {
@@ -64,8 +66,8 @@ struct CollectionView: View {
                         Spacer()
                     }
                     .navigationBarTitle(Text("Collection"), displayMode: .inline)
-                    .navigationBarItems(leading: Picker(selection: $selectedFilter, label: Text("")) {
-                        ForEach(Filter.allCasesForCollection, id: \.self) { filter in
+                    .navigationBarItems(leading: Picker(selection: $appManager.selectedCategory, label: Text("")) {
+                        ForEach(Category.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {
                                 Text(LocalizedStringKey(filter.rawValue))
                                 filter.icon
@@ -81,11 +83,11 @@ struct CollectionView: View {
                             LazyVGrid(columns: columns, spacing: 30) {
                                 ForEach(collection, id: \.self) { collection in
                                     NavigationLink {
-                                        PoiDetailView(selectedLayer: $selectedLayer, poi: collection.poi)
+                                        PoiDetailView(poi: collection.poi)
                                     } label: {
                                         VStack(alignment: .center, spacing: 4) {
                                             MiniImage(poi: collection.poi)
-                                            Text(collection.poi.name).bold().foregroundColor(.black)
+                                            Text(collection.poi.name).bold().foregroundColor(.primary)
                                             Text(collection.date.toString)
                                             Text(collection.poi.altitudeInMeters).isHidden(collection.poi.altitudeInMeters == "_", remove: true)
                                         }
@@ -95,8 +97,8 @@ struct CollectionView: View {
                         }
                     }
                     .navigationBarTitle(Text("Collection"), displayMode: .inline)
-                    .navigationBarItems(leading: Picker(selection: $selectedFilter, label: Text("")) {
-                        ForEach(Filter.allCases, id: \.self) { filter in
+                    .navigationBarItems(leading: Picker(selection: $appManager.selectedCategory, label: Text("")) {
+                        ForEach(Category.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {
                                 Text(LocalizedStringKey(filter.rawValue))
                                 filter.icon
@@ -112,8 +114,7 @@ struct CollectionView: View {
 }
 
 struct CollectionView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        CollectionView(selectedLayer: $selectedLayer)
+        CollectionView().environmentObject(AppManager.shared)
     }
 }

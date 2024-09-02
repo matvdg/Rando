@@ -10,32 +10,31 @@ import SwiftUI
 import MapKit
 import HidableTabView
 
+
 struct ContentView: View {
     
     @State private var selection = 0
-    @State var isLocked = false
-    @State var selectedLayer: Layer = UserDefaults.currentLayer
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @StateObject var appManager = AppManager.shared
     
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                HomeView(selectedLayer: $selectedLayer, isLocked: $isLocked)
+                HomeView()
                     .tabItem {
                         Label("Map", systemImage: "map.fill")
                     }
                     .tag(0)
-                TrailsView(selectedLayer: $selectedLayer)
+                TrailsView()
                     .tabItem {
                         Label("Trails", systemImage: "point.topleft.down.curvedto.point.filled.bottomright.up")
                     }
                     .tag(1)
-                PoiView(selectedLayer: $selectedLayer)
+                PoiView()
                     .tabItem {
                         Label("Steps", systemImage: "mappin.and.ellipse")
                     }
                     .tag(2)
-                CollectionView(selectedLayer: $selectedLayer)
+                CollectionView()
                     .tabItem {
                         Label("Collection", systemImage: "star")
                     }
@@ -46,6 +45,7 @@ struct ContentView: View {
                     }
                     .tag(4)
             }
+            .environmentObject(appManager)
         }
         .accentColor(Color.tintColorTabBar)
         .onAppear {
@@ -58,7 +58,7 @@ struct ContentView: View {
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
             UITabBar.showTabBar(animated: false)
         }
-        .onChange(of: isLocked) { newValue in
+        .onChange(of: appManager.isLocked) { newValue in
             if newValue {
                 UITabBar.hideTabBar(animated: false)
             } else {

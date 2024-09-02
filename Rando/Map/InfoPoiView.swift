@@ -87,7 +87,7 @@ struct InfoPoiView: View {
                     self.poi = nil
                 }
             }) {
-                Image(systemName: "star").isHidden(poi?.isAlreadyCollected(userPosition: LocationManager.shared.currentPosition) ?? true, remove: true)
+                Image(systemName: "star")
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())

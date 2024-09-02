@@ -46,20 +46,20 @@
 // PoiView
 "none" = "None";
 "all" = "All";
-"other" = "Autre";
-"refuge" = "Refuge";
+"other" = "Others";
+"refuge" = "Refuges";
 "shop" = "Shops";
-"shelter" = "Shelter";
-"spring" = "Spring";
-"waterfall" = "Waterfall";
-"lake" = "Lake";
-"bridge" = "Bridge";
-"peak" = "Peak";
+"shelter" = "Shelters";
+"spring" = "Springs";
+"waterfall" = "Waterfalls";
+"lake" = "Lakes";
+"bridge" = "Bridges";
+"peak" = "Peaks";
 "Direction" = "Reverse";
 "Steps" = "POIs";
 "Phone" = "Phone";
 "Website" = "Go to the website";
-"emptyCollection" = "Your collection is still empty. Hike and don't forget to collect points of interest on the map to expand your collection! To do this, approach the point of interest, click on it on the map, and tap ✩";
+"emptyCollection" = "Your collection is still empty.  Tap ✩ to collect a POI!";
 "collected" = "has been added to your collection, congratulations!";
 
 // TrailView
@@ -98,8 +98,9 @@
 "Filtered" = "Filtered";
 "Displayed" = "Displayed on map";
 "Favs" = "Favorites";
-"gr10" = "GR10";
-"notgr10" = "Not GR10";
+"gr" = "GR";
+"hr" = "HR";
+"notghr" = "Not GR/HR";
 "Departments" = "Region";
 "Directions" = "Get car directions";
 "Departure" = "Departure";

@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-enum Gr10Filter: String, CaseIterable {
-    case gr10, notgr10, all
+enum GRFilter: String, CaseIterable {
+    case gr, hr, notghr, all
     var localized: String { rawValue.localized }
 }
 
@@ -23,7 +23,7 @@ struct FilterView: View {
     @Binding var onlyDisplayed: Bool
     @Binding var onlyFavs: Bool
     @Binding var onlyLoops: Bool
-    @Binding var gr10Filter: Gr10Filter
+    @Binding var grFilter: GRFilter
     @Binding var difficultyFilter: DifficultyFilter
     @Binding var department: String
     @Binding var isSortDisplayed: Bool
@@ -58,15 +58,15 @@ struct FilterView: View {
                 Divider()
                 
                 HStack {
-                    Text("gr10")
+                    Text("gr")
                         .font(.headline)
                     Spacer()
-                    Picker(selection: $gr10Filter, label: Text("")) {
-                        ForEach(Gr10Filter.allCases, id: \.self) { gr10Filter in
-                            Text(LocalizedStringKey(gr10Filter.rawValue))
+                    Picker(selection: $grFilter, label: Text("")) {
+                        ForEach(GRFilter.allCases, id: \.self) { grFilter in
+                            Text(LocalizedStringKey(grFilter.rawValue))
                         }
                     }
-                    .onChange(of: gr10Filter, perform: { newValue in
+                    .onChange(of: grFilter, perform: { newValue in
                         Feedback.selected()
                     })
                     .pickerStyle(.menu)
@@ -132,10 +132,10 @@ struct FilterView_Previews: PreviewProvider {
     @State static var onlyDisplayed = false
     @State static var onlyFavs = false
     @State static var onlyLoops = false
-    @State static var gr10Filter: Gr10Filter = .notgr10
+    @State static var grFilter: GRFilter = .notghr
     @State static var difficultyFilter: DifficultyFilter = .hard
     static var previews: some View {
-        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $isSortDisplayed)
+        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, grFilter: $grFilter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $isSortDisplayed)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
                 .previewDisplayName("iPhone 14 Pro Max")
                 .environment(\.colorScheme, .dark)

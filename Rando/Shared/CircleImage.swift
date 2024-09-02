@@ -27,7 +27,7 @@ struct CircleImage: View {
                 .frame(width: 200, height: 200, alignment: .center)
                 .clipShape(Circle())
         } else {
-            poi.icon
+            poi.category.icon
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100, height: 100, alignment: .center)

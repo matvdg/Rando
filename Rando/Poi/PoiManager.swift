@@ -50,20 +50,6 @@ class PoiAnnotation: MKPointAnnotation {
     }
   }
   
-  var markerGlyph: UIImage {
-    switch poi.category {
-    case .shelter: return UIImage(systemName: "house.fill")!
-    case .refuge: return UIImage(systemName: "house.lodge.fill")!
-    case .waterfall, .lake, .dam, .bridge, .pov: return UIImage(systemName: "camera.fill")!
-    case .peak, .pass: return UIImage(systemName: "mountain.2.fill")!
-    case .parking: return UIImage(systemName: "car.fill")!
-    case .camping: return UIImage(systemName: "tent.fill")!
-    case .shop: return UIImage(systemName: "basket")!
-    case .spring: return UIImage(systemName: "drop")!
-    default: return UIImage(systemName: "mappin.fill")!
-    }
-  }
-  
   init(poi: Poi) {
     self.poi = poi
     super.init()

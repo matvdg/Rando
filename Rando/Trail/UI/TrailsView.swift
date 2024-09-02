@@ -22,15 +22,16 @@ struct TrailsView: View {
     @State var onlyDisplayed: Bool = false
     @State var onlyFavs: Bool = false
     @State var onlyLoops: Bool = false
-    @State var gr10Filter: Gr10Filter = .all
+    @State var grFilter: GRFilter = .all
     @State var difficultyFilter: DifficultyFilter = .all
     @State var showFilter: Bool = false
     @State var department: String = "all"
     @State private var searchText = ""
-    @Binding var selectedLayer: Layer
+    
+    @EnvironmentObject var appManager: AppManager
     
     private var isFiltered: Bool {
-        department != "all" || onlyDisplayed || onlyFavs || onlyLoops || gr10Filter != .all || difficultyFilter != .all
+        department != "all" || onlyDisplayed || onlyFavs || onlyLoops || grFilter != .all || difficultyFilter != .all
     }
     
     @ObservedObject var trailManager = TrailManager.shared
@@ -65,12 +66,14 @@ struct TrailsView: View {
         if onlyLoops {
             sortedTrails = sortedTrails.filter { $0.isLoop }
         }
-        // Filter by GR10 if necessary
-        switch gr10Filter {
-        case .gr10:
-            sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("gr10") }
-        case .notgr10:
-            sortedTrails = sortedTrails.filter { !$0.name.localizedCaseInsensitiveContains("gr10") }
+        // Filter by GR/HR if necessary
+        switch grFilter {
+        case .gr:
+            sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("gr") }
+        case .hr:
+            sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("hr") }
+        case .notghr:
+            sortedTrails = sortedTrails.filter { !$0.name.localizedCaseInsensitiveContains("gr") && !$0.name.localizedCaseInsensitiveContains("hr") }
         case .all:
             break
         }
@@ -114,12 +117,12 @@ struct TrailsView: View {
                     }
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
                     
-                    EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, searchText: $searchText)
+                    EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, grFilter: $grFilter, difficultyFilter: $difficultyFilter, department: $department, searchText: $searchText)
                         .isHidden(!isFiltered && searchText == "", remove: true)
                     
                     List {
                         ForEach(sortedTrails) { trail in
-                            NavigationLink(destination: TrailView(trail: trail, selectedLayer: $selectedLayer)) {
+                            NavigationLink(destination: TrailView(trail: trail)) {
                                 TrailRow(trail: trail)
                             }
                         }
@@ -132,7 +135,7 @@ struct TrailsView: View {
                     
                     Spacer()
                     
-                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $showFilter)
+                    FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, grFilter: $grFilter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $showFilter)
                         .isHidden(!showFilter)
                         .offset(y: 10)
                 }
@@ -172,9 +175,8 @@ struct TrailsView: View {
 
 // MARK: Previews
 struct TrailsView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign
     static var previews: some View {
-        TrailsView(selectedLayer: $selectedLayer)
+        TrailsView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
             .previewDisplayName("iPhone 14")
     }

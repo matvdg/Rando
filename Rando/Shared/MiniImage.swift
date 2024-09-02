@@ -27,7 +27,7 @@ struct MiniImage: View {
                 .frame(width: 70, height: 70, alignment: .center)
                 .clipShape(Circle())
         } else {
-            poi.icon
+            poi.category.icon
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 30, height: 30, alignment: .center)

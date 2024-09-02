@@ -10,12 +10,11 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject var appManager: AppManager
+    
     @State var selectedTracking: Tracking = .bounding
-    @Binding var selectedLayer: Layer
-    @Binding var isLocked: Bool
     @State var isLayerViewDisplayed: Bool = false
     @State var selectedPoi: Poi?
-    @State var poiFilter: LayerView.PoiFilter = .all
     @State var trails = TrailManager.shared.currentTrails
     
     private var isInfoPoiViewDisplayed: Bool { selectedPoi != nil }
@@ -24,14 +23,14 @@ struct HomeView: View {
         
         ZStack {
             
-            OldMapView(selectedTracking: $selectedTracking, selectedLayer: $selectedLayer, selectedPoi: $selectedPoi, trails: $trails, poiFilter: $poiFilter)
+            MapView(selectedPoi: $selectedPoi, trails: $trails)
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .trailing) {
                 
                 HStack(alignment: .top) {
                     Spacer()
-                    MapControlView(tracking: $selectedTracking, isLayerViewDisplayed: $isLayerViewDisplayed, isLocked: $isLocked)
+                    MapControlView(isLayerViewDisplayed: $isLayerViewDisplayed)
                         .padding(.trailing, 8)
                         .padding(.top, 70)
                 }
@@ -44,7 +43,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                LayerView(selectedLayer: $selectedLayer, isLayerDisplayed: $isLayerViewDisplayed, filter: $poiFilter)
+                LayerView(isLayerDisplayed: $isLayerViewDisplayed)
                     .isHidden(!isLayerViewDisplayed)
                     .offset(y: 10)
             }
@@ -71,10 +70,8 @@ struct HomeView: View {
 
 // MARK: Previews
 struct HomeView_Previews: PreviewProvider {
-    @State static var selectedLayer: Layer = .ign
-    @State static var isLocked = false
     static var previews: some View {
-        HomeView(selectedLayer: $selectedLayer, isLocked: $isLocked)
+        HomeView()
             .previewDevice(PreviewDevice(rawValue: "iPhone X"))
             .previewDisplayName("iPhone X")
             .environment(\.colorScheme, .dark)

@@ -46,20 +46,20 @@
 // PoiView
 "none" = "Aucun";
 "all" = "Tous";
-"other" = "Autre";
-"refuge" = "Refuge";
-"shelter" = "Abri";
-"shop" = "Boutique";
-"spring" = "Source";
-"waterfall" = "Cascade";
-"bridge" = "Pont";
-"lake" = "Lac";
-"peak" = "Pic";
+"other" = "Autres";
+"refuge" = "Refuges";
+"shelter" = "Abris";
+"shop" = "Boutiques";
+"spring" = "Sources";
+"waterfall" = "Cascades";
+"bridge" = "Ponts";
+"lake" = "Lacs & étangs";
+"peak" = "Pics";
 "Direction" = "Sens";
 "Steps" = "Points d'intérêts";
 "Phone" = "Téléphoner";
 "Website" = "Visiter le site internet";
-"emptyCollection" = "Votre collection est encore vide. Randonnez et n'oubliez pas de collectionner les points d'intérêt sur la carte pour agrandir votre collection ! Pour cela, approchez vous du point d'intérêt, cliquez dessus sur la carte, et appuyez sur ✩";
+"emptyCollection" = "Votre collection est encore vide. Appuyez sur ✩ pour collectionner des points d'intérêt !";
 "collected" = "a été ajouté à votre collection, bravo !";
 
 // TrailView
@@ -98,8 +98,9 @@
 "Filtered" = "Filtré";
 "Displayed" = "Visibles sur la carte";
 "Favs" = "Favoris";
-"gr10" = "GR10";
-"notgr10" = "Non GR10";
+"gr" = "GR";
+"hr" = "HR";
+"notghr" = "Non GR/HR";
 "Departments" = "Département";
 "Directions" = "Aller au départ";
 "Departure" = "Départ";

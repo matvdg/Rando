@@ -50,4 +50,26 @@ extension UserDefaults {
             print("􀯮 Layer has been set to \(newValue)")
         }
     }
+    
+    static var currentTracking: Tracking {
+        get {
+            Tracking(rawValue: UserDefaults.standard.string(forKey: "currentTracking") ?? "bounding") ?? .bounding
+        }
+        set {
+            guard newValue != self.currentTracking else { return }
+            UserDefaults.standard.set(newValue.rawValue, forKey: "currentTracking")
+            print("􀯮 Current Tracking has been set to \(newValue)")
+        }
+    }
+    
+    static var currentCategory: Category {
+        get {
+            Category(rawValue: UserDefaults.standard.string(forKey: "currentCategory") ?? "all") ?? .all
+        }
+        set {
+            guard newValue != self.currentCategory else { return }
+            UserDefaults.standard.set(newValue.rawValue, forKey: "currentCategory")
+            print("􀯮 Current category has been set to \(newValue)")
+        }
+    }
 }

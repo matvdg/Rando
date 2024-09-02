@@ -13,7 +13,7 @@ struct EnabledFiltersView: View {
     @Binding var onlyDisplayed: Bool
     @Binding var onlyFavs: Bool
     @Binding var onlyLoops: Bool
-    @Binding var gr10Filter: Gr10Filter
+    @Binding var grFilter: GRFilter
     @Binding var difficultyFilter: DifficultyFilter
     @Binding var department: String
     @Binding var searchText: String
@@ -68,11 +68,11 @@ struct EnabledFiltersView: View {
                 
                 Button {
                     Feedback.selected()
-                    gr10Filter = .all
+                    grFilter = .all
                 } label: {
-                    FilterButton(label: gr10Filter.localized)
+                    FilterButton(label: grFilter.localized)
                 }
-                .isHidden(gr10Filter == .all, remove: true)
+                .isHidden(grFilter == .all, remove: true)
                 
                 Button {
                     Feedback.selected()
@@ -96,12 +96,12 @@ struct EnabledFiltersView_Previews: PreviewProvider {
     @State static var onlyDisplayed: Bool = true
     @State static var onlyFavs: Bool = true
     @State static var onlyLoops: Bool = true
-    @State static var gr10Filter: Gr10Filter = .notgr10
+    @State static var grFilter: GRFilter = .notghr
     @State static var difficultyFilter: DifficultyFilter = .hard
     @State static var department: String = "Ariège"
     @State static var searchText: String = "Cagateille"
     
     static var previews: some View {
-        EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, gr10Filter: $gr10Filter, difficultyFilter: $difficultyFilter, department: $department, searchText: $searchText)
+        EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, grFilter: $grFilter, difficultyFilter: $difficultyFilter, department: $department, searchText: $searchText)
     }
 }
