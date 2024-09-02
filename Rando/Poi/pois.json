@@ -16389,17 +16389,26 @@
     "category": "lake",
     "alt": 2150,
     "description": "Le Lac de Bastan inférieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, émissaire : Ruisseau de Bastan, Profondeur : 3m.",
-    "lng": 0.209123,
-    "lat": 42.883923,
+    "lng": 0.2086006017632247,
+    "lat": 42.84750789065334,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Lac_Inférieur_de_Bastan_Hautes_Pyrénées_02_BLS.JPG/240px-Lac_Inférieur_de_Bastan_Hautes_Pyrénées_02_BLS.JPG"
+  },
+  {
+    "name": "Lacs de Bastan du milieu",
+    "category": "lake",
+    "alt": 2215,
+    "description": "Le lac de Bastan du Milieu est un lac de la chaîne de montagne des Pyrénées françaises situé dans le département des Hautes-Pyrénées de la région Occitanie. Le lac a une superficie de 4,8 ha pour une altitude de 2 215 m, il atteint une profondeur de 7 m 3.",
+    "lng": 0.21033577294817113,
+    "lat": 42.851457012515326,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacbastanmilieu.jpeg"
   },
   {
     "name": "Lac de Bastan supérieur",
     "category": "lake",
     "alt": 2220,
     "description": "Le Lac de Bastan supérieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, émissaire : Ruisseau de Bastan, Profondeur : 5m.",
-    "lng": 0.21123,
-    "lat": 42.885927,
+    "lng": 0.21017254129324717,
+    "lat": 42.856858943939955,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Lac_de_Bastan_Superieur.JPG/240px-Lac_de_Bastan_Superieur.JPG"
   },
   {
