@@ -66,7 +66,7 @@ struct CollectionView: View {
                         Spacer()
                     }
                     .navigationBarTitle(Text("Collection"), displayMode: .inline)
-                    .navigationBarItems(leading: Picker(selection: $appManager.selectedCategory, label: Text("")) {
+                    .navigationBarItems(trailing: Picker(selection: $appManager.selectedCategory, label: Text("")) {
                         ForEach(Category.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {
                                 Text(LocalizedStringKey(filter.rawValue))
@@ -97,7 +97,7 @@ struct CollectionView: View {
                         }
                     }
                     .navigationBarTitle(Text("Collection (\(collection.count))"), displayMode: .inline)
-                    .navigationBarItems(leading: Picker(selection: $appManager.selectedCategory, label: Text("")) {
+                    .navigationBarItems(trailing: Picker(selection: $appManager.selectedCategory, label: Text("")) {
                         ForEach(Category.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {
                                 Text(LocalizedStringKey(filter.rawValue))

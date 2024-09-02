@@ -72,8 +72,7 @@ struct PoiView: View {
             }
             .searchable(text: $searchText, placement: .toolbar, prompt: "Search")
             .navigationBarTitle(Text("Steps"), displayMode: .inline)
-            .navigationBarItems(leading:
-                                    HStack(content: {
+            .navigationBarItems(trailing:
                 Picker(selection: $appManager.selectedCategory, label: Text("")) {
                     ForEach(Category.allCasesForCollection, id: \.self) { filter in
                         HStack(alignment: .center, spacing: 8) {
@@ -82,8 +81,6 @@ struct PoiView: View {
                         }
                     }
                 }
-            })
-                                
             
             )
             .accentColor(.tintColor)
