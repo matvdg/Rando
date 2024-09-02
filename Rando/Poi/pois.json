@@ -8,7 +8,7 @@
     "url": "refugejeandel.com",
     "lng": -0.74932356455934,
     "lat": 42.978310374425,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/jeandel.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/jeandel.heic"
   },
   {
     "name": "Refuge d'Ayous",
@@ -19,7 +19,7 @@
     "url": "refuge-ayous.fr",
     "lng": -0.49120921091925,
     "lat": 42.848455313443,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/ayous.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/ayous.heic"
   },
   {
     "name": "Refuge des Oulettes de Gaube",
@@ -30,7 +30,7 @@
     "url": "refugeoulettesdegaube.ffcam.fr",
     "lat": 42.779177,
     "lng": -0.124149,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/gaube.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/gaube.heic"
   },
   {
     "name": "Refuge de Bayssellance",
@@ -41,7 +41,7 @@
     "url": "refugebayssellance.ffcam.fr",
     "lat": 42.8485,
     "lng": -0.49139,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/bayssellance.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/bayssellance.heic"
   },
   {
     "name": "Refuge de l'Oule",
@@ -52,7 +52,7 @@
     "url": "saintlary-vacances.com",
     "lat": 42.824117,
     "lng": 0.207312,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/oule.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/oule.heic"
   },
   {
     "name": "Refuge du Lac d'Oô",
@@ -63,7 +63,7 @@
     "url": "lacdoo.cla.fr",
     "lat": 42.744684,
     "lng": 0.490771,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/oo.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/oo.heic"
   },
   {
     "name": "Refuge d'Espingo",
@@ -74,7 +74,7 @@
     "url": "refugedespingo.ffcam.fr",
     "lng": 0.49975734,
     "lat": 42.73073269,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/espingo.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/espingo.heic"
   },
   {
     "name": "Refuge Jacques Husson",
@@ -85,7 +85,7 @@
     "url": "refugeetangdaraing.ffcam.fr",
     "lng": 0.873333,
     "lat": 42.834444,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/araing.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/araing.heic"
   },
   {
     "name": "Refuge des étangs de Bassies",
@@ -96,7 +96,7 @@
     "url": "bassies.free.fr",
     "lat": 42.765233,
     "lng": 1.41378,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/bassies.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/bassies.heic"
   },
   {
     "name": "Refuge de Rulhe",
@@ -107,7 +107,7 @@
     "url": "rulhe.com",
     "lat": 42.637848,
     "lng": 1.72575,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/rulhe.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/rulhe.heic"
   },
   {
     "name": "Refuge des Bésines",
@@ -118,7 +118,7 @@
     "url": "refugedesbesines.ffcam.fr",
     "lat": 42.603872,
     "lng": 1.868194,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/besines.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/besines.heic"
   },
   {
     "name": "Refuge du Ras de la Carança",
@@ -129,7 +129,7 @@
     "url": "www.refugelacaranca.com",
     "lng": 2.2237656535803,
     "lat": 42.464428106127,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/caranca.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/caranca.heic"
   },
   {
     "name": "Refuge de Mariailles",
@@ -140,7 +140,7 @@
     "url": "refugedemariailles.fr",
     "lng": 2.40753887,
     "lat": 42.50134649,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/mariailles.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/mariailles.heic"
   },
   {
     "name": "Refuge des Cortalets",
@@ -151,7 +151,7 @@
     "url": "refugedescortalets.ffcam.fr",
     "lat": 42.534241,
     "lng": 2.464639,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/cortalets.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cortalets.heic"
   },
   {
     "name": "Cascade de Lutour",
@@ -160,7 +160,7 @@
     "alt": 1096,
     "lat": 42.870042,
     "lng": -0.105808,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/lutour.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lutour.heic"
   },
   {
     "name": "Cascade d'Arcouzan",
@@ -169,7 +169,7 @@
     "alt": 1065,
     "lat": 42.800592,
     "lng": 1.118023,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/arcouzan.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/arcouzan.heic"
   },
   {
     "name": "Cascade du Fouillet",
@@ -178,7 +178,7 @@
     "alt": 1321,
     "lat": 42.765317,
     "lng": 1.328549,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/fouillet.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/fouillet.heic"
   },
   {
     "name": "Cascade d'Ars",
@@ -187,7 +187,7 @@
     "alt": 1404,
     "lat": 42.762943,
     "lng": 1.361437,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/ars.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/ars.heic"
   },
   {
     "name": "Mont Valier",
@@ -196,7 +196,7 @@
     "alt": 2838,
     "lat": 42.799284,
     "lng": 1.085288,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/valier.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/valier.heic"
   },
   {
     "name": "Pic de Montcalm",
@@ -205,7 +205,7 @@
     "alt": 3077,
     "lat": 42.672928,
     "lng": 1.406448,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/montcalm.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/montcalm.heic"
   },
   {
     "name": "Pic du Canigou",
@@ -214,7 +214,7 @@
     "alt": 2784,
     "lat": 42.520241,
     "lng": 2.456527,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/canigou.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/canigou.heic"
   },
   {
     "name": "Pic de Vignemale",
@@ -223,7 +223,7 @@
     "alt": 3298,
     "lat": 42.774453,
     "lng": -0.146813,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/vignemale.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/vignemale.heic"
   },
   {
     "name": "Refuge d'En Beys",
@@ -234,7 +234,7 @@
     "url": "refuge-enbeys.com/fr/",
     "lng": 1.94353579,
     "lat": 42.6263523,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/enbeys.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/enbeys.heic"
   },
   {
     "name": "Refuge de l'Étang du Pinet",
@@ -245,7 +245,7 @@
     "url": "refugeetangpinet.ffcam.fr",
     "lat": 42.691491,
     "lng": 1.396565,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/pinet.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/pinet.heic"
   },
   {
     "name": "Refuge les Estagnous",
@@ -256,7 +256,7 @@
     "url": "refuge-les-estagnous.com",
     "lat": 42.798014,
     "lng": 1.072662,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/estagnous.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/estagnous.heic"
   },
   {
     "name": "Pic de la Munia",
@@ -265,7 +265,7 @@
     "alt": 3133,
     "lat": 42.717423,
     "lng": 0.133247,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/munia.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/munia.heic"
   },
   {
     "name": "Pic d'Estats",
@@ -274,7 +274,7 @@
     "alt": 3143,
     "lat": 42.667471,
     "lng": 1.397905,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/estats.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/estats.heic"
   },
   {
     "name": "Pic de Verdaguer",
@@ -283,7 +283,7 @@
     "alt": 3131,
     "lat": 42.66866,
     "lng": 1.397068,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/verdaguer.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/verdaguer.heic"
   },
   {
     "name": "Pic du Balaïtous",
@@ -292,7 +292,7 @@
     "alt": 3144,
     "lat": 42.838957,
     "lng": -0.290169,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/balaitous.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/balaitous.heic"
   },
   {
     "name": "Pic Long",
@@ -301,7 +301,7 @@
     "alt": 3192,
     "lat": 42.800951,
     "lng": 0.100446,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/long.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/long.heic"
   },
   {
     "name": "Pic Perdiguère",
@@ -310,7 +310,7 @@
     "alt": 3222,
     "lat": 42.692782,
     "lng": 0.518496,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/perdiguere.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/perdiguere.heic"
   },
   {
     "name": "Pic d'Aneto",
@@ -319,7 +319,7 @@
     "alt": 3404,
     "lat": 42.631847,
     "lng": 0.656474,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/aneto.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/aneto.heic"
   },
   {
     "name": "Le Mont Perdu",
@@ -328,7 +328,7 @@
     "alt": 3355,
     "lat": 42.676098,
     "lng": 0.033845,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/montperdu.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/montperdu.heic"
   },
   {
     "name": "Pic de la Cascade Oriental",
@@ -337,7 +337,7 @@
     "alt": 3161,
     "lat": 42.69169620979089,
     "lng": 0.007625703809709135,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/cascadeoriental.jpeg?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cascadeoriental.jpeg"
   },
   {
     "name": "Pic du Taillon",
@@ -346,7 +346,7 @@
     "alt": 3144,
     "lat": 42.69452471032558,
     "lng": 0.05143187077582237,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/taillon.jpeg?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/taillon.jpeg"
   },
   {
     "name": "Pic du Marboré",
@@ -355,7 +355,7 @@
     "alt": 3248,
     "lat": 42.68405787873813,
     "lng": 0.016752486111450086,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pic_de_Marboré_Pyrenees_20080821.jpg/560px-Pic_de_Marboré_Pyrenees_20080821.jpg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/marbore.jpeg"
   },
   {
     "name": "Pic de l'Estaragne",
@@ -364,7 +364,7 @@
     "alt": 3006,
     "lat": 42.79860037536267,
     "lng": 0.12978618188170446,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pic_d%27Estaragne.jpg/560px-Pic_d%27Estaragne.jpg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/estaragne.jpeg"
   },
   {
     "name": "Pic de Maou",
@@ -373,7 +373,7 @@
     "alt": 3079,
     "lat": 42.79469169378407,
     "lng": 0.10584478618022287,
-    "photoUrl": "picomaou.jpeg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/maou.jpeg"
   },
   {
     "name": "Pic d'Alba",
@@ -382,7 +382,7 @@
     "alt": 3107,
     "lat": 42.667438807927496,
     "lng": 0.6281748026903888,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/3/35/Maladeta.jpg/600px-Maladeta.jpg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/alba.jpeg"
   },
   {
     "name": "Pic du Milieu",
@@ -391,7 +391,7 @@
     "alt": 3128,
     "lat": 42.63948211848191,
     "lng": 0.6490985671919421,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pic_du_milieu.jpg/560px-Pic_du_milieu.jpg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/milieu.jpeg"
   },
   {
     "name": "Pic Maudit",
@@ -400,7 +400,7 @@
     "alt": 3354,
     "lat": 42.642248781372544,
     "lng": 0.6423079399093738,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/picmaudit.jpeg?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/picmaudit.jpeg"
   },
   {
     "name": "Pointe d'Astorg",
@@ -409,7 +409,7 @@
     "alt": 3354,
     "lat": 42.641235925491074,
     "lng": 0.6445861247167501,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Punta_Astorg.jpg/560px-Punta_Astorg.jpg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/astorg.jpeg"
   },
   {
     "name": "Pic de la Maladeta",
@@ -418,7 +418,7 @@
     "alt": 3312,
     "lat": 42.64711391011713,
     "lng": 0.6393383167725701,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/3/35/Maladeta.jpg/560px-Maladeta.jpg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/maladeta.jpeg"
   },
   {
     "name": "Pic Russell",
@@ -427,7 +427,7 @@
     "alt": 3207,
     "lat": 42.62040332181777,
     "lng": 0.6720037014140043,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/russell.jpeg?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/russell.jpeg"
   },
   {
     "name": "Pic de Néouvielle",
@@ -436,7 +436,7 @@
     "alt": 3091,
     "lat": 42.83702927539623,
     "lng": 0.11545382119677618,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/neouvielle.jpeg?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/neouvielle.jpeg"
   },
   {
     "name": "Pic de Comaloforno",
@@ -445,7 +445,7 @@
     "alt": 3029,
     "lat": 42.59181409501662,
     "lng": 0.8279489167384319,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/c/c7/P1030184_-_Comaloformo.JPG/560px-P1030184_-_Comaloformo.JPG"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/comaloforno.jpeg"
   },
   {
     "name": "Pic de Besiberri Sud",
@@ -454,7 +454,7 @@
     "alt": 3023,
     "lat": 42.594851725162314,
     "lng": 0.8260055603359678,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/besibberisud.jpeg?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/besiberrisud.jpeg"
   },
   {
     "name": "Pic des Posets",
@@ -463,7 +463,7 @@
     "alt": 3375,
     "lat": 42.666280786351244,
     "lng": 0.4243581247323813,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/posets.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/posets.heic"
   },
   {
     "name": "Pic des Trois-Seigneurs",
@@ -472,7 +472,7 @@
     "alt": 2199,
     "lat": 42.831236,
     "lng": 1.440415,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/3seigneurs.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/3seigneurs.heic"
   },
   {
     "name": "Pic du Midi de Bigorre",
@@ -481,7 +481,7 @@
     "alt": 2876,
     "lat": 42.937594,
     "lng": 0.140878,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/midibigorre.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/midibigorre.heic"
   },
   {
     "name": "Pic Carlit",
@@ -490,7 +490,7 @@
     "alt": 2921,
     "lat": 42.571623,
     "lng": 1.932437,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/carlit.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/carlit.heic"
   },
   {
     "name": "Pic d'Ardiden",
@@ -499,7 +499,7 @@
     "alt": 2988,
     "lat": 42.834665,
     "lng": -0.067955,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/ardiden.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/ardiden.heic"
   },
   {
     "name": "Pic de Cagire",
@@ -508,7 +508,7 @@
     "alt": 1912,
     "lat": 42.947236,
     "lng": 0.766027,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/cagire.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cagire.heic"
   },
   {
     "name": "Arbizon",
@@ -517,7 +517,7 @@
     "alt": 2831,
     "lat": 42.875556,
     "lng": 0.2725,
-    "photoUrl": "encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcR6GMWGIsXjCAeqLDHUAgp362MKzbWH_EzoT45bl8CG73HkFrUOF-QHF9B_0hQUGwAgTJe908tpGUakEQoZMW9F9VUq2QMYsLXZCMAgvA"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/arbizon.jpeg"
   },
   {
     "name": "Pic de Maubermé",
@@ -526,7 +526,7 @@
     "alt": 2882,
     "lat": 42.793849,
     "lng": 0.917111,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/thumb/1/18/Tuc_de_Maubèrme_des_del_Lac_de_Montoliu.JPG/560px-Tuc_de_Maubèrme_des_del_Lac_de_Montoliu.JPG"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/mauberme.jpeg"
   },
   {
     "name": "Pic de Céciré",
@@ -535,7 +535,7 @@
     "alt": 2403,
     "lat": 42.759113219715964,
     "lng": 0.5377231253141475,
-    "photoUrl": "encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YhUxk0bvpFkxM0LSb_OOFEa-tjpk5tGfdg&s"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cecire.jpeg"
   },
   {
     "name": "Pic du Grand Quayrat",
@@ -544,7 +544,7 @@
     "alt": 3060,
     "lat": 42.714649861989145,
     "lng": 0.5183728446786111,
-    "photoUrl": "upload.wikimedia.org/wikipedia/commons/b/b7/Pico_Gran_Quairat_2.jpg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/grandquayrat.jpeg"
   },
   {
     "name": "Maison d'Arlos",
@@ -555,7 +555,7 @@
     "url": "maisondarlos.fr",
     "lat": 42.89325,
     "lng": 0.69965,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/arlos.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/arlos.heic"
   },
   {
     "name": "Cascade du Gouffre d'Enfer",
@@ -564,7 +564,7 @@
     "alt": 1200,
     "lat": 42.73241,
     "lng": 0.55168,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/enfer.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/enfer.heic"
   },
   {
     "name": "Cascade d'Arlos (la Batch)",
@@ -573,7 +573,7 @@
     "alt": 600,
     "lat": 42.88211,
     "lng": 0.71033,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/batch.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/batch.heic"
   },
   {
     "name": "Pic du Gar",
@@ -582,7 +582,7 @@
     "alt": 1785,
     "lat": 42.94956,
     "lng": 0.69623,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/gar.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/gar.heic"
   },
   {
     "name": "Pic Saillant",
@@ -591,7 +591,7 @@
     "alt": 1756,
     "lat": 42.94219,
     "lng": 0.69827,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/saillant.heic?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/saillant.heic"
   },
   {
     "lng": 0.97261190414429,
@@ -3732,7 +3732,7 @@
     "name": "Orri de Bacivers",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1739",
     "description": "Petite cabanne en pierre.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/bacivers.jpeg?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/bacivers.jpeg",
     "alt": 2630,
     "category": "shelter"
   },
@@ -7126,7 +7126,7 @@
     "name": "Abri dels Estanys forcats",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1725",
     "description": "La cabane en bois dels Estanys forcats les etangs fourchus est située à 2615 mètres d'altitude cote Andorran à la limite de la catalogne c est un vieux rafiot pose en equilibre au bord du vide sur une plateforme de gros blocs comme une epave jetee par la mer sur des recifs qui est amarre à la montagne par quatre elingues métalliques effilochees et rouillees qui lempechent de senvoler à chaque tempete il comporte 6 places sur matelas de mousse sur 2 bat flancs superposes une table et deux bancs métalliques le tuyau d'eau à proximité qui ne coulait pas le soir à recommence à couler le matin après la remontee du niveau du lac due aux fortes pluies de la nuit le refuge est situé à 200 m du lac legerement en contrebas au sud et invisible depuis le sentier j y etais seul et y ai merveilleusement bien dormi par très mauvais temps lors de la 14eme nuit de ma traversee en continu des Pyrénées seul et sous tente en 42 etapes cet été de banyuls sur mer à hendaye par la hrp le gr 11 et le gr 10 sur 770 km et 43000 m d'c était à l'issue d'une très grosse etape de dix heures comprenant 1900 m d'et 1400 m d'la cabane est reste etanche et seche toute la nuit malgré la tempete et mes bouchons d'oreilles m ont evite d'entendre ses rales et ses grincements à chaque coup de vent trop violent je n avais pas pu marreter au refuge du pla de l'Estany situé 600 mètres plus bas car l'abri de 8 places était deja occupé  pour la nuit par une patrouille de 23 scouts et scoutes Andorrans mon recit de ce trek est en cours de redaction pour publication comme je l'ai fait pour quelques autres de mes grands treks consultables sur https www amazon fr pierre herant e b07l2bmgym.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/estanysforcats.jpeg?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/estanysforcats.jpeg",
     "alt": 2615,
     "category": "shelter"
   },
@@ -10233,7 +10233,7 @@
     "name": "Refuge Mataro",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=218",
     "description": "Abri métallique en bon état table.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/mataro.jpeg?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/mataro.jpeg",
     "alt": 2460,
     "category": "shelter"
   },
@@ -15711,7 +15711,7 @@
     "phone": "+33987881469",
     "description": "Le refuge de Vénasque est un refuge de montagne gardé du Luchonnais, dans les Pyrénées, situé sur le bord du Boum inférieur, à 2 239 m d'altitude, au pied du pic de Sauvegarde et en contrebas du port de Vénasque.",
     "url": "refugedevenasque.ffcam.fr",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/venasque.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/venasque.heic",
     "lat": 42.69927,
     "lng": 0.64242
   },
@@ -15720,7 +15720,7 @@
     "category": "peak",
     "alt": 2165,
     "description": "Le Pic de la Hage est un sommet montagneux d'Espagne, à la frontière avec la France. Il est situé dans la province de Província de Lleida et la région de Catalogne. Le pic du Pic de la Hage culmine à 2165 mètres d'altitude.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/hage.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/hage.heic",
     "lat": 42.855272,
     "lng": 0.678159
   },
@@ -15729,7 +15729,7 @@
     "category": "peak",
     "alt": 2154,
     "description": "Le pic du Burat est situé dans le massif des Pyrénées, dans le Luchonnais. Son altitude est de 2 154 mètres. Les neiges y sont abondantes en hiver et elles restent presque toute l'année.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/burat.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/burat.heic",
     "lat": 42.85935,
     "lng": 0.670702
   },
@@ -15738,7 +15738,7 @@
     "category": "peak",
     "alt": 2193,
     "description": "Le Pic de Bacanère 2193 m situé d'une part sur la commune Gouaux-de-Luchon, Haute-Garonne, France et le val d'Aran en Espagne.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/bacanere.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/bacanere.heic",
     "lat": 42.846122,
     "lng": 0.675203
   },
@@ -15746,7 +15746,7 @@
     "name": "Pic de Sacaube",
     "category": "peak",
     "alt": 1777,
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/sacaube.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/sacaube.heic",
     "lat": 42.860441,
     "lng": 0.706021
   },
@@ -15755,7 +15755,7 @@
     "category": "peak",
     "alt": 2630,
     "description": "Le pic de Crabère est un sommet des Pyrénées centrales d'une altitude de 2 630 ou 2 631 mètres. Il constitue un tripoint entre les départements français de l'Ariège et de la Haute-Garonne, en région Occitanie, et la province espagnole de Lérida, en Catalogne. Sur son versant oriental, sur le territoire de la commune ariégeoise de Sentein, se trouve l'étang d'Araing formé par un barrage hydroélectrique sur l'Araing. C'est sur le versant nord-ouest que furent opérées les premières réintroductions dans les Pyrénées d'ours bruns.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/crabere.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/crabere.heic",
     "lat": 42.828156229983584,
     "lng": 0.8582789442631651
   },
@@ -15764,7 +15764,7 @@
     "category": "peak",
     "alt": 2737,
     "description": "Le pic de Sauvegarde, pico de Salvaguardia en espagnol, situé dans les Pyrénées, entre l'Espagne et le département de la Haute-Garonne, est un des plus hauts sommets du Haut Luchonnais avec une altitude de 2 736 ou 2 737 m. Le pic de Sauvegarde est accessible depuis le port de Venasque. Redescendre quelques mètres sur le versant espagnol puis emprunter le sentier sur la droite, légèrement pentu mais sans difficulté majeure. En mai et juin, il faut passer quelques névés.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/sauvegarde.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/sauvegarde.heic",
     "lat": 42.69736352211626,
     "lng": 0.6306606040506966
   },
@@ -15773,7 +15773,7 @@
     "category": "peak",
     "alt": 3109,
     "description": "Le pic de Maupas est un sommet frontalier du Luchonnais dans les Pyrénées centrales qui culmine à 3 109 ou 3 111 m. Maupas signifie « mauvais passage » car le passage entre le glacier du Maupas, aujourd'hui disparu, et la pente sommitale est un peu délicat. Il est situé entre la région de l'Aragon en Espagne et le département de la Haute-Garonne, au-dessus du Haut-Luchonnais et de Bagnères-de-Luchon. Il domine le cirque des Crabioules et Superbagnères au nord, le vallon de Remugne au sud.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/maupas.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/maupas.heic",
     "lat": 42.704461678561216,
     "lng": 0.5454952654905405
   },
@@ -15782,7 +15782,7 @@
     "category": "peak",
     "alt": 2884,
     "description": "Le pic du Midi d'Ossau est une montagne culminant à 2 884 mètres et située dans l'ouest des Pyrénées françaises, dans la partie béarnaise du département des Pyrénées-Atlantiques. Il est le sommet emblématique de la vallée d'Ossau — qui lui donne son nom en référence aux cours d'eau. Le pic du Midi d'Ossau est l'un des vestiges d'un ancien volcan, le volcan d'Ossau, formé il y a 278 millions d'années, à la fin de l'orogenèse varisque.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/ossau.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/ossau.heic",
     "lat": 42.85288657577207,
     "lng": -0.43367735544760744
   },
@@ -15791,7 +15791,7 @@
     "category": "bridge",
     "alt": 580,
     "description": "Suspendu 150 m au-dessus du vide, le pont d'Holzarté est le plus spectaculaire de tous ceux que vous pourrez rencontrer entre l'Atlantique et la Méditerranée ! Accessible au terme d'une randonnée d'une heure environ, le pont suspendu saute sur 70 m le canyon d'Olhadubi pour permettre d'atteindre l'autre rive. Le panorama est saisissant, il ne faut pas avoir le vertige pour traverser tant on à l'impression de marcher dans le vide.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/holzarte.heic?raw=true",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/holzarte.heic",
     "lat": 43.00699869459812,
     "lng": -0.9226813289233948,
     "url": "fr.wikipedia.org/wiki/Gorges_d%27Holtzarte"
@@ -16014,7 +16014,7 @@
     "lng": -0.5523790625690096,
     "alt": 1280,
     "url": "fr.wikipedia.org/wiki/Chemin_de_la_Mâture.",
-    "photoUrl": "github.com/matvdg/Rando/blob/master/photos/mature.jpeg?raw=true"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/mature.jpeg"
   },
   {
     "name": "Station-service à St-Jean-Pied-de-Port",
