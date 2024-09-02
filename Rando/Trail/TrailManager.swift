@@ -158,6 +158,11 @@ class TrailManager: ObservableObject {
         self.getTrails()
     }
     
+    func removeAllTrailsVisibleOnTheMap() {
+        trails.array.forEach { $0.isDisplayed = false }
+        save(trails: trails.array)
+    }
+    
     // MARK: - Private methods
     private func loadDemoTrails() {
         guard !UserDefaults.hasBeenLaunched else { return }

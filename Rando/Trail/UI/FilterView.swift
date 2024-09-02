@@ -117,7 +117,7 @@ struct FilterView: View {
         .tint(.tintColorTabBar)
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
-        .frame(height: 400, alignment: .top)
+        .frame(height: 500, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
         

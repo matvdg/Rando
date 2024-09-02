@@ -368,6 +368,16 @@
         }
       }
     },
+    "Clean visible trails from the map" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enlever les randos visibles sur la carte"
+          }
+        }
+      }
+    },
     "Collection" : {
       "localizations" : {
         "fr" : {
@@ -379,7 +389,14 @@
       }
     },
     "Collection (%lld)" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collection (%lld)"
+          }
+        }
+      }
     },
     "Color" : {
       "localizations" : {

@@ -43,6 +43,14 @@ struct SettingsView: View {
                 List {
                     
                     Button {
+                        TrailManager.shared.removeAllTrailsVisibleOnTheMap()
+                        Feedback.success()
+                        selection = 0
+                    } label: {
+                        Label("Clean visible trails from the map", systemImage: "eye.slash")
+                    }
+                    
+                    Button {
                         showShareSheet = true
                     } label: {
                         Label("ShareMyPosition", systemImage: "mappin")
