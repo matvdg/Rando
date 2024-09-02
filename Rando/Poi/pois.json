@@ -14100,7 +14100,7 @@
   {
     "lng": -0.26667548211297,
     "lat": 42.954930586991,
-    "name": "Cabane de Saucede / Clot du Laun",
+    "name": "Cabane de Saucède / Clot du Laun",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1205",
     "description": "Cabane assez sommaire et peu entretenue il y a un sommier en mauvais état aucun matelas la porte ne se fermé plus et l'intérieur est un peu délabré le sol est en terre battue la rivière est juste à côté de la cabane.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15814087536926.jpg",
@@ -16297,6 +16297,15 @@
     "lng": 0.5860435043483675,
     "lat": 42.704006838339915,
     "photoUrl": "https://lh5.googleusercontent.com/p/AF1QipMW3cJA_XOdl5nbF4er9jRLnH1Ql0KrS0jbWuQ=w408-h306-k-no"
+  },
+  {
+    "name": "Lac d'Anglas",
+    "category": "lake",
+    "alt": 2068,
+    "description": "Le lac d’Anglas est un petit lac de montagne situé sur la commune des Eaux-Bonnes dans le massif pyrénéen, à 2 068 mètres d'altitude.",
+    "lng": -0.3247650011911676,
+    "lat": 42.93140139162401,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/anglas.jpeg"
   },
   {
     "name": "Lac du Port Vieil",
