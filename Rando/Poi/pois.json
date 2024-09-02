@@ -15776,7 +15776,7 @@
     "lng": -0.5523790625690096,
     "alt": 1280,
     "url": "fr.wikipedia.org/wiki/Chemin_de_la_Mâture",
-    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/gavarnie.jpeg"
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cheminmature.jpeg"
   },
   {
     "name": "Cirque de Gavarnie",
@@ -16178,7 +16178,7 @@
     "name": "Lac d'Agalops",
     "category": "lake",
     "alt": 2196,
-    "description": "Le Lac d'Agalops est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Aygue-Cluse. Type: Naturel, Emissaire : Coueyla-Gran, Profondeur : 1m.",
+    "description": "Le Lac d'Agalops est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Aygue-Cluse. Type: Naturel, émissaire : Coueyla-Gran, Profondeur : 1m.",
     "lng": 0.156667,
     "lat": 42.8775368
   },
@@ -16186,7 +16186,7 @@
     "name": "Lac d'Agos",
     "category": "lake",
     "alt": 760,
-    "description": "Le Lac d'Agos est situé dans les communes de Guchan et Vielle-Aure, dans la Vallée d'Aure, Massif de l'Arbizon, lieu-dit : Goumères. Type: Artificiel, Emissaire : La Neste d'Aure.",
+    "description": "Le Lac d'Agos est situé dans les communes de Guchan et Vielle-Aure, dans la Vallée d'Aure, Massif de l'Arbizon, lieu-dit : Goumères. Type: Artificiel, émissaire : La Neste d'Aure.",
     "lng": 0.3395783,
     "lat": 42.8430866
   },
@@ -16202,7 +16202,7 @@
     "name": "Lac d'Anapéou",
     "category": "lake",
     "alt": 2093,
-    "description": "Le Lac d'Anapéou est situé dans la commune d'Arcizans-Avant, dans la Vallée de Cauterets, Massif de Cauterets, lieu-dit : Estibe. Type: Naturel, Emissaire : Ruisseau d'Anapéou.",
+    "description": "Le Lac d'Anapéou est situé dans la commune d'Arcizans-Avant, dans la Vallée de Cauterets, Massif de Cauterets, lieu-dit : Estibe. Type: Naturel, émissaire : Ruisseau d'Anapéou.",
     "lng": -0.1281023,
     "lat": 42.9257542,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lac_d%27Anap%C3%A9ou_%28Hautes-Pyr%C3%A9n%C3%A9es%29_1.jpg/240px-Lac_d%27Anap%C3%A9ou_%28Hautes-Pyr%C3%A9n%C3%A9es%29_1.jpg"
@@ -16227,7 +16227,7 @@
     "name": "Lac d'Arcizans - Avant",
     "category": "lake",
     "alt": 620,
-    "description": "Le Lac d'Arcizans - Avant est situé dans la commune d'Arcizans-Avant, dans le Val d'Azun, Massif de Cauterets, lieu-dit : Bernata. Type: Artificiel, Emissaire : Gave d'Azun, Profondeur : 5m.",
+    "description": "Le Lac d'Arcizans - Avant est situé dans la commune d'Arcizans-Avant, dans le Val d'Azun, Massif de Cauterets, lieu-dit : Bernata. Type: Artificiel, émissaire : Gave d'Azun, Profondeur : 5m.",
     "lng": 0.1114833,
     "lat": 42.9877131
   },
@@ -16235,7 +16235,7 @@
     "name": "Lac d'Arou",
     "category": "lake",
     "alt": 1786,
-    "description": "Le Lac d'Arou est situé dans la commune d'Ancizan, dans la Vallée de Campan, Massif de l'Arbizon, lieu-dit : Coste Ouillère. Type: Naturel, Emissaire : Ruisseau d'Artigou, Profondeur : 3m.",
+    "description": "Le Lac d'Arou est situé dans la commune d'Ancizan, dans la Vallée de Campan, Massif de l'Arbizon, lieu-dit : Coste Ouillère. Type: Naturel, émissaire : Ruisseau d'Artigou, Profondeur : 3m.",
     "lng": 0.2694,
     "lat": 42.895,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Lac_d%27Arou.jpg/240px-Lac_d%27Arou.jpg"
@@ -16244,7 +16244,7 @@
     "name": "Lac d'Artigues de Gripp",
     "category": "lake",
     "alt": 1196,
-    "description": "Le Lac d'Artigues de Gripp est situé dans la commune de Campan, dans la Vallée de Campan, lieu-dit : Lartigue. Type: Barrage, Emissaire : Adour de Gripp.",
+    "description": "Le Lac d'Artigues de Gripp est situé dans la commune de Campan, dans la Vallée de Campan, lieu-dit : Lartigue. Type: Barrage, émissaire : Adour de Gripp.",
     "lng": 0.2044326,
     "lat": 42.9292127
   },
@@ -16252,7 +16252,7 @@
     "name": "Lacs d'Arraillé",
     "category": "lake",
     "alt": 2485,
-    "description": "Les Lacs d'Arraillé sont situés dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Pic d'Arraillé. Type: Naturel, Emissaire : Gave des Oulettes de Gaube.",
+    "description": "Les Lacs d'Arraillé sont situés dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Pic d'Arraillé. Type: Naturel, émissaire : Gave des Oulettes de Gaube.",
     "lng": -0.13134241,
     "lat": 42.79005292
   },
@@ -16260,7 +16260,7 @@
     "name": "Lac du col d'Arratille",
     "category": "lake",
     "alt": 2501,
-    "description": "Le Lac du col d'Arratille est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa, lieu-dit : Col d'Arratille. Type: Naturel, Emissaire : Gave d'Arratille, Profondeur : 17m.",
+    "description": "Le Lac du col d'Arratille est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa, lieu-dit : Col d'Arratille. Type: Naturel, émissaire : Gave d'Arratille, Profondeur : 17m.",
     "lng": -0.17419338,
     "lat": 42.7897242
   },
@@ -16276,7 +16276,7 @@
     "name": "Lac d'Aspé",
     "category": "lake",
     "alt": 2689,
-    "description": "Le Lac d'Aspé est situé dans la commune de Cauterets, dans la Vallée de Lutour, Massif d'Ardiden, lieu-dit : Col d'Aspé. Type: Naturel, Emissaire : Gave d'Estom Soubiran.",
+    "description": "Le Lac d'Aspé est situé dans la commune de Cauterets, dans la Vallée de Lutour, Massif d'Ardiden, lieu-dit : Col d'Aspé. Type: Naturel, émissaire : Gave d'Estom Soubiran.",
     "lng": -0.08095979,
     "lat": 42.7812203
   },
@@ -16292,7 +16292,7 @@
     "name": "Lac d'Ausseilla",
     "category": "lake",
     "alt": 2192,
-    "description": "Le Lac d'Ausseilla est situé dans la commune d'Arrens-Marsous, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Labas Ouest. Type: Naturel, Emissaire : Ruisseau de Labas, Profondeur : 5m.",
+    "description": "Le Lac d'Ausseilla est situé dans la commune d'Arrens-Marsous, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Labas Ouest. Type: Naturel, émissaire : Ruisseau de Labas, Profondeur : 5m.",
     "lng": 0.3120759,
     "lat": 42.905218
   },
@@ -16300,7 +16300,7 @@
     "name": "Lac d'Avajan",
     "category": "lake",
     "alt": 910,
-    "description": "Le Lac d'Avajan est situé dans la commune d'Avajan, dans la Vallée du Louron, lieu-dit : Prédenar. Type: Non précisé, Emissaire : Neste du Louron, Profondeur : 4m.",
+    "description": "Le Lac d'Avajan est situé dans la commune d'Avajan, dans la Vallée du Louron, lieu-dit : Prédenar. Type: Non précisé, émissaire : Neste du Louron, Profondeur : 4m.",
     "lng": 0.40868929,
     "lat": 42.8383847
   },
@@ -16308,7 +16308,7 @@
     "name": "Lac d'Aygues Cluses",
     "category": "lake",
     "alt": 2311,
-    "description": "Le Lac d'Aygues Cluses est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Port-Bieil. Type: Naturel, Emissaire : Ruisseau d'Aygues-Cluses, Profondeur : 3m.",
+    "description": "Le Lac d'Aygues Cluses est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Port-Bieil. Type: Naturel, émissaire : Ruisseau d'Aygues-Cluses, Profondeur : 3m.",
     "lng": 0.15129268,
     "lat": 42.86611763
   },
@@ -16316,7 +16316,7 @@
     "name": "Lacs d'Aygues Tortes",
     "category": "lake",
     "alt": 2258,
-    "description": "Les Lacs d'Aygues Tortes sont situés dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon d'Aygues Tortes. Type: Naturel, Emissaire : Ruisseau d'Aygues-Tortes.",
+    "description": "Les Lacs d'Aygues Tortes sont situés dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon d'Aygues Tortes. Type: Naturel, émissaire : Ruisseau d'Aygues-Tortes.",
     "lng": 0.42015194,
     "lat": 42.7046412
   },
@@ -16324,7 +16324,7 @@
     "name": "Lac de Badet (Sazos)",
     "category": "lake",
     "alt": 2569,
-    "description": "Le Lac de Badet est situé dans la commune de Sazos, dans la Vallée de Luz-Saint-Sauveur, Massif d'Ardiden, lieu-dit : Badet d'Aubiste. Type: Naturel, Emissaire : Ruisseau de Badet, Profondeur : 8m.",
+    "description": "Le Lac de Badet est situé dans la commune de Sazos, dans la Vallée de Luz-Saint-Sauveur, Massif d'Ardiden, lieu-dit : Badet d'Aubiste. Type: Naturel, émissaire : Ruisseau de Badet, Profondeur : 8m.",
     "lng": -0.0620126,
     "lat": 42.82970803
   },
@@ -16332,7 +16332,7 @@
     "name": "Lac de Badet (Aragnouet)",
     "category": "lake",
     "alt": 2080,
-    "description": "Le Lac de Badet est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Montagne de Lalaquette. Type: Naturel, Emissaire : Neste de Badet.",
+    "description": "Le Lac de Badet est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Montagne de Lalaquette. Type: Naturel, émissaire : Neste de Badet.",
     "lng": 0.136701,
     "lat": 42.7654646
   },
@@ -16340,7 +16340,7 @@
     "name": "Lac de la Badète",
     "category": "lake",
     "alt": 2344,
-    "description": "Le Lac de la Badète est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa, lieu-dit : Pic de la Badète. Type: Naturel, Emissaire : Gave d'Arratille, Profondeur : 7m.",
+    "description": "Le Lac de la Badète est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa, lieu-dit : Pic de la Badète. Type: Naturel, émissaire : Gave d'Arratille, Profondeur : 7m.",
     "lng": -0.181986,
     "lat": 42.793849
   },
@@ -16348,7 +16348,7 @@
     "name": "Lac du Barbat",
     "category": "lake",
     "alt": 1973,
-    "description": "Le Lac du Barbat est situé dans la commune d'Estaing, dans le Val d'Azun, Massif de Cauterets, lieu-dit : Barbat. Type: Naturel, Emissaire : Arriousec, Profondeur : 3m.",
+    "description": "Le Lac du Barbat est situé dans la commune d'Estaing, dans le Val d'Azun, Massif de Cauterets, lieu-dit : Barbat. Type: Naturel, émissaire : Arriousec, Profondeur : 3m.",
     "lng": -0.20111,
     "lat": 42.87833
   },
@@ -16356,7 +16356,7 @@
     "name": "Lac de Barroude petit",
     "category": "lake",
     "alt": 2377,
-    "description": "Le Lac de Barroude petit est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Montagne de Passade de Barroude. Type: Naturel, Emissaire : Neste de la Géla, Profondeur : 3m.",
+    "description": "Le Lac de Barroude petit est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Montagne de Passade de Barroude. Type: Naturel, émissaire : Neste de la Géla, Profondeur : 3m.",
     "lng": 0.146405,
     "lat": 42.733947
   },
@@ -16364,7 +16364,7 @@
     "name": "Lac de Bassia",
     "category": "lake",
     "alt": 2488,
-    "description": "Le Lac de Bassia est situé dans la commune d'Estaing, dans la Vallée du Marcadau, Massif de Cauterets, lieu-dit : Pé det May. Type: Naturel, Emissaire : Ruisseau de Bassia, Profondeur : 5m.",
+    "description": "Le Lac de Bassia est situé dans la commune d'Estaing, dans la Vallée du Marcadau, Massif de Cauterets, lieu-dit : Pé det May. Type: Naturel, émissaire : Ruisseau de Bassia, Profondeur : 5m.",
     "lng": 0.209619,
     "lat": 42.839334129
   },
@@ -16372,7 +16372,7 @@
     "name": "Lac de Bassia (Campbieil)",
     "category": "lake",
     "alt": 2489,
-    "description": "Le Lac de Bassia est situé dans la commune de Gavarnie-Gèdre, Massif de Campbieil. Type: Naturel, Emissaire : Gave de Campbieil, Profondeur : 2m.",
+    "description": "Le Lac de Bassia est situé dans la commune de Gavarnie-Gèdre, Massif de Campbieil. Type: Naturel, émissaire : Gave de Campbieil, Profondeur : 2m.",
     "lng": 0.05678,
     "lat": 42.725456
   },
@@ -16380,7 +16380,7 @@
     "name": "Lac de Bastampe",
     "category": "lake",
     "alt": 2302,
-    "description": "Le Lac de Bastampe est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Bastampe. Type: Naturel, Emissaire : Ruisseau de Bastampe, Profondeur : 4m.",
+    "description": "Le Lac de Bastampe est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Bastampe. Type: Naturel, émissaire : Ruisseau de Bastampe, Profondeur : 4m.",
     "lng": 0.362341,
     "lat": 42.787463
   },
@@ -16388,7 +16388,7 @@
     "name": "Lac de Bastan inférieur",
     "category": "lake",
     "alt": 2150,
-    "description": "Le Lac de Bastan inférieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, Emissaire : Ruisseau de Bastan, Profondeur : 3m.",
+    "description": "Le Lac de Bastan inférieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, émissaire : Ruisseau de Bastan, Profondeur : 3m.",
     "lng": 0.209123,
     "lat": 42.883923,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Lac_Inférieur_de_Bastan_Hautes_Pyrénées_02_BLS.JPG/240px-Lac_Inférieur_de_Bastan_Hautes_Pyrénées_02_BLS.JPG"
@@ -16397,7 +16397,7 @@
     "name": "Lac de Bastan supérieur",
     "category": "lake",
     "alt": 2220,
-    "description": "Le Lac de Bastan supérieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, Emissaire : Ruisseau de Bastan, Profondeur : 5m.",
+    "description": "Le Lac de Bastan supérieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, émissaire : Ruisseau de Bastan, Profondeur : 5m.",
     "lng": 0.21123,
     "lat": 42.885927,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Lac_de_Bastan_Superieur.JPG/240px-Lac_de_Bastan_Superieur.JPG"
@@ -16406,7 +16406,7 @@
     "name": "Lac de Baysselance",
     "category": "lake",
     "alt": 2473,
-    "description": "Le Lac de Baysselance est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Pic de Baysselance. Type: Naturel, Emissaire : Gave de Baysselance.",
+    "description": "Le Lac de Baysselance est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Pic de Baysselance. Type: Naturel, émissaire : Gave de Baysselance.",
     "lng": -0.01332,
     "lat": 42.76234
   },
@@ -16414,7 +16414,7 @@
     "name": "Lac de Bègles",
     "category": "lake",
     "alt": 2347,
-    "description": "Le Lac de Bègles est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Bègles. Type: Naturel, Emissaire : Ruisseau de Bègles, Profondeur : 3m.",
+    "description": "Le Lac de Bègles est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Bègles. Type: Naturel, émissaire : Ruisseau de Bègles, Profondeur : 3m.",
     "lng": 0.362123,
     "lat": 42.787982
   },
@@ -16422,7 +16422,7 @@
     "name": "Lac de Bernatoire",
     "category": "lake",
     "alt": 2336,
-    "description": "Le Lac de Bernatoire est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Col de Bernatoire. Type: Naturel, Emissaire : Gave de Bernatoire.",
+    "description": "Le Lac de Bernatoire est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Col de Bernatoire. Type: Naturel, émissaire : Gave de Bernatoire.",
     "lng": -0.01392,
     "lat": 42.77172
   },
@@ -16430,7 +16430,7 @@
     "name": "Lac de Betpouey",
     "category": "lake",
     "alt": 2150,
-    "description": "Le Lac de Betpouey est situé dans la commune de Betpouey, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Betpouey. Type: Naturel, Emissaire : Ruisseau de Betpouey.",
+    "description": "Le Lac de Betpouey est situé dans la commune de Betpouey, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Betpouey. Type: Naturel, émissaire : Ruisseau de Betpouey.",
     "lng": 0.0323,
     "lat": 42.9017
   },
@@ -16438,7 +16438,7 @@
     "name": "Lac Bleu de Lesponne",
     "category": "lake",
     "alt": 1977,
-    "description": "Le Lac Bleu de Lesponne est situé dans la commune de Beaudéan, dans la Vallée de Lesponne, Massif du Pic-du-Midi-de-Bigorre, lieu-dit : Lesponne. Type: Naturel, Emissaire : Ruisseau de Lesponne, Profondeur : 25m.",
+    "description": "Le Lac Bleu de Lesponne est situé dans la commune de Beaudéan, dans la Vallée de Lesponne, Massif du Pic-du-Midi-de-Bigorre, lieu-dit : Lesponne. Type: Naturel, émissaire : Ruisseau de Lesponne, Profondeur : 25m.",
     "lng": 0.0974,
     "lat": 42.9351,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Lac_Bleu_de_Lesponne.jpg/240px-Lac_Bleu_de_Lesponne.jpg"
@@ -16447,7 +16447,7 @@
     "name": "Lac Bleu de Sers",
     "category": "lake",
     "alt": 2093,
-    "description": "Le Lac Bleu de Sers est situé dans la commune de Sers, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Sers. Type: Naturel, Emissaire : Ruisseau de Sers.",
+    "description": "Le Lac Bleu de Sers est situé dans la commune de Sers, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Sers. Type: Naturel, émissaire : Ruisseau de Sers.",
     "lng": 0.1522,
     "lat": 42.8865
   },
@@ -16455,7 +16455,7 @@
     "name": "Lac de Cap-de-Long",
     "category": "lake",
     "alt": 2161,
-    "description": "Le Lac de Cap-de-Long est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Cap-de-Long. Type: Barrage, Emissaire : Neste de Couplan, Profondeur : 48m.",
+    "description": "Le Lac de Cap-de-Long est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Cap-de-Long. Type: Barrage, émissaire : Neste de Couplan, Profondeur : 48m.",
     "lng": 0.1262,
     "lat": 42.8326,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Lac_de_Cap_de_Long.jpg/240px-Lac_de_Cap_de_Long.jpg"
@@ -16464,7 +16464,7 @@
     "name": "Lac de Castillon",
     "category": "lake",
     "alt": 1740,
-    "description": "Le Lac de Castillon est situé dans la commune d'Aucun, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Montagne de Castillon. Type: Naturel, Emissaire : Ruisseau de Castillon.",
+    "description": "Le Lac de Castillon est situé dans la commune d'Aucun, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Montagne de Castillon. Type: Naturel, émissaire : Ruisseau de Castillon.",
     "lng": 0.2359,
     "lat": 42.9051
   },
@@ -16472,7 +16472,7 @@
     "name": "Lac de Catchet",
     "category": "lake",
     "alt": 1850,
-    "description": "Le Lac de Catchet est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Catchet. Type: Naturel, Emissaire : Ruisseau de Catchet.",
+    "description": "Le Lac de Catchet est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Catchet. Type: Naturel, émissaire : Ruisseau de Catchet.",
     "lng": 0.3678,
     "lat": 42.7871
   },
@@ -16480,7 +16480,7 @@
     "name": "Lac de Coueyla-Gran",
     "category": "lake",
     "alt": 2225,
-    "description": "Le Lac de Coueyla-Gran est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Montagne de Coueyla-Gran. Type: Naturel, Emissaire : Ruisseau de Coueyla-Gran.",
+    "description": "Le Lac de Coueyla-Gran est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Montagne de Coueyla-Gran. Type: Naturel, émissaire : Ruisseau de Coueyla-Gran.",
     "lng": 0.1571,
     "lat": 42.8853
   },
@@ -16488,7 +16488,7 @@
     "name": "Lac de Crabounouse",
     "category": "lake",
     "alt": 1980,
-    "description": "Le Lac de Crabounouse est situé dans la commune d'Azet, dans la Vallée de la Neste d'Aure, Massif du Néouvielle, lieu-dit : Vallon de Crabounouse. Type: Naturel, Emissaire : Ruisseau de Crabounouse.",
+    "description": "Le Lac de Crabounouse est situé dans la commune d'Azet, dans la Vallée de la Neste d'Aure, Massif du Néouvielle, lieu-dit : Vallon de Crabounouse. Type: Naturel, émissaire : Ruisseau de Crabounouse.",
     "lng": 0.1415,
     "lat": 42.8901
   },
@@ -16496,7 +16496,7 @@
     "name": "Lac de Cristol",
     "category": "lake",
     "alt": 2191,
-    "description": "Le Lac de Cristol est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Cristol. Type: Naturel, Emissaire : Ruisseau de Cristol.",
+    "description": "Le Lac de Cristol est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Cristol. Type: Naturel, émissaire : Ruisseau de Cristol.",
     "lng": 0.1904,
     "lat": 42.8721
   },
@@ -16504,7 +16504,7 @@
     "name": "Lac de Crouès",
     "category": "lake",
     "alt": 1883,
-    "description": "Le Lac de Crouès est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Crouès. Type: Naturel, Emissaire : Ruisseau de Crouès.",
+    "description": "Le Lac de Crouès est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Crouès. Type: Naturel, émissaire : Ruisseau de Crouès.",
     "lng": 0.1654,
     "lat": 42.8827
   },
@@ -16512,7 +16512,7 @@
     "name": "Lac de Dets-Coubous",
     "category": "lake",
     "alt": 1950,
-    "description": "Le Lac de Dets-Coubous est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Dets-Coubous. Type: Naturel, Emissaire : Ruisseau de Dets-Coubous.",
+    "description": "Le Lac de Dets-Coubous est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Dets-Coubous. Type: Naturel, émissaire : Ruisseau de Dets-Coubous.",
     "lng": 0.1623,
     "lat": 42.8789
   },
@@ -16520,7 +16520,7 @@
     "name": "Lac du Diable",
     "category": "lake",
     "alt": 1870,
-    "description": "Le Lac du Diable est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane du Diable. Type: Naturel, Emissaire : Ruisseau du Diable.",
+    "description": "Le Lac du Diable est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane du Diable. Type: Naturel, émissaire : Ruisseau du Diable.",
     "lng": 0.1514,
     "lat": 42.8775
   },
@@ -16528,7 +16528,7 @@
     "name": "Lac de Doumblas",
     "category": "lake",
     "alt": 2450,
-    "description": "Le Lac de Doumblas est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de Doumblas. Type: Naturel, Emissaire : Ruisseau de Doumblas.",
+    "description": "Le Lac de Doumblas est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de Doumblas. Type: Naturel, émissaire : Ruisseau de Doumblas.",
     "lng": -0.0173,
     "lat": 42.7785
   },
@@ -16536,7 +16536,7 @@
     "name": "Lac d'Estaing",
     "category": "lake",
     "alt": 1161,
-    "description": "Le Lac d'Estaing est situé dans la commune d'Estaing, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Vallée d'Estaing. Type: Naturel, Emissaire : Gave d'Estaing.",
+    "description": "Le Lac d'Estaing est situé dans la commune d'Estaing, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Vallée d'Estaing. Type: Naturel, émissaire : Gave d'Estaing.",
     "lng": -0.2056,
     "lat": 42.9345,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Lac_d%27Estaing.jpg/240px-Lac_d%27Estaing.jpg"
@@ -16553,7 +16553,7 @@
     "name": "Lac de Glère",
     "category": "lake",
     "alt": 2134,
-    "description": "Le Lac de Glère est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Glère. Type: Naturel, Emissaire : Ruisseau de Glère.",
+    "description": "Le Lac de Glère est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Glère. Type: Naturel, émissaire : Ruisseau de Glère.",
     "lng": 0.0878,
     "lat": 42.8831,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vallée_de_Barège%2C_Lac_et_Refuge_de_la_Glère.JPG/240px-Vallée_de_Barège%2C_Lac_et_Refuge_de_la_Glère.JPG"
@@ -16562,7 +16562,7 @@
     "name": "Lac d'Ilhéou",
     "category": "lake",
     "alt": 1988,
-    "description": "Le Lac d'Ilhéou est situé dans la commune de Cauterets, dans la Vallée d'Ilhéou, Massif de Cauterets, lieu-dit : Refuge d'Ilhéou. Type: Naturel, Emissaire : Ruisseau d'Ilhéou.",
+    "description": "Le Lac d'Ilhéou est situé dans la commune de Cauterets, dans la Vallée d'Ilhéou, Massif de Cauterets, lieu-dit : Refuge d'Ilhéou. Type: Naturel, émissaire : Ruisseau d'Ilhéou.",
     "lng": -0.0944,
     "lat": 42.8417,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Lac_d%27Ilheou.jpg/240px-Lac_d%27Ilheou.jpg"
@@ -16571,7 +16571,7 @@
     "name": "Lac d'Isaby",
     "category": "lake",
     "alt": 1520,
-    "description": "Le Lac d'Isaby est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Montagne d'Isaby. Type: Naturel, Emissaire : Ruisseau d'Isaby.",
+    "description": "Le Lac d'Isaby est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Montagne d'Isaby. Type: Naturel, émissaire : Ruisseau d'Isaby.",
     "lng": 0.0067,
     "lat": 42.9317,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Lac_d%27Isaby_3.jpg/240px-Lac_d%27Isaby_3.jpg"
@@ -16580,7 +16580,7 @@
     "name": "Lac de Lhurs",
     "category": "lake",
     "alt": 1691,
-    "description": "Le Lac de Lhurs est situé dans la commune d'Aucun, dans la Vallée d'Azun, Massif du Balaïtous, lieu-dit : Cabane de Lhurs. Type: Naturel, Emissaire : Ruisseau de Lhurs.",
+    "description": "Le Lac de Lhurs est situé dans la commune d'Aucun, dans la Vallée d'Azun, Massif du Balaïtous, lieu-dit : Cabane de Lhurs. Type: Naturel, émissaire : Ruisseau de Lhurs.",
     "lng": -0.215,
     "lat": 42.9094
   },
@@ -16588,7 +16588,7 @@
     "name": "Lac de Litouèse",
     "category": "lake",
     "alt": 1401,
-    "description": "Le Lac de Litouèse est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Litouèse. Type: Naturel, Emissaire : Ruisseau de Litouèse.",
+    "description": "Le Lac de Litouèse est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Litouèse. Type: Naturel, émissaire : Ruisseau de Litouèse.",
     "lng": -0.1181,
     "lat": 42.8014
   },
@@ -16596,7 +16596,7 @@
     "name": "Lac de Lourdes",
     "category": "lake",
     "alt": 420,
-    "description": "Le Lac de Lourdes est situé dans la commune de Lourdes, dans la Vallée de Lourdes. Type: Naturel, Emissaire : Gave de Pau.",
+    "description": "Le Lac de Lourdes est situé dans la commune de Lourdes, dans la Vallée de Lourdes. Type: Naturel, émissaire : Gave de Pau.",
     "lng": -0.0533,
     "lat": 43.0886,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Lac_de_Lourdes_1.jpg/240px-Lac_de_Lourdes_1.jpg"
@@ -16605,7 +16605,7 @@
     "name": "Lac de Luron",
     "category": "lake",
     "alt": 1250,
-    "description": "Le Lac de Luron est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, Emissaire : Ruisseau de Luron.",
+    "description": "Le Lac de Luron est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, émissaire : Ruisseau de Luron.",
     "lng": 0.2761,
     "lat": 42.8583
   },
@@ -16613,7 +16613,7 @@
     "name": "Lac de Migouélou",
     "category": "lake",
     "alt": 2138,
-    "description": "Le Lac de Migouélou est situé dans la commune d'Arthez-d'Asson, dans la Vallée de Migouélou, Massif du Balaïtous, lieu-dit : Refuge de Migouélou. Type: Naturel, Emissaire : Ruisseau de Migouélou.",
+    "description": "Le Lac de Migouélou est situé dans la commune d'Arthez-d'Asson, dans la Vallée de Migouélou, Massif du Balaïtous, lieu-dit : Refuge de Migouélou. Type: Naturel, émissaire : Ruisseau de Migouélou.",
     "lng": -0.3319,
     "lat": 42.9119,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Lac_de_Migouelou.JPG/528px-Lac_de_Migouelou.JPG"
@@ -16622,7 +16622,7 @@
     "name": "Lac d'Oule",
     "category": "lake",
     "alt": 1819,
-    "description": "Le Lac d'Oule est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, Emissaire : Neste d'Oule.",
+    "description": "Le Lac d'Oule est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, émissaire : Neste d'Oule.",
     "lng": 0.1411,
     "lat": 42.8458,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lac_d%27Oule_1.jpg/240px-Lac_d%27Oule_1.jpg"
@@ -16631,7 +16631,7 @@
     "name": "Lac de Port-Bielh",
     "category": "lake",
     "alt": 2059,
-    "description": "Le Lac de Port-Bielh est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Port-Bielh. Type: Naturel, Emissaire : Neste de Port-Bielh.",
+    "description": "Le Lac de Port-Bielh est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Port-Bielh. Type: Naturel, émissaire : Neste de Port-Bielh.",
     "lng": 0.1483,
     "lat": 42.8452
   },
@@ -16639,7 +16639,7 @@
     "name": "Lac de Rabiet",
     "category": "lake",
     "alt": 1761,
-    "description": "Le Lac de Rabiet est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Refuge de Rabiet. Type: Naturel, Emissaire : Ruisseau de Rabiet.",
+    "description": "Le Lac de Rabiet est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Refuge de Rabiet. Type: Naturel, émissaire : Ruisseau de Rabiet.",
     "lng": -0.1194,
     "lat": 42.805
   },
@@ -16647,7 +16647,7 @@
     "name": "Lac de Rémoulis",
     "category": "lake",
     "alt": 2102,
-    "description": "Le Lac de Rémoulis est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Refuge de Rémoulis. Type: Naturel, Emissaire : Ruisseau de Rémoulis.",
+    "description": "Le Lac de Rémoulis est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Refuge de Rémoulis. Type: Naturel, émissaire : Ruisseau de Rémoulis.",
     "lng": 0.1247,
     "lat": 42.8212
   },
@@ -16655,7 +16655,7 @@
     "name": "Lac de Roumassot",
     "category": "lake",
     "alt": 1855,
-    "description": "Le Lac de Roumassot est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Roumassot. Type: Naturel, Emissaire : Gave de Gaube.",
+    "description": "Le Lac de Roumassot est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Roumassot. Type: Naturel, émissaire : Gave de Gaube.",
     "lng": -0.1344,
     "lat": 42.7861
   },
@@ -16663,7 +16663,7 @@
     "name": "Lac de Saoussat",
     "category": "lake",
     "alt": 1930,
-    "description": "Le Lac de Saoussat est situé dans la commune de Cauterets, dans la Vallée de Cauterets, Massif du Vignemale, lieu-dit : Refuge de Saoussat. Type: Naturel, Emissaire : Ruisseau de Saoussat.",
+    "description": "Le Lac de Saoussat est situé dans la commune de Cauterets, dans la Vallée de Cauterets, Massif du Vignemale, lieu-dit : Refuge de Saoussat. Type: Naturel, émissaire : Ruisseau de Saoussat.",
     "lng": -0.1211,
     "lat": 42.7906
   },
@@ -16671,7 +16671,7 @@
     "name": "Lac de Tech",
     "category": "lake",
     "alt": 1207,
-    "description": "Le Lac de Tech est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Cabane de Tech. Type: Naturel, Emissaire : Neste de Tech.",
+    "description": "Le Lac de Tech est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Cabane de Tech. Type: Naturel, émissaire : Neste de Tech.",
     "lng": 0.4296,
     "lat": 42.8047
   },
@@ -16679,7 +16679,7 @@
     "name": "Lac de Trébourdet",
     "category": "lake",
     "alt": 2128,
-    "description": "Le Lac de Trébourdet est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Trébourdet. Type: Naturel, Emissaire : Ruisseau de Trébourdet.",
+    "description": "Le Lac de Trébourdet est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Trébourdet. Type: Naturel, émissaire : Ruisseau de Trébourdet.",
     "lng": -0.1143,
     "lat": 42.7958
   },
@@ -16687,7 +16687,7 @@
     "name": "Lac Vert (Gavarnie)",
     "category": "lake",
     "alt": 2293,
-    "description": "Le Lac Vert est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne du Lac Vert. Type: Naturel, Emissaire : Ruisseau du Lac Vert.",
+    "description": "Le Lac Vert est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne du Lac Vert. Type: Naturel, émissaire : Ruisseau du Lac Vert.",
     "lng": -0.1111,
     "lat": 42.7744
   },
@@ -16695,7 +16695,7 @@
     "name": "Lac Vert (Lesponne)",
     "category": "lake",
     "alt": 1860,
-    "description": "Le Lac Vert est situé dans la commune de Beaudéan, dans la Vallée de Lesponne, Massif du Pic-du-Midi-de-Bigorre, lieu-dit : Cabane du Lac Vert. Type: Naturel, Emissaire : Ruisseau du Lac Vert.",
+    "description": "Le Lac Vert est situé dans la commune de Beaudéan, dans la Vallée de Lesponne, Massif du Pic-du-Midi-de-Bigorre, lieu-dit : Cabane du Lac Vert. Type: Naturel, émissaire : Ruisseau du Lac Vert.",
     "lng": 0.1234,
     "lat": 42.9283
   },
@@ -16703,7 +16703,7 @@
     "name": "Lac de Vinhamala",
     "category": "lake",
     "alt": 2445,
-    "description": "Le Lac de Vinhamala est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Vinhamala. Type: Naturel, Emissaire : Ruisseau de Vinhamala.",
+    "description": "Le Lac de Vinhamala est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Vinhamala. Type: Naturel, émissaire : Ruisseau de Vinhamala.",
     "lng": -0.1357,
     "lat": 42.7652
   },
@@ -16711,7 +16711,7 @@
     "name": "Lac de la Géla",
     "category": "lake",
     "alt": 2200,
-    "description": "Le Lac de la Géla est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Refuge de la Géla. Type: Naturel, Emissaire : Ruisseau de la Géla.",
+    "description": "Le Lac de la Géla est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Refuge de la Géla. Type: Naturel, émissaire : Ruisseau de la Géla.",
     "lng": 0.1356,
     "lat": 42.7799
   },
@@ -16719,7 +16719,7 @@
     "name": "Lac de Montarrouye",
     "category": "lake",
     "alt": 2291,
-    "description": "Le Lac de Montarrouye est situé dans la commune de Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Montarrouye. Type: Naturel, Emissaire : Ruisseau de Montarrouye.",
+    "description": "Le Lac de Montarrouye est situé dans la commune de Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Montarrouye. Type: Naturel, émissaire : Ruisseau de Montarrouye.",
     "lng": 0.1464,
     "lat": 42.7684
   },
@@ -16727,7 +16727,7 @@
     "name": "Lac de Pouey-Laün",
     "category": "lake",
     "alt": 2234,
-    "description": "Le Lac de Pouey-Laün est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de Pouey-Laün. Type: Naturel, Emissaire : Ruisseau de Pouey-Laün.",
+    "description": "Le Lac de Pouey-Laün est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de Pouey-Laün. Type: Naturel, émissaire : Ruisseau de Pouey-Laün.",
     "lng": -0.1442,
     "lat": 42.7639
   },
@@ -16735,7 +16735,7 @@
     "name": "Lac de la Hourquette",
     "category": "lake",
     "alt": 1922,
-    "description": "Le Lac de la Hourquette est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de la Hourquette. Type: Naturel, Emissaire : Ruisseau de la Hourquette.",
+    "description": "Le Lac de la Hourquette est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de la Hourquette. Type: Naturel, émissaire : Ruisseau de la Hourquette.",
     "lng": -0.1451,
     "lat": 42.7662
   },
@@ -16743,7 +16743,7 @@
     "name": "Lac de Peyrelade",
     "category": "lake",
     "alt": 2240,
-    "description": "Le Lac de Peyrelade est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Refuge de Peyrelade. Type: Naturel, Emissaire : Ruisseau de Peyrelade.",
+    "description": "Le Lac de Peyrelade est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Refuge de Peyrelade. Type: Naturel, émissaire : Ruisseau de Peyrelade.",
     "lng": 0.1362,
     "lat": 42.7739,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Pano_lac_de_peyrelade.jpg/240px-Pano_lac_de_peyrelade.jpg"
@@ -16752,7 +16752,7 @@
     "name": "Lac de Pouey Mourou",
     "category": "lake",
     "alt": 2185,
-    "description": "Le Lac de Pouey Mourou est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Pouey Mourou. Type: Naturel, Emissaire : Ruisseau de Pouey Mourou.",
+    "description": "Le Lac de Pouey Mourou est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Pouey Mourou. Type: Naturel, émissaire : Ruisseau de Pouey Mourou.",
     "lng": -0.1532,
     "lat": 42.7625
   },
@@ -16760,7 +16760,7 @@
     "name": "Lac de Sarrouyes",
     "category": "lake",
     "alt": 2500,
-    "description": "Le Lac de Sarrouyes est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Refuge de Sarrouyes. Type: Naturel, Emissaire : Ruisseau de Sarrouyes.",
+    "description": "Le Lac de Sarrouyes est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Refuge de Sarrouyes. Type: Naturel, émissaire : Ruisseau de Sarrouyes.",
     "lng": 0.1341,
     "lat": 42.7793
   },
@@ -16768,7 +16768,7 @@
     "name": "Lac du Plaa de Prat",
     "category": "lake",
     "alt": 1680,
-    "description": "Le Lac du Plaa de Prat est situé dans la commune de Cauterets, dans la Vallée de Lutour, Massif d'Ardiden, lieu-dit : Refuge du Plaa de Prat. Type: Naturel, Emissaire : Ruisseau du Plaa de Prat.",
+    "description": "Le Lac du Plaa de Prat est situé dans la commune de Cauterets, dans la Vallée de Lutour, Massif d'Ardiden, lieu-dit : Refuge du Plaa de Prat. Type: Naturel, émissaire : Ruisseau du Plaa de Prat.",
     "lng": -0.0791,
     "lat": 42.7928
   },
@@ -16776,7 +16776,7 @@
     "name": "Lac de Caillauas",
     "category": "lake",
     "alt": 2140,
-    "description": "Le Lac de Caillauas est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge de Caillauas. Type: Naturel, Emissaire : Ruisseau de Caillauas.",
+    "description": "Le Lac de Caillauas est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge de Caillauas. Type: Naturel, émissaire : Ruisseau de Caillauas.",
     "lng": 0.4256,
     "lat": 42.8104
   },
@@ -16784,7 +16784,7 @@
     "name": "Lac du Portillon",
     "category": "lake",
     "alt": 2570,
-    "description": "Le Lac du Portillon est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge du Portillon. Type: Naturel, Emissaire : Ruisseau du Portillon.",
+    "description": "Le Lac du Portillon est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge du Portillon. Type: Naturel, émissaire : Ruisseau du Portillon.",
     "lng": 0.4277,
     "lat": 42.7736
   },
@@ -16792,7 +16792,7 @@
     "name": "Lac de Montagnette",
     "category": "lake",
     "alt": 2100,
-    "description": "Le Lac de Montagnette est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge de Montagnette. Type: Naturel, Emissaire : Ruisseau de Montagnette.",
+    "description": "Le Lac de Montagnette est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge de Montagnette. Type: Naturel, émissaire : Ruisseau de Montagnette.",
     "lng": 0.4456,
     "lat": 42.8112
   },
@@ -16800,7 +16800,7 @@
     "name": "Lac de Pouchergues",
     "category": "lake",
     "alt": 2073,
-    "description": "Le Lac de Pouchergues est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, Emissaire : Ruisseau de Pouchergues.",
+    "description": "Le Lac de Pouchergues est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, émissaire : Ruisseau de Pouchergues.",
     "lng": 0.4217,
     "lat": 42.795
   },
@@ -16808,7 +16808,7 @@
     "name": "Lac de Saboures",
     "category": "lake",
     "alt": 2128,
-    "description": "Le Lac de Saboures est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, Emissaire : Ruisseau de Saboures.",
+    "description": "Le Lac de Saboures est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, émissaire : Ruisseau de Saboures.",
     "lng": 0.4293,
     "lat": 42.7937
   },
@@ -16816,7 +16816,7 @@
     "name": "Lac de Suberpène",
     "category": "lake",
     "alt": 1868,
-    "description": "Le Lac de Suberpène est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle. Type: Naturel, Emissaire : Ruisseau de Suberpène.",
+    "description": "Le Lac de Suberpène est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle. Type: Naturel, émissaire : Ruisseau de Suberpène.",
     "lng": 0.4122,
     "lat": 42.7928
   },
@@ -16824,7 +16824,7 @@
     "name": "Lac du Tech",
     "category": "lake",
     "alt": 1207,
-    "description": "Le Lac du Tech est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, Emissaire : Neste du Tech.",
+    "description": "Le Lac du Tech est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, émissaire : Neste du Tech.",
     "lng": 0.4296,
     "lat": 42.8047
   },
@@ -16832,7 +16832,7 @@
     "name": "Lac de Trébons",
     "category": "lake",
     "alt": 2063,
-    "description": "Le Lac de Trébons est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle. Type: Naturel, Emissaire : Ruisseau de Trébons.",
+    "description": "Le Lac de Trébons est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle. Type: Naturel, émissaire : Ruisseau de Trébons.",
     "lng": 0.4272,
     "lat": 42.7911
   },
@@ -16840,7 +16840,7 @@
     "name": "Lac du Rioumajou",
     "category": "lake",
     "alt": 1580,
-    "description": "Le Lac du Rioumajou est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, Emissaire : Neste du Rioumajou.",
+    "description": "Le Lac du Rioumajou est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, émissaire : Neste du Rioumajou.",
     "lng": 0.3286,
     "lat": 42.7713
   },
@@ -16848,7 +16848,7 @@
     "name": "Lac du col d'Arraillé",
     "category": "lake",
     "alt": 2501,
-    "description": "Le Lac du col d'Arraillé est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa. Type: Naturel, Emissaire : Gave d'Arraillé, Profondeur : 17m.",
+    "description": "Le Lac du col d'Arraillé est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa. Type: Naturel, émissaire : Gave d'Arraillé, Profondeur : 17m.",
     "lng": -0.17419338,
     "lat": 42.7897242
   },
@@ -16856,7 +16856,7 @@
     "name": "Lac d'Arratille",
     "category": "lake",
     "alt": 2247,
-    "description": "Le Lac d'Arratille est situé dans la commune de Cauterets, dans la Vallée du Marcadau, lieu-dit : Arratille. Type: Naturel, Emissaire : Gave d'Aratille, Profondeur : 12m.",
+    "description": "Le Lac d'Arratille est situé dans la commune de Cauterets, dans la Vallée du Marcadau, lieu-dit : Arratille. Type: Naturel, émissaire : Gave d'Aratille, Profondeur : 12m.",
     "lng": -0.1746669,
     "lat": 42.8
   }
