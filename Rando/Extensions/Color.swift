@@ -11,16 +11,7 @@ import UIKit
 
 extension Color {
     
-    static var grgreen: Color { Color("grgreen") }
-    static var grblue: Color { Color("grblue") }
     static var tintColor: Color { Color("tintColor") }
-    static var tintColorTabBar: Color { Color("tintColorTabBar") }
-    static var text: Color { Color("text") }
-    static var grgray: Color { Color("grgray") }
-    static var lightgray: Color { Color("lightgray") }
-    static var lightgrayInverted: Color { Color("lightgrayInverted") }
-    static var alpha: Color { Color("alpha") }
-    static var background: Color { Color("background") }
     
     var uiColor: UIColor { UIColor(self) }
     var cgColor: CGColor { uiColor.cgColor }
@@ -42,16 +33,6 @@ extension String {
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
         return color.cgColor
     }
-    
-}
-
-extension UIColor {
-    
-    static var grgreen: UIColor { UIColor(named: "grgreen")! }
-    static var grblue: UIColor { UIColor(named: "grblue")! }
-    static var grgray: UIColor { UIColor(named: "grgray")! }
-    static var alpha: UIColor { UIColor(named: "alpha")! }
-    static var background: UIColor { UIColor(named: "background")! }
     
 }
 

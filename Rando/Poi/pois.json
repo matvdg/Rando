@@ -717,7 +717,6 @@
     "name": "El'Aguila Refugio",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=803",
     "description": "Attention ce n est pas vraiment un refuge l'auberge el aguila est nee en 1981 du reve de certains amoureux de ces montagnes qui ont transforme un chalet familial en 1ere refuge de montagne dans une station de ski candanchu après plusieurs reformes les travaux les plus importants ont été realises en 1992 pour tenir compte de la distribution actuelle sur 2 etages de plusieurs chambres en 1997 les chambres quadruples avec salle de bains semblaient offrir un meilleur service ",
-
     "alt": 1550,
     "category": "refuge"
   },
@@ -787,7 +786,6 @@
     "name": "Cabane Etang Alet",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1360",
     "description": "Cabane",
-
     "alt": 1955,
     "category": "shelter"
   },
@@ -976,7 +974,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1175",
     "description": "Un orry avec cheminée pour s enfumer.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2002_1290363496.jpg",
-
     "category": "shelter"
   },
   {
@@ -1363,7 +1360,6 @@
     "lat": 42.509,
     "name": "Refuge Forestier de Argoudeil",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=609",
-
     "alt": 1473,
     "category": "shelter"
   },
@@ -1433,7 +1429,6 @@
     "name": "Cabane de Arna",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1435",
     "description": "Cabane notee sur la carte mais en ruines située à l'est de cette eygun en vallée d'aspe",
-
     "alt": 950,
     "category": "shelter"
   },
@@ -1483,7 +1478,7 @@
     "name": "Refugi de l'Arp",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1702",
     "description": "Refuge gardé se renseigner sur le site pour les periodes de gardiennage le refuge dispose de 21 places chambres de 2 4 ou 8 personnes 2 salles de bains communes avec douches chaudes au premier étage se trouve la salle à manger avec salon cheminée espace pour enfants bibliotheque et jeux de societe location de velos wifi.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15736107843668.jpg",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/refugearp.jpeg",
     "alt": null,
     "category": "refuge"
   },
@@ -1532,7 +1527,6 @@
     "name": "Cabanes de Arras",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1374",
     "description": "Cabanes situées sur le GR10 entre col d'ilheou et refuge d'ilheou",
-
     "alt": 2185,
     "category": "shelter"
   },
@@ -1569,7 +1563,7 @@
   {
     "lng": -0.329,
     "lat": 42.9216,
-    "name": "Cabane d\u2019Arre",
+    "name": "Cabane d’Arre",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1652",
     "description": "Cabane ouverte en pierre renove en 2015.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1555422021.jpg",
@@ -1622,7 +1616,6 @@
     "name": "Arrigal",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1560",
     "description": "Il est utilisable mais pas du tout entretenu l'été il y a des vaches",
-
     "category": "shelter"
   },
   {
@@ -1729,7 +1722,6 @@
     "name": "Courtaou de Artigualeou",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1060",
     "description": "Grande cabane avec cheminée longue table banc 2 chaises et une serie de fauteuils de spectacle ou en état 1 étage avec escalier toit en tole non isole beaucoup de place pour dormir en haut et en bas pas de couchage murs tagges et cabane très sale en avril 2019 on à en partie nettoye très joli environnement ",
-
     "alt": 860,
     "category": "shelter"
   },
@@ -1760,7 +1752,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1188",
     "description": "Cabane sous le col d'artigascou propre grande cheminée couchage à l'étage accessible par une échelle propre grille disponible.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2001_1303463029.jpg",
-
     "category": "shelter"
   },
   {
@@ -1874,16 +1865,6 @@
     "category": "shelter"
   },
   {
-    "lng": 0.69235324859619,
-    "lat": 42.862863960846,
-    "name": "Cabane Artigue",
-    "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=426",
-    "description": "belle cabane située dans un clairiere accueillante et l'eau coulait en octobre malgré une période de secheresse.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15731397851540.jpg",
-    "alt": 1350,
-    "category": "shelter"
-  },
-  {
     "lng": 1.93182771,
     "lat": 42.71831319,
     "name": "Cabane d'Ascou",
@@ -1908,7 +1889,6 @@
     "name": "L'Atalaya",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=809",
     "description": "Refuge restaurant de torla ",
-
     "alt": 1033,
     "category": "refuge"
   },
@@ -1947,7 +1927,6 @@
     "name": "Cabane d'Auba",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1018",
     "description": "Située dans le val d'aran vallon de artiga de linbrmenace de tomber en ruine",
-
     "category": "shelter"
   },
   {
@@ -2165,7 +2144,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1274",
     "description": "Petite cabane située 15 mn avant d'arriver au pibeste.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20210413_220814.jpg",
-
     "category": "shelter"
   },
   {
@@ -2244,7 +2222,6 @@
     "name": "Cabane EDF de BADET",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1140",
     "description": "Ancienne cabane edf située sur la conduite d'eau entre luz st sauveur et pragneres vers le lac de badet brpeut servird'abri en cas d'orage brbr",
-
     "alt": 1883,
     "category": "shelter"
   },
@@ -2442,7 +2419,6 @@
     "lat": 42.9619502,
     "name": "Cabane Barraque",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=436",
-
     "alt": 1630,
     "category": "shelter"
   },
@@ -2532,7 +2508,6 @@
     "name": "Cabane Bargueres (de Campsaure)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=496",
     "description": "Mignonne petite cabane traditionnelle bien ensoleilee sur un versant sud et bien equipée couchage 4 personnes un grand matelas cheminée table et plusieurs billots pour tabourets",
-
     "alt": 1324,
     "category": "shelter"
   },
@@ -2672,7 +2647,6 @@
     "name": "Cabane de la Basse",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=47",
     "description": "Cabane située dans la vallée de la caranca et parfois appelee cabane du pluviomere",
-
     "alt": 2156,
     "category": "shelter"
   },
@@ -2682,7 +2656,6 @@
     "name": "Xalet refugi La Basseta",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=847",
     "description": "Refuge guarde toute l'annee 93 places terrain de camping porte d'entree du parc de la vallée de santa magdalena et entouree par la vaste forêt de sant joan de l'erm en hiver c est la base de la station de ski nordique de sant joan de l'erm ",
-
     "alt": 1690,
     "category": "shelter"
   },
@@ -2692,7 +2665,6 @@
     "name": "Cabane de Bassia Sailla",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1400",
     "description": "Cabane pas visitée située au nord est du pic de thou",
-
     "alt": 2157,
     "category": "shelter"
   },
@@ -2702,7 +2674,6 @@
     "name": "Cabane de Bassiouente",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1401",
     "description": "Cabane en ruines pas utilisable à l'ouest du pic d'estos",
-
     "alt": 2227,
     "category": "shelter"
   },
@@ -2722,7 +2693,7 @@
     "name": "Refuge du Bastan",
     "url": "refugedebastan.fr",
     "description": "beau refuge situé au milieu des sapins dans la réservé du neouvielle 30 couchages à l'étage dans deux dortoirs couple de gardiens sympas ouvert de juin à septembre weeks ends d'octobre si réservation refuge d'hiver environ 12 couchages à l'étage matelas et couverture laisses à dispo l'hiver. Réservation en ligne sur www.visit-neouvielle.com/reservation.html",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20220513_534594.jpg",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/refugebastan.jpeg",
     "alt": 2230,
     "category": "refuge"
   },
@@ -2759,7 +2730,7 @@
   {
     "lng": 0.49263643233098,
     "lat": 42.646598333656,
-    "name": "Abri Aig\u00fceta de Batisielles",
+    "name": "Abri Aigüeta de Batisielles",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1722",
     "description": "Abri sous roche très bas tout en longueur 1 place le sol peut devenir humide par très forte pluie situé au bord du gr11 2 sur la droite en descendant.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15776366332026.jpg",
@@ -2801,7 +2772,6 @@
     "lat": 42.9913016,
     "name": "Cabane Col de Bazés",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=332",
-
     "alt": 1450,
     "category": "shelter"
   },
@@ -2841,7 +2811,6 @@
     "name": "Cabane de Bedeillere",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=955",
     "description": "Située dans le querigut 5 10 mn au nord du parking de la restanque départ des etangs de rabassoles utilisee par laurent lafforgue raquettes ariege pour un raid en hiver mais en ruines suite à une avalanche",
-
     "category": "shelter"
   },
   {
@@ -2889,7 +2858,6 @@
     "lat": 42.7242601,
     "name": "Cabane Belcaire",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=410",
-
     "alt": 1760,
     "category": "shelter"
   },
@@ -2928,7 +2896,6 @@
     "lat": 42.013333,
     "name": "Cabane de Benou",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=59",
-
     "alt": 1397,
     "category": "shelter"
   },
@@ -2988,7 +2955,6 @@
     "name": "Cabane du Col de Bène",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1613",
     "description": "Cabane notee sur geoportail pas visitée située 100m au nord du col de bene commune de lapege dans le vicdessos",
-
     "alt": 1230,
     "category": "shelter"
   },
@@ -3038,7 +3004,6 @@
     "name": "Cabne de Bernède",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1723",
     "description": "à visiter",
-
     "alt": null,
     "category": "shelter"
   },
@@ -3098,7 +3063,6 @@
     "name": "Refuge du Besiberri (l'Ancien)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=53",
     "description": "Ce refuge à était deplace il n existe plus il a été enleve il y a maintenant 4 ou 5 ans à la mise en service du nouveau pour y être alle il ne reste rien tout a été nettoye ",
-
     "alt": 2780,
     "category": "shelter"
   },
@@ -3159,7 +3123,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1065",
     "description": "Chalet accueil de la station de ski de fond situé une heure en dessous du refuge de la rencluse.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1231156315.jpg",
-
     "category": "shelter"
   },
   {
@@ -3168,7 +3131,6 @@
     "name": "Abri de la Besurta",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1066.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2001_1231156506.jpg",
-
     "category": "shelter"
   },
   {
@@ -3226,7 +3188,6 @@
     "name": "Cabane de BIARSAU",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1750",
     "description": "Cabanes en bon état couchage à l'étage",
-
     "category": "shelter"
   },
   {
@@ -3255,7 +3216,6 @@
     "name": "Refuge de Port-Bielh",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=267",
     "description": "Detruit",
-
     "category": "shelter"
   },
   {
@@ -3333,7 +3293,6 @@
     "name": "Cabane de Biscacou",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1333",
     "description": "Ruines visible en se rapprochant du point cote 1146 sur la carte ign ",
-
     "alt": 1135,
     "category": "shelter"
   },
@@ -3352,7 +3311,6 @@
     "lat": 42.93321739,
     "name": "Toue Lac Bleu",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=439",
-
     "alt": 1940,
     "category": "shelter"
   },
@@ -3571,7 +3529,6 @@
     "name": "Cabane de Boutadiol",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1352",
     "description": "Etat ",
-
     "alt": 1950,
     "category": "shelter"
   },
@@ -3611,7 +3568,6 @@
     "name": "Cabana de Brazato",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1510",
     "description": "à proximité du lac près du barrage cote sud 2h30 depuis le centre thermal de panticosa par le gr11 la porte principale est ouverte mais donne accès sur une minuscule entree et le reste est fermé à cle elle peut donc seulement servird'abri ",
-
     "alt": 2390,
     "category": "shelter"
   },
@@ -3631,7 +3587,6 @@
     "name": "Orri de Bretounels",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=704",
     "description": "Superbe orris situé à 20 mètres de la cabane humide comme tout les orris ",
-
     "alt": 1820,
     "category": "shelter"
   },
@@ -3672,7 +3627,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=72",
     "description": "Cabane renovee en juin 2019 par les benevoles des associations et du pastoralisme de siguer avec le soutien financier de la mairie mezzanine pour le couchage table et blancs métalliques etageres cheminée refaite eclairage par panneau solaire.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15755744893128.jpg",
-
     "category": "shelter"
   },
   {
@@ -3931,7 +3885,6 @@
     "name": "Cabane de Campilles",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=79",
     "description": "Poele bas flancs coordonnees non verifiees",
-
     "category": "shelter"
   },
   {
@@ -3975,16 +3928,6 @@
     "category": "shelter"
   },
   {
-    "lng": -0.70777,
-    "lat": 42.97484,
-    "name": "Cabane de Camplong",
-    "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1308",
-    "description": "Petite cabane en bon état extérieur equipement sommaire table banc occupé  l'été en 2013 mais pas en 2014 ni en 2015 source à 200m.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20210426_161500.jpg",
-    "alt": 1640,
-    "category": "shelter"
-  },
-  {
     "lng": 2.07679,
     "lat": 42.68521,
     "name": "Abri des Campeilles",
@@ -4001,7 +3944,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=80",
     "description": "Refuge situé sur le bord de l'Estany del mig etang du milieu à 2200 m d'altitude aux pieds des 2 perics site classe entoure d'une dizaine d'etangs naturels le refuge est gardé du 25 mai au 30 octobre et ouvert le reste de l'annee sur réservation plusieurs formules d'hebergement sont proposees de la demi pension à la gestion libre capacite d'accueil de 17 personnes en bat flanc refuge de securite ouvert quand le refuge n'est pas gardé avec toilette seche ouverte aussi lits superposés avec quelques matelas très bien isole et très bien entretenu pas de cheminée par contre pour ce refuge de securite.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/80_1467036664.jpg",
-
     "category": "refuge"
   },
   {
@@ -4061,7 +4003,6 @@
     "name": "Canfranc Refugio",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=800",
     "description": "Refuge auberge",
-
     "alt": 1045,
     "category": "shelter"
   },
@@ -4117,7 +4058,7 @@
   {
     "lng": 2.1963889,
     "lat": 42.43,
-    "name": "Abri Etang La Caran\u00e7a",
+    "name": "Abri Etang La Carança",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=395",
     "description": "Tres grand orry entièrement renove en pierre seche sauf la partie supérieure cimentee de l'etonnant pilier central abri sommaire à proximité pas très propre en interne reste de la renovation cantines pelles etc très propre en ext pas de porte.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/395_1247653445.jpg",
@@ -4549,7 +4490,6 @@
     "lat": 42.84344999,
     "name": "Cabane Christau du Haut",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=529",
-
     "alt": 1750,
     "category": "shelter"
   },
@@ -4619,7 +4559,6 @@
     "name": "Refuge Claror",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=580",
     "description": "10 places sur plancher en mezzanine 10 places en bats flancs superposés métalliques",
-
     "alt": 2280,
     "category": "shelter"
   },
@@ -4649,7 +4588,6 @@
     "name": "Cabane de Claustre",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1340",
     "description": "Cabane située dans le massif du pic balmiou au dessus de massat",
-
     "alt": 979,
     "category": "shelter"
   },
@@ -4659,7 +4597,6 @@
     "name": "Chalet de la Clau",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=969",
     "description": "Petit refuge situé au bord de la piste qui monte de l'étang de laparan au pla de las peyres brsans doute privé et fermé mais un topo de m sebastien parlait d'une petite partie ouverte à verifier",
-
     "alt": 1575,
     "category": "shelter"
   },
@@ -4696,7 +4633,7 @@
   {
     "lng": -0.36447955163201,
     "lat": 42.077532225782,
-    "name": "Cabane de Deus Co\u00efgts",
+    "name": "Cabane de Deus Coïgts",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=932",
     "description": "Deux cabanes jumelles distantes d'une centaine de mètres l'une à sol nu l'autre avec bas flanc 2 places table et bancs balai et eau 200m à l'est la cabane de droite a été restaurée pendant l'été 2009 par des jeunes de pau toit refait un poêle installe belle vue sur le col bois disponible forêt à proximité pour remettre le bois utilise 40 mn de la voiture 1h avec de la neige possibilite de faire le mail 2h30 de montee.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/932_1551641612.jpg",
@@ -4778,7 +4715,6 @@
     "name": "Cabana des Comets",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1570",
     "description": "Cabane notee sur la carte alpina la vue satelite semble montrer une ruine à determiner par une visite ",
-
     "alt": 1940,
     "category": "shelter"
   },
@@ -4798,7 +4734,6 @@
     "name": "Refuge de Conangles",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1082",
     "description": "La cabane de conangles est devenue refuge gardé depuis avril 2008 il est situé 1 5km avant la bouche sud du tunnel de vielha un peu à l'ecart de la route et est accessible en voiture par une piste qui part du grand parking de camions br36 places ouvert toute l'annee douches chaudes dispobrprix non federe 15 nuit federe 11 diners 14 petits dejeuners 7 pique nique 7 ",
-
     "alt": 1555,
     "category": "shelter"
   },
@@ -4831,16 +4766,6 @@
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15754795361799.jpg",
     "alt": null,
     "category": "refuge"
-  },
-  {
-    "lng": 0.4780555,
-    "lat": 42.83555599,
-    "name": "Cabane de Conques",
-    "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=919",
-    "description": "Tres sommaire un sommier une table deux bancs brsource à 80 m au dessus.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20210301_834050.jpg",
-    "alt": 1620,
-    "category": "shelter"
   },
   {
     "lng": 1.365,
@@ -4928,7 +4853,6 @@
     "name": "Abris des Lacs Coronas",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=763",
     "description": "Abris sous roche multiples moyennement confortables situés sur la rive ouest du lac du milieu de coronas camp de base idéal pour gravir l'aneto par le col corone en moins de 3 heures les lacs sont splendides on peut y accéder par le col de creguena depuis la vallée de benasque",
-
     "alt": 2760,
     "category": "shelter"
   },
@@ -4988,7 +4912,7 @@
     "name": "Refugi Cortiuda",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1703",
     "description": "Refuge guarde chambre et service de restauration réservation par téléphone 34 678 44 26 39.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15736418899619.jpg",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cortiuda.jpeg",
     "alt": null,
     "category": "refuge"
   },
@@ -5005,10 +4929,9 @@
   {
     "lng": 1.566341,
     "lat": 42.231109,
-    "name": "G\u00eete Can Cortina",
+    "name": "Gîte Can Cortina",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=848",
     "description": "Gite dans un village ce n est pas un refuge de montagne ",
-
     "alt": 1190,
     "category": "shelter"
   },
@@ -5076,7 +4999,6 @@
     "lat": 42.451667,
     "name": "Cabane Coulibet",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=385",
-
     "alt": 1729,
     "category": "shelter"
   },
@@ -5115,7 +5037,7 @@
     "name": "Cabane de Coumets",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1565",
     "description": "Cabane occupéel'été par les bergers merci de respecter leurs equipements cheminée grande table et bancs eau à l'evier et à l'extérieur couchage sur matelas à l'étage bois un peu loin.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20230306_546160.jpg",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/coumets.jpeg",
     "alt": 1448,
     "category": "shelter"
   },
@@ -5162,10 +5084,9 @@
   {
     "lng": 1.5052778,
     "lat": 42.949722,
-    "name": "Cabane de Couma\u00fczil",
+    "name": "Cabane de Coumaüzil",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=596",
     "description": "Cabane restante d'un ancien hameau demoli pour exploitation forestière cabane restaurée en partie encadrements de portes et fenêtres sans menuiseries à cet usage cheminée au centre dans le fond pas de mobilier entouree de bois et ruisseau à proximité accessible depuis arinac ou cautirac cabane assez grande donc couchage possible au sol",
-
     "alt": 820,
     "category": "shelter"
   },
@@ -5205,7 +5126,6 @@
     "name": "Cabane du Cap de la Coume",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=510",
     "description": " ",
-
     "alt": 1870,
     "category": "shelter"
   },
@@ -5345,7 +5265,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1467",
     "description": "Petit abri construit pour le berger.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1495448237.jpg",
-
     "category": "shelter"
   },
   {
@@ -5395,7 +5314,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=956",
     "description": "Refuge forestier ONF sans doute au dessus de merens les valls accessible en voiture.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1009_1212137768.jpg",
-
     "category": "shelter"
   },
   {
@@ -5404,7 +5322,6 @@
     "name": "Cabane de Courtalis",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=973",
     "description": "Située à l'est de la crète soubirou montagnoule",
-
     "alt": 1950,
     "category": "shelter"
   },
@@ -5504,7 +5421,6 @@
     "name": "Abris du Lac de Creguena Ou Gregonio",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=764",
     "description": "Ensemble de deux splendides abris sous roches situées sur les rives du lac de creguena ou gregonio le site est splendide on vient en 3h du parking de puente de creguena dans la vallée de benasque l'intérieur est propre et plat d'autres abris se situent sous le deversoir du lac ",
-
     "alt": 2657,
     "category": "shelter"
   },
@@ -5514,7 +5430,6 @@
     "name": "Abri de Pleta de Creguena",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=765",
     "description": "Orry situé à une cinquantaine de metre au dessus du sentier qui monte du puente de creguena au lac du même nom au niveau du grand plat à 2000 m au debut du plat traverser la prairie sur une cinquantaine de metre vers le ne à éviter par temps de pluie le toit est pas complet sol en terre ",
-
     "alt": 2000,
     "category": "shelter"
   },
@@ -5624,7 +5539,6 @@
     "name": "Cabane du Cap de Cueu de la Coume",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1178",
     "description": "Cr caf d'agen celle ci se trouve en bon état d'une capacite d'accueil de 4 à 5 personnes possedant table cheminée ",
-
     "alt": 1690,
     "category": "shelter"
   },
@@ -5674,7 +5588,6 @@
     "name": "Cabane Cums",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=390",
     "description": "Située au sud du pla guilhem",
-
     "alt": 1865,
     "category": "shelter"
   },
@@ -5774,7 +5687,7 @@
     "name": "Albergue de Sin",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=816",
     "description": "Refuge auberge de village.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20210703_892425.jpg",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/alberguesin.jpeg",
     "alt": 1218,
     "category": "refuge"
   },
@@ -5952,7 +5865,6 @@
     "lat": 42.7052107,
     "name": "Cabane Edf",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=113",
-
     "category": "shelter"
   },
   {
@@ -6058,7 +5970,7 @@
   {
     "lng": 1.7485325689841,
     "lat": 42.187137400153,
-    "name": "Refugi Serra d'Ensija (Delgado \u00dabeda)",
+    "name": "Refugi Serra d'Ensija (Delgado Úbeda)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=845",
     "description": "Refuge gardé en juillet et aout les weekends le reste de l'annee et certaines vacances scolaires capacite 32 places hors gardiennage 4 places equipement partie hiver poêle 2 lits bat flanc gardien e jornet esteve gestionnaire feec federacio entitats excursionistas catalunya tel gardien mobile 1.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15736453499885.jpg",
@@ -6130,7 +6042,6 @@
     "lat": 42.039167,
     "name": "Cabane d'Errozate",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=118",
-
     "alt": 1070,
     "category": "shelter"
   },
@@ -6140,7 +6051,6 @@
     "name": "Abri Esbas",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=503",
     "description": "Abri fermé donc inutilisable ",
-
     "alt": 1600,
     "category": "shelter"
   },
@@ -6220,7 +6130,6 @@
     "name": "Cabane Esclots",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=546",
     "description": "La cabane esclots a été balayee par une avalanche il n en reste que la dalle du sol ",
-
     "alt": 2100,
     "category": "shelter"
   },
@@ -6280,7 +6189,6 @@
     "name": "Cabane de la Jasse des Espagnols",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1353",
     "description": "Cabane de bergers dans la réservé orlu sur l'itineraire entre le refuge en beys et celui des camporels",
-
     "alt": 2000,
     "category": "shelter"
   },
@@ -6380,7 +6288,6 @@
     "name": "Refuge forestier d'Espousouillette",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1421",
     "description": "Abri très sommaire mais fiable les murs en pierre sont solides et aucun courant d'air à deplorer la cabane et equipée d'une unique couchette en rondins de bois difficile d'y dormir confortablement à plusieurs mais idéal si l'on est surpris par les orages frequents dans la région ",
-
     "alt": 2130,
     "category": "shelter"
   },
@@ -6481,7 +6388,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1016",
     "description": "Située sur la voie nord du mont lude propre petite et basse de plafond comme celle de laujo cheminée bat flanc refaite apparemment depuis 2010 pas de source ou abreuvoir mais torrent à proximité devalant du vallon de barracomica.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1016_1441183869.jpg",
-
     "category": "shelter"
   },
   {
@@ -6580,7 +6486,6 @@
     "name": "Cabane de l'Estaque",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1730",
     "description": "Cabane privée réservée au berger inaugure en 2012",
-
     "category": "shelter"
   },
   {
@@ -6628,7 +6533,6 @@
     "name": "Orri de l'Estanyol",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=720",
     "description": "Orry propre situé au pied de l'eperon nord du pic d'nou fonts ",
-
     "alt": 2540,
     "category": "shelter"
   },
@@ -6767,7 +6671,6 @@
     "name": "Cabane Tuc de l'Etang",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=524",
     "description": " ",
-
     "alt": 1570,
     "category": "shelter"
   },
@@ -6887,7 +6790,6 @@
     "name": "Cabane du Pla de Faradu",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1614",
     "description": "Cabane non visitée notee sur geoportail vallée de vicdessos située 1km environ du village de genat",
-
     "alt": 1185,
     "category": "shelter"
   },
@@ -6997,7 +6899,6 @@
     "name": "Refuge de Font-Viva",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=144",
     "description": "Cabane detruite par une avalanche",
-
     "alt": 1900,
     "category": "shelter"
   },
@@ -7066,7 +6967,6 @@
     "name": "Fonfrède",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1470",
     "description": "belle bergerie catalane renovee réservé naturelle de jujols très bon état table bancs très propre",
-
     "alt": 1761,
     "category": "shelter"
   },
@@ -7087,7 +6987,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1485",
     "description": "Ancienne bergerie restaurée en refuge couchage 6 personnes cheminée et poêle à bois fontaine font frede et bois à proximité.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2001_1508142123.jpg",
-
     "category": "shelter"
   },
   {
@@ -7102,7 +7001,7 @@
   {
     "lng": -0.660378,
     "lat": 42.779829,
-    "name": "Refugio del Forat\u00f3n",
+    "name": "Refugio del Foratón",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1631",
     "description": "Refuge basique en bonnes conditions pas de lit pas de table pas de chaises pour dormir à l'étage maximum 4 personnes amener son matelas eaua cote du refuge à 50 mètres.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1554031281.jpg",
@@ -7155,7 +7054,6 @@
     "name": "Cabane de Formigons",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1380",
     "description": "Cabane notee sur la carte espagnole sous le col d'ourdicettou versant viados",
-
     "alt": 1790,
     "category": "shelter"
   },
@@ -7264,7 +7162,6 @@
     "lat": 42.6628113,
     "name": "Orri de las Fouzes",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=265",
-
     "alt": 1940,
     "category": "shelter"
   },
@@ -7363,7 +7260,6 @@
     "name": "Refuge de La Fruitiére",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=148",
     "description": "Situé à côté de l'hotellerie",
-
     "alt": 1371,
     "category": "shelter"
   },
@@ -7373,7 +7269,6 @@
     "name": "Cabane Fruitiere",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=453",
     "description": "Situé au bout de 1 4 d'heure de marche après le restaurant de la fruitiere en amont l'intérieur est en mauvais état ",
-
     "alt": 1400,
     "category": "shelter"
   },
@@ -7432,7 +7327,6 @@
     "lat": 42.7627362,
     "name": "Refuge Gai Sourire",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=371",
-
     "alt": 1076,
     "category": "shelter"
   },
@@ -7592,7 +7486,6 @@
     "name": "Abri Gaurier",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=713",
     "description": "Grotte située entre la brèche de roland et la fausse brèche dans la muraille versant espagnol la cavite se presente au raz du sol et est  signalée par deux points orange avec un soleil au dessus de l'entree haute à l'intérieur de 2 bons mètres reputee humide mais j ai pas trouve cela convenable sol en pente seul defaut la grotte est  signalée sur la carte ign marcher 15 minutes au moins pour la trouver je pense pas qu on puisse la trouver l'hiver à moins de l'avoir reperee auparavant ",
-
     "alt": 2850,
     "category": "shelter"
   },
@@ -7609,7 +7502,7 @@
   {
     "lng": -0.244141,
     "lat": 42.663495,
-    "name": "Refugio superior del puerto de Gav\u00edn",
+    "name": "Refugio superior del puerto de Gavín",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1536",
     "description": "à visiter.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2002_1535904926.jpg",
@@ -7622,7 +7515,6 @@
     "name": "Cabanes de Gazies",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1432",
     "description": "Cabane de berger avec une partie pour randonneurs table chaises",
-
     "category": "shelter"
   },
   {
@@ -7691,7 +7583,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1498",
     "description": "Abri ouvert aux randonneurs très rudimentaire sol nu sans aucun aménagement pas certain qu'il y ait une porte.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1524794047.jpg",
-
     "category": "shelter"
   },
   {
@@ -7810,7 +7701,6 @@
     "lat": 42.8412,
     "name": "Cabane Gouetsoule",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=421",
-
     "alt": 1738,
     "category": "shelter"
   },
@@ -7841,7 +7731,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1483",
     "description": "Cabane récente 2 3 ans réservée au berger la partie randonneur est petite et n est pas encore aménagée elle sert de remise.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1483_1553417338.jpg",
-
     "category": "shelter"
   },
   {
@@ -8000,7 +7889,6 @@
     "name": "Refude de Sant Guillem",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1754",
     "description": "Situé à 1283 mètres daltitude dans le grand site de france massif du canigo le refuge de sant guillem de combret est gardé du 1er avril au 31 octobre il est autonome en energie et fait partie du reseau constitue par les cinq refuges gardés du massif avec une capacite de 40 couchages dont 10 disponibles toute lannee en salle hors sac il associe confort et esprit refuge chambre familiale dortoirs sanitaires douches chauffage au sol cuisine professionnelle restaurant espace bar paniers montagnards terrasse plein sud local vtt espace de stockage du matériel implante sur le versant sud il permet de decouvrir toute lannee à partir de randonnees pedestre equestre et vtt un territoire riche en patrimoines la rehabilitation de cette ancienne bergerie portee par la communauté de communes du haut vallespir sinscrit dans une demarche de developpement et de tourisme durables pour favoriser la mobilite douce sur lensemble du massif lacces en voiture y est reglemente ",
-
     "alt": 1283,
     "category": "refuge"
   },
@@ -8050,7 +7938,6 @@
     "name": "Cayolar de Harpia",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=695",
     "description": "Cayolar en très bon état au cayolar d'holadubi monter à droite par le bois d'holzarte arrive au dessus du bois prendre à droite pendant 700 m ",
-
     "alt": 1250,
     "category": "shelter"
   },
@@ -8061,7 +7948,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1740",
     "description": "Cabane fermée privée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/695_1292599467.jpg",
-
     "category": "shelter"
   },
   {
@@ -8120,7 +8006,6 @@
     "name": "Herraou",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1500",
     "description": "Cabane fermée",
-
     "alt": 1337,
     "category": "shelter"
   },
@@ -8232,7 +8117,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1712",
     "description": "Cabane en deux parties seule une pièce est ouverte très sommaire mais fiable les murs en pierre sont solides et pas trop de courant d'air la pièce est equipée d'une unique couchette en rondins de bois pas de cheminée.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15746905007515.jpg",
-
     "category": "shelter"
   },
   {
@@ -8311,7 +8195,6 @@
     "name": "Cabane de Hourques",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1742",
     "description": "Cabane métallique verte à visiter située juste sous 1800 mètres rive gauche du ruisseau de hourques à l'ouest du pic du cabaliros ",
-
     "alt": 1780,
     "category": "shelter"
   },
@@ -8440,7 +8323,6 @@
     "name": "Refige Els Cortals de l'Ingla",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=729",
     "description": "Table bancs sur le chemin des bons hommes GR107 dans le parc cadi moixero juste sous le coll de pendis à l'est du comabona",
-
     "alt": 1610,
     "category": "shelter"
   },
@@ -8461,7 +8343,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=793",
     "description": "Refuge du lac d'ip grand batiment avec tables et bancs au rez de chaussee et nombreux matelas à l'étage située en bas à gauche du barrage sinon petite cabane à moins de 500m.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/793_1494872514.jpg",
-
     "category": "shelter"
   },
   {
@@ -8481,7 +8362,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1481",
     "description": "Ancien abri sous roche la vegetation prend le dessus et les viperes doivent certainement s y plaire dans le coin uniquement pour situation d'urgence et encore abri necessitant un rehabilitation.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2001_1505151215.jpg",
-
     "category": "shelter"
   },
   {
@@ -8521,7 +8401,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=791",
     "description": "Cabane devenue vetuste 150 metre au dessus de la cabane d'iserias position très spectaculaire sur un promontoire du flanc nord de la pala de ip en mauvais état destinee aux randonneurs qui effectuént la boucle sur l'arete s ou son nom quelques rares pins à proximité pour faire du bois dont un grand mort source d'eau seulement en debut de saison lorsque le neve n'a pas encore totalement fondu sinon aucune endroit très aride excellente cheminée sauf lorsqu'il y a un violent vent très beau bivouac.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/791_1471785982.jpg",
-
     "category": "shelter"
   },
   {
@@ -8567,7 +8446,7 @@
   {
     "lng": 1.931632,
     "lat": 42.509565,
-    "name": "Cabane de la Ja\u00e7a del Pas",
+    "name": "Cabane de la Jaça del Pas",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1160",
     "description": "Petite cabane en béton 2 pièces un double lit sur sommier bois 2 matelas br2 fenêtres vitres cassees brporte en mauvais état breau attention présence troupeaux l'abri en pierre tout proche est ruine brtres jolie vue du Canigou ou presque à la sierra del cadi brnota bene les deux cabanes du pla dels triadors au nord et plus hauts sont deux orrys ruines.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1160_1284540130.jpg",
@@ -8577,7 +8456,7 @@
   {
     "lng": 1.97767,
     "lat": 42.377297,
-    "name": "Cabane de la Ja\u00e7a de Palau",
+    "name": "Cabane de la Jaça de Palau",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1164",
     "description": "Cabane chainee et cadenassee un abri possible à gauche sur la photo 4 places assises mais le toit est perce sale des filtres de cigarettes partout très jolis jasse et point de vue.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1164_1558024421.jpg",
@@ -8587,7 +8466,7 @@
   {
     "lng": 1.627692989607,
     "lat": 42.214970729793,
-    "name": "Barraca de la Ja\u00e7a",
+    "name": "Barraca de la Jaça",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1489",
     "description": "Cabane simple rez de chaussee et mezzanine avec cheminée et matelas sans table ni chaises mais il y a des buches coupees ou s asseoir.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/16805471800934.jpg",
@@ -8619,7 +8498,6 @@
     "lat": 42.68258999,
     "name": "Cabane Col de Jau",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=379",
-
     "alt": 1360,
     "category": "shelter"
   },
@@ -8690,7 +8568,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1738",
     "description": "L abri est en pierre petit mais en bon état et le principal interet est la source à proximité.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20210929_360908.jpg",
-
     "category": "shelter"
   },
   {
@@ -8720,7 +8597,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1112",
     "description": "Magnifique orri très bien conserve avec sa couverture herbeuse difficile à trouver sans la carte et un gps en pleine forêt sans chemin.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1250527334.jpg",
-
     "category": "shelter"
   },
   {
@@ -8739,7 +8615,6 @@
     "name": "Refugio de Pastores - Fuente San Juan",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1646",
     "description": "Ruines il reste un abreuvoir ",
-
     "alt": 1600,
     "category": "shelter"
   },
@@ -8760,7 +8635,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1390",
     "description": "Abri en tole vide sol nu environ 3x2m uniquement en cas d'intemperies sur la piste en direction des cabanes de plaede et larreix quelques minutes après le parking de la couage.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1390_1540254584.jpg",
-
     "category": "shelter"
   },
   {
@@ -8859,7 +8733,6 @@
     "name": "Cabane Inferieure de Lacarde",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1361",
     "description": "Abri sous roche aménagé à ne pas confondre avec la cabane supérieure de lacarde recemment restaurée et située un plus haut",
-
     "alt": 1770,
     "category": "shelter"
   },
@@ -8869,7 +8742,6 @@
     "name": "Cabane de Lacarrats",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1745",
     "description": "Cabane à visiter peu d'informations située à 1820 mètres à l'est du pic de liou au nord du cap des blanques ",
-
     "alt": 1820,
     "category": "shelter"
   },
@@ -8886,7 +8758,7 @@
   {
     "lng": -0.058215,
     "lat": 42.863635,
-    "name": "Cabane du Lac de Lag\u00fces",
+    "name": "Cabane du Lac de Lagües",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=189",
     "description": "Tres bonne cabane en bon état et propre table 2 chaises poêle grill casseroles peu de bois alentour le monter très bonne etape avant d'attaquer l'ardiden.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/189_1551186613.jpg",
@@ -8918,7 +8790,6 @@
     "lat": 42.959,
     "name": "Cabane Laga de Haut",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1264",
-
     "alt": 1460,
     "category": "shelter"
   },
@@ -8987,7 +8858,6 @@
     "lat": 42.83128949,
     "name": "Refuge de Lancise",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1226",
-
     "category": "shelter"
   },
   {
@@ -9046,7 +8916,6 @@
     "name": "Abri des Laquets de Alet",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1343",
     "description": "Abri marque sur la carte au dessus de l'étang d'alet pas visite",
-
     "alt": 2380,
     "category": "shelter"
   },
@@ -9107,7 +8976,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=988",
     "description": "Abri aménagé sous rocher dans le vallon du larribet.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2001_1219682328.jpg",
-
     "category": "shelter"
   },
   {
@@ -9126,7 +8994,6 @@
     "name": "Cabane de Larue",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=786.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/786_1194214851.jpg",
-
     "category": "shelter"
   },
   {
@@ -9225,7 +9092,6 @@
     "name": "Cabane de Layous",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1370",
     "description": "Cabane non renseignee située sous le parking du col moulata à hautacam",
-
     "alt": 1555,
     "category": "shelter"
   },
@@ -9235,7 +9101,6 @@
     "name": "Cabane de Lazies",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1354",
     "description": "Pas visitée cabane sous le GR10",
-
     "alt": 1395,
     "category": "shelter"
   },
@@ -9252,7 +9117,7 @@
   {
     "lng": -0.2642732,
     "lat": 42.8555255,
-    "name": "REFUGE DU BALA\u00cfTOUS - LEDORMEUR",
+    "name": "REFUGE DU BALAÏTOUS - LEDORMEUR",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=200.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/ledormeur.jpg",
     "alt": 1970,
@@ -9274,7 +9139,6 @@
     "name": "Orri des Legunes",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=201",
     "description": "Prevoir marelat",
-
     "alt": 2000,
     "category": "shelter"
   },
@@ -9321,7 +9185,7 @@
   {
     "lng": 1.41955795,
     "lat": 42.8041878,
-    "name": "G\u00eete Retrouvance\u00ae de Terre d\u2019Avenir ou Refuge du Port de Lers",
+    "name": "Gîte Retrouvance® de Terre d’Avenir ou Refuge du Port de Lers",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=984",
     "description": "Gite recemment renove pour le projet recouvrance fermé mais peut-être loue aupres de l'ONF de foix 170 euros la nuit situé à 400m de la route qui monte au port de lers versant vicdessosconfort 5 chambres de 2 à 3 lits chauffage electrique un poêle à bois une salle d'eau par chambre avec 3 wc une gaziniere un refregirateur un lave vaisselle un micro ondes alimentation electrique reseau edf.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1218629461.jpg",
@@ -9534,7 +9398,6 @@
     "name": "Cabane de Litourneau",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1505",
     "description": "Cabane en ruines mais peut servird'abri",
-
     "alt": 1495,
     "category": "shelter"
   },
@@ -9641,7 +9504,7 @@
   {
     "lng": 2.03223135,
     "lat": 42.6405176,
-    "name": "Cabane Ja\u00e7a de Llosa",
+    "name": "Cabane Jaça de Llosa",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=209",
     "description": "Cabane très accueillante sur le tour du capcir base avancee pour de beaux circuits à ski l'hiver renovee meublee et entretenue depuis 2014 par l'association tous à poêle merci de respecter leur travail poêle à bois table et bancs livre d'or très petite bibliotheque à remplir bas flanc pour 3 mais beaucoup de place supplémentaire au sol si besoin.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/209_1529434052.jpg",
@@ -9753,7 +9616,6 @@
     "lat": 42.05554,
     "name": "Cabane Louscuts",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=432",
-
     "alt": 1300,
     "category": "shelter"
   },
@@ -9873,7 +9735,6 @@
     "name": "Cabane de Lusque",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1437",
     "description": "Cabane notee sur la carte mais il s agit de ruines ",
-
     "category": "shelter"
   },
   {
@@ -9912,7 +9773,6 @@
     "name": "Refuge pastoral du Madres",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1397",
     "description": "Grand refuge avec la partie principale fermée et une annexe ouverte aux randonneurs deux grandes tables et une cheminée",
-
     "alt": 1865,
     "category": "refuge"
   },
@@ -10002,7 +9862,6 @@
     "name": "Mallata Puertolas",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1678",
     "description": "Ruine toit effondre ",
-
     "alt": 1820,
     "category": "shelter"
   },
@@ -10022,7 +9881,6 @@
     "name": "Mallata Torroquello",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1679",
     "description": "Ruine toit effondre ",
-
     "alt": 1820,
     "category": "shelter"
   },
@@ -10112,7 +9970,6 @@
     "name": "Abri de Mariolo",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1512",
     "description": "Abri de pierre dans une cavite dont le cote a été mure pas de fenêtre aucun equipement à visiter pour plus d'informations description d'apres le livret de la carte 1 25000 aiguestortes et le lac de sant maurici 2017 ",
-
     "alt": 2300,
     "category": "shelter"
   },
@@ -10133,7 +9990,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1457",
     "description": "Refuge gardé situé au col de sahun sur la longue piste entre vallée de venasque et vallée de plan refuge gere par ttaventura.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1457_1494767621.jpg",
-
     "category": "refuge"
   },
   {
@@ -10342,7 +10198,6 @@
     "name": "Refuge Col de Mente",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=513",
     "description": "Cabane fermée",
-
     "alt": 1349,
     "category": "shelter"
   },
@@ -10422,7 +10277,6 @@
     "name": "Cabane sous les Rochers de Miglos",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1531",
     "description": "Cabane située dans la forêt sous les rochers de miglos environ 1 km au nord ouest",
-
     "alt": 1298,
     "category": "shelter"
   },
@@ -10482,7 +10336,6 @@
     "name": "Refugio militar de la Mina",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1635",
     "description": "Abri s plusieurs batiments certains en ruines d'autres utilises par le bétail le seul en bon état est fermé situé en rive droite du ruisseau sur le gr11 description d'apres le site www travesiapirenaica com ",
-
     "alt": 1280,
     "category": "shelter"
   },
@@ -10522,7 +10375,6 @@
     "name": "Refuge UEC de la Molina",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=840",
     "description": "Refuge située dans le village de la molina station de ski sur les pentes du tossa d'alp",
-
     "alt": 1480,
     "category": "shelter"
   },
@@ -10532,7 +10384,6 @@
     "name": "Refuge UES de la Molina Pere Carne",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=841",
     "description": "Refuge situé dans le village de molina",
-
     "alt": 1490,
     "category": "shelter"
   },
@@ -10542,7 +10393,6 @@
     "name": "Refuge CEC de la Molina",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=839",
     "description": "Refuge situé dans le village de la molina",
-
     "alt": 1570,
     "category": "shelter"
   },
@@ -10770,7 +10620,6 @@
     "lat": 42.934722,
     "name": "Cabane Mourede",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=446",
-
     "alt": 1970,
     "category": "shelter"
   },
@@ -10791,7 +10640,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1482",
     "description": "Abri sous roche aménagé bas flanc en bois rudimentaire mais efficace assez propre lors de mon passage.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1505150652.jpg",
-
     "category": "shelter"
   },
   {
@@ -10950,7 +10798,6 @@
     "name": "Cabane de Nat (Cot de yeou)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1135",
     "description": "Extrait du journal le petit pyreneen on trouve deux cabanes la petite est plutot vilaine mais la seconde est superbe elle abrite l'été un berger qui gardé un important troupeau l'inconvenient est toutefois l'absence d'eau ",
-
     "category": "shelter"
   },
   {
@@ -10969,7 +10816,6 @@
     "name": "Cabane de l'Estany de Comassa",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=132",
     "description": "Abri metallique",
-
     "alt": 1950,
     "category": "shelter"
   },
@@ -11099,7 +10945,6 @@
     "name": "Refuge de Coma Obaga",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=94",
     "description": "15 places selon la brochure Andorrane ",
-
     "alt": 2010,
     "category": "shelter"
   },
@@ -11236,7 +11081,7 @@
   {
     "lng": 0.169,
     "lat": 42.82598,
-    "name": "Chalet H\u00f4tel du lac d'Orédon",
+    "name": "Chalet Hôtel du lac d'Orédon",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=952",
     "description": "En surplomb du lac d'oredon brchalet hotel restaurant de 80 places dortoirs et chambres en pension et demi pension braccueil chaleureux et bons repas.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1005_1211903881.jpg",
@@ -11280,7 +11125,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=953",
     "description": "Cabane en bon état située dans la vallée de la maure entre la station de ski de mijanes et le tarbezou vallée menacee par l'extension de la station brcheminée table eau à purifier en ete.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/953_1250521425.jpg",
-
     "category": "shelter"
   },
   {
@@ -11383,16 +11227,6 @@
     "category": "shelter"
   },
   {
-    "lng": -0.14124999,
-    "lat": 42.7929082,
-    "name": "Refuge des Oulettes de Gaube",
-    "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=239",
-    "description": "De son promontoire granitique entièrement renove le refuge offre une des plus belles vues sur le massif de vignemale on peut admirer sa face nord piton carre l'aiguille des glaciers chausenque accès par la vallée de gaube depuis le pont d'espagne ouverture en générale de fin fevrier à mi mai toujours se renseigner aupres du gardien avant de juin à fin septembre en continu et les weekends d'octobre.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/239_1363881106.jpg",
-    "alt": 2150,
-    "category": "refuge"
-  },
-  {
     "lng": -0.0302441,
     "lat": 42.7862287,
     "name": "Cabane de l'Oule",
@@ -11400,16 +11234,6 @@
     "description": "Cabane en très bon état probablement occupéel'été par le berger.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/20221101_733779.jpeg",
     "alt": 1980,
-    "category": "shelter"
-  },
-  {
-    "lng": 0.19599,
-    "lat": 42.8399,
-    "name": "Cabane de l'Oule",
-    "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=733",
-    "description": "Abri de fortune avec cheminée pas de bas flancs.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/733_1389080318.jpg",
-    "alt": 1829,
     "category": "shelter"
   },
   {
@@ -11573,10 +11397,9 @@
   {
     "lng": 0.491902,
     "lat": 42.512172,
-    "name": "Albergue P\u00e1jaro Loco",
+    "name": "Albergue Pájaro Loco",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=819",
     "description": "Refuge auberge de village ",
-
     "alt": 960,
     "category": "refuge"
   },
@@ -11707,7 +11530,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=898",
     "description": "Refuge privé fermé aux randonneurs situé sur le sentier horizontal qui court d'urest à bentaillou.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1000_1196948540.jpg",
-
     "category": "shelter"
   },
   {
@@ -11723,7 +11545,7 @@
   {
     "lng": 0.559636,
     "lat": 42.433483,
-    "name": "Refugio de Pastores (colladeta Dur\u00e1n)",
+    "name": "Refugio de Pastores (colladeta Durán)",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1599",
     "description": "Cabane de berger ouverte en decembre 2018 cheminée chaises situé en bord de piste en forêt au sud est du colladeta duran.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2008_1550011156.jpg",
@@ -11746,7 +11568,6 @@
     "name": "Cabane de Pebré",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1425",
     "description": "Ruine",
-
     "category": "shelter"
   },
   {
@@ -11785,7 +11606,6 @@
     "name": "Cabane de Pedaing",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1434",
     "description": "Cabane notee sur la carte mais en ruines située à l'est de cette eygun",
-
     "alt": 1380,
     "category": "shelter"
   },
@@ -11822,7 +11642,7 @@
   {
     "lng": 1.716205,
     "lat": 42.245281,
-    "name": "Llu\u00eds Estasèn Pedraforca",
+    "name": "Lluís Estasèn Pedraforca",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=842",
     "description": "Situé au pied du pedraforca à 15mn du parking de gresollet.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/842_1477636359.jpg",
@@ -11905,7 +11725,6 @@
     "name": "Rasos de Peguera",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=846",
     "description": "Refuge située au sud du tunnel de cadi au bord de la route",
-
     "alt": 1805,
     "category": "shelter"
   },
@@ -12012,7 +11831,7 @@
   {
     "lng": 1.210815,
     "lat": 42.627534,
-    "name": "Cabana de Peracal\u00e7",
+    "name": "Cabana de Peracalç",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1586",
     "description": "Cabane ouverte en pierres seches située à côté d'une source pas de cheminée le bois est très loin certainement très froid en hiver à visiter pour des photos de l'intérieur située entre estaon et les Estanys de soliguera.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1547759667.jpg",
@@ -12155,7 +11974,6 @@
     "name": "Cabane de Peyre",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1426",
     "description": "En ruine",
-
     "category": "shelter"
   },
   {
@@ -12363,7 +12181,6 @@
     "name": "Refugi del Pla Gran",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1424",
     "description": "à visiter pour confirmer description du livret de la carte alpina 25 cabane non gardée ouverte toute l'annee partie ou totalite réservé aux bergers en saison propriete du service forestier de gerone 10 places état precaire situé près de comaoriola sur le versant nord de la tosa on y accede par une piste qui quitte le dernier virage de la route avant le parking de comaoriola 10 min information mairie de urus tel 34 972 89 02 10",
-
     "alt": 1870,
     "category": "shelter"
   },
@@ -12412,7 +12229,6 @@
     "lat": 42.968333,
     "name": "Courtaou de Pla",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1061",
-
     "alt": 1260,
     "category": "shelter"
   },
@@ -12424,26 +12240,6 @@
     "description": "Elle se trouve au dessus de la cabane de scaraouettes elle est mentionnée sur la carte 1848 ot bagneres de luchon 1 25 000 cabane fermée mais juste devant une cabane ouverte qui sert de stock de piquets en bois mais qui peut servird'abris en cas de secours avec un jolie toit dit végétal.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/16465738012481.jpg",
     "alt": 1749,
-    "category": "shelter"
-  },
-  {
-    "lng": 0.9161111,
-    "lat": 42.8225,
-    "name": "Cabane de la Plagne",
-    "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=705",
-    "description": "Petite cabane en état très moyen pas specialement sale peut depanner en hiver ou par orage place pour 4 en serrant une table deux bancs le couchage reste le point noir la mezzanine n est pas trop accueillante plaques de placo en cours d'effritement brbrsituée dans un très beau site 0h30 de marche depuis le bocard.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/705_1244313945.jpg",
-    "alt": 1197,
-    "category": "shelter"
-  },
-  {
-    "lng": 0.30106,
-    "lat": 42.6839,
-    "name": "Cabane de la Plagne",
-    "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1270",
-    "description": "belle cabane pastorale récente fermée une petite pièce ouverte sans aucun aménagement.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1411923331.jpg",
-    "alt": 2250,
     "category": "shelter"
   },
   {
@@ -12522,7 +12318,6 @@
     "name": "Cabane de Planel Dhers",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1522",
     "description": "Nouvelle cabane pastorale peut-être pas ouverte aux randonneurs située versant sud du pla de madame ",
-
     "category": "shelter"
   },
   {
@@ -12538,7 +12333,7 @@
   {
     "lng": 1.61918,
     "lat": 42.423805,
-    "name": "Refugi de Prat Mir\u00f3",
+    "name": "Refugi de Prat Miró",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1664",
     "description": "Grand batiment fermé.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1664_1558379939.jpg",
@@ -12568,7 +12363,7 @@
   {
     "lng": 0.780126,
     "lat": 42.68266,
-    "name": "Cabana de Pomar\u00f2la",
+    "name": "Cabana de Pomaròla",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1578",
     "description": "01 2016 propre vide sans equipements abri.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2003_1546979785.jpg",
@@ -12618,7 +12413,7 @@
   {
     "lng": 1.4486111,
     "lat": 42.89972199,
-    "name": "Refuge Eaux & For\u00eats du Col de Port",
+    "name": "Refuge Eaux & Forêts du Col de Port",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1048",
     "description": "Refuge situé en contrebas 60 mètres du col de port versant massat dans un forêt essentiellement de resineux à l'abandon legerement sale et ouverte aux 4 vents pas de bas flancs ni de table accessible soit par le col de port directement ou bien par la route forestière située un peu plus haut à gauche en venant de saurat d'618 direction boussenac massat ruisseau de la canadelle proche du refuge sous la route.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1230896051.jpg",
@@ -12681,7 +12476,6 @@
     "name": "Cabane Pouylanes",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=519",
     "description": "Voir cabane de la flache de roumingau",
-
     "alt": 1940,
     "category": "shelter"
   },
@@ -12691,7 +12485,6 @@
     "name": "Cabane Poucherguès",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=532",
     "description": "N existe plus",
-
     "alt": 2100,
     "category": "shelter"
   },
@@ -12761,7 +12554,6 @@
     "name": "Cabane de pourgue",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1496",
     "description": "Cabane métallique verte à visiter ",
-
     "alt": 1763,
     "category": "shelter"
   },
@@ -13090,7 +12882,6 @@
     "name": "Cabane de la Quebotte",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1262",
     "description": "Cabanes en ruines",
-
     "alt": 1650,
     "category": "shelter"
   },
@@ -13150,7 +12941,6 @@
     "name": "Corral d'a Rabosera",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1737",
     "description": "Cabane en tole pouvant servird'abri cheminée mais pas de bas flanc à priori ",
-
     "category": "shelter"
   },
   {
@@ -13228,7 +13018,6 @@
     "lat": 42.287222,
     "name": "Refuge de Rebost",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=844",
-
     "alt": 1670,
     "category": "shelter"
   },
@@ -13237,7 +13026,6 @@
     "lat": 42.431111,
     "name": "Cap de Rec",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=834",
-
     "alt": 1986,
     "category": "shelter"
   },
@@ -13247,8 +13035,7 @@
     "name": "Chalet-Refuge CAF de Gourette",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1718",
     "description": " 32 places en dortoirs de 12 8 et 6 une salle de restauration et un local à skis ou velos chauffe et securise demi pension ainsi que des paniers repas à emporter pour les balades.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15770163917615.png",
-
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cafgourette.jpeg",
     "category": "refuge"
   },
   {
@@ -13277,7 +13064,6 @@
     "name": "Cabane Ressec",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=407",
     "description": "Introuvable à t elle était detruite ",
-
     "alt": 1050,
     "category": "shelter"
   },
@@ -13308,7 +13094,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1418",
     "description": "Petit abri sommaire semble avoir était construit pour les enfants.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15735094058907.jpg",
-
     "category": "shelter"
   },
   {
@@ -13327,7 +13112,6 @@
     "name": "Cabane Riberole",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=288",
     "description": "Existence à verifier pas très confortable de quoi juste bivouaquer assez delabree ",
-
     "alt": 1780,
     "category": "shelter"
   },
@@ -13348,7 +13132,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1371",
     "description": "Petit abri construit au dessus de la cabane de quioules quelque part sur le grand versant au nord ouest du pic de riete.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1371_1529677542.jpg",
-
     "category": "shelter"
   },
   {
@@ -13368,7 +13151,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=902",
     "description": "Petite cabane située dans le vallon de rieutort à l'est de l'étang de laparan à ne pas confondre avec la cabane de rieufort de gascous située au dessus de l'étang de riete cheminée fumant legerement chapeau casse bois en venant de laparan rhododendrons autour 2 sources à confirmer en basses eaux après le deuxieme meandre en amont 1 à l'aplomb du col de la didorte attention troupeaux.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/16139407214436.jpg",
-
     "category": "shelter"
   },
   {
@@ -13388,7 +13170,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1111",
     "description": "Une cheminée d'angle brun banc un lit en fer fort ancienbrun bancbrun coffre à boisbr et c est tout bracces difficile à partir de la route forestière de mijanes chemin inutilisé depuis longtemps bril vaut mieux arriver par les chemins forestier par en haut.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2002_1250452081.jpg",
-
     "category": "shelter"
   },
   {
@@ -13525,7 +13306,6 @@
     "lat": 42.884167,
     "name": "Cabane de Rouglan",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=292",
-
     "category": "shelter"
   },
   {
@@ -13714,7 +13494,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1468",
     "description": "Cabane sou sle port de salau cote francais au dessus de la cabane des lannes et un peu à l'ecart du sentier cabane fermée réservée au berger.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1496228621.jpg",
-
     "category": "shelter"
   },
   {
@@ -13883,7 +13662,6 @@
     "name": "Refuge de Sans",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=944",
     "description": " visitée en juin 2008 très sommaire bonne toiture pas de bat flanc aout 2015 chemin d'acces non entretenu hautes herbes autour de la cabane pas eu envie de rentrer ",
-
     "alt": 1563,
     "category": "shelter"
   },
@@ -13904,7 +13682,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=726",
     "description": "Table bancs cheminée ils sont propres et en bon état situation exceptionnelle et un cadre magnifique au milieu des pins dans ce vaste massif calcaire ils sont accessibles en voiture mais comme la piste est très longue et très cabossee l'avantage de pouvoir y dormir pour partir tot le lendemain n est pas negligeable.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/santa_isabel.jpg",
-
     "category": "shelter"
   },
   {
@@ -14003,7 +13780,6 @@
     "name": "Cabane de Sargun",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1433",
     "description": "Cabane notee sur la carte en ruines située à l'est de cette eygun ",
-
     "alt": 1330,
     "category": "shelter"
   },
@@ -14114,7 +13890,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1187",
     "description": "Cabane forestière à côté de la fontaine de saudech entre les points 1208 et 1250 sur le sentier qui part d'un lacet de la route au dessus de melles vers le col d'artigascoude propre scie et grille disponible.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1303462745.jpg",
-
     "category": "shelter"
   },
   {
@@ -14302,7 +14077,6 @@
     "lat": 42.8292142,
     "name": "Cabane du Cap de La Serre",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=83",
-
     "alt": 2170,
     "category": "shelter"
   },
@@ -14323,7 +14097,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1454",
     "description": "Ruine.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2003_1483820875.jpg",
-
     "category": "shelter"
   },
   {
@@ -14392,7 +14165,6 @@
     "name": "Cabane Setut",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=593",
     "description": "Cabane notee sur les cartes Andorranes au sud de l'Estany de la isla",
-
     "alt": 2250,
     "category": "shelter"
   },
@@ -14409,10 +14181,9 @@
   {
     "lng": 1.5661,
     "lat": 42.7633,
-    "name": "Salle des f\u00eates de Siguer",
+    "name": "Salle des fêtes de Siguer",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=939",
     "description": "Salle des randonneurs mise à disposition gratuitement par la mairie de siguer à côté de la salle des fetes 6 lits grande table et chaises electricite douches et toilettes l'été ",
-
     "alt": 740,
     "category": "shelter"
   },
@@ -14433,7 +14204,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=990",
     "description": "D après un usager 2 voir 3 couchages en cas de necessite orages d'apres moi 10 places 6m2 en fonction du vent pas de porte plein nord propre alentours aussi.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1220383063.jpg",
-
     "category": "shelter"
   },
   {
@@ -14602,7 +14372,6 @@
     "name": "Cabanes de Souperret",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1294",
     "description": "Pas d'info pour le moment",
-
     "alt": 1670,
     "category": "shelter"
   },
@@ -14613,7 +14382,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=893",
     "description": "Petite cabane fermée au bord de l'étang sourd à proximité de la voie normale du Montcalm.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/893_1208261828.jpg",
-
     "category": "shelter"
   },
   {
@@ -14653,7 +14421,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=305",
     "description": "Cabane en pierre toit en tole une partie du toit est absente cabane en mauvais état présence d'un petit abri à côté.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/305_1432676977.jpg",
-
     "category": "shelter"
   },
   {
@@ -14812,7 +14579,6 @@
     "name": "Abri Coma del Tech",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=387",
     "description": "Abris assez sommaire s'il pleut le toit fuit il y a une bache à l'intérieur pour mettre par dessus la porte est defectueuse ",
-
     "alt": 1985,
     "category": "shelter"
   },
@@ -14892,7 +14658,6 @@
     "name": "Cabane de Tinicoude",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1329",
     "description": "Cabane située à l'entree du vallon d'annes cirque de Lescun cabane non trouvee sur l'emplacement indique par la carte ign ruines à proximitée rivre droite du gave ",
-
     "alt": 1210,
     "category": "shelter"
   },
@@ -14912,7 +14677,6 @@
     "name": "Courtaou de Tire-Moureou",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1058",
     "description": "Petite cabane sur la pente de tire moreou avec un bas flanc pour 4 personnes",
-
     "alt": 1525,
     "category": "shelter"
   },
@@ -14923,7 +14687,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1388",
     "description": "Joli abri minuscule avec une vue magnifique sur la mer sur le replat du pic de sailfort oriente sud source à 20 min en descendant le GR10 vers banyuls.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1388_1494955642.jpg",
-
     "category": "shelter"
   },
   {
@@ -14932,7 +14695,6 @@
     "name": "Cabane de Torre ",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1359",
     "description": "Cabane située sur la crète nord ouest du mont fourcat",
-
     "alt": 1514,
     "category": "shelter"
   },
@@ -14973,7 +14735,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1451",
     "description": "Petite cabane ouverte hors période pastorale bien amenage.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2002_1483386328.jpg",
-
     "category": "shelter"
   },
   {
@@ -15003,7 +14764,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1196",
     "description": "Toute petite cabane en pierre et au toit végétal située sur le GR10 un peu avant gavarnie rnrnune table deux bancs et rien d'autre pas de cheminée pas de bat flanc on peut dormir besoin si besoin quitte à mettre la table dehors pour la nuit deux sources à côté de la cabane bois un peu loin 10mn le toit et la porte ont été renoves il y a peu la cabane apparait desormais comme telle sur geoportail accès en 20mn depuis la route de la station de ski de gavarnie.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/1196_1437557786.jpg",
-
     "category": "shelter"
   },
   {
@@ -15122,7 +14882,7 @@
     "name": "Albergue Triton",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=801",
     "description": "Restaurant auberge de jeunesse de villanua chambre dortoirs nuitee 18 pension complète 37.",
-    "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15767992056508.jpg",
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/alberguetriton.jpeg",
     "alt": null,
     "category": "refuge"
   },
@@ -15422,7 +15182,6 @@
     "name": "Cabane deth Vaquer de Saplan",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1019",
     "description": "Cabane située dans le val d'aran sous le pic de Bacanère cabane rustique mais en bon état 4/5 places et cheminée",
-
     "category": "shelter"
   },
   {
@@ -15452,7 +15211,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1134",
     "description": "Refuge sur le coll de vent dans la sierra de sis au sud ouest de pont de suert très propre du bois était disponible ouvert lors de notre visite fin novembre 2009.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/2000_1260224736.jpg",
-
     "category": "shelter"
   },
   {
@@ -15483,7 +15241,6 @@
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1732",
     "description": "Abri pastoral construit par Gilbert Guichard et andre parisou au printemps 2012.",
     "photoUrl": "https://www.pyrenees-refuges.com/media/photo/15888403505002.jpg",
-
     "category": "shelter"
   },
   {
@@ -15531,7 +15288,6 @@
     "lat": 42.6496373,
     "name": "Cabane Orri Vieil",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=640",
-
     "alt": 1421,
     "category": "shelter"
   },
@@ -15551,7 +15307,6 @@
     "name": "Boca Sur - Hospital de Viella",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=822",
     "description": "Fermé il faut aller au refuge de coningles à 30 mn de marche vers le sud le long de la route ou par le sentier ",
-
     "alt": 1626,
     "category": "shelter"
   },
@@ -15581,7 +15336,6 @@
     "name": "Cabane de l'Estanh Long de Vilamos",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1167",
     "description": "Sommaire bas flanc mais pas très confortable attention pas d'eau potable uniquement la mare qui est à l'Estanh Long la deuxième cabane est en ruine ",
-
     "alt": 2100,
     "category": "shelter"
   },
@@ -15591,7 +15345,6 @@
     "name": "Cabane de villenave",
     "url": "www.pyrenees-refuges.com/fr/affiche.php?numenr=1516",
     "description": "Cabane près du parking du Pla de la Lau sur le sentier du Trapech cheminée de la place pour coucher 3/4 personnes une source pas loin au dessus",
-
     "alt": 1020,
     "category": "shelter"
   },
@@ -16164,15 +15917,6 @@
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Troumouse-Cirque-Lac_des_Aires.jpg/120px-Troumouse-Cirque-Lac_des_Aires.jpg"
   },
   {
-    "name": "Lac d'Anapéou",
-    "category": "lake",
-    "alt": 2093,
-    "description": "Le lac d'Anapéou est un lac naturel situé dans le massif de Cauterets à une altitude de 2093 mètres. Il est localisé dans la commune d'Arcizans-Avant, dans la vallée de Cauterets. Le lac couvre une superficie de 0,2 hectares.",
-    "lng": -0.1281023,
-    "lat": 42.9257542,
-    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lac_d%27Anap%C3%A9ou_%28Hautes-Pyr%C3%A9n%C3%A9es%29_1.jpg/120px-Lac_d%27Anap%C3%A9ou_%28Hautes-Pyr%C3%A9n%C3%A9es%29_1.jpg"
-  },
-  {
     "name": "Lac d'Antarrouyes",
     "category": "lake",
     "alt": 2009,
@@ -16189,15 +15933,6 @@
     "lng": 0.15806,
     "lat": 42.9472,
     "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Pic_du_Midi_de_Bigorre_-_lac_d%27Oncet.jpg/120px-Pic_du_Midi_de_Bigorre_-_lac_d%27Oncet.jpg"
-  },
-  {
-    "name": "Lac d'Arou",
-    "category": "lake",
-    "alt": 1786,
-    "description": "Le lac d'Arou est un lac naturel situé dans le massif de l'Arbizon à une altitude de 1786 mètres. Il est localisé dans la commune d'Ancizan, dans la vallée de Campan. Le lac couvre une superficie de 0,3 hectares.",
-    "lng": 0.2694,
-    "lat": 42.895,
-    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Lac_d%27Arou.jpg/120px-Lac_d%27Arou.jpg"
   },
   {
     "name": "Lac d'Aumar",
@@ -16438,5 +16173,699 @@
     "lng": -0.642358,
     "lat": 42.9279,
     "url": "camping-gite-lescun-pyrenees.com"
+  },
+  {
+    "name": "Lac d'Agalops",
+    "category": "lake",
+    "alt": 2196,
+    "description": "Le Lac d'Agalops est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Aygue-Cluse. Type: Naturel, Emissaire : Coueyla-Gran, Profondeur : 1m.",
+    "lng": 0.156667,
+    "lat": 42.8775368
+  },
+  {
+    "name": "Lac d'Agos",
+    "category": "lake",
+    "alt": 760,
+    "description": "Le Lac d'Agos est situé dans les communes de Guchan et Vielle-Aure, dans la Vallée d'Aure, Massif de l'Arbizon, lieu-dit : Goumères. Type: Artificiel, Emissaire : La Neste d'Aure.",
+    "lng": 0.3395783,
+    "lat": 42.8430866
+  },
+  {
+    "name": "Lac de l'Aile",
+    "category": "lake",
+    "alt": 2303,
+    "description": "Le Lac de l'Aile est situé dans la commune de Bagnères-de-Bigorre, dans la Vallée de Campan, Massif de l'Arbizon. Type: Naturel, Profondeur : 2m.",
+    "lng": 0.22111,
+    "lat": 42.87639
+  },
+  {
+    "name": "Lac d'Anapéou",
+    "category": "lake",
+    "alt": 2093,
+    "description": "Le Lac d'Anapéou est situé dans la commune d'Arcizans-Avant, dans la Vallée de Cauterets, Massif de Cauterets, lieu-dit : Estibe. Type: Naturel, Emissaire : Ruisseau d'Anapéou.",
+    "lng": -0.1281023,
+    "lat": 42.9257542,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lac_d%27Anap%C3%A9ou_%28Hautes-Pyr%C3%A9n%C3%A9es%29_1.jpg/240px-Lac_d%27Anap%C3%A9ou_%28Hautes-Pyr%C3%A9n%C3%A9es%29_1.jpg"
+  },
+  {
+    "name": "Lac d'Anglade",
+    "category": "lake",
+    "alt": 2175,
+    "description": "Le Lac d'Anglade est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Boudigues et Lude. Type: Naturel, Profondeur : 3m.",
+    "lng": 0.174209,
+    "lat": 42.8417728
+  },
+  {
+    "name": "Lac d'Aouda",
+    "category": "lake",
+    "alt": 2208,
+    "description": "Le Lac d'Aouda est situé dans la commune de Sers, dans la Vallée de Barèges, Massif du Pic-du-Midi-de-Bigorre, lieu-dit : Bonida. Type: Naturel.",
+    "lng": -0.1175665,
+    "lat": 42.9272036
+  },
+  {
+    "name": "Lac d'Arcizans - Avant",
+    "category": "lake",
+    "alt": 620,
+    "description": "Le Lac d'Arcizans - Avant est situé dans la commune d'Arcizans-Avant, dans le Val d'Azun, Massif de Cauterets, lieu-dit : Bernata. Type: Artificiel, Emissaire : Gave d'Azun, Profondeur : 5m.",
+    "lng": 0.1114833,
+    "lat": 42.9877131
+  },
+  {
+    "name": "Lac d'Arou",
+    "category": "lake",
+    "alt": 1786,
+    "description": "Le Lac d'Arou est situé dans la commune d'Ancizan, dans la Vallée de Campan, Massif de l'Arbizon, lieu-dit : Coste Ouillère. Type: Naturel, Emissaire : Ruisseau d'Artigou, Profondeur : 3m.",
+    "lng": 0.2694,
+    "lat": 42.895,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Lac_d%27Arou.jpg/240px-Lac_d%27Arou.jpg"
+  },
+  {
+    "name": "Lac d'Artigues de Gripp",
+    "category": "lake",
+    "alt": 1196,
+    "description": "Le Lac d'Artigues de Gripp est situé dans la commune de Campan, dans la Vallée de Campan, lieu-dit : Lartigue. Type: Barrage, Emissaire : Adour de Gripp.",
+    "lng": 0.2044326,
+    "lat": 42.9292127
+  },
+  {
+    "name": "Lacs d'Arraillé",
+    "category": "lake",
+    "alt": 2485,
+    "description": "Les Lacs d'Arraillé sont situés dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Pic d'Arraillé. Type: Naturel, Emissaire : Gave des Oulettes de Gaube.",
+    "lng": -0.13134241,
+    "lat": 42.79005292
+  },
+  {
+    "name": "Lac du col d'Arratille",
+    "category": "lake",
+    "alt": 2501,
+    "description": "Le Lac du col d'Arratille est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa, lieu-dit : Col d'Arratille. Type: Naturel, Emissaire : Gave d'Arratille, Profondeur : 17m.",
+    "lng": -0.17419338,
+    "lat": 42.7897242
+  },
+  {
+    "name": "Laquets Arrouys",
+    "category": "lake",
+    "alt": 2491,
+    "description": "Les Laquets Arrouys sont situés dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa, lieu-dit : Les Pics Jumeaux. Type: Naturel.",
+    "lng": -0.19897028,
+    "lat": 42.7992108
+  },
+  {
+    "name": "Lac d'Aspé",
+    "category": "lake",
+    "alt": 2689,
+    "description": "Le Lac d'Aspé est situé dans la commune de Cauterets, dans la Vallée de Lutour, Massif d'Ardiden, lieu-dit : Col d'Aspé. Type: Naturel, Emissaire : Gave d'Estom Soubiran.",
+    "lng": -0.08095979,
+    "lat": 42.7812203
+  },
+  {
+    "name": "Lac d'Astazou",
+    "category": "lake",
+    "alt": 2230,
+    "description": "Le Lac d'Astazou est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Bugarret. Type: Naturel, Profondeur : 2m.",
+    "lng": 0.10124802,
+    "lat": 42.8604693
+  },
+  {
+    "name": "Lac d'Ausseilla",
+    "category": "lake",
+    "alt": 2192,
+    "description": "Le Lac d'Ausseilla est situé dans la commune d'Arrens-Marsous, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Labas Ouest. Type: Naturel, Emissaire : Ruisseau de Labas, Profondeur : 5m.",
+    "lng": 0.3120759,
+    "lat": 42.905218
+  },
+  {
+    "name": "Lac d'Avajan",
+    "category": "lake",
+    "alt": 910,
+    "description": "Le Lac d'Avajan est situé dans la commune d'Avajan, dans la Vallée du Louron, lieu-dit : Prédenar. Type: Non précisé, Emissaire : Neste du Louron, Profondeur : 4m.",
+    "lng": 0.40868929,
+    "lat": 42.8383847
+  },
+  {
+    "name": "Lac d'Aygues Cluses",
+    "category": "lake",
+    "alt": 2311,
+    "description": "Le Lac d'Aygues Cluses est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Port-Bieil. Type: Naturel, Emissaire : Ruisseau d'Aygues-Cluses, Profondeur : 3m.",
+    "lng": 0.15129268,
+    "lat": 42.86611763
+  },
+  {
+    "name": "Lacs d'Aygues Tortes",
+    "category": "lake",
+    "alt": 2258,
+    "description": "Les Lacs d'Aygues Tortes sont situés dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon d'Aygues Tortes. Type: Naturel, Emissaire : Ruisseau d'Aygues-Tortes.",
+    "lng": 0.42015194,
+    "lat": 42.7046412
+  },
+  {
+    "name": "Lac de Badet (Sazos)",
+    "category": "lake",
+    "alt": 2569,
+    "description": "Le Lac de Badet est situé dans la commune de Sazos, dans la Vallée de Luz-Saint-Sauveur, Massif d'Ardiden, lieu-dit : Badet d'Aubiste. Type: Naturel, Emissaire : Ruisseau de Badet, Profondeur : 8m.",
+    "lng": -0.0620126,
+    "lat": 42.82970803
+  },
+  {
+    "name": "Lac de Badet (Aragnouet)",
+    "category": "lake",
+    "alt": 2080,
+    "description": "Le Lac de Badet est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Montagne de Lalaquette. Type: Naturel, Emissaire : Neste de Badet.",
+    "lng": 0.136701,
+    "lat": 42.7654646
+  },
+  {
+    "name": "Lac de la Badète",
+    "category": "lake",
+    "alt": 2344,
+    "description": "Le Lac de la Badète est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa, lieu-dit : Pic de la Badète. Type: Naturel, Emissaire : Gave d'Arratille, Profondeur : 7m.",
+    "lng": -0.181986,
+    "lat": 42.793849
+  },
+  {
+    "name": "Lac du Barbat",
+    "category": "lake",
+    "alt": 1973,
+    "description": "Le Lac du Barbat est situé dans la commune d'Estaing, dans le Val d'Azun, Massif de Cauterets, lieu-dit : Barbat. Type: Naturel, Emissaire : Arriousec, Profondeur : 3m.",
+    "lng": -0.20111,
+    "lat": 42.87833
+  },
+  {
+    "name": "Lac de Barroude petit",
+    "category": "lake",
+    "alt": 2377,
+    "description": "Le Lac de Barroude petit est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Montagne de Passade de Barroude. Type: Naturel, Emissaire : Neste de la Géla, Profondeur : 3m.",
+    "lng": 0.146405,
+    "lat": 42.733947
+  },
+  {
+    "name": "Lac de Bassia",
+    "category": "lake",
+    "alt": 2488,
+    "description": "Le Lac de Bassia est situé dans la commune d'Estaing, dans la Vallée du Marcadau, Massif de Cauterets, lieu-dit : Pé det May. Type: Naturel, Emissaire : Ruisseau de Bassia, Profondeur : 5m.",
+    "lng": 0.209619,
+    "lat": 42.839334129
+  },
+  {
+    "name": "Lac de Bassia (Campbieil)",
+    "category": "lake",
+    "alt": 2489,
+    "description": "Le Lac de Bassia est situé dans la commune de Gavarnie-Gèdre, Massif de Campbieil. Type: Naturel, Emissaire : Gave de Campbieil, Profondeur : 2m.",
+    "lng": 0.05678,
+    "lat": 42.725456
+  },
+  {
+    "name": "Lac de Bastampe",
+    "category": "lake",
+    "alt": 2302,
+    "description": "Le Lac de Bastampe est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Bastampe. Type: Naturel, Emissaire : Ruisseau de Bastampe, Profondeur : 4m.",
+    "lng": 0.362341,
+    "lat": 42.787463
+  },
+  {
+    "name": "Lac de Bastan inférieur",
+    "category": "lake",
+    "alt": 2150,
+    "description": "Le Lac de Bastan inférieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, Emissaire : Ruisseau de Bastan, Profondeur : 3m.",
+    "lng": 0.209123,
+    "lat": 42.883923,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Lac_Inférieur_de_Bastan_Hautes_Pyrénées_02_BLS.JPG/240px-Lac_Inférieur_de_Bastan_Hautes_Pyrénées_02_BLS.JPG"
+  },
+  {
+    "name": "Lac de Bastan supérieur",
+    "category": "lake",
+    "alt": 2220,
+    "description": "Le Lac de Bastan supérieur est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Bastan. Type: Naturel, Emissaire : Ruisseau de Bastan, Profondeur : 5m.",
+    "lng": 0.21123,
+    "lat": 42.885927,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Lac_de_Bastan_Superieur.JPG/240px-Lac_de_Bastan_Superieur.JPG"
+  },
+  {
+    "name": "Lac de Baysselance",
+    "category": "lake",
+    "alt": 2473,
+    "description": "Le Lac de Baysselance est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Pic de Baysselance. Type: Naturel, Emissaire : Gave de Baysselance.",
+    "lng": -0.01332,
+    "lat": 42.76234
+  },
+  {
+    "name": "Lac de Bègles",
+    "category": "lake",
+    "alt": 2347,
+    "description": "Le Lac de Bègles est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Bègles. Type: Naturel, Emissaire : Ruisseau de Bègles, Profondeur : 3m.",
+    "lng": 0.362123,
+    "lat": 42.787982
+  },
+  {
+    "name": "Lac de Bernatoire",
+    "category": "lake",
+    "alt": 2336,
+    "description": "Le Lac de Bernatoire est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Col de Bernatoire. Type: Naturel, Emissaire : Gave de Bernatoire.",
+    "lng": -0.01392,
+    "lat": 42.77172
+  },
+  {
+    "name": "Lac de Betpouey",
+    "category": "lake",
+    "alt": 2150,
+    "description": "Le Lac de Betpouey est situé dans la commune de Betpouey, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Betpouey. Type: Naturel, Emissaire : Ruisseau de Betpouey.",
+    "lng": 0.0323,
+    "lat": 42.9017
+  },
+  {
+    "name": "Lac Bleu de Lesponne",
+    "category": "lake",
+    "alt": 1977,
+    "description": "Le Lac Bleu de Lesponne est situé dans la commune de Beaudéan, dans la Vallée de Lesponne, Massif du Pic-du-Midi-de-Bigorre, lieu-dit : Lesponne. Type: Naturel, Emissaire : Ruisseau de Lesponne, Profondeur : 25m.",
+    "lng": 0.0974,
+    "lat": 42.9351,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Lac_Bleu_de_Lesponne.jpg/240px-Lac_Bleu_de_Lesponne.jpg"
+  },
+  {
+    "name": "Lac Bleu de Sers",
+    "category": "lake",
+    "alt": 2093,
+    "description": "Le Lac Bleu de Sers est situé dans la commune de Sers, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Sers. Type: Naturel, Emissaire : Ruisseau de Sers.",
+    "lng": 0.1522,
+    "lat": 42.8865
+  },
+  {
+    "name": "Lac de Cap-de-Long",
+    "category": "lake",
+    "alt": 2161,
+    "description": "Le Lac de Cap-de-Long est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Cap-de-Long. Type: Barrage, Emissaire : Neste de Couplan, Profondeur : 48m.",
+    "lng": 0.1262,
+    "lat": 42.8326,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Lac_de_Cap_de_Long.jpg/240px-Lac_de_Cap_de_Long.jpg"
+  },
+  {
+    "name": "Lac de Castillon",
+    "category": "lake",
+    "alt": 1740,
+    "description": "Le Lac de Castillon est situé dans la commune d'Aucun, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Montagne de Castillon. Type: Naturel, Emissaire : Ruisseau de Castillon.",
+    "lng": 0.2359,
+    "lat": 42.9051
+  },
+  {
+    "name": "Lac de Catchet",
+    "category": "lake",
+    "alt": 1850,
+    "description": "Le Lac de Catchet est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Vallon de Catchet. Type: Naturel, Emissaire : Ruisseau de Catchet.",
+    "lng": 0.3678,
+    "lat": 42.7871
+  },
+  {
+    "name": "Lac de Coueyla-Gran",
+    "category": "lake",
+    "alt": 2225,
+    "description": "Le Lac de Coueyla-Gran est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Montagne de Coueyla-Gran. Type: Naturel, Emissaire : Ruisseau de Coueyla-Gran.",
+    "lng": 0.1571,
+    "lat": 42.8853
+  },
+  {
+    "name": "Lac de Crabounouse",
+    "category": "lake",
+    "alt": 1980,
+    "description": "Le Lac de Crabounouse est situé dans la commune d'Azet, dans la Vallée de la Neste d'Aure, Massif du Néouvielle, lieu-dit : Vallon de Crabounouse. Type: Naturel, Emissaire : Ruisseau de Crabounouse.",
+    "lng": 0.1415,
+    "lat": 42.8901
+  },
+  {
+    "name": "Lac de Cristol",
+    "category": "lake",
+    "alt": 2191,
+    "description": "Le Lac de Cristol est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Montagne de Cristol. Type: Naturel, Emissaire : Ruisseau de Cristol.",
+    "lng": 0.1904,
+    "lat": 42.8721
+  },
+  {
+    "name": "Lac de Crouès",
+    "category": "lake",
+    "alt": 1883,
+    "description": "Le Lac de Crouès est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Crouès. Type: Naturel, Emissaire : Ruisseau de Crouès.",
+    "lng": 0.1654,
+    "lat": 42.8827
+  },
+  {
+    "name": "Lac de Dets-Coubous",
+    "category": "lake",
+    "alt": 1950,
+    "description": "Le Lac de Dets-Coubous est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Dets-Coubous. Type: Naturel, Emissaire : Ruisseau de Dets-Coubous.",
+    "lng": 0.1623,
+    "lat": 42.8789
+  },
+  {
+    "name": "Lac du Diable",
+    "category": "lake",
+    "alt": 1870,
+    "description": "Le Lac du Diable est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane du Diable. Type: Naturel, Emissaire : Ruisseau du Diable.",
+    "lng": 0.1514,
+    "lat": 42.8775
+  },
+  {
+    "name": "Lac de Doumblas",
+    "category": "lake",
+    "alt": 2450,
+    "description": "Le Lac de Doumblas est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de Doumblas. Type: Naturel, Emissaire : Ruisseau de Doumblas.",
+    "lng": -0.0173,
+    "lat": 42.7785
+  },
+  {
+    "name": "Lac d'Estaing",
+    "category": "lake",
+    "alt": 1161,
+    "description": "Le Lac d'Estaing est situé dans la commune d'Estaing, dans le Val d'Azun, Massif du Balaïtous, lieu-dit : Vallée d'Estaing. Type: Naturel, Emissaire : Gave d'Estaing.",
+    "lng": -0.2056,
+    "lat": 42.9345,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Lac_d%27Estaing.jpg/240px-Lac_d%27Estaing.jpg"
+  },
+  {
+    "name": "Lac Glacé de Mont Perdu",
+    "category": "lake",
+    "alt": 2590,
+    "description": "Le Lac Glacé de Mont Perdu est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Mont-Perdu. Type: Naturel.",
+    "lng": 0.0397,
+    "lat": 42.6833
+  },
+  {
+    "name": "Lac de Glère",
+    "category": "lake",
+    "alt": 2134,
+    "description": "Le Lac de Glère est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Cabane de Glère. Type: Naturel, Emissaire : Ruisseau de Glère.",
+    "lng": 0.0878,
+    "lat": 42.8831,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vallée_de_Barège%2C_Lac_et_Refuge_de_la_Glère.JPG/240px-Vallée_de_Barège%2C_Lac_et_Refuge_de_la_Glère.JPG"
+  },
+  {
+    "name": "Lac d'Ilhéou",
+    "category": "lake",
+    "alt": 1988,
+    "description": "Le Lac d'Ilhéou est situé dans la commune de Cauterets, dans la Vallée d'Ilhéou, Massif de Cauterets, lieu-dit : Refuge d'Ilhéou. Type: Naturel, Emissaire : Ruisseau d'Ilhéou.",
+    "lng": -0.0944,
+    "lat": 42.8417,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Lac_d%27Ilheou.jpg/240px-Lac_d%27Ilheou.jpg"
+  },
+  {
+    "name": "Lac d'Isaby",
+    "category": "lake",
+    "alt": 1520,
+    "description": "Le Lac d'Isaby est situé dans la commune de Barèges, dans la Vallée de Barèges, Massif du Néouvielle, lieu-dit : Montagne d'Isaby. Type: Naturel, Emissaire : Ruisseau d'Isaby.",
+    "lng": 0.0067,
+    "lat": 42.9317,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Lac_d%27Isaby_3.jpg/240px-Lac_d%27Isaby_3.jpg"
+  },
+  {
+    "name": "Lac de Lhurs",
+    "category": "lake",
+    "alt": 1691,
+    "description": "Le Lac de Lhurs est situé dans la commune d'Aucun, dans la Vallée d'Azun, Massif du Balaïtous, lieu-dit : Cabane de Lhurs. Type: Naturel, Emissaire : Ruisseau de Lhurs.",
+    "lng": -0.215,
+    "lat": 42.9094
+  },
+  {
+    "name": "Lac de Litouèse",
+    "category": "lake",
+    "alt": 1401,
+    "description": "Le Lac de Litouèse est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Litouèse. Type: Naturel, Emissaire : Ruisseau de Litouèse.",
+    "lng": -0.1181,
+    "lat": 42.8014
+  },
+  {
+    "name": "Lac de Lourdes",
+    "category": "lake",
+    "alt": 420,
+    "description": "Le Lac de Lourdes est situé dans la commune de Lourdes, dans la Vallée de Lourdes. Type: Naturel, Emissaire : Gave de Pau.",
+    "lng": -0.0533,
+    "lat": 43.0886,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Lac_de_Lourdes_1.jpg/240px-Lac_de_Lourdes_1.jpg"
+  },
+  {
+    "name": "Lac de Luron",
+    "category": "lake",
+    "alt": 1250,
+    "description": "Le Lac de Luron est situé dans la commune de Vielle-Aure, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, Emissaire : Ruisseau de Luron.",
+    "lng": 0.2761,
+    "lat": 42.8583
+  },
+  {
+    "name": "Lac de Migouélou",
+    "category": "lake",
+    "alt": 2138,
+    "description": "Le Lac de Migouélou est situé dans la commune d'Arthez-d'Asson, dans la Vallée de Migouélou, Massif du Balaïtous, lieu-dit : Refuge de Migouélou. Type: Naturel, Emissaire : Ruisseau de Migouélou.",
+    "lng": -0.3319,
+    "lat": 42.9119,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Lac_de_Migouelou.JPG/528px-Lac_de_Migouelou.JPG"
+  },
+  {
+    "name": "Lac d'Oule",
+    "category": "lake",
+    "alt": 1819,
+    "description": "Le Lac d'Oule est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, Emissaire : Neste d'Oule.",
+    "lng": 0.1411,
+    "lat": 42.8458,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lac_d%27Oule_1.jpg/240px-Lac_d%27Oule_1.jpg"
+  },
+  {
+    "name": "Lac de Port-Bielh",
+    "category": "lake",
+    "alt": 2059,
+    "description": "Le Lac de Port-Bielh est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Port-Bielh. Type: Naturel, Emissaire : Neste de Port-Bielh.",
+    "lng": 0.1483,
+    "lat": 42.8452
+  },
+  {
+    "name": "Lac de Rabiet",
+    "category": "lake",
+    "alt": 1761,
+    "description": "Le Lac de Rabiet est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Refuge de Rabiet. Type: Naturel, Emissaire : Ruisseau de Rabiet.",
+    "lng": -0.1194,
+    "lat": 42.805
+  },
+  {
+    "name": "Lac de Remoulis",
+    "category": "lake",
+    "alt": 2100,
+    "description": "Le Lac de Remoulis est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Cabane de Remoulis. Type: Naturel, Emissaire : Ruisseau de Remoulis.",
+    "lng": 0.1242,
+    "lat": 42.8213
+  },
+  {
+    "name": "Lac de Rémoulis",
+    "category": "lake",
+    "alt": 2102,
+    "description": "Le Lac de Rémoulis est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Refuge de Rémoulis. Type: Naturel, Emissaire : Ruisseau de Rémoulis.",
+    "lng": 0.1247,
+    "lat": 42.8212
+  },
+  {
+    "name": "Lac de Roumassot",
+    "category": "lake",
+    "alt": 1855,
+    "description": "Le Lac de Roumassot est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Roumassot. Type: Naturel, Emissaire : Gave de Gaube.",
+    "lng": -0.1344,
+    "lat": 42.7861
+  },
+  {
+    "name": "Lac de Saoussat",
+    "category": "lake",
+    "alt": 1930,
+    "description": "Le Lac de Saoussat est situé dans la commune de Cauterets, dans la Vallée de Cauterets, Massif du Vignemale, lieu-dit : Refuge de Saoussat. Type: Naturel, Emissaire : Ruisseau de Saoussat.",
+    "lng": -0.1211,
+    "lat": 42.7906
+  },
+  {
+    "name": "Lac de Tech",
+    "category": "lake",
+    "alt": 1207,
+    "description": "Le Lac de Tech est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale, lieu-dit : Cabane de Tech. Type: Naturel, Emissaire : Neste de Tech.",
+    "lng": 0.4296,
+    "lat": 42.8047
+  },
+  {
+    "name": "Lac de Trébourdet",
+    "category": "lake",
+    "alt": 2128,
+    "description": "Le Lac de Trébourdet est situé dans la commune de Cauterets, dans la Vallée de Gaube, Massif du Vignemale, lieu-dit : Montagne de Trébourdet. Type: Naturel, Emissaire : Ruisseau de Trébourdet.",
+    "lng": -0.1143,
+    "lat": 42.7958
+  },
+  {
+    "name": "Lac Vert (Gavarnie)",
+    "category": "lake",
+    "alt": 2293,
+    "description": "Le Lac Vert est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne du Lac Vert. Type: Naturel, Emissaire : Ruisseau du Lac Vert.",
+    "lng": -0.1111,
+    "lat": 42.7744
+  },
+  {
+    "name": "Lac Vert (Lesponne)",
+    "category": "lake",
+    "alt": 1860,
+    "description": "Le Lac Vert est situé dans la commune de Beaudéan, dans la Vallée de Lesponne, Massif du Pic-du-Midi-de-Bigorre, lieu-dit : Cabane du Lac Vert. Type: Naturel, Emissaire : Ruisseau du Lac Vert.",
+    "lng": 0.1234,
+    "lat": 42.9283
+  },
+  {
+    "name": "Lac de Vinhamala",
+    "category": "lake",
+    "alt": 2445,
+    "description": "Le Lac de Vinhamala est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Vinhamala. Type: Naturel, Emissaire : Ruisseau de Vinhamala.",
+    "lng": -0.1357,
+    "lat": 42.7652
+  },
+  {
+    "name": "Lac de la Géla",
+    "category": "lake",
+    "alt": 2200,
+    "description": "Le Lac de la Géla est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Refuge de la Géla. Type: Naturel, Emissaire : Ruisseau de la Géla.",
+    "lng": 0.1356,
+    "lat": 42.7799
+  },
+  {
+    "name": "Lac de Montarrouye",
+    "category": "lake",
+    "alt": 2291,
+    "description": "Le Lac de Montarrouye est situé dans la commune de Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Montarrouye. Type: Naturel, Emissaire : Ruisseau de Montarrouye.",
+    "lng": 0.1464,
+    "lat": 42.7684
+  },
+  {
+    "name": "Lac de Pouey-Laün",
+    "category": "lake",
+    "alt": 2234,
+    "description": "Le Lac de Pouey-Laün est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de Pouey-Laün. Type: Naturel, Emissaire : Ruisseau de Pouey-Laün.",
+    "lng": -0.1442,
+    "lat": 42.7639
+  },
+  {
+    "name": "Lac de la Hourquette",
+    "category": "lake",
+    "alt": 1922,
+    "description": "Le Lac de la Hourquette est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Montagne de la Hourquette. Type: Naturel, Emissaire : Ruisseau de la Hourquette.",
+    "lng": -0.1451,
+    "lat": 42.7662
+  },
+  {
+    "name": "Lac de Peyrelade",
+    "category": "lake",
+    "alt": 2240,
+    "description": "Le Lac de Peyrelade est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif de la Munia, lieu-dit : Refuge de Peyrelade. Type: Naturel, Emissaire : Ruisseau de Peyrelade.",
+    "lng": 0.1362,
+    "lat": 42.7739,
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Pano_lac_de_peyrelade.jpg/240px-Pano_lac_de_peyrelade.jpg"
+  },
+  {
+    "name": "Lac de Pouey Mourou",
+    "category": "lake",
+    "alt": 2185,
+    "description": "Le Lac de Pouey Mourou est situé dans la commune de Gavarnie-Gèdre, dans la Vallée de Gavarnie, Massif du Vignemale, lieu-dit : Refuge de Pouey Mourou. Type: Naturel, Emissaire : Ruisseau de Pouey Mourou.",
+    "lng": -0.1532,
+    "lat": 42.7625
+  },
+  {
+    "name": "Lac de Sarrouyes",
+    "category": "lake",
+    "alt": 2500,
+    "description": "Le Lac de Sarrouyes est situé dans la commune d'Aragnouet, dans la Vallée d'Aure, Massif du Néouvielle, lieu-dit : Refuge de Sarrouyes. Type: Naturel, Emissaire : Ruisseau de Sarrouyes.",
+    "lng": 0.1341,
+    "lat": 42.7793
+  },
+  {
+    "name": "Lac du Plaa de Prat",
+    "category": "lake",
+    "alt": 1680,
+    "description": "Le Lac du Plaa de Prat est situé dans la commune de Cauterets, dans la Vallée de Lutour, Massif d'Ardiden, lieu-dit : Refuge du Plaa de Prat. Type: Naturel, Emissaire : Ruisseau du Plaa de Prat.",
+    "lng": -0.0791,
+    "lat": 42.7928
+  },
+  {
+    "name": "Lac de Caillauas",
+    "category": "lake",
+    "alt": 2140,
+    "description": "Le Lac de Caillauas est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge de Caillauas. Type: Naturel, Emissaire : Ruisseau de Caillauas.",
+    "lng": 0.4256,
+    "lat": 42.8104
+  },
+  {
+    "name": "Lac du Portillon",
+    "category": "lake",
+    "alt": 2570,
+    "description": "Le Lac du Portillon est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge du Portillon. Type: Naturel, Emissaire : Ruisseau du Portillon.",
+    "lng": 0.4277,
+    "lat": 42.7736
+  },
+  {
+    "name": "Lac de Montagnette",
+    "category": "lake",
+    "alt": 2100,
+    "description": "Le Lac de Montagnette est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle, lieu-dit : Refuge de Montagnette. Type: Naturel, Emissaire : Ruisseau de Montagnette.",
+    "lng": 0.4456,
+    "lat": 42.8112
+  },
+  {
+    "name": "Lac de Pouchergues",
+    "category": "lake",
+    "alt": 2073,
+    "description": "Le Lac de Pouchergues est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, Emissaire : Ruisseau de Pouchergues.",
+    "lng": 0.4217,
+    "lat": 42.795
+  },
+  {
+    "name": "Lac de Saboures",
+    "category": "lake",
+    "alt": 2128,
+    "description": "Le Lac de Saboures est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, Emissaire : Ruisseau de Saboures.",
+    "lng": 0.4293,
+    "lat": 42.7937
+  },
+  {
+    "name": "Lac de Suberpène",
+    "category": "lake",
+    "alt": 1868,
+    "description": "Le Lac de Suberpène est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle. Type: Naturel, Emissaire : Ruisseau de Suberpène.",
+    "lng": 0.4122,
+    "lat": 42.7928
+  },
+  {
+    "name": "Lac du Tech",
+    "category": "lake",
+    "alt": 1207,
+    "description": "Le Lac du Tech est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif de Batchimale. Type: Naturel, Emissaire : Neste du Tech.",
+    "lng": 0.4296,
+    "lat": 42.8047
+  },
+  {
+    "name": "Lac de Trébons",
+    "category": "lake",
+    "alt": 2063,
+    "description": "Le Lac de Trébons est situé dans la commune de Loudenvielle, dans la Vallée du Louron, Massif du Néouvielle. Type: Naturel, Emissaire : Ruisseau de Trébons.",
+    "lng": 0.4272,
+    "lat": 42.7911
+  },
+  {
+    "name": "Lac du Rioumajou",
+    "category": "lake",
+    "alt": 1580,
+    "description": "Le Lac du Rioumajou est situé dans la commune de Saint-Lary-Soulan, dans la Vallée d'Aure, Massif du Néouvielle. Type: Naturel, Emissaire : Neste du Rioumajou.",
+    "lng": 0.3286,
+    "lat": 42.7713
+  },
+  {
+    "name": "Lac du col d'Arraillé",
+    "category": "lake",
+    "alt": 2501,
+    "description": "Le Lac du col d'Arraillé est situé dans la commune de Cauterets, dans la Vallée du Marcadau, Massif de Panticosa. Type: Naturel, Emissaire : Gave d'Arraillé, Profondeur : 17m.",
+    "lng": -0.17419338,
+    "lat": 42.7897242
+  },
+  {
+    "name": "Lac d'Arratille",
+    "category": "lake",
+    "alt": 2247,
+    "description": "Le Lac d'Arratille est situé dans la commune de Cauterets, dans la Vallée du Marcadau, lieu-dit : Arratille. Type: Naturel, Emissaire : Gave d'Aratille, Profondeur : 12m.",
+    "lng": -0.1746669,
+    "lat": 42.8
   }
 ]
