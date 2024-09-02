@@ -10,6 +10,8 @@ import SwiftUI
 
 struct PoiDetailView: View {
         
+    @ObservedObject var collectionManager = CollectionManager.shared
+    
     var poi: Poi
     
     var body: some View {
@@ -74,12 +76,11 @@ struct PoiDetailView: View {
                 }
                 .padding()
             }
-            .navigationBarItems(leading: Button(action: {
-                CollectionManager.shared.addPoiToCollection(poi: poi)
+            .navigationBarItems(trailing: Button(action: {
+                collectionManager.addOrRemovePoiToCollection(poi: poi)
                 Feedback.selected()
-                NotificationManager.shared.sendNotification(title: poi.name, message: "collected".localized)
             }) {
-                Image(systemName: "star")
+                collectionManager.isPoiAlreadyCollected(poi: poi) ? Image(systemName: "star.fill") : Image(systemName: "star")
             })
         }
         .edgesIgnoringSafeArea(.horizontal)

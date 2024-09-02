@@ -12,6 +12,8 @@ struct InfoPoiView: View {
     
     @Binding var poi: Poi?
     
+    @ObservedObject var collectionManager = CollectionManager.shared
+    
     var body: some View {
         
         NavigationView {
@@ -81,13 +83,14 @@ struct InfoPoiView: View {
             })
             .navigationBarItems(leading: Button(action: {
                 if let poi {
-                    CollectionManager.shared.addPoiToCollection(poi: poi)
+                    collectionManager.addOrRemovePoiToCollection(poi: poi)
                     Feedback.selected()
-                    NotificationManager.shared.sendNotification(title: poi.name, message: "collected".localized)
                     self.poi = nil
                 }
             }) {
-                Image(systemName: "star")
+                if let poi {
+                    collectionManager.isPoiAlreadyCollected(poi: poi) ? Image(systemName: "star.fill") : Image(systemName: "star")
+                }
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())

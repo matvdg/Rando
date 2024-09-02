@@ -18,9 +18,17 @@ class CollectionManager: ObservableObject {
         collection = getCollection()
     }
     
-    func addPoiToCollection(poi: Poi) {
-        let newPoi = Collection(id: UUID(),poi: poi, date: Date())
-        collection.append(newPoi)
+    func isPoiAlreadyCollected(poi: Poi) -> Bool {
+        collection.contains(where: { $0.poi.name == poi.name })
+    }
+    
+    func addOrRemovePoiToCollection(poi: Poi) {
+        if isPoiAlreadyCollected(poi: poi) { // Remove
+            collection.removeAll { $0.poi.name == poi.name }
+        } else { // Add
+            let newPoi = Collection(id: UUID(), poi: poi, date: Date())
+            collection.append(newPoi)
+        }
         let file = "collection.json"
         let filename = FileManager.documentsDirectory.appendingPathComponent(file)
         do {

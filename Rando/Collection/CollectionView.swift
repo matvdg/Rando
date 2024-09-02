@@ -96,7 +96,7 @@ struct CollectionView: View {
                             }.padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 8))
                         }
                     }
-                    .navigationBarTitle(Text("Collection"), displayMode: .inline)
+                    .navigationBarTitle(Text("Collection (\(collection.count))"), displayMode: .inline)
                     .navigationBarItems(leading: Picker(selection: $appManager.selectedCategory, label: Text("")) {
                         ForEach(Category.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {

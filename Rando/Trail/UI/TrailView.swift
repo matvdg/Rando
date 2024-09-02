@@ -53,9 +53,10 @@ struct TrailView: View {
                             LikeIconButton(isLiked: $trail.isFav)
                         }
                         
-                        ShareLink(item: TrailManager.shared.exportToGpxFile(trail: trail)) {
-                            ShareIconButton()
-                        }
+                        // FIXME: Creating memory leak with an infinity loop
+//                        ShareLink(item: TrailManager.shared.exportToGpxFile(trail: trail)) {
+//                            ShareIconButton()
+//                        }
                     }
                     .padding(.horizontal, 20)
                 }
@@ -131,7 +132,7 @@ struct TrailView: View {
                     HStack {
                         Label("Difficulty", systemImage: "figure.hiking")
                         Spacer()
-                        DifficultyView(difficulty: trail.difficulty)
+                        DifficultyColorView(difficulty: trail.difficulty)
                     }
                     
                     if let department = trail.department {

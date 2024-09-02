@@ -19,7 +19,7 @@ struct PoiView: View {
     }
     
     @EnvironmentObject var appManager: AppManager
-    
+    @ObservedObject var collectionManager = CollectionManager.shared
     @State private var searchText = ""
     @State private var sorting: Sorting = .altitude
     
