@@ -80,7 +80,7 @@ struct PoiDetailView: View {
                 collectionManager.addOrRemovePoiToCollection(poi: poi)
                 Feedback.selected()
             }) {
-                collectionManager.isPoiAlreadyCollected(poi: poi) ? Image(systemName: "star.fill") : Image(systemName: "star")
+                collectionManager.isPoiAlreadyCollected(poi: poi) ? Image(systemName: "trophy.fill") : Image(systemName: "trophy")
             })
         }
         .edgesIgnoringSafeArea(.horizontal)

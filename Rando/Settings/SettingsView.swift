@@ -10,6 +10,7 @@ import SwiftUI
 import UIKit
 import StoreKit
 import MessageUI
+import TipKit
 
 let maisondarlosUrl = URL(string: "https://maisondarlos.fr")!
 let systemVersion = UIDevice.current.systemVersion
@@ -100,6 +101,17 @@ struct SettingsView: View {
                         }
                     )
                     
+                    if #available(iOS 17.0, *) {
+                        Button {
+                            try? Tips.resetDatastore()
+                            Feedback.success()
+                            selection = 0
+                            try? Tips.configure([.displayFrequency(.immediate)])
+                        } label: {
+                            Label("Restore tips", systemImage: "lightbulb.max")
+                        }
+                    }
+                    
                     DisclosureGroup(
                         content: {
                             Text("AboutMe")
@@ -147,7 +159,7 @@ struct SettingsView: View {
                         rateApp()
 #endif
                     } label: {
-                        Label("RateApp", systemImage: "star")
+                        Label("RateApp", systemImage: "trophy")
                     }.foregroundColor(.primary)
                     
                     if MFMailComposeViewController.canSendMail() {
@@ -196,10 +208,10 @@ struct SettingsView_Previews: PreviewProvider {
 struct ActivityView: UIViewControllerRepresentable {
     
     private let text: String = "Voici ma position sur l'app Rando ! rando://position?lat=\(LocationManager.shared.currentPosition.coordinate.latitude)&lng=\(LocationManager.shared.currentPosition.coordinate.longitude)"
-
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityView>) -> UIActivityViewController {
         return UIActivityViewController(activityItems: [text], applicationActivities: nil)
     }
-
+    
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityView>) {}
 }

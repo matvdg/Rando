@@ -8,6 +8,7 @@
 
 import SwiftUI
 import SwiftUICharts
+import TipKit
 
 
 struct TrailView: View {
@@ -17,7 +18,7 @@ struct TrailView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var appManager: AppManager
     @State private var indexOfGraph: Int?
-    
+        
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
@@ -46,12 +47,26 @@ struct TrailView: View {
                         } label: {
                             EditIconButton()
                         }
-                        Button {
-                            Feedback.selected()
-                            trail.isFav.toggle()
-                            TrailManager.shared.save(trail: trail)
-                        } label: {
-                            LikeIconButton(isLiked: $trail.isFav)
+                        if #available(iOS 17.0, *) {
+                            var favoriteTip = FavoriteTip()
+                            Button {
+                                Feedback.selected()
+                                trail.isFav.toggle()
+                                TrailManager.shared.save(trail: trail)
+                                favoriteTip.invalidate(reason: .actionPerformed)
+                            } label: {
+                                LikeIconButton(isLiked: $trail.isFav)
+                            }
+                            .popoverTip(favoriteTip, arrowEdge: .top)
+                        } else {
+                            // Fallback on earlier versions (no tips)
+                            Button {
+                                Feedback.selected()
+                                trail.isFav.toggle()
+                                TrailManager.shared.save(trail: trail)
+                            } label: {
+                                LikeIconButton(isLiked: $trail.isFav)
+                            }
                         }
                         
                         // FIXME: Creating memory leak with an infinity loop
@@ -154,6 +169,18 @@ struct TrailView: View {
                     
                 }
                 
+                Section(header: Text("Map")) {
+                    MapSettingsRow()
+                        .disabled(TileManager.shared.state.isDownloading() || trail.downloadState == .downloading)
+                    if #available(iOS 17.0, *) {
+                        TilesRow(state: $trail.downloadState, trail: trail)
+                            .popoverTip(DownloadTip(), arrowEdge: .bottom)
+                    } else {
+                        // Fallback on earlier versions
+                        TilesRow(state: $trail.downloadState, trail: trail)
+                    }
+                }
+                
                 Section(header: Text("Path")) {
                     
                     HStack(alignment: .center, spacing: 8) {
@@ -191,12 +218,6 @@ struct TrailView: View {
                         
                     }
                     //                  ShareLink("Share", item: trail.gpx, preview: SharePreview(trail.name))
-                }
-                
-                Section(header: Text("Map")) {
-                    MapSettingsRow()
-                        .disabled(TileManager.shared.state.isDownloading() || trail.downloadState == .downloading)
-                    TilesRow(state: $trail.downloadState, trail: trail)
                 }
                 
                 Section(header: Text("Actions")) {
@@ -240,7 +261,46 @@ struct TrailView: View {
         
     }
     
+}
+
+@available(iOS 17.0, *)
+struct FavoriteTip: Tip {
+
+    var title: Text {
+        Text("TipFavTitle")
+    }
     
+    var message: Text? {
+        Text("TipFavDescription")
+    }
+    
+    var image: Image? {
+        Image(systemName: "heart.fill")
+    }
+    
+    var options: [Option] {
+        MaxDisplayCount(3)
+    }
+}
+
+@available(iOS 17.0, *)
+struct DownloadTip: Tip {
+
+    var title: Text {
+        Text("TipDownloadTitle")
+    }
+    
+    var message: Text? {
+        Text("TipDownloadDescription")
+    }
+    
+    var image: Image? {
+        Image(systemName: "icloud.and.arrow.down.fill")
+    }
+    
+    var options: [Option] {
+        MaxDisplayCount(3)
+    }
 }
 
 struct TrailView_Previews: PreviewProvider {

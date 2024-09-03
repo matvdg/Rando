@@ -17,9 +17,18 @@ class AppManager: ObservableObject {
             UserDefaults.currentLayer = newValue
         }
     }
+    
+    /// For Collection & TrailsView
     @Published var selectedCategory: Category = UserDefaults.currentCategory {
         willSet {
             UserDefaults.currentCategory = newValue
+        }
+    }
+    
+    // For MapView
+    @Published var displayedCategory: Category = UserDefaults.displayedCategory {
+        willSet {
+            UserDefaults.displayedCategory = newValue
         }
     }
     

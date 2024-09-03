@@ -89,7 +89,7 @@ struct InfoPoiView: View {
                 }
             }) {
                 if let poi {
-                    collectionManager.isPoiAlreadyCollected(poi: poi) ? Image(systemName: "star.fill") : Image(systemName: "star")
+                    collectionManager.isPoiAlreadyCollected(poi: poi) ? Image(systemName: "trophy.fill") : Image(systemName: "trophy")
                 }
             })
         }

@@ -72,4 +72,17 @@ extension UserDefaults {
             print("􀯮 Current category has been set to \(newValue)")
         }
     }
+    
+    static var displayedCategory: Category {
+        get {
+            Category(rawValue: UserDefaults.standard.string(forKey: "displayedCategory") ?? "all") ?? .all
+        }
+        set {
+            guard newValue != self.displayedCategory else { return }
+            UserDefaults.standard.set(newValue.rawValue, forKey: "displayedCategory")
+            print("􀯮 Displayed category has been set to \(newValue)")
+        }
+    }
+    
+    
 }

@@ -26,9 +26,10 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
     var url: String?
     var photoUrl: String?
     
+    // Convenience init for testing/previews
     init(lat: CLLocationDegrees = 0, lng: CLLocationDegrees = 0, alt: CLLocationDistance = 0) {
         self.name = "Pin"
-        self.category = .step
+        self.category = Category.allCases.randomElement()!
         self.lat = lat
         self.lng = lng
         self.alt = alt
@@ -135,7 +136,23 @@ enum Category: String, Codable, CaseIterable {
     static var allCasesForCollection: [Category] = [.all, .refuge, .peak, .lake, .waterfall, .shelter, .other]
     static var allCasesForMaps: [Category] = [.all, .refuge, .peak, .lake, .waterfall, .shelter, .other, .none]
     
-    var icon: Image { Image(uiImage: image) }
+    var icon: Image {
+        switch self {
+        case .camping: return Image(systemName: "tent")
+        case .parking: return Image(systemName: "car")
+        case .peak, .pass: return Image(systemName: "mountain.2")
+        case .pov: return Image(systemName: "eye")
+        case .refuge: return Image(systemName: "house.lodge")
+        case .shelter: return Image(systemName: "house")
+        case .shop: return Image(systemName: "basket")
+        case .spring: return Image(systemName: "drop")
+        case .waterfall: return Image(systemName: "camera")
+        case .lake: return Image(systemName: "water.waves")
+        case .none: return Image(systemName: "eye.slash")
+        case .all: return Image(systemName: "infinity")
+        default: return Image(systemName: "mappin")
+        }
+    }
         
     var image: UIImage {
         switch self {

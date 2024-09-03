@@ -9,7 +9,7 @@
 import SwiftUI
 import MapKit
 import HidableTabView
-
+import TipKit
 
 struct ContentView: View {
     
@@ -36,7 +36,7 @@ struct ContentView: View {
                     .tag(2)
                 CollectionView()
                     .tabItem {
-                        Label("Collection", systemImage: "star")
+                        Label("Collection", systemImage: "trophy")
                     }
                     .tag(3)
                 SettingsView(selection: $selection)
@@ -57,6 +57,9 @@ struct ContentView: View {
             navigationBarAppearance.configureWithOpaqueBackground()
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
             UITabBar.showTabBar(animated: false)
+            if #available(iOS 17.0, *) {
+                try? Tips.configure([.displayFrequency(.immediate)])
+            }
         }
         .onChange(of: appManager.isLocked) { newValue in
             if newValue {

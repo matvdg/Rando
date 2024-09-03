@@ -29,11 +29,11 @@ struct MiniImage: View {
         } else {
             poi.category.icon
                 .resizable()
+                .foregroundColor(.white)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 30, height: 30, alignment: .center)
-                .foregroundColor(.white)
                 .frame(width: 70, height: 70, alignment: .center)
-                .background(Color.random)
+                .background(Color.random.opacity(0.5))
                 .clipShape(Circle())
                 .onAppear {
                     Task {
@@ -54,12 +54,33 @@ struct MiniImage: View {
 // MARK: Previews
 struct MiniImage_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            MiniImage(poi: Poi())
-            MiniImage(poi: Poi())
-            
+        HStack(alignment: .center, spacing: 20) {
+            VStack(alignment: .center, spacing: 20) {
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+            }
+            VStack(alignment: .center, spacing: 20) {
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+            }
+            VStack(alignment: .center, spacing: 20) {
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+            }
+            VStack(alignment: .center, spacing: 20) {
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+                MiniImage(poi: Poi())
+            }
+            .previewLayout(.fixed(width: 100, height: 100))
+            .environment(\.colorScheme, .light)
         }
-        .previewLayout(.fixed(width: 100, height: 100))
-        .environment(\.colorScheme, .light)
     }
 }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import MapKit
+import TipKit
 
 let pois = PoiManager.shared.pois
 
@@ -46,7 +47,7 @@ struct PoiView: View {
             case .name: return $0.name < $1.name
             }
         }
-            
+        
     }
     
     var body: some View {
@@ -54,6 +55,7 @@ struct PoiView: View {
         NavigationView {
             
             VStack(alignment: .leading, spacing: 0) {
+                
                 Picker(selection: $sorting, label: Text("")) {
                     ForEach(Sorting.allCases, id: \.self) { sort in
                         Text(LocalizedStringKey(sort.rawValue))
@@ -61,6 +63,7 @@ struct PoiView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                
                 List {
                     ForEach(selectedPois) { poi in
                         NavigationLink(destination: PoiDetailView(poi: poi)) {
@@ -73,15 +76,15 @@ struct PoiView: View {
             .searchable(text: $searchText, placement: .toolbar, prompt: "Search")
             .navigationBarTitle(Text("Steps"), displayMode: .inline)
             .navigationBarItems(trailing:
-                Picker(selection: $appManager.selectedCategory, label: Text("toto")) {
-                    ForEach(Category.allCasesForCollection, id: \.self) { filter in
-                        HStack(alignment: .center, spacing: 8) {
-                            Text(LocalizedStringKey(filter.rawValue))
-                            filter.icon
-                        }
+                                    Picker(selection: $appManager.selectedCategory, label: Text("")) {
+                ForEach(Category.allCasesForCollection, id: \.self) { filter in
+                    HStack(alignment: .center, spacing: 8) {
+                        Text(LocalizedStringKey(filter.rawValue))
+                        filter.icon
                     }
                 }
-            
+            }
+                                
             )
             .accentColor(.tintColorTabBar)
             
@@ -97,6 +100,7 @@ struct PoiView: View {
         
     }
 }
+
 
 // MARK: Previews
 struct PoiView_Previews: PreviewProvider {

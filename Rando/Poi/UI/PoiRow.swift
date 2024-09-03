@@ -44,7 +44,7 @@ struct PoiRow: View {
             
             Spacer()
             
-            Image(systemName: collectionManager.isPoiAlreadyCollected(poi: poi) ? "star.fill" : "star")
+            Image(systemName: collectionManager.isPoiAlreadyCollected(poi: poi) ? "trophy.fill" : "trophy")
                 .foregroundColor(.primary)
             
         }
