@@ -85,6 +85,9 @@ struct PoiDetailView: View {
         }
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarTitle(Text(poi.name))
+        .onAppear {
+            isPlayingTour = false
+        }
     }
 }
 

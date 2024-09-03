@@ -222,6 +222,7 @@ struct TrailView: View {
         .onAppear {
             TileManager.shared.load(for: trail, selectedLayer: appManager.selectedLayer)
             TrailManager.shared.addMissingDepartment(trail: self.trail)
+            isPlayingTour = false
         }
         .onChange(of: trail.color, perform: { _ in
             TrailManager.shared.save(trail: trail)

@@ -84,11 +84,15 @@ struct PoiView: View {
             
             )
             .accentColor(.tintColor)
+            
             HStack {
                 Image(systemName: "sidebar.left")
                     .imageScale(.large)
                 Text("SelectInSidebar")
             }
+        }
+        .onAppear {
+            isPlayingTour = false
         }
         
     }

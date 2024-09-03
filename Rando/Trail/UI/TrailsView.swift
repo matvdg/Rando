@@ -163,6 +163,7 @@ struct TrailsView: View {
         .searchable(text: $searchText, placement: .toolbar, prompt: "Search")
         .onAppear {
             NotificationManager.shared.requestAuthorization()
+            isPlayingTour = false
         }
     }
     

@@ -62,6 +62,7 @@ struct HomeView: View {
             LocationManager.shared.requestAuthorization()
             self.trails = TrailManager.shared.currentTrails
             self.selectedTracking = .bounding
+            isPlayingTour = false
         }
         
     }

@@ -49,7 +49,6 @@ struct CollectionView: View {
     
     var body: some View {
         NavigationView {
-            
             VStack {
                 Picker(selection: $sorting, label: Text("")) {
                     ForEach(Sorting.allCases, id: \.self) { sort in
@@ -109,6 +108,9 @@ struct CollectionView: View {
                 }
                     
             }
+        }
+        .onAppear {
+            isPlayingTour = false
         }
     }
 }

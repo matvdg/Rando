@@ -343,34 +343,39 @@ struct MapView: UIViewRepresentable {
         case .swissTopo:
             layerHasChanged = !(currentTileOverlay is SwissTopoMapOverlay)
         }
+        if isPlayingTour { layerHasChanged = true }
         let polylines = trails.map { $0.polyline }
         let polylinesHaveChanged = !currentPolylines.equals(polylines: polylines)
         guard polylinesHaveChanged || layerHasChanged else { return }
         mapView.removeOverlays(mapView.overlays)
-        switch appManager.selectedLayer {
-        case .satellite:
-            mapView.mapType = .hybrid
-        case .flyover:
+        if isPlayingTour {
             mapView.mapType = .hybridFlyover
-        case .standard:
-            mapView.mapType = .standard
-        default:
-            let overlay: MKTileOverlay
+        } else {
             switch appManager.selectedLayer {
-            case .ign25:
-                overlay = IGN25Overlay()
-            case .openStreetMap:
-                overlay = OpenStreetMapOverlay()
-            case .openTopoMap:
-                overlay = OpenTopoMapOverlay()
-            case .swissTopo:
-                overlay = SwissTopoMapOverlay()
-            default: //ign
-                overlay = IGNV2Overlay()
+            case .satellite:
+                mapView.mapType = .hybrid
+            case .flyover:
+                mapView.mapType = .hybridFlyover
+            case .standard:
+                mapView.mapType = .standard
+            default:
+                let overlay: MKTileOverlay
+                switch appManager.selectedLayer {
+                case .ign25:
+                    overlay = IGN25Overlay()
+                case .openStreetMap:
+                    overlay = OpenStreetMapOverlay()
+                case .openTopoMap:
+                    overlay = OpenTopoMapOverlay()
+                case .swissTopo:
+                    overlay = SwissTopoMapOverlay()
+                default: //ign
+                    overlay = IGNV2Overlay()
+                }
+                overlay.canReplaceMapContent = false
+                mapView.mapType = .mutedStandard // Other type underneath the overlay not used in standard/hybrid/hybridFlyover cases to track changes
+                mapView.addOverlay(overlay, level: .aboveLabels)
             }
-            overlay.canReplaceMapContent = false
-            mapView.mapType = .mutedStandard // Other type underneath the overlay not used in standard/hybrid/hybridFlyover cases to track changes
-            mapView.addOverlay(overlay, level: .aboveLabels)
         }
         mapView.addOverlays(polylines, level: .aboveLabels)
     }
@@ -400,16 +405,22 @@ struct MapView: UIViewRepresentable {
     
     private func playTour(mapView: MKMapView) {
         timer?.invalidate()
-        var locs = trails.first!.locations.map { $0.clLocation.coordinate }
+        guard isPlayingTour, var locs = trails.first?.locations.map({ $0.clLocation.coordinate }) else { return }
         let animationDuration: TimeInterval = 4
         let altitude: CLLocationDistance = 1000
         if !clockwise {
             locs.reverse()
         }
         let Δ = locs.count / 10
-        var i = 0
+        var i = 1
         mapView.camera = MKMapCamera(lookingAtCenter: locs[i + Δ], fromEyeCoordinate: locs[i], eyeAltitude: altitude)
+        let camera =  MKMapCamera(lookingAtCenter: locs[0], fromEyeCoordinate: locs[0], eyeAltitude: altitude)
+        camera.pitch = 80
+        UIView.animate(withDuration: animationDuration, delay: 0, options: .curveLinear, animations: {
+            mapView.camera = camera
+        })
         timer = Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: true) { timer in
+            guard isPlayingTour else { return timer.invalidate() }
             i += Δ
             guard i < locs.count else {
                 isPlayingTour = false
