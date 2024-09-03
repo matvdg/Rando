@@ -104,16 +104,17 @@ struct MapView: UIViewRepresentable {
     var annotations: [PoiAnnotation] {
         PoiManager.shared.pois.map { PoiAnnotation(poi: $0) }
             .filter {
-                switch appManager.selectedCategory {
+                switch appManager.displayedCategory {
                 case .peak: return $0.poi.category == .peak
-                case .refuge: return $0.poi.category == .refuge
                 case .waterfall: return $0.poi.category == .waterfall
                 case .lake: return $0.poi.category == .lake
+                case .refuge: return $0.poi.category == .refuge
+                case .camping: return $0.poi.category == .camping
                 case .shelter: return $0.poi.category == .shelter
                 case .shop: return $0.poi.category == .shop
                 case .all: return true
                 case .none: return false
-                default: return $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking
+                default: return $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking
                 }
             }
     }
@@ -442,8 +443,7 @@ struct MapView: UIViewRepresentable {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView(trail: Trail())
-            .previewDevice(PreviewDevice(rawValue: "iPhone X"))
-            .previewDisplayName("iPhone X")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
             .environment(\.colorScheme, .dark)
             .environmentObject(AppManager.shared)
     }

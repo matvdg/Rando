@@ -159,10 +159,8 @@ struct ImportView_Previews: PreviewProvider {
         Group {
             ImportView(showImportView: $showImportView)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE (2nd generation)")
             ImportView(showImportView: $showImportView)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
-                .previewDisplayName("iPhone 14")
         }
     }
 }

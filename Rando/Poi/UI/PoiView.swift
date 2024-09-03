@@ -28,13 +28,14 @@ struct PoiView: View {
         var filteredAndSortedPois: [Poi]
         switch appManager.selectedCategory {
         case .all: filteredAndSortedPois =  pois
-        case .refuge: filteredAndSortedPois =  pois.filter { $0.category == .refuge }
         case .peak: filteredAndSortedPois =  pois.filter { $0.category == .peak }
+        case .refuge: filteredAndSortedPois =  pois.filter { $0.category == .refuge }
+        case .camping: filteredAndSortedPois =  pois.filter { $0.category == .camping }
         case .shelter: filteredAndSortedPois =  pois.filter { $0.category == .shelter }
         case .shop: filteredAndSortedPois =  pois.filter { $0.category == .shop }
         case .waterfall: filteredAndSortedPois = pois.filter { $0.category == .waterfall }
         case .lake: filteredAndSortedPois = pois.filter { $0.category == .lake }
-        default: filteredAndSortedPois =  pois.filter { $0.category == .pov || $0.category == .bridge || $0.category == .camping || $0.category == .dam || $0.category == .spring || $0.category == .pass || $0.category == .parking }
+        default: filteredAndSortedPois =  pois.filter { $0.category == .pov || $0.category == .bridge || $0.category == .dam || $0.category == .spring || $0.category == .pass || $0.category == .parking }
         }
         // Filter by search
         if !searchText.isEmpty {

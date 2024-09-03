@@ -136,8 +136,7 @@ struct FilterView_Previews: PreviewProvider {
     @State static var difficultyFilter: DifficultyFilter = .hard
     static var previews: some View {
         FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, grFilter: $grFilter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $isSortDisplayed)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
-                .previewDisplayName("iPhone 14 Pro Max")
+                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
                 .environment(\.colorScheme, .dark)
         
     }

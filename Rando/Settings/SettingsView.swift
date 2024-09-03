@@ -106,7 +106,7 @@ struct SettingsView: View {
                             try? Tips.resetDatastore()
                             Feedback.success()
                             selection = 0
-                            try? Tips.configure([.displayFrequency(.immediate)])
+                            try? Tips.configure([.displayFrequency(.hourly)])
                         } label: {
                             Label("Restore tips", systemImage: "lightbulb.max")
                         }
@@ -159,7 +159,7 @@ struct SettingsView: View {
                         rateApp()
 #endif
                     } label: {
-                        Label("RateApp", systemImage: "trophy")
+                        Label("RateApp", systemImage: "star")
                     }.foregroundColor(.primary)
                     
                     if MFMailComposeViewController.canSendMail() {

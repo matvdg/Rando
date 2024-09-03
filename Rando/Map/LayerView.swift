@@ -63,7 +63,7 @@ struct LayerView: View {
             }) {
                 DismissButton()
             })
-            .navigationBarItems(leading: Picker(selection: $appManager.selectedCategory, label: Text("DisplayOnMap")) {
+            .navigationBarItems(leading: Picker(selection: $appManager.displayedCategory, label: Text("DisplayOnMap")) {
                 ForEach(Category.allCasesForMaps, id: \.self) { filter in
                     HStack(alignment: .center, spacing: 8) {
                         Text(LocalizedStringKey(filter.rawValue))

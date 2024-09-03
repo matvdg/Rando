@@ -58,7 +58,7 @@ struct ContentView: View {
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
             UITabBar.showTabBar(animated: false)
             if #available(iOS 17.0, *) {
-                try? Tips.configure([.displayFrequency(.immediate)])
+                try? Tips.configure([.displayFrequency(.hourly)])
             }
         }
         .onChange(of: appManager.isLocked) { newValue in
@@ -78,8 +78,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
-                .previewDisplayName("iPhone 14 pro")
+                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
                 .environment(\.colorScheme, .light)
         }
     }

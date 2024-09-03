@@ -26,11 +26,12 @@ struct CollectionView: View {
         switch appManager.selectedCategory {
         case .all: break
         case .refuge: collection = collection.filter { $0.poi.category == .refuge }
+        case .camping: collection = collection.filter { $0.poi.category == .camping }
         case .peak: collection = collection.filter { $0.poi.category == .peak }
         case .shelter: collection = collection.filter { $0.poi.category == .shelter }
         case .waterfall: collection = collection.filter{ $0.poi.category == .waterfall }
         case .lake: collection = collection.filter{ $0.poi.category == .lake }
-        default: collection = collection.filter { $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .camping || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking }
+        default: collection = collection.filter { $0.poi.category == .pov || $0.poi.category == .bridge || $0.poi.category == .dam || $0.poi.category == .spring || $0.poi.category == .pass || $0.poi.category == .parking }
             
         }
         // Sort

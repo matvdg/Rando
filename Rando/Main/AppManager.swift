@@ -19,9 +19,9 @@ class AppManager: ObservableObject {
     }
     
     /// For Collection & TrailsView
-    @Published var selectedCategory: Category = UserDefaults.currentCategory {
+    @Published var selectedCategory: Category = UserDefaults.selectedCategory {
         willSet {
-            UserDefaults.currentCategory = newValue
+            UserDefaults.selectedCategory = newValue
         }
     }
     

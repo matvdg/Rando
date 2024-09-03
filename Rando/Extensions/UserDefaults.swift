@@ -62,14 +62,14 @@ extension UserDefaults {
         }
     }
     
-    static var currentCategory: Category {
+    static var selectedCategory: Category {
         get {
-            Category(rawValue: UserDefaults.standard.string(forKey: "currentCategory") ?? "all") ?? .all
+            Category(rawValue: UserDefaults.standard.string(forKey: "selectedCategory") ?? "all") ?? .all
         }
         set {
-            guard newValue != self.currentCategory else { return }
-            UserDefaults.standard.set(newValue.rawValue, forKey: "currentCategory")
-            print("􀯮 Current category has been set to \(newValue)")
+            guard newValue != self.selectedCategory else { return }
+            UserDefaults.standard.set(newValue.rawValue, forKey: "selectedCategory")
+            print("􀯮 Selected category has been set to \(newValue)")
         }
     }
     

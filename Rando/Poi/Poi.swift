@@ -133,8 +133,8 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
 enum Category: String, Codable, CaseIterable {
     case refuge, waterfall, spring, step, peak, pov, pass, parking, lake, dam, camping, bridge, shop, shelter, none, all, other
     var localized: String { rawValue }
-    static var allCasesForCollection: [Category] = [.all, .refuge, .peak, .lake, .waterfall, .shelter, .other]
-    static var allCasesForMaps: [Category] = [.all, .refuge, .peak, .lake, .waterfall, .shelter, .other, .none]
+    static var allCasesForCollection: [Category] = [.all, .peak, .lake, .waterfall, .refuge, .camping, .shelter, .shop, .other]
+    static var allCasesForMaps: [Category] = [.all, .peak, .lake, .waterfall, .refuge, .camping, .shelter, .shop, .other, .none]
     
     var icon: Image {
         switch self {

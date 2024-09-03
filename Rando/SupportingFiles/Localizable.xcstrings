@@ -9,7 +9,8 @@
             "value" : ""
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "·" : {
       "localizations" : {
@@ -19,7 +20,8 @@
             "value" : "·"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@" : {
       "localizations" : {
@@ -29,7 +31,8 @@
             "value" : "%@"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@ - %@" : {
       "localizations" : {
@@ -45,7 +48,8 @@
             "value" : "%1$@ - %2$@"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@ (%@)" : {
       "localizations" : {
@@ -61,7 +65,8 @@
             "value" : "%1$@ (%2$@)"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@ %@" : {
       "localizations" : {
@@ -77,7 +82,8 @@
             "value" : "%1$@ %2$@"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@ %lld GPX" : {
       "localizations" : {
@@ -93,7 +99,8 @@
             "value" : "%1$@ %2$lld GPX"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@ %lld%% (%@ %@)" : {
       "localizations" : {
@@ -109,7 +116,8 @@
             "value" : "%1$@ %2$lld%% (%3$@ %4$@)"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "3D" : {
       "localizations" : {
@@ -129,6 +137,12 @@
     },
     "About" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -353,6 +367,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ponts"
+          }
+        }
+      }
+    },
+    "camping" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camping"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camping"
           }
         }
       }
@@ -1020,6 +1051,12 @@
     },
     "Google Maps" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google Maps"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1803,7 +1840,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Restaurer les randos de l'app"
           }
         }
@@ -1819,7 +1856,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Restaurer les astuces de l’app"
           }
         }
