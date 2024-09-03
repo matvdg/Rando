@@ -3,7 +3,7 @@
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 01/09/2023.
-//  Copyright © 2023 Mathieu Vandeginste. All rights reserved.
+//  Copyright © 2024 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
@@ -73,7 +73,7 @@ struct CollectionView: View {
                             }
                         }
                     })
-                    .accentColor(.tintColor)
+                    .accentColor(.tintColorTabBar)
                 } else {
                     ScrollView {
                         VStack {
@@ -104,7 +104,7 @@ struct CollectionView: View {
                             }
                         }
                     })
-                    .accentColor(.tintColor)
+                    .accentColor(.tintColorTabBar)
                 }
                     
             }

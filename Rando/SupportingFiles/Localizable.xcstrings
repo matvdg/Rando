@@ -2093,6 +2093,9 @@
         }
       }
     },
+    "toto" : {
+
+    },
     "Trail" : {
       "comment" : "TrailView",
       "extractionState" : "manual",

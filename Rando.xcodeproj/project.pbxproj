@@ -138,7 +138,6 @@
 		F6CFD0AD24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json in Resources */ = {isa = PBXBuildFile; fileRef = F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */; };
 		F6CFD0B624BF90CA00DA224C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CFD0B524BF90CA00DA224C /* CircleImage.swift */; };
 		F6E2C0D42A3A5F64001FD8F1 /* TrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E2C0D32A3A5F64001FD8F1 /* TrailView.swift */; };
-		F6E2C0D62A3A725A001FD8F1 /* DifficultyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E2C0D52A3A725A001FD8F1 /* DifficultyView.swift */; };
 		F6E7FCB82A3DE5D900097C93 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E7FCB72A3DE5D900097C93 /* MailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -276,7 +275,6 @@
 		F6CFD0AC24BF179D00DA224C /* 4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4C8D2931-F8CB-4D6E-AF6E-8508BE0C407E.json"; sourceTree = "<group>"; };
 		F6CFD0B524BF90CA00DA224C /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		F6E2C0D32A3A5F64001FD8F1 /* TrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailView.swift; sourceTree = "<group>"; };
-		F6E2C0D52A3A725A001FD8F1 /* DifficultyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyView.swift; sourceTree = "<group>"; };
 		F6E7FCB72A3DE5D900097C93 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		F6F8E25424E825D20030CCEA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -408,8 +406,6 @@
 				F62779BB2A218FBA00185386 /* FilterButton.swift */,
 				F6A3DF022A37E58900C69B55 /* AppIcon.swift */,
 				F6A3DF042A37EABD00C69B55 /* WebView.swift */,
-				F6E2C0D52A3A725A001FD8F1 /* DifficultyView.swift */,
-				F68480C92C86057800D5810D /* DifficultyColorView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -489,6 +485,7 @@
 				F6A3DECC2A37C23A00C69B55 /* UI */,
 				F6A3DEDF2A37C23A00C69B55 /* Trail.swift */,
 				F6A3DEE02A37C23A00C69B55 /* TrailManager.swift */,
+				F68480C92C86057800D5810D /* DifficultyColorView.swift */,
 			);
 			path = Trail;
 			sourceTree = "<group>";
@@ -782,7 +779,6 @@
 				F6A3DEE82A37C23A00C69B55 /* FilterView.swift in Sources */,
 				F6A3DEFB2A37DE7900C69B55 /* SettingsView.swift in Sources */,
 				F60D12BA2A28AB8200437AA1 /* Date.swift in Sources */,
-				F6E2C0D62A3A725A001FD8F1 /* DifficultyView.swift in Sources */,
 				F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */,
 				D0F93740246831D9005E8503 /* NotificationManager.swift in Sources */,
 				D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */,

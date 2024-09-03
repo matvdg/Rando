@@ -3,7 +3,7 @@
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 15/08/2020.
-//  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
+//  Copyright © 2024 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI

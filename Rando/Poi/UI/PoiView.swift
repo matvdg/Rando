@@ -3,7 +3,7 @@
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 02/05/2020.
-//  Copyright © 2020 Mathieu Vandeginste. All rights reserved.
+//  Copyright © 2024 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
@@ -73,7 +73,7 @@ struct PoiView: View {
             .searchable(text: $searchText, placement: .toolbar, prompt: "Search")
             .navigationBarTitle(Text("Steps"), displayMode: .inline)
             .navigationBarItems(trailing:
-                Picker(selection: $appManager.selectedCategory, label: Text("")) {
+                Picker(selection: $appManager.selectedCategory, label: Text("toto")) {
                     ForEach(Category.allCasesForCollection, id: \.self) { filter in
                         HStack(alignment: .center, spacing: 8) {
                             Text(LocalizedStringKey(filter.rawValue))
@@ -83,7 +83,7 @@ struct PoiView: View {
                 }
             
             )
-            .accentColor(.tintColor)
+            .accentColor(.tintColorTabBar)
             
             HStack {
                 Image(systemName: "sidebar.left")
