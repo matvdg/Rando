@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D007B88B246B60090040E1CF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007B88A246B60090040E1CF /* FileManager.swift */; };
-		D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D039506424B6097800C31D34 /* SwiftUICharts */; };
 		D0531A742467FE4C0020FFE0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A732467FE4C0020FFE0 /* String.swift */; };
 		D0531A76246820BA0020FFE0 /* MapControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0531A75246820BA0020FFE0 /* MapControlView.swift */; };
 		D05B14FF2460041F00B24666 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B14FE2460041F00B24666 /* HomeView.swift */; };
@@ -83,6 +82,7 @@
 		F68480F92C8667E400D5810D /* EAB2DDFF-1856-4B7F-AA2A-61AD2D3B7297.json in Resources */ = {isa = PBXBuildFile; fileRef = F68480DB2C8667E400D5810D /* EAB2DDFF-1856-4B7F-AA2A-61AD2D3B7297.json */; };
 		F68480FA2C8667E400D5810D /* F20EF6F8-4C13-464F-A39D-A05708CFA50A.json in Resources */ = {isa = PBXBuildFile; fileRef = F68480DF2C8667E400D5810D /* F20EF6F8-4C13-464F-A39D-A05708CFA50A.json */; };
 		F68480FC2C86696100D5810D /* 6FBB55BA-F5AC-4225-BA0F-43ABB2E93DF9.json in Resources */ = {isa = PBXBuildFile; fileRef = F68480FB2C86696100D5810D /* 6FBB55BA-F5AC-4225-BA0F-43ABB2E93DF9.json */; };
+		F68480FF2C867E4300D5810D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = F68480FE2C867E4300D5810D /* SwiftUICharts */; };
 		F68AF33E2A558FF300B3A629 /* TrailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AF33D2A558FF300B3A629 /* TrailMapView.swift */; };
 		F6979BA124D4523D00228A0C /* CLGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6979BA024D4523D00228A0C /* CLGeocoder.swift */; };
 		F6A3DEE12A37C23A00C69B55 /* PoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3DEC52A37C23A00C69B55 /* PoiView.swift */; };
@@ -286,8 +286,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D039506524B6097800C31D34 /* SwiftUICharts in Frameworks */,
 				F60D12B22A28321700437AA1 /* CoreGPX in Frameworks */,
+				F68480FF2C867E4300D5810D /* SwiftUICharts in Frameworks */,
 				F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */,
 				F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */,
 			);
@@ -638,10 +638,10 @@
 			);
 			name = Rando;
 			packageProductDependencies = (
-				D039506424B6097800C31D34 /* SwiftUICharts */,
 				F658C2D52A1CFEF200979723 /* HidableTabView */,
 				F65DCC112A24D01100A24E10 /* Semaphore */,
 				F60D12B12A28321700437AA1 /* CoreGPX */,
+				F68480FE2C867E4300D5810D /* SwiftUICharts */,
 			);
 			productName = GR10;
 			productReference = D063478F245D768B003BA9E7 /* Rando.app */;
@@ -674,10 +674,10 @@
 			);
 			mainGroup = D0634786245D768B003BA9E7;
 			packageReferences = (
-				D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */,
 				F658C2D42A1CFEF200979723 /* XCRemoteSwiftPackageReference "HidableTabView-SwiftUI" */,
 				F65DCC102A24D01100A24E10 /* XCRemoteSwiftPackageReference "Semaphore" */,
 				F60D12B02A28321700437AA1 /* XCRemoteSwiftPackageReference "CoreGPX" */,
+				F68480FD2C867E4300D5810D /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = D0634790245D768B003BA9E7 /* Products */;
 			projectDirPath = "";
@@ -1086,14 +1086,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.3;
-			};
-		};
 		F60D12B02A28321700437AA1 /* XCRemoteSwiftPackageReference "CoreGPX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
@@ -1118,14 +1110,17 @@
 				minimumVersion = 0.0.8;
 			};
 		};
+		F68480FD2C867E4300D5810D /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:matvdg/ChartView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D039506424B6097800C31D34 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D039506324B6097800C31D34 /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
 		F60D12B12A28321700437AA1 /* CoreGPX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F60D12B02A28321700437AA1 /* XCRemoteSwiftPackageReference "CoreGPX" */;
@@ -1140,6 +1135,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F65DCC102A24D01100A24E10 /* XCRemoteSwiftPackageReference "Semaphore" */;
 			productName = Semaphore;
+		};
+		F68480FE2C867E4300D5810D /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F68480FD2C867E4300D5810D /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

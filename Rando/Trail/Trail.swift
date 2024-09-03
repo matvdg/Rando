@@ -187,7 +187,8 @@ class Trail: Identifiable, ObservableObject {
         locations.first?.clLocation.coordinate ?? CLLocationCoordinate2D()
     }
     
-    lazy var elevations: [CLLocationDistance] = computeFilteredElevations()
+    lazy var elevations: [CLLocationDistance] = locations.map { $0.altitude ?? 0 }
+    //computeFilteredElevations()
     
     lazy var graphElevations: [GraphData] =  {
         elevations.enumerated().map { GraphData(index: $0, elevation: $1 )}

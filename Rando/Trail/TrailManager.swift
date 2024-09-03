@@ -163,6 +163,27 @@ class TrailManager: ObservableObject {
         save(trails: trails.array)
     }
     
+    func showGR10andHRPOnTheMap() {
+        trails.array.forEach {
+            if $0.name.contains("HRP") {
+                $0.isDisplayed = true
+                $0.color = UIColor.blue.cgColor
+                $0.lineWidth = defaultLineWidth
+            }
+            if $0.name.contains("GR10") {
+                $0.isDisplayed = true
+                $0.color = UIColor.red.cgColor
+                $0.lineWidth = defaultLineWidth
+            }
+            if $0.name.contains("Variante GR10") {
+                $0.isDisplayed = true
+                $0.color = UIColor.orange.cgColor
+                $0.lineWidth = defaultLineWidth
+            }
+        }
+        save(trails: trails.array)
+    }
+    
     // MARK: - Private methods
     private func loadDemoTrails() {
         guard !UserDefaults.hasBeenLaunched else { return }

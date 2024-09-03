@@ -14,7 +14,6 @@ var selectedAnnotation: PoiAnnotation?
 var mapChangedFromUserInteraction = false
 var isPlayingTour = false
 var timer: Timer?
-var isBounding = false
 
 struct MapView: UIViewRepresentable {
     
@@ -25,26 +24,33 @@ struct MapView: UIViewRepresentable {
     @Binding var clockwise: Bool
     @Binding var trails: [Trail]
     
+    @State var isBounding = false
+    @Binding var indexOfGraph: Int?
+    
     var userPositionLocation: Location?
     
     // MARK: Constructors
-    init(selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, userPositionLocation: Location? = nil) {
+    init(selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, userPositionLocation: Location? = nil, indexOfGraph: Binding<Int?> = Binding<Int?>.constant(nil)) {
         self._trails = trails
         self._selectedPoi = selectedPoi
         self.isDetailMap = isDetailMap
         self._clockwise = clockwise
         self.userPositionLocation = userPositionLocation
+        self._indexOfGraph = indexOfGraph
     }
     
     /// Convenience init for  TrailDetail map
-    init(trail: Trail) {
+    init(trail: Trail, indexOfGraph: Binding<Int?> = Binding<Int?>.constant(nil)) {
         self.init(
             selectedPoi: Binding<Poi?>.constant(nil),
             isDetailMap: true,
             clockwise: Binding<Bool>.constant(false),
-            trails: Binding<[Trail]>.constant([trail])
+            trails: Binding<[Trail]>.constant([trail]),
+            userPositionLocation: nil,
+            indexOfGraph: indexOfGraph
         )
         isBounding = true
+        
     }
     
     /// Convenience init for  PoiDetail map
@@ -161,18 +167,28 @@ struct MapView: UIViewRepresentable {
                 }
                 return view
             } else if let annotation = annotation as? MKUserLocation {
-                    let identifier = "User"
-                    var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                    if let view = view {
-                        view.annotation = annotation
-                    } else {
-                        view = MKUserLocationView(annotation: annotation, reuseIdentifier: identifier)
-                    }
-                    if let view = view as? MKUserLocationView {
-                        view.canShowCallout = true
-                        view.detailCalloutAccessoryView = UILabel()
-                    }
-                    return view
+                let identifier = "User"
+                var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                if let view = view {
+                    view.annotation = annotation
+                } else {
+                    view = MKUserLocationView(annotation: annotation, reuseIdentifier: identifier)
+                }
+                if let view = view as? MKUserLocationView {
+                    view.canShowCallout = true
+                    view.detailCalloutAccessoryView = UILabel()
+                }
+                return view
+            } else if let annotation = annotation as? CustomAnnotation {
+                let identifier = "CustomAnnotation"
+                var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                if let view = view {
+                    view.annotation = annotation
+                } else {
+                    view = CustomAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    view?.canShowCallout = false
+                }
+                return view
             } else {
                 return nil
             }
@@ -182,7 +198,7 @@ struct MapView: UIViewRepresentable {
             mapChangedFromUserInteraction = mapViewRegionDidChangeFromUserInteraction(mapView)
             if mapChangedFromUserInteraction {
                 parent.appManager.selectedTracking = .disabled
-                isBounding = false
+                parent.isBounding = false
             }
         }
         
@@ -256,7 +272,6 @@ struct MapView: UIViewRepresentable {
     }
     
     // MARK: Private methods
-    
     private func configureMap(mapView: MKMapView) {
         mapView.showsTraffic = false
         mapView.showsBuildings = false
@@ -284,7 +299,7 @@ struct MapView: UIViewRepresentable {
                     let minY = nextResult.minY < boundingBox.minY ? nextResult.minY : boundingBox.minY
                     let maxY = nextResult.maxY > boundingBox.maxY ? nextResult.maxY : boundingBox.maxY
                     return MKMapRect(origin: MKMapPoint(x: minX, y: minY), size: MKMapSize(width: maxX-minX, height: maxY-minY))
-            }
+                }
             var region = MKCoordinateRegion(boundingBox)
             region.span.latitudeDelta += 0.01
             region.span.longitudeDelta += 0.01
@@ -361,6 +376,12 @@ struct MapView: UIViewRepresentable {
     }
     
     private func setAnnotations(mapView: MKMapView) {
+        guard indexOfGraph == nil else {
+            mapView.removeAnnotations(mapView.annotations)
+            let annotation = CustomAnnotation(coordinate: trails[0].locations[indexOfGraph!].clLocation.coordinate)
+            mapView.addAnnotation(annotation)
+            return
+        }
         if let userPositionLocation {
             let annotation = MKPointAnnotation()
             annotation.coordinate = userPositionLocation.clLocation.coordinate
@@ -400,7 +421,7 @@ struct MapView: UIViewRepresentable {
                 mapView.camera = camera
             })
         }
-                
+        
     }
     
 }
@@ -428,4 +449,38 @@ extension Array where Iterator.Element == Polyline {
         }
     }
     
+}
+
+// Custom Annotation class
+class CustomAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+    
+    init(coordinate: CLLocationCoordinate2D) {
+        self.coordinate = coordinate
+    }
+}
+
+// Custom AnnotationView class
+class CustomAnnotationView: MKAnnotationView {
+    
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+    }
+    
+    private func setupView() {
+        let circleView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        circleView.backgroundColor = .grpink
+        circleView.layer.cornerRadius = 10
+        circleView.layer.borderColor = UIColor.white.cgColor
+        circleView.layer.borderWidth = 4
+        
+        addSubview(circleView)
+        circleView.center = CGPoint(x: bounds.size.width / 2, y: bounds.size.height / 2)
+    }
 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftUICharts
 import Charts
 
 struct LineChart: View {

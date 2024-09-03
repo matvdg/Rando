@@ -22,6 +22,7 @@ struct SettingsView: View {
     @State private var averageSpeed: Double = UserDefaults.averageSpeed
     @Binding var selection: Int
     @State private var showShareSheet = false
+    var trailManager = TrailManager.shared
     
     var body: some View {
         
@@ -43,11 +44,19 @@ struct SettingsView: View {
                 List {
                     
                     Button {
-                        TrailManager.shared.removeAllTrailsVisibleOnTheMap()
+                        trailManager.removeAllTrailsVisibleOnTheMap()
                         Feedback.success()
                         selection = 0
                     } label: {
                         Label("Clean visible trails from the map", systemImage: "eye.slash")
+                    }
+                    
+                    Button {
+                        trailManager.showGR10andHRPOnTheMap()
+                        Feedback.success()
+                        selection = 0
+                    } label: {
+                        Label("Show GR10 and HRP on the map", systemImage: "eye")
                     }
                     
                     Button {
@@ -106,7 +115,7 @@ struct SettingsView: View {
                             VStack(alignment: .center, spacing: 16) {
                                 Text("RestoreMessage")
                                 Button {
-                                    TrailManager.shared.restoreDemoTrails()
+                                    trailManager.restoreDemoTrails()
                                     Feedback.success()
                                     selection = 1
                                 } label: {

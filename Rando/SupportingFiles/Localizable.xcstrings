@@ -164,7 +164,7 @@
       }
     },
     "Add" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -197,7 +197,7 @@
       }
     },
     "all" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -241,7 +241,7 @@
       }
     },
     "AltMax" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -258,7 +258,7 @@
       }
     },
     "AltMin" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -275,7 +275,7 @@
       }
     },
     "at" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -507,7 +507,7 @@
       }
     },
     "DeleteLayerMessage" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -572,7 +572,7 @@
       }
     },
     "Departure" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -690,7 +690,7 @@
       }
     },
     "Distance" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -756,7 +756,7 @@
       }
     },
     "DownloadedMessage" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -773,7 +773,7 @@
       }
     },
     "Downloading" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -866,7 +866,7 @@
       }
     },
     "ElevationGain" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -883,7 +883,7 @@
       }
     },
     "ElevationLoss" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -932,7 +932,7 @@
       }
     },
     "EstimatedDuration" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1029,7 +1029,7 @@
       }
     },
     "GPXImported" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1128,7 +1128,7 @@
       }
     },
     "hr" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1162,7 +1162,7 @@
       }
     },
     "ign25" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1196,7 +1196,7 @@
       }
     },
     "Imported" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1320,7 +1320,7 @@
       }
     },
     "Left" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1450,7 +1450,7 @@
       }
     },
     "MoreThan" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1484,7 +1484,7 @@
       }
     },
     "Network" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1676,7 +1676,7 @@
       }
     },
     "Pin" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1989,6 +1989,16 @@
         }
       }
     },
+    "Show GR10 and HRP on the map" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher le GR10 et HRP sur la carte"
+          }
+        }
+      }
+    },
     "spring" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2067,7 +2077,7 @@
       }
     },
     "Today" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2214,7 +2224,7 @@
       }
     },
     "Yesterday" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {

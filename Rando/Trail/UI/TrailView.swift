@@ -16,13 +16,14 @@ struct TrailView: View {
     @State var showEditTrailSheet: Bool = false
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var appManager: AppManager
+    @State private var indexOfGraph: Int?
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .top) {
                 NavigationLink(destination: TrailMapView(trail: trail)) {
-                    MapView(trail: trail)
+                    MapView(trail: trail, indexOfGraph: $indexOfGraph)
                         .edgesIgnoringSafeArea(.vertical)
                         .frame(height: 250)
                         .disabled(true)
@@ -207,8 +208,10 @@ struct TrailView: View {
                 if trail.hasElevationData {
                     Section(header: Text("Profile")) {
                         //                        LineChart(trail: trail)
-                        LineView(data: trail.simplifiedElevations, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f")
-                            .frame(height: 340)
+                        LineView(data: trail.elevations, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f", onIndexChange: { newValue in
+                            indexOfGraph = newValue
+                        })
+                        .frame(height: 340)
                     }
                 }
                 
