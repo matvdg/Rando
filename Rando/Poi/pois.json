@@ -520,6 +520,105 @@
     "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/cagire.heic"
   },
   {
+    "name": "Pic de l'Escalette",
+    "category": "peak",
+    "description": "Le pic de l'Escalette est un sommet voisin du Cagire, près du col de Menté dans la région du Comminges dans la Haute-Garonne. Son altitude est de 1 856 mètres.",
+    "alt": 1856,
+    "lat": 42.925838318964196,
+    "lng": 0.7516521527822246,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/escalette.jpeg"
+  },
+  {
+    "name": "Sommet de Pique Poque",
+    "category": "peak",
+    "description": "Le sommet de Pique Poque se situe entre le col du Pas de l'Âne et le Cagire, dans la région du Comminges dans la Haute-Garonne. Son altitude est de 1 912 mètres.",
+    "alt": 1898,
+    "lat": 42.94662821992164,
+    "lng": 0.7659248220893877,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/piquepoque.jpeg"
+  },
+  {
+    "name": "Pic Rouge de Bassiès",
+    "category": "peak",
+    "description": "La pique Rouge de Bassiès est un sommet des Pyrénées françaises situé dans le département de l'Ariège en région Occitanie. Situé sur une crête granitique, à 8 km au sud-ouest d'Auzat, il culmine à 2 676 m.",
+    "alt": 2676,
+    "lat": 42.73627760789297,
+    "lng": 1.3909689559307716,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/rougebassies.jpeg"
+  },
+  {
+    "name": "Pic de la Croix des Lauzès",
+    "category": "peak",
+    "description": "La pic de la Croix des Lauzès, au dessus de l'étang de Crouzette, est un sommet des Pyrénées françaises situé dans le département de l'Ariège en région Occitanie. Il culmine à 2 344 m.",
+    "alt": 2344,
+    "lat": 42.73356675716416,
+    "lng": 1.3380457866076576,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/croixdeslauzes.jpeg"
+  },
+  {
+    "name": "Pic de Soularac",
+    "category": "peak",
+    "description": "Le pic de Soularac (2 368 m) est un sommet des Pyrénées françaises dans le département de l'Ariège. Il est le point culminant du massif de Tabe (ou massif du Saint-Barthélemy).",
+    "alt": 2368,
+    "lat": 42.81914591740592,
+    "lng": 1.7806954641305135,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/soularac.jpeg"
+  },
+  {
+    "name": "Tuc du Port de Vielha",
+    "category": "peak",
+    "description": "Proche de la frontière et d'accès routier facile, le Tuc du Port de Vielha (Tuc deth Port de Vielha en espagnol) est un sommet bien attirant. L'accès par la vallée de Conangles et le lac de Redon permet de découvrir un côté plus sauvage de ce beau pic. Au sommet le spectacle est présent tout autour de nous. A l'ouest, le Massif de la Maladeta dominé par l'Aneto. A l'est, les Encantats dominés au nord par le Mondoto, et au sud par le Besiberri Nord. Au nord, au delà de Vielha, les grands sommets frontaliers: Valier, Barlongère, Maubermé....",
+    "alt": 2604,
+    "lat": 42.64412379134606,
+    "lng": 0.765919486332119,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/portvielha.jpeg"
+  },
+  {
+    "name": "Lac de Redon",
+    "category": "lake",
+    "description": "L'Estanh Redon se love dans sa vaste enceinte impressionnante par sa solitude et la profondeur de ses eaux. Au sud du Val d’ Aran cet immense lac couvre une superficie de 25 ha au pied du Tuc de Vielha et du Sarrahera.",
+    "alt": 2260,
+    "lat": 42.64025012366278,
+    "lng": 0.77822034232849,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacredon.jpeg"
+  },
+  {
+    "name": "Lac de Rius",
+    "category": "lake",
+    "description": "Le lac Rius (en occitan estanh de Rius)1​ est un lac d'origine glaciaire situé à 2310 mètres d'altitude, dans la commune d'Alto Arán dans la région du Val d'Aran. A proximité du lac Rius se trouve le lac Tort de Rius, ses eaux alimentent la rivière ou arriu de Valarties qui rejoint la rivière Garonne sur la commune d'Arties, le lac Rius a une superficie de 13 ha.Le Tuc de Sarrahèra couronne le lac, le sentier de grande randonnée (GR-11) ou sentier pyrénéen borde le lac en traversant la vallée d'Aran.",
+    "alt": 2310,
+    "lat": 42.639547128976666,
+    "lng": 0.8021510357163875,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacrius.jpeg"
+  },
+  {
+    "name": "Lac de Bersau",
+    "category": "lake",
+    "description": "Le lac Bersau est un lac français des Pyrénées, situé dans le département des Pyrénées-Atlantiques et la région Nouvelle-Aquitaine. Profondeur 30m.",
+    "alt": 2083,
+    "lat": 42.83946740739835,
+    "lng": -0.49629554599431985,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacbersau.jpeg"
+  },
+  {
+    "name": "Pic d'Ayous",
+    "category": "peak",
+    "description": "Le pic d'Ayous est un sommet de montagne situé entre la vallée d'Aspe et la vallée d'Ossau dans les Pyrénées-Atlantiques. Le sommet se trouve sur le territoire de la commune d'Etsaut.",
+    "alt": 2288,
+    "lat": 42.85608650184433,
+    "lng": -0.4908378743847631,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/picayous.jpeg"
+  },
+  {
+    "name": "Pic Montmalus",
+    "category": "peak",
+    "description": "Le pic de Montmalús est un sommet situé dans les Pyrénées andorranes qui culmine à 2 781 m2. Administrativement, il se trouve sur le territoire de la paroisse d'Encamp.",
+    "alt": 2781,
+    "lat": 42.510278567144844,
+    "lng": 1.6872012779786085,
+    "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/montmalus.jpeg"
+  },
+  {
     "name": "Arbizon",
     "category": "peak",
     "description": "L'Arbizon (2 831 m) est le point culminant du massif de l'Arbizon dans les Hautes-Pyrénées. Il est situé à l'est du massif du Néouvielle, entre la vallée d'Aure à l'est, et la vallée de Campan au nord.",
