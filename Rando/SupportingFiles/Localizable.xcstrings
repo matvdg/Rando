@@ -935,13 +935,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your collection is still empty.  Tap ✩ to collect a POI!"
+            "value" : "Your collection is still empty.  Tap on a POI and look for the trophy icon to collect it!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Votre collection est encore vide. Appuyez sur ✩ pour collectionner des points d'intérêt !"
+            "value" : "Votre collection est encore vide. Taper sur un point d’intérêt et chercher l’icône de trophée afin de le collectionner !"
           }
         }
       }
@@ -1045,6 +1045,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "3D"
+          }
+        }
+      }
+    },
+    "ghr" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GR/HR"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GR/HR"
           }
         }
       }
@@ -1432,8 +1448,14 @@
         }
       }
     },
-    "Map" : {
+    "map" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1567,7 +1589,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non GR/HR"
+            "value" : "Aucun GR/HR"
           }
         }
       }
@@ -2037,7 +2059,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Boutiques"
+            "value" : "Commerces"
           }
         }
       }
@@ -2257,7 +2279,7 @@
         }
       }
     },
-    "TipLockDescription" : {
+    "TipMapFullScreenDescription" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2273,7 +2295,7 @@
         }
       }
     },
-    "TipLockTitle" : {
+    "TipMapFullScreenTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {

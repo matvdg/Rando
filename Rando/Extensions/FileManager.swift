@@ -11,7 +11,7 @@ import Foundation
 
 public extension FileManager {
     
-    static var documentsDirectory: URL { FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
+    static var documentsDirectory: URL { FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
 
     /// Calculate the allocated size of a directory and all its contents on the volume.
     ///

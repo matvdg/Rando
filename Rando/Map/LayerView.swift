@@ -56,7 +56,7 @@ struct LayerView: View {
                 }
                 .padding(.vertical, 8)
             }
-            .navigationBarTitle(Text("Map"), displayMode: .inline)
+            .navigationBarTitle(Text("map"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.isLayerDisplayed.toggle()
                 Feedback.selected()

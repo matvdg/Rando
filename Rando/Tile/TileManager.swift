@@ -67,7 +67,7 @@ class TileManager: ObservableObject {
     
     init() {
         semaphore = AsyncSemaphore(value: 5)
-        print("􀈝 DocumentsDirectory = \(FileManager.documentsDirectory)")
+        // Useless when iCloud print("􀈝 DocumentsDirectory = \(FileManager.documentsDirectory.relativeString.replacingOccurrences(of: "file://", with: ""))")
         createDirectoriesIfNecessary()
     }
     

@@ -17,21 +17,8 @@ struct TrailMapView: View {
         ZStack(alignment: .top) {
             MapView(trail: trail)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                HStack(alignment: .top, spacing: 8) {
-                    Button {
-                        Feedback.selected()
-                        dismiss()
-                        
-                    } label: {
-                        BackIconButton()
-                    }
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, 20)
-            }
-        }.navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.all)
+        }.navigationTitle(trail.name)
     }
 }
 

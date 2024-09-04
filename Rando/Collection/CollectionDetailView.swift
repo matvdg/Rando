@@ -1,14 +1,14 @@
 //
-//  PoiDetailView.swift
+//  CollectionDetailView.swift
 //  Rando
 //
-//  Created by Mathieu Vandeginste on 08/05/2020.
+//  Created by Mathieu Vandeginste on 04/09/2024.
 //  Copyright © 2024 Mathieu Vandeginste. All rights reserved.
 //
 
 import SwiftUI
 
-struct PoiDetailView: View {
+struct CollectionDetailView: View {
         
     @ObservedObject var collectionManager = CollectionManager.shared
     
@@ -92,12 +92,9 @@ struct PoiDetailView: View {
 }
 
 // MARK: Previews
-struct PoiDetail_Previews: PreviewProvider {
+struct CollectionDetail_Previews: PreviewProvider {
     @State static var clockwise = true
     static var previews: some View {
-        PoiDetailView(poi: pois[7])
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-            .previewDisplayName("iPhone SE")
-            .environment(\.colorScheme, .light)
+        CollectionDetailView(poi: pois[7])
     }
 }

@@ -1,5 +1,5 @@
 //
-//  TrailView.swift
+//  TrailDetailView.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 14/06/2023.
@@ -11,7 +11,7 @@ import SwiftUICharts
 import TipKit
 
 
-struct TrailView: View {
+struct TrailDetailView: View {
     
     @ObservedObject var trail: Trail
     @State var showEditTrailSheet: Bool = false
@@ -22,66 +22,24 @@ struct TrailView: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
-            ZStack(alignment: .top) {
-                NavigationLink(destination: TrailMapView(trail: trail)) {
-                    MapView(trail: trail, indexOfGraph: $indexOfGraph)
-                        .edgesIgnoringSafeArea(.vertical)
-                        .frame(height: 250)
-                        .disabled(true)
-                }
-                VStack {
-                    HStack(alignment: .top, spacing: 8) {
-                        if UIDevice.current.userInterfaceIdiom == .phone {
-                            Button {
-                                Feedback.selected()
-                                dismiss()
-                                
-                            } label: {
-                                BackIconButton()
-                            }
-                        }
-                        Spacer()
-                        Button {
-                            Feedback.selected()
-                            showEditTrailSheet = true
-                        } label: {
-                            EditIconButton()
-                        }
-                        if #available(iOS 17.0, *) {
-                            var favoriteTip = FavoriteTip()
-                            Button {
-                                Feedback.selected()
-                                trail.isFav.toggle()
-                                TrailManager.shared.save(trail: trail)
-                                favoriteTip.invalidate(reason: .actionPerformed)
-                            } label: {
-                                LikeIconButton(isLiked: $trail.isFav)
-                            }
-                            .popoverTip(favoriteTip, arrowEdge: .top)
-                        } else {
-                            // Fallback on earlier versions (no tips)
-                            Button {
-                                Feedback.selected()
-                                trail.isFav.toggle()
-                                TrailManager.shared.save(trail: trail)
-                            } label: {
-                                LikeIconButton(isLiked: $trail.isFav)
-                            }
-                        }
-                        
-                        // FIXME: Creating memory leak with an infinity loop
-//                        ShareLink(item: TrailManager.shared.exportToGpxFile(trail: trail)) {
-//                            ShareIconButton()
-//                        }
-                    }
-                    .padding(.horizontal, 20)
-                }
-                
+            NavigationLink(destination: TrailMapView(trail: trail)) {
+                MapView(trail: trail, indexOfGraph: $indexOfGraph)
+                    .edgesIgnoringSafeArea(.vertical)
+                    .frame(height: 250)
+                    .disabled(true)
             }
             
             List {
                 
-                Section(header: Text(trail.name).foregroundColor(.primary).font(.system(size: 20, weight: .bold))) {
+                Section(header:
+                            Text(trail.name)
+                    .foregroundColor(.primary)
+                    .font(.system(size: 20, weight: .bold))
+                    .onTapGesture {
+                        Feedback.selected()
+                        showEditTrailSheet = true
+                    }
+                ) {
                     
                     HStack(alignment: .top, spacing:  8) {
                         
@@ -163,13 +121,17 @@ struct TrailView: View {
                     
                     DisclosureGroup {
                         Text(trail.description).font(.system(size: 14))
+                            .onTapGesture {
+                                Feedback.selected()
+                                showEditTrailSheet = true
+                            }
                     } label: {
                         Label("Description", systemImage: "text.justify.leading")
                     }.isHidden(trail.description.isEmpty, remove: true)
                     
                 }
                 
-                Section(header: Text("Map")) {
+                Section(header: Text("map")) {
                     MapSettingsRow()
                         .disabled(TileManager.shared.state.isDownloading() || trail.downloadState == .downloading)
                     if #available(iOS 17.0, *) {
@@ -239,6 +201,14 @@ struct TrailView: View {
             }
             .listStyle(.insetGrouped)
         }
+        .navigationTitle(trail.name)
+        .navigationBarItems(trailing: Button(action: {
+            Feedback.selected()
+            trail.isFav.toggle()
+            TrailManager.shared.save(trail: trail)
+        }) {
+            trail.isFav ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+        })
         .tint(Color.primary)
         .onAppear {
             TileManager.shared.load(for: trail, selectedLayer: appManager.selectedLayer)
@@ -254,7 +224,6 @@ struct TrailView: View {
         .onChange(of: trail.description, perform: { _ in
             TrailManager.shared.save(trail: trail)
         })
-        .navigationBarHidden(true)
         .sheet(isPresented: $showEditTrailSheet) {
             EditTrailView(trail: trail, showEditTrailSheet: $showEditTrailSheet)
         }
@@ -303,10 +272,10 @@ struct DownloadTip: Tip {
     }
 }
 
-struct TrailView_Previews: PreviewProvider {
+struct TrailDetailView_Previews: PreviewProvider {
     @State static var trail: Trail = Trail(gpx: Gpx(name: "Le Crabère", locations: [mockLoc1,mockLoc2], department: "Ariège"))
     static var previews: some View {
-        TrailView(trail: trail).environmentObject(AppManager.shared)
+        TrailDetailView(trail: trail).environmentObject(AppManager.shared)
     }
 }
 

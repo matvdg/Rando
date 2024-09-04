@@ -31,13 +31,44 @@ class TrailManager: ObservableObject {
         return departments
     }
     
-    var cancellables = [AnyCancellable]()
+    private var cancellables = [AnyCancellable]()
+    
+    private var metadataQuery: NSMetadataQuery?
+    
+    private var notificationsLocked: Bool = false
     
     init() {
         getTrails()
     }
     
     // MARK: - Public methods
+    @objc private func queryDidUpdate(_ notification: Notification) {
+        DispatchQueue.main.async {
+            guard !self.notificationsLocked else { return }
+            self.notificationsLocked = true
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                self.notificationsLocked = false
+                self.getTrails()
+                print("􂆍 iCloud update for trails")
+            }
+        }
+    }
+    
+    func watchiCloud() {
+        DispatchQueue.main.async {
+            self.metadataQuery = NSMetadataQuery()
+            self.metadataQuery?.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
+            self.metadataQuery?.predicate = NSPredicate(format: "%K == %@", NSMetadataItemFSNameKey, "trails")
+            NotificationCenter.default.addObserver(self, selector: #selector(self.queryDidUpdate(_:)), name: .NSMetadataQueryDidUpdate, object: self.metadataQuery)
+            self.metadataQuery?.start()
+        }
+    }
+    
+    func unwatchiCloud() {
+        NotificationCenter.default.removeObserver(self)
+        metadataQuery?.stop()
+    }
+    
     func loadTrails(from urls: [URL]) -> [Trail] {
         return urls.compactMap { url -> Trail? in
             let gpx = GPXParser(withURL: url)?.parsedData()

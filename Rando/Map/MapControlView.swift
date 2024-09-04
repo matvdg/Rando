@@ -31,7 +31,7 @@ struct MapControlView: View {
     var body: some View {
         VStack(alignment: .center) {
             if #available(iOS 17.0, *) {
-                var layerTip = LayerTip()
+                let layerTip = LayerTip()
                 Button(action: {
                     self.isLayerViewDisplayed.toggle()
                     Feedback.selected()
@@ -57,59 +57,47 @@ struct MapControlView: View {
             }
             Divider()
             if #available(iOS 17.0, *) {
-                var lockTip = LockTip()
+                let mapFullScreenTip = MapFullScreenTip()
                 Button(action: {
-                    appManager.isLocked.toggle()
+                    appManager.isMapFullScreen.toggle()
                     Feedback.selected()
-                    lockTip.invalidate(reason: .actionPerformed)
+                    mapFullScreenTip.invalidate(reason: .actionPerformed)
                 }) {
-                    Image(systemName: appManager.isLocked ? "lock" : "lock.open")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth)
-                    
+                    Image(appManager.isMapFullScreen ? "iconMapFullScreen" : "iconNotMapFullScreen")
                 }
-                .popoverTip(LockTip(), arrowEdge: .trailing)
+                .popoverTip(mapFullScreenTip, arrowEdge: .trailing)
             } else {
                 // Fallback on earlier versions
                 Button(action: {
-                    appManager.isLocked.toggle()
+                    appManager.isMapFullScreen.toggle()
                     Feedback.selected()
                 }) {
-                    Image(systemName: appManager.isLocked ? "lock" : "lock.open")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth)
-                    
+                    Image(appManager.isMapFullScreen ? "iconMapFullScreen" : "iconNotMapFullScreen")
                 }
             }
             Divider()
             if #available(iOS 17.0, *) {
-                var boundingTip = BoundingTip()
+                let boundingTip = BoundingTip()
                 Button(action: {
                     appManager.selectedTracking = .bounding
                     Feedback.selected()
                     boundingTip.invalidate(reason: .actionPerformed)
                 }) {
-                    Image(systemName: appManager.selectedTracking == .bounding ? "inset.filled.center.rectangle" :  "camera.metering.center.weighted.average")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth)
-                    
+                    Image(appManager.selectedTracking == .bounding ? "iconCentered" :  "iconNotCentered")
                 }
-                .popoverTip(BoundingTip(), arrowEdge: .trailing)
+                .popoverTip(boundingTip, arrowEdge: .trailing)
             } else {
                 // Fallback on earlier versions
                 Button(action: {
                     appManager.selectedTracking = .bounding
                     Feedback.selected()
                 }) {
-                    Image(systemName: appManager.selectedTracking == .bounding ? "inset.filled.center.rectangle" :  "camera.metering.center.weighted.average")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth)
-                    
+                    Image(appManager.selectedTracking == .bounding ? "iconCentered" :  "iconNotCentered")
                 }
             }
             Divider()
             if #available(iOS 17.0, *) {
-                var trackingTip = TrackingTip()
+                let trackingTip = TrackingTip()
                 Button(action: {
                     switch appManager.selectedTracking {
                     case .disabled:
@@ -133,7 +121,7 @@ struct MapControlView: View {
                         .frame(width: appManager.selectedTracking == .heading ? 16 : buttonWidth, height: appManager.selectedTracking == .heading ? 28 : buttonWidth, alignment: .center)
                         .offset(y: 3)
                 }
-                .popoverTip(TrackingTip(), arrowEdge: .trailing)
+                .popoverTip(trackingTip, arrowEdge: .trailing)
             } else {
                 // Fallback on earlier versions
                 Button(action: {
@@ -188,18 +176,18 @@ struct LayerTip: Tip {
 }
 
 @available(iOS 17.0, *)
-struct LockTip: Tip {
+struct MapFullScreenTip: Tip {
 
     var title: Text {
-        Text("TipLockTitle")
+        Text("TipMapFullScreenTitle")
     }
     
     var message: Text? {
-        Text("TipLockDescription")
+        Text("TipMapFullScreenDescription")
     }
     
     var image: Image? {
-        Image(systemName: "lock.fill")
+        Image("iconNotMapFullScreen")
     }
     
     var options: [Option] {
@@ -219,7 +207,7 @@ struct BoundingTip: Tip {
     }
     
     var image: Image? {
-        Image(systemName: "camera.metering.center.weighted.average")
+        Image("iconCentered")
     }
     
     var options: [Option] {

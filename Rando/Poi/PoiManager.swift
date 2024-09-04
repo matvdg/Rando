@@ -44,8 +44,10 @@ class PoiAnnotation: MKPointAnnotation {
   
   var markerColor: UIColor {
     switch poi.category {
-    case .refuge, .spring, .waterfall, .lake, .bridge: return .grblue
-    case .peak, .pov, .pass, .camping : return .grgreen
+    case .spring, .waterfall, .lake, .bridge: return .grblue
+    case .peak, .pov, .pass : return .grgreen
+    case .refuge, .camping, .shelter: return .systemBlue
+    case .shop: return .grpink
     default: return .grgray
     }
   }

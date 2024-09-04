@@ -21,7 +21,7 @@ struct ContentView: View {
             TabView(selection: $selection) {
                 HomeView()
                     .tabItem {
-                        Label("Map", systemImage: "map.fill")
+                        Label("map", systemImage: "map.fill")
                     }
                     .tag(0)
                 TrailsView()
@@ -60,8 +60,9 @@ struct ContentView: View {
             if #available(iOS 17.0, *) {
                 try? Tips.configure([.displayFrequency(.hourly)])
             }
+            iCloudSyncManager.shared.synchronizeAllFilesInBackground()
         }
-        .onChange(of: appManager.isLocked) { newValue in
+        .onChange(of: appManager.isMapFullScreen) { newValue in
             if newValue {
                 UITabBar.hideTabBar(animated: false)
             } else {

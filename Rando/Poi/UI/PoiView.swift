@@ -74,7 +74,7 @@ struct PoiView: View {
                 }
                 
             }
-            .searchable(text: $searchText, placement: .toolbar, prompt: "Search")
+            .searchable(text: $searchText, placement: .automatic, prompt: "Search")
             .navigationBarTitle(Text("Steps"), displayMode: .inline)
             .navigationBarItems(trailing:
                                     Picker(selection: $appManager.selectedCategory, label: Text("")) {

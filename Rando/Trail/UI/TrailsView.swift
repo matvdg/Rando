@@ -122,7 +122,7 @@ struct TrailsView: View {
                     
                     List {
                         ForEach(sortedTrails) { trail in
-                            NavigationLink(destination: TrailView(trail: trail)) {
+                            NavigationLink(destination: TrailDetailView(trail: trail)) {
                                 TrailRow(trail: trail)
                             }
                         }
@@ -160,10 +160,14 @@ struct TrailsView: View {
             }
             
         }
-        .searchable(text: $searchText, placement: .toolbar, prompt: "Search")
+        .searchable(text: $searchText, placement: .automatic, prompt: "Search")
         .onAppear {
             NotificationManager.shared.requestAuthorization()
             isPlayingTour = false
+            trailManager.watchiCloud()
+        }
+        .onDisappear {
+            trailManager.unwatchiCloud()
         }
     }
     

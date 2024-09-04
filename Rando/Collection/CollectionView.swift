@@ -61,7 +61,8 @@ struct CollectionView: View {
                 if collection.isEmpty {
                     VStack(alignment: .center, spacing: 8) {
                         Spacer()
-                        Text("emptyCollection").foregroundColor(.gray)
+                        Image(systemName: "trophy").resizable().frame(width: 50, height: 50, alignment: .center).foregroundColor(.gray)
+                        Text("emptyCollection").multilineTextAlignment(.center).foregroundColor(.gray)
                             .padding()
                         Spacer()
                     }
@@ -112,6 +113,10 @@ struct CollectionView: View {
         }
         .onAppear {
             isPlayingTour = false
+            collectionManager.watchiCloud()
+        }
+        .onDisappear {
+            collectionManager.unwatchiCloud()
         }
     }
 }

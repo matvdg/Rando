@@ -39,5 +39,5 @@ class AppManager: ObservableObject {
         }
     }
     
-    @Published var isLocked: Bool = false
+    @Published var isMapFullScreen: Bool = false
 }

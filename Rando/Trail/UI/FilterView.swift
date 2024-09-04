@@ -58,7 +58,7 @@ struct FilterView: View {
                 Divider()
                 
                 HStack {
-                    Text("gr")
+                    Text("ghr")
                         .font(.headline)
                     Spacer()
                     Picker(selection: $grFilter, label: Text("")) {
