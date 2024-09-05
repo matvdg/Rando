@@ -36,12 +36,12 @@ struct ImportView: View {
                             showAlert = true
                         }
                     } label: {
-                        Label("ImportFromPasteboard", systemImage: "clipboard")
+                        Label("importFromPasteboard", systemImage: "clipboard")
                         .frame(maxWidth: .infinity, minHeight: 50)
                     }
                     .buttonStyle(.borderedProminent)
                     .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Error"), message: Text("UrlError"), dismissButton: .default(Text("OK")))
+                        Alert(title: Text("error"), message: Text("urlError"), dismissButton: .default(Text("ok")))
                     }
                     Text("or")
                     HStack(alignment: .center, spacing: 8) {
@@ -57,7 +57,7 @@ struct ImportView: View {
                                 } else {
                                     Image(systemName: "folder.fill")
                                 }
-                                Text("ImportFromFiles")
+                                Text("importFromFiles")
                             }
                             .frame(maxWidth: .infinity, minHeight: 50)
                         }
@@ -83,11 +83,11 @@ struct ImportView: View {
                                 } else {
                                     Image(systemName: "figure.hiking")
                                 }
-                                Text("ImportFromFitness")
+                                Text("importFromFitness")
                             }
                             .frame(maxWidth: .infinity, minHeight: 50)
                             .alert(isPresented: $showAlert) {
-                                Alert(title: Text("Error"), message: Text("WorkoutError"), dismissButton: .default(Text("OK")))
+                                Alert(title: Text("error"), message: Text("workoutError"), dismissButton: .default(Text("ok")))
                             }
                             
                         }
@@ -100,7 +100,7 @@ struct ImportView: View {
                 Divider()
                 VStack(alignment: .center, spacing: 0) {
                     Spacer()
-                    Text("GPXtoImport").font(.headline)
+                    Text("gpxToImport").font(.headline)
                     Spacer()
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 16) {
@@ -115,7 +115,7 @@ struct ImportView: View {
                         trailsToImport.removeAll()
                         showImportView = false
                     } label: {
-                        Label("\("Add".localized) \(trailsToImport.count) GPX", systemImage: "plus.circle.fill")
+                        Label("\("add".localized) \(trailsToImport.count) GPX", systemImage: "plus.circle.fill")
                         .frame(maxWidth: .infinity, minHeight: 50)
                     }
                     .buttonStyle(.borderedProminent)
@@ -123,7 +123,7 @@ struct ImportView: View {
                 } // Bottom
                 .isHidden(trailsToImport.isEmpty)
             }
-            .navigationBarTitle(Text("ImportGPX"), displayMode: .inline)
+            .navigationBarTitle(Text("importGPX"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 showImportView = false
                 Feedback.selected()
@@ -151,16 +151,6 @@ struct ImportView: View {
     }
 }
 
-struct ImportView_Previews: PreviewProvider {
-    
-    @State static var showImportView = false
-    static var previews: some View {
-        
-        Group {
-            ImportView(showImportView: $showImportView)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-            ImportView(showImportView: $showImportView)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
-        }
-    }
+#Preview {
+    ImportView(showImportView: .constant(true))
 }

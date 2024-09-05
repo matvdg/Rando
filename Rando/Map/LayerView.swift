@@ -63,7 +63,7 @@ struct LayerView: View {
             }) {
                 DismissButton()
             })
-            .navigationBarItems(leading: Picker(selection: $appManager.displayedCategory, label: Text("DisplayOnMap")) {
+            .navigationBarItems(leading: Picker(selection: $appManager.displayedCategory, label: Text("displayOnMap")) {
                 ForEach(Category.allCasesForMaps, id: \.self) { filter in
                     HStack(alignment: .center, spacing: 8) {
                         Text(LocalizedStringKey(filter.rawValue))
@@ -81,28 +81,7 @@ struct LayerView: View {
     
 }
 
-// MARK: Previews
-struct LayerView_Previews: PreviewProvider {
-    @State static var isLayerDisplayed = true
-    @State static var isOffline = false
-    static var previews: some View {
-        Group {
-            LayerView(isLayerDisplayed: $isLayerDisplayed)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
-                .environment(\.colorScheme, .dark)
-                .environmentObject(AppManager.shared)
-            LayerView(isLayerDisplayed: $isLayerDisplayed)
-                .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
-                .previewDisplayName("iPad Pro")
-                .environmentObject(AppManager.shared)
-            
-                .environment(\.colorScheme, .light)
-            LayerView(isLayerDisplayed: $isLayerDisplayed)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-                .environment(\.colorScheme, .light)
-                .environmentObject(AppManager.shared)
-        }
-    }
+// MARK: Preview
+#Preview {
+    LayerView(isLayerDisplayed: .constant(true))
 }

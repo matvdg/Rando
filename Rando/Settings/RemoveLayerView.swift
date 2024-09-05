@@ -44,24 +44,22 @@ struct RemoveLayerView: View {
                 }
             }
         }
-        .navigationBarTitle("DeleteLayer", displayMode: .inline)
+        .navigationBarTitle("deleteLayer", displayMode: .inline)
         .actionSheet(isPresented: $showAlert) {
             return ActionSheet(
-                title: Text("\("DeleteLayerMessage".localized) \(selectedLayer.localized)"),
+                title: Text("\("deleteLayerMessage".localized) \(selectedLayer.localized)"),
                 buttons: [
-                    .destructive(Text("DeleteLayer"), action: {
+                    .destructive(Text("deleteLayer"), action: {
                         Feedback.selected()
                         TileManager.shared.remove(layer: selectedLayer)
                     }),
-                    .cancel(Text("Cancel"))
+                    .cancel(Text("cancel"))
                 ]
             )
         }
     }
 }
 
-struct RemoveLayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        RemoveLayerView()
-    }
+#Preview {
+    RemoveLayerView()
 }

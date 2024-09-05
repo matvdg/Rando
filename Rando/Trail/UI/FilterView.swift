@@ -9,7 +9,7 @@
 import SwiftUI
 
 enum GRFilter: String, CaseIterable {
-    case gr, hr, notghr, all
+    case gr, hr, ghr, notghr, all
     var localized: String { rawValue.localized }
 }
 
@@ -35,14 +35,14 @@ struct FilterView: View {
             VStack(alignment: .center, spacing: 20.0) {
                 
                 Toggle(isOn: self.$onlyDisplayed) {
-                    Text("Displayed")
+                    Text("displayed")
                 }
                 .onTapGesture {
                     self.onlyDisplayed.toggle()
                 }
                 
                 Toggle(isOn: self.$onlyFavs) {
-                    Text("Favs")
+                    Text("favs")
                 }
                 .onTapGesture {
                     self.onlyFavs.toggle()
@@ -73,7 +73,7 @@ struct FilterView: View {
                 }
                 
                 HStack {
-                    Text("Departments")
+                    Text("departments")
                         .font(.headline)
                     Spacer()
                     Picker(selection: $department, label: Text("")) {
@@ -89,7 +89,7 @@ struct FilterView: View {
                 }
                 
                 HStack {
-                    Text("Difficulty")
+                    Text("difficulty")
                         .font(.headline)
                     Spacer()
                     Picker(selection: $difficultyFilter, label: Text("")) {
@@ -106,7 +106,7 @@ struct FilterView: View {
                             
             }
             .padding()
-            .navigationBarTitle("Filter", displayMode: .inline)
+            .navigationBarTitle("filter", displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 isSortDisplayed = false
                 Feedback.selected()
@@ -125,19 +125,7 @@ struct FilterView: View {
     
 }
 
-// MARK: Previews
-struct FilterView_Previews: PreviewProvider {
-    @State static var department: String = "Ariège"
-    @State static var isSortDisplayed = true
-    @State static var onlyDisplayed = false
-    @State static var onlyFavs = false
-    @State static var onlyLoops = false
-    @State static var grFilter: GRFilter = .notghr
-    @State static var difficultyFilter: DifficultyFilter = .hard
-    static var previews: some View {
-        FilterView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, grFilter: $grFilter, difficultyFilter: $difficultyFilter, department: $department, isSortDisplayed: $isSortDisplayed)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-                .environment(\.colorScheme, .dark)
-        
-    }
+// MARK: Preview
+#Preview {
+    FilterView(onlyDisplayed: .constant(false), onlyFavs: .constant(false), onlyLoops: .constant(false), grFilter: .constant(.ghr), difficultyFilter: .constant(.hard), department: .constant("Ariège"), isSortDisplayed: .constant(true))
 }

@@ -15665,6 +15665,20 @@
     "lng": 0.5990928991692102
   },
   {
+    "name": "Intermarché Super Bolquères",
+    "category": "shop",
+    "description": "Lundi au samedi 08:30–20:00 et dimanche 8:30-12:45",
+    "lat": 42.51581210261292,
+    "lng": 2.061379168327332
+  },
+  {
+    "name": "Vival d'Amélie-les-Bains",
+    "category": "shop",
+    "description": "Ouvert tous les jours de la semaine le matin de 08:30 à 12:30 et l'après midi de 15h à 18h30 du mardi au samedi.",
+    "lat": 42.47334462222873,
+    "lng": 2.6694599436186026
+  },
+  {
     "name": "LIDL à Bagnères-De-Luchon",
     "category": "shop",
     "description": "Lundi au Samedi 08:30–20:00",
@@ -16272,6 +16286,16 @@
     "lng": -0.642358,
     "lat": 42.9279,
     "url": "camping-gite-lescun-pyrenees.com"
+  },
+  {
+    "name": "Camping Amelia",
+    "category": "camping",
+    "alt": 207,
+    "phone": "+33468390049",
+    "description": "Camping 2 étoiles à Amélie-les-Bains.",
+    "lng": 2.6739411175261463,
+    "lat": 42.480785569555906,
+    "url": "www.camping-amelia.fr/"
   },
   {
     "name": "Lac d'Agalops",

@@ -16,9 +16,9 @@ extension Date {
         dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = .short
         if Calendar.current.isDateInToday(self) {
-            return "\("Today".localized) \("at".localized) \(dateFormatter.string(from: self))"
+            return "\("today".localized) \("at".localized) \(dateFormatter.string(from: self))"
         } else if Calendar.current.isDateInYesterday(self) {
-            return "\("Yesterday".localized) \("at".localized) \(dateFormatter.string(from: self))"
+            return "\("yesterday".localized) \("at".localized) \(dateFormatter.string(from: self))"
         } else {
             let time = dateFormatter.string(from: self)
             dateFormatter.dateStyle = .short

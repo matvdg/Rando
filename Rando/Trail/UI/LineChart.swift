@@ -47,14 +47,8 @@ struct LineChart: View {
 
 // MARK: - Preview
 
-struct LineChart_Previews: PreviewProvider {
-    
-    
-    @State static var trail: Trail = Trail(gpx: Gpx(name: "Le Crabère", locations: mockLocations, department: "Ariège"))
-    
-    static var previews: some View {
-        LineChart(trail: trail)
-    }
+#Preview {
+    LineChart(trail: Trail())
 }
 
 let mockLocations = (1...10).map { _ in Location(latitude: 2.2, longitude: 0.1, altitude: Double.random(in: 1000...3000))  }

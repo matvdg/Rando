@@ -28,8 +28,6 @@ struct TrailPreview: View {
     }
 }
 
-struct TrailPreview_Previews: PreviewProvider {
-    static var previews: some View {
-        TrailPreview(color: .red, points: [CGPoint(x: 1, y: 1), CGPoint(x: 10, y: 1), CGPoint(x: 1, y: 10)])
-    }
+#Preview {
+    TrailPreview(color: .red, points: [CGPoint(x: 1, y: 1), CGPoint(x: 10, y: 1), CGPoint(x: 1, y: 10)])
 }

@@ -61,7 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let trailManager = TrailManager.shared
         guard let trail = trailManager.loadTrails(from: [url]).first else { return }
         trailManager.save(trail: trail)
-        NotificationManager.shared.sendNotification(title: "GPXImported".localized, message: trail.name)
+        NotificationManager.shared.sendNotification(title: "gpxImported".localized, message: trail.name)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

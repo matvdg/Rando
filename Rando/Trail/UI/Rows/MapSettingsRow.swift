@@ -30,13 +30,7 @@ struct MapSettingsRow: View {
     }
 }
 
-// MARK: Previews
-struct MapSettingsRow_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        MapSettingsRow()
-            .previewLayout(.fixed(width: 300, height: 80))
-            .environment(\.colorScheme, .light)
-            .environmentObject(AppManager.shared)
-    }
+// MARK: Preview
+#Preview {
+    MapSettingsRow().environmentObject(AppManager.shared)
 }

@@ -28,27 +28,27 @@ struct TilesRow: View {
         }) {
             HStack(spacing: 15) {
                 if tileManager.state.isDownloadingAnotherTrail(id: trail.id) {
-                    Label("OtherDownloadInProcess", systemImage: "xmark.icloud").lineLimit(1).minimumScaleFactor(0.5)
+                    Label("otherDownloadInProcess", systemImage: "xmark.icloud").lineLimit(1).minimumScaleFactor(0.5)
                 } else {
                     switch trail.downloadState {
                     case .unknown :
                         ProgressView(value: tileManager.progress)
                             .progressViewStyle(CircularProgressViewStyle())
-                        Text("Download")
+                        Text("download")
                     case .notDownloaded:
-                        Label("\("Download".localized) (\(tileManager.sizeLeft))", systemImage: "icloud.and.arrow.down").lineLimit(1).minimumScaleFactor(0.5)
+                        Label("\("download".localized) (\(tileManager.sizeLeft))", systemImage: "icloud.and.arrow.down").lineLimit(1).minimumScaleFactor(0.5)
                     case .downloading:
                         ProgressView(value: tileManager.progress)
                             .progressViewStyle(CircularProgressViewStyle(tint: .tintColorTabBar))
                         VStack(alignment: .leading) {
-                            Text("\("Downloading".localized) \(Int(tileManager.progress*100))% (\(tileManager.sizeLeft) \("Left".localized))").lineLimit(1).minimumScaleFactor(0.5)
+                            Text("\("downloading".localized) \(Int(tileManager.progress*100))% (\(tileManager.sizeLeft) \("left".localized))").lineLimit(1).minimumScaleFactor(0.5)
                             ProgressView(value: tileManager.progress)
                                 .progressViewStyle(LinearProgressViewStyle(tint: .tintColorTabBar))
                                 .frame(height: 10)
                         }
                         Image(systemName: "xmark.circle").foregroundColor(.red)
                     case .downloaded:
-                        Label("Downloaded", systemImage: "checkmark.icloud")
+                        Label("downloaded", systemImage: "checkmark.icloud")
                     }
                 }
             }
@@ -71,14 +71,7 @@ struct TilesRow: View {
     }
 }
 
-// MARK: Previews
-struct TilesRow_Previews: PreviewProvider {
-    @State static var state: Trail.DownloadState = .unknown
-    static var previews: some View {
-        
-        TilesRow(state: $state, trail: Trail())
-            .previewLayout(.fixed(width: 300, height: 80))
-            .environment(\.colorScheme, .light)
-            .environmentObject(AppManager.shared)
-    }
+// MARK: Preview
+#Preview {
+    TilesRow(state: .constant(.unknown), trail: Trail())
 }

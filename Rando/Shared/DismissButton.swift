@@ -15,17 +15,12 @@ struct DismissButton: View {
     }
 }
 
-struct DismissButton_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        Group {
-          DismissButton()
-            .environment(\.colorScheme, .light)
-          DismissButton()
-            .environment(\.colorScheme, .dark)
-        }
-        .previewLayout(.fixed(width: 100, height: 100))
-        
+#Preview {
+    Group {
+      DismissButton()
+        .environment(\.colorScheme, .light)
+      DismissButton()
+        .environment(\.colorScheme, .dark)
     }
 }
 

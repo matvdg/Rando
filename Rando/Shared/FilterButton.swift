@@ -27,8 +27,6 @@ struct FilterButton: View {
     }
 }
 
-struct FilterButton_Previews: PreviewProvider {
-    static var previews: some View {
-        FilterButton(label: "Haute-Garonne")
-    }
+#Preview {
+    FilterButton(label: "Haute-Garonne")
 }

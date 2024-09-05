@@ -74,6 +74,8 @@ struct TrailsView: View {
             sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("hr") }
         case .notghr:
             sortedTrails = sortedTrails.filter { !$0.name.localizedCaseInsensitiveContains("gr") && !$0.name.localizedCaseInsensitiveContains("hr") }
+        case .ghr:
+            sortedTrails = sortedTrails.filter { $0.name.localizedCaseInsensitiveContains("gr") || $0.name.localizedCaseInsensitiveContains("hr") }
         case .all:
             break
         }
@@ -111,7 +113,7 @@ struct TrailsView: View {
                         }) {
                             Image(systemName: isFiltered ? "line.horizontal.3.decrease.circle.fill" :  "line.horizontal.3.decrease.circle")
                                 .tint(.tintColorTabBar)
-                            Text(isFiltered ? "Filtered" : "Filter")
+                            Text(isFiltered ? "filtered" : "filter")
                                 .tint(.tintColorTabBar)
                         }
                     }
@@ -124,6 +126,28 @@ struct TrailsView: View {
                         ForEach(sortedTrails) { trail in
                             NavigationLink(destination: TrailDetailView(trail: trail)) {
                                 TrailRow(trail: trail)
+                                    .contextMenu {
+                                        Button {
+                                            trail.isFav.toggle()
+                                            Feedback.success()
+                                            trailManager.save(trail: trail)
+                                        } label: {
+                                            Label(trail.isFav ? "unfav" : "fav", systemImage: trail.isFav ? "heart.slash" : "heart.fill")
+                                        }
+                                        Button {
+                                            trail.isDisplayed.toggle()
+                                            Feedback.success()
+                                            trailManager.save(trail: trail)
+                                        } label: {
+                                            Label(trail.isDisplayed ? "hideOnMap" : "displayOnMap", systemImage: trail.isDisplayed ? "eye.slash" : "eye")
+
+                                        }
+                                        Button {
+                                            trailManager.remove(id: trail.id)
+                                        } label: {
+                                            Label("delete", systemImage: "trash")
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: removeRows)
@@ -144,7 +168,7 @@ struct TrailsView: View {
             .sheet(isPresented: $showImportView) {
                 ImportView(showImportView: $showImportView)
             }
-            .navigationBarTitle(Text("Trails"), displayMode: .inline)
+            .navigationBarTitle(Text("trails"), displayMode: .inline)
             .navigationBarItems(leading: EditButton(), trailing:
                                     Button(action: {
                 Feedback.selected()
@@ -156,11 +180,11 @@ struct TrailsView: View {
             HStack {
                 Image(systemName: "sidebar.left")
                     .imageScale(.large)
-                Text("SelectInSidebar")
+                Text("selectInSidebar")
             }
             
         }
-        .searchable(text: $searchText, placement: .automatic, prompt: "Search")
+        .searchable(text: $searchText, placement: .automatic, prompt: "search")
         .onAppear {
             NotificationManager.shared.requestAuthorization()
             isPlayingTour = false
@@ -178,11 +202,7 @@ struct TrailsView: View {
     
 }
 
-// MARK: Previews
-struct TrailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrailsView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
-            .previewDisplayName("iPhone 14")
-    }
+// MARK: Preview
+#Preview {
+    TrailsView()
 }

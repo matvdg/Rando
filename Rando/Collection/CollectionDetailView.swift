@@ -12,64 +12,64 @@ struct CollectionDetailView: View {
         
     @ObservedObject var collectionManager = CollectionManager.shared
     
-    var poi: Poi
+    var collection: Collection
     
     var body: some View {
         
         ScrollView(showsIndicators: false) {
             VStack {
                 
-                NavigationLink(destination: MapView(poi: poi).navigationTitle("map")) {
-                    MapView(poi: poi)
+                NavigationLink(destination: MapView(poi: collection.poi).navigationTitle("map")) {
+                    MapView(poi: collection.poi)
                         .frame(height: 150)
                 }
                 
-                CircleImage(poi: poi)
+                CircleImage(poi: collection.poi)
                     .offset(x: 0, y: -130)
                     .padding(.bottom, -130)
                 
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    Text(poi.name)
+                    Text(collection.poi.name)
                         .font(.title)
                         .fontWeight(.heavy)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("altitude")
                             .foregroundColor(Color("grgray"))
-                        Text(poi.altitudeInMeters).fontWeight(.bold)
+                        Text(collection.poi.altitudeInMeters).fontWeight(.bold)
                     }
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
-                    .isHidden(poi.altitudeInMeters == "_", remove: true)
+                    .isHidden(collection.poi.altitudeInMeters == "_", remove: true)
                     
                     Button(action: {
-                        guard let url = self.poi.phoneNumber else { return }
+                        guard let url = self.collection.poi.phoneNumber else { return }
                         UIApplication.shared.open(url)
                         Feedback.selected()
                     }) {
                         HStack(spacing: 10) {
                             Image(systemName: "phone.fill")
-                            Text("Phone")
+                            Text("phone")
                                 .font(.headline)
                         }
                     }
-                    .isHidden(!self.poi.hasPhoneNumber, remove: true)
+                    .isHidden(!self.collection.poi.hasPhoneNumber, remove: true)
                     
                     Button(action: {
-                        guard let url = self.poi.website else { return }
+                        guard let url = self.collection.poi.website else { return }
                         UIApplication.shared.open(url)
                         Feedback.selected()
                     }) {
                         HStack(spacing: 10) {
                             Image(systemName: "globe")
-                            Text("Website")
+                            Text("website")
                                 .font(.headline)
                         }
                     }
-                    .isHidden(!self.poi.hasWebsite, remove: true)
+                    .isHidden(!self.collection.poi.hasWebsite, remove: true)
                     
-                    Text(poi.description ?? "")
+                    Text(collection.poi.description ?? "")
                         .font(.body)
                         .foregroundColor(.text)
                         .padding(.trailing, 8)
@@ -77,24 +77,21 @@ struct CollectionDetailView: View {
                 .padding()
             }
             .navigationBarItems(trailing: Button(action: {
-                collectionManager.addOrRemovePoiToCollection(poi: poi)
+                collectionManager.addOrRemovePoiToCollection(poi: collection.poi)
                 Feedback.selected()
             }) {
-                collectionManager.isPoiAlreadyCollected(poi: poi) ? Image(systemName: "trophy.fill") : Image(systemName: "trophy")
+                collectionManager.isPoiAlreadyCollected(poi: collection.poi) ? Image(systemName: "trophy.fill") : Image(systemName: "trophy")
             })
         }
         .edgesIgnoringSafeArea(.horizontal)
-        .navigationBarTitle(Text(poi.name))
+        .navigationBarTitle(Text(collection.poi.name))
         .onAppear {
             isPlayingTour = false
         }
     }
 }
 
-// MARK: Previews
-struct CollectionDetail_Previews: PreviewProvider {
-    @State static var clockwise = true
-    static var previews: some View {
-        CollectionDetailView(poi: pois[7])
-    }
+// MARK: Preview
+#Preview {
+    CollectionDetailView(collection: Collection(id: UUID(), poi: pois[7], date: Date())).environmentObject(AppManager.shared)
 }

@@ -21,33 +21,28 @@ struct ItineraryRow: View {
             Feedback.selected()
             self.showAlert.toggle()
         }) {
-            Label("Directions", systemImage: "car")
+            Label("directions", systemImage: "car")
         }
         .actionSheet(isPresented: $showAlert) {
             ActionSheet(
-                title: Text("Directions"),
+                title: Text("directions"),
                 buttons: [
-                    .default(Text(" Maps"), action: { let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: self.location))
-                        mapItem.name = "Departure"
+                    .default(Text("appleMaps"), action: { let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: self.location))
+                        mapItem.name = "departure"
                     mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]) }),
-                    .default(Text("Waze"), action: { UIApplication.shared.open(URL(string: "https://www.waze.com/ul?ll=\(self.location.latitude)%2C\(self.location.longitude)&navigate=yes")!) }),
-                    .default(Text("Google Maps"), action: {
+                    .default(Text("waze"), action: { UIApplication.shared.open(URL(string: "https://www.waze.com/ul?ll=\(self.location.latitude)%2C\(self.location.longitude)&navigate=yes")!) }),
+                    .default(Text("waze"), action: { UIApplication.shared.open(URL(string: "https://www.waze.com/ul?ll=\(self.location.latitude)%2C\(self.location.longitude)&navigate=yes")!) }),
+                    .default(Text("gmaps"), action: {
                         UIApplication.shared.open(URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(self.location.latitude),\(self.location.longitude)&travelmode=driving")!)
                     }),
-                    .cancel(Text("Cancel"))
+                    .cancel(Text("cancel"))
                 ]
             )
         }
     }
 }
 
-// MARK: Previews
-struct ItineraryRow_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        ItineraryRow(location: CLLocationCoordinate2D())
-            .previewLayout(.fixed(width: 300, height: 80))
-            .environment(\.colorScheme, .light)
-    }
+// MARK: Preview
+#Preview {
+    ItineraryRow(location: CLLocationCoordinate2D())
 }

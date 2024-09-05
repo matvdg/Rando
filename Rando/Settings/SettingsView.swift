@@ -40,7 +40,7 @@ struct SettingsView: View {
                     Text("v\(appVersion)").fontWeight(.light)
                 }
                 
-                ShareLink("ShareApp", item: URL(string: "https://apps.apple.com/fr/app/rando-pyr%C3%A9n%C3%A9es/id1523741976")!).foregroundColor(.primary)
+                ShareLink("shareApp", item: URL(string: "https://apps.apple.com/fr/app/rando-pyr%C3%A9n%C3%A9es/id1523741976")!).foregroundColor(.primary)
                 
                 List {
                     
@@ -49,7 +49,7 @@ struct SettingsView: View {
                         Feedback.success()
                         selection = 0
                     } label: {
-                        Label("Clean visible trails from the map", systemImage: "eye.slash")
+                        Label("cleanMapTrails", systemImage: "eye.slash")
                     }
                     
                     Button {
@@ -57,20 +57,20 @@ struct SettingsView: View {
                         Feedback.success()
                         selection = 0
                     } label: {
-                        Label("Show GR10 and HRP on the map", systemImage: "eye")
+                        Label("showGHR", systemImage: "eye")
                     }
                     
                     Button {
                         showShareSheet = true
                     } label: {
-                        Label("ShareMyPosition", systemImage: "mappin")
+                        Label("shareMyPosition", systemImage: "mappin")
                     }
                     
                     
                     NavigationLink {
                         RemoveLayerView()
                     } label: {
-                        Label("DeleteLayer", systemImage: "map")
+                        Label("deleteLayer", systemImage: "map")
                     }.tint(.accentColor)
                     
                     
@@ -81,13 +81,13 @@ struct SettingsView: View {
                                     Feedback.selected()
                                     UserDefaults.averageSpeed = averageSpeed
                                 }
-                                Text("AverageSpeedDescription")
+                                Text("averageSpeedDescription")
                                 Button {
                                     Feedback.success()
                                     averageSpeed = defaultAverageSpeed
                                     UserDefaults.averageSpeed = defaultAverageSpeed
                                 } label: {
-                                    Text("ResetAverageSpeed").foregroundColor(.primary)
+                                    Text("resetAverageSpeed").foregroundColor(.primary)
                                         .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
                                         .frame(maxWidth: .infinity)
                                 }
@@ -97,7 +97,7 @@ struct SettingsView: View {
                             .font(.subheadline)
                         },
                         label: {
-                            Label("AverageSpeed", systemImage: "speedometer")
+                            Label("averageSpeed", systemImage: "speedometer")
                         }
                     )
                     
@@ -108,30 +108,30 @@ struct SettingsView: View {
                             selection = 0
                             try? Tips.configure([.displayFrequency(.hourly)])
                         } label: {
-                            Label("Restore tips", systemImage: "lightbulb.max")
+                            Label("restoreTips", systemImage: "lightbulb.max")
                         }
                     }
                     
                     DisclosureGroup(
                         content: {
-                            Text("AboutMe")
+                            Text("aboutMe")
                                 .font(.subheadline)
                         },
                         label: {
-                            Label("About", systemImage: "questionmark.circle")
+                            Label("about", systemImage: "questionmark.circle")
                         }
                     )
                     
                     DisclosureGroup(
                         content: {
                             VStack(alignment: .center, spacing: 16) {
-                                Text("RestoreMessage")
+                                Text("restoreMessage")
                                 Button {
                                     trailManager.restoreDemoTrails()
                                     Feedback.success()
                                     selection = 1
                                 } label: {
-                                    Text("Restore").foregroundColor(.primary)
+                                    Text("restore").foregroundColor(.primary)
                                         .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
                                         .frame(maxWidth: .infinity)
                                 }
@@ -141,7 +141,7 @@ struct SettingsView: View {
                             .font(.subheadline)
                         },
                         label: {
-                            Label("Restore", systemImage: "lifepreserver")
+                            Label("restore", systemImage: "lifepreserver")
                         }
                     )
                     
@@ -159,14 +159,14 @@ struct SettingsView: View {
                         rateApp()
 #endif
                     } label: {
-                        Label("RateApp", systemImage: "star")
+                        Label("rateApp", systemImage: "star")
                     }.foregroundColor(.primary)
                     
                     if MFMailComposeViewController.canSendMail() {
                         Button {
                             showMailView = true
                         } label: {
-                            Label("ContactMe", systemImage: "envelope")
+                            Label("contactMe", systemImage: "envelope")
                         }.foregroundColor(.primary)
                     }
                     
@@ -177,7 +177,7 @@ struct SettingsView: View {
             HStack {
                 Image(systemName: "sidebar.left")
                     .imageScale(.large)
-                Text("SelectInSidebar")
+                Text("selectInSidebar")
             }
         }
         .sheet(isPresented: $showMailView, content: {
@@ -198,11 +198,8 @@ struct SettingsView: View {
 }
 
 
-struct SettingsView_Previews: PreviewProvider {
-    @State static private var selection = 0
-    static var previews: some View {
-        SettingsView(selection: $selection)
-    }
+#Preview {
+    SettingsView(selection: .constant(0))
 }
 
 struct ActivityView: UIViewControllerRepresentable {

@@ -28,7 +28,7 @@ struct PoiRow: View {
                 
                 HStack(spacing: 8) {
                     HStack(alignment: .bottom, spacing: 4) {
-                        Text("Altitude")
+                        Text("altitude")
                             .font(.caption)
                         Text(poi.altitudeInMeters).fontWeight(.bold)
                     }
@@ -54,17 +54,7 @@ struct PoiRow: View {
     
 }
 
-// MARK: Previews
-struct PoiRow_Previews: PreviewProvider {
-    
-    @State static var clockwise = true
-    static var previews: some View {
-        
-        Group {
-            PoiRow(poi: pois[0])
-                .preferredColorScheme(.dark)
-        }
-        .previewLayout(.fixed(width: 320, height: 80))
-        
-    }
+// MARK: Preview
+#Preview {
+    PoiRow(poi: pois[0])
 }

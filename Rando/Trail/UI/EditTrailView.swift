@@ -13,14 +13,14 @@ struct EditTrailView: View {
         NavigationView {
             
             List {
-                Section(header: Text("Rename")) {
+                Section(header: Text("rename")) {
                     TextField("RenameDescription", text: $nameInput, axis: .vertical)
                         .focused($isFocused)
                         .textInputAutocapitalization(.sentences)
                 }
                 
-                Section(header: Text("Description")) {
-                    TextField(trail.description.isEmpty ? "AddDescription" : "EditDescription", text: $descriptionInput, axis: .vertical)
+                Section(header: Text("description")) {
+                    TextField(trail.description.isEmpty ? "addDescription" : "editDescription", text: $descriptionInput, axis: .vertical)
                         .focused($isFocused)
                         .lineLimit(15...15)
                         .textInputAutocapitalization(.sentences)
@@ -28,14 +28,14 @@ struct EditTrailView: View {
                 
             }
             .listStyle(.insetGrouped)
-            .navigationBarTitle("Edit", displayMode: .inline)
+            .navigationBarTitle("edit", displayMode: .inline)
             .navigationBarItems(leading:
-                                    Button("Cancel", action: {
+                                    Button("cancel", action: {
                 showEditTrailSheet = false
             })
             .foregroundColor(.tintColorTabBar)
                                 , trailing:
-                                    Button("Save", action: {
+                                    Button("save", action: {
                 trail.name = nameInput
                 trail.description = descriptionInput
                 TrailManager.shared.save(trail: trail)
@@ -52,11 +52,6 @@ struct EditTrailView: View {
     }
 }
 
-struct EditDescriptionView_Previews: PreviewProvider {
-    
-    @State static var showEditTrailSheet: Bool = true
-    
-    static var previews: some View {
-        EditTrailView(trail: Trail(), showEditTrailSheet: $showEditTrailSheet)
-    }
+#Preview {
+    EditTrailView(trail: Trail(), showEditTrailSheet: .constant(true))
 }

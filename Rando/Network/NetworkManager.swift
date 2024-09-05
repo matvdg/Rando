@@ -20,7 +20,7 @@ class NetworkManager {
             pathMonitor.pathUpdateHandler = {
                 guard $0.status == .satisfied else { // No network
                     DispatchQueue.main.async {
-                        NotificationManager.shared.sendNotification(title: "Error", message: "Network")
+                        NotificationManager.shared.sendNotification(title: "error", message: "network")
                     }
                     return pathMonitor.cancel()
                 }

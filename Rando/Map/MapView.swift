@@ -136,7 +136,7 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-            mapView.userLocation.title = "Alt. \(Int(parent.locationManager.currentPosition.altitude))m"
+            mapView.userLocation.title = "alt. \(Int(parent.locationManager.currentPosition.altitude))m"
         }
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -154,12 +154,12 @@ struct MapView: UIViewRepresentable {
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             if let annotation = annotation as? PoiAnnotation {
-                let identifier = "Annotation"
-                var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                var view = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
                 if let view = view {
                     view.annotation = annotation
                 } else {
-                    view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                    view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+                    view?.clusteringIdentifier = "cluster"
                     view?.canShowCallout = true
                 }
                 if let view = view as? MKMarkerAnnotationView {
@@ -439,14 +439,10 @@ struct MapView: UIViewRepresentable {
 }
 
 
-// MARK: Previews
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView(trail: Trail())
-            .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-            .environment(\.colorScheme, .dark)
-            .environmentObject(AppManager.shared)
-    }
+// MARK: Preview
+#Preview {
+    MapView(trail: Trail())
+        .environmentObject(AppManager.shared)
 }
 
 extension Array where Iterator.Element == Polyline {

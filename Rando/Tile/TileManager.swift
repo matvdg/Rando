@@ -119,7 +119,7 @@ class TileManager: ObservableObject {
             do {
                 try await download(trail: trail, layer: layer)
                 DispatchQueue.main.async { [weak self] in
-                    NotificationManager.shared.sendNotification(title: "\("Downloaded".localized) (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytesString))", message: "\(trail.name) \("DownloadedMessage".localized)")
+                    NotificationManager.shared.sendNotification(title: "\("downloaded".localized) (\(((self?.getDownloadedSize(for: trail.boundingBox, layer: layer)) ?? 0).toBytesString))", message: "\(trail.name) \("downloadedMessage".localized)")
                     self?.progress = 1
                     self?.state = .idle
                     trail.downloadState = .downloaded
@@ -129,7 +129,7 @@ class TileManager: ObservableObject {
             } catch {
                 DispatchQueue.main.async { [weak self] in
                     if let errorDomain = error as? URLError, errorDomain.code != .cancelled {
-                        NotificationManager.shared.sendNotification(title: "Error", message: "Network")
+                        NotificationManager.shared.sendNotification(title: "error", message: "network")
                     }
                     self?.state = .idle
                     trail.downloadState = .notDownloaded

@@ -14,6 +14,8 @@ import TipKit
 struct TrailDetailView: View {
     
     @ObservedObject var trail: Trail
+    @ObservedObject var trailManager = TrailManager.shared
+    @ObservedObject var tileManager = TileManager.shared
     @State var showEditTrailSheet: Bool = false
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var appManager: AppManager
@@ -44,13 +46,13 @@ struct TrailDetailView: View {
                     HStack(alignment: .top, spacing:  8) {
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Distance".localized)
+                            Text("distance".localized)
                                 .font(.system(size: 12))
                                 .foregroundColor(Color("grgray"))
                             Text(trail.distance.toString)
                                 .fontWeight(.bold)
                                 .font(.system(size: 18))
-                            Text("EstimatedDuration".localized)
+                            Text("estimatedDuration".localized)
                                 .font(.system(size: 12))
                                 .foregroundColor(Color("grgray"))
                             Text(trail.estimatedTime)
@@ -63,13 +65,13 @@ struct TrailDetailView: View {
                         Divider()
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("AltMin".localized)
+                            Text("altMin".localized)
                                 .font(.system(size: 12))
                                 .foregroundColor(Color("grgray"))
                             Text(trail.hasElevationData ? trail.minAlt.toStringMeters : "-")
                                 .fontWeight(.bold)
                                 .font(.system(size: 18))
-                            Text("AltMax".localized)
+                            Text("altMax".localized)
                                 .font(.system(size: 12))
                                 .foregroundColor(Color("grgray"))
                             Text(trail.hasElevationData ? trail.maxAlt.toStringMeters : "-")
@@ -83,13 +85,13 @@ struct TrailDetailView: View {
                         
                         VStack(alignment: .leading, spacing: 8) {
                             
-                            Text("ElevationGain".localized)
+                            Text("elevationGain".localized)
                                 .font(.system(size: 12))
                                 .foregroundColor(Color("grgray"))
                             Text(trail.hasElevationData ? trail.elevationGain.toStringMeters : "-").fontWeight(.bold)
                                 .fontWeight(.bold)
                                 .font(.system(size: 18))
-                            Text("ElevationLoss".localized)
+                            Text("elevationLoss".localized)
                                 .font(.system(size: 12))
                                 .foregroundColor(Color("grgray"))
                             Text(trail.hasElevationData ? trail.elevationLoss.toStringMeters : "-").fontWeight(.bold)
@@ -104,7 +106,7 @@ struct TrailDetailView: View {
                     .frame(maxHeight: 100)
                     
                     HStack {
-                        Label("Difficulty", systemImage: "figure.hiking")
+                        Label("difficulty", systemImage: "figure.hiking")
                         Spacer()
                         DifficultyColorView(difficulty: trail.difficulty)
                     }
@@ -126,14 +128,14 @@ struct TrailDetailView: View {
                                 showEditTrailSheet = true
                             }
                     } label: {
-                        Label("Description", systemImage: "text.justify.leading")
+                        Label("description", systemImage: "text.justify.leading")
                     }.isHidden(trail.description.isEmpty, remove: true)
                     
                 }
                 
                 Section(header: Text("map")) {
                     MapSettingsRow()
-                        .disabled(TileManager.shared.state.isDownloading() || trail.downloadState == .downloading)
+                        .disabled(tileManager.state.isDownloading() || trail.downloadState == .downloading)
                     if #available(iOS 17.0, *) {
                         TilesRow(state: $trail.downloadState, trail: trail)
                             .popoverTip(DownloadTip(), arrowEdge: .bottom)
@@ -143,10 +145,10 @@ struct TrailDetailView: View {
                     }
                 }
                 
-                Section(header: Text("Path")) {
+                Section(header: Text("path")) {
                     
                     HStack(alignment: .center, spacing: 8) {
-                        Label("DisplayOnMap", systemImage: "mappin.and.ellipse").lineLimit(1)
+                        Label("displayOnMap", systemImage: "mappin.and.ellipse").lineLimit(1)
                         Spacer()
                         Toggle("", isOn: $trail.isDisplayed).labelsHidden()
                     }
@@ -154,7 +156,7 @@ struct TrailDetailView: View {
                     DisclosureGroup {
                         
                         HStack(alignment: .center, spacing: 8) {
-                            Label("Color", systemImage: "paintpalette").lineLimit(1)
+                            Label("color", systemImage: "paintpalette").lineLimit(1)
                             Spacer()
                             ColorPicker(selection: $trail.color, label: {
                                 EmptyView()
@@ -163,33 +165,33 @@ struct TrailDetailView: View {
                         }
                         
                         HStack(alignment: .center, spacing: 8) {
-                            Label("Thickness", systemImage: "pencil.tip").lineLimit(1)
+                            Label("thickness", systemImage: "pencil.tip").lineLimit(1)
                             Spacer()
                             Slider(
                                 value: $trail.lineWidth,
                                 in: 3...10,
                                 onEditingChanged: { editing in
                                     Feedback.selected()
-                                    TrailManager.shared.save(trail: trail)
+                                    trailManager.save(trail: trail)
                                 }
                             ).frame(width: 150)
                         }
                         
                     } label: {
-                        Label("CustomPath", systemImage: "paintbrush")
+                        Label("customPath", systemImage: "paintbrush")
                         
                     }
-                    //                  ShareLink("Share", item: trail.gpx, preview: SharePreview(trail.name))
+                    //                  ShareLink("share", item: trail.gpx, preview: SharePreview(trail.name))
                 }
                 
-                Section(header: Text("Actions")) {
+                Section(header: Text("actions")) {
                     ItineraryRow(location: trail.firstLocation)
                     TourRow(trail: trail)
                     DeleteRow(trail: trail)
                 }
                 
                 if trail.hasElevationData {
-                    Section(header: Text("Profile")) {
+                    Section(header: Text("profile")) {
                         //                        LineChart(trail: trail)
                         LineView(data: trail.elevations, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f", onIndexChange: { newValue in
                             indexOfGraph = newValue
@@ -205,24 +207,24 @@ struct TrailDetailView: View {
         .navigationBarItems(trailing: Button(action: {
             Feedback.selected()
             trail.isFav.toggle()
-            TrailManager.shared.save(trail: trail)
+            trailManager.save(trail: trail)
         }) {
             trail.isFav ? Image(systemName: "heart.fill") : Image(systemName: "heart")
         })
         .tint(Color.primary)
         .onAppear {
-            TileManager.shared.load(for: trail, selectedLayer: appManager.selectedLayer)
-            TrailManager.shared.addMissingDepartment(trail: self.trail)
+            tileManager.load(for: trail, selectedLayer: appManager.selectedLayer)
+            trailManager.addMissingDepartment(trail: self.trail)
             isPlayingTour = false
         }
         .onChange(of: trail.color, perform: { _ in
-            TrailManager.shared.save(trail: trail)
+            trailManager.save(trail: trail)
         })
         .onChange(of: trail.isDisplayed, perform: { _ in
-            TrailManager.shared.save(trail: trail)
+            trailManager.save(trail: trail)
         })
         .onChange(of: trail.description, perform: { _ in
-            TrailManager.shared.save(trail: trail)
+            trailManager.save(trail: trail)
         })
         .sheet(isPresented: $showEditTrailSheet) {
             EditTrailView(trail: trail, showEditTrailSheet: $showEditTrailSheet)
@@ -236,11 +238,11 @@ struct TrailDetailView: View {
 struct FavoriteTip: Tip {
 
     var title: Text {
-        Text("TipFavTitle")
+        Text("tipFavTitle")
     }
     
     var message: Text? {
-        Text("TipFavDescription")
+        Text("tipFavDescription")
     }
     
     var image: Image? {
@@ -256,11 +258,11 @@ struct FavoriteTip: Tip {
 struct DownloadTip: Tip {
 
     var title: Text {
-        Text("TipDownloadTitle")
+        Text("tipDownloadTitle")
     }
     
     var message: Text? {
-        Text("TipDownloadDescription")
+        Text("tipDownloadDescription")
     }
     
     var image: Image? {
@@ -272,11 +274,8 @@ struct DownloadTip: Tip {
     }
 }
 
-struct TrailDetailView_Previews: PreviewProvider {
-    @State static var trail: Trail = Trail(gpx: Gpx(name: "Le Crabère", locations: [mockLoc1,mockLoc2], department: "Ariège"))
-    static var previews: some View {
-        TrailDetailView(trail: trail).environmentObject(AppManager.shared)
-    }
+#Preview {
+    TrailDetailView(trail: Trail(gpx: Gpx(name: "Le Crabère", locations: [mockLoc1,mockLoc2], department: "Ariège"))).environmentObject(AppManager.shared)
 }
 
 extension Styles {

@@ -57,14 +57,7 @@ struct TrailRow: View {
     
 }
 
-// MARK: Previews
-struct TrailRow_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        TrailRow(trail: Trail())
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 320, height: 80))
-        
-    }
+// MARK: Preview
+#Preview {
+    TrailRow(trail: Trail())
 }

@@ -51,36 +51,32 @@ struct MiniImage: View {
     
 }
 
-// MARK: Previews
-struct MiniImage_Previews: PreviewProvider {
-    static var previews: some View {
-        HStack(alignment: .center, spacing: 20) {
-            VStack(alignment: .center, spacing: 20) {
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-            }
-            VStack(alignment: .center, spacing: 20) {
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-            }
-            VStack(alignment: .center, spacing: 20) {
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-            }
-            VStack(alignment: .center, spacing: 20) {
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-                MiniImage(poi: Poi())
-            }
-            .previewLayout(.fixed(width: 100, height: 100))
-            .environment(\.colorScheme, .light)
+// MARK: Preview
+#Preview {
+    HStack(alignment: .center, spacing: 20) {
+        VStack(alignment: .center, spacing: 20) {
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+        }
+        VStack(alignment: .center, spacing: 20) {
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+        }
+        VStack(alignment: .center, spacing: 20) {
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+        }
+        VStack(alignment: .center, spacing: 20) {
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
+            MiniImage(poi: Poi())
         }
     }
 }

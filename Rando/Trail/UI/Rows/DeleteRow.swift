@@ -27,32 +27,26 @@ struct DeleteRow: View {
             Feedback.selected()
             self.showAlert.toggle()
         }) {
-            Label("DeleteTrail", systemImage: "trash")
+            Label("deleteTrail", systemImage: "trash")
             .accentColor(.red)
         }
         
         .actionSheet(isPresented: $showAlert) {
             return ActionSheet(
-                title: Text("DeleteTrailMessage"),
+                title: Text("deleteTrailMessage"),
                 buttons: [
-                    .destructive(Text("DeleteTrail"), action: {
+                    .destructive(Text("deleteTrail"), action: {
                         self.trailManager.remove(id: self.trail.id)
                         dismiss()
                     }),
-                    .cancel(Text("Cancel"))
+                    .cancel(Text("cancel"))
                 ]
             )
         }
     }
 }
 
-// MARK: Previews
-struct DeleteRow_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        DeleteRow(trail: Trail())
-            .previewLayout(.fixed(width: 300, height: 80))
-            .environment(\.colorScheme, .light)
-    }
+// MARK: Preview
+#Preview {
+    DeleteRow(trail: Trail())
 }

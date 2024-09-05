@@ -28,7 +28,7 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
     
     // Convenience init for testing/previews
     init(lat: CLLocationDegrees = 0, lng: CLLocationDegrees = 0, alt: CLLocationDistance = 0) {
-        self.name = "Pin"
+        self.name = "pin"
         self.category = Category.allCases.randomElement()!
         self.lat = lat
         self.lng = lng

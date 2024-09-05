@@ -62,7 +62,7 @@ struct WorkoutView: View {
                         Feedback.selected()
                     })
                     .tint(.tintColorTabBar)
-                    Text("\("MoreThan".localized) \(minDistance.toString)")
+                    Text("\("moreThan".localized) \(minDistance.toString)")
                 }
                 .padding()
                 
@@ -72,7 +72,7 @@ struct WorkoutView: View {
                     }
                 }
             }
-            .navigationBarTitle("ImportFromWorkout", displayMode: .inline)
+            .navigationBarTitle("importFromWorkout", displayMode: .inline)
             .navigationBarItems(leading: Picker(selection: $workoutActivity, label: Text("")) {
                 ForEach(WorkoutActivity.allCases, id: \.self) { activity in
                     HStack(alignment: .center, spacing: 8) {
@@ -93,13 +93,6 @@ struct WorkoutView: View {
     }
 }
 
-struct HealthView_Previews: PreviewProvider {
-    
-    @State static var showHealthView: Bool = false
-    @State static var workouts: [HKWorkout] = []
-    @State static var trailsToImport = [Trail]()
-    
-    static var previews: some View {
-        WorkoutView(showWorkoutView: $showHealthView, workouts: $workouts, trailsToImport: $trailsToImport)
-    }
+#Preview {
+    WorkoutView(showWorkoutView: .constant(false), workouts: .constant([HKWorkout]()), trailsToImport: .constant([Trail]()))
 }

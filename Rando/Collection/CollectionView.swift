@@ -16,6 +16,7 @@ struct CollectionView: View {
     }
     
     @State var sorting: Sorting = .importDate
+    @State var showEditDateSheet: Bool = false
     @ObservedObject var collectionManager = CollectionManager.shared
     @EnvironmentObject var appManager: AppManager
     
@@ -66,7 +67,7 @@ struct CollectionView: View {
                             .padding()
                         Spacer()
                     }
-                    .navigationBarTitle(Text("Collection"), displayMode: .inline)
+                    .navigationBarTitle(Text("collection"), displayMode: .inline)
                     .navigationBarItems(trailing: Picker(selection: $appManager.selectedCategory, label: Text("")) {
                         ForEach(Category.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {
@@ -84,7 +85,7 @@ struct CollectionView: View {
                             LazyVGrid(columns: columns, spacing: 30) {
                                 ForEach(collection, id: \.self) { collection in
                                     NavigationLink {
-                                        PoiDetailView(poi: collection.poi)
+                                        CollectionDetailView(collection: collection)
                                     } label: {
                                         VStack(alignment: .center, spacing: 4) {
                                             MiniImage(poi: collection.poi)
@@ -92,12 +93,25 @@ struct CollectionView: View {
                                             Text(collection.date.toString)
                                             Text(collection.poi.altitudeInMeters).isHidden(collection.poi.altitudeInMeters == "_", remove: true)
                                         }
+                                        .contextMenu {
+                                            Button {
+                                                //
+                                            } label: {
+                                                Label("changeDate", systemImage: "calendar.badge.clock")
+                                            }
+                                            Button {
+                                                collectionManager.addOrRemovePoiToCollection(poi: collection.poi)
+                                            } label: {
+                                                collectionManager.isPoiAlreadyCollected(poi: collection.poi) ?
+                                                Label("uncollect", image: "iconUncollect") : Label("collect", systemImage: "trophy")
+                                            }
+                                        }
                                     }
                                 }
                             }.padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 8))
                         }
                     }
-                    .navigationBarTitle(Text("Collection (\(collection.count))"), displayMode: .inline)
+                    .navigationBarTitle(Text("collection (\(collection.count))"), displayMode: .inline)
                     .navigationBarItems(trailing: Picker(selection: $appManager.selectedCategory, label: Text("")) {
                         ForEach(Category.allCasesForCollection, id: \.self) { filter in
                             HStack(alignment: .center, spacing: 8) {
@@ -108,7 +122,7 @@ struct CollectionView: View {
                     })
                     .accentColor(.tintColorTabBar)
                 }
-                    
+                
             }
         }
         .onAppear {
@@ -121,8 +135,6 @@ struct CollectionView: View {
     }
 }
 
-struct CollectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionView().environmentObject(AppManager.shared)
-    }
+#Preview {
+    CollectionView().environmentObject(AppManager.shared)
 }

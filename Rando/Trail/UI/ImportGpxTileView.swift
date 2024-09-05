@@ -45,7 +45,7 @@ struct ImportGpxTileView: View {
                 if trail.hasElevationData {
                     Label(trail.elevationGain.toStringMeters, systemImage: "arrow.up.forward")
                 } else {
-                    Label("GPXwithoutAlt", systemImage: "exclamationmark.circle")
+                    Label("gpxWithoutAlt", systemImage: "exclamationmark.circle")
                         .minimumScaleFactor(0.45)
                 }
                 
@@ -61,7 +61,7 @@ struct ImportGpxTileView: View {
             Button {
                 trailsToImport.removeAll { $0.id == trail.id }
             } label: {
-                Label("Delete", systemImage: "trash")
+                Label("delete", systemImage: "trash")
             }
 
         }
@@ -69,9 +69,6 @@ struct ImportGpxTileView: View {
     }
 }
 
-struct ImportGpxTileView_Previews: PreviewProvider {
-    @State static var trailsToImport = [Trail]()
-    static var previews: some View {
-        ImportGpxTileView(trailsToImport: $trailsToImport, trail: Trail(gpx: Gpx(name: "Le Crabère", locations: [mockLoc1,mockLoc2], department: "Ariège")))
-    }
+#Preview {
+    ImportGpxTileView(trailsToImport: .constant([Trail()]), trail: Trail(gpx: Gpx(name: "Le Crabère", locations: [mockLoc1,mockLoc2], department: "Ariège")))
 }

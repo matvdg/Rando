@@ -38,7 +38,7 @@ struct InfoPoiView: View {
                             }) {
                                 HStack(spacing: 10) {
                                     Image(systemName: "phone.fill")
-                                    Text("Phone")
+                                    Text("phone")
                                         .font(.headline)
                                 }
                             }
@@ -51,7 +51,7 @@ struct InfoPoiView: View {
                             }) {
                                 HStack(spacing: 10) {
                                     Image(systemName: "globe")
-                                    Text("Website")
+                                    Text("website")
                                         .font(.headline)
                                 }
                             }
@@ -102,27 +102,7 @@ struct InfoPoiView: View {
     }
 }
 
-// MARK: Previews
-struct InfoPoiView_Previews: PreviewProvider {
-    
-    @State static var poi = PoiManager.shared.pois.first
-    
-    static var previews: some View {
-        
-        Group {
-            InfoPoiView(poi: $poi)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("iPhone 11 Pro Max")
-                .environment(\.colorScheme, .dark)
-            InfoPoiView(poi: $poi)
-                .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (3rd generation)"))
-                .previewDisplayName("iPad Pro")
-                .environment(\.colorScheme, .light)
-            InfoPoiView(poi: $poi)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-                .environment(\.colorScheme, .light)
-        }
-        
-    }
+// MARK: Preview
+#Preview {
+    InfoPoiView(poi: .constant(PoiManager.shared.pois.first))
 }

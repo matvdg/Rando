@@ -38,7 +38,7 @@ struct EnabledFiltersView: View {
                     Feedback.selected()
                     onlyFavs.toggle()
                 } label: {
-                    FilterButton(label: "Favs".localized)
+                    FilterButton(label: "favs".localized)
                 }
                 .isHidden(!onlyFavs, remove: true)
                 
@@ -46,7 +46,7 @@ struct EnabledFiltersView: View {
                     Feedback.selected()
                     onlyDisplayed.toggle()
                 } label: {
-                    FilterButton(label: "Displayed".localized)
+                    FilterButton(label: "displayed".localized)
                 }
                 .isHidden(!onlyDisplayed, remove: true)
                 
@@ -91,17 +91,6 @@ struct EnabledFiltersView: View {
     }
 }
 
-struct EnabledFiltersView_Previews: PreviewProvider {
-    
-    @State static var onlyDisplayed: Bool = true
-    @State static var onlyFavs: Bool = true
-    @State static var onlyLoops: Bool = true
-    @State static var grFilter: GRFilter = .notghr
-    @State static var difficultyFilter: DifficultyFilter = .hard
-    @State static var department: String = "Ariège"
-    @State static var searchText: String = "Cagateille"
-    
-    static var previews: some View {
-        EnabledFiltersView(onlyDisplayed: $onlyDisplayed, onlyFavs: $onlyFavs, onlyLoops: $onlyLoops, grFilter: $grFilter, difficultyFilter: $difficultyFilter, department: $department, searchText: $searchText)
-    }
+#Preview {
+    EnabledFiltersView(onlyDisplayed: .constant(true), onlyFavs: .constant(true), onlyLoops: .constant(true), grFilter: .constant(.gr), difficultyFilter: .constant(.medium), department: .constant("Ariège"), searchText: .constant("Cagateille"))
 }

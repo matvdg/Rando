@@ -17,7 +17,7 @@ struct UserView: View {
     var body: some View {
         NavigationView {
             MapView(poi: poi, userPosition: location)
-                .navigationBarTitle(Text("ShareMyPosition"), displayMode: .inline)
+                .navigationBarTitle(Text("shareMyPosition"), displayMode: .inline)
                 .navigationBarItems(trailing:
                                         Button(action: {
                     Feedback.selected()
@@ -32,9 +32,6 @@ struct UserView: View {
     }
 }
 
-struct UserView_Previews: PreviewProvider {
-    @State static private var location: Location = Location(latitude: 42.835191, longitude: 0.872005, altitude: 1944)
-    static var previews: some View {
-        UserView(location: location)
-    }
+#Preview {
+    UserView(location: Location(latitude: 42.835191, longitude: 0.872005, altitude: 1944))
 }

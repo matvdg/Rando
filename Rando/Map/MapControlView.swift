@@ -159,11 +159,11 @@ struct MapControlView: View {
 struct LayerTip: Tip {
 
     var title: Text {
-        Text("TipLayerTitle")
+        Text("tipLayerTitle")
     }
     
     var message: Text? {
-        Text("TipLayerDescription")
+        Text("tipLayerDescription")
     }
     
     var image: Image? {
@@ -179,11 +179,11 @@ struct LayerTip: Tip {
 struct MapFullScreenTip: Tip {
 
     var title: Text {
-        Text("TipMapFullScreenTitle")
+        Text("tipMapFullScreenTitle")
     }
     
     var message: Text? {
-        Text("TipMapFullScreenDescription")
+        Text("tipMapFullScreenDescription")
     }
     
     var image: Image? {
@@ -199,11 +199,11 @@ struct MapFullScreenTip: Tip {
 struct BoundingTip: Tip {
 
     var title: Text {
-        Text("TipBoundingTitle")
+        Text("tipBoundingTitle")
     }
     
     var message: Text? {
-        Text("TipBoundingDescription")
+        Text("tipBoundingDescription")
     }
     
     var image: Image? {
@@ -219,11 +219,11 @@ struct BoundingTip: Tip {
 struct TrackingTip: Tip {
 
     var title: Text {
-        Text("TipTrackingTitle")
+        Text("tipTrackingTitle")
     }
     
     var message: Text? {
-        Text("TipTrackingDescription")
+        Text("tipTrackingDescription")
     }
     
     var image: Image? {
@@ -236,12 +236,8 @@ struct TrackingTip: Tip {
 }
 
 
-// MARK: Previews
-struct MapControl_Previews: PreviewProvider {
-    @State static var isLayerViewDisplayed = false
-    static var previews: some View {
-        MapControlView(isLayerViewDisplayed: $isLayerViewDisplayed)
-            .environmentObject(AppManager.shared)
-            .previewLayout(.fixed(width: 60, height: 135))
-    }
+// MARK: Preview
+#Preview {
+    MapControlView(isLayerViewDisplayed: .constant(true))
+        .environmentObject(AppManager.shared)
 }

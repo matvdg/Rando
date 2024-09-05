@@ -14,18 +14,12 @@ struct TourRow: View {
     
     var body: some View {
         NavigationLink(destination: TourView(trail: trail)) {
-            Label("3D", systemImage: "view.3d")
+            Label("watchFlyoverTour", systemImage: "view.3d")
         }.accentColor(.primary)
     }
 }
 
-// MARK: Previews
-struct TourRow_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        TourRow(trail: Trail())
-            .previewLayout(.fixed(width: 300, height: 80))
-            .environment(\.colorScheme, .light)
-    }
+// MARK: Preview
+#Preview {
+    TourRow(trail: Trail())
 }

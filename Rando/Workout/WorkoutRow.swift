@@ -29,7 +29,7 @@ struct WorkoutRow: View {
         formatter.dateStyle = .short
         formatter.timeStyle = .short
         let date = formatter.string(from: Date())
-        return name + " · \("Imported".localized) \(date)"
+        return name + " · \("imported".localized) \(date)"
     }
     private var distance: String {
         workout.totalDistance?.doubleValue(for: .meter()).toString ?? "_"
@@ -158,18 +158,10 @@ struct WorkoutRow: View {
     
 }
 
-// MARK: Previews
-struct WorkoutRow_Previews: PreviewProvider {
-    
-    static let workout: HKWorkout = HKWorkout(activityType: .hiking, start: Date(), end: Date())
-    @State static var trailsToImport = [Trail]()
-    @State static var showHealthView: Bool = false
-    
-    static var previews: some View {
-        
-        WorkoutRow(showHealthView: $showHealthView, trailsToImport: $trailsToImport, workout: workout)
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 320, height: 80))
-        
-    }
+#if !targetEnvironment(macCatalyst)
+// MARK: Preview
+#Preview {
+    WorkoutRow(showHealthView: .constant(false), trailsToImport: .constant([Trail]()), workout: HKWorkout(activityType: .hiking, start: Date(), end: Date()))
 }
+#endif
+

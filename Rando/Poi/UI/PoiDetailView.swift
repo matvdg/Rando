@@ -50,7 +50,7 @@ struct PoiDetailView: View {
                     }) {
                         HStack(spacing: 10) {
                             Image(systemName: "phone.fill")
-                            Text("Phone")
+                            Text("phone")
                                 .font(.headline)
                         }
                     }
@@ -63,7 +63,7 @@ struct PoiDetailView: View {
                     }) {
                         HStack(spacing: 10) {
                             Image(systemName: "globe")
-                            Text("Website")
+                            Text("website")
                                 .font(.headline)
                         }
                     }
@@ -91,13 +91,7 @@ struct PoiDetailView: View {
     }
 }
 
-// MARK: Previews
-struct PoiDetail_Previews: PreviewProvider {
-    @State static var clockwise = true
-    static var previews: some View {
-        PoiDetailView(poi: pois[7])
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-            .previewDisplayName("iPhone SE")
-            .environment(\.colorScheme, .light)
-    }
+// MARK: Preview
+#Preview {
+    PoiDetailView(poi: pois[7])
 }

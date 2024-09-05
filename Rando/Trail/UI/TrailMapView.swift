@@ -22,10 +22,6 @@ struct TrailMapView: View {
     }
 }
 
-struct TrailMapView_Previews: PreviewProvider {
-    
-    @State static var selectedLayer: Layer = .ign
-    static var previews: some View {
-        TrailMapView(trail: Trail())
-    }
+#Preview {
+    TrailMapView(trail: Trail())
 }

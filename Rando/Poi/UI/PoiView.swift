@@ -69,13 +69,21 @@ struct PoiView: View {
                     ForEach(selectedPois) { poi in
                         NavigationLink(destination: PoiDetailView(poi: poi)) {
                             PoiRow(poi: poi)
+                                .contextMenu {
+                                    Button {
+                                        collectionManager.addOrRemovePoiToCollection(poi: poi)
+                                    } label: {
+                                        collectionManager.isPoiAlreadyCollected(poi: poi) ?
+                                        Label("uncollect", image: "iconUncollect") : Label("collect", systemImage: "trophy")
+                                    }
+                                }
                         }
                     }
                 }
                 
             }
-            .searchable(text: $searchText, placement: .automatic, prompt: "Search")
-            .navigationBarTitle(Text("Steps"), displayMode: .inline)
+            .searchable(text: $searchText, placement: .automatic, prompt: "search")
+            .navigationBarTitle(Text("pois"), displayMode: .inline)
             .navigationBarItems(trailing:
                                     Picker(selection: $appManager.selectedCategory, label: Text("")) {
                 ForEach(Category.allCasesForCollection, id: \.self) { filter in
@@ -92,7 +100,7 @@ struct PoiView: View {
             HStack {
                 Image(systemName: "sidebar.left")
                     .imageScale(.large)
-                Text("SelectInSidebar")
+                Text("selectInSidebar")
             }
         }
         .onAppear {
@@ -103,12 +111,8 @@ struct PoiView: View {
 }
 
 
-// MARK: Previews
-struct PoiView_Previews: PreviewProvider {
-    static var previews: some View {
-        PoiView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
-            .environment(\.colorScheme, .light)
-            .environmentObject(AppManager.shared)
-    }
+// MARK: Preview
+#Preview {
+    PoiView()
+        .environmentObject(AppManager.shared)
 }

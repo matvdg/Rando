@@ -49,8 +49,6 @@ struct MailView: UIViewControllerRepresentable {
     }
 }
 
-struct MailView_Previews: PreviewProvider {
-    static var previews: some View {
-        MailView()
-    }
+#Preview {
+    MailView()
 }

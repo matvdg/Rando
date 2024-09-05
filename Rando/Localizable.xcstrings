@@ -119,23 +119,7 @@
       },
       "shouldTranslate" : false
     },
-    "3D" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Watch trail"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Visualiser le parcours"
-          }
-        }
-      }
-    },
-    "About" : {
+    "about" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -151,7 +135,7 @@
         }
       }
     },
-    "AboutMe" : {
+    "aboutMe" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -167,8 +151,14 @@
         }
       }
     },
-    "Actions" : {
+    "actions" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actions"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -177,7 +167,7 @@
         }
       }
     },
-    "Add" : {
+    "add" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -194,7 +184,7 @@
         }
       }
     },
-    "AddDescription" : {
+    "addDescription" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -244,17 +234,7 @@
         }
       }
     },
-    "Altitude" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Altitude"
-          }
-        }
-      }
-    },
-    "AltMax" : {
+    "altMax" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -271,7 +251,7 @@
         }
       }
     },
-    "AltMin" : {
+    "altMin" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -284,6 +264,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Altitude minimum"
+          }
+        }
+      }
+    },
+    "appleMaps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Maps"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Maps"
           }
         }
       }
@@ -305,7 +301,7 @@
         }
       }
     },
-    "AverageSpeed" : {
+    "averageSpeed" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -321,7 +317,7 @@
         }
       }
     },
-    "AverageSpeedDescription" : {
+    "averageSpeedDescription" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -388,9 +384,14 @@
         }
       }
     },
-    "Cancel" : {
-      "comment" : "General",
+    "cancel" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -399,8 +400,30 @@
         }
       }
     },
-    "Clean visible trails from the map" : {
+    "changeDate" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modify date & hour"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier date & heure"
+          }
+        }
+      }
+    },
+    "cleanMapTrails" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clean visible trails from the map"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -409,8 +432,30 @@
         }
       }
     },
-    "Collection" : {
+    "collect" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collect"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter à la collection"
+          }
+        }
+      }
+    },
+    "collection" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collection"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -419,8 +464,14 @@
         }
       }
     },
-    "Collection (%lld)" : {
+    "collection (%lld)" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collection (%lld)"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -429,7 +480,7 @@
         }
       }
     },
-    "Color" : {
+    "color" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -445,7 +496,7 @@
         }
       }
     },
-    "ContactMe" : {
+    "contactMe" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -461,7 +512,7 @@
         }
       }
     },
-    "CustomPath" : {
+    "customPath" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -511,8 +562,17 @@
         }
       }
     },
-    "Delete" : {
+    "Date" : {
+
+    },
+    "delete" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -521,7 +581,7 @@
         }
       }
     },
-    "DeleteLayer" : {
+    "deleteLayer" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -537,7 +597,7 @@
         }
       }
     },
-    "DeleteLayerMessage" : {
+    "deleteLayerMessage" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -554,7 +614,7 @@
         }
       }
     },
-    "DeleteTrail" : {
+    "deleteTrail" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -570,7 +630,7 @@
         }
       }
     },
-    "DeleteTrailMessage" : {
+    "deleteTrailMessage" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -581,12 +641,12 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cette action supprimera la randonnée, pas les cartes associées"
+            "value" : "Cela supprimera la randonnée, pas les cartes associées"
           }
         }
       }
     },
-    "Departments" : {
+    "departments" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -602,7 +662,7 @@
         }
       }
     },
-    "Departure" : {
+    "departure" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -619,8 +679,14 @@
         }
       }
     },
-    "Description" : {
+    "description" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -629,8 +695,14 @@
         }
       }
     },
-    "Difficulty" : {
+    "difficulty" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Difficulty"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -639,7 +711,7 @@
         }
       }
     },
-    "Direction" : {
+    "direction" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -655,7 +727,7 @@
         }
       }
     },
-    "Directions" : {
+    "directions" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -671,7 +743,7 @@
         }
       }
     },
-    "Displayed" : {
+    "displayed" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -687,12 +759,12 @@
         }
       }
     },
-    "DisplayOnMap" : {
+    "displayOnMap" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Display on the map"
+            "value" : "Display on map"
           }
         },
         "fr" : {
@@ -737,24 +809,7 @@
         }
       }
     },
-    "Donate" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donate"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faire un don"
-          }
-        }
-      }
-    },
-    "Download" : {
+    "download" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -770,7 +825,7 @@
         }
       }
     },
-    "Downloaded" : {
+    "downloaded" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -786,7 +841,7 @@
         }
       }
     },
-    "DownloadedMessage" : {
+    "downloadedMessage" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -803,19 +858,19 @@
         }
       }
     },
-    "Downloading" : {
+    "downloading" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Downloading..."
+            "value" : "Downloading"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Téléchargement..."
+            "value" : "Téléchargement"
           }
         }
       }
@@ -854,8 +909,14 @@
         }
       }
     },
-    "Edit" : {
+    "edit" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -864,7 +925,7 @@
         }
       }
     },
-    "EditDescription" : {
+    "editDescription" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -896,7 +957,7 @@
         }
       }
     },
-    "ElevationGain" : {
+    "elevationGain" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -913,7 +974,7 @@
         }
       }
     },
-    "ElevationLoss" : {
+    "elevationLoss" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -933,25 +994,49 @@
     "emptyCollection" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your collection is still empty.  Tap on a POI and look for the trophy icon to collect it!"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Your collection is still empty.  Clic on a POI and look for the trophy icon to collect it!"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Your collection is still empty.  Tap on a POI and look for the trophy icon to collect it!"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Votre collection est encore vide. Taper sur un point d’intérêt et chercher l’icône de trophée afin de le collectionner !"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Votre collection est encore vide. Cliquer sur un point d’intérêt et chercher l’icône de trophée afin de le collectionner !"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Votre collection est encore vide. Taper sur un point d’intérêt et chercher l’icône de trophée afin de le collectionner !"
+                }
+              }
+            }
           }
         }
       }
     },
-    "Error" : {
+    "error" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oops!"
+            "value" : "Error"
           }
         },
         "fr" : {
@@ -962,7 +1047,7 @@
         }
       }
     },
-    "EstimatedDuration" : {
+    "estimatedDuration" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -996,7 +1081,23 @@
         }
       }
     },
-    "Favs" : {
+    "fav" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set as favorite"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre en favori"
+          }
+        }
+      }
+    },
+    "favs" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1012,8 +1113,14 @@
         }
       }
     },
-    "Filter" : {
+    "filter" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filter"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1022,8 +1129,14 @@
         }
       }
     },
-    "Filtered" : {
+    "filtered" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtered"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1065,7 +1178,7 @@
         }
       }
     },
-    "Google Maps" : {
+    "gmaps" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1081,24 +1194,7 @@
         }
       }
     },
-    "GPXImported" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GPX imported"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GPX importé"
-          }
-        }
-      }
-    },
-    "GPXtoImport" : {
+    "gpxToImport" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1114,7 +1210,7 @@
         }
       }
     },
-    "GPXwithoutAlt" : {
+    "gpxWithoutAlt" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1159,6 +1255,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Difficile"
+          }
+        }
+      }
+    },
+    "hideOnMap" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove trail from the map"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer ce tracé de la carte"
           }
         }
       }
@@ -1265,7 +1377,7 @@
         }
       }
     },
-    "ImportFromFiles" : {
+    "importFromFiles" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1281,7 +1393,7 @@
         }
       }
     },
-    "ImportFromFitness" : {
+    "importFromFitness" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1297,7 +1409,7 @@
         }
       }
     },
-    "ImportFromPasteboard" : {
+    "importFromPasteboard" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1313,7 +1425,7 @@
         }
       }
     },
-    "ImportFromWorkout" : {
+    "importFromWorkout" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1329,7 +1441,7 @@
         }
       }
     },
-    "ImportGPX" : {
+    "importGPX" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1353,7 +1465,8 @@
             "value" : "index"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "lake" : {
       "extractionState" : "manual",
@@ -1372,7 +1485,7 @@
         }
       }
     },
-    "Left" : {
+    "left" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1385,23 +1498,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "restant"
-          }
-        }
-      }
-    },
-    "Loading" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loading..."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chargement..."
           }
         }
       }
@@ -1440,6 +1536,12 @@
     },
     "Maison d'Arlos" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maison d'Arlos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1483,6 +1585,12 @@
     },
     "minAlt" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "minAlt"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1491,24 +1599,7 @@
         }
       }
     },
-    "MoreInfos" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More infos..."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Plus d'informations..."
-          }
-        }
-      }
-    },
-    "MoreThan" : {
+    "moreThan" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1542,7 +1633,7 @@
         }
       }
     },
-    "Network" : {
+    "network" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1594,8 +1685,14 @@
         }
       }
     },
-    "OK" : {
+    "ok" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1656,6 +1753,12 @@
     },
     "or" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "or"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1681,7 +1784,7 @@
         }
       }
     },
-    "OtherDownloadInProcess" : {
+    "otherDownloadInProcess" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1697,8 +1800,14 @@
         }
       }
     },
-    "Path" : {
+    "path" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Path"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1724,12 +1833,18 @@
         }
       }
     },
-    "Phone" : {
+    "phone" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phone"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Téléphoner"
+            "value" : "Téléphone"
           }
         }
       }
@@ -1751,8 +1866,30 @@
         }
       }
     },
-    "Profile" : {
+    "pois" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POIs"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Points d’intérêt"
+          }
+        }
+      }
+    },
+    "profile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1763,6 +1900,12 @@
     },
     "Rando Pyrénées" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rando Pyrénées"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1771,7 +1914,7 @@
         }
       }
     },
-    "RateApp" : {
+    "rateApp" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1804,7 +1947,7 @@
         }
       }
     },
-    "Rename" : {
+    "rename" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1836,7 +1979,7 @@
         }
       }
     },
-    "ResetAverageSpeed" : {
+    "resetAverageSpeed" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1852,7 +1995,7 @@
         }
       }
     },
-    "Restore" : {
+    "restore" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1868,7 +2011,23 @@
         }
       }
     },
-    "Restore tips" : {
+    "restoreMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Did you delete the Pyrénées trails preloaded with the app, and you regret your action?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez supprimé les randonnées des Pyrénées préchargées avec l'app, et vous regrettez votre geste ?"
+          }
+        }
+      }
+    },
+    "restoreTips" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1880,22 +2039,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restaurer les astuces de l’app"
-          }
-        }
-      }
-    },
-    "RestoreMessage" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You have deleted the Pyrenees trails preloaded with the app, and you regret your action?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez supprimé les randonnées des Pyrénées préchargées avec l'app, et vous regrettez votre geste ?"
           }
         }
       }
@@ -1934,8 +2077,14 @@
         }
       }
     },
-    "Save" : {
+    "save" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1944,8 +2093,14 @@
         }
       }
     },
-    "Search" : {
+    "search" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1954,7 +2109,7 @@
         }
       }
     },
-    "SelectInSidebar" : {
+    "selectInSidebar" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1970,8 +2125,14 @@
         }
       }
     },
-    "Settings" : {
+    "settings" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1980,25 +2141,7 @@
         }
       }
     },
-    "Share" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Share"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Partager"
-          }
-        }
-      }
-    },
-    "ShareApp" : {
-      "comment" : "Settings",
+    "shareApp" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2014,7 +2157,7 @@
         }
       }
     },
-    "ShareMyPosition" : {
+    "shareMyPosition" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2064,8 +2207,14 @@
         }
       }
     },
-    "Show GR10 and HRP on the map" : {
+    "showGHR" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show GR10 and HRP on the map"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2108,22 +2257,6 @@
         }
       }
     },
-    "Steps" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "POIs"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Points d'intérêts"
-          }
-        }
-      }
-    },
     "swissTopo" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2141,8 +2274,14 @@
         }
       }
     },
-    "Thickness" : {
+    "thickness" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thickness"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2151,23 +2290,47 @@
         }
       }
     },
-    "TipBoundingDescription" : {
+    "tipBoundingDescription" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap here to center the map around the displayed trails"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Clic to center the map around the displayed trails"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tap to center the map around the displayed trails"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taper ici pour centrer la carte autour des randonnées affichées"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cliquer pour centrer la carte autour des randonnées affichées"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Taper pour centrer la carte autour des randonnées affichées"
+                }
+              }
+            }
           }
         }
       }
     },
-    "TipBoundingTitle" : {
+    "tipBoundingTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2183,23 +2346,47 @@
         }
       }
     },
-    "TipDownloadDescription" : {
+    "tipDownloadDescription" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap here to download maps offline for this trail"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Clic to download offline maps for this trail"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tap to download offline maps for this trail"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taper ici pour télécharger les cartes pour cette randonnée hors ligne"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cliquer pour télécharger les cartes pour cette randonnée hors ligne"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Taper pour télécharger les cartes pour cette randonnée hors ligne"
+                }
+              }
+            }
           }
         }
       }
     },
-    "TipDownloadTitle" : {
+    "tipDownloadTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2215,23 +2402,47 @@
         }
       }
     },
-    "TipFavDescription" : {
+    "tipFavDescription" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap here to set this trail as favorite"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Clic to set this trail as favorite"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tap to set this trail as favorite"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taper ici pour mettre cette randonnée en favori"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cliquer pour mettre cette randonnée en favori"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Taper pour mettre cette randonnée en favori"
+                }
+              }
+            }
           }
         }
       }
     },
-    "TipFavTitle" : {
+    "tipFavTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2247,23 +2458,47 @@
         }
       }
     },
-    "TipLayerDescription" : {
+    "tipLayerDescription" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap here to change map layers or display POIs"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Clic to change map layers or display POIs"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tap to change map layers or display POIs"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taper ici pour changer de fonds de carte ou afficher des points d’intérêts"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cliquer pour changer de fonds de carte ou afficher des points d’intérêts"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Taper pour changer de fonds de carte ou afficher des points d’intérêts"
+                }
+              }
+            }
           }
         }
       }
     },
-    "TipLayerTitle" : {
+    "tipLayerTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2279,23 +2514,47 @@
         }
       }
     },
-    "TipMapFullScreenDescription" : {
+    "tipMapFullScreenDescription" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap here to put the map fullscreen"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Clic to put the map fullscreen"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tap to put the map fullscreen"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taper pour mettre la carte en plein écran"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cliquer pour mettre la carte en plein écran"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Taper pour mettre la carte en plein écran"
+                }
+              }
+            }
           }
         }
       }
     },
-    "TipMapFullScreenTitle" : {
+    "tipMapFullScreenTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2311,23 +2570,47 @@
         }
       }
     },
-    "TipTrackingDescription" : {
+    "tipTrackingDescription" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap once to center the map on your position, twice to orient the map in your direction"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Clic to center the map around your position"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tap once to center the map around your position, twice to orient the map in your direction"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taper une fois pour centrer la carte sur votre position, deux fois pour l’orienter dans votre direction"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cliquer pour centrer la carte autour de votre position"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Taper une fois pour centrer la carte autour de votre position, deux fois pour l’orienter dans votre direction"
+                }
+              }
+            }
           }
         }
       }
     },
-    "TipTrackingTitle" : {
+    "tipTrackingTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2343,7 +2626,7 @@
         }
       }
     },
-    "Today" : {
+    "today" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2360,7 +2643,7 @@
         }
       }
     },
-    "Trail" : {
+    "trail" : {
       "comment" : "TrailView",
       "extractionState" : "manual",
       "localizations" : {
@@ -2378,8 +2661,14 @@
         }
       }
     },
-    "Trails" : {
+    "trails" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trails"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2388,7 +2677,39 @@
         }
       }
     },
-    "UrlError" : {
+    "uncollect" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove from collection"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retirer de la collection"
+          }
+        }
+      }
+    },
+    "unfav" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove from favorites"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retirer des favoris"
+          }
+        }
+      }
+    },
+    "urlError" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2412,7 +2733,8 @@
             "value" : "v%@"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "walking" : {
       "extractionState" : "manual",
@@ -2427,6 +2749,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Marche"
+          }
+        }
+      }
+    },
+    "watchFlyoverTour" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Watch 3D tour"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visualiser le parcours"
           }
         }
       }
@@ -2448,8 +2786,14 @@
         }
       }
     },
-    "Waze" : {
+    "waze" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waze"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2458,7 +2802,7 @@
         }
       }
     },
-    "Website" : {
+    "website" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2474,7 +2818,7 @@
         }
       }
     },
-    "WorkoutError" : {
+    "workoutError" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2490,7 +2834,7 @@
         }
       }
     },
-    "Yesterday" : {
+    "yesterday" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2503,16 +2847,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hier"
-          }
-        }
-      }
-    },
-    " Maps" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " Maps"
           }
         }
       }

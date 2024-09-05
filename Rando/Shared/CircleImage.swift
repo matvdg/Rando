@@ -51,15 +51,11 @@ struct CircleImage: View {
     
 }
 
-// MARK: Previews
-struct CircleImage_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            CircleImage(poi: Poi())
-            CircleImage(poi: Poi())
-            
-        }
-        .previewLayout(.fixed(width: 300, height: 300))
-        .environment(\.colorScheme, .light)
+// MARK: Preview
+#Preview {
+    Group {
+        CircleImage(poi: Poi())
+        CircleImage(poi: Poi())
+        
     }
 }

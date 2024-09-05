@@ -20,9 +20,7 @@ struct AppIcon: View {
     }
 }
 
-// MARK: Previews
-struct AppIcon_Previews: PreviewProvider {
-    static var previews: some View {
-        AppIcon()
-    }
+// MARK: Preview
+#Preview {
+    AppIcon()
 }

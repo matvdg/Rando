@@ -401,38 +401,35 @@ struct DifficultyView: View {
     }
 }
 
-struct DifficultyColorView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        HStack(alignment: .center, spacing: 30) {
-            Spacer()
-            VStack(alignment: .center, spacing: 30) {
-                Text("DifficultyColorView")
-                DifficultyColorView(difficulty: .beginner)
-                DifficultyColorView(difficulty: .easy)
-                DifficultyColorView(difficulty: .medium)
-                DifficultyColorView(difficulty: .hard)
-                DifficultyColorView(difficulty: .extreme)
-            }
-            Spacer()
-            VStack(alignment: .center, spacing: 30) {
-                Text("DifficultyMultiColorView")
-                DifficultyMultiColorView(difficulty: .beginner)
-                DifficultyMultiColorView(difficulty: .easy)
-                DifficultyMultiColorView(difficulty: .medium)
-                DifficultyMultiColorView(difficulty: .hard)
-                DifficultyMultiColorView(difficulty: .extreme)
-            }
-            Spacer()
-            VStack(alignment: .center, spacing: 30) {
-                Text("DifficultyView")
-                DifficultyView(difficulty: .beginner)
-                DifficultyView(difficulty: .easy)
-                DifficultyView(difficulty: .medium)
-                DifficultyView(difficulty: .hard)
-                DifficultyView(difficulty: .extreme)
-            }
-            Spacer()
+#Preview {
+    HStack(alignment: .center, spacing: 30) {
+        Spacer()
+        VStack(alignment: .center, spacing: 30) {
+            Text("difficultyColorView")
+            DifficultyColorView(difficulty: .beginner)
+            DifficultyColorView(difficulty: .easy)
+            DifficultyColorView(difficulty: .medium)
+            DifficultyColorView(difficulty: .hard)
+            DifficultyColorView(difficulty: .extreme)
         }
+        Spacer()
+        VStack(alignment: .center, spacing: 30) {
+            Text("difficultyMultiColorView")
+            DifficultyMultiColorView(difficulty: .beginner)
+            DifficultyMultiColorView(difficulty: .easy)
+            DifficultyMultiColorView(difficulty: .medium)
+            DifficultyMultiColorView(difficulty: .hard)
+            DifficultyMultiColorView(difficulty: .extreme)
+        }
+        Spacer()
+        VStack(alignment: .center, spacing: 30) {
+            Text("difficultyView")
+            DifficultyView(difficulty: .beginner)
+            DifficultyView(difficulty: .easy)
+            DifficultyView(difficulty: .medium)
+            DifficultyView(difficulty: .hard)
+            DifficultyView(difficulty: .extreme)
+        }
+        Spacer()
     }
 }

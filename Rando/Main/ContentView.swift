@@ -26,22 +26,22 @@ struct ContentView: View {
                     .tag(0)
                 TrailsView()
                     .tabItem {
-                        Label("Trails", systemImage: "point.topleft.down.curvedto.point.filled.bottomright.up")
+                        Label("trails", systemImage: "point.topleft.down.curvedto.point.filled.bottomright.up")
                     }
                     .tag(1)
                 PoiView()
                     .tabItem {
-                        Label("Steps", systemImage: "mappin.and.ellipse")
+                        Label("pois", systemImage: "mappin.and.ellipse")
                     }
                     .tag(2)
                 CollectionView()
                     .tabItem {
-                        Label("Collection", systemImage: "trophy")
+                        Label("collection", systemImage: "trophy")
                     }
                     .tag(3)
                 SettingsView(selection: $selection)
                     .tabItem {
-                        Label("Settings", systemImage: "gearshape")
+                        Label("settings", systemImage: "gearshape")
                     }
                     .tag(4)
             }
@@ -74,13 +74,7 @@ struct ContentView: View {
 }
 
 
-// MARK: Previews
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-                .environment(\.colorScheme, .light)
-        }
-    }
+// MARK: Preview
+#Preview {
+    ContentView()
 }

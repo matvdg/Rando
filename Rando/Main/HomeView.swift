@@ -69,11 +69,7 @@ struct HomeView: View {
     
 }
 
-// MARK: Previews
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-            .environment(\.colorScheme, .dark)
-    }
+// MARK: Preview
+#Preview {
+    HomeView()
 }
