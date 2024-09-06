@@ -10,8 +10,6 @@ import SwiftUI
 import MapKit
 import TipKit
 
-let pois = PoiManager.shared.pois
-
 struct PoiView: View {
     
     enum Sorting: String, CaseIterable, Equatable {
@@ -23,6 +21,8 @@ struct PoiView: View {
     @ObservedObject var collectionManager = CollectionManager.shared
     @State private var searchText = ""
     @State private var sorting: Sorting = .altitude
+    
+    let pois = PoiManager.shared.pois
     
     var selectedPois: [Poi] {
         var filteredAndSortedPois: [Poi]

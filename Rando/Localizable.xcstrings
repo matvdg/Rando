@@ -400,22 +400,6 @@
         }
       }
     },
-    "changeDate" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modify date & hour"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modifier date & heure"
-          }
-        }
-      }
-    },
     "cleanMapTrails" : {
       "localizations" : {
         "en" : {
@@ -561,9 +545,6 @@
           }
         }
       }
-    },
-    "Date" : {
-
     },
     "delete" : {
       "localizations" : {
@@ -921,6 +902,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modifier"
+          }
+        }
+      }
+    },
+    "editDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modify date & hour"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier date & heure"
           }
         }
       }

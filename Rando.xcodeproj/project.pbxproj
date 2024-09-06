@@ -31,7 +31,7 @@
 		D0FF45AE246BE3080087697B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45AD246BE3080087697B /* Feedback.swift */; };
 		D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */; };
 		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
-		F607C8212C88C386000C7C57 /* CollectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8202C88C386000C7C57 /* CollectionDetailView.swift */; };
+		F607C8212C88C386000C7C57 /* CollectedPoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8202C88C386000C7C57 /* CollectedPoiView.swift */; };
 		F607C8252C891D73000C7C57 /* iCloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8242C891D6E000C7C57 /* iCloudSyncManager.swift */; };
 		F60D12B22A28321700437AA1 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = F60D12B12A28321700437AA1 /* CoreGPX */; };
 		F60D12B42A28906200437AA1 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B32A28906100437AA1 /* WorkoutManager.swift */; };
@@ -44,10 +44,10 @@
 		F62779BC2A218FBA00185386 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62779BB2A218FBA00185386 /* FilterButton.swift */; };
 		F6281E132AA16F1600D454BE /* CollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6281E122AA16F1600D454BE /* CollectionManager.swift */; };
 		F6281E152AA2AA5300D454BE /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6281E142AA2AA5300D454BE /* UserView.swift */; };
-		F633290B2AA155A3008373A6 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F633290A2AA155A3008373A6 /* Collection.swift */; };
+		F633290B2AA155A3008373A6 /* CollectedPoi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F633290A2AA155A3008373A6 /* CollectedPoi.swift */; };
 		F633290D2AA156FC008373A6 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F633290C2AA156FC008373A6 /* CollectionView.swift */; };
 		F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F639047A24DC8E58005B4FC1 /* GridStack.swift */; };
-		F652C6652C8A5556001AB35D /* CollectionDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652C6642C8A5556001AB35D /* CollectionDateView.swift */; };
+		F652C6652C8A5556001AB35D /* EditDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652C6642C8A5556001AB35D /* EditDateView.swift */; };
 		F6577E742A3C483F00162B81 /* EditTrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6577E732A3C483F00162B81 /* EditTrailView.swift */; };
 		F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */ = {isa = PBXBuildFile; productRef = F658C2D52A1CFEF200979723 /* HidableTabView */; };
 		F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */ = {isa = PBXBuildFile; productRef = F65DCC112A24D01100A24E10 /* Semaphore */; };
@@ -174,7 +174,7 @@
 		D0FF45AD246BE3080087697B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
-		F607C8202C88C386000C7C57 /* CollectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailView.swift; sourceTree = "<group>"; };
+		F607C8202C88C386000C7C57 /* CollectedPoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedPoiView.swift; sourceTree = "<group>"; };
 		F607C8242C891D6E000C7C57 /* iCloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudSyncManager.swift; sourceTree = "<group>"; };
 		F60D12B32A28906100437AA1 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		F60D12B52A28A12300437AA1 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
@@ -187,10 +187,10 @@
 		F62779BB2A218FBA00185386 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		F6281E122AA16F1600D454BE /* CollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionManager.swift; sourceTree = "<group>"; };
 		F6281E142AA2AA5300D454BE /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
-		F633290A2AA155A3008373A6 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		F633290A2AA155A3008373A6 /* CollectedPoi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedPoi.swift; sourceTree = "<group>"; };
 		F633290C2AA156FC008373A6 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		F639047A24DC8E58005B4FC1 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
-		F652C6642C8A5556001AB35D /* CollectionDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDateView.swift; sourceTree = "<group>"; };
+		F652C6642C8A5556001AB35D /* EditDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateView.swift; sourceTree = "<group>"; };
 		F6577E732A3C483F00162B81 /* EditTrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrailView.swift; sourceTree = "<group>"; };
 		F65DCC132A24E1B400A24E10 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		F66AFEBB2A3E8FFB0030086A /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
@@ -459,10 +459,10 @@
 			isa = PBXGroup;
 			children = (
 				F633290C2AA156FC008373A6 /* CollectionView.swift */,
-				F607C8202C88C386000C7C57 /* CollectionDetailView.swift */,
-				F633290A2AA155A3008373A6 /* Collection.swift */,
+				F607C8202C88C386000C7C57 /* CollectedPoiView.swift */,
 				F6281E122AA16F1600D454BE /* CollectionManager.swift */,
-				F652C6642C8A5556001AB35D /* CollectionDateView.swift */,
+				F652C6642C8A5556001AB35D /* EditDateView.swift */,
+				F633290A2AA155A3008373A6 /* CollectedPoi.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -777,7 +777,7 @@
 				D0634793245D768B003BA9E7 /* AppDelegate.swift in Sources */,
 				D0B7CE1E246A996E00464C79 /* InfoPoiView.swift in Sources */,
 				D0B7CDB22468550D00464C79 /* Color.swift in Sources */,
-				F607C8212C88C386000C7C57 /* CollectionDetailView.swift in Sources */,
+				F607C8212C88C386000C7C57 /* CollectedPoiView.swift in Sources */,
 				F60D12B42A28906200437AA1 /* WorkoutManager.swift in Sources */,
 				F66AFEBC2A3E8FFB0030086A /* LineChart.swift in Sources */,
 				F6A3DEF72A37C23A00C69B55 /* TourView.swift in Sources */,
@@ -813,7 +813,7 @@
 				F6E2C0D42A3A5F64001FD8F1 /* TrailDetailView.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,
 				F6281E152AA2AA5300D454BE /* UserView.swift in Sources */,
-				F633290B2AA155A3008373A6 /* Collection.swift in Sources */,
+				F633290B2AA155A3008373A6 /* CollectedPoi.swift in Sources */,
 				F684808B2C80BDF900D5810D /* AppManager.swift in Sources */,
 				F6281E132AA16F1600D454BE /* CollectionManager.swift in Sources */,
 				F68AF33E2A558FF300B3A629 /* TrailMapView.swift in Sources */,
@@ -830,7 +830,7 @@
 				F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */,
 				F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */,
 				F6A3DEE52A37C23A00C69B55 /* Poi.swift in Sources */,
-				F652C6652C8A5556001AB35D /* CollectionDateView.swift in Sources */,
+				F652C6652C8A5556001AB35D /* EditDateView.swift in Sources */,
 				F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */,
 				F60D12B82A28A7A700437AA1 /* WorkoutRow.swift in Sources */,
 				F6A3DEF02A37C23A00C69B55 /* TrailRow.swift in Sources */,

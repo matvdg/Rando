@@ -11,17 +11,17 @@ import SwiftUI
 struct CollectionView: View {
     
     enum Sorting: String, CaseIterable, Equatable {
-        case importDate, name, altitude
+        case date, name, altitude
         var localized: String { self.rawValue }
     }
     
-    @State var sorting: Sorting = .importDate
-    @State var showEditDateSheet: Bool = false
+    @State var sorting: Sorting = .date
     @ObservedObject var collectionManager = CollectionManager.shared
     @EnvironmentObject var appManager: AppManager
+    @State var showEditDateSheet: Bool = false
+    @State var selectedCollectedPoi: CollectedPoi?
     
-    
-    private var collection: [Collection] {
+    private var collection: [CollectedPoi] {
         var collection = collectionManager.collection
         // Filter
         switch appManager.selectedCategory {
@@ -40,7 +40,7 @@ struct CollectionView: View {
             switch sorting {
             case .altitude: return $0.poi.alt ?? 0 > $1.poi.alt ?? 0
             case .name: return $0.poi.name < $1.poi.name
-            case .importDate: return $0.date > $1.date
+            case .date: return $0.date > $1.date
             }
         }
         return collection
@@ -83,26 +83,27 @@ struct CollectionView: View {
                             Spacer().frame(height: 20)
                             
                             LazyVGrid(columns: columns, spacing: 30) {
-                                ForEach(collection, id: \.self) { collection in
+                                ForEach(collection, id: \.self) { collectedPoi in
                                     NavigationLink {
-                                        CollectionDetailView(collection: collection)
+                                        CollectedPoiView(collectedPoi: collectedPoi)
                                     } label: {
                                         VStack(alignment: .center, spacing: 4) {
-                                            MiniImage(poi: collection.poi)
-                                            Text(collection.poi.name).bold().foregroundColor(.primary)
-                                            Text(collection.date.toString)
-                                            Text(collection.poi.altitudeInMeters).isHidden(collection.poi.altitudeInMeters == "_", remove: true)
+                                            MiniImage(poi: collectedPoi.poi)
+                                            Text(collectedPoi.poi.name).bold().foregroundColor(.primary)
+                                            Text(collectedPoi.date.toString)
+                                            Text(collectedPoi.poi.altitudeInMeters).isHidden(collectedPoi.poi.altitudeInMeters == "_", remove: true)
                                         }
                                         .contextMenu {
                                             Button {
-                                                //
+                                                selectedCollectedPoi = collectedPoi
+                                                
                                             } label: {
-                                                Label("changeDate", systemImage: "calendar.badge.clock")
+                                                Label("editDate", systemImage: "calendar.badge.clock")
                                             }
                                             Button {
-                                                collectionManager.addOrRemovePoiToCollection(poi: collection.poi)
+                                                collectionManager.addOrRemovePoiToCollection(poi: collectedPoi.poi)
                                             } label: {
-                                                collectionManager.isPoiAlreadyCollected(poi: collection.poi) ?
+                                                collectionManager.isPoiAlreadyCollected(poi: collectedPoi.poi) ?
                                                 Label("uncollect", image: "iconUncollect") : Label("collect", systemImage: "trophy")
                                             }
                                         }
@@ -120,6 +121,11 @@ struct CollectionView: View {
                             }
                         }
                     })
+                    .sheet(isPresented: $showEditDateSheet, content: {
+                        if let collectedPoi = selectedCollectedPoi {
+                            EditDateView(collectedPoi: collectedPoi, showEditDateSheet: $showEditDateSheet)
+                        }
+                    })
                     .accentColor(.tintColorTabBar)
                 }
                 
@@ -132,6 +138,9 @@ struct CollectionView: View {
         .onDisappear {
             collectionManager.unwatchiCloud()
         }
+        .onChange(of: selectedCollectedPoi, perform: { _ in
+            showEditDateSheet = true
+        })
     }
 }
 

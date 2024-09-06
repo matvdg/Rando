@@ -56,5 +56,5 @@ struct PoiRow: View {
 
 // MARK: Preview
 #Preview {
-    PoiRow(poi: pois[0])
+    PoiRow(poi: PoiManager.shared.demoPoi)
 }

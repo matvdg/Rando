@@ -12,7 +12,15 @@ class CollectionManager: ObservableObject {
     
     static let shared = CollectionManager()
     
-    @Published var collection = [Collection]()
+    var demoCollection: CollectedPoi {
+        CollectedPoi(id: UUID(), poi: PoiManager.shared.demoPoi, date: Date(), description: "test", photosURL: [
+            URL(string: "https://raw.githubusercontent.com/matvdg/Rando/master/photos/holzarte.heic"),
+            URL(string:"https://raw.githubusercontent.com/matvdg/Rando/master/photos/lacrius.jpeg"),
+            URL(string:"https://raw.githubusercontent.com/matvdg/Rando/master/photos/cagire.jpeg")
+        ])
+    }
+    
+    @Published var collection = [CollectedPoi]()
     
     private var metadataQuery: NSMetadataQuery?
     private var notificationsLocked: Bool = false
@@ -56,9 +64,19 @@ class CollectionManager: ObservableObject {
         if isPoiAlreadyCollected(poi: poi) { // Remove
             collection.removeAll { $0.poi.name == poi.name }
         } else { // Add
-            let newPoi = Collection(id: UUID(), poi: poi, date: Date())
+            let newPoi = CollectedPoi(id: UUID(), poi: poi, date: Date(), description: nil, photosURL: nil)
             collection.append(newPoi)
         }
+        save(collection: collection)
+    }
+    
+    func save(collectedPoi: CollectedPoi) {
+        guard let index = self.collection.firstIndex(where: { $0.id == collectedPoi.id }) else { return }
+        collection[index] = collectedPoi
+        save(collection: collection)
+    }
+    
+    func save(collection: [CollectedPoi]) {
         let file = "collection.json"
         let filename = FileManager.documentsDirectory.appendingPathComponent(file)
         do {
@@ -69,11 +87,29 @@ class CollectionManager: ObservableObject {
         }
     }
     
-    private func getCollection() -> [Collection] {
+    func editDate(collectedPoi: CollectedPoi, newDate: Date) {
+        var collectedPoi = collectedPoi
+        collectedPoi.editDate(newDate: newDate)
+        save(collectedPoi: collectedPoi)
+    }
+    
+    func editDescription(collectedPoi: CollectedPoi, description: String) {
+        var collectedPoi = collectedPoi
+        collectedPoi.description = description
+        save(collectedPoi: collectedPoi)
+    }
+    
+    func editPhotosUrl(collectedPoi: CollectedPoi, photosUrl: [URL?]?) {
+        var collectedPoi = collectedPoi
+        collectedPoi.photosURL = photosUrl
+        save(collectedPoi: collectedPoi)
+    }
+    
+    private func getCollection() -> [CollectedPoi] {
         let url = FileManager.documentsDirectory.appendingPathComponent("collection.json")
       do {
         let data = try Data(contentsOf: url)
-        let collection = try JSONDecoder().decode([Collection].self, from: data)
+        let collection = try JSONDecoder().decode([CollectedPoi].self, from: data)
         print("􀎫 Collection = \(collection.count)")
         return collection
       } catch {

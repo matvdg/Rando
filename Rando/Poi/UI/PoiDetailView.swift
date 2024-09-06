@@ -93,5 +93,5 @@ struct PoiDetailView: View {
 
 // MARK: Preview
 #Preview {
-    PoiDetailView(poi: pois[7])
+    PoiDetailView(poi: PoiManager.shared.demoPoi)
 }

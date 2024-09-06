@@ -1,5 +1,5 @@
 //
-//  CollectionDetailView.swift
+//  CollectedPoiView.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 04/09/2024.
@@ -8,43 +8,43 @@
 
 import SwiftUI
 
-struct CollectionDetailView: View {
+struct CollectedPoiView: View {
         
     @ObservedObject var collectionManager = CollectionManager.shared
     
-    var collection: Collection
+    var collectedPoi: CollectedPoi
     
     var body: some View {
         
         ScrollView(showsIndicators: false) {
             VStack {
                 
-                NavigationLink(destination: MapView(poi: collection.poi).navigationTitle("map")) {
-                    MapView(poi: collection.poi)
+                NavigationLink(destination: MapView(poi: collectedPoi.poi).navigationTitle("map")) {
+                    MapView(poi: collectedPoi.poi)
                         .frame(height: 150)
                 }
                 
-                CircleImage(poi: collection.poi)
+                CircleImage(poi: collectedPoi.poi)
                     .offset(x: 0, y: -130)
                     .padding(.bottom, -130)
                 
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    Text(collection.poi.name)
+                    Text(collectedPoi.poi.name)
                         .font(.title)
                         .fontWeight(.heavy)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("altitude")
                             .foregroundColor(Color("grgray"))
-                        Text(collection.poi.altitudeInMeters).fontWeight(.bold)
+                        Text(collectedPoi.poi.altitudeInMeters).fontWeight(.bold)
                     }
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
-                    .isHidden(collection.poi.altitudeInMeters == "_", remove: true)
+                    .isHidden(collectedPoi.poi.altitudeInMeters == "_", remove: true)
                     
                     Button(action: {
-                        guard let url = self.collection.poi.phoneNumber else { return }
+                        guard let url = self.collectedPoi.poi.phoneNumber else { return }
                         UIApplication.shared.open(url)
                         Feedback.selected()
                     }) {
@@ -54,10 +54,10 @@ struct CollectionDetailView: View {
                                 .font(.headline)
                         }
                     }
-                    .isHidden(!self.collection.poi.hasPhoneNumber, remove: true)
+                    .isHidden(!self.collectedPoi.poi.hasPhoneNumber, remove: true)
                     
                     Button(action: {
-                        guard let url = self.collection.poi.website else { return }
+                        guard let url = self.collectedPoi.poi.website else { return }
                         UIApplication.shared.open(url)
                         Feedback.selected()
                     }) {
@@ -67,9 +67,9 @@ struct CollectionDetailView: View {
                                 .font(.headline)
                         }
                     }
-                    .isHidden(!self.collection.poi.hasWebsite, remove: true)
+                    .isHidden(!self.collectedPoi.poi.hasWebsite, remove: true)
                     
-                    Text(collection.poi.description ?? "")
+                    Text(collectedPoi.poi.description ?? "")
                         .font(.body)
                         .foregroundColor(.text)
                         .padding(.trailing, 8)
@@ -77,14 +77,14 @@ struct CollectionDetailView: View {
                 .padding()
             }
             .navigationBarItems(trailing: Button(action: {
-                collectionManager.addOrRemovePoiToCollection(poi: collection.poi)
+                collectionManager.addOrRemovePoiToCollection(poi: collectedPoi.poi)
                 Feedback.selected()
             }) {
-                collectionManager.isPoiAlreadyCollected(poi: collection.poi) ? Image(systemName: "trophy.fill") : Image(systemName: "trophy")
+                collectionManager.isPoiAlreadyCollected(poi: collectedPoi.poi) ? Image(systemName: "trophy.fill") : Image(systemName: "trophy")
             })
         }
         .edgesIgnoringSafeArea(.horizontal)
-        .navigationBarTitle(Text(collection.poi.name))
+        .navigationBarTitle(Text(collectedPoi.poi.name))
         .onAppear {
             isPlayingTour = false
         }
@@ -93,5 +93,5 @@ struct CollectionDetailView: View {
 
 // MARK: Preview
 #Preview {
-    CollectionDetailView(collection: Collection(id: UUID(), poi: pois[7], date: Date())).environmentObject(AppManager.shared)
+    CollectedPoiView(collectedPoi: CollectionManager.shared.demoCollection).environmentObject(AppManager.shared)
 }
