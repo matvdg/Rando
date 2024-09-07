@@ -19,7 +19,9 @@ struct CollectionView: View {
     @ObservedObject var collectionManager = CollectionManager.shared
     @EnvironmentObject var appManager: AppManager
     @State var showEditDateSheet: Bool = false
-    @State var selectedCollectedPoi: CollectedPoi?
+    @State var showEditNoteSheet: Bool = false
+    @State var editNoteCollectedPoi: CollectedPoi?
+    @State var editDateCollectedPoi: CollectedPoi?
     
     private var collection: [CollectedPoi] {
         var collection = collectionManager.collection
@@ -95,10 +97,16 @@ struct CollectionView: View {
                                         }
                                         .contextMenu {
                                             Button {
-                                                selectedCollectedPoi = collectedPoi
-                                                
+                                                editDateCollectedPoi = collectedPoi
+                                                showEditDateSheet = true
                                             } label: {
                                                 Label("editDate", systemImage: "calendar.badge.clock")
+                                            }
+                                            Button {
+                                                editNoteCollectedPoi = collectedPoi
+                                                showEditNoteSheet = true
+                                            } label: {
+                                                Label("editNote", systemImage: "square.and.pencil")
                                             }
                                             Button {
                                                 collectionManager.addOrRemovePoiToCollection(poi: collectedPoi.poi)
@@ -122,8 +130,13 @@ struct CollectionView: View {
                         }
                     })
                     .sheet(isPresented: $showEditDateSheet, content: {
-                        if let collectedPoi = selectedCollectedPoi {
+                        if let collectedPoi = editDateCollectedPoi {
                             EditDateView(collectedPoi: collectedPoi, showEditDateSheet: $showEditDateSheet)
+                        }
+                    })
+                    .sheet(isPresented: $showEditNoteSheet, content: {
+                        if let collectedPoi = editNoteCollectedPoi {
+                            EditNoteView(collectedPoi: collectedPoi, showEditNoteSheet: $showEditNoteSheet)
                         }
                     })
                     .accentColor(.tintColorTabBar)
@@ -138,8 +151,11 @@ struct CollectionView: View {
         .onDisappear {
             collectionManager.unwatchiCloud()
         }
-        .onChange(of: selectedCollectedPoi, perform: { _ in
+        .onChange(of: editDateCollectedPoi, perform: { _ in
             showEditDateSheet = true
+        })
+        .onChange(of: editNoteCollectedPoi, perform: { _ in
+            showEditNoteSheet = true
         })
     }
 }

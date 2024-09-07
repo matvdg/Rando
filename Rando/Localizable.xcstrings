@@ -200,6 +200,22 @@
         }
       }
     },
+    "addPhoto" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a photo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter une photo"
+          }
+        }
+      }
+    },
     "all" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -927,13 +943,29 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Edit trail's description"
+            "value" : "Edit description"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Modifier la description de la randonnée"
+            "value" : "Modifier la description"
+          }
+        }
+      }
+    },
+    "editNote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write a note"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Écrire un note"
           }
         }
       }
@@ -1830,6 +1862,22 @@
         }
       }
     },
+    "personalNote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personal note"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note personnelle"
+          }
+        }
+      }
+    },
     "phone" : {
       "localizations" : {
         "en" : {
@@ -1846,7 +1894,7 @@
         }
       }
     },
-    "Pin" : {
+    "pin" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1960,7 +2008,7 @@
         }
       }
     },
-    "RenameDescription" : {
+    "renameDescription" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2267,6 +2315,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Swiss Topo"
+          }
+        }
+      }
+    },
+    "takePhoto" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a photo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prendre une photo"
           }
         }
       }
@@ -2670,6 +2734,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Randonnées"
+          }
+        }
+      }
+    },
+    "typeHere" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type here…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taper ici…"
           }
         }
       }

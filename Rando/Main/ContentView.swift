@@ -60,7 +60,6 @@ struct ContentView: View {
             if #available(iOS 17.0, *) {
                 try? Tips.configure([.displayFrequency(.hourly)])
             }
-            iCloudSyncManager.shared.synchronizeAllFilesInBackground()
         }
         .onChange(of: appManager.isMapFullScreen) { newValue in
             if newValue {

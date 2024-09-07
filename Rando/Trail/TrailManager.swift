@@ -46,7 +46,7 @@ class TrailManager: ObservableObject {
         DispatchQueue.main.async {
             guard !self.notificationsLocked else { return }
             self.notificationsLocked = true
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                 self.notificationsLocked = false
                 self.getTrails()
                 print("􂆍 iCloud update for trails")
@@ -56,17 +56,23 @@ class TrailManager: ObservableObject {
     
     func watchiCloud() {
         DispatchQueue.main.async {
+            let iCloudDocumentsURL = FileManager.documentsDirectory.appendingPathComponent(FileManager.Folder.trails.rawValue)
             self.metadataQuery = NSMetadataQuery()
+            let predicate = NSPredicate(format: "%K BEGINSWITH %@", NSMetadataItemPathKey, iCloudDocumentsURL.path)
             self.metadataQuery?.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
-            self.metadataQuery?.predicate = NSPredicate(format: "%K == %@", NSMetadataItemFSNameKey, "trails")
+            self.metadataQuery?.predicate = predicate
             NotificationCenter.default.addObserver(self, selector: #selector(self.queryDidUpdate(_:)), name: .NSMetadataQueryDidUpdate, object: self.metadataQuery)
-            self.metadataQuery?.start()
+            self.metadataQuery?.operationQueue?.addOperation {
+                self.metadataQuery?.start()
+            }
         }
     }
     
     func unwatchiCloud() {
         NotificationCenter.default.removeObserver(self)
-        metadataQuery?.stop()
+        self.metadataQuery?.operationQueue?.addOperation {
+            self.metadataQuery?.stop()
+        }
     }
     
     func loadTrails(from urls: [URL]) -> [Trail] {
@@ -143,7 +149,7 @@ class TrailManager: ObservableObject {
     }
     
     func remove(id: UUID) {
-        let file = "trails/\(id).json"
+        let file = "\(FileManager.Folder.trails.rawValue)/\(id).json"
         let filename = FileManager.documentsDirectory.appendingPathComponent(file)
         do {
             try FileManager.default.removeItem(at: filename)
@@ -156,7 +162,7 @@ class TrailManager: ObservableObject {
     
     func getTrails() {
         loadDemoTrails()
-        let urls = try? FileManager.default.contentsOfDirectory(at: FileManager.documentsDirectory.appendingPathComponent("trails"), includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+        let urls = try? FileManager.default.contentsOfDirectory(at: FileManager.documentsDirectory.appendingPathComponent(FileManager.Folder.trails.rawValue), includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
         let trails = urls?.compactMap { url -> Trail? in
             do {
                 let data = try Data(contentsOf: url)
@@ -201,12 +207,12 @@ class TrailManager: ObservableObject {
                 $0.color = UIColor.blue.cgColor
                 $0.lineWidth = defaultLineWidth
             }
-            if $0.name.contains("GR10") {
+            if $0.name.contains("GR") {
                 $0.isDisplayed = true
                 $0.color = UIColor.red.cgColor
                 $0.lineWidth = defaultLineWidth
             }
-            if $0.name.contains("Variante GR10") {
+            if $0.name.contains("Variante GR") {
                 $0.isDisplayed = true
                 $0.color = UIColor.orange.cgColor
                 $0.lineWidth = defaultLineWidth
@@ -218,11 +224,11 @@ class TrailManager: ObservableObject {
     // MARK: - Private methods
     private func loadDemoTrails() {
         guard !UserDefaults.hasBeenLaunched else { return }
-        try? FileManager.default.createDirectory(at: FileManager.documentsDirectory.appendingPathComponent("trails"), withIntermediateDirectories: true, attributes: [:])
+        try? FileManager.default.createDirectory(at: FileManager.documentsDirectory.appendingPathComponent(FileManager.Folder.trails.rawValue), withIntermediateDirectories: true, attributes: [:])
         Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: nil)?.forEach { url in
             guard url.lastPathComponent != "pois.json" else { return }
             do {
-                try FileManager.default.copyItem(at: url, to: FileManager.documentsDirectory.appendingPathComponent("trails/\(url.lastPathComponent)"))
+                try FileManager.default.copyItem(at: url, to: FileManager.documentsDirectory.appendingPathComponent("\(FileManager.Folder.trails.rawValue)/\(url.lastPathComponent)"))
             } catch {
                 print(error)
             }
@@ -230,7 +236,7 @@ class TrailManager: ObservableObject {
     }
     
     private func persist(gpx: Gpx) {
-        let file = "trails/\(gpx.id).json"
+        let file = "\(FileManager.Folder.trails.rawValue)/\(gpx.id).json"
         let filename = FileManager.documentsDirectory.appendingPathComponent(file)
         do {
             let data = try JSONEncoder().encode(gpx)

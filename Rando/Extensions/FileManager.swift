@@ -11,6 +11,13 @@ import Foundation
 
 public extension FileManager {
     
+    enum Folder: String  {
+        case trails
+        case pictures
+        case collection
+        case collectionUserPictures = "collection_user_pictures"
+    }
+    
     static var documentsDirectory: URL { FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! }
 
     /// Calculate the allocated size of a directory and all its contents on the volume.

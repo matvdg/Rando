@@ -324,7 +324,7 @@
   {
     "name": "Pic d'Aneto",
     "category": "peak",
-    "description": "Le pic d’Aneto (jusqu'au xixe siècle : Néthou) est le point culminant de la chaîne des Pyrénées avec une altitude de 3 404 m. Il se situe en Espagne, au nord-est de l’Aragon et de la province de Huesca, dans la comarque de Ribagorce. En plein centre du Parc naturel de Posets-Maladeta, il fait partie du massif de la Maladeta dont il constitue la partie sud-est avec le Pic Russell.",
+    "description": "Le pic d’Aneto (jusqu'au XIXème siècle : Néthou) est le point culminant de la chaîne des Pyrénées avec une altitude de 3 404 m. Il se situe en Espagne, au nord-est de l’Aragon et de la province de Huesca, dans la comarque de Ribagorce. En plein centre du Parc naturel de Posets-Maladeta, il fait partie du massif de la Maladeta dont il constitue la partie sud-est avec le Pic Russell.",
     "alt": 3404,
     "lat": 42.631847,
     "lng": 0.656474,
@@ -459,7 +459,7 @@
   {
     "name": "Pic de Besiberri Sud",
     "category": "peak",
-    "description": "Besiberri Sud est une montagne des Massif du Besiberri, en Catalogne, en Espagne. Situé dans les Pyrénées, il a une altitude de 3023,4 mètres au-dessus du niveau de la mer.",
+    "description": "Besiberri Sud est une montagne des Massif du Besiberri, en Catalogne, en Espagne. Situé dans les Pyrénées, il a une altitude de 3023.",
     "alt": 3023,
     "lat": 42.594851725162314,
     "lng": 0.8260055603359678,
@@ -15606,6 +15606,7 @@
   {
     "name": "Pic de Sacaube",
     "category": "peak",
+    "description": "Le pic de Sacaube est une montagne de 1 743 mètres située entre les communes de Bausen, dans la région du Val d'Aran et en France. C'est le point le plus septentrional de la Catalogne.",
     "alt": 1777,
     "photoUrl": "https://raw.githubusercontent.com/matvdg/Rando/master/photos/sacaube.heic",
     "lat": 42.860441,

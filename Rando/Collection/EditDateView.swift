@@ -1,5 +1,5 @@
 //
-//  CollectionDateView.swift
+//  EditDateView.swift
 //  Rando
 //
 //  Created by Mathieu Vandeginste on 05/09/2024.
@@ -20,24 +20,27 @@ struct EditDateView: View {
         
         NavigationView {
             
-            List {
-                
-                DatePicker("", selection: $date, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.graphical).padding()
-                
+            VStack {
+                GroupBox {
+                    
+                    DatePicker("", selection: $date, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.graphical).padding()
+                }
+                .padding()
+                .navigationBarTitle("editDate", displayMode: .inline)
+                .navigationBarItems(leading:
+                                        Button("cancel", action: {
+                    showEditDateSheet = false
+                })
+                                            .foregroundColor(.tintColorTabBar)
+                                    , trailing:
+                                        Button("save", action: {
+                    collectionManager.editDate(collectedPoi: collectedPoi, newDate: date)
+                    showEditDateSheet = false
+                })
+                                            .foregroundColor(.tintColorTabBar))
+                Spacer()
             }
-            .listStyle(.insetGrouped)
-            .navigationBarTitle("editDate", displayMode: .inline)
-            .navigationBarItems(leading:
-                                    Button("cancel", action: {
-                showEditDateSheet = false
-            })
-                                        .foregroundColor(.tintColorTabBar)
-                                , trailing:
-                                    Button("save", action: {
-                collectionManager.editDate(collectedPoi: collectedPoi, newDate: date)
-                showEditDateSheet = false
-            })
-                                        .foregroundColor(.tintColorTabBar))
+            
         }
         .onAppear {
             date = collectedPoi.date

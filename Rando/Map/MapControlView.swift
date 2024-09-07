@@ -56,6 +56,7 @@ struct MapControlView: View {
                 }
             }
             Divider()
+#if !targetEnvironment(macCatalyst)
             if #available(iOS 17.0, *) {
                 let mapFullScreenTip = MapFullScreenTip()
                 Button(action: {
@@ -76,6 +77,7 @@ struct MapControlView: View {
                 }
             }
             Divider()
+#endif
             if #available(iOS 17.0, *) {
                 let boundingTip = BoundingTip()
                 Button(action: {
@@ -148,7 +150,11 @@ struct MapControlView: View {
                 }
             }
         }
+#if targetEnvironment(macCatalyst)
+        .frame(width: width, height: width*3, alignment: .center)
+#else
         .frame(width: width, height: width*4, alignment: .center)
+#endif
         .background(Color.alpha)
         .cornerRadius(8)
         .shadow(radius: 1)

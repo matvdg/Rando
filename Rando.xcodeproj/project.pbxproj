@@ -32,7 +32,6 @@
 		D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */; };
 		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
 		F607C8212C88C386000C7C57 /* CollectedPoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8202C88C386000C7C57 /* CollectedPoiView.swift */; };
-		F607C8252C891D73000C7C57 /* iCloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8242C891D6E000C7C57 /* iCloudSyncManager.swift */; };
 		F60D12B22A28321700437AA1 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = F60D12B12A28321700437AA1 /* CoreGPX */; };
 		F60D12B42A28906200437AA1 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B32A28906100437AA1 /* WorkoutManager.swift */; };
 		F60D12B62A28A12300437AA1 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B52A28A12300437AA1 /* WorkoutView.swift */; };
@@ -48,10 +47,13 @@
 		F633290D2AA156FC008373A6 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F633290C2AA156FC008373A6 /* CollectionView.swift */; };
 		F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F639047A24DC8E58005B4FC1 /* GridStack.swift */; };
 		F652C6652C8A5556001AB35D /* EditDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652C6642C8A5556001AB35D /* EditDateView.swift */; };
+		F652C6672C8B21AC001AB35D /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652C6662C8B21AC001AB35D /* EditNoteView.swift */; };
 		F6577E742A3C483F00162B81 /* EditTrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6577E732A3C483F00162B81 /* EditTrailView.swift */; };
 		F658C2D62A1CFEF200979723 /* HidableTabView in Frameworks */ = {isa = PBXBuildFile; productRef = F658C2D52A1CFEF200979723 /* HidableTabView */; };
 		F65DCC122A24D01100A24E10 /* Semaphore in Frameworks */ = {isa = PBXBuildFile; productRef = F65DCC112A24D01100A24E10 /* Semaphore */; };
 		F65DCC142A24E1B400A24E10 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65DCC132A24E1B400A24E10 /* UIApplication.swift */; };
+		F66883752C8B547200727D5E /* CollectionPhotoGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66883742C8B547200727D5E /* CollectionPhotoGalleryView.swift */; };
+		F66883772C8B55B000727D5E /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66883762C8B55B000727D5E /* PictureView.swift */; };
 		F66AFEBC2A3E8FFB0030086A /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66AFEBB2A3E8FFB0030086A /* LineChart.swift */; };
 		F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */; };
 		F67BAEC324E7469300AC8A9F /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BAEC224E7469300AC8A9F /* DismissButton.swift */; };
@@ -175,7 +177,6 @@
 		D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
 		F607C8202C88C386000C7C57 /* CollectedPoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedPoiView.swift; sourceTree = "<group>"; };
-		F607C8242C891D6E000C7C57 /* iCloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudSyncManager.swift; sourceTree = "<group>"; };
 		F60D12B32A28906100437AA1 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		F60D12B52A28A12300437AA1 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		F60D12B72A28A7A700437AA1 /* WorkoutRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRow.swift; sourceTree = "<group>"; };
@@ -191,8 +192,11 @@
 		F633290C2AA156FC008373A6 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		F639047A24DC8E58005B4FC1 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		F652C6642C8A5556001AB35D /* EditDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateView.swift; sourceTree = "<group>"; };
+		F652C6662C8B21AC001AB35D /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		F6577E732A3C483F00162B81 /* EditTrailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrailView.swift; sourceTree = "<group>"; };
 		F65DCC132A24E1B400A24E10 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		F66883742C8B547200727D5E /* CollectionPhotoGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotoGalleryView.swift; sourceTree = "<group>"; };
+		F66883762C8B55B000727D5E /* PictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
 		F66AFEBB2A3E8FFB0030086A /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		F67BAEBC24DD636200AC8A9F /* ObservableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
 		F67BAEC224E7469300AC8A9F /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
@@ -404,7 +408,7 @@
 		D09FB00D2465E3F30007F55B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				F607C8242C891D6E000C7C57 /* iCloudSyncManager.swift */,
+				F66883762C8B55B000727D5E /* PictureView.swift */,
 				D09FB0082465D2360007F55B /* MiniImage.swift */,
 				F6CFD0B524BF90CA00DA224C /* CircleImage.swift */,
 				F639047A24DC8E58005B4FC1 /* GridStack.swift */,
@@ -462,7 +466,9 @@
 				F607C8202C88C386000C7C57 /* CollectedPoiView.swift */,
 				F6281E122AA16F1600D454BE /* CollectionManager.swift */,
 				F652C6642C8A5556001AB35D /* EditDateView.swift */,
+				F652C6662C8B21AC001AB35D /* EditNoteView.swift */,
 				F633290A2AA155A3008373A6 /* CollectedPoi.swift */,
+				F66883742C8B547200727D5E /* CollectionPhotoGalleryView.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -769,6 +775,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F652C6672C8B21AC001AB35D /* EditNoteView.swift in Sources */,
 				F62779BC2A218FBA00185386 /* FilterButton.swift in Sources */,
 				F6A3DEF82A37C23A00C69B55 /* Trail.swift in Sources */,
 				F6CFD0A924BEAC9C00DA224C /* Double.swift in Sources */,
@@ -784,6 +791,7 @@
 				F6A5816F24D46B7A0030F457 /* Array.swift in Sources */,
 				F6A3DEED2A37C23A00C69B55 /* TilesRow.swift in Sources */,
 				F6A3DEE92A37C23A00C69B55 /* ImportGpxTileView.swift in Sources */,
+				F66883752C8B547200727D5E /* CollectionPhotoGalleryView.swift in Sources */,
 				D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */,
 				D06347A7245DCD34003BA9E7 /* MapView.swift in Sources */,
 				F633290D2AA156FC008373A6 /* CollectionView.swift in Sources */,
@@ -811,6 +819,7 @@
 				F6E7FCB82A3DE5D900097C93 /* MailView.swift in Sources */,
 				D0531A76246820BA0020FFE0 /* MapControlView.swift in Sources */,
 				F6E2C0D42A3A5F64001FD8F1 /* TrailDetailView.swift in Sources */,
+				F66883772C8B55B000727D5E /* PictureView.swift in Sources */,
 				F6AEA1F924DAE8E1007509C1 /* TrailPreview.swift in Sources */,
 				F6281E152AA2AA5300D454BE /* UserView.swift in Sources */,
 				F633290B2AA155A3008373A6 /* CollectedPoi.swift in Sources */,
@@ -836,7 +845,6 @@
 				F6A3DEF02A37C23A00C69B55 /* TrailRow.swift in Sources */,
 				F6A3DEE42A37C23A00C69B55 /* PoiManager.swift in Sources */,
 				F68480CA2C86057800D5810D /* DifficultyColorView.swift in Sources */,
-				F607C8252C891D73000C7C57 /* iCloudSyncManager.swift in Sources */,
 				F6A3DEEB2A37C23A00C69B55 /* TourRow.swift in Sources */,
 				D09FB00C2465E15C0007F55B /* View.swift in Sources */,
 				F60D12B62A28A12300437AA1 /* WorkoutView.swift in Sources */,
@@ -1003,10 +1011,12 @@
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
-				INFOPLIST_KEY_NSLocationUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Rando needs your permission to let you add a picture to your collection";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Rando needs your permission to read your workouts ant let you import them into your trails";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Rando needs your permission to read your workouts ant let you import them into your trails";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Rando needs your permission to show your position on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Rando needs your permission to show your position on the map";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Rando needs your permission to let you add a picture to your collection";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -1047,10 +1057,12 @@
 				INFOPLIST_FILE = Rando/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rando;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Rando a besoin de votre permission pour lire vos exercices afin de les importer dans vos randonnées";
-				INFOPLIST_KEY_NSLocationUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Rando a besoin de votre position GPS pour la montrer sur la carte !";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Rando needs your permission to let you add a picture to your collection";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Rando needs your permission to read your workouts ant let you import them into your trails";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Rando needs your permission to read your workouts ant let you import them into your trails";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Rando needs your permission to show your position on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Rando needs your permission to show your position on the map";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Rando needs your permission to let you add a picture to your collection";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";

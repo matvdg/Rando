@@ -192,7 +192,7 @@ struct TrailDetailView: View {
                 
                 if trail.hasElevationData {
                     Section(header: Text("profile")) {
-                        //                        LineChart(trail: trail)
+//                        LineChart(trail: trail)
                         LineView(data: trail.elevations, legend: "altitude (m)", style: Styles.customStyle, valueSpecifier: "%.0f", onIndexChange: { newValue in
                             indexOfGraph = newValue
                         })

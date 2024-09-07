@@ -7,15 +7,27 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct CollectedPoi: Codable, Identifiable, Equatable, Hashable {
+class CollectedPoi: Codable, Identifiable, ObservableObject, Equatable, Hashable {
+    
+    static func == (lhs: CollectedPoi, rhs: CollectedPoi) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     let id: UUID
     let poi: Poi
     var date: Date
-    var description: String?
-    var photosURL: [URL?]?
+    var notes: String?
+    var photosUrl: [String]?
     
-    mutating func editDate(newDate: Date) {
-        self.date = newDate
+    init(poi: Poi, date: Date) {
+        self.id = UUID()
+        self.poi = poi
+        self.date = date
     }
 }

@@ -14,7 +14,7 @@ struct EditTrailView: View {
             
             List {
                 Section(header: Text("rename")) {
-                    TextField("RenameDescription", text: $nameInput, axis: .vertical)
+                    TextField("renameDescription", text: $nameInput, axis: .vertical)
                         .focused($isFocused)
                         .textInputAutocapitalization(.sentences)
                 }

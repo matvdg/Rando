@@ -79,7 +79,7 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
         
     var image: Image? {
         if let photoUrl, let url = URL(string: photoUrl) {
-            let fileUrl = FileManager.documentsDirectory.appendingPathComponent("pictures").appendingPathComponent(url.lastPathComponent)
+            let fileUrl = FileManager.documentsDirectory.appendingPathComponent(FileManager.Folder.pictures.rawValue).appendingPathComponent(url.lastPathComponent)
             if FileManager.default.fileExists(atPath: fileUrl.path) {
                 do {
                     let data = try Data(contentsOf: fileUrl)
@@ -100,18 +100,18 @@ struct Poi: Codable, Identifiable, Equatable, Hashable {
         }
     }
         
-    func loadImageFromURL() async throws -> Image? {
+    func loadImageFromUrl() async throws -> Image? {
         guard let photoUrl, let url = URL(string: photoUrl) else {
             return nil
         }
-        let fileUrl = FileManager.documentsDirectory.appendingPathComponent("pictures").appendingPathComponent(url.lastPathComponent)
+        let fileUrl = FileManager.documentsDirectory.appendingPathComponent(FileManager.Folder.pictures.rawValue).appendingPathComponent(url.lastPathComponent)
         guard !FileManager.default.fileExists(atPath: fileUrl.path) else {
             return nil
         } // Prevent redownloading already downloaded picture
         let response = try await URLSession.shared.data(from: url)
         if let uiImage = UIImage(data: response.0) {
-            try? FileManager.default.createDirectory(at: FileManager.documentsDirectory.appendingPathComponent("pictures"), withIntermediateDirectories: true, attributes: [:])
-            let file = "pictures/\(url.lastPathComponent)"
+            try? FileManager.default.createDirectory(at: FileManager.documentsDirectory.appendingPathComponent(FileManager.Folder.pictures.rawValue), withIntermediateDirectories: true, attributes: [:])
+            let file = "\(FileManager.Folder.pictures.rawValue)/\(url.lastPathComponent)"
             let filename = FileManager.documentsDirectory.appendingPathComponent(file)
             try response.0.write(to: filename)
             return Image(uiImage: uiImage)

@@ -38,7 +38,7 @@ struct MiniImage: View {
                 .onAppear {
                     Task {
                         do {
-                            image = try await poi.loadImageFromURL()
+                            image = try await poi.loadImageFromUrl()
                         } catch {
                             print(error)
                         }

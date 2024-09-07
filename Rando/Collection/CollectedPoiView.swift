@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct CollectedPoiView: View {
-        
-    @ObservedObject var collectionManager = CollectionManager.shared
     
-    var collectedPoi: CollectedPoi
+    @ObservedObject var collectedPoi: CollectedPoi
+    @ObservedObject var collectionManager = CollectionManager.shared
+    @State var showEditDateSheet: Bool = false
+    @State var showEditNoteSheet: Bool = false
     
     var body: some View {
         
@@ -29,52 +30,78 @@ struct CollectedPoiView: View {
                     .padding(.bottom, -130)
                 
                 
-                VStack(alignment: .leading, spacing: 16) {
+                VStack {
                     
-                    Text(collectedPoi.poi.name)
-                        .font(.title)
-                        .fontWeight(.heavy)
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("altitude")
-                            .foregroundColor(Color("grgray"))
-                        Text(collectedPoi.poi.altitudeInMeters).fontWeight(.bold)
-                    }
-                    .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
-                    .isHidden(collectedPoi.poi.altitudeInMeters == "_", remove: true)
-                    
-                    Button(action: {
-                        guard let url = self.collectedPoi.poi.phoneNumber else { return }
-                        UIApplication.shared.open(url)
-                        Feedback.selected()
-                    }) {
-                        HStack(spacing: 10) {
-                            Image(systemName: "phone.fill")
-                            Text("phone")
-                                .font(.headline)
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text(collectedPoi.poi.name)
+                            .font(.title)
+                            .fontWeight(.heavy)
+                        
+                        Text(collectedPoi.date.toString)
+                        
+                        Button {
+                            showEditDateSheet = true
+                        } label: {
+                            Label("editDate", systemImage: "calendar.badge.clock")
                         }
-                    }
-                    .isHidden(!self.collectedPoi.poi.hasPhoneNumber, remove: true)
-                    
-                    Button(action: {
-                        guard let url = self.collectedPoi.poi.website else { return }
-                        UIApplication.shared.open(url)
-                        Feedback.selected()
-                    }) {
-                        HStack(spacing: 10) {
-                            Image(systemName: "globe")
-                            Text("website")
-                                .font(.headline)
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("altitude")
+                                .foregroundColor(Color("grgray"))
+                            Text(collectedPoi.poi.altitudeInMeters).fontWeight(.bold)
                         }
-                    }
-                    .isHidden(!self.collectedPoi.poi.hasWebsite, remove: true)
-                    
-                    Text(collectedPoi.poi.description ?? "")
-                        .font(.body)
-                        .foregroundColor(.text)
-                        .padding(.trailing, 8)
+                        .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+                        .isHidden(collectedPoi.poi.altitudeInMeters == "_", remove: true)
+                        
+                        Button(action: {
+                            guard let url = self.collectedPoi.poi.phoneNumber else { return }
+                            UIApplication.shared.open(url)
+                            Feedback.selected()
+                        }) {
+                            HStack(spacing: 10) {
+                                Image(systemName: "phone.fill")
+                                Text("phone")
+                                    .font(.headline)
+                            }
+                        }
+                        .isHidden(!self.collectedPoi.poi.hasPhoneNumber, remove: true)
+                        
+                        Button(action: {
+                            guard let url = self.collectedPoi.poi.website else { return }
+                            UIApplication.shared.open(url)
+                            Feedback.selected()
+                        }) {
+                            HStack(spacing: 10) {
+                                Image(systemName: "globe")
+                                Text("website")
+                                    .font(.headline)
+                            }
+                        }
+                        .isHidden(!self.collectedPoi.poi.hasWebsite, remove: true)
+                        
+                        Text(collectedPoi.poi.description ?? "")
+                            .font(.body)
+                            .foregroundColor(.text)
+                            .padding(.trailing, 8)
+                        
+                        GroupBox {
+                            Section(header: Text("personalNote").bold()) {
+                                if (collectedPoi.notes ?? "").isEmpty {
+                                    Text("typeHere")
+                                        .frame(maxWidth: .infinity)
+                                } else {
+                                    Text(collectedPoi.notes ?? "")
+                                        .frame(maxWidth: .infinity)
+                                }
+                            }
+                        }
+                        .onTapGesture {
+                            showEditNoteSheet = true
+                        }
+                    }.padding()
+                    CollectionPhotoGalleryView(collectedPoi: collectedPoi)
+                    Spacer(minLength: 100)
                 }
-                .padding()
             }
             .navigationBarItems(trailing: Button(action: {
                 collectionManager.addOrRemovePoiToCollection(poi: collectedPoi.poi)
@@ -88,6 +115,12 @@ struct CollectedPoiView: View {
         .onAppear {
             isPlayingTour = false
         }
+        .sheet(isPresented: $showEditDateSheet, content: {
+            EditDateView(collectedPoi: collectedPoi, showEditDateSheet: $showEditDateSheet)
+        })
+        .sheet(isPresented: $showEditNoteSheet, content: {
+            EditNoteView(collectedPoi: collectedPoi, showEditNoteSheet: $showEditNoteSheet)
+        })
     }
 }
 

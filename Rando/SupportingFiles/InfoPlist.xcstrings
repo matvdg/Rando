@@ -11,7 +11,8 @@
             "value" : "Rando"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "CFBundleName" : {
       "comment" : "Bundle name",
@@ -23,13 +24,36 @@
             "value" : "Rando"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "GPS Exchange Format (GPX)" : {
-
+      "shouldTranslate" : false
     },
     "GPX File" : {
-
+      "shouldTranslate" : false
+    },
+    "Key" : {
+      "extractionState" : "manual",
+      "shouldTranslate" : false
+    },
+    "NSCameraUsageDescription" : {
+      "comment" : "Privacy - Camera Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Rando needs your permission to let you add a picture to your collection"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rando a besoin d'accéder à votre caméra pour rajouter une photo à votre collection"
+          }
+        }
+      }
     },
     "NSHealthShareUsageDescription" : {
       "comment" : "Privacy - Health Share Usage Description",
@@ -95,6 +119,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rando a besoin de votre position GPS pour la montrer sur la carte !"
+          }
+        }
+      }
+    },
+    "NSPhotoLibraryUsageDescription" : {
+      "comment" : "Privacy - Photo Library Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Rando needs your permission to let you add a picture to your collection"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rando a besoin d'accéder à votre bibliothèque pour rajouter une photo à votre collection"
           }
         }
       }

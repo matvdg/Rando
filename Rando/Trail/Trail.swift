@@ -187,25 +187,19 @@ class Trail: Identifiable, ObservableObject {
         locations.first?.clLocation.coordinate ?? CLLocationCoordinate2D()
     }
     
-    lazy var elevations: [CLLocationDistance] = locations.map { $0.altitude ?? 0 }
-    //computeFilteredElevations()
+    lazy var elevations: [CLLocationDistance] = locations
+        .compactMap({ $0.altitude ?? 0 })
+        .reduce(into: []) { resultArray, currentValue in
+            if currentValue == 0.0, let lastValue = resultArray.last {
+                resultArray.append(lastValue)
+            } else {
+                resultArray.append(currentValue)
+            }
+        }
     
     lazy var graphElevations: [GraphData] =  {
         elevations.enumerated().map { GraphData(index: $0, elevation: $1 )}
     }()
-
-    
-    /// Max 100 elevations for chart
-    var simplifiedElevations: [CLLocationDistance] {
-        let size = 100
-        guard elevations.count > size else { return elevations }
-        var simplifiedElevations = [CLLocationDistance]()
-        elevations.enumerated().forEach{ (index, alt) in
-            guard index % (elevations.count / size) == 0 else { return }
-            simplifiedElevations.append(alt)
-        }
-        return simplifiedElevations
-    }
     
     func computeFilteredElevations() -> [CLLocationDistance] {
         let size = 5
