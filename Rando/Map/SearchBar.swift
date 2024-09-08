@@ -141,7 +141,7 @@ struct SearchBar: View {
     }.padding()
 }
 
-extension MKTileOverlayPath: @retroactive Equatable {
+extension MKTileOverlayPath: Equatable {
     public static func == (lhs: MKTileOverlayPath, rhs: MKTileOverlayPath) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.contentScaleFactor == rhs.contentScaleFactor
     }
