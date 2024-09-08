@@ -11,6 +11,7 @@ import MapKit
 import HidableTabView
 import TipKit
 
+
 struct ContentView: View {
     
     @State private var selection = 0
@@ -57,11 +58,9 @@ struct ContentView: View {
             navigationBarAppearance.configureWithOpaqueBackground()
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
             UITabBar.showTabBar(animated: false)
-            if #available(iOS 17.0, *) {
-                try? Tips.configure([.displayFrequency(.hourly)])
-            }
+            try? Tips.configure([.displayFrequency(.hourly)])
         }
-        .onChange(of: appManager.isMapFullScreen) { newValue in
+        .onChange(of: appManager.isMapFullScreen) { oldValue, newValue in
             if newValue {
                 UITabBar.hideTabBar(animated: false)
             } else {

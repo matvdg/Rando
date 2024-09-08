@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct TrailMapView: View {
     
     var trail: Trail

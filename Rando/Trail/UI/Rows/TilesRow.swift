@@ -9,6 +9,7 @@
 import SwiftUI
 import MapKit
 
+
 struct TilesRow: View {
     
     @ObservedObject var tileManager = TileManager.shared
@@ -62,10 +63,10 @@ struct TilesRow: View {
             // and disabled when unkwnow
             || trail.downloadState == .unknown
         )
-        .onChange(of: appManager.selectedLayer) { newValue in
+        .onChange(of: appManager.selectedLayer) { oldValue, newValue in
             tileManager.load(for: trail, selectedLayer: appManager.selectedLayer)
         }
-        .onChange(of: tileManager.state) { newValue in
+        .onChange(of: tileManager.state) { oldValue, newValue in
             tileManager.load(for: trail, selectedLayer: appManager.selectedLayer)
         }
     }

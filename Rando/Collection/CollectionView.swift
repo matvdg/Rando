@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct CollectionView: View {
     
     enum Sorting: String, CaseIterable, Equatable {
@@ -151,12 +152,12 @@ struct CollectionView: View {
         .onDisappear {
             collectionManager.unwatchiCloud()
         }
-        .onChange(of: editDateCollectedPoi, perform: { _ in
+        .onChange(of: editDateCollectedPoi) {
             showEditDateSheet = true
-        })
-        .onChange(of: editNoteCollectedPoi, perform: { _ in
+        }
+        .onChange(of: editNoteCollectedPoi) { 
             showEditNoteSheet = true
-        })
+        }
     }
 }
 

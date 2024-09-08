@@ -10,6 +10,7 @@ import SwiftUI
 import MapKit
 import TipKit
 
+
 struct PoiView: View {
     
     enum Sorting: String, CaseIterable, Equatable {
@@ -114,5 +115,5 @@ struct PoiView: View {
 // MARK: Preview
 #Preview {
     PoiView()
-        .environmentObject(AppManager.shared)
+            .environmentObject(AppManager.shared)
 }

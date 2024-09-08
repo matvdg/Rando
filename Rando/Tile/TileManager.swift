@@ -1,31 +1,31 @@
 import Foundation
 import MapKit
 import Semaphore
+import Vision
+import SwiftData
 
 typealias TileCoordinates = (x: Int, y: Int, z: Int)
 
-class IGNV2Overlay: MKTileOverlay {
-    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .ign) }
-}
-
-class IGN25Overlay: MKTileOverlay {
-    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .ign25) }
-}
-
-class OpenTopoMapOverlay: MKTileOverlay {
-    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .openTopoMap) }
-}
-
-class OpenStreetMapOverlay: MKTileOverlay {
-    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .openStreetMap) }
-}
-
-class SwissTopoMapOverlay: MKTileOverlay {
-    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .swissTopo) }
-}
-
-
 class TileManager: ObservableObject {
+    
+    private var modelContainer: ModelContainer?
+    @MainActor private var modelContext:  ModelContext? { modelContainer?.mainContext }
+    static let shared = TileManager()
+    
+    init() {
+        semaphore = AsyncSemaphore(value: 5)
+        createDirectoriesIfNecessary()
+        print("􀈝 DocumentsDirectory = \(FileManager.documentsDirectory.relativeString.replacingOccurrences(of: "file://", with: ""))")
+        do {
+            modelContainer = try ModelContainer(for: MapString.self)
+        } catch {
+            fatalError("Failed to create ModelContainer: \(error)")
+        }
+        Task { @MainActor in
+            print("􁗫 SwiftData DB = \(modelContext?.sqliteCommand ?? "nil")")
+        }
+        
+    }
     
     enum DownloadState: Equatable {
         case idle, downloading(id: UUID)
@@ -63,24 +63,18 @@ class TileManager: ObservableObject {
         }
     }
     
-    static let shared = TileManager()
-    
-    init() {
-        semaphore = AsyncSemaphore(value: 5)
-        // Useless when iCloud print("􀈝 DocumentsDirectory = \(FileManager.documentsDirectory.relativeString.replacingOccurrences(of: "file://", with: ""))")
-        createDirectoriesIfNecessary()
-    }
-    
     // MARK: -  Private properties
     private let tileSize: Double = 30000 // Bytes (average size of a tile)
     private var sizeLeftInBytes: Double = 0
     private let fileManager = FileManager.default
     private var currentFilteredPaths = [MKTileOverlayPath]() // Without those already persisted
     private var downloadTilesTask: Task<(), Never>?
+    private var searchTilesTask: Task<(), Never>?
     private let semaphore: AsyncSemaphore
     
     // MARK: -  Public property
     @Published var progress: Float = 0
+    @Published var hasRemovedLayerTiles: Bool = false
     var sizeLeft: String { sizeLeftInBytes.toBytesString }
     var hasBeenDownloaded: Bool = false
     var state: DownloadState = .idle
@@ -158,6 +152,7 @@ class TileManager: ObservableObject {
     func remove(layer: Layer) {
         try? FileManager.default.removeItem(at: FileManager.documentsDirectory.appendingPathComponent(layer.rawValue))
         createDirectoriesIfNecessary()
+        hasRemovedLayerTiles.toggle() // Not a true Boolean: tic/tac true/false/true/false just to refresh the RemoveLayerView
     }
     
     /// Get downloaded size for all tiles of the specified layer
@@ -181,6 +176,35 @@ class TileManager: ObservableObject {
         }
     }
     
+    /// Search text and return [MKTileOverlayPath], throws errors
+    @MainActor func search(text: String) throws -> [MKTileOverlayPath] {
+        let search = text
+            .separateStrings // Split all strings containing spaces/-/_
+            .filter { $0.withoutNumber } // Filter out any strings that can be cast to a number
+            .filter { $0.withoutAnyDigits } // Filter out strings that contain any digits (0-9)
+            .map { $0.withoutPunctuation } // Remove all special characters (like commas, asterisks, etc.)
+            .map { $0.lowercased() } // Put the words in lowercase
+            .map { $0.withoutAccents } // Remove any accent
+                
+        guard let context = modelContext, var results = fetchEntries(containing: search, modelContext: context) else {
+            throw SearchError.contextError
+        }
+        results = results.filter {
+            $0.x != nil && $0.y != nil && $0.z != nil && $0.detectedString != nil && $0.contentScaleFactor != nil
+        }
+        guard !results.isEmpty else {
+            throw SearchError.noMatchFound
+        }
+        let result = results.map { MKTileOverlayPath(x: $0.x!, y: $0.y!, z: $0.z!, contentScaleFactor: $0.contentScaleFactor!) }
+        print("􀊫 Search: found \(result.count) entries for \(search.joined(separator: ", "))")
+        return result
+    }
+    
+    func cancelSearch() {
+        print("􀁡 User cancelled search")
+        self.searchTilesTask?.cancel()
+    }
+    
     // MARK: -  Sync private methods
     private func persistLocally(path: MKTileOverlayPath, layer: Layer) -> URL {
         let overlay: MKTileOverlay
@@ -202,8 +226,8 @@ class TileManager: ObservableObject {
             let filename = FileManager.documentsDirectory.appendingPathComponent(file)
             if !fileManager.fileExists(atPath:  filename.path)  { // Recheck if file is absent to avoid conflict with the async persistLocally method in case of parallel download of the maps while the map tiles are still streaming (e.g. user loads a TrailDetailView, but immediately clicks on download while the tilesl of the preview map are still loading
                 do {
-                    let response = try await URLSession.shared.data(from: url)
-                    try response.0.write(to: filename)
+                    let data = try await URLSession.shared.data(from: url).0
+                    try data.write(to: filename)
                 }
                 catch {
                     print("􀌓 TileManager persistLocallyError = \(error)")
@@ -215,6 +239,15 @@ class TileManager: ObservableObject {
         return url // ...but stream now (sync)
     }
     
+    @MainActor
+    private func storeDetectedTextWithCoordinates(detectedStrings: [String], path: MKTileOverlayPath) {
+        for detectedString in detectedStrings {
+            let mapString = MapString(detectedString: detectedString, x: path.x, y: path.y, z: path.z, contentScaleFactor: path.contentScaleFactor)
+            modelContext?.insert(mapString)
+            print("􀌗 Upload \"\(mapString.detectedString ?? "")\" to iCloud")
+        }
+    }
+    
     private func createDirectoriesIfNecessary() {
         Layer.onlyOverlaysLayers.forEach { layer in
             let tiles = FileManager.documentsDirectory.appendingPathComponent(layer.rawValue)
@@ -222,7 +255,7 @@ class TileManager: ObservableObject {
         }
     }
     
-    private func tranformCoordinate(coordinates: CLLocationCoordinate2D , zoom: Int) -> TileCoordinates {
+    private func transformCoordinate(coordinates: CLLocationCoordinate2D , zoom: Int) -> TileCoordinates {
         let lng = coordinates.longitude
         let lat = coordinates.latitude
         let tileX = Int(floor((lng + 180) / 360.0 * pow(2.0, Double(zoom))))
@@ -234,9 +267,9 @@ class TileManager: ObservableObject {
         guard state == .idle else { return currentFilteredPaths }
         var paths = [MKTileOverlayPath]()
         for z in 1...17 {
-            let topLeft = tranformCoordinate(coordinates: MKMapPoint(x: boundingBox.minX, y: boundingBox.minY).coordinate, zoom: z)
-            let topRight = tranformCoordinate(coordinates: MKMapPoint(x: boundingBox.maxX, y: boundingBox.minY).coordinate, zoom: z)
-            let bottomLeft = tranformCoordinate(coordinates: MKMapPoint(x: boundingBox.minX, y: boundingBox.maxY).coordinate, zoom: z)
+            let topLeft = transformCoordinate(coordinates: MKMapPoint(x: boundingBox.minX, y: boundingBox.minY).coordinate, zoom: z)
+            let topRight = transformCoordinate(coordinates: MKMapPoint(x: boundingBox.maxX, y: boundingBox.minY).coordinate, zoom: z)
+            let bottomLeft = transformCoordinate(coordinates: MKMapPoint(x: boundingBox.minX, y: boundingBox.maxY).coordinate, zoom: z)
             for x in topLeft.x...topRight.x {
                 for y in topLeft.y...bottomLeft.y {
                     paths.append(MKTileOverlayPath(x: x, y: y, z: z, contentScaleFactor: 2))
@@ -252,6 +285,31 @@ class TileManager: ObservableObject {
         return currentFilteredPaths
     }
     
+    private func transformMapIDToTileOverlayPath(mapID: String) -> MKTileOverlayPath? {
+        // Extract the z, x, y values from the mapID using a regular expression
+        let regex = try! NSRegularExpression(pattern: "z(\\d+)x(\\d+)y(\\d+)", options: [])
+        
+        // Check if the mapID matches the regex pattern
+        if let match = regex.firstMatch(in: mapID, options: [], range: NSRange(location: 0, length: mapID.utf16.count)) {
+            // Extract substrings for z, x, and y
+            if let zoomRange = Range(match.range(at: 1), in: mapID),
+               let xRange = Range(match.range(at: 2), in: mapID),
+               let yRange = Range(match.range(at: 3), in: mapID) {
+                let zoom = Int(mapID[zoomRange])
+                let x = Int(mapID[xRange])
+                let y = Int(mapID[yRange])
+                
+                // If the values for z, x, and y are successfully parsed, create and return an MKTileOverlayPath
+                if let zoom = zoom, let x = x, let y = y {
+                    return MKTileOverlayPath(x: x, y: y, z: zoom, contentScaleFactor: UIScreen.main.scale)
+                }
+            }
+        }
+        
+        // Return nil if the mapID format doesn't match the expected pattern
+        return nil
+    }
+    
     /// Called when download ends
     private func getDownloadedSize(for boundingBox: MKMapRect, layer: Layer) -> Double {
         var accumulatedSize: UInt64 = 0
@@ -261,6 +319,25 @@ class TileManager: ObservableObject {
             accumulatedSize += (try? url.regularFileAllocatedSize()) ?? 0
         }
         return Double(accumulatedSize)
+    }
+    
+    private func fetchEntries(containing searchStrings: [String], modelContext: ModelContext) -> [MapString]? {
+        var mapStrings = [MapString]()
+        for search in searchStrings {
+            
+            let predicate = #Predicate<MapString> { (entry: MapString) in
+                entry.detectedString?.contains(search) ?? false
+            }
+            
+            let fetchDescriptor = FetchDescriptor<MapString>(predicate: predicate)
+            do {
+                mapStrings.append(contentsOf: try modelContext.fetch(fetchDescriptor))
+            } catch {
+                print("􁗫 SwiftData fetch error = \(error)")
+            }
+            
+        }
+        return mapStrings
     }
     
     // MARK: -  Async private method only in downloading state
@@ -281,7 +358,7 @@ class TileManager: ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 self?.sizeLeftInBytes = Double(total - i) * (self?.tileSize ?? 30000) // Update estimation
                 self?.progress = Float(i) / Float(total)
-                print( "􀌕 Downloading \(i)/\(total) tiles, \(Int((self?.progress ?? 0) * 100))%")
+                print("􀌕 Downloading \(i)/\(total) tiles, \(Int((self?.progress ?? 0) * 100))%")
             }
         }
     }
@@ -305,8 +382,114 @@ class TileManager: ObservableObject {
         let url = overlay.url(forTilePath: path)
         let file = "\(layer.rawValue)/z\(path.z)x\(path.x)y\(path.y).png"
         let filename = FileManager.documentsDirectory.appendingPathComponent(file)
-        let response = try await URLSession.shared.data(from: url)
-        try response.0.write(to: filename)
+        let data = try await URLSession.shared.data(from: url).0
+        guard let uiImage = UIImage(data: data) else { return print("􀁡 Error casting into UIImage")}
+        guard let cgImage = uiImage.cgImage else { return print("􀁡 Error casting into CGImage")}
+
+        let result = await recognizeText(from: cgImage)
+        await storeDetectedTextWithCoordinates(detectedStrings: result, path: path)
+        try data.write(to: filename)
     }
     
+    private func recognizeText(from image: CGImage) async -> [String] {
+        
+        // Use a continuation to transform the operation into an async task
+        return await withCheckedContinuation { continuation in
+            let request = VNRecognizeTextRequest { (request, error) in
+                guard let observations = request.results as? [VNRecognizedTextObservation], error == nil else {
+                    continuation.resume(returning: [])
+                    return
+                }
+                
+                let result = observations
+                    .compactMap { $0.topCandidates(1).first?.string }
+                continuation.resume(returning: self.filterRecognizedText(result))
+            }
+            
+            // Create the Vision request handler
+            let handler = VNImageRequestHandler(cgImage: image, options: [:])
+            
+            do {
+                // Execute the Vision request synchronously, but encapsulated in a continuation
+                try handler.perform([request])
+            } catch {
+                print("􂓮 Text recognition error: \(error.localizedDescription)")
+                continuation.resume(returning: [])
+            }
+        }
+    }
+    
+    private func filterRecognizedText(_ recognizedText: [String]) -> [String] {
+        recognizedText
+            .flatMap {$0.components(separatedBy: " ") } // Split all strings containing spaces
+            .filter { $0.withoutNumber } // Filter out any strings that can be cast to a number
+            .filter { $0.withUppercasedOnly } // Filter out strings that do not start with an uppercase letter
+            .filter { $0.withMoreThanTwoLetters } // Filter out strings that are 2 letters or less
+            .filter { $0.withoutAnyDigits } // Filter out strings that contain any digits (0-9)
+            .map { $0.withoutAccents } // Filter out strings that contain accents
+            .map { $0.withoutPunctuation } // Remove all special characters (like commas, asterisks, etc.)
+            .map { $0.lowercased() } // Put every word in lowercase
+    }
+    
+}
+
+
+class IGNV2Overlay: MKTileOverlay {
+    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .ign) }
+}
+
+
+class IGN25Overlay: MKTileOverlay {
+    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .ign25) }
+}
+
+
+class OpenTopoMapOverlay: MKTileOverlay {
+    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .openTopoMap) }
+}
+
+
+class OpenStreetMapOverlay: MKTileOverlay {
+    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .openStreetMap) }
+}
+
+
+class SwissTopoMapOverlay: MKTileOverlay {
+    override func url(forTilePath path: MKTileOverlayPath) -> URL { TileManager.shared.getTileOverlay(for: path, layer: .swissTopo) }
+}
+
+// Define possible errors for the search
+enum SearchError: Error {
+    case cancelled
+    case contextError
+    case noMatchFound
+    case fileError(Error)
+}
+
+@Model
+class MapString {
+    @Attribute var id = UUID()
+    @Attribute var detectedString: String?
+    @Attribute var x: Int?
+    @Attribute var y: Int?
+    @Attribute var z: Int?
+    @Attribute var contentScaleFactor: CGFloat?
+    
+    init(detectedString: String?, x: Int?, y: Int?, z: Int?, contentScaleFactor: CGFloat?) {
+        self.detectedString = detectedString
+        self.x = x
+        self.y = y
+        self.z = z
+        self.contentScaleFactor = contentScaleFactor
+    }
+}
+
+extension ModelContext {
+    var sqliteCommand: String {
+        if let url = container.configurations.first?.url.path(percentEncoded: false) {
+            "sqlite3 \"\(url)\""
+        } else {
+            "No SQLite database found."
+        }
+    }
 }

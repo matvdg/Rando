@@ -45,9 +45,9 @@ struct CollectionPhotoGalleryView: View {
                                 .clipShape(Rectangle())
                                 .cornerRadius(10)
                             }
-                            .onChange(of: selectedItem) { newItem in
+                            .onChange(of: selectedItem) { oldValue, newValue in
                                 Task {
-                                    if let data = try? await newItem?.loadTransferable(type: Data.self), let image = UIImage(data: data) {
+                                    if let data = try? await newValue?.loadTransferable(type: Data.self), let image = UIImage(data: data) {
                                         collectionManager.saveCollectionUserPicture(image: image, collectedPoi: collectedPoi)
                                     }
                                 }
@@ -121,9 +121,9 @@ struct CollectionPhotoGalleryView: View {
                         .clipShape(Rectangle())
                         .cornerRadius(20)
                     }
-                    .onChange(of: selectedItem) { newItem in
+                    .onChange(of: selectedItem) { oldValue, newValue in
                         Task {
-                            if let data = try? await newItem?.loadTransferable(type: Data.self), let image = UIImage(data: data) {
+                            if let data = try? await newValue?.loadTransferable(type: Data.self), let image = UIImage(data: data) {
                                 collectionManager.saveCollectionUserPicture(image: image, collectedPoi: collectedPoi)
                             }
                         }

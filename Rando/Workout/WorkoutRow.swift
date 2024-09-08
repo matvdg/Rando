@@ -157,11 +157,3 @@ struct WorkoutRow: View {
     }
     
 }
-
-#if !targetEnvironment(macCatalyst)
-// MARK: Preview
-#Preview {
-    WorkoutRow(showHealthView: .constant(false), trailsToImport: .constant([Trail]()), workout: HKWorkout(activityType: .hiking, start: Date(), end: Date()))
-}
-#endif
-

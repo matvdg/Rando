@@ -10,6 +10,7 @@ import SwiftUI
 import MapKit
 import UIKit
 
+
 struct TrailsView: View {
     
     enum Sorting: String, CaseIterable, Equatable {

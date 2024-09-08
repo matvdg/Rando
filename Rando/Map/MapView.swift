@@ -15,6 +15,7 @@ var mapChangedFromUserInteraction = false
 var isPlayingTour = false
 var timer: Timer?
 
+
 struct MapView: UIViewRepresentable {
     
     // MARK: Binding properties
@@ -23,6 +24,7 @@ struct MapView: UIViewRepresentable {
     @Binding var selectedPoi: Poi?
     @Binding var clockwise: Bool
     @Binding var trails: [Trail]
+    @Binding var searchTilePath: MKTileOverlayPath?
     
     @State var isBounding = false
     @Binding var indexOfGraph: Int?
@@ -30,13 +32,14 @@ struct MapView: UIViewRepresentable {
     var userPositionLocation: Location?
     
     // MARK: Constructors
-    init(selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, userPositionLocation: Location? = nil, indexOfGraph: Binding<Int?> = Binding<Int?>.constant(nil)) {
+    init(selectedPoi: Binding<Poi?>, isDetailMap: Bool, clockwise: Binding<Bool>, trails: Binding<[Trail]>, userPositionLocation: Location? = nil, indexOfGraph: Binding<Int?> = Binding<Int?>.constant(nil), searchTilePath: Binding<MKTileOverlayPath?> = Binding<MKTileOverlayPath?>.constant(nil)) {
         self._trails = trails
         self._selectedPoi = selectedPoi
         self.isDetailMap = isDetailMap
         self._clockwise = clockwise
         self.userPositionLocation = userPositionLocation
         self._indexOfGraph = indexOfGraph
+        self._searchTilePath = searchTilePath
     }
     
     /// Convenience init for  TrailDetail map
@@ -77,12 +80,13 @@ struct MapView: UIViewRepresentable {
     }
     
     /// Convenience init for  HomeView map
-    init(selectedPoi: Binding<Poi?>, trails: Binding<[Trail]>) {
+    init(selectedPoi: Binding<Poi?>, trails: Binding<[Trail]>, searchTilePath: Binding<MKTileOverlayPath?>) {
         self.init(
             selectedPoi: selectedPoi,
             isDetailMap: false,
             clockwise: Binding<Bool>.constant(false),
-            trails: trails
+            trails: trails,
+            searchTilePath: searchTilePath
         )
         isBounding = false
     }
@@ -230,6 +234,42 @@ struct MapView: UIViewRepresentable {
             headingImageView.transform = CGAffineTransform(rotationAngle: rotation)
         }
         
+//        old formula
+//        func centerMapOnTilePath(mapView: MKMapView, tilePath: MKTileOverlayPath) {
+//            let n = pow(2.0, Double(tilePath.z))
+//            let lon_deg = Double(tilePath.x) / n * 360.0 - 180.0
+//            let lat_rad = atan(sinh(Double.pi * (1.0 - 2.0 * Double(tilePath.y) / n)))
+//            let lat_deg = lat_rad * 180.0 / Double.pi
+//            let centerCoordinate = CLLocationCoordinate2D(latitude: lat_deg, longitude: lon_deg)
+//            
+//            // Set the zoom level by adjusting the region span
+//            let zoomLevel = Double(tilePath.z)
+//            let spanDegrees = 360 / pow(2.0, zoomLevel)
+//            
+//            let region = MKCoordinateRegion(center: centerCoordinate, span: MKCoordinateSpan(latitudeDelta: spanDegrees, longitudeDelta: spanDegrees))
+//            
+//            mapView.setRegion(region, animated: true)
+//        }
+        
+        /// Center the map on the given MKTileOverlayPath
+        func centerMapOnTilePath(mapView: MKMapView, tilePath: MKTileOverlayPath) {
+            let n = pow(2.0, Double(tilePath.z))
+            
+            let lon_deg = Double(tilePath.x) / n * 360.0 - 180.0
+            let lat_rad = atan(sinh(Double.pi * (1.0 - 2.0 * Double(tilePath.y) / n)))
+            let lat_deg = lat_rad * 180.0 / Double.pi
+                        
+            let zoomLevel = Double(tilePath.z)
+            let spanDegrees = 360.0 / pow(2.0, zoomLevel)
+            
+            // Ajouter un léger décalage pour corriger le centrage
+            let adjustedCoordinate = CLLocationCoordinate2D(latitude: lat_deg, longitude: lon_deg + spanDegrees / 2.0)
+            
+            let adjustedRegion = MKCoordinateRegion(center: adjustedCoordinate, span: MKCoordinateSpan(latitudeDelta: spanDegrees, longitudeDelta: spanDegrees))
+            
+            mapView.setRegion(adjustedRegion, animated: true)
+        }
+        
         private func mapViewRegionDidChangeFromUserInteraction(_ mapView: MKMapView) -> Bool {
             let view = mapView.subviews[0]
             //  Look through gesture recognizers to determine whether this region change is from user interaction
@@ -268,8 +308,12 @@ struct MapView: UIViewRepresentable {
         setTracking(mapView: uiView, headingView: context.coordinator.headingImageView)
         setOverlays(mapView: uiView)
         setAnnotations(mapView: uiView)
+        if let path = searchTilePath {
+            context.coordinator.centerMapOnTilePath(mapView: uiView, tilePath: path)
+        }
         guard isPlayingTour else { return }
         self.playTour(mapView: uiView)
+        
     }
     
     // MARK: Private methods
@@ -442,7 +486,7 @@ struct MapView: UIViewRepresentable {
 // MARK: Preview
 #Preview {
     MapView(trail: Trail())
-        .environmentObject(AppManager.shared)
+            .environmentObject(AppManager.shared)
 }
 
 extension Array where Iterator.Element == Polyline {

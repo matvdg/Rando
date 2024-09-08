@@ -20,6 +20,7 @@ enum Tracking: String {
     }
 }
 
+
 struct MapControlView: View {
     
     let buttonWidth: CGFloat = 22
@@ -30,125 +31,73 @@ struct MapControlView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            if #available(iOS 17.0, *) {
-                let layerTip = LayerTip()
-                Button(action: {
-                    self.isLayerViewDisplayed.toggle()
-                    Feedback.selected()
-                    layerTip.invalidate(reason: .actionPerformed)
-                }) {
-                    Image(systemName: isLayerViewDisplayed ? "map.fill" : "map")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
-                        .offset(y: -2)
-                }
-                .popoverTip(layerTip, arrowEdge: .trailing)
-            } else {
-                // Fallback on earlier versions
-                Button(action: {
-                    self.isLayerViewDisplayed.toggle()
-                    Feedback.selected()
-                }) {
-                    Image(systemName: isLayerViewDisplayed ? "map.fill" : "map")
-                        .resizable()
-                        .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
-                        .offset(y: -2)
-                }
+            
+            let layerTip = LayerTip()
+            Button(action: {
+                self.isLayerViewDisplayed.toggle()
+                Feedback.selected()
+                layerTip.invalidate(reason: .actionPerformed)
+            }) {
+                Image(systemName: isLayerViewDisplayed ? "map.fill" : "map")
+                    .resizable()
+                    .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
+                    .offset(y: -2)
             }
+            .popoverTip(layerTip, arrowEdge: .trailing)
+            
             Divider()
 #if !targetEnvironment(macCatalyst)
-            if #available(iOS 17.0, *) {
-                let mapFullScreenTip = MapFullScreenTip()
-                Button(action: {
-                    appManager.isMapFullScreen.toggle()
-                    Feedback.selected()
-                    mapFullScreenTip.invalidate(reason: .actionPerformed)
-                }) {
-                    Image(appManager.isMapFullScreen ? "iconMapFullScreen" : "iconNotMapFullScreen")
-                }
-                .popoverTip(mapFullScreenTip, arrowEdge: .trailing)
-            } else {
-                // Fallback on earlier versions
-                Button(action: {
-                    appManager.isMapFullScreen.toggle()
-                    Feedback.selected()
-                }) {
-                    Image(appManager.isMapFullScreen ? "iconMapFullScreen" : "iconNotMapFullScreen")
-                }
+            
+            let mapFullScreenTip = MapFullScreenTip()
+            Button(action: {
+                appManager.isMapFullScreen.toggle()
+                Feedback.selected()
+                mapFullScreenTip.invalidate(reason: .actionPerformed)
+            }) {
+                Image(appManager.isMapFullScreen ? "iconMapFullScreen" : "iconNotMapFullScreen")
             }
+            .popoverTip(mapFullScreenTip, arrowEdge: .trailing)
+            
             Divider()
 #endif
-            if #available(iOS 17.0, *) {
-                let boundingTip = BoundingTip()
-                Button(action: {
-                    appManager.selectedTracking = .bounding
-                    Feedback.selected()
-                    boundingTip.invalidate(reason: .actionPerformed)
-                }) {
-                    Image(appManager.selectedTracking == .bounding ? "iconCentered" :  "iconNotCentered")
-                }
-                .popoverTip(boundingTip, arrowEdge: .trailing)
-            } else {
-                // Fallback on earlier versions
-                Button(action: {
-                    appManager.selectedTracking = .bounding
-                    Feedback.selected()
-                }) {
-                    Image(appManager.selectedTracking == .bounding ? "iconCentered" :  "iconNotCentered")
-                }
+            let boundingTip = BoundingTip()
+            Button(action: {
+                appManager.selectedTracking = .bounding
+                Feedback.selected()
+                boundingTip.invalidate(reason: .actionPerformed)
+            }) {
+                Image(appManager.selectedTracking == .bounding ? "iconCentered" :  "iconNotCentered")
             }
+            .popoverTip(boundingTip, arrowEdge: .trailing)
+            
             Divider()
-            if #available(iOS 17.0, *) {
-                let trackingTip = TrackingTip()
-                Button(action: {
-                    switch appManager.selectedTracking {
-                    case .disabled:
-                        appManager.selectedTracking = .enabled
-                    case .enabled:
+            
+            let trackingTip = TrackingTip()
+            Button(action: {
+                switch appManager.selectedTracking {
+                case .disabled:
+                    appManager.selectedTracking = .enabled
+                case .enabled:
 #if targetEnvironment(macCatalyst)
-                        appManager.selectedTracking = .disabled
+                    appManager.selectedTracking = .disabled
 #else
-                        appManager.selectedTracking = .heading
+                    appManager.selectedTracking = .heading
 #endif
-                    case .heading:
-                        appManager.selectedTracking = .disabled
-                    default:
-                        appManager.selectedTracking = .enabled
-                    }
-                    Feedback.selected()
-                    trackingTip.invalidate(reason: .actionPerformed)
-                }) {
-                    Image(systemName: appManager.selectedTracking.icon)
-                        .resizable()
-                        .frame(width: appManager.selectedTracking == .heading ? 16 : buttonWidth, height: appManager.selectedTracking == .heading ? 28 : buttonWidth, alignment: .center)
-                        .offset(y: 3)
+                case .heading:
+                    appManager.selectedTracking = .disabled
+                default:
+                    appManager.selectedTracking = .enabled
                 }
-                .popoverTip(trackingTip, arrowEdge: .trailing)
-            } else {
-                // Fallback on earlier versions
-                Button(action: {
-                    switch appManager.selectedTracking {
-                    case .disabled:
-                        appManager.selectedTracking = .enabled
-                    case .enabled:
-#if targetEnvironment(macCatalyst)
-                        appManager.selectedTracking = .disabled
-#else
-                        appManager.selectedTracking = .heading
-#endif
-                    case .heading:
-                        appManager.selectedTracking = .disabled
-                    default:
-                        appManager.selectedTracking = .enabled
-                    }
-                    Feedback.selected()
-                }) {
-                    Image(systemName: appManager.selectedTracking.icon)
-                        .resizable()
-                        .frame(width: appManager.selectedTracking == .heading ? 16 : buttonWidth, height: appManager.selectedTracking == .heading ? 28 : buttonWidth, alignment: .center)
-                        .offset(y: 3)
-                }
+                Feedback.selected()
+                trackingTip.invalidate(reason: .actionPerformed)
+            }) {
+                Image(systemName: appManager.selectedTracking.icon)
+                    .resizable()
+                    .frame(width: appManager.selectedTracking == .heading ? 16 : buttonWidth, height: appManager.selectedTracking == .heading ? 28 : buttonWidth, alignment: .center)
+                    .offset(y: 3)
             }
+            .popoverTip(trackingTip, arrowEdge: .trailing)
+            
         }
 #if targetEnvironment(macCatalyst)
         .frame(width: width, height: width*3, alignment: .center)
@@ -161,9 +110,8 @@ struct MapControlView: View {
     }
 }
 
-@available(iOS 17.0, *)
 struct LayerTip: Tip {
-
+    
     var title: Text {
         Text("tipLayerTitle")
     }
@@ -181,9 +129,8 @@ struct LayerTip: Tip {
     }
 }
 
-@available(iOS 17.0, *)
 struct MapFullScreenTip: Tip {
-
+    
     var title: Text {
         Text("tipMapFullScreenTitle")
     }
@@ -201,9 +148,8 @@ struct MapFullScreenTip: Tip {
     }
 }
 
-@available(iOS 17.0, *)
 struct BoundingTip: Tip {
-
+    
     var title: Text {
         Text("tipBoundingTitle")
     }
@@ -221,9 +167,8 @@ struct BoundingTip: Tip {
     }
 }
 
-@available(iOS 17.0, *)
 struct TrackingTip: Tip {
-
+    
     var title: Text {
         Text("tipTrackingTitle")
     }

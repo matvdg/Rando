@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class AppManager: ObservableObject {
     
     static var shared: AppManager = AppManager()

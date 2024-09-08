@@ -17,6 +17,7 @@ let systemVersion = UIDevice.current.systemVersion
 let modelName = UIDevice.modelName
 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
 
+
 struct SettingsView: View {
     
     @State private var showMailView = false
@@ -101,15 +102,13 @@ struct SettingsView: View {
                         }
                     )
                     
-                    if #available(iOS 17.0, *) {
-                        Button {
-                            try? Tips.resetDatastore()
-                            Feedback.success()
-                            selection = 0
-                            try? Tips.configure([.displayFrequency(.hourly)])
-                        } label: {
-                            Label("restoreTips", systemImage: "lightbulb.max")
-                        }
+                    Button {
+                        try? Tips.resetDatastore()
+                        Feedback.success()
+                        selection = 0
+                        try? Tips.configure([.displayFrequency(.hourly)])
+                    } label: {
+                        Label("restoreTips", systemImage: "lightbulb.max")
                     }
                     
                     DisclosureGroup(

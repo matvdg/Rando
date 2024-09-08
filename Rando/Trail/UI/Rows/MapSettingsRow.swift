@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct MapSettingsRow: View {
     
     @EnvironmentObject var appManager: AppManager
@@ -21,7 +22,7 @@ struct MapSettingsRow: View {
                         Text(LocalizedStringKey(layer.rawValue))
                     }
                 }
-                .onChange(of: appManager.selectedLayer) { newValue in
+                .onChange(of: appManager.selectedLayer) { oldValue, newValue in
                     Feedback.selected()
                 }
                 .pickerStyle(.menu)

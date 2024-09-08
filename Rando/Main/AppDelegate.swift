@@ -8,9 +8,10 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+        
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.isIdleTimerDisabled = true
@@ -36,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 // MARK: - UNUserNotificationCenterDelegate methods
+
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     // FOREGROUND: The method will be called on the delegate only if the application is in the foreground. If the method is not implemented or the handler is not called in a timely manner then the notification will not be presented. The application can choose to have the notification presented as a sound, badge, alert and/or in the notification list. This decision should be based on whether the information in the notification is otherwise visible to the user.

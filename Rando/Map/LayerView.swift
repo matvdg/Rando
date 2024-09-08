@@ -21,6 +21,7 @@ enum Layer: String, CaseIterable, Equatable, Identifiable {
     
 }
 
+
 struct LayerView: View {
     
     @Binding var isLayerDisplayed: Bool
@@ -73,7 +74,7 @@ struct LayerView: View {
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .frame(height: 250.0, alignment: .top)
+        .frame(height: 300, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
         

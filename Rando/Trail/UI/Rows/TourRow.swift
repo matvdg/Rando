@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct TourRow: View {
     
     @ObservedObject var trail: Trail

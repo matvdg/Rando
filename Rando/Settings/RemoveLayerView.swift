@@ -8,11 +8,13 @@
 
 import SwiftUI
 
+
 struct RemoveLayerView: View {
     
     @State private var showAlert = false
     @State var selectedLayer: Layer = .ign
     @State var sizes = [Layer:(String, Double)]()
+    @ObservedObject private var tileManager = TileManager.shared
     
     var body: some View {
         List {
@@ -35,12 +37,10 @@ struct RemoveLayerView: View {
                 }
                 .disabled(sizes[layer] == nil || sizes[layer]?.1 == 0)
                 .onAppear {
-                    DispatchQueue.global(qos: .background).async {
-                        Layer.onlyOverlaysLayers.forEach {
-                            let size = TileManager.shared.getDownloadedSize(layer: $0)
-                            sizes[$0] = (size.toBytesString, size)
-                        }
-                    }
+                    refreshSizes()
+                }
+                .onChange(of: tileManager.hasRemovedLayerTiles) {
+                    refreshSizes()
                 }
             }
         }
@@ -51,11 +51,20 @@ struct RemoveLayerView: View {
                 buttons: [
                     .destructive(Text("deleteLayer"), action: {
                         Feedback.selected()
-                        TileManager.shared.remove(layer: selectedLayer)
+                        tileManager.remove(layer: selectedLayer)
                     }),
                     .cancel(Text("cancel"))
                 ]
             )
+        }
+    }
+    
+    private func refreshSizes() {
+        DispatchQueue.global(qos: .userInteractive).async {
+            Layer.onlyOverlaysLayers.forEach {
+                let size = tileManager.getDownloadedSize(layer: $0)
+                sizes[$0] = (size.toBytesString, size)
+            }
         }
     }
 }

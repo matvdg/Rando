@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct CollectedPoiView: View {
     
     @ObservedObject var collectedPoi: CollectedPoi

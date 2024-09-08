@@ -12,6 +12,35 @@ extension String {
     
     var localized: String { NSLocalizedString(self, comment: self) }
     
+    var separateStrings: [String] {
+        self.components(separatedBy: CharacterSet(charactersIn: "-_ "))
+    }
+    
+    var withoutAccents: String {
+        self.folding(options: .diacriticInsensitive, locale: .current)
+            .replacingOccurrences(of: "ß", with: "ss")
+    }
+    
+    var withoutNumber: Bool {
+        Double(self) == nil
+    }
+    
+    var withUppercasedOnly: Bool {
+        self.first?.isUppercase == true
+    }
+    
+    var withMoreThanTwoLetters: Bool {
+        self.count > 2
+    }
+    
+    var withoutAnyDigits: Bool {
+        self.rangeOfCharacter(from: .decimalDigits) == nil
+    }
+    
+    var withoutPunctuation: String {
+        self.components(separatedBy: CharacterSet.punctuationCharacters).joined()
+    }
+        
     var altitude: Double? {
         guard let rangeFrom = range(of: "<ele>")?.upperBound, let rangeTo = self[rangeFrom...].range(of: "</ele>")?.lowerBound else { return nil }
         return Double(String(self[rangeFrom..<rangeTo]))

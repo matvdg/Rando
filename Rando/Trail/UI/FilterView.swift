@@ -66,9 +66,9 @@ struct FilterView: View {
                             Text(LocalizedStringKey(grFilter.rawValue))
                         }
                     }
-                    .onChange(of: grFilter, perform: { newValue in
+                    .onChange(of: grFilter) { oldValue, newValue in
                         Feedback.selected()
-                    })
+                    }
                     .pickerStyle(.menu)
                 }
                 
@@ -82,9 +82,9 @@ struct FilterView: View {
                             Text(LocalizedStringKey(text))
                         }
                     }
-                    .onChange(of: department, perform: { newValue in
+                    .onChange(of: department) { oldValue, newValue in
                         Feedback.selected()
-                    })
+                    }
                     .pickerStyle(.menu)
                 }
                 
@@ -98,9 +98,9 @@ struct FilterView: View {
                             Text(LocalizedStringKey(difficultyFilter.rawValue))
                         }
                     }
-                    .onChange(of: difficultyFilter, perform: { newValue in
+                    .onChange(of: difficultyFilter) { oldValue, newValue in
                         Feedback.selected()
-                    })
+                    }
                     .pickerStyle(.menu)
                 }
                             

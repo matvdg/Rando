@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct PoiDetailView: View {
         
     @ObservedObject var collectionManager = CollectionManager.shared

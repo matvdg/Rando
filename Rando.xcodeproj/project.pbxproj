@@ -32,6 +32,7 @@
 		D0FF45C8246C04AE0087697B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */; };
 		D0FF45E2246C06910087697B /* CLLocationDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF45E1246C06910087697B /* CLLocationDistance.swift */; };
 		F607C8212C88C386000C7C57 /* CollectedPoiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8202C88C386000C7C57 /* CollectedPoiView.swift */; };
+		F60B03F52C8BE3FF00D1282D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60B03F42C8BE3FF00D1282D /* SearchBar.swift */; };
 		F60D12B22A28321700437AA1 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = F60D12B12A28321700437AA1 /* CoreGPX */; };
 		F60D12B42A28906200437AA1 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B32A28906100437AA1 /* WorkoutManager.swift */; };
 		F60D12B62A28A12300437AA1 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D12B52A28A12300437AA1 /* WorkoutView.swift */; };
@@ -177,6 +178,7 @@
 		D0FF45C7246C04AE0087697B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D0FF45E1246C06910087697B /* CLLocationDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationDistance.swift; sourceTree = "<group>"; };
 		F607C8202C88C386000C7C57 /* CollectedPoiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedPoiView.swift; sourceTree = "<group>"; };
+		F60B03F42C8BE3FF00D1282D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F60D12B32A28906100437AA1 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		F60D12B52A28A12300437AA1 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		F60D12B72A28A7A700437AA1 /* WorkoutRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRow.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				D0531A75246820BA0020FFE0 /* MapControlView.swift */,
 				D0B7CDB72469184F00464C79 /* LayerView.swift */,
 				D0B7CE1D246A996E00464C79 /* InfoPoiView.swift */,
+				F60B03F42C8BE3FF00D1282D /* SearchBar.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				F639047B24DC8E58005B4FC1 /* GridStack.swift in Sources */,
 				F6A3DEE52A37C23A00C69B55 /* Poi.swift in Sources */,
 				F652C6652C8A5556001AB35D /* EditDateView.swift in Sources */,
+				F60B03F52C8BE3FF00D1282D /* SearchBar.swift in Sources */,
 				F67BAEBD24DD636200AC8A9F /* ObservableArray.swift in Sources */,
 				F60D12B82A28A7A700437AA1 /* WorkoutRow.swift in Sources */,
 				F6A3DEF02A37C23A00C69B55 /* TrailRow.swift in Sources */,
@@ -1022,7 +1026,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1068,7 +1072,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

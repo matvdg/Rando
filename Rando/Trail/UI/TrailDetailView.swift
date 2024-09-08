@@ -136,13 +136,8 @@ struct TrailDetailView: View {
                 Section(header: Text("map")) {
                     MapSettingsRow()
                         .disabled(tileManager.state.isDownloading() || trail.downloadState == .downloading)
-                    if #available(iOS 17.0, *) {
-                        TilesRow(state: $trail.downloadState, trail: trail)
-                            .popoverTip(DownloadTip(), arrowEdge: .bottom)
-                    } else {
-                        // Fallback on earlier versions
-                        TilesRow(state: $trail.downloadState, trail: trail)
-                    }
+                    TilesRow(state: $trail.downloadState, trail: trail)
+                        .popoverTip(DownloadTip(), arrowEdge: .bottom)
                 }
                 
                 Section(header: Text("path")) {
@@ -217,15 +212,15 @@ struct TrailDetailView: View {
             trailManager.addMissingDepartment(trail: self.trail)
             isPlayingTour = false
         }
-        .onChange(of: trail.color, perform: { _ in
+        .onChange(of: trail.color) { 
             trailManager.save(trail: trail)
-        })
-        .onChange(of: trail.isDisplayed, perform: { _ in
+        }
+        .onChange(of: trail.isDisplayed) { 
             trailManager.save(trail: trail)
-        })
-        .onChange(of: trail.description, perform: { _ in
+        }
+        .onChange(of: trail.description) { 
             trailManager.save(trail: trail)
-        })
+        }
         .sheet(isPresented: $showEditTrailSheet) {
             EditTrailView(trail: trail, showEditTrailSheet: $showEditTrailSheet)
         }
@@ -234,7 +229,7 @@ struct TrailDetailView: View {
     
 }
 
-@available(iOS 17.0, *)
+
 struct FavoriteTip: Tip {
 
     var title: Text {
@@ -254,7 +249,6 @@ struct FavoriteTip: Tip {
     }
 }
 
-@available(iOS 17.0, *)
 struct DownloadTip: Tip {
 
     var title: Text {

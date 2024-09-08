@@ -95,7 +95,7 @@ struct InfoPoiView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(maxWidth: 500)
-        .frame(height: 300.0, alignment: .top)
+        .frame(height: 350, alignment: .top)
         .cornerRadius(8)
         .shadow(radius: 10)
         

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct HomeView: View {
     
@@ -15,6 +16,8 @@ struct HomeView: View {
     @State var selectedTracking: Tracking = .bounding
     @State var isLayerViewDisplayed: Bool = false
     @State var selectedPoi: Poi?
+    @State var searchTilePaths =  [MKTileOverlayPath]()
+    @State var selectedSearchTilePath:  MKTileOverlayPath?
     @State var trails = TrailManager.shared.currentTrails
     
     private var isInfoPoiViewDisplayed: Bool { selectedPoi != nil }
@@ -23,10 +26,14 @@ struct HomeView: View {
         
         ZStack {
             
-            MapView(selectedPoi: $selectedPoi, trails: $trails)
+            MapView(selectedPoi: $selectedPoi, trails: $trails, searchTilePath: $selectedSearchTilePath)
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .trailing) {
+                
+                SearchBar(searchTilePaths: $searchTilePaths, selectedSearchTilePath: $selectedSearchTilePath)
+                    .padding()
+                    .isHidden(appManager.isMapFullScreen || (trails.first(where: {$0.downloadState == .downloaded}) == nil))
                 
                 HStack(alignment: .top) {
                     Spacer()
@@ -45,7 +52,7 @@ struct HomeView: View {
                 
                 LayerView(isLayerDisplayed: $isLayerViewDisplayed)
                     .isHidden(!isLayerViewDisplayed)
-                    .offset(y: 10)
+                    .offset(y: 50)
             }
             
             VStack(alignment: .leading) {
@@ -54,7 +61,7 @@ struct HomeView: View {
                 
                 InfoPoiView(poi: $selectedPoi)
                     .isHidden(!isInfoPoiViewDisplayed)
-                    .offset(y: 10)
+                    .offset(y: 50)
             }
             
         }
@@ -63,6 +70,9 @@ struct HomeView: View {
             self.trails = TrailManager.shared.currentTrails
             self.selectedTracking = .bounding
             isPlayingTour = false
+            trails.forEach {
+                TileManager.shared.load(for: $0, selectedLayer: appManager.selectedLayer)
+            }
         }
         
     }
@@ -71,5 +81,6 @@ struct HomeView: View {
 
 // MARK: Preview
 #Preview {
-    HomeView()
+    HomeView().environmentObject(AppManager.shared)
 }
+
