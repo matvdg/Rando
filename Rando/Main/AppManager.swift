@@ -41,4 +41,10 @@ class AppManager: ObservableObject {
     }
     
     @Published var isMapFullScreen: Bool = false
+    
+    @Published var hasSearchDataInCloud: Bool = UserDefaults.hasSearchDataInCloud {
+        willSet {
+            UserDefaults.hasSearchDataInCloud = newValue
+        }
+    }
 }

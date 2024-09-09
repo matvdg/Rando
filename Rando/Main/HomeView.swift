@@ -33,7 +33,7 @@ struct HomeView: View {
                 
                 SearchBar(searchTilePaths: $searchTilePaths, selectedSearchTilePath: $selectedSearchTilePath)
                     .padding()
-                    .isHidden(appManager.isMapFullScreen || (trails.first(where: {$0.downloadState == .downloaded}) == nil))
+                    .isHidden(appManager.isMapFullScreen || !appManager.hasSearchDataInCloud)
                 
                 HStack(alignment: .top) {
                     Spacer()
@@ -70,9 +70,6 @@ struct HomeView: View {
             self.trails = TrailManager.shared.currentTrails
             self.selectedTracking = .bounding
             isPlayingTour = false
-            trails.forEach {
-                TileManager.shared.load(for: $0, selectedLayer: appManager.selectedLayer)
-            }
         }
         
     }

@@ -123,7 +123,7 @@ class TileManager: ObservableObject {
             } catch {
                 DispatchQueue.main.async { [weak self] in
                     if let errorDomain = error as? URLError, errorDomain.code != .cancelled {
-                        NotificationManager.shared.sendNotification(title: "error", message: "network")
+                        NotificationManager.shared.sendNotification(title: "error".localized, message: "network".localized)
                     }
                     self?.state = .idle
                     trail.downloadState = .notDownloaded
@@ -246,6 +246,7 @@ class TileManager: ObservableObject {
             modelContext?.insert(mapString)
             print("􀌗 Upload \"\(mapString.detectedString ?? "")\" to iCloud")
         }
+        if !detectedStrings.isEmpty { AppManager.shared.hasSearchDataInCloud = true}
     }
     
     private func createDirectoriesIfNecessary() {

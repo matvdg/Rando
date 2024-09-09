@@ -12,6 +12,16 @@ let defaultAverageSpeed: Double = 1.111 // m.s-1 == 4km.h-1
 
 extension UserDefaults {
     
+    static var hasSearchDataInCloud: Bool {
+        get {
+            let value = UserDefaults.standard.bool(forKey: "hasSearchDataInCloud")
+            UserDefaults.standard.set(true, forKey: "hasSearchDataInCloud")
+            return value
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "hasSearchDataInCloud")
+        }
+    }
+    
     static var averageSpeed: Double {
         get {
             let value = UserDefaults.standard.double(forKey: "averageSpeed")
